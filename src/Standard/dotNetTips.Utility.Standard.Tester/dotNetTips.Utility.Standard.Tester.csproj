@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>2019.10.6</Version>
+    <Authors>David McCarter</Authors>
+    <Company>dotNetTips.com - David McCarter</Company>
+    <Product>dotNetTips.Utility.Standard</Product>
+    <Description>Common .NET Standard code for use in unit tests and benchmarking.</Description>
+    <Copyright>McCarter Consulting (David McCarter)</Copyright>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageProjectUrl>https://dotnettips.visualstudio.com/dotNetTips.Utility.Standard.Tester</PackageProjectUrl>
+    <RepositoryUrl>https://dotnettips.visualstudio.com/dotNetTips.Utility.Standard.Tester</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
+    <PackageReleaseNotes>-- AUG 14 2019: Initial release.
+-- AUG 31 2019: Cleanup of models including fixes.</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AssemblyVersion>2019.10.9.35975</AssemblyVersion>
+    <FileVersion>2019.10.9.35975</FileVersion>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <NeutralLanguage>en-US</NeutralLanguage>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Tester.xml</DocumentationFile>
+   <OutputPath>..\..\..\appbin\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\..\appbin\</OutputPath>
+    <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Tester.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if $(ConfigurationName) == Release (dotnet pack &quot;$(ProjectPath)&quot; --no-build --include-source --include-symbols --output  &quot;c:\dotNetTips.com\NuGet&quot;)" />
+  </Target>
+
+  <ItemGroup>
+    <None Remove="dotNetTips.Utility.Standard.Tester.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="2.2.2" />
+  </ItemGroup>
+
+</Project>

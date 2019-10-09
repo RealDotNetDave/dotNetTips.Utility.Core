@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-20191009-121745</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.11.5.1191-nightly, OS=Windows 10.0.17763.775 (1809/October2018Update/Redstone5)
+Unknown processor
+.NET Core SDK=3.0.100
+  [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+  Job-RGRUUZ : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+</code></pre>
+<pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
+Categories=ObjectExtensions  
+</code></pre>
+
+<table>
+<thead><tr><th>     Method</th><th> Mean</th><th>Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>Clone</td><td>4,298.9 ns</td><td>18.45 ns</td><td>17.26 ns</td><td>0.8469</td><td>-</td><td>-</td><td>7792 B</td>
+</tr><tr><td>ComputeMD5Hash</td><td>5,385.4 ns</td><td>46.48 ns</td><td>41.20 ns</td><td>0.4730</td><td>-</td><td>-</td><td>4688 B</td>
+</tr><tr><td>ComputeSha256Hash</td><td>8,351.0 ns</td><td>204.71 ns</td><td>603.60 ns</td><td>0.5722</td><td>-</td><td>-</td><td>5480 B</td>
+</tr><tr><td>FromJson</td><td>11,363.0 ns</td><td>16.59 ns</td><td>15.51 ns</td><td>1.4191</td><td>0.0153</td><td>-</td><td>13328 B</td>
+</tr><tr><td>HasProperty</td><td>267.5 ns</td><td>0.43 ns</td><td>0.40 ns</td><td>0.0267</td><td>-</td><td>-</td><td>248 B</td>
+</tr><tr><td>ToJson</td><td>3,402.1 ns</td><td>6.55 ns</td><td>5.81 ns</td><td>0.3471</td><td>-</td><td>-</td><td>3232 B</td>
+</tr></tbody></table>
+</body>
+</html>

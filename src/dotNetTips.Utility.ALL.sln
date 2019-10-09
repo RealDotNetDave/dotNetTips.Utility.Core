@@ -1,0 +1,123 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetTips.Utility.Core.Windows", "Core\dotNetTips.Utility.Core.Windows\dotNetTips.Utility.Core.Windows.csproj", "{7DEB5C20-3374-4054-8350-B2859503B002}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetTips.Utility.Standard", "Standard\dotNetTips.Utility.Standard\dotNetTips.Utility.Standard.csproj", "{FC4AA7C1-8166-4F23-B604-16B71F400106}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetTips.Utility.Standard.Extensions", "Standard\dotNetTips.Utility.Standard.Extensions\dotNetTips.Utility.Standard.Extensions.csproj", "{992E4EFD-F913-4A45-B334-25972573D398}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{7EB0FAA0-E86D-45E3-BCA8-7BED3C170133}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Benchmark Results", "Benchmark Results", "{0478ECA6-7CCC-4812-B000-C44EF1D5815F}"
+	ProjectSection(SolutionItems) = preProject
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner-report-default.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner-report-default.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner-report-github.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner-report-github.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner-report.csv = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner-report.csv
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner-report.html = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner-report.html
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner-reportCore.Utility.Benchmark.json = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner-reportCore.Utility.Benchmark.json
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner-report-default.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner-report-default.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner-report-github.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner-report-github.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner-report.csv = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner-report.csv
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner-report.html = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner-report.html
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner-reportCore.Utility.Benchmark.json = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner-reportCore.Utility.Benchmark.json
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.DistinctBlockingCollectionPerfTestRunner-report-default.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.DistinctBlockingCollectionPerfTestRunner-report-default.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.DistinctBlockingCollectionPerfTestRunner-report-github.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.DistinctBlockingCollectionPerfTestRunner-report-github.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.DistinctBlockingCollectionPerfTestRunner-report.csv = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.DistinctBlockingCollectionPerfTestRunner-report.csv
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.DistinctBlockingCollectionPerfTestRunner-report.html = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.DistinctBlockingCollectionPerfTestRunner-report.html
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.DistinctBlockingCollectionPerfTestRunner-reportCore.Utility.Benchmark.json = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.DistinctBlockingCollectionPerfTestRunner-reportCore.Utility.Benchmark.json
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner-report-default.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner-report-default.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner-report-github.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner-report-github.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner-report.csv = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner-report.csv
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner-report.html = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner-report.html
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner-reportCore.Utility.Benchmark.json = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner-reportCore.Utility.Benchmark.json
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Devices.ClockPerfTestRunner-report-default.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Devices.ClockPerfTestRunner-report-default.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Devices.ClockPerfTestRunner-report-github.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Devices.ClockPerfTestRunner-report-github.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Devices.ClockPerfTestRunner-report.csv = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Devices.ClockPerfTestRunner-report.csv
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Devices.ClockPerfTestRunner-report.html = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Devices.ClockPerfTestRunner-report.html
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Devices.ClockPerfTestRunner-reportCore.Utility.Benchmark.json = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Devices.ClockPerfTestRunner-reportCore.Utility.Benchmark.json
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.CollectionExtensionsPerfTestRunner-report-default.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.CollectionExtensionsPerfTestRunner-report-default.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.CollectionExtensionsPerfTestRunner-report-github.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.CollectionExtensionsPerfTestRunner-report-github.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.CollectionExtensionsPerfTestRunner-report.csv = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.CollectionExtensionsPerfTestRunner-report.csv
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.CollectionExtensionsPerfTestRunner-report.html = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.CollectionExtensionsPerfTestRunner-report.html
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.CollectionExtensionsPerfTestRunner-reportCore.Utility.Benchmark.json = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.CollectionExtensionsPerfTestRunner-reportCore.Utility.Benchmark.json
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.EnumExtensionsPerfTestRunner-report-default.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.EnumExtensionsPerfTestRunner-report-default.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.EnumExtensionsPerfTestRunner-report-github.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.EnumExtensionsPerfTestRunner-report-github.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.EnumExtensionsPerfTestRunner-report.csv = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.EnumExtensionsPerfTestRunner-report.csv
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.EnumExtensionsPerfTestRunner-report.html = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.EnumExtensionsPerfTestRunner-report.html
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.EnumExtensionsPerfTestRunner-reportCore.Utility.Benchmark.json = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.EnumExtensionsPerfTestRunner-reportCore.Utility.Benchmark.json
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-report-default.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-report-default.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-report-github.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-report-github.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-report.csv = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-report.csv
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-report.html = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-report.html
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-reportCore.Utility.Benchmark.json = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-reportCore.Utility.Benchmark.json
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner-report-default.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner-report-default.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner-report-github.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner-report-github.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner-report.csv = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner-report.csv
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner-report.html = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner-report.html
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner-reportCore.Utility.Benchmark.json = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner-reportCore.Utility.Benchmark.json
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner-report-default.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner-report-default.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner-report-github.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner-report-github.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner-report.csv = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner-report.csv
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner-report.html = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner-report.html
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner-reportCore.Utility.Benchmark.json = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner-reportCore.Utility.Benchmark.json
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.DriveHelperPerfTestRunner-report-default.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.DriveHelperPerfTestRunner-report-default.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.DriveHelperPerfTestRunner-report-github.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.DriveHelperPerfTestRunner-report-github.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.DriveHelperPerfTestRunner-report.csv = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.DriveHelperPerfTestRunner-report.csv
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.DriveHelperPerfTestRunner-report.html = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.DriveHelperPerfTestRunner-report.html
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.DriveHelperPerfTestRunner-reportCore.Utility.Benchmark.json = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.DriveHelperPerfTestRunner-reportCore.Utility.Benchmark.json
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner-report-default.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner-report-default.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner-report-github.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner-report-github.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner-report.csv = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner-report.csv
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner-report.html = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner-report.html
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner-reportCore.Utility.Benchmark.json = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner-reportCore.Utility.Benchmark.json
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-report-default.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-report-default.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-report-github.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-report-github.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-report.csv = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-report.csv
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-report.html = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-report.html
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-reportCore.Utility.Benchmark.json = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-reportCore.Utility.Benchmark.json
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.TypeHelperPerfTestRunner-report-default.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.TypeHelperPerfTestRunner-report-default.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.TypeHelperPerfTestRunner-report-github.md = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.TypeHelperPerfTestRunner-report-github.md
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.TypeHelperPerfTestRunner-report.csv = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.TypeHelperPerfTestRunner-report.csv
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.TypeHelperPerfTestRunner-report.html = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.TypeHelperPerfTestRunner-report.html
+		..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.TypeHelperPerfTestRunner-reportCore.Utility.Benchmark.json = ..\docs\Benchmark Results\dotNetTips.Utility.Benchmarks.TypeHelperPerfTestRunner-reportCore.Utility.Benchmark.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Full Build|Any CPU = Full Build|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DEB5C20-3374-4054-8350-B2859503B002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DEB5C20-3374-4054-8350-B2859503B002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DEB5C20-3374-4054-8350-B2859503B002}.Full Build|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DEB5C20-3374-4054-8350-B2859503B002}.Full Build|Any CPU.Build.0 = Debug|Any CPU
+		{7DEB5C20-3374-4054-8350-B2859503B002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DEB5C20-3374-4054-8350-B2859503B002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC4AA7C1-8166-4F23-B604-16B71F400106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC4AA7C1-8166-4F23-B604-16B71F400106}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC4AA7C1-8166-4F23-B604-16B71F400106}.Full Build|Any CPU.ActiveCfg = Full Build|Any CPU
+		{FC4AA7C1-8166-4F23-B604-16B71F400106}.Full Build|Any CPU.Build.0 = Full Build|Any CPU
+		{FC4AA7C1-8166-4F23-B604-16B71F400106}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC4AA7C1-8166-4F23-B604-16B71F400106}.Release|Any CPU.Build.0 = Release|Any CPU
+		{992E4EFD-F913-4A45-B334-25972573D398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{992E4EFD-F913-4A45-B334-25972573D398}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{992E4EFD-F913-4A45-B334-25972573D398}.Full Build|Any CPU.ActiveCfg = Full Build|Any CPU
+		{992E4EFD-F913-4A45-B334-25972573D398}.Full Build|Any CPU.Build.0 = Full Build|Any CPU
+		{992E4EFD-F913-4A45-B334-25972573D398}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{992E4EFD-F913-4A45-B334-25972573D398}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0478ECA6-7CCC-4812-B000-C44EF1D5815F} = {7EB0FAA0-E86D-45E3-BCA8-7BED3C170133}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE2EAC79-B604-46B0-BAAA-A640DC427744}
+	EndGlobalSection
+EndGlobal

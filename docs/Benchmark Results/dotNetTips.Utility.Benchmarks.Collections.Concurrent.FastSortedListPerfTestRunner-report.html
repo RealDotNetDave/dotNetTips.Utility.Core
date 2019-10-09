@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner-20191009-115921</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.11.5.1191-nightly, OS=Windows 10.0.17763.775 (1809/October2018Update/Redstone5)
+Unknown processor
+.NET Core SDK=3.0.100
+  [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+  Job-RGRUUZ : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+</code></pre>
+<pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
+Categories=FastSortedList,GenericCollections  
+</code></pre>
+
+<table>
+<thead><tr><th>                Method</th><th>CollectionCount</th><th>  Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>&#39;Creating Using Constructor&#39;</td><td>25</td><td>52.69 ns</td><td>1.755 ns</td><td>4.833 ns</td><td>50.23 ns</td><td>0.0284</td><td>-</td><td>-</td><td>264 B</td>
+</tr><tr><td>&#39;Creating Using Constructor&#39;</td><td>50</td><td>72.30 ns</td><td>0.274 ns</td><td>0.256 ns</td><td>72.28 ns</td><td>0.0494</td><td>-</td><td>-</td><td>456 B</td>
+</tr><tr><td>&#39;Creating Using Constructor&#39;</td><td>100</td><td>103.09 ns</td><td>0.345 ns</td><td>0.306 ns</td><td>103.11 ns</td><td>0.0917</td><td>0.0001</td><td>-</td><td>856 B</td>
+</tr><tr><td>&#39;Creating Using Constructor&#39;</td><td>250</td><td>217.67 ns</td><td>2.423 ns</td><td>2.266 ns</td><td>218.42 ns</td><td>0.2248</td><td>0.0010</td><td>-</td><td>2064 B</td>
+</tr><tr><td>&#39;Creating Using for()&#39;</td><td>25</td><td>280.62 ns</td><td>2.039 ns</td><td>1.907 ns</td><td>280.16 ns</td><td>0.0753</td><td>-</td><td>-</td><td>704 B</td>
+</tr><tr><td>&#39;Creating Using for()&#39;</td><td>50</td><td>488.67 ns</td><td>2.738 ns</td><td>2.561 ns</td><td>488.89 ns</td><td>0.1326</td><td>-</td><td>-</td><td>1240 B</td>
+</tr><tr><td>&#39;Creating Using for()&#39;</td><td>100</td><td>818.76 ns</td><td>8.771 ns</td><td>8.204 ns</td><td>812.97 ns</td><td>0.2460</td><td>-</td><td>-</td><td>2288 B</td>
+</tr><tr><td>&#39;Creating Using for()&#39;</td><td>250</td><td>1,619.80 ns</td><td>4.269 ns</td><td>3.333 ns</td><td>1,620.66 ns</td><td>0.4673</td><td>0.0019</td><td>-</td><td>4360 B</td>
+</tr><tr><td>&#39;Looping with ForEach()&#39;</td><td>25</td><td>101.55 ns</td><td>0.647 ns</td><td>0.606 ns</td><td>101.64 ns</td><td>0.0068</td><td>-</td><td>-</td><td>64 B</td>
+</tr><tr><td>&#39;Looping with ForEach()&#39;</td><td>50</td><td>185.22 ns</td><td>0.596 ns</td><td>0.529 ns</td><td>185.03 ns</td><td>0.0067</td><td>-</td><td>-</td><td>64 B</td>
+</tr><tr><td>&#39;Looping with ForEach()&#39;</td><td>100</td><td>329.26 ns</td><td>0.839 ns</td><td>0.701 ns</td><td>329.28 ns</td><td>0.0067</td><td>-</td><td>-</td><td>64 B</td>
+</tr><tr><td>&#39;Looping with ForEach()&#39;</td><td>250</td><td>794.53 ns</td><td>1.252 ns</td><td>1.171 ns</td><td>794.37 ns</td><td>0.0067</td><td>-</td><td>-</td><td>64 B</td>
+</tr><tr><td>Sort()</td><td>25</td><td>3,044.20 ns</td><td>3.074 ns</td><td>2.725 ns</td><td>3,043.31 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>Sort()</td><td>50</td><td>8,672.08 ns</td><td>16.895 ns</td><td>14.977 ns</td><td>8,669.51 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>Sort()</td><td>100</td><td>23,477.71 ns</td><td>57.975 ns</td><td>48.411 ns</td><td>23,463.07 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>Sort()</td><td>250</td><td>72,831.10 ns</td><td>130.977 ns</td><td>122.516 ns</td><td>72,825.04 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Sort(delegate) on Country&#39;</td><td>25</td><td>2,921.27 ns</td><td>2.372 ns</td><td>2.102 ns</td><td>2,920.20 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Sort(delegate) on Country&#39;</td><td>50</td><td>8,521.52 ns</td><td>10.518 ns</td><td>9.324 ns</td><td>8,522.49 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Sort(delegate) on Country&#39;</td><td>100</td><td>21,483.53 ns</td><td>21.029 ns</td><td>17.561 ns</td><td>21,482.45 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Sort(delegate) on Country&#39;</td><td>250</td><td>72,656.39 ns</td><td>134.499 ns</td><td>112.313 ns</td><td>72,615.81 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr></tbody></table>
+</body>
+</html>

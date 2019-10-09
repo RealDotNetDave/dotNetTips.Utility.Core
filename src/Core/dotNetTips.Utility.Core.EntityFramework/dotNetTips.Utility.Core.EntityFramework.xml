@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>dotNetTips.Utility.Core.EntityFramework</name>
+    </assembly>
+    <members>
+        <member name="T:dotNetTips.Utility.Core.EntityFramework.Context.DataContext">
+            <summary>
+            DataContext base class.
+            </summary>
+            <remarks>
+            Records are marked as deleted, never actually deleted
+            from the database. Dates contain timezone information.
+            Created and updated dates are saved as UTC.
+            </remarks>
+            <seealso cref="T:Microsoft.EntityFrameworkCore.DbContext" />
+        </member>
+        <member name="M:dotNetTips.Utility.Core.EntityFramework.Context.DataContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:dotNetTips.Utility.Core.EntityFramework.Context.DataContext"/> class.
+            </summary>
+            <param name="options">The options for this context.</param>
+        </member>
+        <member name="M:dotNetTips.Utility.Core.EntityFramework.Context.DataContext.UpdateEntities">
+            <summary>
+            Updates the entities.
+            </summary>
+        </member>
+        <member name="M:dotNetTips.Utility.Core.EntityFramework.Context.DataContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Override this method to further configure the model that was discovered by convention from the entity types
+            exposed in <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1" /> properties on your derived context. The resulting model may be cached
+            and re-used for subsequent instances of your derived context.
+            </summary>
+            <param name="modelBuilder">The builder being used to construct the model for this context. Databases (and other extensions) typically
+            define extension methods on this object that allow you to configure aspects of the model that are specific
+            to a given database.</param>
+            <remarks>If a model is explicitly set on the options for this context (via <see cref="M:Microsoft.EntityFrameworkCore.DbContextOptionsBuilder.UseModel(Microsoft.EntityFrameworkCore.Metadata.IModel)" />)
+            then this method will not be run.</remarks>
+        </member>
+        <member name="M:dotNetTips.Utility.Core.EntityFramework.Context.DataContext.SaveChanges">
+            <summary>
+            Saves all changes made in this context to the underlying database.
+            </summary>
+            <returns>The number of state entries written to the underlying database. This can include
+            state entries for entities and/or relationships. Relationship state entries are created for
+            many-to-many relationships and relationships where there is no foreign key property
+            included in the entity class (often referred to as independent associations).</returns>
+            <remarks>This method will automatically call <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges" /> to discover any
+            changes to entity instances before saving to the underlying database. This can be disabled via
+            <see cref="P:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AutoDetectChangesEnabled" />.</remarks>
+        </member>
+        <member name="M:dotNetTips.Utility.Core.EntityFramework.Context.DataContext.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously saves all changes made in this context to the underlying database.
+            </summary>
+            <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" /> to observe while waiting for the task to complete.</param>
+            <returns>A task that represents the asynchronous save operation.
+            The task result contains the number of state entries written to the underlying database. This can include
+            state entries for entities and/or relationships. Relationship state entries are created for
+            many-to-many relationships and relationships where there is no foreign key property
+            included in the entity class (often referred to as independent associations).</returns>
+            <remarks><para>
+            This method will automatically call <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges" /> to discover any
+            changes to entity instances before saving to the underlying database. This can be disabled via
+            <see cref="P:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AutoDetectChangesEnabled" />.
+            </para>
+            <para>
+            Multiple active operations on the same context instance are not supported.  Use 'await' to ensure
+            that any asynchronous operations have completed before calling another method on this context.
+            </para></remarks>
+        </member>
+        <member name="T:dotNetTips.Utility.Core.EntityFramework.Context.SqlServerDbContextFactory`1">
+            <summary>
+            Class SqlServerDbContextFactory.
+            </summary>
+        </member>
+        <member name="M:dotNetTips.Utility.Core.EntityFramework.Context.SqlServerDbContextFactory`1.CreateDbContext(System.String[])">
+            <summary>
+            Creates a new instance of a derived context.
+            </summary>
+            <param name="args">Arguments provided by the design-time service.</param>
+        </member>
+        <member name="T:dotNetTips.Utility.Core.EntityFramework.Model.DataEntity">
+            <summary>
+            Base Class for Data Entities.
+            </summary>
+            <seealso cref="T:dotNetTips.Utility.Core.EntityFramework.Model.IDataEntity" />
+        </member>
+        <member name="M:dotNetTips.Utility.Core.EntityFramework.Model.DataEntity.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:dotNetTips.Utility.Core.EntityFramework.Model.DataEntity" /> class.
+            </summary>
+        </member>
+        <member name="M:dotNetTips.Utility.Core.EntityFramework.Model.DataEntity.IsEntityValid">
+            <summary>
+            Determines whether [is entity valid].
+            </summary>
+            <returns><c>true</c> if [is entity valid]; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="P:dotNetTips.Utility.Core.EntityFramework.Model.DataEntity.CreatedAt">
+            <summary>
+            Gets or sets the created at date.
+            </summary>
+            <value>The created at.</value>
+        </member>
+        <member name="P:dotNetTips.Utility.Core.EntityFramework.Model.DataEntity.Deleted">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:dotNetTips.Utility.Core.EntityFramework.Model.DataEntity" /> is deleted.
+            </summary>
+            <value><c>true</c> if deleted; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:dotNetTips.Utility.Core.EntityFramework.Model.DataEntity.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:dotNetTips.Utility.Core.EntityFramework.Model.DataEntity.IsValid">
+            <summary>
+            Checks to make sure entity is valid.
+            </summary>
+            <value><c>true</c> if this instance is valid; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:dotNetTips.Utility.Core.EntityFramework.Model.DataEntity.PublicKey">
+            <summary>
+            Gets or sets the public key.
+            </summary>
+            <value>The public key.</value>
+        </member>
+        <member name="P:dotNetTips.Utility.Core.EntityFramework.Model.DataEntity.UpdatedAt">
+            <summary>
+            Gets or sets the updated at.
+            </summary>
+            <value>The updated at.</value>
+        </member>
+        <member name="P:dotNetTips.Utility.Core.EntityFramework.Model.DataEntity.Version">
+            <summary>
+            Gets or sets the version.
+            </summary>
+            <value>The version.</value>
+        </member>
+        <member name="T:dotNetTips.Utility.Core.EntityFramework.Model.IDataEntity">
+            <summary>
+            Interface IDataEntity
+            </summary>
+            <seealso cref="T:dotNetTips.Utility.Standard.IValid" />
+        </member>
+        <member name="P:dotNetTips.Utility.Core.EntityFramework.Model.IDataEntity.CreatedAt">
+            <summary>
+            Gets or sets the created at date.
+            </summary>
+            <value>The created at.</value>
+        </member>
+        <member name="P:dotNetTips.Utility.Core.EntityFramework.Model.IDataEntity.Deleted">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:dotNetTips.Utility.Core.EntityFramework.Model.DataEntity" /> is deleted.
+            </summary>
+            <value><c>true</c> if deleted; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:dotNetTips.Utility.Core.EntityFramework.Model.IDataEntity.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:dotNetTips.Utility.Core.EntityFramework.Model.IDataEntity.PublicKey">
+            <summary>
+            Gets or sets the public key.
+            </summary>
+            <value>The public key.</value>
+        </member>
+        <member name="P:dotNetTips.Utility.Core.EntityFramework.Model.IDataEntity.UpdatedAt">
+            <summary>
+            Gets or sets the updated at.
+            </summary>
+            <value>The updated at.</value>
+        </member>
+        <member name="P:dotNetTips.Utility.Core.EntityFramework.Model.IDataEntity.Version">
+            <summary>
+            Gets or sets the version.
+            </summary>
+            <value>The version.</value>
+        </member>
+    </members>
+</doc>

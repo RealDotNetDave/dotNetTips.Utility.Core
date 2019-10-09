@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AssemblyVersion>2018.11.8.38771</AssemblyVersion>
+    <FileVersion>2018.11.8.38771</FileVersion>
+    <Authors>David McCarter</Authors>
+    <Company>dotNetTips.com - David McCarter</Company>
+    <Description>Common code for .NET Entity Framework Core.</Description>
+    <Copyright>McCarter Consulting (David McCarter)</Copyright>
+    <PackageLicenseUrl>https://github.com/RealDotNetDave/dotNetTips.Utility/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/RealDotNetDave/dotNetTips.Utility</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/RealDotNetDave/dotNetTips.Utility</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>David McCarter, dotNetDave, dotNetTips.com, Entity Framework</PackageTags>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Version>2018.10.0</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+     <OutputPath>..\OutputBin\</OutputPath>
+    <DocumentationFile>S:\src\git\dotNetTips.Utility\dotNetTips.Utility.Core.EntityFramework\dotNetTips.Utility.Core.EntityFramework.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+     <OutputPath>..\OutputBin\</OutputPath>
+    <DocumentationFile>S:\src\git\dotNetTips.Utility\dotNetTips.Utility.Core.EntityFramework\dotNetTips.Utility.Core.EntityFramework.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\dotNetTips.Utility.Standard.Extensions\dotNetTips.Utility.Standard.Extensions.csproj" />
+    <ProjectReference Include="..\dotNetTips.Utility.Standard\dotNetTips.Utility.Standard.csproj" />
+  </ItemGroup>
+
+</Project>
