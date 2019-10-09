@@ -1,37 +1,23 @@
-## Welcome to GitHub Pages
+# Welcome to dotNetTips.Utility for .NET Core & .NET Standard
 
-You can use the [editor on GitHub](https://github.com/RealDotNetDave/dotNetTips.Utility.Core/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+This repository is for the dotNetTips.Utility code for .NET Core & Standard (formerly in a different repository).
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Much of this code is documented on <a href="http://dotnettips.com" target="_blank">dotNetTips.com</a>.
 
-### Markdown
+## Projects
+Below is the list of currect projects in this repository:
+### .NET Core
+*  	[dotNetTips.Utility.Core.EntityFramework][1] (preview)
+*   [dotNetTips.Utility.Core.Windows][2] (preview)
+### .NET Standard
+*   [dotNetTips.Utility.Standard.Extensions][3]
+*   [dotNetTips.Utility.Standard.Tester][4]
+*   [dotNetTips.Utility.Standard][5]
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/RealDotNetDave/dotNetTips.Utility.Core/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+  [1]: https://github.com/RealDotNetDave/dotNetTips.Utility.Core/tree/master/src/Core/dotNetTips.Utility.Core.EntityFramework
+  [2]: https://github.com/RealDotNetDave/dotNetTips.Utility.Core/tree/master/src/Core/dotNetTips.Utility.Core.Windows
+  [3]: https://github.com/RealDotNetDave/dotNetTips.Utility.Core/tree/master/src/Standard/dotNetTips.Utility.Standard.Extensions
+  [4]: https://github.com/RealDotNetDave/dotNetTips.Utility.Core/tree/master/src/Standard/dotNetTips.Utility.Standard.Tester
+  [5]: https://github.com/RealDotNetDave/dotNetTips.Utility.Core/tree/master/src/Standard/dotNetTips.Utility.Standard
+## Your Support Is Needed
+Do you have code you would like to submit to these repositories? Submit a pull request or submit an issue. I promise to take a look and include it I like it!
