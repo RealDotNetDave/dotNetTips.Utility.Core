@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <AssemblyVersion>2019.10.9.36091</AssemblyVersion>
-    <FileVersion>2019.10.9.36091</FileVersion>
+    <AssemblyVersion>2019.10.9.37527</AssemblyVersion>
+    <FileVersion>2019.10.9.37527</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>2019.10.05</Version>
     <Authors>David McCarter</Authors>
