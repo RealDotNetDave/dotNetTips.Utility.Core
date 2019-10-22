@@ -159,6 +159,7 @@ namespace dotNetTips.Utility.Benchmarks
         /// TODO Edit XML Comment Template for Setup
         public virtual void Setup()
         {
+            // BenchmarkDotNet.Loggers.ConsoleLogger.Default.WriteLine(BenchmarkDotNet.Loggers.LogKind.Info, $"TEST {HostEnvironmentInfo.GetInformation()}.");
             BenchmarkDotNet.Loggers.ConsoleLogger.Default.WriteLine(BenchmarkDotNet.Loggers.LogKind.Info, $"Init() - {this.GetType().FullName}.");
         }
 

@@ -4,7 +4,7 @@
 // Created          : 01-23-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-04-2019
+// Last Modified On : 10-22-2019
 // ***********************************************************************
 // <copyright file="DistinctBlockingCollection.cs" company="dotNetTips.Utility.Standard">
 //     Copyright (c) dotNetTips.com - McCarter Consulting. All rights reserved.
@@ -157,11 +157,10 @@ namespace dotNetTips.Utility.Standard.Collections
         }
 
         /// <summary>
-        /// Items the not in collection.
+        /// Item the not in collection.
         /// </summary>
         /// <param name="item">The item.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// TODO Edit XML Comment Template for ItemNotInCollection
         private bool ItemNotInCollection(T item)
         {
             return item == null && this.Contains(item) == false;

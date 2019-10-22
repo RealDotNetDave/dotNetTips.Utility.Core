@@ -11,8 +11,8 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using System;
 using dotNetTips.Utility.Standard.Extensions.Properties;
+using System;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {

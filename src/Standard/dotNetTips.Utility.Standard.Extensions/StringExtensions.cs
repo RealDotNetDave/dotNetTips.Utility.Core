@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-04-2019
+// Last Modified On : 10-18-2019
 // ***********************************************************************
 // <copyright file="StringExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
@@ -96,17 +96,16 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// Determines whether the specified the string contains any.
         /// </summary>
         /// <param name="input">The string.</param>
-        /// <param name="stringComparison">The string comparison.</param>
         /// <param name="characters">The characters.</param>
         /// <returns><c>true</c> if the specified characters contains any; otherwise, <c>false</c>.</returns>
         /// <exception cref="ArgumentException">input</exception>
-        /// <exception cref="ArgumentNullException">input - List cannot be null.
+        /// <exception cref="ArgumentNullException">input</exception>
+        /// <exception cref="System.ArgumentNullException">input - List cannot be null.
         /// or
         /// characters - Characters cannot be null or 0 length.
         /// or
         /// Null character.</exception>
-        /// <exception cref="System.ArgumentNullException">Null character.</exception>
-        public static bool ContainsAny(this string input, StringComparison stringComparison = StringComparison.CurrentCultureIgnoreCase, params string[] characters)
+        public static bool ContainsAny(this string input, params string[] characters)
         {
             if (string.IsNullOrEmpty(input))
             {
@@ -115,7 +114,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             return characters.FastAny(character =>
             {
-                return input.Contains(character, stringComparison);
+                return input.Contains(character);
             });
         }
 
@@ -193,6 +192,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns>System.String.</returns>
+        /// <exception cref="ArgumentException">input</exception>
         public static string ToTrimmedString(this string input)
         {
             if (string.IsNullOrEmpty(input))

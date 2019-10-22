@@ -11,9 +11,9 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using dotNetTips.Utility.Standard.Xml;
 using System.IO;
 using System.Xml.Serialization;
-using dotNetTips.Utility.Standard.Xml;
 
 namespace dotNetTips.Utility.Standard
 {

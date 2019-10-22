@@ -4,14 +4,14 @@
 // Created          : 02-14-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-04-2019
+// Last Modified On : 10-19-2019
 // ***********************************************************************
 // <copyright file="DirectoryHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-
+using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.OOP;
 using System;
 using System.Collections.Generic;
@@ -19,9 +19,9 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Threading;
 using System.Threading.Tasks;
-
 namespace dotNetTips.Utility.Standard.IO
 {
     /// <summary>
@@ -201,39 +201,23 @@ namespace dotNetTips.Utility.Standard.IO
 
             validDirectories.ForEach(directory =>
             {
-                files.AddRange(directory.EnumerateFiles(searchPattern, searchOption));
+                try
+                {
+                    var directoryFiles = directory.EnumerateFiles(searchPattern, searchOption).ToArray();
+
+                    if (directoryFiles.HasItems())
+                    {
+                        files.AddIfNotExists(directoryFiles);
+                    }
+                }
+                catch (Exception ex) when (ex is DirectoryNotFoundException || ex is SecurityException)
+                {
+                    System.Diagnostics.Trace.WriteLine(ex.Message);
+                }
+
             });
 
             return files.AsEnumerable();
-        }
-
-        /// <summary>
-        /// load files as an asynchronous operation.
-        /// </summary>
-        /// <param name="directories">The directories.</param>
-        /// <param name="searchPattern">The search pattern.</param>
-        /// <param name="searchOption">The search option.</param>
-        /// <returns>IAsyncEnumerable&lt;IEnumerable&lt;FileInfo&gt;&gt;.</returns>
-        public static async IAsyncEnumerable<IEnumerable<FileInfo>> LoadFilesAsync(IEnumerable<DirectoryInfo> directories, string searchPattern, SearchOption searchOption)
-        {
-            Encapsulation.TryValidateParam(directories, nameof(directories));
-            Encapsulation.TryValidateParam(searchPattern, nameof(searchPattern));
-            Encapsulation.TryValidateParam(searchOption, nameof(searchOption));
-
-            var options = new EnumerationOptions() { IgnoreInaccessible = true };
-
-            if (searchOption == SearchOption.AllDirectories)
-            {
-                options.RecurseSubdirectories = true;
-            }
-
-            var validDirectories = directories.Where(directory => directory.Exists).Select(directory => directory).ToList();
-
-            foreach (var directory in validDirectories)
-            {
-                var files = await Task.Run(() => directory.EnumerateFiles(searchPattern, options));
-                yield return files;
-            }
         }
 
         /// <summary>

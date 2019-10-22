@@ -71,7 +71,7 @@ namespace dotNetTips.Utility.Benchmarks.IO
             }
         }
 
-        [Benchmark(Description = nameof(DirectoryHelper.LoadFilesAsync))]
+        [Benchmark(Description = nameof(dotNetTips.Utility.Core.Windows.IO.DirectoryHelper.LoadFilesAsync))]
         public async Task TestLoadDirectoryFilesAsync()
         {
             var searchFolders = new List<DirectoryInfo>
@@ -81,7 +81,7 @@ namespace dotNetTips.Utility.Benchmarks.IO
                 new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.Desktop))
             };
 
-            await foreach (var files in DirectoryHelper.LoadFilesAsync(searchFolders, "*.*", SearchOption.AllDirectories))
+            await foreach (var files in dotNetTips.Utility.Core.Windows.IO.DirectoryHelper.LoadFilesAsync(searchFolders, "*.*", SearchOption.AllDirectories))
             {
                 foreach (var file in files)
                 {

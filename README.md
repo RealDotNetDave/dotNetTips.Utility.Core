@@ -20,5 +20,7 @@ Below is the list of current projects in this repository:
   [3]: https://github.com/RealDotNetDave/dotNetTips.Utility.Core/tree/master/src/Standard/dotNetTips.Utility.Standard.Extensions
   [4]: https://github.com/RealDotNetDave/dotNetTips.Utility.Core/tree/master/src/Standard/dotNetTips.Utility.Standard.Tester
   [5]: https://github.com/RealDotNetDave/dotNetTips.Utility.Core/tree/master/src/Standard/dotNetTips.Utility.Standard
+## Benchmark Tests
+Here are the results from the current benchmark tests: <a href="https://github.com/RealDotNetDave/dotNetTips.Utility.Core/blob/master/docs/Benchmark%20Tests-All.md" target="_blank">docs/Benchmark Tests-All.md</a>  
 ## Your Support Is Needed
 Do you have code you would like to submit to these repositories? Submit a pull request or submit an issue. I promise to take a look and include it if I like it!

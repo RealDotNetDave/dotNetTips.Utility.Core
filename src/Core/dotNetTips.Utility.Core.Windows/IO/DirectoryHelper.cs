@@ -4,7 +4,7 @@
 // Created          : 02-14-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-04-2019
+// Last Modified On : 10-22-2019
 // ***********************************************************************
 // <copyright file="DirectoryHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -14,11 +14,14 @@
 
 using dotNetTips.Utility.Core.Windows.Win32;
 using dotNetTips.Utility.Standard.Extensions;
+using dotNetTips.Utility.Standard.OOP;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 namespace dotNetTips.Utility.Core.Windows.IO
 {
@@ -27,6 +30,36 @@ namespace dotNetTips.Utility.Core.Windows.IO
     /// </summary>
     public static class DirectoryHelper
     {
+
+        /// <summary>
+        /// Load files as an asynchronous operation.
+        /// </summary>
+        /// <param name="directories">The directories.</param>
+        /// <param name="searchPattern">The search pattern.</param>
+        /// <param name="searchOption">The search option.</param>
+        /// <returns>IAsyncEnumerable&lt;IEnumerable&lt;FileInfo&gt;&gt;.</returns>
+        public static async IAsyncEnumerable<IEnumerable<FileInfo>> LoadFilesAsync(IEnumerable<DirectoryInfo> directories, string searchPattern, SearchOption searchOption)
+        {
+            Encapsulation.TryValidateParam(directories, nameof(directories));
+            Encapsulation.TryValidateParam(searchPattern, nameof(searchPattern));
+            Encapsulation.TryValidateParam(searchOption, nameof(searchOption));
+
+            var options = new EnumerationOptions() { IgnoreInaccessible = true };
+
+            if (searchOption == SearchOption.AllDirectories)
+            {
+                options.RecurseSubdirectories = true;
+            }
+
+            var validDirectories = directories.Where(directory => directory.Exists).Select(directory => directory).ToList();
+
+            foreach (var directory in validDirectories)
+            {
+                var files = await Task.Run(() => directory.EnumerateFiles(searchPattern, options)).ConfigureAwait(false);
+                yield return files;
+            }
+        }
+
         /// <summary>
         /// Loads the one drive folders.
         /// </summary>

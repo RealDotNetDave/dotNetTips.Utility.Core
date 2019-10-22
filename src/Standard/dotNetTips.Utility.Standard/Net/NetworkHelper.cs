@@ -11,8 +11,8 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using System.Net.NetworkInformation;
 using dotNetTips.Utility.Standard.OOP;
+using System.Net.NetworkInformation;
 
 namespace dotNetTips.Utility.Standard.Net
 {

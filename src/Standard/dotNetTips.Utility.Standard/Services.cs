@@ -4,7 +4,7 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-04-2019
+// Last Modified On : 10-22-2019
 // ***********************************************************************
 // <copyright file="Services.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -163,7 +163,6 @@ namespace dotNetTips.Utility.Standard
         /// </summary>
         /// <param name="serviceName">Name of the service.</param>
         /// <returns>ServiceController.</returns>
-        /// TODO Edit XML Comment Template for LoadService
         private static ServiceController LoadService(string serviceName) => ServiceController.GetServices()
             .FirstOrDefault(p => p.ServiceName == serviceName);
     }

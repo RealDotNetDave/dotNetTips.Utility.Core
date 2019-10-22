@@ -11,8 +11,8 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using System.IO;
 using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace dotNetTips.Utility.Standard
 {

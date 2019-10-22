@@ -2,16 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <AssemblyVersion>2019.10.9.37527</AssemblyVersion>
-    <FileVersion>2019.10.9.37527</FileVersion>
+    <AssemblyVersion>2019.10.22.35738</AssemblyVersion>
+    <FileVersion>2019.10.22.35738</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2019.10.05</Version>
+    <Version>2019.10.20</Version>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
     <Description>Common .NET Core Code for Windows</Description>
     <Copyright>McCarter Consulting (David McCarter)</Copyright>
-    <PackageProjectUrl>https://github.com/RealDotNetDave/dotNetTips.Utility</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/RealDotNetDave/dotNetTips.Utility</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
     <PackageReleaseNotes>-- OCTOBER 2019: Initial Release</PackageReleaseNotes>
@@ -32,6 +32,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.3" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="3.0.0" />
   </ItemGroup>
 

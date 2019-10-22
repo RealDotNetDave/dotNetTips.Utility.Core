@@ -16,8 +16,8 @@
     <PackageReleaseNotes>-- AUG 14 2019: Initial release.
 -- AUG 31 2019: Cleanup of models including fixes.</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>2019.10.9.35975</AssemblyVersion>
-    <FileVersion>2019.10.9.35975</FileVersion>
+    <AssemblyVersion>2019.10.21.39145</AssemblyVersion>
+    <FileVersion>2019.10.21.39145</FileVersion>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>

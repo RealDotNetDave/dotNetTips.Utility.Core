@@ -11,11 +11,11 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using dotNetTips.Utility.Standard.OOP;
 using System;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
-using dotNetTips.Utility.Standard.OOP;
 
 namespace dotNetTips.Utility.Standard.Xml
 {

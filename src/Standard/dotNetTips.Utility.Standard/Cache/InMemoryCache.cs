@@ -11,8 +11,8 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using System;
 using Microsoft.Extensions.Caching.Memory;
+using System;
 
 namespace dotNetTips.Utility.Standard.Cache
 {

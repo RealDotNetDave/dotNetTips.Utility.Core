@@ -11,10 +11,10 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using System;
-using System.Runtime.InteropServices;
 using dotNetTips.Utility.Standard.OOP;
 using Microsoft.Win32;
+using System;
+using System.Runtime.InteropServices;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {

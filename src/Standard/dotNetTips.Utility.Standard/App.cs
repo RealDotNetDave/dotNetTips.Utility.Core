@@ -4,7 +4,7 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-04-2019
+// Last Modified On : 10-22-2019
 // ***********************************************************************
 // <copyright file="App.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -34,13 +34,12 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// The temporary ASP files location
         /// </summary>
-        private const string TempAspFiles = "\\Temporary ASP.NET Files\\";
+        private const string _tempAspFiles = "\\Temporary ASP.NET Files\\";
 
         /// <summary>
         /// The application information
         /// </summary>
-        /// TODO Edit XML Comment Template for appInfo
-        private static AppInfo appInfo;
+        private static AppInfo _appInfo;
 
         /// <summary>
         /// Gets the assembly information.
@@ -162,7 +161,7 @@ namespace dotNetTips.Utility.Standard
         /// </summary>
         /// <returns>True if running ASP.NET</returns>
         public static bool IsRunningFromAspNet() => !string.IsNullOrEmpty(AppDomain.CurrentDomain.DynamicDirectory)
-            ? AppDomain.CurrentDomain.DynamicDirectory.Contains(TempAspFiles)
+            ? AppDomain.CurrentDomain.DynamicDirectory.Contains(_tempAspFiles)
             : false;
 
         /// <summary>
@@ -225,30 +224,30 @@ namespace dotNetTips.Utility.Standard
         /// <returns>Returns <seealso cref="AppInfo" /></returns>
         private static AppInfo Info()
         {
-            if (appInfo == null)
+            if (_appInfo == null)
             {
-                appInfo = new AppInfo();
+                _appInfo = new AppInfo();
 
                 var assembly = Assembly.GetEntryAssembly();
 
-                appInfo.Company = assembly.GetCustomAttributes<AssemblyCompanyAttribute>().FirstOrDefault()?.Company;
+                _appInfo.Company = assembly.GetCustomAttributes<AssemblyCompanyAttribute>().FirstOrDefault()?.Company;
 
-                appInfo.Configuration = assembly.GetCustomAttributes<AssemblyConfigurationAttribute>().FirstOrDefault()?.Configuration;
+                _appInfo.Configuration = assembly.GetCustomAttributes<AssemblyConfigurationAttribute>().FirstOrDefault()?.Configuration;
 
-                appInfo.Copyright = assembly.GetCustomAttributes<AssemblyCopyrightAttribute>().FirstOrDefault()?.Copyright;
+                _appInfo.Copyright = assembly.GetCustomAttributes<AssemblyCopyrightAttribute>().FirstOrDefault()?.Copyright;
 
-                appInfo.Description = assembly.GetCustomAttributes<AssemblyDescriptionAttribute>().FirstOrDefault()?.Description;
+                _appInfo.Description = assembly.GetCustomAttributes<AssemblyDescriptionAttribute>().FirstOrDefault()?.Description;
 
-                appInfo.FileVersion = assembly.GetCustomAttributes<AssemblyFileVersionAttribute>().FirstOrDefault()?.Version;
+                _appInfo.FileVersion = assembly.GetCustomAttributes<AssemblyFileVersionAttribute>().FirstOrDefault()?.Version;
 
-                appInfo.Version = assembly.GetCustomAttributes<AssemblyInformationalVersionAttribute>().FirstOrDefault()?.InformationalVersion;
+                _appInfo.Version = assembly.GetCustomAttributes<AssemblyInformationalVersionAttribute>().FirstOrDefault()?.InformationalVersion;
 
-                appInfo.Product = assembly.GetCustomAttributes<AssemblyProductAttribute>().FirstOrDefault()?.Product;
+                _appInfo.Product = assembly.GetCustomAttributes<AssemblyProductAttribute>().FirstOrDefault()?.Product;
 
-                appInfo.Title = assembly.GetCustomAttributes<AssemblyTitleAttribute>().FirstOrDefault()?.Title;
+                _appInfo.Title = assembly.GetCustomAttributes<AssemblyTitleAttribute>().FirstOrDefault()?.Title;
             }
 
-            return appInfo;
+            return _appInfo;
         }
     }
 }

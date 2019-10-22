@@ -4,7 +4,7 @@
 // Created          : 03-14-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-04-2019
+// Last Modified On : 10-22-2019
 // ***********************************************************************
 // <copyright file="ConcurrentHashSet.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -36,12 +36,12 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// <summary>
         /// The default capacity
         /// </summary>
-        private const int DefaultCapacity = 31;
+        private const int _defaultCapacity = 31;
 
         /// <summary>
         /// The maximum lock number
         /// </summary>
-        private const int MaxLockNumber = 1024;
+        private const int _maxLockNumber = 1024;
 
         /// <summary>
         /// The comparer
@@ -68,7 +68,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// class that is empty, has the default concurrency level, has the default initial capacity, and
         /// uses the default comparer for the item type.
         /// </summary>
-        public ConcurrentHashSet() : this(DefaultConcurrencyLevel, DefaultCapacity, true, null)
+        public ConcurrentHashSet() : this(DefaultConcurrencyLevel, _defaultCapacity, true, null)
         {
         }
 
@@ -92,7 +92,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// </summary>
         /// <param name="comparer">The <see cref="T:System.Collections.Generic.IEqualityComparer{T}" />
         /// implementation to use when comparing items.</param>
-        public ConcurrentHashSet(IEqualityComparer<T> comparer) : this(DefaultConcurrencyLevel, DefaultCapacity, true, comparer)
+        public ConcurrentHashSet(IEqualityComparer<T> comparer) : this(DefaultConcurrencyLevel, _defaultCapacity, true, comparer)
         {
         }
 
@@ -150,7 +150,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// <exception cref="ArgumentNullException">collection</exception>
         /// <exception cref="T:System.ArgumentNullException"><paramref name="collection" /> is a null reference.</exception>
         /// <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="concurrencyLevel" /> is less than 1.</exception>
-        public ConcurrentHashSet(int concurrencyLevel, IEnumerable<T> collection, IEqualityComparer<T> comparer) : this(concurrencyLevel, DefaultCapacity, false, comparer)
+        public ConcurrentHashSet(int concurrencyLevel, IEnumerable<T> collection, IEqualityComparer<T> comparer) : this(concurrencyLevel, _defaultCapacity, false, comparer)
         {
             if (collection != null)
             {
@@ -235,7 +235,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
                 try
                 {
                     this.AcquireAllLocks(ref acquiredLocks);
-                    count = this._tables.CountPerLock.Aggregate(count, (accumulator, countPerLock) => accumulator += countPerLock);
+                    count = this._tables._countPerLock.Aggregate(count, (accumulator, countPerLock) => accumulator += countPerLock);
                 }
                 finally
                 {
@@ -251,7 +251,6 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// </summary>
         /// <value>true if the <see cref="ConcurrentHashSet{T}" /> is empty; otherwise,
         /// false.</value>
-        /// <returns>bool.</returns>
         public bool IsEmpty
         {
             get
@@ -262,9 +261,9 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
                 {
                     this.AcquireAllLocks(ref acquiredLocks);
 
-                    for (int counter = 0; counter < this._tables.CountPerLock.Length; counter++)
+                    for (int counter = 0; counter < this._tables._countPerLock.Length; counter++)
                     {
-                        if (this._tables.CountPerLock[counter] != 0)
+                        if (this._tables._countPerLock[counter] != 0)
                         {
                             return false;
                         }
@@ -283,14 +282,12 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// Gets the default concurrency level.
         /// </summary>
         /// <value>The default concurrency level.</value>
-        /// TODO Edit XML Comment Template for DefaultConcurrencyLevel
         private static int DefaultConcurrencyLevel => Environment.ProcessorCount;
 
         /// <summary>
         /// Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1"></see> is read-only.
         /// </summary>
         /// <value><c>true</c> if this instance is read only; otherwise, <c>false</c>.</value>
-        /// TODO Edit XML Comment Template for IsReadOnly
         bool ICollection<T>.IsReadOnly => false;
 
         /// <summary>
@@ -313,9 +310,9 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
             {
                 this.AcquireAllLocks(ref locksAcquired);
 
-                var newTables = new Tables(new Node[DefaultCapacity], this._tables.Locks, new int[this._tables.CountPerLock.Length]);
+                var newTables = new Tables(new Node[_defaultCapacity], this._tables._locks, new int[this._tables._countPerLock.Length]);
                 this._tables = newTables;
-                this._budget = Math.Max(1, newTables.Buckets.Length / newTables.Locks.Length);
+                this._budget = Math.Max(1, newTables._buckets.Length / newTables._locks.Length);
             }
             finally
             {
@@ -338,20 +335,20 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
             // We must capture the _buckets field in a local variable. It is set to a new table on each table resize.
             var tables = this._tables;
 
-            var bucketNo = GetBucket(hashcode, tables.Buckets.Length);
+            var bucketNo = GetBucket(hashcode, tables._buckets.Length);
 
             // We can get away w/out a lock here.
             // The Volatile.Read ensures that the load of the fields of 'n' doesn't move before the load from buckets[i].
-            var current = Volatile.Read(ref tables.Buckets[bucketNo]);
+            var current = Volatile.Read(ref tables._buckets[bucketNo]);
 
             while (current != null)
             {
-                if (hashcode == current.HashCode && this._comparer.Equals(current.Item, item))
+                if (hashcode == current._hashCode && this._comparer.Equals(current._item, item))
                 {
                     return true;
                 }
 
-                current = current.Next;
+                current = current._next;
             }
 
             return false;
@@ -367,7 +364,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// made to the collection after <see cref="GetEnumerator" /> was called.</remarks>
         public IEnumerator<T> GetEnumerator()
         {
-            var buckets = this._tables.Buckets;
+            var buckets = this._tables._buckets;
 
             for (var i = 0; i < buckets.Length; i++)
             {
@@ -376,8 +373,8 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
 
                 while (current != null)
                 {
-                    yield return current.Item;
-                    current = current.Next;
+                    yield return current._item;
+                    current = current._next;
                 }
             }
         }
@@ -397,9 +394,9 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
             {
                 var tables = this._tables;
 
-                GetBucketAndLockNo(hashcode, out int bucketNo, out int lockNo, tables.Buckets.Length, tables.Locks.Length);
+                GetBucketAndLockNo(hashcode, out int bucketNo, out int lockNo, tables._buckets.Length, tables._locks.Length);
 
-                lock (tables.Locks[lockNo])
+                lock (tables._locks[lockNo])
                 {
                     // If the table just got resized, we may not be holding the right lock, and must retry.
                     // This should be a rare occurrence.
@@ -409,23 +406,23 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
                     }
 
                     Node previous = null;
-                    for (var current = tables.Buckets[bucketNo]; current != null; current = current.Next)
+                    for (var current = tables._buckets[bucketNo]; current != null; current = current._next)
                     {
-                        Debug.Assert((previous == null && current == tables.Buckets[bucketNo]) ||
-                            previous.Next == current);
+                        Debug.Assert((previous == null && current == tables._buckets[bucketNo]) ||
+                            previous._next == current);
 
-                        if (hashcode == current.HashCode && this._comparer.Equals(current.Item, item))
+                        if (hashcode == current._hashCode && this._comparer.Equals(current._item, item))
                         {
                             if (previous == null)
                             {
-                                Volatile.Write(ref tables.Buckets[bucketNo], current.Next);
+                                Volatile.Write(ref tables._buckets[bucketNo], current._next);
                             }
                             else
                             {
-                                previous.Next = current.Next;
+                                previous._next = current._next;
                             }
 
-                            tables.CountPerLock[lockNo]--;
+                            tables._countPerLock[lockNo]--;
                             return true;
                         }
 
@@ -443,7 +440,6 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// <param name="hashCode">The hashcode.</param>
         /// <param name="bucketCount">The bucket count.</param>
         /// <returns>System.Int32.</returns>
-        /// TODO Edit XML Comment Template for GetBucket
         private static int GetBucket(int hashCode, int bucketCount)
         {
             var bucketNo = (hashCode & 0x7fffffff) % bucketCount;
@@ -459,7 +455,6 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// <param name="lockNo">The lock no.</param>
         /// <param name="bucketCount">The bucket count.</param>
         /// <param name="lockCount">The lock count.</param>
-        /// TODO Edit XML Comment Template for GetBucketAndLockNo
         private static void GetBucketAndLockNo(int hashCode, out int bucketNo, out int lockNo, int bucketCount, int lockCount)
         {
             bucketNo = (hashCode & 0x7fffffff) % bucketCount;
@@ -473,7 +468,6 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// Acquires all locks.
         /// </summary>
         /// <param name="locksAcquired">The locks acquired.</param>
-        /// TODO Edit XML Comment Template for AcquireAllLocks
         private void AcquireAllLocks(ref int locksAcquired)
         {
             // First, acquire lock 0
@@ -481,9 +475,9 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
 
             // Now that we have lock 0, the _locks array will not change (i.e., grow),
             // and so we can safely read _locks.Length.
-            this.AcquireLocks(1, this._tables.Locks.Length, ref locksAcquired);
+            this.AcquireLocks(1, this._tables._locks.Length, ref locksAcquired);
 
-            Debug.Assert(locksAcquired == this._tables.Locks.Length);
+            Debug.Assert(locksAcquired == this._tables._locks.Length);
         }
 
         /// <summary>
@@ -492,11 +486,10 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// <param name="fromInclusive">From inclusive.</param>
         /// <param name="toExclusive">To exclusive.</param>
         /// <param name="locksAcquired">The locks acquired.</param>
-        /// TODO Edit XML Comment Template for AcquireLocks
         private void AcquireLocks(int fromInclusive, int toExclusive, ref int locksAcquired)
         {
             Debug.Assert(fromInclusive <= toExclusive);
-            var locks = this._tables.Locks;
+            var locks = this._tables._locks;
 
             for (var i = fromInclusive; i < toExclusive; i++)
             {
@@ -516,20 +509,18 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         }
 
         /// <summary>
-        /// Adds an item to the <see cref="T:System.Collections.Generic.ICollection`1"></see>.
+        /// Adds an item to the <see cref="T:System.Collections.Generic.ICollection">.</see>.
         /// </summary>
-        /// <param name="item">The object to add to the <see cref="T:System.Collections.Generic.ICollection`1"></see>.</param>
-        /// TODO Edit XML Comment Template for Add
+        /// <param name="item">The object to add to the <see cref="T:System.Collections.Generic.ICollection"></see>.</param>
         void ICollection<T>.Add(T item) => this.Add(item);
 
         /// <summary>
-        /// Adds the internal.
+        /// Adds item to the collection.
         /// </summary>
         /// <param name="item">The item.</param>
         /// <param name="hashCode">The hashcode.</param>
         /// <param name="acquireLock">if set to <c>true</c> [acquire lock].</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// TODO Edit XML Comment Template for AddInternal
         private bool AddInternal(T item, int hashCode, bool acquireLock)
         {
             Encapsulation.TryValidateParam<ArgumentNullException>(item != null, nameof(item));
@@ -538,7 +529,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
             {
                 var tables = this._tables;
 
-                GetBucketAndLockNo(hashCode, out int bucketNo, out int lockNo, tables.Buckets.Length, tables.Locks.Length);
+                GetBucketAndLockNo(hashCode, out int bucketNo, out int lockNo, tables._buckets.Length, tables._locks.Length);
 
                 var resizeDesired = false;
                 var lockTaken = false;
@@ -547,7 +538,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
                 {
                     if (acquireLock)
                     {
-                        Monitor.Enter(tables.Locks[lockNo], ref lockTaken);
+                        Monitor.Enter(tables._locks[lockNo], ref lockTaken);
                     }
 
                     // If the table just got resized, we may not be holding the right lock, and must retry.
@@ -559,10 +550,10 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
 
                     // Try to find this item in the bucket
                     Node previous = null;
-                    for (var current = tables.Buckets[bucketNo]; current != null; current = current.Next)
+                    for (var current = tables._buckets[bucketNo]; current != null; current = current._next)
                     {
-                        Debug.Assert(previous == null && current == tables.Buckets[bucketNo] || previous.Next == current);
-                        if (hashCode == current.HashCode && this._comparer.Equals(current.Item, item))
+                        Debug.Assert(previous == null && current == tables._buckets[bucketNo] || previous._next == current);
+                        if (hashCode == current._hashCode && this._comparer.Equals(current._item, item))
                         {
                             return false;
                         }
@@ -571,16 +562,16 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
                     }
 
                     // The item was not found in the bucket. Insert the new item.
-                    Volatile.Write(ref tables.Buckets[bucketNo], new Node(item, hashCode, tables.Buckets[bucketNo]));
+                    Volatile.Write(ref tables._buckets[bucketNo], new Node(item, hashCode, tables._buckets[bucketNo]));
                     checked
                     {
-                        tables.CountPerLock[lockNo]++;
+                        tables._countPerLock[lockNo]++;
                     }
 
                     // If the number of elements guarded by this lock has exceeded the budget, resize the bucket table.
                     // It is also possible that GrowTable will increase the budget but won't resize the bucket table.
                     // That happens if the bucket table is found to be poorly utilized due to a bad hash function.
-                    if (tables.CountPerLock[lockNo] > this._budget)
+                    if (tables._countPerLock[lockNo] > this._budget)
                     {
                         resizeDesired = true;
                     }
@@ -589,7 +580,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
                 {
                     if (lockTaken)
                     {
-                        Monitor.Exit(tables.Locks[lockNo]);
+                        Monitor.Exit(tables._locks[lockNo]);
                     }
                 }
 
@@ -630,9 +621,9 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
 
                 var count = 0;
 
-                for (var i = 0; i < this._tables.Locks.Length && count >= 0; i++)
+                for (var i = 0; i < this._tables._locks.Length && count >= 0; i++)
                 {
-                    count += this._tables.CountPerLock[i];
+                    count += this._tables._countPerLock[i];
                 }
 
                 // "count" itself or "count + arrayIndex" can overflow
@@ -650,19 +641,18 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         }
 
         /// <summary>
-        /// Copies to items.
+        /// Copies items.
         /// </summary>
         /// <param name="array">The array.</param>
         /// <param name="index">The index.</param>
-        /// TODO Edit XML Comment Template for CopyToItems
         private void CopyToItems(T[] array, int index)
         {
-            var buckets = this._tables.Buckets;
+            var buckets = this._tables._buckets;
             for (var i = 0; i < buckets.Length; i++)
             {
-                for (var current = buckets[i]; current != null; current = current.Next)
+                for (var current = buckets[i]; current != null; current = current._next)
                 {
-                    array[index] = current.Item;
+                    array[index] = current._item;
                     index++; // this should never flow, CopyToItems is only called when there's no overflow risk
                 }
             }
@@ -672,14 +662,12 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// Returns an enumerator that iterates through a collection.
         /// </summary>
         /// <returns>An <see cref="T:System.Collections.IEnumerator"></see> object that can be used to iterate through the collection.</returns>
-        /// TODO Edit XML Comment Template for GetEnumerator
         IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
 
         /// <summary>
         /// Grows the table.
         /// </summary>
         /// <param name="tables">The tables.</param>
-        /// TODO Edit XML Comment Template for GrowTable
         private void GrowTable(Tables tables)
         {
             const int maxArrayLength = 0X7FEFFFFF;
@@ -700,13 +688,13 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
 
                 // Compute the (approx.) total size. Use an Int64 accumulation variable to avoid an overflow.
                 long approxCount = 0;
-                for (var i = 0; i < tables.CountPerLock.Length; i++)
+                for (var i = 0; i < tables._countPerLock.Length; i++)
                 {
-                    approxCount += tables.CountPerLock[i];
+                    approxCount += tables._countPerLock[i];
                 }
 
                 // If the bucket array is too empty, double the budget instead of resizing the table
-                if (approxCount < tables.Buckets.Length / 4)
+                if (approxCount < tables._buckets.Length / 4)
                 {
                     this._budget = 2 * this._budget;
 
@@ -727,7 +715,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
                     checked
                     {
                         // Double the size of the buckets table and add one, so that we have an odd integer.
-                        newLength = tables.Buckets.Length * 2 + 1;
+                        newLength = tables._buckets.Length * 2 + 1;
 
                         // Now, we only need to check odd integers, and find the first that is not divisible
                         // by 3, 5 or 7.
@@ -762,16 +750,16 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
                 }
 
                 // Now acquire all other locks for the table
-                this.AcquireLocks(1, tables.Locks.Length, ref locksAcquired);
+                this.AcquireLocks(1, tables._locks.Length, ref locksAcquired);
 
-                var newLocks = tables.Locks;
+                var newLocks = tables._locks;
 
                 // Add more locks
-                if (this._growLockArray && tables.Locks.Length < MaxLockNumber)
+                if (this._growLockArray && tables._locks.Length < _maxLockNumber)
                 {
-                    newLocks = new object[tables.Locks.Length * 2];
-                    Array.Copy(tables.Locks, 0, newLocks, 0, tables.Locks.Length);
-                    for (var i = tables.Locks.Length; i < newLocks.Length; i++)
+                    newLocks = new object[tables._locks.Length * 2];
+                    Array.Copy(tables._locks, 0, newLocks, 0, tables._locks.Length);
+                    for (var i = tables._locks.Length; i < newLocks.Length; i++)
                     {
                         newLocks[i] = new object();
                     }
@@ -781,15 +769,15 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
                 var newCountPerLock = new int[newLocks.Length];
 
                 // Copy all data into a new table, creating new nodes for all elements
-                for (var i = 0; i < tables.Buckets.Length; i++)
+                for (var i = 0; i < tables._buckets.Length; i++)
                 {
-                    var current = tables.Buckets[i];
+                    var current = tables._buckets[i];
                     while (current != null)
                     {
-                        var next = current.Next;
-                        GetBucketAndLockNo(current.HashCode, out int newBucketNo, out int newLockNo, newBuckets.Length, newLocks.Length);
+                        var next = current._next;
+                        GetBucketAndLockNo(current._hashCode, out int newBucketNo, out int newLockNo, newBuckets.Length, newLocks.Length);
 
-                        newBuckets[newBucketNo] = new Node(current.Item, current.HashCode, newBuckets[newBucketNo]);
+                        newBuckets[newBucketNo] = new Node(current._item, current._hashCode, newBuckets[newBucketNo]);
 
                         checked
                         {
@@ -826,7 +814,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
 
             if (this._budget == 0)
             {
-                this._budget = this._tables.Buckets.Length / this._tables.Locks.Length;
+                this._budget = this._tables._buckets.Length / this._tables._locks.Length;
             }
         }
 
@@ -835,14 +823,13 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// </summary>
         /// <param name="fromInclusive">From inclusive.</param>
         /// <param name="toExclusive">To exclusive.</param>
-        /// TODO Edit XML Comment Template for ReleaseLocks
         private void ReleaseLocks(int fromInclusive, int toExclusive)
         {
             Debug.Assert(fromInclusive <= toExclusive);
 
             for (var i = fromInclusive; i < toExclusive; i++)
             {
-                Monitor.Exit(this._tables.Locks[i]);
+                Monitor.Exit(this._tables._locks[i]);
             }
         }
 
@@ -851,7 +838,6 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// </summary>
         /// <param name="item">The object to remove from the <see cref="T:System.Collections.Generic.ICollection`1"></see>.</param>
         /// <returns>true if <paramref name="item">item</paramref> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1"></see>; otherwise, false. This method also returns false if <paramref name="item">item</paramref> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1"></see>.</returns>
-        /// TODO Edit XML Comment Template for Remove
         bool ICollection<T>.Remove(T item) => this.TryRemove(item);
 
         /// <summary>
@@ -862,17 +848,17 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
             /// <summary>
             /// The Hashcode
             /// </summary>
-            internal readonly int HashCode;
+            internal readonly int _hashCode;
 
             /// <summary>
             /// The item
             /// </summary>
-            internal readonly T Item;
+            internal readonly T _item;
 
             /// <summary>
             /// The next
             /// </summary>
-            internal volatile Node Next;
+            internal volatile Node _next;
 
             /// <summary>
             /// Initializes a new instance of the <see cref="Node" /> class.
@@ -882,9 +868,9 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
             /// <param name="next">The next.</param>
             internal Node(T item, int hashcode, Node next)
             {
-                this.Item = item;
-                this.HashCode = hashcode;
-                this.Next = next;
+                this._item = item;
+                this._hashCode = hashcode;
+                this._next = next;
             }
         }
 
@@ -896,17 +882,17 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
             /// <summary>
             /// The buckets
             /// </summary>
-            internal readonly Node[] Buckets;
+            internal readonly Node[] _buckets;
 
             /// <summary>
             /// The locks
             /// </summary>
-            internal readonly object[] Locks;
+            internal readonly object[] _locks;
 
             /// <summary>
             /// The count per lock
             /// </summary>
-            internal volatile int[] CountPerLock;
+            internal volatile int[] _countPerLock;
 
             /// <summary>
             /// Initializes a new instance of the <see cref="Tables" /> class.
@@ -916,9 +902,9 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
             /// <param name="countPerLock">The count per lock.</param>
             internal Tables(Node[] buckets, object[] locks, int[] countPerLock)
             {
-                this.Buckets = buckets;
-                this.Locks = locks;
-                this.CountPerLock = countPerLock;
+                this._buckets = buckets;
+                this._locks = locks;
+                this._countPerLock = countPerLock;
             }
         }
     }

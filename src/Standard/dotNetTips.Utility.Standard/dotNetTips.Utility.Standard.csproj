@@ -1,25 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.xml</DocumentationFile>
     <OutputPath>..\..\..\appbin\</OutputPath>
-    <AssemblyVersion>2019.10.9.37527</AssemblyVersion>
-    <FileVersion>2019.10.9.37527</FileVersion>
+    <AssemblyVersion>2019.10.22.35769</AssemblyVersion>
+    <FileVersion>2019.10.22.35769</FileVersion>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
     <Description>Common .NET Standard Code</Description>
     <Copyright>McCarter Consulting (David McCarter)</Copyright>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <PackageProjectUrl>https://github.com/RealDotNetDave/dotNetTips.Utility</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/RealDotNetDave/dotNetTips.Utility</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</RepositoryUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <SignAssembly>false</SignAssembly>
     <DelaySign>False</DelaySign>
     <AssemblyOriginatorKeyFile>dotNetTips.Utility.Standard.snk</AssemblyOriginatorKeyFile>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2019.10.06</Version>
+    <Version>2019.10.21</Version>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
     <Configurations>Debug;Release;Full Build</Configurations>
     <PackageLicenseUrl></PackageLicenseUrl>
@@ -29,7 +29,7 @@
     <DebugSymbols>true</DebugSymbols>
     <PackageReleaseNotes>-- JUNE 2019: Quarterly Release - New methods for DirectoryHelper and FileHelper. Code cleanup.
 -- AUG 2019: Quarterly Release - Code &amp; documentation cleanup. Code fixes. New code in LoggingHelper, ComputerInfo.</PackageReleaseNotes>
-    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+    <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>

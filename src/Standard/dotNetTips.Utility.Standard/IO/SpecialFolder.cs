@@ -18,14 +18,12 @@ namespace dotNetTips.Utility.Standard.IO
     /// <summary>
     /// Enum SpecialFolder
     /// </summary>
-    /// TODO Edit XML Comment Template for SpecialFolder
     public enum SpecialFolder
     {
         // Summary: The logical Desktop rather than the physical file system location.
         /// <summary>
         /// The desktop
         /// </summary>
-        /// TODO Edit XML Comment Template for Desktop
         Desktop = 0,
         //
         // Summary:
@@ -33,7 +31,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The programs
         /// </summary>
-        /// TODO Edit XML Comment Template for Programs
         Programs = 2,
         //
         // Summary:
@@ -41,7 +38,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The personal
         /// </summary>
-        /// TODO Edit XML Comment Template for Personal
         Personal = 5,
         //
         // Summary:
@@ -49,7 +45,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The user documents
         /// </summary>
-        /// TODO Edit XML Comment Template for UserDocuments
         UserDocuments = 60,
         //
         // Summary:
@@ -57,7 +52,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The favorites
         /// </summary>
-        /// TODO Edit XML Comment Template for Favorites
         Favorites = 6,
         //
         // Summary:
@@ -65,7 +59,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The startup
         /// </summary>
-        /// TODO Edit XML Comment Template for Startup
         Startup = 7,
         //
         // Summary:
@@ -73,7 +66,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The recent
         /// </summary>
-        /// TODO Edit XML Comment Template for Recent
         Recent = 8,
         //
         // Summary:
@@ -81,7 +73,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The send to
         /// </summary>
-        /// TODO Edit XML Comment Template for SendTo
         SendTo = 9,
         //
         // Summary:
@@ -89,7 +80,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The start menu
         /// </summary>
-        /// TODO Edit XML Comment Template for StartMenu
         StartMenu = 11,
         //
         // Summary:
@@ -97,7 +87,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// My music
         /// </summary>
-        /// TODO Edit XML Comment Template for MyMusic
         MyMusic = 13,
         //
         // Summary:
@@ -106,7 +95,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// My videos
         /// </summary>
-        /// TODO Edit XML Comment Template for MyVideos
         MyVideos = 14,
         //
         // Summary:
@@ -114,7 +102,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The desktop directory
         /// </summary>
-        /// TODO Edit XML Comment Template for DesktopDirectory
         DesktopDirectory = 16,
         //
         // Summary:
@@ -122,7 +109,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// My computer
         /// </summary>
-        /// TODO Edit XML Comment Template for MyComputer
         MyComputer = 17,
         //
         // Summary:
@@ -131,7 +117,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The network shortcuts
         /// </summary>
-        /// TODO Edit XML Comment Template for NetworkShortcuts
         NetworkShortcuts = 19,
         //
         // Summary:
@@ -139,7 +124,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The fonts
         /// </summary>
-        /// TODO Edit XML Comment Template for Fonts
         Fonts = 20,
         //
         // Summary:
@@ -147,7 +131,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The templates
         /// </summary>
-        /// TODO Edit XML Comment Template for Templates
         Templates = 21,
         //
         // Summary:
@@ -157,7 +140,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The common start menu
         /// </summary>
-        /// TODO Edit XML Comment Template for CommonStartMenu
         CommonStartMenu = 22,
         //
         // Summary:
@@ -167,7 +149,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The common programs
         /// </summary>
-        /// TODO Edit XML Comment Template for CommonPrograms
         CommonPrograms = 23,
         //
         // Summary:
@@ -177,7 +158,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The common startup
         /// </summary>
-        /// TODO Edit XML Comment Template for CommonStartup
         CommonStartup = 24,
         //
         // Summary:
@@ -187,7 +167,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The common desktop directory
         /// </summary>
-        /// TODO Edit XML Comment Template for CommonDesktopDirectory
         CommonDesktopDirectory = 25,
         //
         // Summary:
@@ -196,7 +175,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The application data
         /// </summary>
-        /// TODO Edit XML Comment Template for ApplicationData
         ApplicationData = 26,
         //
         // Summary:
@@ -205,7 +183,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The printer shortcuts
         /// </summary>
-        /// TODO Edit XML Comment Template for PrinterShortcuts
         PrinterShortcuts = 27,
         //
         // Summary:
@@ -214,7 +191,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The local application data
         /// </summary>
-        /// TODO Edit XML Comment Template for LocalApplicationData
         LocalApplicationData = 28,
         //
         // Summary:
@@ -222,7 +198,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The internet cache
         /// </summary>
-        /// TODO Edit XML Comment Template for InternetCache
         InternetCache = 32,
         //
         // Summary:
@@ -230,7 +205,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The cookies
         /// </summary>
-        /// TODO Edit XML Comment Template for Cookies
         Cookies = 33,
         //
         // Summary:
@@ -238,7 +212,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The history
         /// </summary>
-        /// TODO Edit XML Comment Template for History
         History = 34,
         //
         // Summary:
@@ -247,7 +220,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The common application data
         /// </summary>
-        /// TODO Edit XML Comment Template for CommonApplicationData
         CommonApplicationData = 35,
         //
         // Summary:
@@ -256,7 +228,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The windows
         /// </summary>
-        /// TODO Edit XML Comment Template for Windows
         Windows = 36,
         //
         // Summary:
@@ -264,7 +235,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The system
         /// </summary>
-        /// TODO Edit XML Comment Template for System
         System = 37,
         //
         // Summary:
@@ -276,7 +246,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The program files
         /// </summary>
-        /// TODO Edit XML Comment Template for ProgramFiles
         ProgramFiles = 38,
         //
         // Summary:
@@ -284,7 +253,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// My pictures
         /// </summary>
-        /// TODO Edit XML Comment Template for MyPictures
         MyPictures = 39,
         //
         // Summary:
@@ -294,7 +262,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The user profile
         /// </summary>
-        /// TODO Edit XML Comment Template for UserProfile
         UserProfile = 40,
         //
         // Summary:
@@ -302,7 +269,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The system X86
         /// </summary>
-        /// TODO Edit XML Comment Template for SystemX86
         SystemX86 = 41,
         //
         // Summary:
@@ -310,7 +276,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The program files X86
         /// </summary>
-        /// TODO Edit XML Comment Template for ProgramFilesX86
         ProgramFilesX86 = 42,
         //
         // Summary:
@@ -320,7 +285,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The common program files
         /// </summary>
-        /// TODO Edit XML Comment Template for CommonProgramFiles
         CommonProgramFiles = 43,
         //
         // Summary:
@@ -328,7 +292,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The common program files X86
         /// </summary>
-        /// TODO Edit XML Comment Template for CommonProgramFilesX86
         CommonProgramFilesX86 = 44,
         //
         // Summary:
@@ -338,7 +301,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The common templates
         /// </summary>
-        /// TODO Edit XML Comment Template for CommonTemplates
         CommonTemplates = 45,
         //
         // Summary:
@@ -348,7 +310,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The common documents
         /// </summary>
-        /// TODO Edit XML Comment Template for CommonDocuments
         CommonDocuments = 46,
         //
         // Summary:
@@ -357,7 +318,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The common admin tools
         /// </summary>
-        /// TODO Edit XML Comment Template for CommonAdminTools
         CommonAdminTools = 47,
         //
         // Summary:
@@ -367,7 +327,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The admin tools
         /// </summary>
-        /// TODO Edit XML Comment Template for AdminTools
         AdminTools = 48,
         //
         // Summary:
@@ -376,7 +335,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The common music
         /// </summary>
-        /// TODO Edit XML Comment Template for CommonMusic
         CommonMusic = 53,
         //
         // Summary:
@@ -385,7 +343,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The common pictures
         /// </summary>
-        /// TODO Edit XML Comment Template for CommonPictures
         CommonPictures = 54,
         //
         // Summary:
@@ -394,7 +351,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The common videos
         /// </summary>
-        /// TODO Edit XML Comment Template for CommonVideos
         CommonVideos = 55,
         //
         // Summary:
@@ -403,7 +359,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The resources
         /// </summary>
-        /// TODO Edit XML Comment Template for Resources
         Resources = 56,
         //
         // Summary:
@@ -412,7 +367,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The localized resources
         /// </summary>
-        /// TODO Edit XML Comment Template for LocalizedResources
         LocalizedResources = 57,
         //
         // Summary:
@@ -421,7 +375,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The common oem links
         /// </summary>
-        /// TODO Edit XML Comment Template for CommonOemLinks
         CommonOemLinks = 58,
         //
         // Summary:
@@ -430,7 +383,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The cd burning
         /// </summary>
-        /// TODO Edit XML Comment Template for CDBurning
         CDBurning = 59,
 
         /// <summary>
