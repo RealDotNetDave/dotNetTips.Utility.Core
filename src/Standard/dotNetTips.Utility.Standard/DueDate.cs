@@ -4,7 +4,7 @@
 // Created          : 02-11-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 03-03-2019
+// Last Modified On : 11-21-2019
 // ***********************************************************************
 // <copyright file="DueDate.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -26,7 +26,6 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// The beginning of the period
         /// </summary>
-
         BeginngOfPeriod
     }
 }

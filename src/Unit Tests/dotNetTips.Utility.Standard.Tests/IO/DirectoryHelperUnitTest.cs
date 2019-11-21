@@ -78,7 +78,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
 
                 var returnCount = 0;
 
-                await foreach (var files in DirectoryHelper.LoadFilesAsync(searchFolders, "*.*", SearchOption.AllDirectories))
+                await foreach (var files in dotNetTips.Utility.Core.Windows.IO.DirectoryHelper.LoadFilesAsync(searchFolders, "*.*", SearchOption.AllDirectories))
                 {
                     if (files.Count() > 0)
                     {

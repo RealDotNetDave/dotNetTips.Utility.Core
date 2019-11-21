@@ -62,13 +62,13 @@ namespace dotNetTips.Utility.Standard
         public LoggableException(string message, Exception innerException) : base(message, innerException)
         {
         }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="LoggableException" /> class.
         /// </summary>
         /// <param name="message">The message.</param>
         /// <param name="ex">The ex.</param>
         /// <param name="userMessage">The user message.</param>
-
         public LoggableException(string message, Exception ex, string userMessage) : base(message, ex)
         {
             this.UserMessage = userMessage;

@@ -229,10 +229,11 @@ namespace dotNetTips.Utility.Standard.IO
             return successCount;
         }
 
+
         /// <summary>
-        /// Handles the <see cref="E:Processed" /> event.
+        /// Handles the <see cref="E:Processed" /> event that is thrown after each file is processed.
         /// </summary>
-        /// <param name="e">The <see cref="FileProgressEventArgs" /> instance containing the event data.</param>
+        /// <param name="e">The <see cref="FileProgressEventArgs"/> instance containing the event data.</param>
         protected virtual void OnProcessed(FileProgressEventArgs e) => Processed?.Invoke(this, e);
     }
 }

@@ -5,9 +5,9 @@
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyVersion>2019.10.2.32305</AssemblyVersion>
+    <AssemblyVersion>2019.11.8.35740</AssemblyVersion>
 
-    <FileVersion>2019.10.2.32305</FileVersion>
+    <FileVersion>2019.11.8.35740</FileVersion>
 
     <Authors>David McCarter - dotNetTips.com</Authors>
 
@@ -29,14 +29,14 @@
 
   <ItemGroup>
     <PackageReference Include="dotNetTips.Utility.Standard.Tester" Version="2019.10.1" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.3.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.0.0" />
     <PackageReference Include="MSTest.TestFramework" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\dotNetTips.Utility.Core.Windows\dotNetTips.Utility.Core.Windows.csproj" />
-    <ProjectReference Include="..\dotNetTips.Utility.Standard\dotNetTips.Utility.Standard.csproj" />
+    <ProjectReference Include="..\..\Core\dotNetTips.Utility.Core.Windows\dotNetTips.Utility.Core.Windows.csproj" />
+    <ProjectReference Include="..\..\Standard\dotNetTips.Utility.Standard\dotNetTips.Utility.Standard.csproj" />
   </ItemGroup>
 
 </Project>

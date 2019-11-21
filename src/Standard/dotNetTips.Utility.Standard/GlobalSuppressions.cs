@@ -1,17 +1,4 @@
-﻿// ***********************************************************************
-// Assembly         : dotNetTips.Utility.Standard
-// Author           : David McCarter
-// Created          : 05-04-2018
-//
-// Last Modified By : David McCarter
-// Last Modified On : 03-03-2019
-// ***********************************************************************
-// <copyright file="GlobalSuppressions.cs" company="dotNetTips.com - David McCarter">
-//     McCarter Consulting (David McCarter)
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("Usage", "CC0022:Should dispose object", Justification = "<Pending>", Scope = "member", Target = "~P:dotNetTips.Utility.Standard.AppLogging.LoggerFactory")]
 
@@ -27,3 +14,14 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CC0004:Catch block cannot be empty", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.IO.FileHelper.MoveDirectory(System.String,System.String)")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CC0004:Catch block cannot be empty", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.IO.DirectoryHelper.MoveDirectory(System.String,System.String)")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CC0004:Catch block cannot be empty", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.IO.DirectoryHelper.DeleteDirectory(System.String)")]
+[assembly: SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.ArgumentInvalidException.#ctor")]
+[assembly: SuppressMessage("Security", "CA5350:Do Not Use Weak Cryptographic Algorithms", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.Security.EncryptionHelper.TripleDESDecrypt(System.Byte[],System.Byte[],System.Byte[])~System.String")]
+[assembly: SuppressMessage("Design", "CA1062:Validate arguments of public methods", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.IO.DirectoryHelper.DeleteDirectoryAsync(System.IO.DirectoryInfo)~System.Threading.Tasks.Task{System.Boolean}")]
+[assembly: SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "<Pending>", Scope = "member", Target = "~P:dotNetTips.Utility.Standard.Cache.InMemoryCache.Count")]
+[assembly: SuppressMessage("Reliability", "CA2008:Do not create tasks without passing a TaskScheduler", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.IO.DirectoryHelper.DeleteDirectoryAsync(System.IO.DirectoryInfo)~System.Threading.Tasks.Task{System.Boolean}")]
+[assembly: SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.IO.FileHelper.UnGZipAsync(System.String,System.String,System.Boolean)~System.Threading.Tasks.Task")]
+[assembly: SuppressMessage("Design", "CA1062:Validate arguments of public methods", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.IO.FileProcessor.CopyFiles(System.Collections.Generic.IEnumerable{System.IO.FileInfo},System.IO.DirectoryInfo)~System.Int32")]
+[assembly: SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.IO.FileProcessor.CopyFiles(System.Collections.Generic.IEnumerable{System.IO.FileInfo},System.IO.DirectoryInfo)~System.Int32")]
+[assembly: SuppressMessage("Design", "CA1062:Validate arguments of public methods", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.Enum,System.String,System.String)")]
+[assembly: SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.Xml.XmlHelper.DeserializeFromXmlFile``1(System.String)~``0")]
+[assembly: SuppressMessage("Naming", "CA1720:Identifier contains type name", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)~System.String")]

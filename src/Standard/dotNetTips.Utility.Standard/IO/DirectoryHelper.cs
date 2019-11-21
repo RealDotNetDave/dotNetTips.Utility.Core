@@ -4,7 +4,7 @@
 // Created          : 02-14-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-19-2019
+// Last Modified On : 10-31-2019
 // ***********************************************************************
 // <copyright file="DirectoryHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -22,6 +22,7 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Threading;
 using System.Threading.Tasks;
+
 namespace dotNetTips.Utility.Standard.IO
 {
     /// <summary>
@@ -138,7 +139,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// Delete directory, with retries, as an asynchronous operation.
         /// </summary>
-        /// <param name="directory">The directory.</param>
+        /// <param name="directory">The directory to delete.</param>
         /// <returns>Task&lt;System.Boolean&gt;.</returns>
         /// <exception cref="System.ArgumentNullException">directory</exception>
         /// <exception cref="ArgumentNullException">directory</exception>
@@ -148,20 +149,20 @@ namespace dotNetTips.Utility.Standard.IO
 
             if (directory.Exists)
             {
-                await Task.Factory.StartNew(() =>
-                {
-                    DeleteDirectory(directory.FullName);
-                    return true;
-                }).ConfigureAwait(true);
+                _ = await Task.Factory.StartNew(() =>
+                  {
+                      DeleteDirectory(directory.FullName);
+                      return true;
+                  }).ConfigureAwait(true);
             }
 
             return false;
         }
 
         /// <summary>
-        /// Loads the files.
+        /// Loads list of files in directory path.
         /// </summary>
-        /// <param name="path">The path.</param>
+        /// <param name="path">The directory path to search.</param>
         /// <param name="searchPattern">The search pattern.</param>
         /// <param name="searchOption">The search option.</param>
         /// <returns>IEnumerable&lt;FileInfo&gt;.</returns>
@@ -214,7 +215,6 @@ namespace dotNetTips.Utility.Standard.IO
                 {
                     System.Diagnostics.Trace.WriteLine(ex.Message);
                 }
-
             });
 
             return files.AsEnumerable();

@@ -4,7 +4,7 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 09-23-2019
+// Last Modified On : 10-31-2019
 // ***********************************************************************
 // <copyright file="ArgumentReadOnlyException.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 using System;
+using System.Runtime.Serialization;
 
 namespace dotNetTips.Utility.Standard
 {
@@ -64,6 +65,13 @@ namespace dotNetTips.Utility.Standard
         /// <param name="paramName">The name of the parameter that caused the current exception.</param>
         /// <param name="innerException">The exception that is the cause of the current exception. If the <paramref name="innerException" /> parameter is not a null reference, the current exception is raised in a <see langword="catch" /> block that handles the inner exception.</param>
         public ArgumentReadOnlyException(string message, string paramName, Exception innerException) : base(message, paramName, innerException)
+        {
+        }
+
+        /// <summary>Initializes a new instance of the <see cref="ArgumentReadOnlyException"></see> class with serialized data.</summary>
+        /// <param name="info">The object that holds the serialized object data.</param>
+        /// <param name="context">The contextual information about the source or destination.</param>
+        private ArgumentReadOnlyException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }

@@ -4,7 +4,7 @@
 // Created          : 02-11-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 03-03-2019
+// Last Modified On : 11-21-2019
 // ***********************************************************************
 // <copyright file="ICloneable.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -16,7 +16,7 @@ namespace dotNetTips.Utility.Standard
     /// <summary>
     /// Interface ICloneable
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">The type of T.</typeparam>
     public interface ICloneable<T>
     {
         /// <summary>

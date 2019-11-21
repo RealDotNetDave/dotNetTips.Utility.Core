@@ -4,7 +4,7 @@
 // Created          : 02-11-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-17-2019
+// Last Modified On : 10-31-2019
 // ***********************************************************************
 // <copyright file="FileHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -33,7 +33,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The count for retries.
         /// </summary>
-        private const int Retries = 10;
+        private const int _retries = 10;
 
         /// <summary>
         /// Copies the file to a new directory.
@@ -96,15 +96,15 @@ namespace dotNetTips.Utility.Standard.IO
         }
 
         /// <summary>
-        /// Deletes the files.
+        /// Deletes the file.
         /// </summary>
         /// <param name="files">The files.</param>
         /// <returns>IEnumerable&lt;KeyValuePair&lt;System.String, System.String&gt;&gt;.</returns>
-        public static IEnumerable<(string FileName, string ErrorMessage)> DeleteFiles(this IEnumerable<string> files)
+        public static IEnumerable<(string fileName, string errorMessage)> DeleteFiles(this IEnumerable<string> files)
         {
             Encapsulation.TryValidateParam(files, nameof(files));
 
-            var errors = new List<(string FileName, string ErrorMessage)>();
+            var errors = new List<(string fileName, string errorMessage)>();
 
             var result = Parallel.ForEach(files, (fileName) =>
                   {
@@ -179,7 +179,7 @@ namespace dotNetTips.Utility.Standard.IO
 
             Directory.CreateDirectory(Path.GetDirectoryName(localFilePath));
 
-            //TODO: MAKE STATIC??
+            // TODO: MAKE STATIC??
             using (var client = new HttpClient())
             {
                 using (var localStream = File.Create(localFilePath))
@@ -205,17 +205,17 @@ namespace dotNetTips.Utility.Standard.IO
             Encapsulation.TryValidateParam(destinationFileName, nameof(destinationFileName));
             Encapsulation.TryValidateParam<ArgumentInvalidException>(File.Exists(sourceFileName), nameof(sourceFileName), $"File {sourceFileName} does not exist.");
 
-            for (var retryCount = 0; retryCount < Retries; retryCount++)
+            for (var retryCount = 0; retryCount < _retries; retryCount++)
             {
                 try
                 {
                     File.Move(sourceFileName, destinationFileName);
                     return;
                 }
-                catch (IOException) when (retryCount < Retries - 1)
+                catch (IOException) when (retryCount < _retries - 1)
                 {
                 }
-                catch (UnauthorizedAccessException) when (retryCount < Retries - 1)
+                catch (UnauthorizedAccessException) when (retryCount < _retries - 1)
                 {
                 }
 

@@ -4,13 +4,14 @@
 // Created          : 09-05-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 09-05-2019
+// Last Modified On : 10-31-2019
 // ***********************************************************************
 // <copyright file="EncryptionHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using System;
 using System.IO;
 using System.Security.Cryptography;
 
@@ -22,6 +23,7 @@ namespace dotNetTips.Utility.Standard.Security
     public static class EncryptionHelper
     {
         //TODO: ADD AES AND SHA-2 ENCRYPTION. OBSOLETE TRIPLEDES
+        //TODO: REMOVE AT THE END OF 2020
         /// <summary>
         /// Triples the DES decrypt.
         /// </summary>
@@ -30,6 +32,7 @@ namespace dotNetTips.Utility.Standard.Security
         /// <param name="iv">The iv.</param>
         /// <returns>System.String.</returns>
         /// <remarks>Original code by: Mahesh Chand</remarks>
+        [Obsolete("Use AES or SHA-2 encryption insead.")]
         public static string TripleDESDecrypt(byte[] cipherText, byte[] key, byte[] iv)
         {
             string plaintext = null;

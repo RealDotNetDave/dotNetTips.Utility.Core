@@ -27,6 +27,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
     /// <typeparam name="T"></typeparam>
     /// <seealso cref="System.Collections.Concurrent.ConcurrentBag{T}" />
     [DebuggerDisplay("Count = {Count}")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1710:Identifiers should have correct suffix", Justification = "<Pending>")]
     public class DistinctConcurrentBag<T> : ConcurrentBag<T>
     {
         /// <summary>

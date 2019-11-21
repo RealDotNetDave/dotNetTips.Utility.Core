@@ -22,15 +22,19 @@ namespace dotNetTips.Utility.Standard.Extensions
     /// </summary>
     public static class TypeExtensions
     {
-
         /// <summary>
         /// Gets the field hash.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="callback">The callback.</param>
-        /// <returns>System.String.</returns>
+        /// <returns>Hash for the field as System.String.</returns>
         public static string GetFieldHash<T>(this Func<T> callback)
         {
+            if (callback is null)
+            {
+                throw new ArgumentNullException(nameof(callback));
+            }
+
             return new string(callback.Target.GetType().GetFields().Where(x => x.MemberType == MemberTypes.Field).Select(x => x.GetValue(callback.Target)).Where(x => x != null).SelectMany(x => x.ToString()).ToArray());
         }
 
@@ -41,8 +45,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns><c>true</c> if [has parameterless constructor] [the specified type]; otherwise, <c>false</c>.</returns>
         public static bool HasParameterlessConstructor(this Type type)
         {
+            if (type is null)
+            {
+                throw new ArgumentNullException(nameof(type));
+            }
+
             return type.GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, Type.EmptyTypes, null) != null;
         }
+
         /// <summary>
         /// Return maximum type. Works with value and reference types.
         /// </summary>

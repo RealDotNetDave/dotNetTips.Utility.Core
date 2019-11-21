@@ -42,7 +42,7 @@ namespace dotNetTips.Utility.Standard.OOP
 
             if (t.Name == nameof(Exception))
             {
-                throw new InvalidCastException(string.Format(CultureInfo.CurrentUICulture, Resources.CannotBeOfTypeException, nameof(TException)));
+                throw new InvalidCastException(string.Format(CultureInfo.CurrentCulture, Resources.CannotBeOfTypeException, nameof(TException)));
             }
 
             var defaultMessage = Resources.ParameterIsInvalid;
@@ -155,6 +155,7 @@ namespace dotNetTips.Utility.Standard.OOP
         /// <exception cref="System.ArgumentException"></exception>
         public static void TryValidateParam(Enum value, string paramName, string message = "")
         {
+            TryValidateParam(value, nameof(value));
             TryValidateParam(paramName, nameof(paramName));
 
             if (Enum.IsDefined(value.GetType(), value) == false)

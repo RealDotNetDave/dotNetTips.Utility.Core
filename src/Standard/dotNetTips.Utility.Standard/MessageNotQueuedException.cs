@@ -4,7 +4,7 @@
 // Created          : 06-20-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 09-23-2019
+// Last Modified On : 10-31-2019
 // ***********************************************************************
 // <copyright file="MessageNotQueuedException.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 using System;
+using System.Runtime.Serialization;
 
 namespace dotNetTips.Utility.Standard
 {
@@ -36,6 +37,7 @@ namespace dotNetTips.Utility.Standard
         {
 
         }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MessageNotQueuedException" /> class.
         /// </summary>
@@ -55,6 +57,27 @@ namespace dotNetTips.Utility.Standard
         public MessageNotQueuedException(string message, string messageId, Exception innerException) : base(message, innerException)
         {
             this.MessageId = messageId;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MessageNotQueuedException" /> class.
+        /// </summary>
+        /// <param name="message">The message that describes the error.</param>
+        public MessageNotQueuedException(string message) : base(message)
+        {
+
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MessageNotQueuedException" /> class.
+        /// </summary>
+        /// <param name="serializationInfo">The serialization information.</param>
+        /// <param name="streamingContext">The streaming context.</param>
+        /// <exception cref="System.NotImplementedException">The exception.</exception>
+        /// <exception cref="System.NotImplementedException">The exception.</exception>
+        protected MessageNotQueuedException(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)
+        {
+
         }
     }
 }

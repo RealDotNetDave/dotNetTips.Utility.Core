@@ -4,7 +4,7 @@
 // Created          : 06-15-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 09-25-2019
+// Last Modified On : 10-31-2019
 // ***********************************************************************
 // <copyright file="OneDriveFolder.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -20,10 +20,12 @@ namespace dotNetTips.Utility.Core.Windows.IO
     /// </summary>
     public class OneDriveFolder
     {
+#pragma warning disable CS8618 // Non-nullable field is uninitialized. Consider declaring as nullable.
         /// <summary>
         /// Initializes a new instance of the <see cref="OneDriveFolder" /> class.
         /// </summary>
         public OneDriveFolder()
+#pragma warning restore CS8618 // Non-nullable field is uninitialized. Consider declaring as nullable.
         {
             this.InitializeFields();
         }

@@ -4,12 +4,12 @@
 // Created          : 02-14-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-22-2019
+// Last Modified On : 10-23-2019
 // ***********************************************************************
 // <copyright file="DirectoryHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
 // </copyright>
-// <summary></summary>
+// <summary>Methods for directory operations.</summary>
 // ***********************************************************************
 
 using dotNetTips.Utility.Core.Windows.Win32;
@@ -30,7 +30,6 @@ namespace dotNetTips.Utility.Core.Windows.IO
     /// </summary>
     public static class DirectoryHelper
     {
-
         /// <summary>
         /// Load files as an asynchronous operation.
         /// </summary>

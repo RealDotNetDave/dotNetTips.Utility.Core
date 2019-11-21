@@ -2,8 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <AssemblyVersion>2019.10.22.35738</AssemblyVersion>
-    <FileVersion>2019.10.22.35738</FileVersion>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <AssemblyVersion>2019.11.8.35740</AssemblyVersion>
+    <FileVersion>2019.11.8.35740</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>2019.10.20</Version>
     <Authors>David McCarter</Authors>
@@ -32,7 +34,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.3" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="3.0.0" />
   </ItemGroup>
 

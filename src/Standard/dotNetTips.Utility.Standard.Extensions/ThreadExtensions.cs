@@ -44,7 +44,8 @@ namespace dotNetTips.Utility.Standard.Extensions
             do
             {
                 Thread.SpinWait(waitInterations);
-            } while (thread.IsAlive && DateTime.Now < stopAt);
+            }
+            while (thread.IsAlive && DateTime.Now < stopAt);
         }
     }
 }

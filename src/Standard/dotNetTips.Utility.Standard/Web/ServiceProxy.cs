@@ -4,7 +4,7 @@
 // Created          : 04-02-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 03-03-2019
+// Last Modified On : 11-08-2019
 // ***********************************************************************
 // <copyright file="ServiceProxy.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -22,8 +22,7 @@ namespace dotNetTips.Utility.Standard.Web
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <seealso cref="System.IDisposable" />
-    public abstract class ServiceProxy<T>
-        where T : ICommunicationObject, IDisposable
+    public abstract class ServiceProxy<T> where T : ICommunicationObject, IDisposable
     {
         /// <summary>
         /// The channel
@@ -44,10 +43,9 @@ namespace dotNetTips.Utility.Standard.Web
         /// The service endpoint
         /// </summary>
         private readonly string _serviceEndpoint;
-        /// <summary>
-        /// The disposed
-        /// </summary>
-        protected bool disposed;
+
+
+        private bool _disposed;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ServiceProxy{T}" /> class.
@@ -63,9 +61,9 @@ namespace dotNetTips.Utility.Standard.Web
         /// </summary>
         private void Initialize()
         {
-            lock(this._lock)
+            lock (this._lock)
             {
-                if(this.Channel != null)
+                if (this.Channel != null)
                 {
                     return;
                 }
@@ -80,7 +78,7 @@ namespace dotNetTips.Utility.Standard.Web
         /// </summary>
         protected void CloseChannel()
         {
-            if(this.Channel != null)
+            if (this.Channel != null)
             {
                 ((ICommunicationObject)this.Channel).Close();
             }
@@ -93,17 +91,17 @@ namespace dotNetTips.Utility.Standard.Web
         protected virtual void Dispose(bool disposing)
         {
             // Do nothing if the object has already been disposed of.
-            if(this.disposed)
+            if (this._disposed)
             {
                 return;
             }
 
             if (disposing)
             {
-                lock(this._lock)
+                lock (this._lock)
                 {
                     // Release disposable objects used by this instance here.
-                    if(this.Channel != null)
+                    if (this.Channel != null)
                     {
                         this.Channel.Dispose();
                     }
@@ -113,7 +111,7 @@ namespace dotNetTips.Utility.Standard.Web
             // Release unmanaged resources here. Don't access reference type fields.
 
             // Remember that the object has been disposed of.
-            this.disposed = true;
+            this._disposed = true;
         }
 
         /// <summary>
@@ -127,8 +125,15 @@ namespace dotNetTips.Utility.Standard.Web
                 this.Initialize();
                 return this._channel;
             }
+
             private set => this._channel = value;
         }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether <see cref="ServiceProxy{T}"/> is disposed.
+        /// </summary>
+        /// <value><c>true</c> if disposed; otherwise, <c>false</c>.</value>
+        protected bool Disposed { get => _disposed; set => _disposed = value; }
 
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.

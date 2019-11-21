@@ -31,6 +31,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
     /// concurrently from multiple threads.
     /// Original Code by Bar Arnon.</remarks>
     [DebuggerDisplay("Count = {Count}")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1710:Identifiers should have correct suffix", Justification = "<Pending>")]
     public sealed class ConcurrentHashSet<T> : IReadOnlyCollection<T>, ICollection<T>
     {
         /// <summary>
@@ -96,37 +97,22 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         {
         }
 
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}" />
-        /// class that is empty, has the specified concurrency level and capacity, and uses the default
-        /// comparer for the item type.
+        /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}"/> class.
         /// </summary>
-        /// <param name="concurrencyLevel">The estimated number of threads that will update the
-        /// <see cref="ConcurrentHashSet{T}" /> concurrently.</param>
-        /// <param name="capacity">The initial number of elements that the <see cref="ConcurrentHashSet{T}" />
-        /// can contain.</param>
-        /// <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="concurrencyLevel" /> is
-        /// less than 1.</exception>
-        /// <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="capacity" /> is less than
-        /// 0.</exception>
+        /// <param name="concurrencyLevel">The concurrency level.</param>
+        /// <param name="capacity">The initial capacity for the collection.</param>
         public ConcurrentHashSet(int concurrencyLevel, int capacity) : this(concurrencyLevel, capacity, false, null)
         {
         }
 
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}" />
-        /// class that contains elements copied from the specified <see cref="T:System.Collections.IEnumerable" />, has the default concurrency level, has the default
-        /// initial capacity, and uses the specified
-        /// <see cref="T:System.Collections.Generic.IEqualityComparer{T}" />.
+        /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}" /> class.
         /// </summary>
-        /// <param name="collection">The <see cref="T:System.Collections.IEnumerable{T}" /> whose elements are copied to
-        /// the new
-        /// <see cref="ConcurrentHashSet{T}" />.</param>
-        /// <param name="comparer">The <see cref="T:System.Collections.Generic.IEqualityComparer{T}" />
-        /// implementation to use when comparing items.</param>
-        /// <exception cref="ArgumentNullException">collection</exception>
-        /// <exception cref="T:System.ArgumentNullException"><paramref name="collection" /> is a null reference
-        /// (Nothing in Visual Basic).</exception>
+        /// <param name="collection">The collection to preload items.</param>
+        /// <param name="comparer">The comparer.</param>
         public ConcurrentHashSet(IEnumerable<T> collection, IEqualityComparer<T> comparer) : this(comparer)
         {
             if (collection != null)
