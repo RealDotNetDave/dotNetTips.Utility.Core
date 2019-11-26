@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 03-03-2019
+// Last Modified On : 11-21-2019
 // ***********************************************************************
 // <copyright file="ThreadExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
@@ -37,8 +37,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="thread">The thread.</param>
         /// <param name="interval">The wait interval.</param>
         /// <param name="waitInterations">The wait interations.</param>
+        /// <exception cref="ArgumentNullException">thread</exception>
         public static void WaitUntil(this Thread thread, TimeSpan interval, int waitInterations)
         {
+            if (thread is null)
+            {
+                throw new ArgumentNullException(nameof(thread));
+            }
+
             var stopAt = DateTime.Now.Add(interval);
 
             do

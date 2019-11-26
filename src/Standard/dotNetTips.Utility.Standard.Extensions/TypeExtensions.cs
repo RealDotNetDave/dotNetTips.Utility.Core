@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 05-31-2019
+// Last Modified On : 11-21-2019
 // ***********************************************************************
 // <copyright file="TypeExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
@@ -28,6 +28,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T"></typeparam>
         /// <param name="callback">The callback.</param>
         /// <returns>Hash for the field as System.String.</returns>
+        /// <exception cref="ArgumentNullException">callback</exception>
         public static string GetFieldHash<T>(this Func<T> callback)
         {
             if (callback is null)
@@ -43,6 +44,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns><c>true</c> if [has parameterless constructor] [the specified type]; otherwise, <c>false</c>.</returns>
+        /// <exception cref="ArgumentNullException">type</exception>
         public static bool HasParameterlessConstructor(this Type type)
         {
             if (type is null)

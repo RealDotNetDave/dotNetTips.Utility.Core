@@ -4,7 +4,7 @@
 // Created          : 08-09-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-04-2019
+// Last Modified On : 11-21-2019
 // ***********************************************************************
 // <copyright file="TypeHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -163,8 +163,8 @@ namespace dotNetTips.Utility.Standard
         /// <param name="baseType">Type of the base.</param>
         /// <param name="classOnly">if set to <c>true</c> [class only].</param>
         /// <returns>IEnumerable&lt;Type&gt;.</returns>
-        /// <exception cref="DirectoryNotFoundException">Could not find path.</exception>
         /// <exception cref="dotNetTips.Utility.Standard.DirectoryNotFoundException">Could not find path.</exception>
+        /// <exception cref="DirectoryNotFoundException">Could not find path.</exception>
         /// <exception cref="System.IO.DirectoryNotFoundException">Could not find path.</exception>
         /// <exception cref="ArgumentNullException">Could not find path.</exception>
         public static IEnumerable<Type> FindDerivedTypes(string path, SearchOption searchOption, Type baseType, bool classOnly)
@@ -219,6 +219,8 @@ namespace dotNetTips.Utility.Standard
         /// <returns>Int32.</returns>
         public static int GetInstanceHashCode(object instance)
         {
+            Encapsulation.TryValidateParam<ArgumentNullException>(instance != null, nameof(instance));
+
             var hash = -1;
 
             hash = instance.GetType().GetRuntimeProperties().Where(p => p != null).Select(prop => prop.GetValue(instance)).Where(value => value != null).Aggregate(-1, (accumulator, value) => accumulator ^ value.GetHashCode());

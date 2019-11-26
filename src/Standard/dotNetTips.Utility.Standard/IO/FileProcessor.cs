@@ -4,7 +4,7 @@
 // Created          : 08-06-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-04-2019
+// Last Modified On : 11-08-2019
 // ***********************************************************************
 // <copyright file="FileProcessor.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -233,7 +233,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// Handles the <see cref="E:Processed" /> event that is thrown after each file is processed.
         /// </summary>
-        /// <param name="e">The <see cref="FileProgressEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="FileProgressEventArgs" /> instance containing the event data.</param>
         protected virtual void OnProcessed(FileProgressEventArgs e) => Processed?.Invoke(this, e);
     }
 }

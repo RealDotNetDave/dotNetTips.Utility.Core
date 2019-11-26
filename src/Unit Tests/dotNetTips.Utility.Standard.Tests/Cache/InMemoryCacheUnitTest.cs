@@ -42,7 +42,6 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Cache
             }
 
             Assert.IsTrue(cache.Count == TestCount);
-
         }
     }
 }

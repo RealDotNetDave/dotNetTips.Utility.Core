@@ -8,16 +8,16 @@
     <Configurations>Release</Configurations>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <AssemblyVersion>2019.10.21.39335</AssemblyVersion>
-    <FileVersion>2019.10.21.39335</FileVersion>
+    <AssemblyVersion>2019.11.25.33747</AssemblyVersion>
+    <FileVersion>2019.11.25.33747</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>..\OutputBin\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.11.5.1197" />
-    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.11.5.1197" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.12.0.1239" />
+    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.12.0.1239" />
     <PackageReference Include="dotNetTips.Utility.Core.Windows" Version="2019.10.20" />
     <PackageReference Include="dotNetTips.Utility.Standard" Version="2019.10.21" />
     <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2019.10.20" />

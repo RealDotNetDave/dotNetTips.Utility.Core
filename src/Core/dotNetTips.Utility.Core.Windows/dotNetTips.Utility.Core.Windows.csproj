@@ -4,8 +4,8 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
-    <AssemblyVersion>2019.11.8.35740</AssemblyVersion>
-    <FileVersion>2019.11.8.35740</FileVersion>
+    <AssemblyVersion>2019.11.26.31648</AssemblyVersion>
+    <FileVersion>2019.11.26.31648</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>2019.10.20</Version>
     <Authors>David McCarter</Authors>
@@ -38,7 +38,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Windows.Compatibility" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="3.0.1" />
   </ItemGroup>
 
   <ItemGroup>

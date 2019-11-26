@@ -46,6 +46,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>T.</returns>
         public static T Clone<T>(this object obj)
         {
+            if (obj is null)
+            {
+                throw new ArgumentNullException(nameof(obj));
+            }
+
             using (var stream = new MemoryStream())
             {
                 var formatter = new BinaryFormatter();
@@ -259,7 +264,15 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="obj">The instance.</param>
         /// <returns>System.String.</returns>
-        public static string ToJson(this object obj) => JsonSerializer.Serialize(obj);
+        public static string ToJson(this object obj)
+        {
+            if (obj is null)
+            {
+                throw new ArgumentNullException(nameof(obj));
+            }
+
+            return JsonSerializer.Serialize(obj);
+        }
 
         /// <summary>
         /// Saves object to Json file.
@@ -268,6 +281,16 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="fileName">The file.</param>
         public static void ToJsonFile(this object obj, string fileName)
         {
+            if (obj is null)
+            {
+                throw new ArgumentNullException(nameof(obj));
+            }
+
+            if (string.IsNullOrEmpty(fileName))
+            {
+                throw new ArgumentException("message", nameof(fileName));
+            }
+
             var json = JsonSerializer.Serialize(obj);
 
             File.WriteAllText(fileName, json, Encoding.UTF8);

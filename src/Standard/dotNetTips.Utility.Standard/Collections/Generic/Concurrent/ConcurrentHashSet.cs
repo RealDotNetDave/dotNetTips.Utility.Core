@@ -4,7 +4,7 @@
 // Created          : 03-14-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-22-2019
+// Last Modified On : 11-21-2019
 // ***********************************************************************
 // <copyright file="ConcurrentHashSet.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -97,16 +97,14 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         {
         }
 
-
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}"/> class.
+        /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}" /> class.
         /// </summary>
         /// <param name="concurrencyLevel">The concurrency level.</param>
         /// <param name="capacity">The initial capacity for the collection.</param>
         public ConcurrentHashSet(int concurrencyLevel, int capacity) : this(concurrencyLevel, capacity, false, null)
         {
         }
-
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}" /> class.

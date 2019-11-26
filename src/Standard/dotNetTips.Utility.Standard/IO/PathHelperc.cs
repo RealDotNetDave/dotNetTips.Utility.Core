@@ -12,6 +12,8 @@
 // <summary></summary>
 // ***********************************************************************
 
+using dotNetTips.Utility.Standard.OOP;
+
 namespace dotNetTips.Utility.Standard.IO
 {
     /// <summary>
@@ -24,6 +26,11 @@ namespace dotNetTips.Utility.Standard.IO
         /// </summary>
         /// <param name="path">The path.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        public static bool PathContainsWildcard(string path) => ((path?.IndexOf('*') != -1) || (path?.IndexOf('?') != -1));
+        public static bool PathContainsWildcard(string path)
+        {
+            Encapsulation.TryValidateParam(path, nameof(path));
+
+            return ((path?.IndexOf('*') != -1) || (path?.IndexOf('?') != -1));
+        }
     }
 }

@@ -28,6 +28,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>T.</returns>
         public static T LoadSection<T>(this IConfigurationRoot config) where T : class, new()
         {
+            if (config is null)
+            {
+                throw new System.ArgumentNullException(nameof(config));
+            }
+
             config.Bind(TypeExtensions.Create<T>());
             return config.GetSection(typeof(T).Name).Get<T>();
         }

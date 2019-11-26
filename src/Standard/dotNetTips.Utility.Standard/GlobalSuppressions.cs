@@ -25,3 +25,19 @@
 [assembly: SuppressMessage("Design", "CA1062:Validate arguments of public methods", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.Enum,System.String,System.String)")]
 [assembly: SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.Xml.XmlHelper.DeserializeFromXmlFile``1(System.String)~``0")]
 [assembly: SuppressMessage("Naming", "CA1720:Identifier contains type name", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)~System.String")]
+[assembly: SuppressMessage("Naming", "CA1710:Identifiers should have correct suffix", Justification = "<Pending>", Scope = "type", Target = "~T:dotNetTips.Utility.Standard.Collections.Generic.FastSortedList`1")]
+
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores", Justification = "<Pending>", Scope = "type", Target = "~T:dotNetTips.Tips.Utility.Standard.EnvironmentKey")]
+[assembly: SuppressMessage("Design", "CA1062:Validate arguments of public methods", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.IO.FileHelper.DownloadFileFromWebAndUnzipAsync(System.Uri,System.String)~System.Threading.Tasks.Task")]
+
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1.System#Collections#Generic#ICollection<T>#CopyTo(`0[],System.Int32)")]
+[assembly: SuppressMessage("Design", "CA1062:Validate arguments of public methods", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)~System.String")]
+[assembly: SuppressMessage("Design", "CA1062:Validate arguments of public methods", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.Serialization.JsonSerializer.Serialize(System.Object)~System.String")]
+
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.TypeHelper.FindDerivedTypes(System.String,System.IO.SearchOption,System.Type,System.Boolean)~System.Collections.Generic.IEnumerable{System.Type}")]
+[assembly: SuppressMessage("Design", "CA1062:Validate arguments of public methods", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.TypeHelper.GetInstanceHashCode(System.Object)~System.Int32")]
+[assembly: SuppressMessage("Design", "CA1062:Validate arguments of public methods", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.TypeHelper.FindDerivedTypes(System.AppDomain,System.Type,System.Boolean)~System.Collections.Generic.IEnumerable{System.Type}")]
+
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1720:Identifier contains type name", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.Xml.XmlHelper.SerializeToXmlFile(System.Object,System.String)")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.ArgumentReadOnlyException.#ctor")]
+[assembly: SuppressMessage("Naming", "CA1724:Type names should not match namespaces", Justification = "<Pending>", Scope = "type", Target = "~T:dotNetTips.Utility.Standard.Services")]

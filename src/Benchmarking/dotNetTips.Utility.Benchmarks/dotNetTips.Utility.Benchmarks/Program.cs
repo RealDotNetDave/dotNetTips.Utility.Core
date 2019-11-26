@@ -15,6 +15,8 @@ using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Running;
 using BenchmarkDotNet.Toolchains.CsProj;
+using dotNetTips.Utility.Benchmarks.Extensions;
+using dotNetTips.Utility.Benchmarks.IO;
 using System;
 
 namespace dotNetTips.Utility.Benchmarks
@@ -28,9 +30,9 @@ namespace dotNetTips.Utility.Benchmarks
         {
             var config = DefaultConfig.Instance.With(Job.Default.With(CsProjCoreToolchain.NetCoreApp30));
 
-            BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).RunAll(config);
+            //BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).RunAll(config);
 
-            // BenchmarkRunner.Run<DirectoryHelperPerfTestRunner>(config);
+            BenchmarkRunner.Run<StringExtensionsPerfTestRunner>(config);
             Console.Beep();
             Console.Beep(5000, 1000);
             Console.ReadLine();

@@ -4,7 +4,7 @@
 // Created          : 02-11-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 06-03-2019
+// Last Modified On : 11-21-2019
 // ***********************************************************************
 // <copyright file="Enumeration.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -62,8 +62,23 @@ namespace dotNetTips.Utility.Standard
         /// <param name="firstValue">The first value.</param>
         /// <param name="secondValue">The second value.</param>
         /// <returns>System.Int32.</returns>
+        /// <exception cref="ArgumentNullException">
+        /// firstValue
+        /// or
+        /// secondValue
+        /// </exception>
         public static int AbsoluteDifference(Enumeration firstValue, Enumeration secondValue)
         {
+            if (firstValue is null)
+            {
+                throw new ArgumentNullException(nameof(firstValue));
+            }
+
+            if (secondValue is null)
+            {
+                throw new ArgumentNullException(nameof(secondValue));
+            }
+
             var absoluteDifference = Math.Abs(firstValue.Value - secondValue.Value);
             return absoluteDifference;
         }
@@ -73,7 +88,16 @@ namespace dotNetTips.Utility.Standard
         /// </summary>
         /// <param name="obj">The other.</param>
         /// <returns>T.</returns>
-        public int CompareTo(object obj) => this.Value.CompareTo(((Enumeration)obj).Value);
+        /// <exception cref="ArgumentNullException">obj</exception>
+        public int CompareTo(object obj)
+        {
+            if (obj is null)
+            {
+                throw new ArgumentNullException(nameof(obj));
+            }
+
+            return this.Value.CompareTo(((Enumeration)obj).Value);
+        }
 
         /// <summary>
         /// Gets all.

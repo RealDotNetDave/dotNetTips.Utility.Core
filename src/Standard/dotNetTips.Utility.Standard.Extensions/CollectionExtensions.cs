@@ -187,6 +187,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>System.Int32.</returns>
         public static int Count(this IEnumerable list)
         {
+            if (list is null)
+            {
+                throw new ArgumentNullException(nameof(list));
+            }
+
             if (list is ICollection collection)
             {
                 return collection.Count;
@@ -366,6 +371,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="System.ArgumentNullException">The exception.</exception>
         public static bool HasItems<T>(this List<T> source, Predicate<T> action)
         {
+            if (source is null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+
             if (action == null)
             {
                 throw new ArgumentNullException(nameof(action), $"{nameof(action)} is null.");

@@ -4,7 +4,7 @@
 // Created          : 06-06-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 03-03-2019
+// Last Modified On : 11-21-2019
 // ***********************************************************************
 // <copyright file="DirectoryNotFoundException.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -63,6 +63,33 @@ namespace dotNetTips.Utility.Standard
         public DirectoryNotFoundException(string message, string directory, Exception innerException) : base(message, innerException)
         {
             this.Directory = directory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DirectoryNotFoundException"/> class.
+        /// </summary>
+        /// <param name="message">The message that describes the error.</param>
+        public DirectoryNotFoundException(string message) : base(message)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DirectoryNotFoundException"/> class.
+        /// </summary>
+        /// <param name="message">The error message that explains the reason for the exception.</param>
+        /// <param name="innerException">The inner exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        public DirectoryNotFoundException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DirectoryNotFoundException"/> class.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <param name="ex">The Exception.</param>
+        /// <param name="userMessage">The user message.</param>
+        public DirectoryNotFoundException(string message, Exception ex, string userMessage) : base(message, ex, userMessage)
+        {
         }
 
         /// <summary>
