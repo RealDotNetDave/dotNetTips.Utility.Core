@@ -48,7 +48,7 @@ namespace dotNetTips.Utility.Standard.Cache
         }
 
         /// <summary>
-        /// Gets or sets the cache.
+        /// Gets or sets (private) the cache.
         /// </summary>
         /// <value>The cache.</value>
         /// <returns>MemoryCache.</returns>

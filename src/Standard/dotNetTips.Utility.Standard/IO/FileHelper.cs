@@ -102,7 +102,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// <returns>IEnumerable&lt;KeyValuePair&lt;System.String, System.String&gt;&gt;.</returns>
         public static IEnumerable<(string fileName, string errorMessage)> DeleteFiles(this IEnumerable<string> files)
         {
-            Encapsulation.TryValidateParam(files, nameof(files));
+            Encapsulation.TryValidateParam<ArgumentNullException>(files != null, nameof(files));
 
             var errors = new List<(string fileName, string errorMessage)>();
 

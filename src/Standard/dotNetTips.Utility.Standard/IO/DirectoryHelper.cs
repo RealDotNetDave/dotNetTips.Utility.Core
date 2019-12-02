@@ -100,7 +100,11 @@ namespace dotNetTips.Utility.Standard.IO
         public static void DeleteDirectory(string path, int retries = 10)
         {
             Encapsulation.TryValidateParam(path, nameof(path));
-            Encapsulation.TryValidateParam<ArgumentInvalidException>(Directory.Exists(path));
+
+            if(Directory.Exists(path)==false)
+            {
+                return;
+            }
 
             retries = Math.Max(1, retries);
             var tries = 0;

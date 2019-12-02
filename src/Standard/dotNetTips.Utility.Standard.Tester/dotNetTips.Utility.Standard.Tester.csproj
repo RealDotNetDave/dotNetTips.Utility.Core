@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2019.10.6</Version>
+    <Version>2019.12.02</Version>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
     <Product>dotNetTips.Utility.Standard</Product>
@@ -14,10 +14,11 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
     <PackageReleaseNotes>-- AUG 14 2019: Initial release.
--- AUG 31 2019: Cleanup of models including fixes.</PackageReleaseNotes>
+-- AUG 31 2019: Cleanup of models including fixes.
+-- DEC 02 2019: Added new methods for creating ramdom files. Code cleanup.</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>2019.10.21.39145</AssemblyVersion>
-    <FileVersion>2019.10.21.39145</FileVersion>
+    <AssemblyVersion>2019.12.2.32915</AssemblyVersion>
+    <FileVersion>2019.12.2.32915</FileVersion>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -43,7 +44,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NETCore.Platforms" Version="2.2.2" />
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="3.0.0" />
   </ItemGroup>
 
 </Project>

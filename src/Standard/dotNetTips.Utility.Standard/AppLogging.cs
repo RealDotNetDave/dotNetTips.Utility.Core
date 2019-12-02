@@ -4,7 +4,7 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 11-21-2019
+// Last Modified On : 11-29-2019
 // ***********************************************************************
 // <copyright file="AppLogging.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -35,11 +35,12 @@ namespace dotNetTips.Utility.Standard
         /// <value>The logger factory.</value>
         public static ILoggerFactory LoggerFactory { get; private set; } = new LoggerFactory();
 
+
         /// <summary>
         /// Creates the logger.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns>ILogger.</returns>
+        /// <typeparam name="T">Logger type.</typeparam>
+        /// <returns>ILogger object.</returns>
         public static ILogger CreateLogger<T>()
         {
             Logger = LoggerFactory.CreateLogger<T>();

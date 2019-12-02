@@ -36,16 +36,15 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Security
             {
                 // Create 3DES that generates a new key and initialization vector (IV).  
                 // Same key must be used in encryption and decryption  
-                using (var tdes = new TripleDESCryptoServiceProvider())
-                {
-                    // Encrypt string  
-                    var encrypted = EncryptionHelper.TripleDESEncrypt(raw, tdes.Key, tdes.IV);
+                using var tdes = new TripleDESCryptoServiceProvider();
 
-                    // Decrypt the bytes to a string.  
-                    var decrypted = EncryptionHelper.TripleDESDecrypt(encrypted, tdes.Key, tdes.IV);
+                // Encrypt string  
+                var encrypted = EncryptionHelper.TripleDESEncrypt(raw, tdes.Key, tdes.IV);
 
-                    Assert.AreEqual(raw, decrypted);
-                }
+                // Decrypt the bytes to a string.  
+                var decrypted = EncryptionHelper.TripleDESDecrypt(encrypted, tdes.Key, tdes.IV);
+
+                Assert.AreEqual(raw, decrypted);
             }
             catch (Exception ex)
             {

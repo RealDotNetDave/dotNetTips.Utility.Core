@@ -41,3 +41,6 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1720:Identifier contains type name", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.Xml.XmlHelper.SerializeToXmlFile(System.Object,System.String)")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.ArgumentReadOnlyException.#ctor")]
 [assembly: SuppressMessage("Naming", "CA1724:Type names should not match namespaces", Justification = "<Pending>", Scope = "type", Target = "~T:dotNetTips.Utility.Standard.Services")]
+
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1010:Collections should implement generic interface", Justification = "<Pending>", Scope = "type", Target = "~T:dotNetTips.Utility.Standard.Collections.DistinctBlockingCollection`1")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1720:Identifier contains type name", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.Serialization.JsonSerializer.Serialize(System.Object)~System.String")]

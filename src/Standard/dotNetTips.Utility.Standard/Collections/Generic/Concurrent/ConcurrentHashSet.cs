@@ -392,8 +392,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
                     Node previous = null;
                     for (var current = tables._buckets[bucketNo]; current != null; current = current._next)
                     {
-                        Debug.Assert((previous == null && current == tables._buckets[bucketNo]) ||
-                            previous._next == current);
+                        Debug.Assert((previous == null && current == tables._buckets[bucketNo]) || previous._next == current);
 
                         if (hashcode == current._hashCode && this._comparer.Equals(current._item, item))
                         {

@@ -85,13 +85,16 @@ namespace dotNetTips.Utility.Standard.Tester.Models
             }
 
             int result = 0;
+
             result = Address1.CompareTo(other.Address1);
+
             if (result != 0)
             {
                 return result;
             }
 
             result = Address2.CompareTo(other.Address2);
+
             if (result != 0)
             {
                 return result;
@@ -104,6 +107,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
             }
 
             result = CellPhone.CompareTo(other.CellPhone);
+
             if (result != 0)
             {
                 return result;
@@ -116,6 +120,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
             }
 
             result = Country.CompareTo(other.Country);
+
             if (result != 0)
             {
                 return result;
@@ -128,30 +133,35 @@ namespace dotNetTips.Utility.Standard.Tester.Models
             }
 
             result = FirstName.CompareTo(other.FirstName);
+
             if (result != 0)
             {
                 return result;
             }
 
             result = HomePhone.CompareTo(other.HomePhone);
+
             if (result != 0)
             {
                 return result;
             }
 
             result = Id.CompareTo(other.Id);
+
             if (result != 0)
             {
                 return result;
             }
 
             result = LastName.CompareTo(other.LastName);
+
             if (result != 0)
             {
                 return result;
             }
 
             result = PostalCode.CompareTo(other.PostalCode);
+
             if (result != 0)
             {
                 return result;

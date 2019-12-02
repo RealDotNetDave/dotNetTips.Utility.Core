@@ -309,7 +309,7 @@ namespace dotNetTips.Utility.Standard.Extensions
             {
                 T local = listToProcess[listCount];
 
-                if (match?.Invoke(local) ?? default(bool))
+                if (match?.Invoke(local) ?? default)
                 {
                     return new T?(local);
                 }

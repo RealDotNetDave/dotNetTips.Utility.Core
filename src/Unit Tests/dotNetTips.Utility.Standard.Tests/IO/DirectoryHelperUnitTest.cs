@@ -18,6 +18,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.IO;
+using dotNetTips.Utility.Standard.Tester;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dotNetTips.Tips.Utility.Standard.Tests.IO
@@ -52,16 +53,24 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
         {
             var destinationPath = Path.Combine(this._tempPath.FullName, nameof(CopyAndDeleteDirectoryTest));
 
+            var sourcePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "dotNetTips.com-" + DateTime.Now.Ticks);
+
+            var generatedFiles = RandomData.GenerateFiles(sourcePath, 500,5000);
+            
             try
             {
-                var folderToCopy = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)).GetDirectories().Randomize().FirstOrDefault();
 
-                DirectoryHelper.CopyDirectory(folderToCopy.FullName, destinationPath, false);
-                DirectoryHelper.DeleteDirectory(destinationPath, 5);
+                DirectoryHelper.CopyDirectory(sourcePath, destinationPath, false);
+
+                DirectoryHelper.DeleteDirectory(destinationPath, 3);
             }
             catch (Exception ex)
             {
                 Assert.Fail(ex.Message);
+            }
+            finally
+            {
+                DirectoryHelper.DeleteDirectory(sourcePath, 3);
             }
         }
 
@@ -125,10 +134,11 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
         public void CopyAndMoveDirectoryTest()
         {
             var destinationPath = Path.Combine(this._tempPath.FullName, nameof(CopyAndMoveDirectoryTest));
+            var folderToCopy = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).GetDirectories().Where(p => p.GetFiles().Count() > 0).Randomize().FirstOrDefault();
 
             try
             {
-                var folderToCopy = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)).GetDirectories().Randomize().FirstOrDefault();
+         
 
                 DirectoryHelper.CopyDirectory(folderToCopy.FullName, this._tempPath.FullName, false);
                 DirectoryHelper.MoveDirectory(folderToCopy.FullName, destinationPath, 5);
@@ -155,10 +165,10 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
             else
             {
                 var array = this._tempPath.EnumerateDirectories().ToArray();
-                for (var i = 0; i < array.Length; i++)
+                
+                foreach (var directory in array)
                 {
-                    var directory = array[i];
-                    directory.Delete();
+                    DirectoryHelper.DeleteDirectory(directory.FullName);
                 }
 
                 FileHelper.DeleteFiles(this._tempPath.EnumerateFiles().Select(p => p.FullName));

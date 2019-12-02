@@ -26,7 +26,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Cache
         /// <summary>
         /// The test count
         /// </summary>
-        const int TestCount = 100;
+       private const int _testCount = 100;
 
         /// <summary>
         /// Adds the items to cache.
@@ -36,12 +36,12 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Cache
         {
             var cache = InMemoryCache.Instance;
 
-            for (int i = 0; i < TestCount; i++)
+            for (int i = 0; i < _testCount; i++)
             {
                 cache.AddCacheItem<int>(RandomData.GenerateKey(), RandomData.GenerateInteger(i, 1000000));
             }
 
-            Assert.IsTrue(cache.Count == TestCount);
+            Assert.IsTrue(cache.Count == _testCount);
         }
     }
 }

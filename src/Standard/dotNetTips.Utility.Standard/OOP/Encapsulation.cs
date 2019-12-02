@@ -155,7 +155,11 @@ namespace dotNetTips.Utility.Standard.OOP
         /// <exception cref="System.ArgumentException"></exception>
         public static void TryValidateParam(Enum value, string paramName, string message = "")
         {
-            TryValidateParam(value, nameof(value));
+            if (value is null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
             TryValidateParam(paramName, nameof(paramName));
 
             if (Enum.IsDefined(value.GetType(), value) == false)

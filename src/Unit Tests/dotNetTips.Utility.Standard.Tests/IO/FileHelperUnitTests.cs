@@ -40,9 +40,9 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
 
                 };
 
-                var directory =Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                var directory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-                var fileToCopy = new DirectoryInfo(directory).GetFiles("*.*").Where(p1 => p1.Extension.Equals(".pdb") == false).Where(p1 => p1.Extension.Equals(".dll") == false).Where(p2 => p2.Extension.Equals(".exe") == false).Randomize().FirstOrDefault();
+                var fileToCopy =  new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).GetDirectories().Where(p => p.GetFiles().Count() > 0).Randomize().FirstOrDefault().GetFiles().FirstOrDefault();
 
                 var result = await FileHelper.CopyFileAsync(fileToCopy, this._tempPath);
 

@@ -3,8 +3,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.xml</DocumentationFile>
     <OutputPath>..\..\..\appbin\</OutputPath>
-    <AssemblyVersion>2019.11.26.31648</AssemblyVersion>
-    <FileVersion>2019.11.26.31648</FileVersion>
+    <AssemblyVersion>2019.12.2.32990</AssemblyVersion>
+    <FileVersion>2019.12.2.32990</FileVersion>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
@@ -19,7 +19,7 @@
     <AssemblyOriginatorKeyFile>dotNetTips.Utility.Standard.snk</AssemblyOriginatorKeyFile>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2019.10.21</Version>
+    <Version>2019.12.02</Version>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
     <Configurations>Debug;Release;Full Build</Configurations>
     <PackageLicenseUrl></PackageLicenseUrl>
@@ -28,7 +28,8 @@
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <PackageReleaseNotes>-- JUNE 2019: Quarterly Release - New methods for DirectoryHelper and FileHelper. Code cleanup.
--- AUG 2019: Quarterly Release - Code &amp; documentation cleanup. Code fixes. New code in LoggingHelper, ComputerInfo.</PackageReleaseNotes>
+-- AUG 2019: Quarterly Release - Code &amp; documentation cleanup. Code fixes. New code in LoggingHelper, ComputerInfo.
+-- DEC 02 2019: Code cleanup. Moved some methods to the new dotNetTips.Utility.Core.Windows project/ NuGet.</PackageReleaseNotes>
     <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -60,7 +61,7 @@
     <Compile Remove="ISingleton.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.7">
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

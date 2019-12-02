@@ -4,7 +4,7 @@
 // Created          : 01-19-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-30-2019
+// Last Modified On : 12-02-2019
 // ***********************************************************************
 // <copyright file="RandomData.cs" company="dotNetTips.Utility.Standard.Tester">
 //     Copyright (c) dotNetTips.com - McCarter Consulting. All rights reserved.
@@ -38,7 +38,14 @@ namespace dotNetTips.Utility.Standard.Tester
         /// </summary>
         public const char DefaultMinCharacter = 'A';
 
+        /// <summary>
+        /// The default minimum character random file name.
+        /// </summary>
         public const char DefaultMinCharacterRandomFile = 'A';
+
+        /// <summary>
+        /// The default maximum character random file name.
+        /// </summary>
         public const char DefaultMaxCharacterRandomFile = 'Z';
 
         /// <summary>
@@ -354,18 +361,30 @@ namespace dotNetTips.Utility.Standard.Tester
         public static string GenerateWord(int minLength, int maxLength, char minCharacter, char maxCharacter) => GenerateWord(GenerateInteger(minLength, maxLength), minCharacter, maxCharacter);
 
         /// <summary>
-        /// Generates the random file name with path (users temp folder).
+        /// Generates a random file name with path (users temp folder).
         /// </summary>
         /// <returns>System.String.</returns>
-        public static string GenerateRandomFileName() => Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+        public static string GenerateRandomFileName()
+        {
+            return Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+        }
 
         /// <summary>
-        /// Generates the random name of the file.
+        /// Generates a random file name.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns>System.String.</returns>
+        public static string GenerateRandomFileName(string path)
+        {
+            return Path.Combine(path, Path.GetRandomFileName());
+        }
+
+        /// <summary>
+        /// Generates random file name.
         /// </summary>
         /// <param name="fileNameLength">Length of the file name.</param>
         /// <param name="extension">The extension.</param>
         /// <returns>System.String.</returns>
-        /// TODO Edit XML Comment Template for GenerateRandomFileName
         public static string GenerateRandomFileName(int fileNameLength = 10, string extension = "tester.temp")
         {
             var fileName = GenerateWord(fileNameLength, DefaultMinCharacterRandomFile, DefaultMaxCharacterRandomFile) + "." + extension;
@@ -375,11 +394,25 @@ namespace dotNetTips.Utility.Standard.Tester
         }
 
         /// <summary>
-        /// Generates the file.
+        /// Generates a random file name.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <param name="fileNameLength">Length of the file name.</param>
+        /// <param name="extension">The extension.</param>
+        /// <returns>System.String.</returns>
+        public static string GenerateRandomFileName(string path, int fileNameLength = 10, string extension = "tester.temp")
+        {
+            var fileName = GenerateWord(fileNameLength, DefaultMinCharacterRandomFile, DefaultMaxCharacterRandomFile) + "." + extension;
+            var fullName = Path.Combine(path, fileName);
+
+            return fullName;
+        }
+
+        /// <summary>
+        /// Generates a random file.
         /// </summary>
         /// <param name="fileLength">The length.</param>
         /// <returns>System.String.</returns>
-        /// TODO Edit XML Comment Template for GenerateFile
         public static string GenerateTempFile(int fileLength = 1000)
         {
             var fileName = GenerateRandomFileName();
@@ -391,12 +424,11 @@ namespace dotNetTips.Utility.Standard.Tester
         }
 
         /// <summary>
-        /// Generates the file.
+        /// Generates the a test file.
         /// </summary>
         /// <param name="fileName">Name of the file.</param>
         /// <param name="fileLength">Length of the file.</param>
         /// <returns>System.String.</returns>
-        /// TODO Edit XML Comment Template for GenerateFile
         public static string GenerateFile(string fileName, int fileLength = 1000)
         {
             var fakeText = GenerateWord(fileLength  );
@@ -426,13 +458,12 @@ namespace dotNetTips.Utility.Standard.Tester
         }
 
         /// <summary>
-        /// Generates the files.
+        /// Generates random files.
         /// </summary>
         /// <param name="count">The count.</param>
         /// <param name="fileLength">Length of the file.</param>
         /// <param name="fileExtension">The file extension.</param>
         /// <returns>System.ValueTuple&lt;System.String, IEnumerable&lt;System.String&gt;&gt;.</returns>
-        /// TODO Edit XML Comment Template for GenerateFiles
         public static (string Path, IEnumerable<string> Files) GenerateFiles(int count = 100, int fileLength = 1000, string fileExtension="temp")
         {
             var files = new List<string>(count);
@@ -445,6 +476,28 @@ namespace dotNetTips.Utility.Standard.Tester
 
 
             return (Path.GetTempPath(), files.AsEnumerable());
+        }
+
+        /// <summary>
+        /// Generates random files.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <param name="count">The count.</param>
+        /// <param name="fileLength">Length of the file.</param>
+        /// <returns>IEnumerable&lt;System.String&gt;.</returns>
+        public static IEnumerable<string> GenerateFiles(string path, int count = 100, int fileLength = 1000)
+        {
+            var files = new List<string>(count);
+
+            Directory.CreateDirectory(path);
+
+            for (int fileCount = 0; fileCount < count; fileCount++)
+            {
+                var fileName = GenerateRandomFileName(path);
+                files.Add(GenerateFile(fileName, fileLength));
+            }
+
+            return files.AsEnumerable();
         }
     }
 }
