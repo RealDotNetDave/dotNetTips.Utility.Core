@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner-20191009-122317</title>
+<title>dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner-20191202-123734</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,22 +13,22 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.11.5.1191-nightly, OS=Windows 10.0.17763.775 (1809/October2018Update/Redstone5)
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.0.100
+.NET Core SDK=3.1.100-preview3-014645
   [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
-  Job-RGRUUZ : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+  Job-UEOGOB : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
 </code></pre>
 <pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=DirectoryHelper  
 </code></pre>
 
 <table>
-<thead><tr><th>       Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+<thead><tr><th>       Method</th><th> Mean</th><th>Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>LoadFiles</td><td>34.03 ms</td><td>0.378 ms</td><td>0.354 ms</td><td>66.6667</td><td>-</td><td>-</td><td>1256188 B</td>
-</tr><tr><td>LoadFilesAsync</td><td>36.02 ms</td><td>0.270 ms</td><td>0.252 ms</td><td>71.4286</td><td>-</td><td>-</td><td>1155629 B</td>
-</tr><tr><td>SafeDirectorySearch</td><td>42.63 ms</td><td>0.272 ms</td><td>0.241 ms</td><td>-</td><td>-</td><td>-</td><td>760 B</td>
+</thead><tbody><tr><td>LoadFiles</td><td>30,379.6 us</td><td>49.59 us</td><td>46.38 us</td><td>62.5000</td><td>31.2500</td><td>-</td><td>1349626 B</td>
+</tr><tr><td>LoadFilesAsync</td><td>19,096.7 us</td><td>44.28 us</td><td>41.42 us</td><td>125.0000</td><td>-</td><td>-</td><td>1188552 B</td>
+</tr><tr><td>SafeDirectorySearch</td><td>377.4 us</td><td>1.19 us</td><td>1.11 us</td><td>-</td><td>-</td><td>-</td><td>760 B</td>
 </tr></tbody></table>
 </body>
 </html>

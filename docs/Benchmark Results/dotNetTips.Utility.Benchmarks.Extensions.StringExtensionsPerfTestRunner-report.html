@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner-20191009-122120</title>
+<title>dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner-20191202-123538</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,11 +13,11 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.11.5.1191-nightly, OS=Windows 10.0.17763.775 (1809/October2018Update/Redstone5)
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.0.100
+.NET Core SDK=3.1.100-preview3-014645
   [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
-  Job-RGRUUZ : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+  Job-UEOGOB : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
 </code></pre>
 <pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=StringExtensions  
@@ -26,12 +26,12 @@ Categories=StringExtensions
 <table>
 <thead><tr><th>     Method</th><th>  Mean</th><th>Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>ComputeSha256Hash</td><td>6,125.108 ns</td><td>5.9780 ns</td><td>5.2994 ns</td><td>0.2823</td><td>-</td><td>-</td><td>2760 B</td>
-</tr><tr><td>Concat</td><td>600.308 ns</td><td>2.9490 ns</td><td>2.6142 ns</td><td>0.6523</td><td>0.0048</td><td>-</td><td>6096 B</td>
-</tr><tr><td>ContainsAny</td><td>54.823 ns</td><td>0.1742 ns</td><td>0.1544 ns</td><td>0.0172</td><td>-</td><td>-</td><td>160 B</td>
-</tr><tr><td>HasValue</td><td>6.715 ns</td><td>0.0664 ns</td><td>0.0621 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>Indent</td><td>439.382 ns</td><td>1.4687 ns</td><td>1.3739 ns</td><td>0.4368</td><td>0.0019</td><td>-</td><td>4088 B</td>
-</tr><tr><td>ToTrimmedString</td><td>218.482 ns</td><td>2.1108 ns</td><td>1.9745 ns</td><td>0.2108</td><td>0.0005</td><td>-</td><td>1960 B</td>
+</thead><tbody><tr><td>ComputeSha256Hash</td><td>6,117.450 ns</td><td>9.4944 ns</td><td>7.9283 ns</td><td>0.2899</td><td>-</td><td>-</td><td>2760 B</td>
+</tr><tr><td>Concat</td><td>574.711 ns</td><td>4.4002 ns</td><td>4.1160 ns</td><td>0.6418</td><td>0.0048</td><td>-</td><td>6064 B</td>
+</tr><tr><td>ContainsAny</td><td>65.489 ns</td><td>0.3795 ns</td><td>0.3550 ns</td><td>0.0170</td><td>-</td><td>-</td><td>160 B</td>
+</tr><tr><td>HasValue</td><td>6.278 ns</td><td>0.0411 ns</td><td>0.0365 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>Indent</td><td>442.707 ns</td><td>0.8873 ns</td><td>0.8299 ns</td><td>0.4330</td><td>0.0024</td><td>-</td><td>4088 B</td>
+</tr><tr><td>ToTrimmedString</td><td>216.676 ns</td><td>2.2588 ns</td><td>2.1129 ns</td><td>0.2069</td><td>0.0005</td><td>-</td><td>1960 B</td>
 </tr></tbody></table>
 </body>
 </html>

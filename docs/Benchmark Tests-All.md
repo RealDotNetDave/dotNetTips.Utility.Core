@@ -1,13 +1,13 @@
 # dotNetTips.Utility Core Benchmark Tests
-Below are the current benchmark tests for the dotNetTips.Utility assemblies for .NET Core.
+Below are the current benchmark tests for the dotNetTips.Utility assemblies for .NET Core. Benchmark test run on: December 02, 2019
 # ConcurrentHashSet:
 ``` ini
 
-BenchmarkDotNet=v0.11.5.1191-nightly, OS=Windows 10.0.17763.775 (1809/October2018Update/Redstone5)
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.0.100
+.NET Core SDK=3.1.100-preview3-014645
   [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
-  Job-RGRUUZ : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+  Job-UEOGOB : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
 
 EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=ConcurrentHashSet,GenericCollections  
@@ -15,26 +15,27 @@ Categories=ConcurrentHashSet,GenericCollections
 ```
 |                      Method | CollectionCount |        Mean |     Error |    StdDev |  Gen 0 |  Gen 1 | Gen 2 | Allocated |
 |---------------------------- |---------------- |------------:|----------:|----------:|-------:|-------:|------:|----------:|
-| **&#39;Create Using Constructor.&#39;** |              **25** |  **5,339.4 ns** |   **9.52 ns** |   **7.95 ns** | **0.3433** |      **-** |     **-** |    **3224 B** |
-| &#39;Create Using Constructor.&#39; |              50 |  9,985.0 ns |  15.13 ns |  13.41 ns | 0.4578 |      - |     - |    4344 B |
-| &#39;Create Using Constructor.&#39; |             100 | 21,496.2 ns | 172.32 ns | 161.19 ns | 1.4648 |      - |     - |   13792 B |
-| &#39;Create Using Constructor.&#39; |             250 | 54,273.9 ns | 523.28 ns | 489.48 ns | 3.6011 |      - |     - |   33897 B |
-|   **&#39;Create Using ForEach().&#39;** |              **25** |  **5,315.9 ns** |  **11.89 ns** |  **10.54 ns** | **0.3510** |      **-** |     **-** |    **3312 B** |
-|   &#39;Create Using ForEach().&#39; |              50 | 10,292.4 ns | 111.47 ns |  98.82 ns | 0.4730 |      - |     - |    4432 B |
-|   &#39;Create Using ForEach().&#39; |             100 | 21,785.6 ns |  29.33 ns |  26.00 ns | 1.6785 | 0.0305 |     - |   15760 B |
-|   &#39;Create Using ForEach().&#39; |             250 | 53,798.5 ns | 181.08 ns | 151.21 ns | 3.5400 | 0.1831 |     - |   33385 B |
-|   **&#39;Looping with foreach().&#39;** |              **25** |    **481.5 ns** |   **3.99 ns** |   **3.73 ns** | **0.0057** |      **-** |     **-** |      **56 B** |
-|   &#39;Looping with foreach().&#39; |              50 |    687.4 ns |   8.74 ns |   8.17 ns | 0.0057 |      - |     - |      56 B |
-|   &#39;Looping with foreach().&#39; |             100 |  2,242.8 ns |   5.60 ns |   5.24 ns | 0.0038 |      - |     - |      56 B |
-|   &#39;Looping with foreach().&#39; |             250 |  7,834.3 ns |  15.92 ns |  14.12 ns |      - |      - |     - |      56 B |
+| **&#39;Create Using Constructor.&#39;** |              **25** |  **5,227.3 ns** |   **9.31 ns** |   **8.71 ns** | **0.3586** |      **-** |     **-** |    **3384 B** |
+| &#39;Create Using Constructor.&#39; |              50 | 10,846.9 ns | 128.17 ns | 119.89 ns | 0.8392 |      - |     - |    7936 B |
+| &#39;Create Using Constructor.&#39; |             100 | 21,259.2 ns | 235.76 ns | 208.99 ns | 1.7395 | 0.0305 |     - |   16512 B |
+| &#39;Create Using Constructor.&#39; |             250 | 58,301.5 ns |  56.38 ns |  49.98 ns | 5.8594 | 0.4272 |     - |   55097 B |
+|   **&#39;Create Using ForEach().&#39;** |              **25** |  **5,452.7 ns** |  **11.11 ns** |  **10.39 ns** | **0.3586** |      **-** |     **-** |    **3432 B** |
+|   &#39;Create Using ForEach().&#39; |              50 | 10,967.7 ns |  21.37 ns |  19.99 ns | 0.8087 |      - |     - |    7584 B |
+|   &#39;Create Using ForEach().&#39; |             100 | 22,491.0 ns |  26.31 ns |  23.32 ns | 1.7395 |      - |     - |   16480 B |
+|   &#39;Create Using ForEach().&#39; |             250 | 60,863.6 ns | 294.30 ns | 275.29 ns | 5.7373 | 0.4272 |     - |   54465 B |
+|   **&#39;Looping with foreach().&#39;** |              **25** |    **470.1 ns** |   **5.92 ns** |   **5.54 ns** | **0.0057** |      **-** |     **-** |      **56 B** |
+|   &#39;Looping with foreach().&#39; |              50 |  1,666.9 ns |  22.61 ns |  21.15 ns | 0.0057 |      - |     - |      56 B |
+|   &#39;Looping with foreach().&#39; |             100 |  2,145.3 ns |   3.88 ns |   3.44 ns | 0.0038 |      - |     - |      56 B |
+|   &#39;Looping with foreach().&#39; |             250 |  7,902.2 ns |  11.35 ns |  10.61 ns |      - |      - |     - |      56 B |
+
 # DistinctConcurrentBag
 ``` ini
 
-BenchmarkDotNet=v0.11.5.1191-nightly, OS=Windows 10.0.17763.775 (1809/October2018Update/Redstone5)
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.0.100
+.NET Core SDK=3.1.100-preview3-014645
   [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
-  Job-RGRUUZ : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+  Job-UEOGOB : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
 
 EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=DistinctConcurrentBag,GenericCollections  
@@ -42,26 +43,27 @@ Categories=DistinctConcurrentBag,GenericCollections
 ```
 |                        Method | CollectionCount |        Mean |     Error |    StdDev |  Gen 0 | Gen 1 | Gen 2 | Allocated |
 |------------------------------ |---------------- |------------:|----------:|----------:|-------:|------:|------:|----------:|
-| **&#39;Creating Using Constructor.&#39;** |              **25** |  **6,830.2 ns** |  **95.76 ns** |  **84.89 ns** | **0.0076** |     **-** |     **-** |    **1912 B** |
-| &#39;Creating Using Constructor.&#39; |              50 | 12,295.1 ns | 133.26 ns | 118.13 ns | 0.0153 |     - |     - |    3928 B |
-| &#39;Creating Using Constructor.&#39; |             100 | 24,186.3 ns |  88.38 ns |  78.34 ns | 0.0305 |     - |     - |    8184 B |
-| &#39;Creating Using Constructor.&#39; |             250 | 57,051.4 ns | 473.71 ns | 443.11 ns | 0.0610 |     - |     - |   17208 B |
-|   **&#39;Creating Using ForEach().&#39;** |              **25** |  **6,061.0 ns** | **119.87 ns** | **275.41 ns** |      **-** |     **-** |     **-** |    **1960 B** |
-|   &#39;Creating Using ForEach().&#39; |              50 | 12,131.1 ns | 137.26 ns | 128.40 ns |      - |     - |     - |    3994 B |
-|   &#39;Creating Using ForEach().&#39; |             100 | 23,331.5 ns | 184.36 ns | 153.95 ns | 0.0305 |     - |     - |    8232 B |
-|   &#39;Creating Using ForEach().&#39; |             250 | 56,447.7 ns | 157.90 ns | 139.98 ns | 0.0610 |     - |     - |   17256 B |
-|     **&#39;Looping with foreach().&#39;** |              **25** |    **313.5 ns** |   **0.67 ns** |   **0.63 ns** | **0.0281** |     **-** |     **-** |     **264 B** |
-|     &#39;Looping with foreach().&#39; |              50 |    506.6 ns |   1.29 ns |   1.21 ns | 0.0496 |     - |     - |     464 B |
-|     &#39;Looping with foreach().&#39; |             100 |    937.9 ns |  11.67 ns |  10.92 ns | 0.0925 |     - |     - |     864 B |
-|     &#39;Looping with foreach().&#39; |             250 |  2,369.7 ns |   4.33 ns |   4.05 ns | 0.2213 |     - |     - |    2064 B |
+| **&#39;Creating Using Constructor.&#39;** |              **25** |  **6,260.9 ns** |  **15.89 ns** |  **12.41 ns** | **0.0076** |     **-** |     **-** |    **2192 B** |
+| &#39;Creating Using Constructor.&#39; |              50 | 11,842.0 ns |  41.52 ns |  38.84 ns | 0.0153 |     - |     - |    4408 B |
+| &#39;Creating Using Constructor.&#39; |             100 | 22,774.3 ns | 265.60 ns | 248.44 ns | 0.0305 |     - |     - |    9064 B |
+| &#39;Creating Using Constructor.&#39; |             250 | 54,775.6 ns | 748.04 ns | 699.72 ns | 0.0610 |     - |     - |   19288 B |
+|   **&#39;Creating Using ForEach().&#39;** |              **25** |  **6,056.3 ns** |  **65.43 ns** |  **58.00 ns** |      **-** |     **-** |     **-** |    **1978 B** |
+|   &#39;Creating Using ForEach().&#39; |              50 | 12,110.9 ns |  63.37 ns |  59.28 ns |      - |     - |     - |    3994 B |
+|   &#39;Creating Using ForEach().&#39; |             100 | 22,753.9 ns | 183.41 ns | 162.58 ns | 0.0305 |     - |     - |    8232 B |
+|   &#39;Creating Using ForEach().&#39; |             250 | 55,334.6 ns | 153.39 ns | 135.97 ns | 0.0610 |     - |     - |   17256 B |
+|     **&#39;Looping with foreach().&#39;** |              **25** |    **292.0 ns** |   **2.97 ns** |   **2.48 ns** | **0.0277** |     **-** |     **-** |     **264 B** |
+|     &#39;Looping with foreach().&#39; |              50 |    537.0 ns |   2.44 ns |   2.29 ns | 0.0486 |     - |     - |     464 B |
+|     &#39;Looping with foreach().&#39; |             100 |    934.3 ns |  11.25 ns |  10.53 ns | 0.0925 |     - |     - |     864 B |
+|     &#39;Looping with foreach().&#39; |             250 |  2,223.0 ns |   4.26 ns |   3.32 ns | 0.2213 |     - |     - |    2064 B |
+
 # DistinctBlockingCollection
 ``` ini
 
-BenchmarkDotNet=v0.11.5.1191-nightly, OS=Windows 10.0.17763.775 (1809/October2018Update/Redstone5)
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.0.100
+.NET Core SDK=3.1.100-preview3-014645
   [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
-  Job-RGRUUZ : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+  Job-UEOGOB : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
 
 EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=DistinctBlockingCollection,GenericCollections  
@@ -69,65 +71,67 @@ Categories=DistinctBlockingCollection,GenericCollections
 ```
 |                             Method | CollectionCount |         Mean |      Error |     StdDev |  Gen 0 | Gen 1 | Gen 2 | Allocated |
 |----------------------------------- |---------------- |-------------:|-----------:|-----------:|-------:|------:|------:|----------:|
-|      **&#39;Creating Using Constructor.&#39;** |              **25** |  **2,811.89 ns** |   **4.647 ns** |   **4.347 ns** | **0.1259** |     **-** |     **-** |    **1160 B** |
-|      &#39;Creating Using Constructor.&#39; |              50 |  5,735.51 ns |  25.597 ns |  23.944 ns | 0.1221 |     - |     - |    1160 B |
-|      &#39;Creating Using Constructor.&#39; |             100 | 10,911.08 ns |  51.105 ns |  47.804 ns | 0.1221 |     - |     - |    1160 B |
-|      &#39;Creating Using Constructor.&#39; |             250 | 26,877.46 ns | 284.566 ns | 266.184 ns | 0.1221 |     - |     - |    1160 B |
-|            **&#39;Creating Using for().&#39;** |              **25** |  **2,647.80 ns** |   **4.331 ns** |   **3.616 ns** | **0.1297** |     **-** |     **-** |    **1208 B** |
-|            &#39;Creating Using for().&#39; |              50 |  5,298.57 ns |  14.862 ns |  13.902 ns | 0.1221 |     - |     - |    1208 B |
-|            &#39;Creating Using for().&#39; |             100 | 10,218.70 ns |  23.351 ns |  20.700 ns | 0.1221 |     - |     - |    1208 B |
-|            &#39;Creating Using for().&#39; |             250 | 25,462.46 ns | 205.534 ns | 171.630 ns | 0.1221 |     - |     - |    1208 B |
-|          **&#39;Looping with foreach().&#39;** |              **25** |     **40.63 ns** |   **0.185 ns** |   **0.145 ns** | **0.0085** |     **-** |     **-** |      **80 B** |
-|          &#39;Looping with foreach().&#39; |              50 |     40.60 ns |   0.118 ns |   0.110 ns | 0.0085 |     - |     - |      80 B |
-|          &#39;Looping with foreach().&#39; |             100 |     41.74 ns |   0.212 ns |   0.199 ns | 0.0085 |     - |     - |      80 B |
-|          &#39;Looping with foreach().&#39; |             250 |     44.66 ns |   0.066 ns |   0.055 ns | 0.0086 |     - |     - |      80 B |
-| **&#39;Looping with Parallel.ForEach().&#39;** |              **25** |  **2,343.53 ns** |  **35.751 ns** |  **33.441 ns** | **0.6714** |     **-** |     **-** |    **5175 B** |
-| &#39;Looping with Parallel.ForEach().&#39; |              50 |  2,176.87 ns |   3.407 ns |   3.020 ns | 0.6828 |     - |     - |    5177 B |
-| &#39;Looping with Parallel.ForEach().&#39; |             100 |  2,285.98 ns |   8.490 ns |   7.941 ns | 0.6599 |     - |     - |    5168 B |
-| &#39;Looping with Parallel.ForEach().&#39; |             250 |  2,159.38 ns |   3.207 ns |   2.843 ns | 0.6981 |     - |     - |    5169 B |
+|      **&#39;Creating Using Constructor.&#39;** |              **25** |  **2,788.38 ns** |  **13.771 ns** |  **12.208 ns** | **0.1488** |     **-** |     **-** |    **1440 B** |
+|      &#39;Creating Using Constructor.&#39; |              50 |  5,290.47 ns |  12.207 ns |  11.418 ns | 0.1755 |     - |     - |    1640 B |
+|      &#39;Creating Using Constructor.&#39; |             100 | 10,361.55 ns | 200.764 ns | 214.815 ns | 0.2136 |     - |     - |    2040 B |
+|      &#39;Creating Using Constructor.&#39; |             250 | 25,243.51 ns | 283.724 ns | 265.396 ns | 0.3357 |     - |     - |    3240 B |
+|            **&#39;Creating Using for().&#39;** |              **25** |  **2,757.80 ns** |   **5.245 ns** |   **4.650 ns** | **0.1297** |     **-** |     **-** |    **1208 B** |
+|            &#39;Creating Using for().&#39; |              50 |  5,235.70 ns |   6.187 ns |   5.167 ns | 0.1221 |     - |     - |    1208 B |
+|            &#39;Creating Using for().&#39; |             100 | 10,304.99 ns | 114.942 ns | 101.893 ns | 0.1221 |     - |     - |    1208 B |
+|            &#39;Creating Using for().&#39; |             250 | 25,207.36 ns |  51.886 ns |  45.995 ns | 0.1221 |     - |     - |    1208 B |
+|          **&#39;Looping with foreach().&#39;** |              **25** |     **40.23 ns** |   **0.521 ns** |   **0.407 ns** | **0.0085** |     **-** |     **-** |      **80 B** |
+|          &#39;Looping with foreach().&#39; |              50 |     41.58 ns |   0.281 ns |   0.263 ns | 0.0085 |     - |     - |      80 B |
+|          &#39;Looping with foreach().&#39; |             100 |     42.27 ns |   0.301 ns |   0.282 ns | 0.0085 |     - |     - |      80 B |
+|          &#39;Looping with foreach().&#39; |             250 |     41.95 ns |   0.126 ns |   0.118 ns | 0.0085 |     - |     - |      80 B |
+| **&#39;Looping with Parallel.ForEach().&#39;** |              **25** |  **2,250.10 ns** |   **3.393 ns** |   **3.173 ns** | **0.6943** |     **-** |     **-** |    **5165 B** |
+| &#39;Looping with Parallel.ForEach().&#39; |              50 |  2,310.94 ns |  26.051 ns |  24.368 ns | 0.6828 |     - |     - |    5162 B |
+| &#39;Looping with Parallel.ForEach().&#39; |             100 |  2,270.76 ns |   3.505 ns |   3.107 ns | 0.7133 |     - |     - |    5164 B |
+| &#39;Looping with Parallel.ForEach().&#39; |             250 |  2,250.07 ns |   4.677 ns |   4.375 ns | 0.6981 |     - |     - |    5167 B |
+
 # FastSortedList
 ``` ini
 
-BenchmarkDotNet=v0.11.5.1191-nightly, OS=Windows 10.0.17763.775 (1809/October2018Update/Redstone5)
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.0.100
+.NET Core SDK=3.1.100-preview3-014645
   [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
-  Job-RGRUUZ : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+  Job-UEOGOB : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
 
 EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=FastSortedList,GenericCollections  
 
 ```
-|                       Method | CollectionCount |         Mean |      Error |     StdDev |       Median |  Gen 0 |  Gen 1 | Gen 2 | Allocated |
-|----------------------------- |---------------- |-------------:|-----------:|-----------:|-------------:|-------:|-------:|------:|----------:|
-| **&#39;Creating Using Constructor&#39;** |              **25** |     **52.69 ns** |   **1.755 ns** |   **4.833 ns** |     **50.23 ns** | **0.0284** |      **-** |     **-** |     **264 B** |
-| &#39;Creating Using Constructor&#39; |              50 |     72.30 ns |   0.274 ns |   0.256 ns |     72.28 ns | 0.0494 |      - |     - |     456 B |
-| &#39;Creating Using Constructor&#39; |             100 |    103.09 ns |   0.345 ns |   0.306 ns |    103.11 ns | 0.0917 | 0.0001 |     - |     856 B |
-| &#39;Creating Using Constructor&#39; |             250 |    217.67 ns |   2.423 ns |   2.266 ns |    218.42 ns | 0.2248 | 0.0010 |     - |    2064 B |
-|       **&#39;Creating Using for()&#39;** |              **25** |    **280.62 ns** |   **2.039 ns** |   **1.907 ns** |    **280.16 ns** | **0.0753** |      **-** |     **-** |     **704 B** |
-|       &#39;Creating Using for()&#39; |              50 |    488.67 ns |   2.738 ns |   2.561 ns |    488.89 ns | 0.1326 |      - |     - |    1240 B |
-|       &#39;Creating Using for()&#39; |             100 |    818.76 ns |   8.771 ns |   8.204 ns |    812.97 ns | 0.2460 |      - |     - |    2288 B |
-|       &#39;Creating Using for()&#39; |             250 |  1,619.80 ns |   4.269 ns |   3.333 ns |  1,620.66 ns | 0.4673 | 0.0019 |     - |    4360 B |
-|     **&#39;Looping with ForEach()&#39;** |              **25** |    **101.55 ns** |   **0.647 ns** |   **0.606 ns** |    **101.64 ns** | **0.0068** |      **-** |     **-** |      **64 B** |
-|     &#39;Looping with ForEach()&#39; |              50 |    185.22 ns |   0.596 ns |   0.529 ns |    185.03 ns | 0.0067 |      - |     - |      64 B |
-|     &#39;Looping with ForEach()&#39; |             100 |    329.26 ns |   0.839 ns |   0.701 ns |    329.28 ns | 0.0067 |      - |     - |      64 B |
-|     &#39;Looping with ForEach()&#39; |             250 |    794.53 ns |   1.252 ns |   1.171 ns |    794.37 ns | 0.0067 |      - |     - |      64 B |
-|                       **Sort()** |              **25** |  **3,044.20 ns** |   **3.074 ns** |   **2.725 ns** |  **3,043.31 ns** |      **-** |      **-** |     **-** |         **-** |
-|                       Sort() |              50 |  8,672.08 ns |  16.895 ns |  14.977 ns |  8,669.51 ns |      - |      - |     - |         - |
-|                       Sort() |             100 | 23,477.71 ns |  57.975 ns |  48.411 ns | 23,463.07 ns |      - |      - |     - |         - |
-|                       Sort() |             250 | 72,831.10 ns | 130.977 ns | 122.516 ns | 72,825.04 ns |      - |      - |     - |         - |
-|  **&#39;Sort(delegate) on Country&#39;** |              **25** |  **2,921.27 ns** |   **2.372 ns** |   **2.102 ns** |  **2,920.20 ns** |      **-** |      **-** |     **-** |         **-** |
-|  &#39;Sort(delegate) on Country&#39; |              50 |  8,521.52 ns |  10.518 ns |   9.324 ns |  8,522.49 ns |      - |      - |     - |         - |
-|  &#39;Sort(delegate) on Country&#39; |             100 | 21,483.53 ns |  21.029 ns |  17.561 ns | 21,482.45 ns |      - |      - |     - |         - |
-|  &#39;Sort(delegate) on Country&#39; |             250 | 72,656.39 ns | 134.499 ns | 112.313 ns | 72,615.81 ns |      - |      - |     - |         - |
+|                       Method | CollectionCount |         Mean |      Error |     StdDev |  Gen 0 |  Gen 1 | Gen 2 | Allocated |
+|----------------------------- |---------------- |-------------:|-----------:|-----------:|-------:|-------:|------:|----------:|
+| **&#39;Creating Using Constructor&#39;** |              **25** |     **45.73 ns** |   **0.063 ns** |   **0.049 ns** | **0.0269** |      **-** |     **-** |     **256 B** |
+| &#39;Creating Using Constructor&#39; |              50 |     65.80 ns |   0.215 ns |   0.201 ns | 0.0490 |      - |     - |     464 B |
+| &#39;Creating Using Constructor&#39; |             100 |     99.55 ns |   0.373 ns |   0.349 ns | 0.0917 | 0.0001 |     - |     864 B |
+| &#39;Creating Using Constructor&#39; |             250 |    213.02 ns |   3.181 ns |   2.975 ns | 0.2215 | 0.0012 |     - |    2064 B |
+|       **&#39;Creating Using for()&#39;** |              **25** |    **276.28 ns** |   **5.442 ns** |   **8.632 ns** | **0.0744** |      **-** |     **-** |     **704 B** |
+|       &#39;Creating Using for()&#39; |              50 |    444.30 ns |   1.363 ns |   1.138 ns | 0.1302 |      - |     - |    1240 B |
+|       &#39;Creating Using for()&#39; |             100 |    772.10 ns |   1.814 ns |   1.697 ns | 0.2413 |      - |     - |    2288 B |
+|       &#39;Creating Using for()&#39; |             250 |  1,682.53 ns |   3.241 ns |   3.031 ns | 0.4692 | 0.0038 |     - |    4360 B |
+|     **&#39;Looping with ForEach()&#39;** |              **25** |     **99.38 ns** |   **1.753 ns** |   **1.640 ns** | **0.0067** |      **-** |     **-** |      **64 B** |
+|     &#39;Looping with ForEach()&#39; |              50 |    186.13 ns |   0.430 ns |   0.403 ns | 0.0067 |      - |     - |      64 B |
+|     &#39;Looping with ForEach()&#39; |             100 |    371.73 ns |   7.446 ns |  18.264 ns | 0.0067 |      - |     - |      64 B |
+|     &#39;Looping with ForEach()&#39; |             250 |    796.69 ns |   1.448 ns |   1.354 ns | 0.0067 |      - |     - |      64 B |
+|                       **Sort()** |              **25** |  **3,212.05 ns** |   **4.010 ns** |   **3.555 ns** |      **-** |      **-** |     **-** |         **-** |
+|                       Sort() |              50 |  8,349.33 ns |  10.516 ns |   9.837 ns |      - |      - |     - |         - |
+|                       Sort() |             100 | 27,133.91 ns | 367.563 ns | 343.819 ns |      - |      - |     - |         - |
+|                       Sort() |             250 | 75,295.94 ns | 100.433 ns |  93.945 ns |      - |      - |     - |         - |
+|  **&#39;Sort(delegate) on Country&#39;** |              **25** |  **2,696.79 ns** |   **7.815 ns** |   **6.526 ns** |      **-** |      **-** |     **-** |         **-** |
+|  &#39;Sort(delegate) on Country&#39; |              50 |  8,146.88 ns |  13.240 ns |  12.385 ns |      - |      - |     - |         - |
+|  &#39;Sort(delegate) on Country&#39; |             100 | 22,392.01 ns |  20.165 ns |  17.876 ns |      - |      - |     - |         - |
+|  &#39;Sort(delegate) on Country&#39; |             250 | 67,890.73 ns |  73.707 ns |  65.339 ns |      - |      - |     - |         - |
+
 # Clock
 ``` ini
 
-BenchmarkDotNet=v0.11.5.1191-nightly, OS=Windows 10.0.17763.775 (1809/October2018Update/Redstone5)
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.0.100
+.NET Core SDK=3.1.100-preview3-014645
   [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
-  Job-RGRUUZ : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+  Job-UEOGOB : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
 
 EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=Clock  
@@ -135,62 +139,64 @@ Categories=Clock
 ```
 |                Method |       Mean |     Error |    StdDev | Gen 0 | Gen 1 | Gen 2 | Allocated |
 |---------------------- |-----------:|----------:|----------:|------:|------:|------:|----------:|
-|    **DaysInCurrentMonth** | **506.637 ns** | **0.7172 ns** | **0.6708 ns** |     **-** |     **-** |     **-** |         **-** |
-| **DaysInCurrentUtcMonth** | **170.533 ns** | **0.2128 ns** | **0.1886 ns** |     **-** |     **-** |     **-** |         **-** |
-|             **LocalTime** | **241.918 ns** | **0.5220 ns** | **0.4628 ns** |     **-** |     **-** |     **-** |         **-** |
-|             **TickCount** |   **1.738 ns** | **0.0442 ns** | **0.0414 ns** |     **-** |     **-** |     **-** |         **-** |
-|               **UtcTime** |  **67.108 ns** | **0.2167 ns** | **0.2027 ns** |     **-** |     **-** |     **-** |         **-** |
+|    **DaysInCurrentMonth** | **458.011 ns** | **0.5243 ns** | **0.4648 ns** |     **-** |     **-** |     **-** |         **-** |
+| **DaysInCurrentUtcMonth** | **165.229 ns** | **0.1647 ns** | **0.1460 ns** |     **-** |     **-** |     **-** |         **-** |
+|             **LocalTime** | **216.149 ns** | **0.2759 ns** | **0.2580 ns** |     **-** |     **-** |     **-** |         **-** |
+|             **TickCount** |   **1.787 ns** | **0.0036 ns** | **0.0034 ns** |     **-** |     **-** |     **-** |         **-** |
+|               **UtcTime** |  **65.497 ns** | **0.9254 ns** | **0.8656 ns** |     **-** |     **-** |     **-** |         **-** |
+
 # CollectionExtensions
 ``` ini
 
-BenchmarkDotNet=v0.11.5.1191-nightly, OS=Windows 10.0.17763.775 (1809/October2018Update/Redstone5)
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.0.100
+.NET Core SDK=3.1.100-preview3-014645
   [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
-  Job-RGRUUZ : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+  Job-UEOGOB : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
 
 EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=CollectionExtensions  
 
 ```
-|            Method | CollectionCount |          Mean |        Error |       StdDev |   Gen 0 |  Gen 1 | Gen 2 | Allocated |
-|------------------ |---------------- |--------------:|-------------:|-------------:|--------:|-------:|------:|----------:|
-|          **AddRange** |              **25** |  **78,277.49 ns** |   **303.904 ns** |   **284.272 ns** |  **1.5869** |      **-** |     **-** |   **15632 B** |
-|          AddRange |              50 | 152,785.55 ns |   599.922 ns |   561.168 ns |  3.1738 |      - |     - |   29512 B |
-|          AddRange |             100 | 325,273.46 ns | 1,131.292 ns | 1,058.212 ns |  6.3477 |      - |     - |   59649 B |
-|          AddRange |             250 | 809,529.77 ns | 1,814.074 ns | 1,608.129 ns | 15.6250 |      - |     - |  150105 B |
-|           **FastAny** |              **25** |     **501.02 ns** |     **2.210 ns** |     **2.067 ns** |  **0.0038** |      **-** |     **-** |      **40 B** |
-|           FastAny |              50 |   1,090.58 ns |     2.386 ns |     2.115 ns |  0.0038 |      - |     - |      40 B |
-|           FastAny |             100 |   2,019.93 ns |    11.781 ns |    11.020 ns |  0.0038 |      - |     - |      40 B |
-|           FastAny |             250 |   5,749.52 ns |    10.021 ns |     9.374 ns |       - |      - |     - |      40 B |
-|         **FastCount** |              **25** |     **299.33 ns** |     **0.514 ns** |     **0.481 ns** |       **-** |      **-** |     **-** |         **-** |
-|         FastCount |              50 |     584.72 ns |     0.925 ns |     0.866 ns |       - |      - |     - |         - |
-|         FastCount |             100 |   1,319.60 ns |     2.274 ns |     2.016 ns |       - |      - |     - |         - |
-|         FastCount |             250 |   3,642.93 ns |     7.494 ns |     6.644 ns |       - |      - |     - |         - |
-|          **HasItems** |              **25** |      **12.46 ns** |     **0.012 ns** |     **0.011 ns** |       **-** |      **-** |     **-** |         **-** |
-|          HasItems |              50 |      12.54 ns |     0.020 ns |     0.019 ns |       - |      - |     - |         - |
-|          HasItems |             100 |      12.45 ns |     0.017 ns |     0.015 ns |       - |      - |     - |         - |
-|          HasItems |             250 |      20.35 ns |     0.038 ns |     0.036 ns |       - |      - |     - |         - |
-|        **PickRandom** |              **25** |      **34.49 ns** |     **0.076 ns** |     **0.071 ns** |  **0.0095** |      **-** |     **-** |      **88 B** |
-|        PickRandom |              50 |      34.86 ns |     0.079 ns |     0.070 ns |  0.0095 |      - |     - |      88 B |
-|        PickRandom |             100 |      34.81 ns |     0.090 ns |     0.075 ns |  0.0095 |      - |     - |      88 B |
-|        PickRandom |             250 |      34.52 ns |     0.432 ns |     0.404 ns |  0.0094 |      - |     - |      88 B |
-|         **Randomize** |              **25** |      **20.11 ns** |     **0.212 ns** |     **0.198 ns** |  **0.0060** |      **-** |     **-** |      **56 B** |
-|         Randomize |              50 |      21.13 ns |     0.433 ns |     0.425 ns |  0.0060 |      - |     - |      56 B |
-|         Randomize |             100 |      21.28 ns |     0.441 ns |     0.413 ns |  0.0060 |      - |     - |      56 B |
-|         Randomize |             250 |      19.62 ns |     0.104 ns |     0.097 ns |  0.0060 |      - |     - |      56 B |
-| **ToDelimitedString** |              **25** |   **1,154.05 ns** |     **4.274 ns** |     **3.998 ns** |  **0.5150** | **0.0019** |     **-** |    **4840 B** |
-| ToDelimitedString |              50 |   2,187.42 ns |     9.879 ns |     9.241 ns |  0.9766 | 0.0076 |     - |    9120 B |
-| ToDelimitedString |             100 |   4,235.80 ns |     8.326 ns |     7.381 ns |  1.9302 | 0.0305 |     - |   17880 B |
-| ToDelimitedString |             250 |   9,668.96 ns |    21.275 ns |    19.900 ns |  4.0436 |      - |     - |   39464 B |
+|            Method | CollectionCount |            Mean |        Error |       StdDev |          Median |   Gen 0 |  Gen 1 | Gen 2 | Allocated |
+|------------------ |---------------- |----------------:|-------------:|-------------:|----------------:|--------:|-------:|------:|----------:|
+|          **AddRange** |              **25** |   **122,413.82 ns** |   **389.047 ns** |   **363.914 ns** |   **122,276.03 ns** |  **2.4414** |      **-** |     **-** |   **23417 B** |
+|          AddRange |              50 |   245,129.17 ns |   672.683 ns |   596.316 ns |   244,994.97 ns |  4.3945 |      - |     - |   45976 B |
+|          AddRange |             100 |   476,121.79 ns | 1,239.038 ns | 1,158.996 ns |   476,073.90 ns |  9.2773 |      - |     - |   91113 B |
+|          AddRange |             250 | 1,192,544.94 ns | 3,481.288 ns | 3,086.071 ns | 1,191,545.12 ns | 23.4375 |      - |     - |  225963 B |
+|           **FastAny** |              **25** |       **530.27 ns** |     **1.408 ns** |     **1.248 ns** |       **529.86 ns** |  **0.0038** |      **-** |     **-** |      **40 B** |
+|           FastAny |              50 |     1,030.10 ns |    20.418 ns |    33.547 ns |     1,045.89 ns |  0.0038 |      - |     - |      40 B |
+|           FastAny |             100 |     2,039.63 ns |     7.586 ns |     6.725 ns |     2,038.87 ns |  0.0038 |      - |     - |      40 B |
+|           FastAny |             250 |     5,406.91 ns |    68.263 ns |    63.853 ns |     5,366.48 ns |       - |      - |     - |      40 B |
+|         **FastCount** |              **25** |       **315.29 ns** |     **1.069 ns** |     **1.000 ns** |       **315.22 ns** |       **-** |      **-** |     **-** |         **-** |
+|         FastCount |              50 |       593.89 ns |     2.389 ns |     1.995 ns |       594.35 ns |       - |      - |     - |         - |
+|         FastCount |             100 |     1,266.61 ns |     3.722 ns |     2.906 ns |     1,265.52 ns |       - |      - |     - |         - |
+|         FastCount |             250 |     3,810.43 ns |    10.929 ns |     8.533 ns |     3,811.67 ns |       - |      - |     - |         - |
+|          **HasItems** |              **25** |        **12.66 ns** |     **0.020 ns** |     **0.017 ns** |        **12.66 ns** |       **-** |      **-** |     **-** |         **-** |
+|          HasItems |              50 |        12.85 ns |     0.013 ns |     0.012 ns |        12.85 ns |       - |      - |     - |         - |
+|          HasItems |             100 |        12.66 ns |     0.016 ns |     0.014 ns |        12.66 ns |       - |      - |     - |         - |
+|          HasItems |             250 |        12.41 ns |     0.024 ns |     0.022 ns |        12.41 ns |       - |      - |     - |         - |
+|        **PickRandom** |              **25** |        **33.96 ns** |     **0.708 ns** |     **1.221 ns** |        **33.20 ns** |  **0.0094** |      **-** |     **-** |      **88 B** |
+|        PickRandom |              50 |        34.27 ns |     0.140 ns |     0.124 ns |        34.22 ns |  0.0094 |      - |     - |      88 B |
+|        PickRandom |             100 |        35.43 ns |     0.513 ns |     0.480 ns |        35.59 ns |  0.0093 |      - |     - |      88 B |
+|        PickRandom |             250 |        34.38 ns |     0.091 ns |     0.086 ns |        34.37 ns |  0.0094 |      - |     - |      88 B |
+|         **Randomize** |              **25** |        **20.64 ns** |     **0.066 ns** |     **0.055 ns** |        **20.64 ns** |  **0.0060** |      **-** |     **-** |      **56 B** |
+|         Randomize |              50 |        20.29 ns |     0.258 ns |     0.241 ns |        20.14 ns |  0.0060 |      - |     - |      56 B |
+|         Randomize |             100 |        21.59 ns |     0.272 ns |     0.254 ns |        21.72 ns |  0.0060 |      - |     - |      56 B |
+|         Randomize |             250 |        20.89 ns |     0.285 ns |     0.267 ns |        20.95 ns |  0.0059 |      - |     - |      56 B |
+| **ToDelimitedString** |              **25** |     **1,141.08 ns** |     **4.480 ns** |     **4.190 ns** |     **1,141.19 ns** |  **0.5474** | **0.0038** |     **-** |    **5152 B** |
+| ToDelimitedString |              50 |     2,120.47 ns |     8.727 ns |     8.163 ns |     2,123.18 ns |  1.0338 | 0.0114 |     - |    9720 B |
+| ToDelimitedString |             100 |     3,934.10 ns |    11.634 ns |    10.313 ns |     3,932.93 ns |  2.0065 | 0.0458 |     - |   18792 B |
+| ToDelimitedString |             250 |    10,009.77 ns |    38.022 ns |    35.566 ns |    10,009.54 ns |  5.6763 | 0.3967 |     - |   57824 B |
+
 # EnumExtensions
 ``` ini
 
-BenchmarkDotNet=v0.11.5.1191-nightly, OS=Windows 10.0.17763.775 (1809/October2018Update/Redstone5)
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.0.100
+.NET Core SDK=3.1.100-preview3-014645
   [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
-  Job-RGRUUZ : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+  Job-UEOGOB : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
 
 EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=EnumExtensions  
@@ -198,36 +204,38 @@ Categories=EnumExtensions
 ```
 |   Method |     Mean |     Error |    StdDev |  Gen 0 | Gen 1 | Gen 2 | Allocated |
 |--------- |---------:|----------:|----------:|-------:|------:|------:|----------:|
-| GetItems | 4.211 us | 0.0272 us | 0.0254 us | 0.0916 |     - |     - |     872 B |
+| GetItems | 4.273 us | 0.0225 us | 0.0211 us | 0.0916 |     - |     - |     872 B |
+
 # ObjectExtensions
 ``` ini
 
-BenchmarkDotNet=v0.11.5.1191-nightly, OS=Windows 10.0.17763.775 (1809/October2018Update/Redstone5)
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.0.100
+.NET Core SDK=3.1.100-preview3-014645
   [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
-  Job-RGRUUZ : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+  Job-UEOGOB : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
 
 EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=ObjectExtensions  
 
 ```
-|            Method |        Mean |     Error |    StdDev |  Gen 0 |  Gen 1 | Gen 2 | Allocated |
-|------------------ |------------:|----------:|----------:|-------:|-------:|------:|----------:|
-|             **Clone** |  **4,298.9 ns** |  **18.45 ns** |  **17.26 ns** | **0.8469** |      **-** |     **-** |    **7792 B** |
-|    **ComputeMD5Hash** |  **5,385.4 ns** |  **46.48 ns** |  **41.20 ns** | **0.4730** |      **-** |     **-** |    **4688 B** |
-| **ComputeSha256Hash** |  **8,351.0 ns** | **204.71 ns** | **603.60 ns** | **0.5722** |      **-** |     **-** |    **5480 B** |
-|          **FromJson** | **11,363.0 ns** |  **16.59 ns** |  **15.51 ns** | **1.4191** | **0.0153** |     **-** |   **13328 B** |
-|       **HasProperty** |    **267.5 ns** |   **0.43 ns** |   **0.40 ns** | **0.0267** |      **-** |     **-** |     **248 B** |
-|            **ToJson** |  **3,402.1 ns** |   **6.55 ns** |   **5.81 ns** | **0.3471** |      **-** |     **-** |    **3232 B** |
+|            Method |        Mean |    Error |   StdDev |  Gen 0 |  Gen 1 | Gen 2 | Allocated |
+|------------------ |------------:|---------:|---------:|-------:|-------:|------:|----------:|
+|             **Clone** |  **4,380.0 ns** | **16.11 ns** | **15.07 ns** | **0.8316** |      **-** |     **-** |    **7792 B** |
+|    **ComputeMD5Hash** |  **5,722.9 ns** | **12.33 ns** | **10.30 ns** | **0.4959** |      **-** |     **-** |    **4696 B** |
+| **ComputeSha256Hash** |  **7,592.7 ns** | **11.35 ns** | **10.06 ns** | **0.5569** |      **-** |     **-** |    **5440 B** |
+|          **FromJson** | **11,642.6 ns** | **22.08 ns** | **19.57 ns** | **1.4343** | **0.0153** |     **-** |   **13480 B** |
+|       **HasProperty** |    **260.0 ns** |  **2.80 ns** |  **2.62 ns** | **0.0262** |      **-** |     **-** |     **248 B** |
+|            **ToJson** |  **3,348.7 ns** |  **6.72 ns** |  **5.96 ns** | **0.3433** |      **-** |     **-** |    **3240 B** |
+
 # StringExtensions
 ``` ini
 
-BenchmarkDotNet=v0.11.5.1191-nightly, OS=Windows 10.0.17763.775 (1809/October2018Update/Redstone5)
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.0.100
+.NET Core SDK=3.1.100-preview3-014645
   [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
-  Job-RGRUUZ : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+  Job-UEOGOB : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
 
 EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=StringExtensions  
@@ -235,38 +243,40 @@ Categories=StringExtensions
 ```
 |            Method |         Mean |     Error |    StdDev |  Gen 0 |  Gen 1 | Gen 2 | Allocated |
 |------------------ |-------------:|----------:|----------:|-------:|-------:|------:|----------:|
-| **ComputeSha256Hash** | **6,125.108 ns** | **5.9780 ns** | **5.2994 ns** | **0.2823** |      **-** |     **-** |    **2760 B** |
-|            **Concat** |   **600.308 ns** | **2.9490 ns** | **2.6142 ns** | **0.6523** | **0.0048** |     **-** |    **6096 B** |
-|       **ContainsAny** |    **54.823 ns** | **0.1742 ns** | **0.1544 ns** | **0.0172** |      **-** |     **-** |     **160 B** |
-|          **HasValue** |     **6.715 ns** | **0.0664 ns** | **0.0621 ns** |      **-** |      **-** |     **-** |         **-** |
-|            **Indent** |   **439.382 ns** | **1.4687 ns** | **1.3739 ns** | **0.4368** | **0.0019** |     **-** |    **4088 B** |
-|   **ToTrimmedString** |   **218.482 ns** | **2.1108 ns** | **1.9745 ns** | **0.2108** | **0.0005** |     **-** |    **1960 B** |
+| **ComputeSha256Hash** | **6,117.450 ns** | **9.4944 ns** | **7.9283 ns** | **0.2899** |      **-** |     **-** |    **2760 B** |
+|            **Concat** |   **574.711 ns** | **4.4002 ns** | **4.1160 ns** | **0.6418** | **0.0048** |     **-** |    **6064 B** |
+|       **ContainsAny** |    **65.489 ns** | **0.3795 ns** | **0.3550 ns** | **0.0170** |      **-** |     **-** |     **160 B** |
+|          **HasValue** |     **6.278 ns** | **0.0411 ns** | **0.0365 ns** |      **-** |      **-** |     **-** |         **-** |
+|            **Indent** |   **442.707 ns** | **0.8873 ns** | **0.8299 ns** | **0.4330** | **0.0024** |     **-** |    **4088 B** |
+|   **ToTrimmedString** |   **216.676 ns** | **2.2588 ns** | **2.1129 ns** | **0.2069** | **0.0005** |     **-** |    **1960 B** |
+
 # DirectoryHelper
 ``` ini
 
-BenchmarkDotNet=v0.11.5.1191-nightly, OS=Windows 10.0.17763.775 (1809/October2018Update/Redstone5)
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.0.100
+.NET Core SDK=3.1.100-preview3-014645
   [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
-  Job-RGRUUZ : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+  Job-UEOGOB : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
 
 EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=DirectoryHelper  
 
 ```
-|              Method |     Mean |    Error |   StdDev |   Gen 0 | Gen 1 | Gen 2 | Allocated |
-|-------------------- |---------:|---------:|---------:|--------:|------:|------:|----------:|
-|           **LoadFiles** | **34.03 ms** | **0.378 ms** | **0.354 ms** | **66.6667** |     **-** |     **-** | **1256188 B** |
-|      **LoadFilesAsync** | **36.02 ms** | **0.270 ms** | **0.252 ms** | **71.4286** |     **-** |     **-** | **1155629 B** |
-| **SafeDirectorySearch** | **42.63 ms** | **0.272 ms** | **0.241 ms** |       **-** |     **-** |     **-** |     **760 B** |
+|              Method |        Mean |    Error |   StdDev |    Gen 0 |   Gen 1 | Gen 2 | Allocated |
+|-------------------- |------------:|---------:|---------:|---------:|--------:|------:|----------:|
+|           **LoadFiles** | **30,379.6 us** | **49.59 us** | **46.38 us** |  **62.5000** | **31.2500** |     **-** | **1349626 B** |
+|      **LoadFilesAsync** | **19,096.7 us** | **44.28 us** | **41.42 us** | **125.0000** |       **-** |     **-** | **1188552 B** |
+| **SafeDirectorySearch** |    **377.4 us** |  **1.19 us** |  **1.11 us** |        **-** |       **-** |     **-** |     **760 B** |
+
 # DriveHelper
 ``` ini
 
-BenchmarkDotNet=v0.11.5.1191-nightly, OS=Windows 10.0.17763.775 (1809/October2018Update/Redstone5)
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.0.100
+.NET Core SDK=3.1.100-preview3-014645
   [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
-  Job-RGRUUZ : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+  Job-UEOGOB : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
 
 EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=DriveHelper  
@@ -274,7 +284,8 @@ Categories=DriveHelper
 ```
 |         Method |     Mean |    Error |   StdDev |  Gen 0 | Gen 1 | Gen 2 | Allocated |
 |--------------- |---------:|---------:|---------:|-------:|------:|------:|----------:|
-| GetFixedDrives | 15.20 us | 0.062 us | 0.055 us | 0.0610 |     - |     - |     632 B |
+| GetFixedDrives | 13.63 us | 0.160 us | 0.149 us | 0.0610 |     - |     - |     608 B |
+
 # FileHelper
 ``` ini
 

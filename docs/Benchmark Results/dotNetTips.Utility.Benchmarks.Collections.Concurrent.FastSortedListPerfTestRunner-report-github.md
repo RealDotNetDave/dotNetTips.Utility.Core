@@ -1,34 +1,34 @@
 ``` ini
 
-BenchmarkDotNet=v0.11.5.1191-nightly, OS=Windows 10.0.17763.775 (1809/October2018Update/Redstone5)
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.0.100
+.NET Core SDK=3.1.100-preview3-014645
   [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
-  Job-RGRUUZ : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+  Job-UEOGOB : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
 
 EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=FastSortedList,GenericCollections  
 
 ```
-|                       Method | CollectionCount |         Mean |      Error |     StdDev |       Median |  Gen 0 |  Gen 1 | Gen 2 | Allocated |
-|----------------------------- |---------------- |-------------:|-----------:|-----------:|-------------:|-------:|-------:|------:|----------:|
-| **&#39;Creating Using Constructor&#39;** |              **25** |     **52.69 ns** |   **1.755 ns** |   **4.833 ns** |     **50.23 ns** | **0.0284** |      **-** |     **-** |     **264 B** |
-| &#39;Creating Using Constructor&#39; |              50 |     72.30 ns |   0.274 ns |   0.256 ns |     72.28 ns | 0.0494 |      - |     - |     456 B |
-| &#39;Creating Using Constructor&#39; |             100 |    103.09 ns |   0.345 ns |   0.306 ns |    103.11 ns | 0.0917 | 0.0001 |     - |     856 B |
-| &#39;Creating Using Constructor&#39; |             250 |    217.67 ns |   2.423 ns |   2.266 ns |    218.42 ns | 0.2248 | 0.0010 |     - |    2064 B |
-|       **&#39;Creating Using for()&#39;** |              **25** |    **280.62 ns** |   **2.039 ns** |   **1.907 ns** |    **280.16 ns** | **0.0753** |      **-** |     **-** |     **704 B** |
-|       &#39;Creating Using for()&#39; |              50 |    488.67 ns |   2.738 ns |   2.561 ns |    488.89 ns | 0.1326 |      - |     - |    1240 B |
-|       &#39;Creating Using for()&#39; |             100 |    818.76 ns |   8.771 ns |   8.204 ns |    812.97 ns | 0.2460 |      - |     - |    2288 B |
-|       &#39;Creating Using for()&#39; |             250 |  1,619.80 ns |   4.269 ns |   3.333 ns |  1,620.66 ns | 0.4673 | 0.0019 |     - |    4360 B |
-|     **&#39;Looping with ForEach()&#39;** |              **25** |    **101.55 ns** |   **0.647 ns** |   **0.606 ns** |    **101.64 ns** | **0.0068** |      **-** |     **-** |      **64 B** |
-|     &#39;Looping with ForEach()&#39; |              50 |    185.22 ns |   0.596 ns |   0.529 ns |    185.03 ns | 0.0067 |      - |     - |      64 B |
-|     &#39;Looping with ForEach()&#39; |             100 |    329.26 ns |   0.839 ns |   0.701 ns |    329.28 ns | 0.0067 |      - |     - |      64 B |
-|     &#39;Looping with ForEach()&#39; |             250 |    794.53 ns |   1.252 ns |   1.171 ns |    794.37 ns | 0.0067 |      - |     - |      64 B |
-|                       **Sort()** |              **25** |  **3,044.20 ns** |   **3.074 ns** |   **2.725 ns** |  **3,043.31 ns** |      **-** |      **-** |     **-** |         **-** |
-|                       Sort() |              50 |  8,672.08 ns |  16.895 ns |  14.977 ns |  8,669.51 ns |      - |      - |     - |         - |
-|                       Sort() |             100 | 23,477.71 ns |  57.975 ns |  48.411 ns | 23,463.07 ns |      - |      - |     - |         - |
-|                       Sort() |             250 | 72,831.10 ns | 130.977 ns | 122.516 ns | 72,825.04 ns |      - |      - |     - |         - |
-|  **&#39;Sort(delegate) on Country&#39;** |              **25** |  **2,921.27 ns** |   **2.372 ns** |   **2.102 ns** |  **2,920.20 ns** |      **-** |      **-** |     **-** |         **-** |
-|  &#39;Sort(delegate) on Country&#39; |              50 |  8,521.52 ns |  10.518 ns |   9.324 ns |  8,522.49 ns |      - |      - |     - |         - |
-|  &#39;Sort(delegate) on Country&#39; |             100 | 21,483.53 ns |  21.029 ns |  17.561 ns | 21,482.45 ns |      - |      - |     - |         - |
-|  &#39;Sort(delegate) on Country&#39; |             250 | 72,656.39 ns | 134.499 ns | 112.313 ns | 72,615.81 ns |      - |      - |     - |         - |
+|                       Method | CollectionCount |         Mean |      Error |     StdDev |  Gen 0 |  Gen 1 | Gen 2 | Allocated |
+|----------------------------- |---------------- |-------------:|-----------:|-----------:|-------:|-------:|------:|----------:|
+| **&#39;Creating Using Constructor&#39;** |              **25** |     **45.73 ns** |   **0.063 ns** |   **0.049 ns** | **0.0269** |      **-** |     **-** |     **256 B** |
+| &#39;Creating Using Constructor&#39; |              50 |     65.80 ns |   0.215 ns |   0.201 ns | 0.0490 |      - |     - |     464 B |
+| &#39;Creating Using Constructor&#39; |             100 |     99.55 ns |   0.373 ns |   0.349 ns | 0.0917 | 0.0001 |     - |     864 B |
+| &#39;Creating Using Constructor&#39; |             250 |    213.02 ns |   3.181 ns |   2.975 ns | 0.2215 | 0.0012 |     - |    2064 B |
+|       **&#39;Creating Using for()&#39;** |              **25** |    **276.28 ns** |   **5.442 ns** |   **8.632 ns** | **0.0744** |      **-** |     **-** |     **704 B** |
+|       &#39;Creating Using for()&#39; |              50 |    444.30 ns |   1.363 ns |   1.138 ns | 0.1302 |      - |     - |    1240 B |
+|       &#39;Creating Using for()&#39; |             100 |    772.10 ns |   1.814 ns |   1.697 ns | 0.2413 |      - |     - |    2288 B |
+|       &#39;Creating Using for()&#39; |             250 |  1,682.53 ns |   3.241 ns |   3.031 ns | 0.4692 | 0.0038 |     - |    4360 B |
+|     **&#39;Looping with ForEach()&#39;** |              **25** |     **99.38 ns** |   **1.753 ns** |   **1.640 ns** | **0.0067** |      **-** |     **-** |      **64 B** |
+|     &#39;Looping with ForEach()&#39; |              50 |    186.13 ns |   0.430 ns |   0.403 ns | 0.0067 |      - |     - |      64 B |
+|     &#39;Looping with ForEach()&#39; |             100 |    371.73 ns |   7.446 ns |  18.264 ns | 0.0067 |      - |     - |      64 B |
+|     &#39;Looping with ForEach()&#39; |             250 |    796.69 ns |   1.448 ns |   1.354 ns | 0.0067 |      - |     - |      64 B |
+|                       **Sort()** |              **25** |  **3,212.05 ns** |   **4.010 ns** |   **3.555 ns** |      **-** |      **-** |     **-** |         **-** |
+|                       Sort() |              50 |  8,349.33 ns |  10.516 ns |   9.837 ns |      - |      - |     - |         - |
+|                       Sort() |             100 | 27,133.91 ns | 367.563 ns | 343.819 ns |      - |      - |     - |         - |
+|                       Sort() |             250 | 75,295.94 ns | 100.433 ns |  93.945 ns |      - |      - |     - |         - |
+|  **&#39;Sort(delegate) on Country&#39;** |              **25** |  **2,696.79 ns** |   **7.815 ns** |   **6.526 ns** |      **-** |      **-** |     **-** |         **-** |
+|  &#39;Sort(delegate) on Country&#39; |              50 |  8,146.88 ns |  13.240 ns |  12.385 ns |      - |      - |     - |         - |
+|  &#39;Sort(delegate) on Country&#39; |             100 | 22,392.01 ns |  20.165 ns |  17.876 ns |      - |      - |     - |         - |
+|  &#39;Sort(delegate) on Country&#39; |             250 | 67,890.73 ns |  73.707 ns |  65.339 ns |      - |      - |     - |         - |

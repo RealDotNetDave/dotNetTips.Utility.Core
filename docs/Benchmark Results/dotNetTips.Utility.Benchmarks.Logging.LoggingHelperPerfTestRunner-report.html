@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-20191009-122604</title>
+<title>dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-20191202-124134</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,11 +13,11 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.11.5.1191-nightly, OS=Windows 10.0.17763.775 (1809/October2018Update/Redstone5)
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.0.100
+.NET Core SDK=3.1.100-preview3-014645
   [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
-  Job-RGRUUZ : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+  Job-UEOGOB : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
 </code></pre>
 <pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=LoggingHelper  
@@ -26,8 +26,8 @@ Categories=LoggingHelper
 <table>
 <thead><tr><th>                Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>RetrieveAllExceptionMessages</td><td>2.881 us</td><td>0.0107 us</td><td>0.0095 us</td><td>0.1183</td><td>-</td><td>-</td><td>1120 B</td>
-</tr><tr><td>RetrieveAllExceptions</td><td>1.734 us</td><td>0.0148 us</td><td>0.0139 us</td><td>0.0896</td><td>-</td><td>-</td><td>848 B</td>
+</thead><tbody><tr><td>RetrieveAllExceptionMessages</td><td>2.843 us</td><td>0.0031 us</td><td>0.0027 us</td><td>0.1259</td><td>-</td><td>-</td><td>1216 B</td>
+</tr><tr><td>RetrieveAllExceptions</td><td>1.665 us</td><td>0.0036 us</td><td>0.0033 us</td><td>0.0896</td><td>-</td><td>-</td><td>848 B</td>
 </tr></tbody></table>
 </body>
 </html>
