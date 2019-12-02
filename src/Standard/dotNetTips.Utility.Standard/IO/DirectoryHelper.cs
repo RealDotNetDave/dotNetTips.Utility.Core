@@ -4,7 +4,7 @@
 // Created          : 02-14-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 11-21-2019
+// Last Modified On : 12-02-2019
 // ***********************************************************************
 // <copyright file="DirectoryHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -124,7 +124,7 @@ namespace dotNetTips.Utility.Standard.IO
                     // On some systems, directories/files created are created with attributes
                     // that prevent them from being deleted. Set those attributes to be normal
                     SetFileAttributesToNormal(path);
-                    Directory.Delete(path, true);
+                    Directory.Delete(path, recursive: true);
 
                     return;
                 }

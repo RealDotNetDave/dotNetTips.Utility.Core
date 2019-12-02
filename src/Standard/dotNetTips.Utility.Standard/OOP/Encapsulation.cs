@@ -4,7 +4,7 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 11-08-2019
+// Last Modified On : 12-02-2019
 // ***********************************************************************
 // <copyright file="Encapsulation.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -150,8 +150,9 @@ namespace dotNetTips.Utility.Standard.OOP
         /// <param name="value">The value.</param>
         /// <param name="paramName">Name of the parameter.</param>
         /// <param name="message">The message.</param>
+        /// <exception cref="ArgumentNullException">value</exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        /// <exception cref="ArgumentInvalidException"></exception>
+        /// <exception cref="ArgumentInvalidException">value</exception>
         /// <exception cref="System.ArgumentException"></exception>
         public static void TryValidateParam(Enum value, string paramName, string message = "")
         {

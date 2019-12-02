@@ -4,7 +4,7 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-22-2019
+// Last Modified On : 12-02-2019
 // ***********************************************************************
 // <copyright file="JsonSerializer.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -63,7 +63,7 @@ namespace dotNetTips.Utility.Standard.Serialization
 
                 ser.WriteObject(ms, obj);
                 ms.Flush();
-                json = Encoding.UTF8.GetString(ms.ToArray(), 0, ms.ToArray().Length);
+                json = Encoding.UTF8.GetString(ms.ToArray(), index: 0, count: ms.ToArray().Length);
             }
 
             return json;

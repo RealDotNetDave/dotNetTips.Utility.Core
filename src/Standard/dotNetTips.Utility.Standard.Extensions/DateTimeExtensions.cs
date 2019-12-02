@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 03-03-2019
+// Last Modified On : 12-02-2019
 // ***********************************************************************
 // <copyright file="DateTimeExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
@@ -31,10 +31,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">input - Input is invalid.</exception>
         public static DateTime GetLast(this DateTime input, DayOfWeek dayOfWeek)
         {
-            var daysToSubtract = input.DayOfWeek > dayOfWeek
-                ? input.DayOfWeek - dayOfWeek
-                : (7 - (int)dayOfWeek) + (int)input.DayOfWeek;
-            return input.AddDays(daysToSubtract * -1);
+            return input.AddDays((input.DayOfWeek > dayOfWeek ? input.DayOfWeek - dayOfWeek : 7 - (int)dayOfWeek + (int)input.DayOfWeek) * -1);
         }
 
         /// <summary>
@@ -48,9 +45,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             var daysToAdd = 0;
 
-            daysToAdd = input.DayOfWeek < dayOfWeek
-                ? dayOfWeek - input.DayOfWeek
-                : (7 - (int)input.DayOfWeek) + (int)dayOfWeek;
+            daysToAdd = input.DayOfWeek < dayOfWeek ? dayOfWeek - input.DayOfWeek : (7 - (int)input.DayOfWeek) + (int)dayOfWeek;
 
             return input.AddDays(daysToAdd);
         }
