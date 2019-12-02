@@ -9,7 +9,7 @@ Much of this code is documented on <a href="https://dotnettips.wordpress.com/tag
 Below is the list of current projects in this repository:
 ### .NET Core
 *  	[dotNetTips.Utility.Core.EntityFramework][1] (preview): Common code for Entity Framework Core.
-*   [dotNetTips.Utility.Core.Windows][2] (preview): Common code for Windows.
+*   [dotNetTips.Utility.Core.Windows][2]: Common code for Windows.
 ### .NET Standard
 *   [dotNetTips.Utility.Standard][5]: Main assembly for common code.
 *   [dotNetTips.Utility.Standard.Extensions][3]: Common extension methods.
