@@ -289,30 +289,31 @@ Categories=DriveHelper
 # FileHelper
 ``` ini
 
-BenchmarkDotNet=v0.11.5.1191-nightly, OS=Windows 10.0.17763.775 (1809/October2018Update/Redstone5)
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.0.100
+.NET Core SDK=3.1.100-preview3-014645
   [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
-  Job-RGRUUZ : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+  Job-UEOGOB : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
 
 EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=FileHelper  
 
 ```
-|        Method |        Mean |     Error |    StdDev |      Median |    Gen 0 | Gen 1 | Gen 2 | Allocated |
-|-------------- |------------:|----------:|----------:|------------:|---------:|------:|------:|----------:|
-|      **CopyFile** |    **901.4 us** |   **5.80 us** |   **4.85 us** |    **900.9 us** |   **2.9297** |     **-** |     **-** |  **37.74 KB** |
-| **CopyFileAsync** |    **910.4 us** |  **17.95 us** |  **43.36 us** |    **915.4 us** |   **3.9063** |     **-** |     **-** |     **39 KB** |
-|   **DeleteFiles** | **45,742.8 us** | **896.67 us** | **880.65 us** | **45,838.4 us** | **125.0000** |     **-** |     **-** | **983.96 KB** |
-|      **MoveFile** |    **847.8 us** |  **17.84 us** |  **41.35 us** |    **833.4 us** |        **-** |     **-** |     **-** |  **14.16 KB** |
+|        Method |        Mean |     Error |      StdDev |      Median |   Gen 0 | Gen 1 | Gen 2 | Allocated |
+|-------------- |------------:|----------:|------------:|------------:|--------:|------:|------:|----------:|
+|      **CopyFile** |    **907.5 us** |  **17.95 us** |    **34.58 us** |    **890.0 us** |  **2.9297** |     **-** |     **-** |  **37.74 KB** |
+| **CopyFileAsync** |    **958.7 us** |  **10.74 us** |     **9.52 us** |    **956.9 us** |  **3.9063** |     **-** |     **-** |     **39 KB** |
+|   **DeleteFiles** | **39,174.9 us** | **841.49 us** | **2,231.52 us** | **38,924.3 us** | **76.9231** |     **-** |     **-** | **989.84 KB** |
+|      **MoveFile** |    **956.1 us** |  **19.08 us** |    **18.74 us** |    **951.9 us** |       **-** |     **-** |     **-** |   **14.2 KB** |
+
 # LoggingHelper
 ``` ini
 
-BenchmarkDotNet=v0.11.5.1191-nightly, OS=Windows 10.0.17763.775 (1809/October2018Update/Redstone5)
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.0.100
+.NET Core SDK=3.1.100-preview3-014645
   [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
-  Job-RGRUUZ : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+  Job-UEOGOB : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
 
 EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=LoggingHelper  
@@ -320,16 +321,17 @@ Categories=LoggingHelper
 ```
 |                       Method |     Mean |     Error |    StdDev |  Gen 0 | Gen 1 | Gen 2 | Allocated |
 |----------------------------- |---------:|----------:|----------:|-------:|------:|------:|----------:|
-| **RetrieveAllExceptionMessages** | **2.881 us** | **0.0107 us** | **0.0095 us** | **0.1183** |     **-** |     **-** |    **1120 B** |
-|        **RetrieveAllExceptions** | **1.734 us** | **0.0148 us** | **0.0139 us** | **0.0896** |     **-** |     **-** |     **848 B** |
+| **RetrieveAllExceptionMessages** | **2.843 us** | **0.0031 us** | **0.0027 us** | **0.1259** |     **-** |     **-** |    **1216 B** |
+|        **RetrieveAllExceptions** | **1.665 us** | **0.0036 us** | **0.0033 us** | **0.0896** |     **-** |     **-** |     **848 B** |
+
 # TypeHelper
 ``` ini
 
-BenchmarkDotNet=v0.11.5.1191-nightly, OS=Windows 10.0.17763.775 (1809/October2018Update/Redstone5)
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.0.100
+.NET Core SDK=3.1.100-preview3-014645
   [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
-  Job-RGRUUZ : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+  Job-UEOGOB : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
 
 EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=TypeHelper  
@@ -337,4 +339,4 @@ Categories=TypeHelper
 ```
 |              Method |     Mean |     Error |    StdDev |  Gen 0 | Gen 1 | Gen 2 | Allocated |
 |-------------------- |---------:|----------:|----------:|-------:|------:|------:|----------:|
-| GetInstanceHashCode | 2.386 us | 0.0414 us | 0.0367 us | 0.0458 |     - |     - |     432 B |
+| GetInstanceHashCode | 2.331 us | 0.0331 us | 0.0310 us | 0.0458 |     - |     - |     432 B |
