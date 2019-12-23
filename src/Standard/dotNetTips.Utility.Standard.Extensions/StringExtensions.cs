@@ -114,7 +114,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             return characters.FastAny(character =>
             {
-                return input.Contains(character);
+                return input.Contains(character, StringComparison.CurrentCulture);
             });
         }
 

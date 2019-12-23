@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.Extensions.CollectionExtensionsPerfTestRunner-20191202-122349</title>
+<title>dotNetTips.Utility.Benchmarks.Extensions.CollectionExtensionsPerfTestRunner-20191203-145722</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -15,45 +15,45 @@
 <pre><code>
 BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.1.100-preview3-014645
-  [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
-  Job-UEOGOB : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+.NET Core SDK=3.1.100
+  [Host]     : .NET Core 3.1.0 (CoreCLR 4.700.19.56402, CoreFX 4.700.19.56404), X64 RyuJIT
+  Job-QYQXQL : .NET Core 3.1.0 (CoreCLR 4.700.19.56402, CoreFX 4.700.19.56404), X64 RyuJIT
 </code></pre>
 <pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=CollectionExtensions  
 </code></pre>
 
 <table>
-<thead><tr><th>     Method</th><th>CollectionCount</th><th>     Mean</th><th> Error</th><th>StdDev</th><th>   Median</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+<thead><tr><th>     Method</th><th>CollectionCount</th><th>     Mean</th><th> Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>AddRange</td><td>25</td><td>122,413.82 ns</td><td>389.047 ns</td><td>363.914 ns</td><td>122,276.03 ns</td><td>2.4414</td><td>-</td><td>-</td><td>23417 B</td>
-</tr><tr><td>AddRange</td><td>50</td><td>245,129.17 ns</td><td>672.683 ns</td><td>596.316 ns</td><td>244,994.97 ns</td><td>4.3945</td><td>-</td><td>-</td><td>45976 B</td>
-</tr><tr><td>AddRange</td><td>100</td><td>476,121.79 ns</td><td>1,239.038 ns</td><td>1,158.996 ns</td><td>476,073.90 ns</td><td>9.2773</td><td>-</td><td>-</td><td>91113 B</td>
-</tr><tr><td>AddRange</td><td>250</td><td>1,192,544.94 ns</td><td>3,481.288 ns</td><td>3,086.071 ns</td><td>1,191,545.12 ns</td><td>23.4375</td><td>-</td><td>-</td><td>225963 B</td>
-</tr><tr><td>FastAny</td><td>25</td><td>530.27 ns</td><td>1.408 ns</td><td>1.248 ns</td><td>529.86 ns</td><td>0.0038</td><td>-</td><td>-</td><td>40 B</td>
-</tr><tr><td>FastAny</td><td>50</td><td>1,030.10 ns</td><td>20.418 ns</td><td>33.547 ns</td><td>1,045.89 ns</td><td>0.0038</td><td>-</td><td>-</td><td>40 B</td>
-</tr><tr><td>FastAny</td><td>100</td><td>2,039.63 ns</td><td>7.586 ns</td><td>6.725 ns</td><td>2,038.87 ns</td><td>0.0038</td><td>-</td><td>-</td><td>40 B</td>
-</tr><tr><td>FastAny</td><td>250</td><td>5,406.91 ns</td><td>68.263 ns</td><td>63.853 ns</td><td>5,366.48 ns</td><td>-</td><td>-</td><td>-</td><td>40 B</td>
-</tr><tr><td>FastCount</td><td>25</td><td>315.29 ns</td><td>1.069 ns</td><td>1.000 ns</td><td>315.22 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>FastCount</td><td>50</td><td>593.89 ns</td><td>2.389 ns</td><td>1.995 ns</td><td>594.35 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>FastCount</td><td>100</td><td>1,266.61 ns</td><td>3.722 ns</td><td>2.906 ns</td><td>1,265.52 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>FastCount</td><td>250</td><td>3,810.43 ns</td><td>10.929 ns</td><td>8.533 ns</td><td>3,811.67 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>HasItems</td><td>25</td><td>12.66 ns</td><td>0.020 ns</td><td>0.017 ns</td><td>12.66 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>HasItems</td><td>50</td><td>12.85 ns</td><td>0.013 ns</td><td>0.012 ns</td><td>12.85 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>HasItems</td><td>100</td><td>12.66 ns</td><td>0.016 ns</td><td>0.014 ns</td><td>12.66 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>HasItems</td><td>250</td><td>12.41 ns</td><td>0.024 ns</td><td>0.022 ns</td><td>12.41 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>PickRandom</td><td>25</td><td>33.96 ns</td><td>0.708 ns</td><td>1.221 ns</td><td>33.20 ns</td><td>0.0094</td><td>-</td><td>-</td><td>88 B</td>
-</tr><tr><td>PickRandom</td><td>50</td><td>34.27 ns</td><td>0.140 ns</td><td>0.124 ns</td><td>34.22 ns</td><td>0.0094</td><td>-</td><td>-</td><td>88 B</td>
-</tr><tr><td>PickRandom</td><td>100</td><td>35.43 ns</td><td>0.513 ns</td><td>0.480 ns</td><td>35.59 ns</td><td>0.0093</td><td>-</td><td>-</td><td>88 B</td>
-</tr><tr><td>PickRandom</td><td>250</td><td>34.38 ns</td><td>0.091 ns</td><td>0.086 ns</td><td>34.37 ns</td><td>0.0094</td><td>-</td><td>-</td><td>88 B</td>
-</tr><tr><td>Randomize</td><td>25</td><td>20.64 ns</td><td>0.066 ns</td><td>0.055 ns</td><td>20.64 ns</td><td>0.0060</td><td>-</td><td>-</td><td>56 B</td>
-</tr><tr><td>Randomize</td><td>50</td><td>20.29 ns</td><td>0.258 ns</td><td>0.241 ns</td><td>20.14 ns</td><td>0.0060</td><td>-</td><td>-</td><td>56 B</td>
-</tr><tr><td>Randomize</td><td>100</td><td>21.59 ns</td><td>0.272 ns</td><td>0.254 ns</td><td>21.72 ns</td><td>0.0060</td><td>-</td><td>-</td><td>56 B</td>
-</tr><tr><td>Randomize</td><td>250</td><td>20.89 ns</td><td>0.285 ns</td><td>0.267 ns</td><td>20.95 ns</td><td>0.0059</td><td>-</td><td>-</td><td>56 B</td>
-</tr><tr><td>ToDelimitedString</td><td>25</td><td>1,141.08 ns</td><td>4.480 ns</td><td>4.190 ns</td><td>1,141.19 ns</td><td>0.5474</td><td>0.0038</td><td>-</td><td>5152 B</td>
-</tr><tr><td>ToDelimitedString</td><td>50</td><td>2,120.47 ns</td><td>8.727 ns</td><td>8.163 ns</td><td>2,123.18 ns</td><td>1.0338</td><td>0.0114</td><td>-</td><td>9720 B</td>
-</tr><tr><td>ToDelimitedString</td><td>100</td><td>3,934.10 ns</td><td>11.634 ns</td><td>10.313 ns</td><td>3,932.93 ns</td><td>2.0065</td><td>0.0458</td><td>-</td><td>18792 B</td>
-</tr><tr><td>ToDelimitedString</td><td>250</td><td>10,009.77 ns</td><td>38.022 ns</td><td>35.566 ns</td><td>10,009.54 ns</td><td>5.6763</td><td>0.3967</td><td>-</td><td>57824 B</td>
+</thead><tbody><tr><td>AddRange</td><td>25</td><td>117,839.67 ns</td><td>240.917 ns</td><td>225.354 ns</td><td>2.4414</td><td>-</td><td>-</td><td>23416 B</td>
+</tr><tr><td>AddRange</td><td>50</td><td>236,556.49 ns</td><td>337.777 ns</td><td>315.957 ns</td><td>4.6387</td><td>-</td><td>-</td><td>45976 B</td>
+</tr><tr><td>AddRange</td><td>100</td><td>473,932.65 ns</td><td>1,160.281 ns</td><td>1,085.328 ns</td><td>9.2773</td><td>-</td><td>-</td><td>91112 B</td>
+</tr><tr><td>AddRange</td><td>250</td><td>1,195,265.52 ns</td><td>5,692.907 ns</td><td>5,325.149 ns</td><td>23.4375</td><td>-</td><td>-</td><td>225963 B</td>
+</tr><tr><td>FastAny</td><td>25</td><td>514.22 ns</td><td>2.415 ns</td><td>2.259 ns</td><td>0.0038</td><td>-</td><td>-</td><td>40 B</td>
+</tr><tr><td>FastAny</td><td>50</td><td>1,072.96 ns</td><td>13.591 ns</td><td>12.713 ns</td><td>0.0038</td><td>-</td><td>-</td><td>40 B</td>
+</tr><tr><td>FastAny</td><td>100</td><td>2,274.11 ns</td><td>5.879 ns</td><td>5.211 ns</td><td>0.0038</td><td>-</td><td>-</td><td>40 B</td>
+</tr><tr><td>FastAny</td><td>250</td><td>5,404.57 ns</td><td>3.432 ns</td><td>3.042 ns</td><td>-</td><td>-</td><td>-</td><td>40 B</td>
+</tr><tr><td>FastCount</td><td>25</td><td>305.49 ns</td><td>1.183 ns</td><td>0.988 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>FastCount</td><td>50</td><td>637.17 ns</td><td>3.009 ns</td><td>2.667 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>FastCount</td><td>100</td><td>1,272.67 ns</td><td>5.623 ns</td><td>4.696 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>FastCount</td><td>250</td><td>3,598.33 ns</td><td>40.551 ns</td><td>35.947 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HasItems</td><td>25</td><td>12.39 ns</td><td>0.013 ns</td><td>0.012 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HasItems</td><td>50</td><td>12.56 ns</td><td>0.013 ns</td><td>0.011 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HasItems</td><td>100</td><td>12.43 ns</td><td>0.028 ns</td><td>0.025 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HasItems</td><td>250</td><td>20.97 ns</td><td>0.095 ns</td><td>0.089 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>PickRandom</td><td>25</td><td>34.32 ns</td><td>0.190 ns</td><td>0.178 ns</td><td>0.0094</td><td>-</td><td>-</td><td>88 B</td>
+</tr><tr><td>PickRandom</td><td>50</td><td>34.32 ns</td><td>0.226 ns</td><td>0.212 ns</td><td>0.0094</td><td>-</td><td>-</td><td>88 B</td>
+</tr><tr><td>PickRandom</td><td>100</td><td>34.62 ns</td><td>0.485 ns</td><td>0.453 ns</td><td>0.0093</td><td>-</td><td>-</td><td>88 B</td>
+</tr><tr><td>PickRandom</td><td>250</td><td>34.85 ns</td><td>0.264 ns</td><td>0.247 ns</td><td>0.0094</td><td>-</td><td>-</td><td>88 B</td>
+</tr><tr><td>Randomize</td><td>25</td><td>20.67 ns</td><td>0.308 ns</td><td>0.288 ns</td><td>0.0059</td><td>-</td><td>-</td><td>56 B</td>
+</tr><tr><td>Randomize</td><td>50</td><td>20.82 ns</td><td>0.076 ns</td><td>0.071 ns</td><td>0.0060</td><td>-</td><td>-</td><td>56 B</td>
+</tr><tr><td>Randomize</td><td>100</td><td>20.43 ns</td><td>0.091 ns</td><td>0.085 ns</td><td>0.0060</td><td>-</td><td>-</td><td>56 B</td>
+</tr><tr><td>Randomize</td><td>250</td><td>20.40 ns</td><td>0.113 ns</td><td>0.105 ns</td><td>0.0060</td><td>-</td><td>-</td><td>56 B</td>
+</tr><tr><td>ToDelimitedString</td><td>25</td><td>1,132.99 ns</td><td>3.008 ns</td><td>2.814 ns</td><td>0.5493</td><td>0.0038</td><td>-</td><td>5152 B</td>
+</tr><tr><td>ToDelimitedString</td><td>50</td><td>2,057.42 ns</td><td>11.522 ns</td><td>10.777 ns</td><td>1.0300</td><td>0.0114</td><td>-</td><td>9720 B</td>
+</tr><tr><td>ToDelimitedString</td><td>100</td><td>3,985.60 ns</td><td>12.254 ns</td><td>10.863 ns</td><td>1.9913</td><td>0.0381</td><td>-</td><td>18792 B</td>
+</tr><tr><td>ToDelimitedString</td><td>250</td><td>10,085.09 ns</td><td>53.954 ns</td><td>50.469 ns</td><td>5.7068</td><td>0.3662</td><td>-</td><td>57824 B</td>
 </tr></tbody></table>
 </body>
 </html>

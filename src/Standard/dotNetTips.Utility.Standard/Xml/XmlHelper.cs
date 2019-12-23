@@ -25,7 +25,7 @@ namespace dotNetTips.Utility.Standard.Xml
     public static class XmlHelper
     {
         /// <summary>
-        /// Deserializes the specified XML.
+        /// Deserialize the specified XML.
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="xml">The XML.</param>

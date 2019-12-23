@@ -4,7 +4,7 @@
 // Created          : 10-02-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-16-2019
+// Last Modified On : 12-05-2019
 // ***********************************************************************
 // <copyright file="ClockPerfTestRunner.cs" company="dotNetTips.Utility.Benchmarks">
 //     Copyright (c) McCarter Consulting. All rights reserved.

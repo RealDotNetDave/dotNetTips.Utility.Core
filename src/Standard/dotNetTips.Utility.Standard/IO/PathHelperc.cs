@@ -30,7 +30,7 @@ namespace dotNetTips.Utility.Standard.IO
         {
             Encapsulation.TryValidateParam(path, nameof(path));
 
-            return ((path?.IndexOf('*') != -1) || (path?.IndexOf('?') != -1));
+            return (path?.IndexOf('*', System.StringComparison.InvariantCultureIgnoreCase) != -1) || (path?.IndexOf('?', System.StringComparison.InvariantCultureIgnoreCase) != -1);
         }
     }
 }

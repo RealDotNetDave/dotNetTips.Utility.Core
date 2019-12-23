@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace dotNetTips.Utility.Standard.Properties
-{
-
-
+namespace dotNetTips.Utility.Standard.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -192,6 +192,15 @@ namespace dotNetTips.Utility.Standard.Properties
         internal static string MB {
             get {
                 return ResourceManager.GetString("MB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number does not match minimum or maximum value..
+        /// </summary>
+        internal static string NumberNotInRange {
+            get {
+                return ResourceManager.GetString("NumberNotInRange", resourceCulture);
             }
         }
         

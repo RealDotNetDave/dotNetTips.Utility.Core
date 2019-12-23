@@ -161,7 +161,7 @@ namespace dotNetTips.Utility.Standard
         /// </summary>
         /// <returns>True if running ASP.NET</returns>
         public static bool IsRunningFromAspNet() => !string.IsNullOrEmpty(AppDomain.CurrentDomain.DynamicDirectory)
-            ? AppDomain.CurrentDomain.DynamicDirectory.Contains(_tempAspFiles)
+            ? AppDomain.CurrentDomain.DynamicDirectory.Contains(_tempAspFiles, StringComparison.InvariantCultureIgnoreCase)
             : false;
 
         /// <summary>

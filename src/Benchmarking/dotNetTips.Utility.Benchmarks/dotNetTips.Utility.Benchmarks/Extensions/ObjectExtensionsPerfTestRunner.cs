@@ -4,7 +4,7 @@
 // Created          : 10-04-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-04-2019
+// Last Modified On : 12-05-2019
 // ***********************************************************************
 // <copyright file="ObjectExtensionsPerfTestRunner.cs" company="dotNetTips.Utility.Benchmarks">
 //     Copyright (c) McCarter Consulting. All rights reserved.
@@ -21,7 +21,6 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
     [BenchmarkCategory(nameof(ObjectExtensions))]
     public class ObjectExtensionsPerfTestRunner : PerfTestRunner
     {
-
         private string _peopleJson;
 
         private PersonProper _person;
@@ -32,6 +31,14 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
 
             this._person = RandomData.GeneratePerson<PersonProper>();
             this._peopleJson = this._person.ToJson();
+        }
+
+        [Benchmark(Description = nameof(ObjectExtensions.As))]
+        public void TestAs()
+        {
+            var result = this._person.As<Person>();
+
+            base.Consumer.Consume(result);
         }
 
         [Benchmark(Description = nameof(ObjectExtensions.Clone))]
@@ -58,6 +65,14 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
             base.Consumer.Consume(result);
         }
 
+        [Benchmark(Description = nameof(ObjectExtensions.DisposeFields))]
+        public void TestDisposeFields()
+        {
+            System.Data.DataTable disposableType = new System.Data.DataTable("TEST");
+
+            disposableType.DisposeFields();
+        }
+
         [Benchmark(Description = nameof(ObjectExtensions.FromJson))]
         public void TestFromJson()
         {
@@ -74,6 +89,30 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
             base.Consumer.Consume(result);
         }
 
+        [Benchmark(Description = nameof(ObjectExtensions.IsNotNull))]
+        public void TestIsNotNull()
+        {
+            var result = this._person.IsNotNull();
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(ObjectExtensions.IsNull))]
+        public void TestIsNull()
+        {
+            var result = this._person.IsNull();
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(ObjectExtensions.StripNull))]
+        public void TestStripNull()
+        {
+            var result = this._person.StripNull();
+
+            base.Consumer.Consume(result);
+        }
+
         [Benchmark(Description = nameof(ObjectExtensions.ToJson))]
         public void TestToJson()
         {
@@ -82,5 +121,12 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
             base.Consumer.Consume(result);
         }
 
+        [Benchmark(Description = nameof(ObjectExtensions.TryDispose))]
+        public void TestTryDispose()
+        {
+            System.Data.DataTable disposableType = new System.Data.DataTable("TEST");
+
+            disposableType.TryDispose();
+        }
     }
 }

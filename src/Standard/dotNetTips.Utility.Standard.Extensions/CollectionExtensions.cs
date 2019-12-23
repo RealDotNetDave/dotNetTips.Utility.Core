@@ -415,7 +415,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
                 if (parts.Length > 1)
                 {
-                    @descending = CultureInfo.InvariantCulture.TextInfo.ToLower(parts[1]).Contains("esc");
+                    @descending = CultureInfo.InvariantCulture.TextInfo.ToLower(parts[1]).Contains("esc", StringComparison.InvariantCultureIgnoreCase);
                 }
 
                 var prop = typeof(T).GetRuntimeProperty(property);

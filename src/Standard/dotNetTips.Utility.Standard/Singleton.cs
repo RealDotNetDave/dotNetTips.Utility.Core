@@ -18,23 +18,19 @@ namespace dotNetTips.Utility.Standard
     /// Class Singleton.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class Singleton<T> where T : Singleton<T>, new()
+    public abstract class Singleton<T>
+        where T : Singleton<T>, new()
     {
         /// <summary>
         /// The instance
         /// </summary>
         private static T _instance = new T();
+
         /// <summary>
         /// Gets the instance.
         /// </summary>
         /// <value>The instance.</value>
-        public static T Instance
-        {
-            get
-            {
-                return _instance;
-            }
-        }
+        public static T Instance => _instance;
 
         /// <summary>
         /// ts this instance.
@@ -43,7 +39,7 @@ namespace dotNetTips.Utility.Standard
         /// <returns>LoadData.</returns>
         protected static void LoadData(T data)
         {
-            if (data != null)
+            if(data != null)
             {
                 _instance = data;
             }

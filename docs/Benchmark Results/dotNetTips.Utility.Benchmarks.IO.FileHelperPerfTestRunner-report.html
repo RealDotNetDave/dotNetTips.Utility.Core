@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner-20191202-123909</title>
+<title>dotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner-20191203-151238</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -15,21 +15,21 @@
 <pre><code>
 BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.1.100-preview3-014645
-  [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
-  Job-UEOGOB : .NET Core 3.0.0 (CoreCLR 4.700.19.46205, CoreFX 4.700.19.46214), X64 RyuJIT
+.NET Core SDK=3.1.100
+  [Host]     : .NET Core 3.1.0 (CoreCLR 4.700.19.56402, CoreFX 4.700.19.56404), X64 RyuJIT
+  Job-QYQXQL : .NET Core 3.1.0 (CoreCLR 4.700.19.56402, CoreFX 4.700.19.56404), X64 RyuJIT
 </code></pre>
 <pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=FileHelper  
 </code></pre>
 
 <table>
-<thead><tr><th> Method</th><th> Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+<thead><tr><th> Method</th><th> Mean</th><th>Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>CopyFile</td><td>907.5 us</td><td>17.95 us</td><td>34.58 us</td><td>890.0 us</td><td>2.9297</td><td>-</td><td>-</td><td>37.74 KB</td>
-</tr><tr><td>CopyFileAsync</td><td>958.7 us</td><td>10.74 us</td><td>9.52 us</td><td>956.9 us</td><td>3.9063</td><td>-</td><td>-</td><td>39 KB</td>
-</tr><tr><td>DeleteFiles</td><td>39,174.9 us</td><td>841.49 us</td><td>2,231.52 us</td><td>38,924.3 us</td><td>76.9231</td><td>-</td><td>-</td><td>989.84 KB</td>
-</tr><tr><td>MoveFile</td><td>956.1 us</td><td>19.08 us</td><td>18.74 us</td><td>951.9 us</td><td>-</td><td>-</td><td>-</td><td>14.2 KB</td>
+</thead><tbody><tr><td>CopyFile</td><td>899.3 us</td><td>16.84 us</td><td>14.93 us</td><td>2.9297</td><td>-</td><td>-</td><td>37.74 KB</td>
+</tr><tr><td>CopyFileAsync</td><td>961.5 us</td><td>12.15 us</td><td>10.14 us</td><td>3.9063</td><td>-</td><td>-</td><td>39 KB</td>
+</tr><tr><td>DeleteFiles</td><td>39,198.7 us</td><td>776.68 us</td><td>1,138.45 us</td><td>83.3333</td><td>-</td><td>-</td><td>985.82 KB</td>
+</tr><tr><td>MoveFile</td><td>1,069.0 us</td><td>20.42 us</td><td>53.43 us</td><td>0.9766</td><td>-</td><td>-</td><td>14.16 KB</td>
 </tr></tbody></table>
 </body>
 </html>

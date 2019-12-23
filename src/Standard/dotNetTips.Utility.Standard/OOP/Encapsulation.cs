@@ -239,6 +239,28 @@ namespace dotNetTips.Utility.Standard.OOP
         }
 
         /// <summary>
+        /// Tries the validate an integer value.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="minimumValue">The minimum value.</param>
+        /// <param name="maximumValue">The maximum value.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <param name="message">The error message.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static void TryValidateParam(int value, int minimumValue= int.MinValue, int maximumValue=int.MaxValue, string paramName = "", string message = "")
+        {
+            if (value< minimumValue || value> maximumValue)
+            {
+                if (message.IsNull())
+                {
+                    message = Resources.NumberNotInRange;
+                }
+
+                throw new ArgumentOutOfRangeException(message, paramName);
+            }
+        }
+
+        /// <summary>
         /// Tries to validate a method parameter.
         /// </summary>
         /// <param name="collection">The collection.</param>

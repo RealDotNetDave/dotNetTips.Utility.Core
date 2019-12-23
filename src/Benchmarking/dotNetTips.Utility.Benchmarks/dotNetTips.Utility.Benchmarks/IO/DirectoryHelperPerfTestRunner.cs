@@ -40,7 +40,7 @@ namespace dotNetTips.Utility.Benchmarks.IO
         {
             base.Setup();
 
-            var result = RandomData.GenerateFiles(1000, 10, FileExtension);
+            var result = RandomData.GenerateFiles(count: 1000, fileLength: 1000, FileExtension);
 
             _tempFiles = result.Files;
             _tempFilePath = result.Path;

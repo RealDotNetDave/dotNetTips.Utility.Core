@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.xml</DocumentationFile>
     <OutputPath>..\..\..\appbin\</OutputPath>
-    <AssemblyVersion>2019.12.2.32990</AssemblyVersion>
-    <FileVersion>2019.12.2.32990</FileVersion>
+    <AssemblyVersion>2019.12.23.32675</AssemblyVersion>
+    <FileVersion>2019.12.23.32675</FileVersion>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
@@ -78,6 +78,7 @@
     <PackageReference Include="Microsoft.VisualBasic" Version="10.3.0" />
     <PackageReference Include="System.Collections.Immutable" Version="1.6.0" />
     <PackageReference Include="System.Diagnostics.Process" Version="4.3.0" />
+    <PackageReference Include="System.Globalization" Version="4.3.0" />
     <PackageReference Include="System.Memory" Version="4.5.3" />
     <PackageReference Include="System.Runtime.Serialization.Json" Version="4.3.0" />
     <PackageReference Include="System.Security.AccessControl" Version="4.6.0" />

@@ -4,7 +4,7 @@
 // Created          : 10-04-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-04-2019
+// Last Modified On : 12-05-2019
 // ***********************************************************************
 // <copyright file="CollectionExtensionsPerfTestRunner.cs" company="dotNetTips.Utility.Benchmarks">
 //     Copyright (c) McCarter Consulting. All rights reserved.
@@ -14,16 +14,26 @@
 using BenchmarkDotNet.Attributes;
 using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.Tester.Models;
+using System.Linq;
 
 namespace dotNetTips.Utility.Benchmarks.Extensions
 {
-    [BenchmarkCategory(nameof(CollectionExtensions))]
+    [BenchmarkCategory(nameof(Standard.Extensions.CollectionExtensions))]
     public class CollectionExtensionsPerfTestRunner : CollectionPerfTestRunner
     {
+        public override void Setup() { base.Setup(); }
 
-        public override void Setup()
+        [Benchmark(Description = nameof(CollectionExtensions.AddIfNotExists))]
+        public void TestAddIfNotExists()
         {
-            base.Setup();
+            var people = new System.Collections.Generic.List<PersonProper>();
+
+            foreach (var person in base.personProperCollection)
+            {
+                people.AddIfNotExists(person);
+            }
+
+            base.Consumer.Consume(people);
         }
 
         [Benchmark(Description = nameof(CollectionExtensions.AddRange))]
@@ -31,9 +41,34 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         {
             var people = new System.Collections.Generic.List<PersonProper>();
 
-            CollectionExtensions.AddRange<PersonProper>(people, base.personProperCollection.PickRandom(base.CollectionCount / 2), true);
+            Standard.Extensions.CollectionExtensions
+                .AddRange<PersonProper>(people, base.personProperCollection.PickRandom(base.CollectionCount / 2), true);
 
-            base.Consumer.Consume(people.Count);
+            base.Consumer.Consume(people);
+        }
+
+        [Benchmark(Description = "CollectionExtensions.Clone")]
+        public void TestClone()
+        {
+            var result = base.personProperCollection.Clone<PersonProper>();
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.CopyToList))]
+        public void TestCopyToList()
+        {
+            var result = base.personProperCollection.CopyToList();
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.Count))]
+        public void TestCount()
+        {
+            var result = base.personProperCollection.Count();
+
+            base.Consumer.Consume(result);
         }
 
         [Benchmark(Description = nameof(CollectionExtensions.FastAny))]
@@ -60,6 +95,26 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
             base.Consumer.Consume(result);
         }
 
+        [Benchmark(Description = nameof(CollectionExtensions.OrderBy))]
+        public void TestOrderBy()
+        {
+            var result = base.personProperCollection.OrderBy(p => p.City);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.Page))]
+        public void TestPage()
+        {
+            foreach (var people in base.personProperCollection.Page(10))
+            {
+                foreach (var person in people)
+                {
+                    base.Consumer.Consume(person);
+                }
+            }
+        }
+
         [Benchmark(Description = nameof(CollectionExtensions.PickRandom))]
         public void TestPickRandom()
         {
@@ -80,6 +135,62 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         public void TestToDelimitedString()
         {
             var result = base.personProperCollection.ToDelimitedString(',');
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.ToDictionary))]
+        public void TestToDictionary()
+        {
+            var result = base.personProperCollection.ToDictionary(p => p.Email);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.ToDistinct))]
+        public void TestToDistinct()
+        {
+            var result = base.personProperCollection.Select(p => p.Email).ToArray().ToDistinct();
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.ToImmutable))]
+        public void TestToImmutable()
+        {
+            var result = base.personProperCollection.ToImmutable();
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.ToLinkedList))]
+        public void TestToLinkedList()
+        {
+            var result = base.personProperCollection.ToLinkedList();
+
+            base.Consumer.Consume(result);
+        }
+
+        //[Benchmark(Description = nameof(CollectionExtensions.ToListAsync))]
+        //public void TestToListAsync()
+        //{
+        //    var result = await base.personProperCollection.ToListAsync();
+
+        //    base.Consumer.Consume(result);
+        //}
+
+        [Benchmark(Description = nameof(CollectionExtensions.ToObservableCollection))]
+        public void TestToObservableCollection()
+        {
+            var result = base.personProperCollection.ToObservableCollection();
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.ToReadOnlyCollection))]
+        public void TestToReadOnlyCollection()
+        {
+            var result = base.personProperCollection.ToReadOnlyCollection();
 
             base.Consumer.Consume(result);
         }

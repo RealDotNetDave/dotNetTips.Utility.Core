@@ -4,7 +4,7 @@
 // Created          : 08-06-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 11-08-2019
+// Last Modified On : 12-03-2019
 // ***********************************************************************
 // <copyright file="FileProcessor.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -60,7 +60,7 @@ namespace dotNetTips.Utility.Standard.IO
                 {
                     try
                     {
-                        var newFileName = new FileInfo(tempFile.FullName.Replace(tempFile.Directory.Root.FullName, destinationFolder.FullName));
+                        var newFileName = new FileInfo(tempFile.FullName.Replace(tempFile.Directory.Root.FullName, destinationFolder.FullName, StringComparison.InvariantCultureIgnoreCase));
 
                         if (newFileName.Directory.Exists == false)
                         {
@@ -69,7 +69,7 @@ namespace dotNetTips.Utility.Standard.IO
 
                         var psw = PerformanceStopwatch.StartNew();
 
-                        tempFile.CopyTo(newFileName.FullName, true);
+                        tempFile.CopyTo(newFileName.FullName, overwrite: true);
 
                         var perf = psw.StopReset();
 
@@ -185,7 +185,7 @@ namespace dotNetTips.Utility.Standard.IO
 
             var successCount = 0;
 
-            List<DirectoryInfo> list = folders.ToList();
+            var list = folders.ToList();
 
             for (int i = 0; i < list.Count; i++)
             {
@@ -195,7 +195,7 @@ namespace dotNetTips.Utility.Standard.IO
                 {
                     try
                     {
-                        tempFolder.Delete(true);
+                        tempFolder.Delete(recursive: true);
 
                         successCount += 1;
 

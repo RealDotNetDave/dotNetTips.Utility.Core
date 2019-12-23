@@ -100,7 +100,7 @@ namespace dotNetTips.Utility.Standard
         {
             var adapters = NetworkInterface.GetAllNetworkInterfaces();
 
-            var eventInfo = new List<NetworkAddressChangedEventInformation>(adapters.Count());
+            var eventInfo = new List<NetworkAddressChangedEventInformation>(adapters.Length);
 
             eventInfo.AddRange(adapters.Select(adapter => new NetworkAddressChangedEventInformation
             {

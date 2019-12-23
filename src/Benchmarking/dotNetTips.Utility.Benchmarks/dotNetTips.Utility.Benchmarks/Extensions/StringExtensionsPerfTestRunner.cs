@@ -4,7 +4,7 @@
 // Created          : 10-04-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-04-2019
+// Last Modified On : 12-05-2019
 // ***********************************************************************
 // <copyright file="StringExtensionsPerfTestRunner.cs" company="dotNetTips.Utility.Benchmarks">
 //     Copyright (c) McCarter Consulting. All rights reserved.
@@ -19,7 +19,6 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
     [BenchmarkCategory(nameof(StringExtensions))]
     public class StringExtensionsPerfTestRunner : PerfTestRunner
     {
-
         private string _stringToTrim;
 
         public override void Setup()
@@ -49,6 +48,22 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         public void TestContainsAny()
         {
             var result = LongTestString.ContainsAny("A", "Z");
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.DefaultIfNull))]
+        public void TestDefaultIfNull()
+        {
+            var result = LongTestString.DefaultIfNull();
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.DefaultIfNullOrEmpty))]
+        public void TestDefaultIfNullOrEmpty()
+        {
+            var result = LongTestString.DefaultIfNullOrEmpty("David");
 
             base.Consumer.Consume(result);
         }

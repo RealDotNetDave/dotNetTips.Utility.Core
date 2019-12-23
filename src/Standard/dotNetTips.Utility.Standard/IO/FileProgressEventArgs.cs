@@ -27,7 +27,7 @@ namespace dotNetTips.Utility.Standard.IO
         public FileProgressEventArgs() => this.Message = string.Empty;
 
         /// <summary>
-        /// Gets the file progres message
+        /// Gets the file progress message
         /// </summary>
         /// <value>The message.</value>
         public string Message
@@ -36,9 +36,9 @@ namespace dotNetTips.Utility.Standard.IO
         }
 
         /// <summary>
-        /// The name
+        /// The full path and file name.
         /// </summary>
-        /// <value>The name.</value>
+        /// <value>The full name.</value>
         public string Name
         {
             get; set;

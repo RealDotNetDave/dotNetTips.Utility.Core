@@ -16,7 +16,7 @@ using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Running;
 using BenchmarkDotNet.Toolchains.CsProj;
 using dotNetTips.Utility.Benchmarks.Extensions;
-using dotNetTips.Utility.Benchmarks.IO;
+using dotNetTips.Utility.Benchmarks.Logging;
 using System;
 
 namespace dotNetTips.Utility.Benchmarks
@@ -32,7 +32,7 @@ namespace dotNetTips.Utility.Benchmarks
 
             BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).RunAll(config);
 
-            //BenchmarkRunner.Run<StringExtensionsPerfTestRunner>(config);
+            //BenchmarkRunner.Run<CollectionExtensionsPerfTestRunner>(config);
 
             Console.Beep();
             Console.Beep(5000, 1000);

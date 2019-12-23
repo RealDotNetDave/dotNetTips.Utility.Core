@@ -4,7 +4,7 @@
 // Created          : 10-05-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-05-2019
+// Last Modified On : 12-05-2019
 // ***********************************************************************
 // <copyright file="TypeHelperPerfTestRunner.cs" company="dotNetTips.Utility.Benchmarks">
 //     Copyright (c) McCarter Consulting. All rights reserved.
@@ -21,7 +21,6 @@ namespace dotNetTips.Utility.Benchmarks
     [BenchmarkCategory(nameof(TypeHelper))]
     public class TypeHelperPerfTestRunner : PerfTestRunner
     {
-
         private PersonProper _personProper;
 
         public override void Setup()
@@ -29,6 +28,41 @@ namespace dotNetTips.Utility.Benchmarks
             base.Setup();
 
             this._personProper = RandomData.GeneratePerson<PersonProper>();
+        }
+
+        [Benchmark(Description = nameof(TypeHelper.Create))]
+        public void TestCreate()
+        {
+            var result = TypeHelper.Create<PersonProper>();
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(TypeHelper.DoesObjectEqualInstance))]
+        public void TestDoesObjectEqualInstance()
+        {
+            var person1 = RandomData.GeneratePerson<PersonProper>();
+            var person2 = RandomData.GeneratePerson<PersonProper>();
+
+            var result = TypeHelper.DoesObjectEqualInstance(person1, person2);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(TypeHelper.FindDerivedTypes))]
+        public void TestFindDerivedTypes()
+        {
+            var result = TypeHelper.FindDerivedTypes(typeof(PersonProper), true);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(TypeHelper.GetDefault))]
+        public void TestGetDefault()
+        {
+            var result = TypeHelper.GetDefault<PersonProper>();
+
+            base.Consumer.Consume(result);
         }
 
         [Benchmark(Description = nameof(TypeHelper.GetInstanceHashCode))]

@@ -100,23 +100,29 @@ namespace dotNetTips.Utility.Standard.IO
         /// </summary>
         /// <param name="files">The files.</param>
         /// <returns>IEnumerable&lt;KeyValuePair&lt;System.String, System.String&gt;&gt;.</returns>
-        public static IEnumerable<(string fileName, string errorMessage)> DeleteFiles(this IEnumerable<string> files)
+        public static IEnumerable<(string FileName, string ErrorMessage)> DeleteFiles(this IEnumerable<string> files)
         {
             Encapsulation.TryValidateParam<ArgumentNullException>(files != null, nameof(files));
 
-            var errors = new List<(string fileName, string errorMessage)>();
+            var errors = new List<(string FileName, string ErrorMessage)>();
 
-            var result = Parallel.ForEach(files, (fileName) =>
-                  {
-                      try
-                      {
-                          File.Delete(fileName);
-                      }
-                      catch (Exception ex) when (ex is ArgumentException || ex is ArgumentNullException || ex is DirectoryNotFoundException || ex is IOException || ex is NotSupportedException || ex is PathTooLongException || ex is UnauthorizedAccessException)
-                      {
-                          errors.Add((fileName, ex.GetAllMessages()));
-                      }
-                  });
+            var result = Parallel.ForEach(source: files, body: (fileName) =>
+            {
+                try
+                {
+                    File.Delete(fileName);
+                }
+                catch (Exception ex) when (ex is ArgumentException ||
+                  ex is ArgumentNullException ||
+                  ex is DirectoryNotFoundException ||
+                  ex is IOException ||
+                  ex is NotSupportedException ||
+                  ex is PathTooLongException ||
+                  ex is UnauthorizedAccessException)
+                {
+                    errors.Add((FileName: fileName, ErrorMessage: ex.GetAllMessages()));
+                }
+            });
 
             return errors.AsEnumerable();
         }
@@ -159,7 +165,8 @@ namespace dotNetTips.Utility.Standard.IO
             Encapsulation.TryValidateParam(remoteFileUrl, nameof(localExpandedDirPath));
 
             var tempFileNameBase = Guid.NewGuid().ToString();
-            var tempDownloadPath = Path.Combine(Path.GetTempPath(), tempFileNameBase + Path.GetExtension(remoteFileUrl.ToString()));
+            var tempDownloadPath = Path.Combine(Path.GetTempPath(),
+                                                tempFileNameBase + Path.GetExtension(remoteFileUrl.ToString()));
 
             DownloadFileFromWeb(remoteFileUrl, tempDownloadPath);
 
@@ -203,7 +210,9 @@ namespace dotNetTips.Utility.Standard.IO
         {
             Encapsulation.TryValidateParam(sourceFileName, nameof(sourceFileName));
             Encapsulation.TryValidateParam(destinationFileName, nameof(destinationFileName));
-            Encapsulation.TryValidateParam<ArgumentInvalidException>(File.Exists(sourceFileName), nameof(sourceFileName), $"File {sourceFileName} does not exist.");
+            Encapsulation.TryValidateParam<ArgumentInvalidException>(File.Exists(sourceFileName),
+                                                                     nameof(sourceFileName),
+                                                                     $"File {sourceFileName} does not exist.");
 
             for (var retryCount = 0; retryCount < _retries; retryCount++)
             {
@@ -258,7 +267,9 @@ namespace dotNetTips.Utility.Standard.IO
         {
             Encapsulation.TryValidateParam(gzipPath, nameof(gzipPath));
             Encapsulation.TryValidateParam(expandedFilePath, nameof(expandedFilePath));
-            Encapsulation.TryValidateParam<ArgumentInvalidException>(File.Exists(gzipPath), nameof(gzipPath), "GZip file not found.");
+            Encapsulation.TryValidateParam<ArgumentInvalidException>(File.Exists(gzipPath),
+                                                                     nameof(gzipPath),
+                                                                     "GZip file not found.");
 
             await UnGZipAsync(gzipPath, expandedFilePath).ConfigureAwait(true);
 
@@ -278,7 +289,9 @@ namespace dotNetTips.Utility.Standard.IO
         {
             Encapsulation.TryValidateParam(zipPath, nameof(zipPath));
             Encapsulation.TryValidateParam(expandToDirectory, nameof(expandToDirectory));
-            Encapsulation.TryValidateParam<ArgumentInvalidException>(File.Exists(zipPath), nameof(zipPath), Resources.ZipFileNotFound);
+            Encapsulation.TryValidateParam<ArgumentInvalidException>(File.Exists(zipPath),
+                                                                     nameof(zipPath),
+                                                                     Resources.ZipFileNotFound);
 
             await UnWinZipAsync(zipPath, expandToDirectory).ConfigureAwait(true);
         }

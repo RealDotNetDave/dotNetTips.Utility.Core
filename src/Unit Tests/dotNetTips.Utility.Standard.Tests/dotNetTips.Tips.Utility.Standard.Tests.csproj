@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyVersion>2019.12.2.32990</AssemblyVersion>
+    <AssemblyVersion>2019.12.4.33420</AssemblyVersion>
 
-    <FileVersion>2019.12.2.32990</FileVersion>
+    <FileVersion>2019.12.4.33420</FileVersion>
 
     <Authors>David McCarter - dotNetTips.com</Authors>
 

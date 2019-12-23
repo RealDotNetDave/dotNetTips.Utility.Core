@@ -4,7 +4,7 @@
 // Created          : 10-04-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-04-2019
+// Last Modified On : 12-05-2019
 // ***********************************************************************
 // <copyright file="EnumExtensionsPerfTestRunner.cs" company="dotNetTips.Utility.Benchmarks">
 //     Copyright (c) McCarter Consulting. All rights reserved.
@@ -20,15 +20,24 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
     [BenchmarkCategory(nameof(EnumExtensions))]
     public class EnumExtensionsPerfTestRunner : PerfTestRunner
     {
+        [Benchmark(Description = nameof(EnumExtensions.GetDescription))]
+        public void TestGetDescription()
+        {
+            var testEnum = StringComparison.OrdinalIgnoreCase;
+
+            var result = testEnum.GetDescription();
+
+            base.Consumer.Consume(result);
+        }
 
         [Benchmark(Description = nameof(EnumExtensions.GetItems))]
         public void TestGetItems()
         {
             var testEnum = StringComparison.OrdinalIgnoreCase;
-            var items = testEnum.GetItems<StringComparison>();
 
-            base.Consumer.Consume(items);
+            var result = testEnum.GetItems<StringComparison>();
+
+            base.Consumer.Consume(result);
         }
-
     }
 }
