@@ -44,7 +44,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="System.ArgumentException">List cannot be read-only.</exception>
         public static void AddIfNotExists<T>(this ICollection<T> list, T item)
         {
-            if (list == null)
+            if (list is null)
             {
                 throw new ArgumentNullException(nameof(list));
             }
@@ -54,7 +54,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 throw new ArgumentException("List cannot be read-only.", nameof(list));
             }
 
-            if (item == null)
+            if (item is null)
             {
                 throw new ArgumentNullException(nameof(item), $"{nameof(item)} is null.");
             }
@@ -81,11 +81,21 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentException">list - List cannot be read-only.</exception>
         public static void AddIfNotExists<T>(this ICollection<T> list, params T[] items)
         {
+            if (list is null)
+            {
+                throw new ArgumentNullException(nameof(list));
+            }
+
+            if (list.IsReadOnly)
+            {
+                throw new ArgumentException("List cannot be read-only.", nameof(list));
+            }
+
             if (items.HasItems())
             {
-                for (int i = 0; i < items.Length; i++)
+                for (int index = 0; index < items.Length; index++)
                 {
-                    list.AddIfNotExists(items[i]);
+                    list.AddIfNotExists(items[index]);
                 }
             }
         }
@@ -102,6 +112,16 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentException">items</exception>
         public static void AddRange<T>(this ICollection<T> list, IEnumerable<T> items, bool insureUnique = false)
         {
+            if (list is null)
+            {
+                throw new ArgumentNullException(nameof(list));
+            }
+
+            if (list.IsReadOnly)
+            {
+                throw new ArgumentException("List cannot be read-only.", nameof(list));
+            }
+
             if (items.HasItems() == false)
             {
                 throw new ArgumentNullException(nameof(items), $"{nameof(items)} is null.");
@@ -145,17 +165,27 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <remarks>Code by: Lucas</remarks>
         public static void AddRange<T, TKey, TValue>(this IDictionary<TKey, TValue> list, IEnumerable<T> items, Func<T, TKey> key, Func<T, TValue> value)
         {
+            if (list is null)
+            {
+                throw new ArgumentNullException(nameof(list));
+            }
+
+            if (list.IsReadOnly)
+            {
+                throw new ArgumentException("List cannot be read-only.", nameof(list));
+            }
+
             if (items.HasItems() == false)
             {
                 throw new ArgumentNullException(nameof(items), $"{nameof(items)} is null or is empty.");
             }
 
-            if (key == null)
+            if (key is null)
             {
                 throw new ArgumentNullException(nameof(key), $"{nameof(key)} is null.");
             }
 
-            if (value == null)
+            if (value is null)
             {
                 throw new ArgumentNullException(nameof(value), $"{nameof(value)} is null.");
             }
@@ -177,6 +207,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>List&lt;T&gt;.</returns>
         public static List<T> CopyToList<T>(this List<T> source)
         {
+            if (source.HasItems()==false)
+            {
+                throw new ArgumentNullException(nameof(source), $"{nameof(source)} is null.");
+            }
+
             return new List<T>(source);
         }
 
@@ -228,7 +263,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="System.ArgumentNullException">predicate - predicate</exception>
         public static bool FastAny<T>(this IEnumerable<T> source, Func<T, bool> predicate)
         {
-            if (predicate == null)
+            if (source is null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+
+            if (predicate is null)
             {
                 throw new ArgumentNullException(nameof(predicate), $"{nameof(predicate)} is null.");
             }
@@ -254,7 +294,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// source</exception>
         public static int FastCount<T>(this IEnumerable<T> source, Func<T, bool> predicate)
         {
-            if (predicate == null)
+            if (source is null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+
+            if (predicate is null)
             {
                 throw new ArgumentNullException(nameof(predicate));
             }
@@ -298,7 +343,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 throw new ArgumentNullException(nameof(list), $"{nameof(list)} is null or is empty.");
             }
 
-            if (match == null)
+            if (match is null)
             {
                 throw new ArgumentNullException(nameof(match), $"{nameof(match)} is null.");
             }
@@ -376,7 +421,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 throw new ArgumentNullException(nameof(source));
             }
 
-            if (action == null)
+            if (action is null)
             {
                 throw new ArgumentNullException(nameof(action), $"{nameof(action)} is null.");
             }
@@ -399,6 +444,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <remarks>Original code by: C.F.Meijers</remarks>
         public static IEnumerable<T> OrderBy<T>(this IEnumerable<T> list, string sortExpression)
         {
+            if (list is null)
+            {
+                throw new ArgumentNullException(nameof(list));
+            }
+
             if (string.IsNullOrEmpty(sortExpression))
             {
                 return null;
@@ -446,7 +496,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="System.ArgumentOutOfRangeException">The exception.</exception>
         public static IEnumerable<IEnumerable<T>> Page<T>(this IEnumerable<T> list, int pageSize)
         {
-            if (list == null)
+            if (list is null)
             {
                 throw new ArgumentNullException(nameof(list), $"{nameof(list)} is null.");
             }

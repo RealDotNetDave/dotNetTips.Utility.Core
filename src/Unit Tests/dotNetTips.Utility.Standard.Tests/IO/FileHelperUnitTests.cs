@@ -40,7 +40,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
 
                 };
 
-                var directory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                var directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
                 var fileToCopy =  new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).GetDirectories().Where(p => p.GetFiles().Count() > 0).Randomize().FirstOrDefault().GetFiles().FirstOrDefault();
 
