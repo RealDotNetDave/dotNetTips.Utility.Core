@@ -49,18 +49,6 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Formats the size of the file.
-        /// </summary>
-        /// <param name="fileSize">Size of the file.</param>
-        /// <returns>System.String.</returns>
-        /// <exception cref="ArgumentNullException">fileSize - File size is invalid.</exception>
-        [Obsolete("Method will be removed at the end of 2018")]
-        public static string FormatFileSize(this long fileSize)
-        {
-            return FormatSizeToString(fileSize);
-        }
-
-        /// <summary>
         /// Increment a number ensuring it never passes a given upper-bound.
         /// </summary>
         /// <param name="value">Number to process</param>
@@ -293,11 +281,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Formats the size to string.
+        /// Formats the number to size string.
         /// </summary>
         /// <param name="fileSize">Size of the file.</param>
         /// <returns>System.String.</returns>
-        private static string FormatSizeToString(long fileSize)
+        public static string FormatSizeToString(long fileSize)
         {
             long size = 0;
 

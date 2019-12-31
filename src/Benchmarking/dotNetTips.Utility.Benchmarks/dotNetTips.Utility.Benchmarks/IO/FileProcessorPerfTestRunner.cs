@@ -27,6 +27,38 @@ namespace dotNetTips.Utility.Benchmarks.IO
     [BenchmarkCategory(nameof(FileProcessor))]
     public class FileProcessorPerfTestRunner : PerfTestRunner
     {
+        private readonly DistinctBlockingCollection<string> _filesToDelete = new DistinctBlockingCollection<string>();
+
+        private int _fileCount = 1000;
+        private int _fileLength = 500;
+
+        private IEnumerable<FileInfo> _tempFiles;
+
+        private DirectoryInfo _tempFolder = new DirectoryInfo(Path.Combine(Environment.GetEnvironmentVariable(EnvironmentKey.TMP.ToString()), "_dotNetTipsBenchmarkTest"));
+
+        public override void Cleanup()
+        {
+            base.Cleanup();
+
+            _ = FileHelper.DeleteFiles(_tempFiles.Select(p => p.FullName));
+
+            _ = FileHelper.DeleteFiles(_filesToDelete);
+        }
+
+        public override void Setup()
+        {
+            base.Setup();
+
+            this._tempFolder.Create();
+
+            ConsoleLogger.Default.WriteLine(LogKind.Info, $"Temp Folder: {this._tempFolder}.");
+
+            // Copy files for test
+            this._tempFiles = this.GenerateTempFiles();
+
+            ConsoleLogger.Default.WriteLine(LogKind.Info, $"Files Copied: {this._tempFiles.Count()}.");
+
+        }
         [Benchmark(Description = nameof(FileProcessor.CopyFiles))]
         public void TestCopyFilesWithEvent()
         {
@@ -75,45 +107,6 @@ namespace dotNetTips.Utility.Benchmarks.IO
             processor.Processed -= this.Processor_Processed;
         }
 
-        private void Processor_Processed(object sender, FileProgressEventArgs e)
-        {
-            base.Consumer.Consume(e.Message);
-
-            this._filesToDelete.Add(e.Name);
-        }
-
-        public override void Setup()
-        {
-            base.Setup();
-
-            this._tempFolder.Create();
-
-            ConsoleLogger.Default.WriteLine(LogKind.Info, $"Temp Folder: {this._tempFolder}.");
-
-            // Copy files for test
-            this._tempFiles = this.GenerateTempFiles();
-
-            ConsoleLogger.Default.WriteLine(LogKind.Info, $"Files Copied: {this._tempFiles.Count()}.");
-
-        }
-
-        private int _fileCount = 1000;
-        private int _fileLength = 500;
-
-        private IEnumerable<FileInfo> _tempFiles;
-
-        private readonly DistinctBlockingCollection<string> _filesToDelete = new DistinctBlockingCollection<string>();
-
-        private DirectoryInfo _tempFolder = new DirectoryInfo(Path.Combine(Environment.GetEnvironmentVariable(EnvironmentKey.TMP.ToString()), "_dotNetTipsBenchmarkTest"));
-
-        public override void Cleanup()
-        {
-            base.Cleanup();
-
-            FileHelper.DeleteFiles(_tempFiles.Select(p => p.FullName));
-            FileHelper.DeleteFiles(_filesToDelete);
-        }
-
         private IEnumerable<FileInfo> GenerateTempFiles()
         {
             var result = RandomData.GenerateFiles(_tempFolder.FullName, _fileCount, _fileLength);
@@ -124,5 +117,13 @@ namespace dotNetTips.Utility.Benchmarks.IO
 
             return tempFiles;
         }
+
+        private void Processor_Processed(object sender, FileProgressEventArgs e)
+        {
+            base.Consumer.Consume(e.Message);
+
+            this._filesToDelete.Add(e.Name);
+        }
+
     }
 }

@@ -5,9 +5,9 @@
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyVersion>2019.12.4.33420</AssemblyVersion>
+    <AssemblyVersion>2019.12.30.42724</AssemblyVersion>
 
-    <FileVersion>2019.12.4.33420</FileVersion>
+    <FileVersion>2019.12.30.42724</FileVersion>
 
     <Authors>David McCarter - dotNetTips.com</Authors>
 
