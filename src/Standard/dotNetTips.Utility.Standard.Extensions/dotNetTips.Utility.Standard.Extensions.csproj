@@ -3,8 +3,8 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Extensions.xml</DocumentationFile>
     <OutputPath>..\..\..\appbin\</OutputPath>
-    <AssemblyVersion>2019.12.30.42807</AssemblyVersion>
-    <FileVersion>2019.12.30.42807</FileVersion>
+    <AssemblyVersion>2020.1.21.41290</AssemblyVersion>
+    <FileVersion>2020.1.21.41290</FileVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>

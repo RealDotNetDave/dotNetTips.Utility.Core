@@ -14,7 +14,7 @@
 namespace dotNetTips.Utility.Standard
 {
     /// <summary>
-    /// Interface ICloneable
+    /// ICloneable Interface.
     /// </summary>
     /// <typeparam name="T">The type of T.</typeparam>
     public interface ICloneable<T>

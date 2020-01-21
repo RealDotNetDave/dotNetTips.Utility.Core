@@ -207,7 +207,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>List&lt;T&gt;.</returns>
         public static List<T> CopyToList<T>(this List<T> source)
         {
-            if (source.HasItems()==false)
+            if (source.HasItems() == false)
             {
                 throw new ArgumentNullException(nameof(source), $"{nameof(source)} is null.");
             }
@@ -824,10 +824,6 @@ namespace dotNetTips.Utility.Standard.Extensions
                     if (item != null && item is IDisposable disposeItem)
                     {
                         disposeItem.TryDispose();
-                    }
-                    else
-                    {
-                        return;
                     }
                 }
             }

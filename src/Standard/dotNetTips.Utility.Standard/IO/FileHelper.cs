@@ -165,8 +165,7 @@ namespace dotNetTips.Utility.Standard.IO
             Encapsulation.TryValidateParam(remoteFileUrl, nameof(localExpandedDirPath));
 
             var tempFileNameBase = Guid.NewGuid().ToString();
-            var tempDownloadPath = Path.Combine(Path.GetTempPath(),
-                                                tempFileNameBase + Path.GetExtension(remoteFileUrl.ToString()));
+            var tempDownloadPath = Path.Combine(Path.GetTempPath(), tempFileNameBase + Path.GetExtension(remoteFileUrl.ToString()));
 
             DownloadFileFromWeb(remoteFileUrl, tempDownloadPath);
 

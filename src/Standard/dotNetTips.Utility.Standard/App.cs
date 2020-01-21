@@ -31,6 +31,7 @@ namespace dotNetTips.Utility.Standard
     /// </summary>
     public static class App
     {
+
         /// <summary>
         /// The temporary ASP files location
         /// </summary>
@@ -117,6 +118,15 @@ namespace dotNetTips.Utility.Standard
         public static void ChangeUICulture(string cultureName)
         {
             CultureInfo.CurrentUICulture = new CultureInfo(cultureName);
+        }
+
+        /// <summary>
+        /// Returns the folder path for the entry assembly.
+        /// </summary>
+        /// <returns>System.String.</returns>
+        public static string ExecutingFolder()
+        {
+            return new FileInfo(Assembly.GetEntryAssembly().Location).Directory.ToString();
         }
 
         /// <summary>
@@ -249,5 +259,6 @@ namespace dotNetTips.Utility.Standard
 
             return _appInfo;
         }
+
     }
 }

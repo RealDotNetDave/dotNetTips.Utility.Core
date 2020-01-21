@@ -33,8 +33,9 @@ namespace dotNetTips.Utility.Standard.Logging
         {
             Encapsulation.TryValidateParam<ArgumentNullException>(ex != null, nameof(ex));
 
-            var exceptions = RetrieveAllExceptions(ex);
             var messages = new List<string>();
+
+            var exceptions = RetrieveAllExceptions(ex);
 
             exceptions.ForEach(exception => messages.Add(ex.Message));
 

@@ -36,7 +36,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// Gets the removeable drives, that are ready, for a computer.
         /// </summary>
         /// <returns>IImmutableList&lt;DriveInfo&gt;.</returns>
-        public static IImmutableList<DriveInfo> GetRemoveableDrives()
+        public static IImmutableList<DriveInfo> GetRemovableDrives()
         {
             return DriveInfo.GetDrives().Where(p => p.DriveType == DriveType.Removable & p.IsReady).Distinct().ToImmutableList();
         }
