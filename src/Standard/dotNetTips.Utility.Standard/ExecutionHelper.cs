@@ -25,7 +25,7 @@ namespace dotNetTips.Utility.Standard
     public static class ExecutionHelper
     {
         /// <summary>
-        /// Progressives retry for a function call.
+        /// Progressive retry for a function call.
         /// </summary>
         /// <param name="operation">The operation to perform.</param>
         /// <param name="retryCount">The retry count (default 3).</param>
