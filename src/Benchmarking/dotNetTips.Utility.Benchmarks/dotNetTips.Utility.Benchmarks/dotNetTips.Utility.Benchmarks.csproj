@@ -2,14 +2,14 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
     <StartupObject>dotNetTips.Utility.Benchmarks.Program</StartupObject>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Configurations>Release</Configurations>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <AssemblyVersion>2019.12.5.40412</AssemblyVersion>
-    <FileVersion>2019.12.5.40412</FileVersion>
+    <AssemblyVersion>2020.2.6.927</AssemblyVersion>
+    <FileVersion>2020.2.6.927</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -18,9 +18,10 @@
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.12.0" />
     <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.12.0" />
-    <PackageReference Include="dotNetTips.Utility.Core.Windows" Version="2019.12.2" />
-    <PackageReference Include="dotNetTips.Utility.Standard" Version="2019.12.2" />
-    <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2019.12.2" />
-    <PackageReference Include="dotNetTips.Utility.Standard.Tester" Version="2019.12.2" />
+    <PackageReference Include="dotNetTips.Utility.Core.Windows" Version="2019.12.45" />
+    <PackageReference Include="dotNetTips.Utility.Standard" Version="2019.12.55" />
+    <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2019.12.50" />
+    <PackageReference Include="dotNetTips.Utility.Standard.Tester" Version="2019.12.37" />
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="1.1.0" />
   </ItemGroup>
 </Project>

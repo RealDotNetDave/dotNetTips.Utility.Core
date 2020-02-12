@@ -98,5 +98,13 @@ namespace dotNetTips.Utility.Benchmarks.IO
             base.Consumer.Consume(result);
         }
 
+        [Benchmark(Description = nameof(DirectoryHelper.SafeFileSearch))]
+        public void TestSafeFileSearch()
+        {
+            var result = DirectoryHelper.SafeFileSearch(new DirectoryInfo(_tempFilePath), "*.*", SearchOption.AllDirectories);
+
+            base.Consumer.Consume(result);
+        }
+
     }
 }

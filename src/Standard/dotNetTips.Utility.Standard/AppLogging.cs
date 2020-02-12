@@ -4,7 +4,7 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 11-29-2019
+// Last Modified On : 02-04-2020
 // ***********************************************************************
 // <copyright file="AppLogging.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -20,6 +20,7 @@ namespace dotNetTips.Utility.Standard
     /// </summary>
     public static class AppLogging
     {
+
         /// <summary>
         /// Gets the logger.
         /// </summary>

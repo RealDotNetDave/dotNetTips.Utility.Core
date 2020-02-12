@@ -4,7 +4,7 @@
 // Created          : 06-26-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 05-31-2019
+// Last Modified On : 01-31-2020
 // ***********************************************************************
 // <copyright file="EnvironmentKey.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -20,19 +20,24 @@ namespace dotNetTips.Tips.Utility.Standard
     public enum EnvironmentKey
     {
         /// <summary>
-        /// The allusersprofile
+        /// The all users profile
         /// </summary>
         ALLUSERSPROFILE,
 
         /// <summary>
-        /// The appdata
+        /// The app data
         /// </summary>
         APPDATA,
 
         /// <summary>
-        /// The clientname
+        /// The client name
         /// </summary>
         CLIENTNAME,
+
+        /// <summary>
+        /// The com plus no GUI from shim for side-by-side execution
+        /// </summary>
+        COMPLUS_NoGuiFromShim,
 
         /// <summary>
         /// The common program files
@@ -45,7 +50,7 @@ namespace dotNetTips.Tips.Utility.Standard
         CommonProgramW6432,
 
         /// <summary>
-        /// The computername
+        /// The computer name
         /// </summary>
         COMPUTERNAME,
 
@@ -75,27 +80,47 @@ namespace dotNetTips.Tips.Utility.Standard
         FPS_BROWSER_USER_PROFILE_STRING,
 
         /// <summary>
-        /// The fsharpinstalldir
+        /// The fsharp install dir
         /// </summary>
         FSHARPINSTALLDIR,
 
         /// <summary>
-        /// The homedrive
+        /// The home drive
         /// </summary>
         HOMEDRIVE,
 
         /// <summary>
-        /// The homepath
+        /// The home path
         /// </summary>
         HOMEPATH,
 
         /// <summary>
-        /// The localappdata
+        /// The IIS bin
+        /// </summary>
+        IIS_BIN,
+
+        /// <summary>
+        /// The IIS drive
+        /// </summary>
+        IIS_DRIVE,
+
+        /// <summary>
+        /// The IIS sites home
+        /// </summary>
+        IIS_SITES_HOME,
+
+        /// <summary>
+        /// The IIS user home
+        /// </summary>
+        IIS_USER_HOME,
+
+        /// <summary>
+        /// The local appdata
         /// </summary>
         LOCALAPPDATA,
 
         /// <summary>
-        /// The logonserver
+        /// The logon server
         /// </summary>
         LOGONSERVER,
 
@@ -105,17 +130,33 @@ namespace dotNetTips.Tips.Utility.Standard
         MSBuildLoadMicrosoftTargetsReadOnly,
 
         /// <summary>
+        /// The msmpi bin
+        /// </summary>
+        MSMPI_BIN,
+
+        /// <summary>
         /// The number of processors
         /// </summary>
         NUMBER_OF_PROCESSORS,
 
         /// <summary>
-        /// The one drive
+        /// The path to OneDrive
         /// </summary>
         OneDrive,
 
         /// <summary>
-        /// The allusersprofile
+        /// The path to OneDrive Business
+        /// </summary>
+        OneDriveCommercial,
+
+        /// <summary>
+        /// The path to OneDrive Consumer
+        /// </summary>
+        OneDriveConsumer,
+
+
+        /// <summary>
+        /// The operating system name
         /// </summary>
         OS,
 
@@ -125,7 +166,7 @@ namespace dotNetTips.Tips.Utility.Standard
         Path,
 
         /// <summary>
-        /// The pathext
+        /// The path ext
         /// </summary>
         PATHEXT,
 
@@ -135,7 +176,7 @@ namespace dotNetTips.Tips.Utility.Standard
         PkgDefApplicationConfigFile,
 
         /// <summary>
-        /// The appdata
+        /// The app data
         /// </summary>
         PROCESSOR_ARCHITECTURE,
 
@@ -155,7 +196,7 @@ namespace dotNetTips.Tips.Utility.Standard
         PROCESSOR_REVISION,
 
         /// <summary>
-        /// The clientname
+        /// The client name
         /// </summary>
         ProgramData,
 
@@ -180,7 +221,12 @@ namespace dotNetTips.Tips.Utility.Standard
         PUBLIC,
 
         /// <summary>
-        /// The sessionname
+        /// The service hub log session key
+        /// </summary>
+        ServiceHubLogSessionKey,
+
+        /// <summary>
+        /// The session name
         /// </summary>
         SESSIONNAME,
 
@@ -200,27 +246,32 @@ namespace dotNetTips.Tips.Utility.Standard
         TEMP,
 
         /// <summary>
+        /// The threaded wait dialog dpi context
+        /// </summary>
+        ThreadedWaitDialogDpiContext,
+
+        /// <summary>
         /// The temporary
         /// </summary>
         TMP,
 
         /// <summary>
-        /// The userdomain
+        /// The user domain
         /// </summary>
         USERDOMAIN,
 
         /// <summary>
-        /// The userdomain roamingprofile
+        /// The user domain roaming profile
         /// </summary>
         USERDOMAIN_ROAMINGPROFILE,
 
         /// <summary>
-        /// The computername
+        /// The computer name
         /// </summary>
         USERNAME,
 
         /// <summary>
-        /// The userprofile
+        /// The user profile
         /// </summary>
         USERPROFILE,
 
@@ -240,17 +291,17 @@ namespace dotNetTips.Tips.Utility.Standard
         VisualStudioVersion,
 
         /// <summary>
-        /// The vsappiddir
+        /// The vs app id dir
         /// </summary>
         VSAPPIDDIR,
 
         /// <summary>
-        /// The vsappidname
+        /// The vs app id name
         /// </summary>
         VSAPPIDNAME,
 
         /// <summary>
-        /// The vslang
+        /// The vs lang
         /// </summary>
         VSLANG,
 
@@ -260,12 +311,17 @@ namespace dotNetTips.Tips.Utility.Standard
         VSLOGGER_UNIQUEID,
 
         /// <summary>
-        /// The vsskuedition
+        /// The vs sku edition
         /// </summary>
         VSSKUEDITION,
 
         /// <summary>
-        /// The windir
+        /// The vtune amplifier 2019 dir
+        /// </summary>
+        VTUNE_AMPLIFIER_2019_DIR,
+
+        /// <summary>
+        /// The Windows directory
         /// </summary>
         windir
     }

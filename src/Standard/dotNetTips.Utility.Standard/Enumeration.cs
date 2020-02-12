@@ -63,12 +63,12 @@ namespace dotNetTips.Utility.Standard
         /// <exception cref="ArgumentNullException">firstValue or secondValue</exception>
         public static int AbsoluteDifference(Enumeration firstValue, Enumeration secondValue)
         {
-            if(firstValue is null)
+            if (firstValue is null)
             {
                 throw new ArgumentNullException(nameof(firstValue));
             }
 
-            if(secondValue is null)
+            if (secondValue is null)
             {
                 throw new ArgumentNullException(nameof(secondValue));
             }
@@ -85,7 +85,7 @@ namespace dotNetTips.Utility.Standard
         /// <exception cref="ArgumentNullException">Object is null.</exception>
         public int CompareTo(object obj)
         {
-            if(obj is null)
+            if (obj is null)
             {
                 throw new ArgumentNullException(nameof(obj));
             }
@@ -145,9 +145,9 @@ namespace dotNetTips.Utility.Standard
         /// <returns>The result of the operator.</returns>
         public static bool operator ==(Enumeration left, Enumeration right)
         {
-            if (ReferenceEquals(left, null))
+            if (left is null)
             {
-                return ReferenceEquals(right, null);
+                return right is null;
             }
 
             return left.Equals(right);
@@ -172,7 +172,7 @@ namespace dotNetTips.Utility.Standard
         /// <returns>The result of the operator.</returns>
         public static bool operator <(Enumeration left, Enumeration right)
         {
-            return ReferenceEquals(left, null) ? !ReferenceEquals(right, null) : left.CompareTo(right) < 0;
+            return left is null ? right is object : left.CompareTo(right) < 0;
         }
 
         /// <summary>
@@ -183,7 +183,7 @@ namespace dotNetTips.Utility.Standard
         /// <returns>The result of the operator.</returns>
         public static bool operator <=(Enumeration left, Enumeration right)
         {
-            return ReferenceEquals(left, null) || left.CompareTo(right) <= 0;
+            return left is null || left.CompareTo(right) <= 0;
         }
 
         /// <summary>
@@ -194,7 +194,7 @@ namespace dotNetTips.Utility.Standard
         /// <returns>The result of the operator.</returns>
         public static bool operator >(Enumeration left, Enumeration right)
         {
-            return !ReferenceEquals(left, null) && left.CompareTo(right) > 0;
+            return left is object && left.CompareTo(right) > 0;
         }
 
         /// <summary>
@@ -205,7 +205,7 @@ namespace dotNetTips.Utility.Standard
         /// <returns>The result of the operator.</returns>
         public static bool operator >=(Enumeration left, Enumeration right)
         {
-            return ReferenceEquals(left, null) ? ReferenceEquals(right, null) : left.CompareTo(right) >= 0;
+            return left is null ? right is null : left.CompareTo(right) >= 0;
         }
     }
 }

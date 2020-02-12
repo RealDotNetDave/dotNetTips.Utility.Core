@@ -50,3 +50,4 @@
 [assembly: SuppressMessage("Security", "CA5369:Use XmlReader For Deserialize", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.Xml.XmlHelper.Deserialize``1(System.String)~``0")]
 
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1724:Type names should not match namespaces", Justification = "<Pending>", Scope = "type", Target = "~T:dotNetTips.Utility.Standard.Enumeration")]
+[assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "member", Target = "~F:dotNetTips.Utility.Standard.IO.FileHelper.Retries")]

@@ -4,17 +4,19 @@
 // Created          : 06-04-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-28-2019
+// Last Modified On : 02-05-2020
 // ***********************************************************************
 // <copyright file="PersonFixed.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using dotNetTips.Utility.Standard.OOP;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace dotNetTips.Utility.Standard.Tester.Models
 {
@@ -26,7 +28,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
     /// <seealso cref="dotNetTips.Utility.Standard.Tester.Models.Person" />
     /// <seealso cref="System.IComparable" />
     [DebuggerDisplay("{Email}")]
-    public class PersonFixed : Person, IComparable, IComparable<PersonFixed>
+    public sealed class PersonFixed : Person, IDataModel<PersonFixed>
     {
 
         /// <summary>
@@ -54,113 +56,93 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// <value>The age.</value>
         public TimeSpan Age => this.CalculateAge();
 
-        /// <summary>Compares to.</summary>
-        /// <param name="obj">The object.</param>
-        /// <returns>System.Int32.</returns>
-        /// <exception cref="ArgumentException">obj</exception>
-        public int CompareTo(object obj)
-        {
-            if (obj == null)
-            {
-                return 1;
-            }
-
-            PersonFixed other = obj as PersonFixed;
-            if (other == null)
-            {
-                throw new ArgumentException(nameof(obj) + " is not a " + nameof(PersonFixed));
-            }
-
-            return CompareTo(other);
-        }
-
-        /// <summary>Compares to.</summary>
+        /// <summary>
+        /// Compares to.
+        /// </summary>
         /// <param name="other">The other.</param>
         /// <returns>System.Int32.</returns>
         public int CompareTo(PersonFixed other)
         {
-            if (other == null)
+            if (other is null)
             {
                 return 1;
             }
 
-            int result = 0;
+            var result = this.Email.CompareTo(other.Email);
+            if (result != 0)
+            {
+                return result;
+            }
 
-            result = Address1.CompareTo(other.Address1);
+            result = this.Id.CompareTo(other.Id);
 
             if (result != 0)
             {
                 return result;
             }
 
-            result = Address2.CompareTo(other.Address2);
+            result = this.Address1.CompareTo(other.Address1);
 
             if (result != 0)
             {
                 return result;
             }
 
-            result = BornOn.CompareTo(other.BornOn);
-            if (result != 0)
-            {
-                return result;
-            }
-
-            result = CellPhone.CompareTo(other.CellPhone);
+            result = this.Address2.CompareTo(other.Address2);
 
             if (result != 0)
             {
                 return result;
             }
 
-            result = City.CompareTo(other.City);
+            result = this.BornOn.CompareTo(other.BornOn);
             if (result != 0)
             {
                 return result;
             }
 
-            result = Country.CompareTo(other.Country);
-
-            if (result != 0)
-            {
-                return result;
-            }
-
-            result = Email.CompareTo(other.Email);
-            if (result != 0)
-            {
-                return result;
-            }
-
-            result = FirstName.CompareTo(other.FirstName);
+            result = this.CellPhone.CompareTo(other.CellPhone);
 
             if (result != 0)
             {
                 return result;
             }
 
-            result = HomePhone.CompareTo(other.HomePhone);
+            result = this.City.CompareTo(other.City);
+            if (result != 0)
+            {
+                return result;
+            }
+
+            result = this.Country.CompareTo(other.Country);
 
             if (result != 0)
             {
                 return result;
             }
 
-            result = Id.CompareTo(other.Id);
+            result = this.FirstName.CompareTo(other.FirstName);
 
             if (result != 0)
             {
                 return result;
             }
 
-            result = LastName.CompareTo(other.LastName);
+            result = this.HomePhone.CompareTo(other.HomePhone);
 
             if (result != 0)
             {
                 return result;
             }
 
-            result = PostalCode.CompareTo(other.PostalCode);
+            result = this.LastName.CompareTo(other.LastName);
+
+            if (result != 0)
+            {
+                return result;
+            }
+
+            result = this.PostalCode.CompareTo(other.PostalCode);
 
             if (result != 0)
             {
@@ -186,19 +168,103 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// Returns a <see cref="System.String" /> that returns the person's id.
         /// </summary>
         /// <returns>A <see cref="System.String" /> that returns the person's id.</returns>
-        public override string ToString()
-        {
-            return this.Id.ToString();
-        }
+        public override string ToString() => this.Id.ToString(CultureInfo.CurrentCulture);
 
         /// <summary>
         /// Calculates the person's current age.
         /// </summary>
         /// <returns>TimeSpan.</returns>
-        private TimeSpan CalculateAge()
+        private TimeSpan CalculateAge() => DateTimeOffset.UtcNow.Subtract(this.BornOn);
+
+        /// <summary>
+        /// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
+        /// </summary>
+        /// <param name="obj">The object to compare with the current object.</param>
+        /// <returns><c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.</returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public override bool Equals(object obj)
         {
-            return DateTimeOffset.UtcNow.Subtract(this.BornOn);
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj is null)
+            {
+                return false;
+            }
+
+            throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Equalses the specified other.
+        /// </summary>
+        /// <param name="other">The other.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="NotImplementedException"></exception>
+        /// TODO Edit XML Comment Template for Equals
+        public bool Equals(PersonFixed other)
+        {
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            if (other is null)
+            {
+                return false;
+            }
+
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Implements the == operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator ==(PersonFixed left, PersonFixed right) => left is null ? right is null : left.Equals(right);
+
+        /// <summary>
+        /// Implements the != operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator !=(PersonFixed left, PersonFixed right) => !(left == right);
+
+        /// <summary>
+        /// Implements the &lt; operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator <(PersonFixed left, PersonFixed right) => left is null ? right is object : left.CompareTo(right) < 0;
+
+        /// <summary>
+        /// Implements the &lt;= operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator <=(PersonFixed left, PersonFixed right) => left is null || left.CompareTo(right) <= 0;
+
+        /// <summary>
+        /// Implements the &gt; operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator >(PersonFixed left, PersonFixed right) => left is object && left.CompareTo(right) > 0;
+
+        /// <summary>
+        /// Implements the &gt;= operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator >=(PersonFixed left, PersonFixed right) => left is null ? right is null : left.CompareTo(right) >= 0;
     }
 }

@@ -33,7 +33,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The count for retries.
         /// </summary>
-        private const int _retries = 10;
+        private const int Retries = 10;
 
         /// <summary>
         /// Copies the file to a new directory.
@@ -213,17 +213,17 @@ namespace dotNetTips.Utility.Standard.IO
                                                                      nameof(sourceFileName),
                                                                      $"File {sourceFileName} does not exist.");
 
-            for (var retryCount = 0; retryCount < _retries; retryCount++)
+            for (var retryCount = 0; retryCount < Retries; retryCount++)
             {
                 try
                 {
                     File.Move(sourceFileName, destinationFileName);
                     return;
                 }
-                catch (IOException) when (retryCount < _retries - 1)
+                catch (IOException) when (retryCount < Retries - 1)
                 {
                 }
-                catch (UnauthorizedAccessException) when (retryCount < _retries - 1)
+                catch (UnauthorizedAccessException) when (retryCount < Retries - 1)
                 {
                 }
 

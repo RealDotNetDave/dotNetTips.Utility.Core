@@ -1,4 +1,17 @@
-﻿using dotNetTips.Utility.Standard.Extensions;
+﻿// ***********************************************************************
+// Assembly         : dotNetTips.Utility.Standard
+// Author           : David McCarter
+// Created          : 01-21-2020
+//
+// Last Modified By : David McCarter
+// Last Modified On : 02-05-2020
+// ***********************************************************************
+// <copyright file="ExecutionHelper.cs" company="dotNetTips.com - David McCarter">
+//     McCarter Consulting (David McCarter)
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.OOP;
 using System;
 using System.Diagnostics;
@@ -15,9 +28,10 @@ namespace dotNetTips.Utility.Standard
         /// Progressives retry for a function call.
         /// </summary>
         /// <param name="operation">The operation to perform.</param>
-        /// <param name="retryCount">The retry count.</param>
-        /// <param name="retryWaitMilliseconds">The retry wait milliseconds.</param>
-        public static int ProgressiveRetry(Action operation, byte retryCount, int retryWaitMilliseconds)
+        /// <param name="retryCount">The retry count (default 3).</param>
+        /// <param name="retryWaitMilliseconds">The retry wait milliseconds (default 100).</param>
+        /// <returns>System.Int32.</returns>
+        public static int ProgressiveRetry(Action operation, byte retryCount = 3, int retryWaitMilliseconds = 100)
         {
             Encapsulation.TryValidateParam<ArgumentNullException>(operation != null);
             Encapsulation.TryValidateParam<ArgumentOutOfRangeException>(retryCount > 0);
@@ -42,7 +56,7 @@ namespace dotNetTips.Utility.Standard
                         throw;
                     }
 
-                    Trace.WriteLine(ex.GetAllMessages());
+                    Debug.WriteLine(ex.GetAllMessages());
 
                     Task.Delay(retryWaitMilliseconds * attempts).Wait();
                 }

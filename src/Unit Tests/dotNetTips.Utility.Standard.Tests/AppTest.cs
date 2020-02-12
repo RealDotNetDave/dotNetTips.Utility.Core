@@ -4,17 +4,16 @@
 // Created          : 06-20-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 03-03-2019
+// Last Modified On : 01-31-2020
 // ***********************************************************************
 // <copyright file="AppTest.cs" company="McCarter Consulting">
 //     David McCarter - dotNetTips.com
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using System.Diagnostics;
 using dotNetTips.Utility.Standard;
-using dotNetTips.Utility.Standard.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics;
 
 namespace dotNetTips.Tips.Utility.Standard.Tests
 {
@@ -32,8 +31,8 @@ namespace dotNetTips.Tips.Utility.Standard.Tests
         {
             var info = App.AppInfo;
 
-            Assert.IsTrue(info.FileVersion.HasItems());
-            Assert.IsTrue(info.Version.HasItems());
+            Assert.IsTrue(string.IsNullOrEmpty(info.FileVersion) == false);
+            Assert.IsTrue(string.IsNullOrEmpty(info.Version) == false);
         }
 
         /// <summary>

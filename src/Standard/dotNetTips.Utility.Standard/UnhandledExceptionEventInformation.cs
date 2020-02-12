@@ -14,29 +14,24 @@
 
 namespace dotNetTips.Utility.Standard
 {
+
     /// <summary>
-    /// Class SystemEvents.
+    /// Class UnhandledExceptionEventInformation.
     /// </summary>
-    public static partial class SystemEvents
+    /// <seealso cref="dotNetTips.Utility.Standard.IEventInformation" />
+    public sealed class UnhandledExceptionEventInformation : IEventInformation
     {
         /// <summary>
-        /// Class UnhandledExceptionEventInformation.
+        /// Gets a value indicating whether [network available].
         /// </summary>
-        /// <seealso cref="dotNetTips.Utility.Standard.IEventInformation" />
-        public sealed class UnhandledExceptionEventInformation : IEventInformation
-        {
-            /// <summary>
-            /// Gets a value indicating whether [network available].
-            /// </summary>
-            /// <value><c>true</c> if [network available]; otherwise, <c>false</c>.</value>
-            public bool IsTerminating { get; internal set; }
+        /// <value><c>true</c> if [network available]; otherwise, <c>false</c>.</value>
+        public bool IsTerminating { get; internal set; }
 
-            /// <summary>
-            /// Gets the exception.
-            /// </summary>
-            /// <value>The exception.</value>
-            public LoggableException Exception { get; internal set; }
-        }
-
+        /// <summary>
+        /// Gets the exception.
+        /// </summary>
+        /// <value>The exception.</value>
+        public LoggableException Exception { get; internal set; }
     }
+
 }

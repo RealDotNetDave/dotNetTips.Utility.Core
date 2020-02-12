@@ -4,17 +4,19 @@
 // Created          : 07-17-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-14-2019
+// Last Modified On : 02-05-2020
 // ***********************************************************************
 // <copyright file="PersonProper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using dotNetTips.Utility.Standard.OOP;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
@@ -31,7 +33,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
     [Serializable]
     [XmlRoot(ElementName = "PersonProper", Namespace = "http://dotNetTips.Utility.Standard.Tester.Models")]
     [DataContract(Name = "personProper", Namespace = "http://dotNetTips.Utility.Standard.Tester.Models")]
-    public class PersonProper : IPerson, IComparable, IComparable<PersonProper>
+    public sealed class PersonProper : IPerson, IDataModel<PersonProper>
     {
 
         /// <summary>
@@ -369,7 +371,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// </summary>
         /// <value>The identifier.</value>
         /// <exception cref="ArgumentOutOfRangeException">Id - Id length is limited to 256 characters.</exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">Id - Id length is limited to 50 characters.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Id - Id length is limited to 256 characters.</exception>
         [DataMember(Name = "id", IsRequired = true)]
         [XmlElement(IsNullable = false)]
         public string Id
@@ -419,7 +421,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// </summary>
         /// <value>The postal code.</value>
         /// <exception cref="ArgumentOutOfRangeException">PostalCode - Postal code length is limited to 20 characters.</exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">PostalCode - Postal code length is limited to 15 characters.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">PostalCode - Postal code length is limited to 20 characters.</exception>
         [DataMember(Name = "postalCode")]
         [XmlElement]
         public string PostalCode
@@ -439,27 +441,9 @@ namespace dotNetTips.Utility.Standard.Tester.Models
             }
         }
 
-        /// <summary>Compares to.</summary>
-        /// <param name="obj">The object.</param>
-        /// <returns>System.Int32.</returns>
-        /// <exception cref="ArgumentException">obj</exception>
-        public int CompareTo(object obj)
-        {
-            if (obj == null)
-            {
-                return 1;
-            }
-
-            PersonProper other = obj as PersonProper;
-            if (other == null)
-            {
-                throw new ArgumentException(nameof(obj) + " is not a " + nameof(PersonProper));
-            }
-
-            return CompareTo(other);
-        }
-
-        /// <summary>Compares to.</summary>
+        /// <summary>
+        /// Compares to.
+        /// </summary>
         /// <param name="other">The other.</param>
         /// <returns>System.Int32.</returns>
         public int CompareTo(PersonProper other)
@@ -469,8 +453,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                 return 1;
             }
 
-            int result = 0;
-            result = _address1.CompareTo(other._address1);
+            var result = _address1.CompareTo(other._address1);
             if (result != 0)
             {
                 return result;
@@ -562,19 +545,111 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// Returns a <see cref="System.String" /> of the users id.
         /// </summary>
         /// <returns>A <see cref="System.String" /> of the users id.</returns>
-        public override string ToString()
-        {
-            return this.Id.ToString();
-        }
+        public override string ToString() => this.Id.ToString(CultureInfo.CurrentCulture);
 
         /// <summary>
         /// Calculates the person's current age.
         /// </summary>
         /// <returns>TimeSpan.</returns>
-        private TimeSpan CalculateAge()
+        private TimeSpan CalculateAge() => DateTimeOffset.UtcNow.Subtract(this.BornOn);
+
+        /// <summary>
+        /// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
+        /// </summary>
+        /// <param name="obj">The object to compare with the current object.</param>
+        /// <returns><c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.</returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public override bool Equals(object obj)
         {
-            return DateTimeOffset.UtcNow.Subtract(this.BornOn);
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj is null)
+            {
+                return false;
+            }
+
+            throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Equalses the specified other.
+        /// </summary>
+        /// <param name="other">The other.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="NotImplementedException"></exception>
+        /// TODO Edit XML Comment Template for Equals
+        public bool Equals(PersonProper other)
+        {
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            if (other is null)
+            {
+                return false;
+            }
+
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Implements the == operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator ==(PersonProper left, PersonProper right)
+        {
+            if (left is null)
+            {
+                return right is null;
+            }
+
+            return left.Equals(right);
+        }
+
+        /// <summary>
+        /// Implements the != operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator !=(PersonProper left, PersonProper right) => !(left == right);
+
+        /// <summary>
+        /// Implements the &lt; operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator <(PersonProper left, PersonProper right) => left is null ? right is object : left.CompareTo(right) < 0;
+
+        /// <summary>
+        /// Implements the &lt;= operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator <=(PersonProper left, PersonProper right) => left is null || left.CompareTo(right) <= 0;
+
+        /// <summary>
+        /// Implements the &gt; operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator >(PersonProper left, PersonProper right) => left is object && left.CompareTo(right) > 0;
+
+        /// <summary>
+        /// Implements the &gt;= operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator >=(PersonProper left, PersonProper right) => left is null ? right is null : left.CompareTo(right) >= 0;
     }
 }

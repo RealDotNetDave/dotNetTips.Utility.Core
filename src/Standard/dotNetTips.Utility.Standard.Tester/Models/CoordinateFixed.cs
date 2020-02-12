@@ -115,7 +115,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                 throw new ArgumentException(nameof(obj) + " is not a " + nameof(CoordinateFixed));
             }
 
-            return CompareTo((CoordinateFixed)obj);
+            return this.CompareTo((CoordinateFixed)obj);
         }
 
         /// <summary>
@@ -125,20 +125,65 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// <returns>System.Int32.</returns>
         public int CompareTo(CoordinateFixed other)
         {
-            int result = 0;
-            result = X.CompareTo(other.X);
+            var result = this.X.CompareTo(other.X);
             if (result != 0)
             {
                 return result;
             }
 
-            result = Y.CompareTo(other.Y);
+            result = this.Y.CompareTo(other.Y);
             if (result != 0)
             {
                 return result;
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Implements the &lt; operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator <(CoordinateFixed left, CoordinateFixed right)
+        {
+            return left.CompareTo(right) < 0;
+        }
+
+        /// <summary>
+        /// Implements the &lt;= operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator <=(CoordinateFixed left, CoordinateFixed right)
+        {
+            return left.CompareTo(right) <= 0;
+        }
+
+        /// <summary>
+        /// Implements the &gt; operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        /// TODO Edit XML Comment Template for >
+        public static bool operator >(CoordinateFixed left, CoordinateFixed right)
+        {
+            return left.CompareTo(right) > 0;
+        }
+
+        /// <summary>
+        /// Implements the &gt;= operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        /// TODO Edit XML Comment Template for >=
+        public static bool operator >=(CoordinateFixed left, CoordinateFixed right)
+        {
+            return left.CompareTo(right) >= 0;
         }
     }
 }

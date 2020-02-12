@@ -11,15 +11,14 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.IO;
 using dotNetTips.Utility.Standard.Tester;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace dotNetTips.Tips.Utility.Standard.Tests.IO
 {
@@ -55,8 +54,8 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
 
             var sourcePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "dotNetTips.com-" + DateTime.Now.Ticks);
 
-            var generatedFiles = RandomData.GenerateFiles(sourcePath, 500,5000);
-            
+            var generatedFiles = RandomData.GenerateFiles(sourcePath, 500, 5000);
+
             try
             {
 
@@ -74,34 +73,34 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
             }
         }
 
-        [TestMethod]
-        public async Task LoadFilesAsysncTest()
-        {
-            var searchFolders = new List<DirectoryInfo>();
+        //[TestMethod]
+        //public async Task LoadFilesAsysncTest()
+        //{
+        //    var searchFolders = new List<DirectoryInfo>();
 
-            try
-            {
-                searchFolders.Add(new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFiles)));
-                searchFolders.Add(new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFilesX86)));
-                searchFolders.Add(new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.Desktop)));
+        //    try
+        //    {
+        //        searchFolders.Add(new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFiles)));
+        //        searchFolders.Add(new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFilesX86)));
+        //        searchFolders.Add(new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.Desktop)));
 
-                var returnCount = 0;
+        //        var returnCount = 0;
 
-                await foreach (var files in dotNetTips.Utility.Core.Windows.IO.DirectoryHelper.LoadFilesAsync(searchFolders, "*.*", SearchOption.AllDirectories))
-                {
-                    if (files.Count() > 0)
-                    {
-                        returnCount += files.Count();
-                    }
-                }
+        //        await foreach (var files in dotNetTips.Utility.Core.Windows.IO.DirectoryHelper.LoadFilesAsync(searchFolders, "*.*", SearchOption.AllDirectories))
+        //        {
+        //            if (files.Count() > 0)
+        //            {
+        //                returnCount += files.Count();
+        //            }
+        //        }
 
-                Assert.IsTrue(returnCount > 0);
-            }
-            catch (Exception ex)
-            {
-                Assert.Fail(ex.Message);
-            }
-        }
+        //        Assert.IsTrue(returnCount > 0);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Assert.Fail(ex.Message);
+        //    }
+        //}
 
         [TestMethod]
         public void LoadFilesTest()
@@ -131,6 +130,33 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
         }
 
         [TestMethod]
+        public void SafeFileSearchTest()
+        {
+            var searchFolders = new List<DirectoryInfo>();
+
+            try
+            {
+                searchFolders.Add(new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFiles)));
+                searchFolders.Add(new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFilesX86)));
+                searchFolders.Add(new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.Desktop)));
+
+                var returnCount = 0;
+
+                foreach (var file in DirectoryHelper.SafeFileSearch(searchFolders, "*.*", SearchOption.AllDirectories))
+                {
+
+                    returnCount++;
+                }
+
+                Assert.IsTrue(returnCount > 0);
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+        }
+
+        [TestMethod]
         public void CopyAndMoveDirectoryTest()
         {
             var destinationPath = Path.Combine(this._tempPath.FullName, nameof(CopyAndMoveDirectoryTest));
@@ -138,7 +164,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
 
             try
             {
-         
+
 
                 DirectoryHelper.CopyDirectory(folderToCopy.FullName, this._tempPath.FullName, false);
                 DirectoryHelper.MoveDirectory(folderToCopy.FullName, destinationPath, 5);
@@ -165,7 +191,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
             else
             {
                 var array = this._tempPath.EnumerateDirectories().ToArray();
-                
+
                 foreach (var directory in array)
                 {
                     DirectoryHelper.DeleteDirectory(directory.FullName);

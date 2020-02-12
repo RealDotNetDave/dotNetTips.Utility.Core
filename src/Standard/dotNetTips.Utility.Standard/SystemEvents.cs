@@ -22,7 +22,7 @@ namespace dotNetTips.Utility.Standard
     /// <summary>
     /// Common System Events
     /// </summary>
-    public static partial class SystemEvents
+    public static class SystemEvents
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SystemEvents" /> class. Sets up events.
@@ -84,7 +84,7 @@ namespace dotNetTips.Utility.Standard
                 new NetworkAvailabilityChangedEventInformation { NetworkAvailable = e.IsAvailable }
             };
 
-            Trace.Write($"Network availble: {e.IsAvailable}");
+            Trace.Write($"Network available: {e.IsAvailable}");
 
             var eventArgs = new SystemChangedEventArgs { SystemEventType = SystemEventType.NetworkAvailabilityChanged, EventInformation = eventInfo };
 

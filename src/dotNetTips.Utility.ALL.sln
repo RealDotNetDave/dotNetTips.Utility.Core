@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{7D31174B-1F64-4BAB-8EA1-E1718FC5FC10}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetTips.Tips.Utility.Standard.Tests", "Unit Tests\dotNetTips.Utility.Standard.Tests\dotNetTips.Tips.Utility.Standard.Tests.csproj", "{B621840B-80DA-48CD-B870-B8A68BB3123A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetTips.Tips.Utility.Standard.Tests", "Unit Tests\dotNetTips.Utility.Standard.Tests\dotNetTips.Tips.Utility.Standard.Tests.csproj", "{67708FC3-3728-416E-8ADC-03910D81C97B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,18 +40,18 @@ Global
 		{992E4EFD-F913-4A45-B334-25972573D398}.Full Build|Any CPU.Build.0 = Full Build|Any CPU
 		{992E4EFD-F913-4A45-B334-25972573D398}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{992E4EFD-F913-4A45-B334-25972573D398}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B621840B-80DA-48CD-B870-B8A68BB3123A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B621840B-80DA-48CD-B870-B8A68BB3123A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B621840B-80DA-48CD-B870-B8A68BB3123A}.Full Build|Any CPU.ActiveCfg = Debug|Any CPU
-		{B621840B-80DA-48CD-B870-B8A68BB3123A}.Full Build|Any CPU.Build.0 = Debug|Any CPU
-		{B621840B-80DA-48CD-B870-B8A68BB3123A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B621840B-80DA-48CD-B870-B8A68BB3123A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67708FC3-3728-416E-8ADC-03910D81C97B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67708FC3-3728-416E-8ADC-03910D81C97B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67708FC3-3728-416E-8ADC-03910D81C97B}.Full Build|Any CPU.ActiveCfg = Debug|Any CPU
+		{67708FC3-3728-416E-8ADC-03910D81C97B}.Full Build|Any CPU.Build.0 = Debug|Any CPU
+		{67708FC3-3728-416E-8ADC-03910D81C97B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67708FC3-3728-416E-8ADC-03910D81C97B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{B621840B-80DA-48CD-B870-B8A68BB3123A} = {7D31174B-1F64-4BAB-8EA1-E1718FC5FC10}
+		{67708FC3-3728-416E-8ADC-03910D81C97B} = {7D31174B-1F64-4BAB-8EA1-E1718FC5FC10}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FE2EAC79-B604-46B0-BAAA-A640DC427744}

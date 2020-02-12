@@ -28,10 +28,10 @@ namespace dotNetTips.Utility.Benchmarks.IO
             base.Consumer.Consume(result);
         }
 
-        [Benchmark(Description = nameof(DriveHelper.GetRemoveableDrives))]
+        [Benchmark(Description = nameof(DriveHelper.GetRemovableDrives))]
         public void TestGetRemovableDrives()
         {
-            var result = DriveHelper.GetRemoveableDrives();
+            var result = DriveHelper.GetRemovableDrives();
 
             base.Consumer.Consume(result);
         }

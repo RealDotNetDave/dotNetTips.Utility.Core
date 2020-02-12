@@ -114,7 +114,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             return characters.FastAny(character =>
             {
-                return input.Contains(character, StringComparison.CurrentCulture);
+                return input.Contains(character);
             });
         }
 
@@ -201,6 +201,29 @@ namespace dotNetTips.Utility.Standard.Extensions
             }
 
             return input.Trim();
+        }
+
+        /// <summary>
+        /// Changes the trailing ellipsis in a string to a period.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>System.String.</returns>
+        /// <exception cref="ArgumentException">input</exception>
+        public static string ReplaceEllipsisWithPeriod(this string input)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                throw new ArgumentException($"{nameof(input)} is null or empty.", nameof(input));
+            }
+
+            input = input.ToTrimmedString();
+
+            if (input.EndsWith("..."))
+            {
+                input = input.Substring(0, input.Length - 2);
+            }
+
+            return input;
         }
     }
 }

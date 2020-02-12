@@ -60,7 +60,7 @@ namespace dotNetTips.Utility.Standard.IO
                 {
                     try
                     {
-                        var newFileName = new FileInfo(tempFile.FullName.Replace(tempFile.Directory.Root.FullName, destinationFolder.FullName, StringComparison.InvariantCultureIgnoreCase));
+                        var newFileName = new FileInfo(tempFile.FullName.Replace(tempFile.Directory.Root.FullName, destinationFolder.FullName));
 
                         if (newFileName.Directory.Exists == false)
                         {

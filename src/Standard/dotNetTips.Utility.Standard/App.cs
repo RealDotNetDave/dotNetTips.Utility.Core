@@ -4,7 +4,7 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-22-2019
+// Last Modified On : 01-31-2020
 // ***********************************************************************
 // <copyright file="App.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -23,6 +23,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Security.Principal;
 
 namespace dotNetTips.Utility.Standard
 {
@@ -40,13 +41,14 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// The application information
         /// </summary>
-        private static AppInfo _appInfo;
+        static readonly Lazy<AppInfo> _appInfo = new Lazy<AppInfo>(() => InitAppInfo());
+
 
         /// <summary>
         /// Gets the assembly information.
         /// </summary>
         /// <value>The assembly information.</value>
-        public static AppInfo AppInfo => Info();
+        public static AppInfo AppInfo => _appInfo.Value;
 
         /// <summary>
         /// Gets the culture.
@@ -164,15 +166,30 @@ namespace dotNetTips.Utility.Standard
         /// Check to see if the current app is already running.
         /// </summary>
         /// <returns><c>true</c> if app is not running, <c>false</c> otherwise.</returns>
-        public static bool IsRunning() => Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly().Location)).HasItems();
+        public static bool IsRunning()
+        {
+            return Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName).Count() > 1 ? true : false;
+        }
 
         /// <summary>
         /// Checks to see if the current application is ASP.NET
         /// </summary>
         /// <returns>True if running ASP.NET</returns>
         public static bool IsRunningFromAspNet() => !string.IsNullOrEmpty(AppDomain.CurrentDomain.DynamicDirectory)
-            ? AppDomain.CurrentDomain.DynamicDirectory.Contains(_tempAspFiles, StringComparison.InvariantCultureIgnoreCase)
+            ? AppDomain.CurrentDomain.DynamicDirectory.Contains(_tempAspFiles)
             : false;
+
+        /// <summary>
+        /// Determines whether user is administrator.
+        /// </summary>
+        /// <returns><c>true</c> if [is user administrator]; otherwise, <c>false</c>.</returns>
+        public static bool IsUserAdministrator()
+        {
+            using (var wi = WindowsIdentity.GetCurrent())
+            {
+                return new WindowsPrincipal(wi).IsInRole(WindowsBuiltInRole.Administrator);
+            }
+        }
 
         /// <summary>
         /// Kills the current process.
@@ -218,9 +235,15 @@ namespace dotNetTips.Utility.Standard
         /// </summary>
         public static void RunAsAdministrator()
         {
+            if (IsUserAdministrator())
+            {
+                return;
+            }
+
             var processInfo = new ProcessStartInfo(Assembly.GetEntryAssembly().CodeBase)
             {
                 UseShellExecute = true,
+                Verb = "runas"
             };
 
             Process.Start(processInfo);
@@ -228,36 +251,22 @@ namespace dotNetTips.Utility.Standard
             Process.GetCurrentProcess().Kill();
         }
 
-        /// <summary>
-        /// App information.
-        /// </summary>
-        /// <returns>Returns <seealso cref="AppInfo" /></returns>
-        private static AppInfo Info()
+        private static AppInfo InitAppInfo()
         {
-            if (_appInfo == null)
+            var assembly = Assembly.GetEntryAssembly();
+            var appInfo = new AppInfo()
             {
-                _appInfo = new AppInfo();
+                Company = assembly.GetCustomAttributes<AssemblyCompanyAttribute>().FirstOrDefault()?.Company,
+                Configuration = assembly.GetCustomAttributes<AssemblyConfigurationAttribute>().FirstOrDefault()?.Configuration,
+                Copyright = assembly.GetCustomAttributes<AssemblyCopyrightAttribute>().FirstOrDefault()?.Copyright,
+                Description = assembly.GetCustomAttributes<AssemblyDescriptionAttribute>().FirstOrDefault()?.Description,
+                FileVersion = assembly.GetCustomAttributes<AssemblyFileVersionAttribute>().FirstOrDefault()?.Version,
+                Version = assembly.GetCustomAttributes<AssemblyInformationalVersionAttribute>().FirstOrDefault()?.InformationalVersion,
+                Product = assembly.GetCustomAttributes<AssemblyProductAttribute>().FirstOrDefault()?.Product,
+                Title = assembly.GetCustomAttributes<AssemblyTitleAttribute>().FirstOrDefault()?.Title
+            };
 
-                var assembly = Assembly.GetEntryAssembly();
-
-                _appInfo.Company = assembly.GetCustomAttributes<AssemblyCompanyAttribute>().FirstOrDefault()?.Company;
-
-                _appInfo.Configuration = assembly.GetCustomAttributes<AssemblyConfigurationAttribute>().FirstOrDefault()?.Configuration;
-
-                _appInfo.Copyright = assembly.GetCustomAttributes<AssemblyCopyrightAttribute>().FirstOrDefault()?.Copyright;
-
-                _appInfo.Description = assembly.GetCustomAttributes<AssemblyDescriptionAttribute>().FirstOrDefault()?.Description;
-
-                _appInfo.FileVersion = assembly.GetCustomAttributes<AssemblyFileVersionAttribute>().FirstOrDefault()?.Version;
-
-                _appInfo.Version = assembly.GetCustomAttributes<AssemblyInformationalVersionAttribute>().FirstOrDefault()?.InformationalVersion;
-
-                _appInfo.Product = assembly.GetCustomAttributes<AssemblyProductAttribute>().FirstOrDefault()?.Product;
-
-                _appInfo.Title = assembly.GetCustomAttributes<AssemblyTitleAttribute>().FirstOrDefault()?.Title;
-            }
-
-            return _appInfo;
+            return appInfo;
         }
 
     }

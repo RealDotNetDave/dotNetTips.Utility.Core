@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.xml</DocumentationFile>
     <OutputPath>..\..\..\appbin\</OutputPath>
-    <AssemblyVersion>2020.1.21.41525</AssemblyVersion>
-    <FileVersion>2020.1.21.41525</FileVersion>
+    <AssemblyVersion>2020.2.12.30623</AssemblyVersion>
+    <FileVersion>2020.2.12.30623</FileVersion>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
@@ -19,7 +19,7 @@
     <AssemblyOriginatorKeyFile>dotNetTips.Utility.Standard.snk</AssemblyOriginatorKeyFile>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2019.12.02</Version>
+    <Version>2020.2.12.01</Version>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
     <Configurations>Debug;Release;Full Build</Configurations>
     <PackageLicenseUrl></PackageLicenseUrl>
@@ -29,8 +29,10 @@
     <DebugSymbols>true</DebugSymbols>
     <PackageReleaseNotes>-- JUNE 2019: Quarterly Release - New methods for DirectoryHelper and FileHelper. Code cleanup.
 -- AUG 2019: Quarterly Release - Code &amp; documentation cleanup. Code fixes. New code in LoggingHelper, ComputerInfo.
--- DEC 02 2019: Code cleanup. Moved some methods to the new dotNetTips.Utility.Core.Windows project/ NuGet.</PackageReleaseNotes>
-    <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
+-- DEC 02 2019: Code cleanup. Moved some methods to the new dotNetTips.Utility.Core.Windows project/ NuGet.
+-- FEB 12 2020: Code cleanup. Removed outdated encryption methods. Added ProgressiveRetry method and ExecutionHelper.cs.</PackageReleaseNotes>
+    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -61,10 +63,6 @@
     <Compile Remove="ISingleton.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.2.12-alpha">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>

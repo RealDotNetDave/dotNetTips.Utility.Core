@@ -285,7 +285,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="fileSize">Size of the file.</param>
         /// <returns>System.String.</returns>
-        public static string FormatSizeToString(long fileSize)
+        public static string FormatSizeToString(this long fileSize)
         {
             long size = 0;
 

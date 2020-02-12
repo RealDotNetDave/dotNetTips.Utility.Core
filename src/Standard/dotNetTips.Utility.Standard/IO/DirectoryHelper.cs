@@ -101,7 +101,7 @@ namespace dotNetTips.Utility.Standard.IO
         {
             Encapsulation.TryValidateParam(path, nameof(path));
 
-            if(Directory.Exists(path)==false)
+            if (Directory.Exists(path) == false)
             {
                 return;
             }
@@ -185,6 +185,56 @@ namespace dotNetTips.Utility.Standard.IO
         public static IEnumerable<FileInfo> LoadFiles(DirectoryInfo directory, string searchPattern, SearchOption searchOption)
         {
             return LoadFiles(new List<DirectoryInfo> { directory }, searchPattern, searchOption);
+        }
+
+        /// <summary>
+        /// Safe file search. Ignores errors accessing directories.
+        /// </summary>
+        /// <param name="directory">The directory to search.</param>
+        /// <param name="searchPattern">The search pattern.</param>
+        /// <param name="searchOption">The search option.</param>
+        /// <returns>IEnumerable&lt;FileInfo&gt;.</returns>
+        public static IEnumerable<FileInfo> SafeFileSearch(DirectoryInfo directory, string searchPattern, SearchOption searchOption)
+        {
+            return SafeFileSearch(new List<DirectoryInfo> { directory }, searchPattern, searchOption);
+        }
+
+        /// <summary>
+        /// Safe file search. Ignores errors accessing directories.
+        /// </summary>
+        /// <param name="directories">The directories to search.</param>
+        /// <param name="searchPattern">The search pattern.</param>
+        /// <param name="searchOption">The search option.</param>
+        /// <returns>IEnumerable&lt;FileInfo&gt;.</returns>
+        public static IEnumerable<FileInfo> SafeFileSearch(IEnumerable<DirectoryInfo> directories, string searchPattern, SearchOption searchOption)
+        {
+            Encapsulation.TryValidateParam(directories, nameof(directories));
+            Encapsulation.TryValidateParam(searchPattern, nameof(searchPattern));
+            Encapsulation.TryValidateParam(searchOption, nameof(searchOption));
+
+            var files = new List<FileInfo>();
+
+            directories.ToList().ForEach(directory =>
+            {
+                try
+                {
+                    if (directory.Exists)
+                    {
+                        var directoryFiles = directory.EnumerateFiles(searchPattern, searchOption).ToArray();
+
+                        if (directoryFiles.HasItems())
+                        {
+                            files.AddIfNotExists(directoryFiles);
+                        }
+                    }
+                }
+                catch (Exception ex) when (ex is DirectoryNotFoundException || ex is SecurityException || ex is UnauthorizedAccessException)
+                {
+                    System.Diagnostics.Trace.WriteLine(ex.Message);
+                }
+            });
+
+            return files.AsEnumerable();
         }
 
         /// <summary>

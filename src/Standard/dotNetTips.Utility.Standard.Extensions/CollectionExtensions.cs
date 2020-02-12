@@ -44,7 +44,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="System.ArgumentException">List cannot be read-only.</exception>
         public static void AddIfNotExists<T>(this ICollection<T> list, T item)
         {
-            if (list is null)
+            if (list == null)
             {
                 throw new ArgumentNullException(nameof(list));
             }
@@ -54,7 +54,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 throw new ArgumentException("List cannot be read-only.", nameof(list));
             }
 
-            if (item is null)
+            if (item == null)
             {
                 throw new ArgumentNullException(nameof(item), $"{nameof(item)} is null.");
             }
@@ -465,7 +465,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
                 if (parts.Length > 1)
                 {
-                    @descending = CultureInfo.InvariantCulture.TextInfo.ToLower(parts[1]).Contains("esc", StringComparison.InvariantCultureIgnoreCase);
+                    @descending = CultureInfo.InvariantCulture.TextInfo.ToLower(parts[1]).Contains("esc");
                 }
 
                 var prop = typeof(T).GetRuntimeProperty(property);
