@@ -3,8 +3,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Extensions.xml</DocumentationFile>
     <OutputPath>..\..\..\appbin\</OutputPath>
-    <AssemblyVersion>2020.2.12.35483</AssemblyVersion>
-    <FileVersion>2020.2.12.35483</FileVersion>
+    <AssemblyVersion>2020.3.1.33335</AssemblyVersion>
+    <FileVersion>2020.3.1.33335</FileVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
@@ -19,19 +19,20 @@
     <AssemblyOriginatorKeyFile>dotNetTips.com.pfx</AssemblyOriginatorKeyFile>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2020.2.12.01</Version>
+    <Version>2020.3.1.00</Version>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
     <AssemblyName>dotNetTips.Utility.Standard.Extensions</AssemblyName>
     <RootNamespace>dotNetTips.Utility.Standard.Extensions</RootNamespace>
     <Configurations>Debug;Release;Full Build</Configurations>
     <PackageLicenseUrl></PackageLicenseUrl>
-    <PackageReleaseNotes>-- JUNE 2019: Quarterly Release - Code cleanup.
--- AUG 2019: Quarterly Release - Code &amp; documentation cleanup. Code fixes. New code in CollectionExtensions.
--- DEC 02 2019: Quarterly Release - Code cleanup.
--- FEB 12 2020: Code cleanup. Added more overloads for TryValidateParam.</PackageReleaseNotes>
+    <PackageReleaseNotes>-- JUN 2019 (QUARTERLY RELEASE): Code cleanup.
+-- AUG 2019 (QUARTERLY RELEASE): Code &amp; documentation cleanup. Code fixes. New code in CollectionExtensions.
+-- DEC 2019 (QUARTERLY RELEASE): Code cleanup.
+-- FEB 2020: Code cleanup. Added more overloads for TryValidateParam.
+-- MAR 2020 (QUARTERLY RELEASE): New extension methods. Code cleanup.</PackageReleaseNotes>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
     <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -52,6 +53,10 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.2.12-alpha">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>

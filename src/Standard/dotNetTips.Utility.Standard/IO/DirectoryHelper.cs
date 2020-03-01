@@ -4,7 +4,7 @@
 // Created          : 02-14-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 12-02-2019
+// Last Modified On : 02-12-2020
 // ***********************************************************************
 // <copyright file="DirectoryHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)

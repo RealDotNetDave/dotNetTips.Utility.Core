@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-18-2019
+// Last Modified On : 02-29-2020
 // ***********************************************************************
 // <copyright file="StringExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
@@ -13,6 +13,7 @@
 // ***********************************************************************
 using dotNetTips.Utility.Standard.Extensions.Properties;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
@@ -24,6 +25,7 @@ namespace dotNetTips.Utility.Standard.Extensions
     /// </summary>
     public static class StringExtensions
     {
+
         /// <summary>
         /// Computes the sha256 hash.
         /// </summary>
@@ -100,11 +102,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns><c>true</c> if the specified characters contains any; otherwise, <c>false</c>.</returns>
         /// <exception cref="ArgumentException">input</exception>
         /// <exception cref="ArgumentNullException">input</exception>
-        /// <exception cref="System.ArgumentNullException">input - List cannot be null.
-        /// or
-        /// characters - Characters cannot be null or 0 length.
-        /// or
-        /// Null character.</exception>
+        /// <exception cref="System.ArgumentNullException">input</exception>
         public static bool ContainsAny(this string input, params string[] characters)
         {
             if (string.IsNullOrEmpty(input))
@@ -188,6 +186,39 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
+        /// Changes the trailing ellipsis in a string to a period.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>System.String.</returns>
+        /// <exception cref="ArgumentException">input</exception>
+        public static string ReplaceEllipsisWithPeriod(this string input)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                throw new ArgumentException($"{nameof(input)} is null or empty.", nameof(input));
+            }
+
+            input = input.ToTrimmedString();
+
+            if (input.EndsWith("...", StringComparison.OrdinalIgnoreCase))
+            {
+                input = input.Substring(0, input.Length - 2);
+            }
+
+            return input;
+        }
+
+        /// <summary>
+        /// Splits the specified input using ',' and removes empty entries.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>IEnumerable&lt;System.String&gt;.</returns>
+        public static IEnumerable<string> Split(this string input)
+        {
+            return input.Trim().Split(new char[] { ',' }, options: StringSplitOptions.RemoveEmptyEntries);
+        }
+
+        /// <summary>
         /// To the string trimmed.
         /// </summary>
         /// <param name="input">The input.</param>
@@ -203,27 +234,5 @@ namespace dotNetTips.Utility.Standard.Extensions
             return input.Trim();
         }
 
-        /// <summary>
-        /// Changes the trailing ellipsis in a string to a period.
-        /// </summary>
-        /// <param name="input">The input.</param>
-        /// <returns>System.String.</returns>
-        /// <exception cref="ArgumentException">input</exception>
-        public static string ReplaceEllipsisWithPeriod(this string input)
-        {
-            if (string.IsNullOrEmpty(input))
-            {
-                throw new ArgumentException($"{nameof(input)} is null or empty.", nameof(input));
-            }
-
-            input = input.ToTrimmedString();
-
-            if (input.EndsWith("..."))
-            {
-                input = input.Substring(0, input.Length - 2);
-            }
-
-            return input;
-        }
     }
 }

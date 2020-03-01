@@ -4,7 +4,7 @@
 // Created          : 02-11-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 11-29-2019
+// Last Modified On : 02-12-2020
 // ***********************************************************************
 // <copyright file="Enumeration.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)

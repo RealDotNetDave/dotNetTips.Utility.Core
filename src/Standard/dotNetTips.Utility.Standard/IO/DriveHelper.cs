@@ -4,7 +4,7 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-03-2019
+// Last Modified On : 01-21-2020
 // ***********************************************************************
 // <copyright file="DriveHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)

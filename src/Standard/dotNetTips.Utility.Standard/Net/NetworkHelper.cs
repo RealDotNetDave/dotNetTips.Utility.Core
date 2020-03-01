@@ -4,7 +4,7 @@
 // Created          : 07-31-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 03-03-2019
+// Last Modified On : 10-22-2019
 // ***********************************************************************
 // <copyright file="NetworkHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)

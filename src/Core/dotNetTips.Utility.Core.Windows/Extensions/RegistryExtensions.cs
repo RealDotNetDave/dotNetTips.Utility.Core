@@ -4,7 +4,7 @@
 // Created          : 06-16-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-31-2019
+// Last Modified On : 11-21-2019
 // ***********************************************************************
 // <copyright file="RegistryExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter

@@ -4,7 +4,7 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 01-31-2020
+// Last Modified On : 02-29-2020
 // ***********************************************************************
 // <copyright file="App.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -168,7 +168,7 @@ namespace dotNetTips.Utility.Standard
         /// <returns><c>true</c> if app is not running, <c>false</c> otherwise.</returns>
         public static bool IsRunning()
         {
-            return Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName).Count() > 1 ? true : false;
+            return Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName).HasItems();
         }
 
         /// <summary>
@@ -183,11 +183,19 @@ namespace dotNetTips.Utility.Standard
         /// Determines whether user is administrator.
         /// </summary>
         /// <returns><c>true</c> if [is user administrator]; otherwise, <c>false</c>.</returns>
+        /// <exception cref="PlatformNotSupportedException"></exception>
         public static bool IsUserAdministrator()
         {
-            using (var wi = WindowsIdentity.GetCurrent())
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                return new WindowsPrincipal(wi).IsInRole(WindowsBuiltInRole.Administrator);
+                using (var wi = WindowsIdentity.GetCurrent())
+                {
+                    return new WindowsPrincipal(wi).IsInRole(WindowsBuiltInRole.Administrator);
+                }
+            }
+            else
+            {
+                throw new PlatformNotSupportedException();
             }
         }
 

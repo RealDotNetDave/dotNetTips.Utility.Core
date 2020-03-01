@@ -130,7 +130,7 @@ namespace dotNetTips.Utility.Standard.Web
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether <see cref="ServiceProxy{T}"/> is disposed.
+        /// Gets or sets a value indicating whether <see cref="ServiceProxy{T}" /> is disposed.
         /// </summary>
         /// <value><c>true</c> if disposed; otherwise, <c>false</c>.</value>
         protected bool Disposed { get => _disposed; set => _disposed = value; }

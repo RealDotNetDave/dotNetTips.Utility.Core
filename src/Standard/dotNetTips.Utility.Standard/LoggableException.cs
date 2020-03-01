@@ -4,7 +4,7 @@
 // Created          : 06-06-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-04-2019
+// Last Modified On : 02-29-2020
 // ***********************************************************************
 // <copyright file="LoggableException.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -21,8 +21,8 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Security;
-using System.Security.Permissions;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace dotNetTips.Utility.Standard
 {
@@ -37,6 +37,7 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// The exception has been logged
         /// </summary>
+        [XmlIgnore]
         private bool _hasBeenLogged;
 
         /// <summary>
@@ -79,8 +80,8 @@ namespace dotNetTips.Utility.Standard
         /// </summary>
         /// <param name="serializationInfo">The serialization information.</param>
         /// <param name="streamingContext">The streaming context.</param>
-        /// <exception cref="System.NotImplementedException">The exception.</exception>
         /// <exception cref="NotImplementedException">The exception.</exception>
+        /// <exception cref="System.NotImplementedException">The exception.</exception>
         protected LoggableException(SerializationInfo serializationInfo, StreamingContext streamingContext)
          : base(serializationInfo, streamingContext)
         {
@@ -109,7 +110,7 @@ namespace dotNetTips.Utility.Standard
         }
 
         /// <summary>
-        /// Gets Excpetion message, including inner Exceptions.
+        /// Gets Exception message, including inner Exceptions.
         /// </summary>
         /// <value>The messages.</value>
         public virtual IEnumerable<string> Messages
@@ -138,7 +139,6 @@ namespace dotNetTips.Utility.Standard
         /// Gets or sets the user message.
         /// </summary>
         /// <value>The user message.</value>
-        /// <returns>string.</returns>
         public virtual string UserMessage { get; private set; }
 
         /// <summary>
@@ -146,7 +146,6 @@ namespace dotNetTips.Utility.Standard
         /// </summary>
         /// <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized object data about the exception being thrown.</param>
         /// <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual information about the source or destination.</param>
-        [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
         public override void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             base.GetObjectData(info, context);
@@ -155,7 +154,7 @@ namespace dotNetTips.Utility.Standard
         }
 
         /// <summary>
-        /// Returnes a list of properties and their value.
+        /// Return's a list of properties and their value.
         /// </summary>
         /// <param name="ex">The ex.</param>
         /// <returns>System.String.</returns>

@@ -3,8 +3,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.xml</DocumentationFile>
     <OutputPath>..\..\..\appbin\</OutputPath>
-    <AssemblyVersion>2020.2.12.35483</AssemblyVersion>
-    <FileVersion>2020.2.12.35483</FileVersion>
+    <AssemblyVersion>2020.3.1.33335</AssemblyVersion>
+    <FileVersion>2020.3.1.33335</FileVersion>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
@@ -19,7 +19,7 @@
     <AssemblyOriginatorKeyFile>dotNetTips.Utility.Standard.snk</AssemblyOriginatorKeyFile>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2020.2.12.01</Version>
+    <Version>2020.3.1.00</Version>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
     <Configurations>Debug;Release;Full Build</Configurations>
     <PackageLicenseUrl></PackageLicenseUrl>
@@ -27,12 +27,13 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <PackageReleaseNotes>-- JUNE 2019: Quarterly Release - New methods for DirectoryHelper and FileHelper. Code cleanup.
--- AUG 2019: Quarterly Release - Code &amp; documentation cleanup. Code fixes. New code in LoggingHelper, ComputerInfo.
--- DEC 02 2019: Code cleanup. Moved some methods to the new dotNetTips.Utility.Core.Windows project/ NuGet.
--- FEB 12 2020: Code cleanup. Removed outdated encryption methods. Added ProgressiveRetry method and ExecutionHelper.cs.</PackageReleaseNotes>
+    <PackageReleaseNotes>-- JUN 2019 (QUARTERLY RELEASE): New methods for DirectoryHelper and FileHelper. Code cleanup.
+-- AUG 2019 (QUARTERLY RELEASE): Code &amp; documentation cleanup. Code fixes. New code in LoggingHelper, ComputerInfo.
+-- DEC 2019 (QUARTERLY RELEASE): Code cleanup. Moved some methods to the new dotNetTips.Utility.Core.Windows project/ NuGet.
+-- FEB 2020: Code cleanup. Removed outdated encryption methods. Added ProgressiveRetry method and ExecutionHelper.cs.
+-- MAR 2020 (QUARTERLY RELEASE): Code cleanup. New code for PregressiveRetry.</PackageReleaseNotes>
     <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
-    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -63,6 +64,10 @@
     <Compile Remove="ISingleton.cs" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.2.12-alpha">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>

@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-04-2019
+// Last Modified On : 11-21-2019
 // ***********************************************************************
 // <copyright file="ObjectExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
@@ -44,6 +44,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">The type of T.</typeparam>
         /// <param name="obj">The object.</param>
         /// <returns>T.</returns>
+        /// <exception cref="ArgumentNullException">obj</exception>
         public static T Clone<T>(this object obj)
         {
             if (obj is null)
@@ -264,6 +265,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="obj">The instance.</param>
         /// <returns>System.String.</returns>
+        /// <exception cref="ArgumentNullException">obj</exception>
         public static string ToJson(this object obj)
         {
             if (obj is null)
@@ -279,6 +281,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="obj">The instance.</param>
         /// <param name="fileName">The file.</param>
+        /// <exception cref="ArgumentNullException">obj</exception>
+        /// <exception cref="ArgumentException">message - fileName</exception>
         public static void ToJsonFile(this object obj, string fileName)
         {
             if (obj is null)

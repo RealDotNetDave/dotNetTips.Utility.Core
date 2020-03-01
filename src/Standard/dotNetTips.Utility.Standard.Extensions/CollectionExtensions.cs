@@ -4,7 +4,7 @@
 // Created          : 02-14-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-22-2019
+// Last Modified On : 01-30-2020
 // ***********************************************************************
 // <copyright file="CollectionExtensions.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -40,8 +40,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// or
         /// value - Value cannot be null.</exception>
         /// <exception cref="ArgumentException">list - List cannot be read-only.</exception>
-        /// <exception cref="System.ArgumentNullException">The exception.</exception>
-        /// <exception cref="System.ArgumentException">List cannot be read-only.</exception>
+        /// <exception cref="System.ArgumentNullException">list - List cannot be null.
+        /// or
+        /// value - Value cannot be null.</exception>
+        /// <exception cref="System.ArgumentException">list - List cannot be read-only.</exception>
         public static void AddIfNotExists<T>(this ICollection<T> list, T item)
         {
             if (list == null)
@@ -108,8 +110,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="items">The new items.</param>
         /// <param name="insureUnique">Set to true if items added to list are unique.</param>
         /// <exception cref="ArgumentNullException">items</exception>
-        /// <exception cref="System.ArgumentNullException">The exception.</exception>
         /// <exception cref="ArgumentException">items</exception>
+        /// <exception cref="System.ArgumentNullException">items</exception>
         public static void AddRange<T>(this ICollection<T> list, IEnumerable<T> items, bool insureUnique = false)
         {
             if (list is null)
@@ -156,10 +158,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">list - Dictionary cannot be null.
         /// or
         /// key - Key cannot be null.</exception>
-        /// <exception cref="System.ArgumentNullException">list - Dictionary cannot be null.
+        /// <exception cref="ArgumentException">list - Dictionary cannot be null.
         /// or
         /// key - Key cannot be null.</exception>
-        /// <exception cref="ArgumentException">list - Dictionary cannot be null.
+        /// <exception cref="System.ArgumentNullException">list - Dictionary cannot be null.
         /// or
         /// key - Key cannot be null.</exception>
         /// <remarks>Code by: Lucas</remarks>
@@ -205,6 +207,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">Type</typeparam>
         /// <param name="source">The source.</param>
         /// <returns>List&lt;T&gt;.</returns>
+        /// <exception cref="ArgumentNullException">source</exception>
         public static List<T> CopyToList<T>(this List<T> source)
         {
             if (source.HasItems() == false)
@@ -220,6 +223,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="list">The list.</param>
         /// <returns>System.Int32.</returns>
+        /// <exception cref="ArgumentNullException">list</exception>
         public static int Count(this IEnumerable list)
         {
             if (list is null)
@@ -335,7 +339,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">list - Source cannot be null.
         /// or
         /// match - Match cannot be null.</exception>
-        /// <exception cref="System.ArgumentNullException">The exception.</exception>
+        /// <exception cref="System.ArgumentNullException">list - Source cannot be null.
+        /// or
+        /// match - Match cannot be null.</exception>
         public static T? FirstOrNull<T>(this IEnumerable<T> list, Func<T, bool> match) where T : struct
         {
             if (list.HasItems() == false)
@@ -413,7 +419,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="action">The action.</param>
         /// <returns><c>true</c> if the specified action has items; otherwise, <c>false</c>.</returns>
         /// <exception cref="ArgumentNullException">action</exception>
-        /// <exception cref="System.ArgumentNullException">The exception.</exception>
+        /// <exception cref="System.ArgumentNullException">action</exception>
         public static bool HasItems<T>(this List<T> source, Predicate<T> action)
         {
             if (source is null)
@@ -438,9 +444,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="list">The list.</param>
         /// <param name="sortExpression">The sort expression.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
+        /// <exception cref="ArgumentNullException">The exception.</exception>
         /// <exception cref="InvalidCastException">The exception.</exception>
         /// <exception cref="System.InvalidCastException">The exception.</exception>
-        /// <exception cref="ArgumentNullException">The exception.</exception>
         /// <remarks>Original code by: C.F.Meijers</remarks>
         public static IEnumerable<T> OrderBy<T>(this IEnumerable<T> list, string sortExpression)
         {
@@ -492,8 +498,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// or
         /// list - Page size cannot be 0 length.</exception>
         /// <exception cref="ArgumentOutOfRangeException">pageSize</exception>
-        /// <exception cref="System.ArgumentNullException">The exception.</exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">The exception.</exception>
+        /// <exception cref="System.ArgumentNullException">list - Source cannot be null.
+        /// or
+        /// list - Page size cannot be 0 length.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">pageSize</exception>
         public static IEnumerable<IEnumerable<T>> Page<T>(this IEnumerable<T> list, int pageSize)
         {
             if (list is null)
@@ -598,7 +606,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="delimiter">The delimiter (default is comma if not supplied).</param>
         /// <returns>System.String.</returns>
         /// <exception cref="ArgumentNullException">list - Source cannot be null or have a 0 value.</exception>
-        /// <exception cref="System.ArgumentNullException">The exception.</exception>
+        /// <exception cref="System.ArgumentNullException">list - Source cannot be null or have a 0 value.</exception>
         public static string ToDelimitedString<T>(this IEnumerable<T> list, char delimiter)
         {
             if (list.HasItems() == false)
