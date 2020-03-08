@@ -214,7 +214,7 @@ namespace dotNetTips.Utility.Standard
             Encapsulation.TryValidateParam<ArgumentNullException>(string.IsNullOrEmpty(processName), "Process name is required.");
 
             var app = Process.GetProcessesByName(processName).FirstOrDefault();
-
+        
             if (app != null)
             {
                 app.Kill();

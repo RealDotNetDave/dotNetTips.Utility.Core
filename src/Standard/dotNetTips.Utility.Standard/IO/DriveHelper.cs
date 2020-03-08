@@ -4,7 +4,7 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 01-21-2020
+// Last Modified On : 03-08-2020
 // ***********************************************************************
 // <copyright file="DriveHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -33,7 +33,7 @@ namespace dotNetTips.Utility.Standard.IO
         }
 
         /// <summary>
-        /// Gets the removeable drives, that are ready, for a computer.
+        /// Gets the removable drives, that are ready, for a computer.
         /// </summary>
         /// <returns>IImmutableList&lt;DriveInfo&gt;.</returns>
         public static IImmutableList<DriveInfo> GetRemovableDrives()

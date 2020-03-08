@@ -4,7 +4,7 @@
 // Created          : 02-11-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 02-05-2020
+// Last Modified On : 03-08-2020
 // ***********************************************************************
 // <copyright file="FileHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -30,6 +30,7 @@ namespace dotNetTips.Utility.Standard.IO
     /// </summary>
     public static class FileHelper
     {
+
         /// <summary>
         /// The count for retries.
         /// </summary>
@@ -102,7 +103,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// <returns>IEnumerable&lt;KeyValuePair&lt;System.String, System.String&gt;&gt;.</returns>
         public static IEnumerable<(string FileName, string ErrorMessage)> DeleteFiles(this IEnumerable<string> files)
         {
-            Encapsulation.TryValidateParam<ArgumentNullException>(files != null, nameof(files));
+            Encapsulation.TryValidateParam(files, nameof(files));
 
             var errors = new List<(string FileName, string ErrorMessage)>();
 
@@ -185,7 +186,6 @@ namespace dotNetTips.Utility.Standard.IO
 
             Directory.CreateDirectory(Path.GetDirectoryName(localFilePath));
 
-            // TODO: MAKE STATIC??
             using (var client = new HttpClient())
             {
                 using (var localStream = File.Create(localFilePath))
@@ -351,5 +351,6 @@ namespace dotNetTips.Utility.Standard.IO
                 }
             }
         }
+
     }
 }
