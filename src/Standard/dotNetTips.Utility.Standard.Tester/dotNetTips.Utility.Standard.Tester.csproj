@@ -17,8 +17,8 @@
 -- AUG 31 2019: Cleanup of models including fixes.
 -- DEC 02 2019: Added new methods for creating ramdom files. Code cleanup.</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>2020.2.6.649</AssemblyVersion>
-    <FileVersion>2020.2.6.649</FileVersion>
+    <AssemblyVersion>2020.3.8.32912</AssemblyVersion>
+    <FileVersion>2020.3.8.32912</FileVersion>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -44,7 +44,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="dotNetTips.Utility.Standard" Version="2020.3.1.1" />
+    <PackageReference Include="dotNetTips.Utility.Standard" Version="2020.3.1.2" />
     <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2020.3.1.1" />
     <PackageReference Include="Microsoft.NETCore.Platforms" Version="3.0.0" />
   </ItemGroup>

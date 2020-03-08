@@ -4,7 +4,7 @@
 // Created          : 07-17-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 02-05-2020
+// Last Modified On : 03-08-2020
 // ***********************************************************************
 // <copyright file="PersonProper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -33,7 +33,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
     [Serializable]
     [XmlRoot(ElementName = "PersonProper", Namespace = "http://dotNetTips.Utility.Standard.Tester.Models")]
     [DataContract(Name = "personProper", Namespace = "http://dotNetTips.Utility.Standard.Tester.Models")]
-    public sealed class PersonProper : IPerson, IDataModel<PersonProper>
+    public sealed class PersonProper : IPerson, IDataModel<PersonProper, string>
     {
 
         /// <summary>
@@ -442,6 +442,62 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         }
 
         /// <summary>
+        /// Implements the &gt;= operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator >=(PersonProper left, PersonProper right) => left is null ? right is null : left.CompareTo(right) >= 0;
+
+        /// <summary>
+        /// Implements the &gt; operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator >(PersonProper left, PersonProper right) => left is object && left.CompareTo(right) > 0;
+
+        /// <summary>
+        /// Implements the == operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator ==(PersonProper left, PersonProper right)
+        {
+            if (left is null)
+            {
+                return right is null;
+            }
+
+            return left.Equals(right);
+        }
+
+        /// <summary>
+        /// Implements the &lt;= operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator <=(PersonProper left, PersonProper right) => left is null || left.CompareTo(right) <= 0;
+
+        /// <summary>
+        /// Implements the &lt; operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator <(PersonProper left, PersonProper right) => left is null ? right is object : left.CompareTo(right) < 0;
+
+        /// <summary>
+        /// Implements the != operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator !=(PersonProper left, PersonProper right) => !(left == right);
+
+        /// <summary>
         /// Compares to.
         /// </summary>
         /// <param name="other">The other.</param>
@@ -528,31 +584,6 @@ namespace dotNetTips.Utility.Standard.Tester.Models
             return result;
         }
 
-
-        /// <summary>
-        /// Returns the hash code for this instance based on id.
-        /// </summary>
-        /// <returns>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</returns>
-        public override int GetHashCode()
-        {
-            //TODO: CHANGE TO HashCode.Combine(Email, Id)
-            var hashCode = -1058553241;
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Id);
-            return hashCode;
-        }
-
-        /// <summary>
-        /// Returns a <see cref="System.String" /> of the users id.
-        /// </summary>
-        /// <returns>A <see cref="System.String" /> of the users id.</returns>
-        public override string ToString() => this.Id.ToString(CultureInfo.CurrentCulture);
-
-        /// <summary>
-        /// Calculates the person's current age.
-        /// </summary>
-        /// <returns>TimeSpan.</returns>
-        private TimeSpan CalculateAge() => DateTimeOffset.UtcNow.Subtract(this.BornOn);
-
         /// <summary>
         /// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
         /// </summary>
@@ -580,7 +611,6 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// <param name="other">The other.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         /// <exception cref="NotImplementedException"></exception>
-        /// TODO Edit XML Comment Template for Equals
         public bool Equals(PersonProper other)
         {
             if (ReferenceEquals(this, other))
@@ -596,60 +626,30 @@ namespace dotNetTips.Utility.Standard.Tester.Models
             throw new NotImplementedException();
         }
 
-        /// <summary>
-        /// Implements the == operator.
-        /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator ==(PersonProper left, PersonProper right)
-        {
-            if (left is null)
-            {
-                return right is null;
-            }
 
-            return left.Equals(right);
+        /// <summary>
+        /// Returns the hash code for this instance based on id.
+        /// </summary>
+        /// <returns>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</returns>
+        public override int GetHashCode()
+        {
+            //TODO: CHANGE TO HashCode.Combine(Email, Id)
+            var hashCode = -1058553241;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Id);
+            return hashCode;
         }
 
         /// <summary>
-        /// Implements the != operator.
+        /// Returns a <see cref="System.String" /> of the users id.
         /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator !=(PersonProper left, PersonProper right) => !(left == right);
+        /// <returns>A <see cref="System.String" /> of the users id.</returns>
+        public override string ToString() => this.Id.ToString(CultureInfo.CurrentCulture);
 
         /// <summary>
-        /// Implements the &lt; operator.
+        /// Calculates the person's current age.
         /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator <(PersonProper left, PersonProper right) => left is null ? right is object : left.CompareTo(right) < 0;
+        /// <returns>TimeSpan.</returns>
+        private TimeSpan CalculateAge() => DateTimeOffset.UtcNow.Subtract(this.BornOn);
 
-        /// <summary>
-        /// Implements the &lt;= operator.
-        /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator <=(PersonProper left, PersonProper right) => left is null || left.CompareTo(right) <= 0;
-
-        /// <summary>
-        /// Implements the &gt; operator.
-        /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator >(PersonProper left, PersonProper right) => left is object && left.CompareTo(right) > 0;
-
-        /// <summary>
-        /// Implements the &gt;= operator.
-        /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator >=(PersonProper left, PersonProper right) => left is null ? right is null : left.CompareTo(right) >= 0;
     }
 }

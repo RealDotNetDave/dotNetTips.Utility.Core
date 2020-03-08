@@ -4,7 +4,7 @@
 // Created          : 06-04-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-14-2019
+// Last Modified On : 03-08-2020
 // ***********************************************************************
 // <copyright file="PersonCollection.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -26,7 +26,6 @@ namespace dotNetTips.Utility.Standard.Tester.Collections
     /// <typeparam name="T"></typeparam>
     /// <seealso cref="System.Collections.Generic.List{T}" />
     [Serializable]
-    // [CollectionDataContract(ItemName = "person", KeyName = "Id", Name = "people", Namespace = "http://dotnettips.com")]
     public class PersonCollection<T> : List<T> where T : IPerson, new()
     {
 
@@ -36,6 +35,7 @@ namespace dotNetTips.Utility.Standard.Tester.Collections
         public PersonCollection()
         {
         }
+
         /// <summary>
         /// Initializes a new instance of <see cref="PersonCollection{T}" />.
         /// </summary>
