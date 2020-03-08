@@ -28,9 +28,8 @@ namespace dotNetTips.Utility.Standard.Tester.Models
     /// <seealso cref="dotNetTips.Utility.Standard.Tester.Models.Person" />
     /// <seealso cref="System.IComparable" />
     [DebuggerDisplay("{Email}")]
-    public sealed class PersonFixed : Person, IDataModel<PersonFixed>
+    public sealed class PersonFixed : IPerson, IDataModel<string>
     {
-
         /// <summary>
         /// Initializes a new instance of <see cref="PersonFixed" />.
         /// </summary>
@@ -51,10 +50,130 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         }
 
         /// <summary>
+        /// Gets or sets the address1.
+        /// </summary>
+        /// <value>The address1.</value>
+        public string Address1 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the address2.
+        /// </summary>
+        /// <value>The address2.</value>
+        public string Address2 { get; set; }
+
+        /// <summary>
         /// Gets the age.
         /// </summary>
         /// <value>The age.</value>
         public TimeSpan Age => this.CalculateAge();
+
+        /// <summary>
+        /// Gets or sets the born on.
+        /// </summary>
+        /// <value>The born on.</value>
+        public DateTimeOffset BornOn { get; set; }
+
+        /// <summary>
+        /// Gets or sets the cell phone.
+        /// </summary>
+        /// <value>The cell phone.</value>
+        public string CellPhone { get; set; }
+
+        /// <summary>
+        /// Gets or sets the city.
+        /// </summary>
+        /// <value>The city.</value>
+        public string City { get; set; }
+
+        /// <summary>
+        /// Gets or sets the country.
+        /// </summary>
+        /// <value>The country.</value>
+        public string Country { get; set; } = "USA";
+
+        /// <summary>
+        /// Gets the email.
+        /// </summary>
+        /// <value>The email.</value>
+        public string Email { get; set; }
+
+        /// <summary>
+        /// Gets or sets the first name.
+        /// </summary>
+        /// <value>The first name.</value>
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the home phone.
+        /// </summary>
+        /// <value>The home phone.</value>
+        public string HomePhone { get; set; }
+
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <value>The identifier.</value>
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets the last name.
+        /// </summary>
+        /// <value>The last name.</value>
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the postal code.
+        /// </summary>
+        /// <value>The postal code.</value>
+        public string PostalCode { get; set; }
+
+        /// <summary>
+        /// Implements the &gt;= operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator >=(PersonFixed left, PersonFixed right) => left is null ? right is null : left.CompareTo(right) >= 0;
+
+        /// <summary>
+        /// Implements the &gt; operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator >(PersonFixed left, PersonFixed right) => left is object && left.CompareTo(right) > 0;
+
+        /// <summary>
+        /// Implements the == operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator ==(PersonFixed left, PersonFixed right) => left is null ? right is null : left.Equals(right);
+
+        /// <summary>
+        /// Implements the &lt;= operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator <=(PersonFixed left, PersonFixed right) => left is null || left.CompareTo(right) <= 0;
+
+        /// <summary>
+        /// Implements the &lt; operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator <(PersonFixed left, PersonFixed right) => left is null ? right is object : left.CompareTo(right) < 0;
+
+        /// <summary>
+        /// Implements the != operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator !=(PersonFixed left, PersonFixed right) => !(left == right);
 
         /// <summary>
         /// Compares to.
@@ -153,6 +272,53 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         }
 
         /// <summary>
+        /// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
+        /// </summary>
+        /// <param name="obj">The object to compare with the current object.</param>
+        /// <returns><c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.</returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj is null)
+            {
+                return false;
+            }
+
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Determis if this instance is equal to the pased in instance.
+        /// </summary>
+        /// <param name="other">The other.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public bool Equals(PersonFixed other)
+        {
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            if (other is null)
+            {
+                return false;
+            }
+
+            throw new NotImplementedException();
+        }
+
+        public bool Equals(string other)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// Returns the hash code for this instance.
         /// </summary>
         /// <returns>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</returns>
@@ -176,95 +342,5 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// <returns>TimeSpan.</returns>
         private TimeSpan CalculateAge() => DateTimeOffset.UtcNow.Subtract(this.BornOn);
 
-        /// <summary>
-        /// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
-        /// </summary>
-        /// <param name="obj">The object to compare with the current object.</param>
-        /// <returns><c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.</returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(this, obj))
-            {
-                return true;
-            }
-
-            if (obj is null)
-            {
-                return false;
-            }
-
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Equalses the specified other.
-        /// </summary>
-        /// <param name="other">The other.</param>
-        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <exception cref="NotImplementedException"></exception>
-        /// TODO Edit XML Comment Template for Equals
-        public bool Equals(PersonFixed other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-
-            if (other is null)
-            {
-                return false;
-            }
-
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Implements the == operator.
-        /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator ==(PersonFixed left, PersonFixed right) => left is null ? right is null : left.Equals(right);
-
-        /// <summary>
-        /// Implements the != operator.
-        /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator !=(PersonFixed left, PersonFixed right) => !(left == right);
-
-        /// <summary>
-        /// Implements the &lt; operator.
-        /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator <(PersonFixed left, PersonFixed right) => left is null ? right is object : left.CompareTo(right) < 0;
-
-        /// <summary>
-        /// Implements the &lt;= operator.
-        /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator <=(PersonFixed left, PersonFixed right) => left is null || left.CompareTo(right) <= 0;
-
-        /// <summary>
-        /// Implements the &gt; operator.
-        /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator >(PersonFixed left, PersonFixed right) => left is object && left.CompareTo(right) > 0;
-
-        /// <summary>
-        /// Implements the &gt;= operator.
-        /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator >=(PersonFixed left, PersonFixed right) => left is null ? right is null : left.CompareTo(right) >= 0;
     }
 }

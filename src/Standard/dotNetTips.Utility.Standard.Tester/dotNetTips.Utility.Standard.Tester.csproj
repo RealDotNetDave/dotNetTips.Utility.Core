@@ -44,8 +44,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="dotNetTips.Utility.Standard" Version="2019.12.55" />
-    <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2019.12.50" />
+    <PackageReference Include="dotNetTips.Utility.Standard" Version="2020.3.1.1" />
+    <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2020.3.1.1" />
     <PackageReference Include="Microsoft.NETCore.Platforms" Version="3.0.0" />
   </ItemGroup>
 

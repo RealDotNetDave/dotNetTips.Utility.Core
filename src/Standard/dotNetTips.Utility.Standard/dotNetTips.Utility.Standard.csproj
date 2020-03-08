@@ -19,7 +19,7 @@
     <AssemblyOriginatorKeyFile>dotNetTips.Utility.Standard.snk</AssemblyOriginatorKeyFile>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2020.3.1.01</Version>
+    <Version>2020.3.1.02</Version>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
     <Configurations>Debug;Release;Full Build</Configurations>
     <PackageLicenseUrl></PackageLicenseUrl>

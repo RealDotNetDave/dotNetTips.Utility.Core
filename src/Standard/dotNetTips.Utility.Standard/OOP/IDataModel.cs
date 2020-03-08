@@ -16,15 +16,15 @@ using System;
 namespace dotNetTips.Utility.Standard.OOP
 {
     /// <summary>
-    /// IDataModel Interface.
-    /// Implements the <see cref="System.IComparable{TKey}" />
-    /// Implements the <see cref="System.IEquatable{TKey}" />
+    /// Interface IDataModel
+    /// Implements the <see cref="System.IComparable{T}" />
+    /// Implements the <see cref="System.IEquatable{T}" />
     /// </summary>
+    /// <typeparam name="T"></typeparam>
     /// <typeparam name="TKey">The type of the t key.</typeparam>
-    /// <seealso cref="System.IComparable{TKey}" />
-    /// <seealso cref="System.IEquatable{TKey}" />
-    /// <remarks>For use with data models that require an Id (key).</remarks>
-    public interface IDataModel<TKey> : IComparable<TKey>, IEquatable<TKey>
+    /// <seealso cref="System.IComparable{T}" />
+    /// <seealso cref="System.IEquatable{T}" />
+    public interface IDataModel<T, TKey> : IComparable<T>, IEquatable<T>
     {
         /// <summary>
         /// Gets or sets the identifier.
