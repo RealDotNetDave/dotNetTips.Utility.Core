@@ -4,7 +4,7 @@
 // Created          : 01-07-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-14-2019
+// Last Modified On : 03-09-2020
 // ***********************************************************************
 // <copyright file="Coordinate.cs" company="dotNetTips.com - McCarter Consulting">
 //     2019: David McCarter - McCarter Consulting
@@ -23,6 +23,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
     [Serializable]
     public struct Coordinate : ICoordinate, IEquatable<Coordinate>
     {
+
         /// <summary>
         /// Gets or sets the x coordinate.
         /// </summary>
@@ -36,13 +37,20 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         public int Y { get; set; }
 
         /// <summary>
-        /// Returns a <see cref="System.String" /> of the coordinates.
+        /// Implements the == operator.
         /// </summary>
-        /// <returns>A <see cref="System.String" /> of the coordinates.</returns>
-        public override string ToString()
-        {
-            return $"{this.X}-{this.Y}";
-        }
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator ==(Coordinate left, Coordinate right) => left.Equals(right);
+
+        /// <summary>
+        /// Implements the != operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator !=(Coordinate left, Coordinate right) => !(left == right);
 
         /// <summary>
         /// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
@@ -85,19 +93,13 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         }
 
         /// <summary>
-        /// Implements the == operator.
+        /// Returns a <see cref="System.String" /> of the coordinates.
         /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator ==(Coordinate left, Coordinate right) => left.Equals(right);
+        /// <returns>A <see cref="System.String" /> of the coordinates.</returns>
+        public override string ToString()
+        {
+            return $"{this.X}-{this.Y}";
+        }
 
-        /// <summary>
-        /// Implements the != operator.
-        /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator !=(Coordinate left, Coordinate right) => !(left == right);
     }
 }

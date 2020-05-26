@@ -4,21 +4,21 @@
 // Created          : 06-15-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 03-03-2019
+// Last Modified On : 05-08-2020
 // ***********************************************************************
-// <copyright file="DirectoryHelperUnitTest.cs" company="McCarter Consulting">
+// <copyright file="FileHelperUnitTests.cs" company="McCarter Consulting">
 //     David McCarter - dotNetTips.com
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using dotNetTips.Utility.Standard.Extensions;
+using dotNetTips.Utility.Standard.IO;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using dotNetTips.Utility.Standard.Extensions;
-using dotNetTips.Utility.Standard.IO;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dotNetTips.Tips.Utility.Standard.Tests.IO
 {
@@ -28,6 +28,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
     [TestClass]
     public class FileHelperUnitTests
     {
+
         [TestMethod]
         public async Task CopyFileAsyncTestAsync()
         {
@@ -42,9 +43,9 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
 
                 var directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-                var fileToCopy =  new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).GetDirectories().Where(p => p.GetFiles().Count() > 0).Randomize().FirstOrDefault().GetFiles().FirstOrDefault();
+                var fileToCopy = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).GetDirectories().Where(p => p.GetFiles().Count() > 0).Randomize().FirstOrDefault().GetFiles().FirstOrDefault();
 
-                var result = await FileHelper.CopyFileAsync(fileToCopy, this._tempPath);
+                var result = await FileHelper.CopyFileAsync(fileToCopy, this._tempPath).ConfigureAwait(true);
 
                 Assert.IsTrue(result > 0);
             }
@@ -113,6 +114,6 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
             }
         }
 
-       private DirectoryInfo _tempPath;
+        private DirectoryInfo _tempPath;
     }
 }

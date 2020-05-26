@@ -25,13 +25,13 @@ namespace dotNetTips.Utility.Benchmarks
     /// </summary>
     /// <seealso cref="Object" />
     [CategoriesColumn]
-    [CsvExporter]
+    //[CsvExporter]
     [EvaluateOverhead]
     [GcServer(true)]
     [GitHub]
     [HtmlExporter]
-    [JsonExporter("Core.Utility.Benchmark")]
-    [MarkdownExporter]
+    //[JsonExporter("Core.Utility.Benchmark")]
+    //[MarkdownExporter]
     [MemoryDiagnoser]
     [Orderer(SummaryOrderPolicy.Method)]
     [StopOnFirstError]

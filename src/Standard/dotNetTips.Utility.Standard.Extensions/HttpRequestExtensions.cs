@@ -4,7 +4,7 @@
 // Created          : 06-01-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 02-29-2020
+// Last Modified On : 05-02-2020
 // ***********************************************************************
 // <copyright file="HttpRequestExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
@@ -101,7 +101,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
                 return true;
             }
-            catch
+            catch (ArgumentNullException)
             {
                 value = default;
                 return false;

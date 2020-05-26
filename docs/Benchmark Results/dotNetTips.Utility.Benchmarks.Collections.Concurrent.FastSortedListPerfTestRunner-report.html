@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner-20191203-144745</title>
+<title>dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner-20200319-182859</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -15,9 +15,9 @@
 <pre><code>
 BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
 Unknown processor
-.NET Core SDK=3.1.100
-  [Host]     : .NET Core 3.1.0 (CoreCLR 4.700.19.56402, CoreFX 4.700.19.56404), X64 RyuJIT
-  Job-QYQXQL : .NET Core 3.1.0 (CoreCLR 4.700.19.56402, CoreFX 4.700.19.56404), X64 RyuJIT
+.NET Core SDK=3.1.200
+  [Host]     : .NET Core 3.1.2 (CoreCLR 4.700.20.6602, CoreFX 4.700.20.6702), X64 RyuJIT
+  Job-KHIYCC : .NET Core 3.1.2 (CoreCLR 4.700.20.6602, CoreFX 4.700.20.6702), X64 RyuJIT
 </code></pre>
 <pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=FastSortedList,GenericCollections  
@@ -26,26 +26,26 @@ Categories=FastSortedList,GenericCollections
 <table>
 <thead><tr><th>                Method</th><th>CollectionCount</th><th>  Mean</th><th>Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>&#39;Creating Using Constructor&#39;</td><td>25</td><td>47.48 ns</td><td>0.511 ns</td><td>0.478 ns</td><td>0.0278</td><td>-</td><td>-</td><td>264 B</td>
-</tr><tr><td>&#39;Creating Using Constructor&#39;</td><td>50</td><td>65.18 ns</td><td>0.386 ns</td><td>0.361 ns</td><td>0.0492</td><td>-</td><td>-</td><td>464 B</td>
-</tr><tr><td>&#39;Creating Using Constructor&#39;</td><td>100</td><td>100.74 ns</td><td>0.730 ns</td><td>0.683 ns</td><td>0.0918</td><td>0.0001</td><td>-</td><td>864 B</td>
-</tr><tr><td>&#39;Creating Using Constructor&#39;</td><td>250</td><td>211.94 ns</td><td>2.361 ns</td><td>2.209 ns</td><td>0.2189</td><td>0.0012</td><td>-</td><td>2064 B</td>
-</tr><tr><td>&#39;Creating Using for()&#39;</td><td>25</td><td>246.33 ns</td><td>0.386 ns</td><td>0.361 ns</td><td>0.0749</td><td>-</td><td>-</td><td>704 B</td>
-</tr><tr><td>&#39;Creating Using for()&#39;</td><td>50</td><td>454.09 ns</td><td>1.167 ns</td><td>1.035 ns</td><td>0.1311</td><td>-</td><td>-</td><td>1240 B</td>
-</tr><tr><td>&#39;Creating Using for()&#39;</td><td>100</td><td>764.26 ns</td><td>1.253 ns</td><td>1.046 ns</td><td>0.2422</td><td>-</td><td>-</td><td>2288 B</td>
-</tr><tr><td>&#39;Creating Using for()&#39;</td><td>250</td><td>1,646.99 ns</td><td>2.839 ns</td><td>2.656 ns</td><td>0.4692</td><td>-</td><td>-</td><td>4360 B</td>
-</tr><tr><td>&#39;Looping with ForEach()&#39;</td><td>25</td><td>112.63 ns</td><td>1.026 ns</td><td>0.960 ns</td><td>0.0068</td><td>-</td><td>-</td><td>64 B</td>
-</tr><tr><td>&#39;Looping with ForEach()&#39;</td><td>50</td><td>184.10 ns</td><td>0.249 ns</td><td>0.208 ns</td><td>0.0067</td><td>-</td><td>-</td><td>64 B</td>
-</tr><tr><td>&#39;Looping with ForEach()&#39;</td><td>100</td><td>390.84 ns</td><td>7.821 ns</td><td>18.740 ns</td><td>0.0067</td><td>-</td><td>-</td><td>64 B</td>
-</tr><tr><td>&#39;Looping with ForEach()&#39;</td><td>250</td><td>859.03 ns</td><td>4.667 ns</td><td>4.366 ns</td><td>0.0067</td><td>-</td><td>-</td><td>64 B</td>
-</tr><tr><td>Sort()</td><td>25</td><td>2,874.93 ns</td><td>3.218 ns</td><td>2.853 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>Sort()</td><td>50</td><td>8,649.05 ns</td><td>10.401 ns</td><td>9.730 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>Sort()</td><td>100</td><td>25,024.51 ns</td><td>472.048 ns</td><td>441.554 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>Sort()</td><td>250</td><td>74,209.52 ns</td><td>107.938 ns</td><td>95.684 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>&#39;Sort(delegate) on Country&#39;</td><td>25</td><td>2,879.53 ns</td><td>2.835 ns</td><td>2.652 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>&#39;Sort(delegate) on Country&#39;</td><td>50</td><td>8,177.16 ns</td><td>10.971 ns</td><td>10.262 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>&#39;Sort(delegate) on Country&#39;</td><td>100</td><td>22,751.91 ns</td><td>13.282 ns</td><td>11.774 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>&#39;Sort(delegate) on Country&#39;</td><td>250</td><td>68,210.25 ns</td><td>77.630 ns</td><td>72.615 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</thead><tbody><tr><td>&#39;Creating Using Constructor&#39;</td><td>25</td><td>45.31 ns</td><td>0.352 ns</td><td>0.312 ns</td><td>0.0279</td><td>-</td><td>-</td><td>264 B</td>
+</tr><tr><td>&#39;Creating Using Constructor&#39;</td><td>50</td><td>64.37 ns</td><td>0.205 ns</td><td>0.171 ns</td><td>0.0490</td><td>-</td><td>-</td><td>464 B</td>
+</tr><tr><td>&#39;Creating Using Constructor&#39;</td><td>100</td><td>101.87 ns</td><td>0.404 ns</td><td>0.358 ns</td><td>0.0917</td><td>0.0001</td><td>-</td><td>864 B</td>
+</tr><tr><td>&#39;Creating Using Constructor&#39;</td><td>250</td><td>208.82 ns</td><td>2.914 ns</td><td>2.725 ns</td><td>0.2189</td><td>0.0007</td><td>-</td><td>2064 B</td>
+</tr><tr><td>&#39;Creating Using for()&#39;</td><td>25</td><td>248.21 ns</td><td>0.629 ns</td><td>0.558 ns</td><td>0.0749</td><td>-</td><td>-</td><td>704 B</td>
+</tr><tr><td>&#39;Creating Using for()&#39;</td><td>50</td><td>463.34 ns</td><td>1.306 ns</td><td>1.158 ns</td><td>0.1321</td><td>-</td><td>-</td><td>1240 B</td>
+</tr><tr><td>&#39;Creating Using for()&#39;</td><td>100</td><td>758.37 ns</td><td>1.193 ns</td><td>1.116 ns</td><td>0.2422</td><td>-</td><td>-</td><td>2288 B</td>
+</tr><tr><td>&#39;Creating Using for()&#39;</td><td>250</td><td>1,615.05 ns</td><td>3.228 ns</td><td>2.862 ns</td><td>0.4578</td><td>-</td><td>-</td><td>4360 B</td>
+</tr><tr><td>&#39;Looping with ForEach()&#39;</td><td>25</td><td>84.30 ns</td><td>0.212 ns</td><td>0.198 ns</td><td>0.0067</td><td>-</td><td>-</td><td>64 B</td>
+</tr><tr><td>&#39;Looping with ForEach()&#39;</td><td>50</td><td>168.74 ns</td><td>0.422 ns</td><td>0.374 ns</td><td>0.0067</td><td>-</td><td>-</td><td>64 B</td>
+</tr><tr><td>&#39;Looping with ForEach()&#39;</td><td>100</td><td>326.97 ns</td><td>1.409 ns</td><td>1.177 ns</td><td>0.0067</td><td>-</td><td>-</td><td>64 B</td>
+</tr><tr><td>&#39;Looping with ForEach()&#39;</td><td>250</td><td>773.17 ns</td><td>1.424 ns</td><td>1.332 ns</td><td>0.0067</td><td>-</td><td>-</td><td>64 B</td>
+</tr><tr><td>Sort()</td><td>25</td><td>2,850.67 ns</td><td>6.424 ns</td><td>6.009 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>Sort()</td><td>50</td><td>8,994.60 ns</td><td>17.525 ns</td><td>16.393 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>Sort()</td><td>100</td><td>25,144.29 ns</td><td>313.455 ns</td><td>277.870 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>Sort()</td><td>250</td><td>71,297.31 ns</td><td>140.984 ns</td><td>131.876 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Sort(delegate) on Country&#39;</td><td>25</td><td>2,631.20 ns</td><td>5.135 ns</td><td>4.803 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Sort(delegate) on Country&#39;</td><td>50</td><td>8,071.22 ns</td><td>22.868 ns</td><td>20.272 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Sort(delegate) on Country&#39;</td><td>100</td><td>23,550.69 ns</td><td>299.147 ns</td><td>279.822 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Sort(delegate) on Country&#39;</td><td>250</td><td>66,606.58 ns</td><td>81.263 ns</td><td>76.014 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
 </tr></tbody></table>
 </body>
 </html>

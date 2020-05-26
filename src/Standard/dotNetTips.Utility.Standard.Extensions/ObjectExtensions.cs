@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 11-21-2019
+// Last Modified On : 05-08-2020
 // ***********************************************************************
 // <copyright file="ObjectExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
@@ -29,6 +29,7 @@ namespace dotNetTips.Utility.Standard.Extensions
     /// </summary>
     public static class ObjectExtensions
     {
+
         /// <summary>
         /// Returns the specified value.
         /// </summary>
@@ -336,5 +337,6 @@ namespace dotNetTips.Utility.Standard.Extensions
                 }
             }
         }
+
     }
 }

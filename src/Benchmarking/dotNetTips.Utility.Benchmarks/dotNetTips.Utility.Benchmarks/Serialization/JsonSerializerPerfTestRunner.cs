@@ -17,7 +17,7 @@ using dotNetTips.Utility.Standard.Serialization;
 using dotNetTips.Utility.Standard.Tester.Collections;
 using dotNetTips.Utility.Standard.Tester.Models;
 
-namespace dotNetTips.Utility.Benchmarks.Logging
+namespace dotNetTips.Utility.Benchmarks.Serialization
 {
     [BenchmarkCategory(nameof(JsonSerializer))]
     public class JsonSerializerPerfTestRunner : CollectionPerfTestRunner

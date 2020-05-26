@@ -4,7 +4,7 @@
 // Created          : 02-14-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 01-30-2020
+// Last Modified On : 05-07-2020
 // ***********************************************************************
 // <copyright file="CollectionExtensions.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -202,6 +202,23 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
+        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// </summary>
+        /// <param name="bytes">The bytes.</param>
+        /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
+        public static string BytesToString(this byte[] bytes)
+        {
+            var builder = new StringBuilder();
+
+            for (var byteCount = 0; byteCount < bytes.Length; byteCount++)
+            {
+                builder.Append(bytes[byteCount].ToString("x2", CultureInfo.InvariantCulture));
+            }
+
+            return builder.ToString();
+        }
+
+        /// <summary>
         /// Copies the collection to a generic List.
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
@@ -255,6 +272,19 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="TValue">The type of the t value.</typeparam>
         /// <param name="items">The items.</param>
         public static void DisposeCollection<TKey, TValue>(this IDictionary<TKey, TValue> items) => ProcessCollectionToDispose(items.Select(p => p.Value));
+
+        /// <summary>
+        /// Returns distinct collection using the specified comparer.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="comparer">The comparer.</param>
+        /// <returns>IEnumerable&lt;T&gt;.</returns>
+        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        public static IEnumerable<T> Distinct<T>(this IEnumerable<T> source, Func<T, T, bool> comparer) where T : class
+        {
+            return source.Distinct(new DynamicEqualityComparer<T>(comparer));
+        }
 
         /// <summary>
         /// Fasts any.
@@ -330,6 +360,33 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
+        /// Returns first item in the collection or an alternate.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="alternate">The alternate.</param>
+        /// <returns>T.</returns>
+        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        public static T FirstOr<T>(this IEnumerable<T> source, T alternate)
+        {
+            return source.DefaultIfEmpty(alternate).First();
+        }
+
+        /// <summary>
+        /// Returns first item in the collection or an alternate using a predicate.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="predicate">The predicate.</param>
+        /// <param name="alternate">The alternate.</param>
+        /// <returns>T.</returns>
+        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        public static T FirstOr<T>(this IEnumerable<T> source, Func<T, bool> predicate, T alternate)
+        {
+            return source.Where(predicate).FirstOr(alternate);
+        }
+
+        /// <summary>
         /// Finds first item or returns null.
         /// </summary>
         /// <typeparam name="T">The type of T.</typeparam>
@@ -390,21 +447,21 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Determines whether the specified source has items.
+        /// *Determines whether the specified source has items.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <returns><c>true</c> if the specified source has items; otherwise, <c>false</c>.</returns>
         public static bool HasItems(this IEnumerable source) => source?.Count() > 0;
 
         /// <summary>
-        /// Determines whether the specified source has items.
+        /// *Determines whether the specified source has items.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <returns><c>true</c> if the specified source has items; otherwise, <c>false</c>.</returns>
         public static bool HasItems(this ICollection source) => source?.Count > 0;
 
         /// <summary>
-        /// Determines whether the specified source has items.
+        /// *Determines whether the specified source has items.
         /// </summary>
         /// <typeparam name="T">The type of T.</typeparam>
         /// <param name="source">The source.</param>
@@ -412,7 +469,32 @@ namespace dotNetTips.Utility.Standard.Extensions
         public static bool HasItems<T>(this ObservableCollection<T> source) => source?.Count > 0;
 
         /// <summary>
-        /// Determines whether the specified collection has items based on the Predicate.
+        /// *Determines whether the specified count has items.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="count">The specific count.</param>
+        /// <returns><c>true</c> if the specified count has items; otherwise, <c>false</c>.</returns>
+        public static bool HasItems(this IEnumerable source, int count) => source?.Count() == count;
+
+        /// <summary>
+        /// *Determines whether the specified count has items.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="count">The specific count.</param>
+        /// <returns><c>true</c> if the specified count has items; otherwise, <c>false</c>.</returns>
+        public static bool HasItems(this ICollection source, int count) => source?.Count == count;
+
+        /// <summary>
+        /// *Determines whether the specified count has items.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="count">The specific count.</param>
+        /// <returns><c>true</c> if the specified count has items; otherwise, <c>false</c>.</returns>
+        public static bool HasItems<T>(this ObservableCollection<T> source, int count) => source?.Count == count;
+
+        /// <summary>
+        /// *Determines whether the specified collection has items based on the Predicate.
         /// </summary>
         /// <typeparam name="T">The type of T.</typeparam>
         /// <param name="source">The source.</param>
@@ -433,6 +515,45 @@ namespace dotNetTips.Utility.Standard.Extensions
             }
 
             return source.TrueForAll(action);
+        }
+
+        /// <summary>
+        /// Returns index of item in the collection.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="item">The item.</param>
+        /// <returns>System.Int32.</returns>
+        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        public static int IndexOf<T>(this IEnumerable<T> source, T item)
+        {
+            return IndexOf(source, item, EqualityComparer<T>.Default);
+        }
+
+        /// <summary>
+        /// Returns index of an item in the colleciton using comparer.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="item">The item.</param>
+        /// <param name="comparer">The comparer.</param>
+        /// <returns>System.Int32.</returns>
+        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        public static int IndexOf<T>(this IEnumerable<T> source, T item, IEqualityComparer<T> comparer)
+        {
+            return source.Select((x, index) => comparer.Equals(item, x) ? index : -1).FirstOr(x => x != -1, -1);
+        }
+
+        /// <summary>
+        /// Joins a collection using the specified separator.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="separator">The separator.</param>
+        /// <returns>System.String.</returns>
+        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        public static string Join(this IEnumerable<object> source, string separator = ", ")
+        {
+            return string.Join(separator, source);
         }
 
         /// <summary>
@@ -485,6 +606,19 @@ namespace dotNetTips.Utility.Standard.Extensions
             }
 
             return list;
+        }
+
+        /// <summary>
+        /// Orders collection by <see cref="StringComparer.Ordinal"/>
+        /// </summary>
+        /// <typeparam name="TSource">The type of the t source.</typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="keySelector">The key selector.</param>
+        /// <returns>IOrderedEnumerable&lt;TSource&gt;.</returns>
+        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        public static IOrderedEnumerable<TSource> OrderByOrdinal<TSource>(this IEnumerable<TSource> source, Func<TSource, string> keySelector)
+        {
+            return source.OrderBy(keySelector, StringComparer.Ordinal);
         }
 
         /// <summary>
@@ -599,6 +733,70 @@ namespace dotNetTips.Utility.Standard.Extensions
         public static IEnumerable<T> Randomize<T>(this IEnumerable<T> list) => list.OrderBy(x => new Random().Next());
 
         /// <summary>
+        /// Determins if first collection starts with the second collection.
+        /// </summary>
+        /// <typeparam name="T">The type of the t source.</typeparam>
+        /// <param name="first">The first.</param>
+        /// <param name="second">The second.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        public static bool StartsWith<T>(this IEnumerable<T> first, IEnumerable<T> second)
+        {
+            if (ReferenceEquals(first, second))
+            {
+                return true;
+            }
+
+            using (var firstEnumerator = first.GetEnumerator())
+            {
+                using (var secondEnumerator = second.GetEnumerator())
+                {
+                    while (secondEnumerator.MoveNext())
+                    {
+                        if (!firstEnumerator.MoveNext() || !Equals(firstEnumerator.Current, secondEnumerator.Current))
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Determins if two collection sequences are equal.
+        /// </summary>
+        /// <typeparam name="T">The type of the t source.</typeparam>
+        /// <param name="first">The first.</param>
+        /// <param name="second">The second.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        public static bool StructuralSequenceEqual<T>(this IEnumerable<T> first, IEnumerable<T> second)
+        {
+            if (ReferenceEquals(first, second))
+            {
+                return true;
+            }
+
+            using (var firstEnumerator = first.GetEnumerator())
+            {
+                using (var secondEnumerator = second.GetEnumerator())
+                {
+                    while (firstEnumerator.MoveNext())
+                    {
+                        if (!secondEnumerator.MoveNext() || !StructuralComparisons.StructuralEqualityComparer.Equals(firstEnumerator.Current, secondEnumerator.Current))
+                        {
+                            return false;
+                        }
+                    }
+
+                    return !secondEnumerator.MoveNext();
+                }
+            }
+        }
+
+        /// <summary>
         /// Convert a list to a delimited string.
         /// </summary>
         /// <typeparam name="T">The type of T.</typeparam>
@@ -609,22 +807,21 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="System.ArgumentNullException">list - Source cannot be null or have a 0 value.</exception>
         public static string ToDelimitedString<T>(this IEnumerable<T> list, char delimiter)
         {
-            if (list.HasItems() == false)
-            {
-                throw new ArgumentNullException(nameof(list), $"{nameof(list)} is null or is empty.");
-            }
-
             var sb = new StringBuilder();
 
-            list.ToList().ForEach(item =>
+            if (list.HasItems())
             {
-                if (sb.Length > 0)
-                {
-                    sb.Append(delimiter.ToString(CultureInfo.CurrentCulture));
-                }
 
-                sb.Append(item.ToString());
-            });
+                list.ToList().ForEach(item =>
+                {
+                    if (sb.Length > 0)
+                    {
+                        sb.Append(delimiter.ToString(CultureInfo.CurrentCulture));
+                    }
+
+                    sb.Append(item.ToString());
+                });
+            }
 
             return sb.ToString();
         }
@@ -682,7 +879,6 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">The type of T.</typeparam>
         /// <param name="values">The values.</param>
         /// <returns>ImmutableHashSet<typeparamref name="T" />&gt;.</returns>
-        /// <remarks>NEW: Added July 2019</remarks>
         public static ImmutableHashSet<T> ToImmutable<T>(this HashSet<T> values)
         {
             var builder = ImmutableHashSet.CreateRange<T>(values);
@@ -697,7 +893,6 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="TValue">The type of the t value.</typeparam>
         /// <param name="values">The values.</param>
         /// <returns>ImmutableSortedDictionary&lt;TKey, TValue&gt;.</returns>
-        /// <remarks>NEW: Added July 2019</remarks>
         public static ImmutableSortedDictionary<TKey, TValue> ToImmutable<TKey, TValue>(this SortedDictionary<TKey, TValue> values)
         {
             var builder = ImmutableSortedDictionary.CreateRange<TKey, TValue>(values);
@@ -711,7 +906,6 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">The type of T.</typeparam>
         /// <param name="values">The values.</param>
         /// <returns>ImmutableSortedSet&lt;T&gt;.</returns>
-        /// <remarks>NEW: Added July 2019</remarks>
         public static ImmutableSortedSet<T> ToImmutable<T>(this SortedSet<T> values)
         {
             var builder = ImmutableSortedSet.CreateRange<T>(values);
@@ -725,8 +919,33 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">The type of T.</typeparam>
         /// <param name="values">The values.</param>
         /// <returns>LinkedList&lt;T&gt;.</returns>
-        /// <remarks>NEW: Added July 2019</remarks>
         public static LinkedList<T> ToLinkedList<T>(this IEnumerable<T> values) => new LinkedList<T>(values);
+
+
+        //TODO: NEEDS C# 8
+        //public static async Task<List<TSource>> ToListAsync<TSource>(
+        //    this IAsyncEnumerable<TSource> source, CancellationToken cancellationToken = default)
+        //{
+        //    var list = new List<TSource>();
+        //    await foreach (var element in source.WithCancellation(cancellationToken))
+        //    {
+        //        list.Add(element);
+        //    }
+
+        //    return list;
+        //}
+
+        /// <summary>
+        /// Converts <see cref="IEnumerable"/> collection to a <see cref="List{T}"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of the t source.</typeparam>
+        /// <param name="source">The source.</param>
+        /// <returns>List&lt;TSource&gt;.</returns>
+        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        public static List<T> ToList<T>(this IEnumerable source)
+        {
+            return source.OfType<T>().ToList();
+        }
 
         /// <summary>
         /// Creates a Generic List async.
@@ -758,7 +977,6 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">The type of T.</typeparam>
         /// <param name="list">The list.</param>
         /// <returns>ObservableCollection.</returns>
-        /// <remarks>NEW: Added July 2019</remarks>
         public static ObservableCollection<T> ToObservableCollection<T>(this IList<T> list)
         {
             return new ObservableCollection<T>(list);
@@ -837,5 +1055,43 @@ namespace dotNetTips.Utility.Standard.Extensions
             }
         }
 
+        /// <summary>
+        /// Class DynamicEqualityComparer. This class cannot be inherited.
+        /// Implements the <see cref="System.Collections.Generic.IEqualityComparer{T}" />
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <seealso cref="System.Collections.Generic.IEqualityComparer{T}" />
+        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        private sealed class DynamicEqualityComparer<T> : IEqualityComparer<T>
+            where T : class
+        {
+
+            private readonly Func<T, T, bool> _func;
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="DynamicEqualityComparer{T}"/> class.
+            /// </summary>
+            /// <param name="func">The function.</param>
+            public DynamicEqualityComparer(Func<T, T, bool> func)
+            {
+                _func = func;
+            }
+
+            /// <summary>
+            /// Determines whether the specified objects are equal.
+            /// </summary>
+            /// <param name="x">The first object of type T to compare.</param>
+            /// <param name="y">The second object of type T to compare.</param>
+            /// <returns>true if the specified objects are equal; otherwise, false.</returns>
+            public bool Equals(T x, T y) => _func(x, y);
+
+            /// <summary>
+            /// Returns a hash code for this instance.
+            /// </summary>
+            /// <param name="obj">The <see cref="T:System.Object"></see> for which a hash code is to be returned.</param>
+            /// <returns>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</returns>
+            public int GetHashCode(T obj) => 0;
+
+        }
     }
 }

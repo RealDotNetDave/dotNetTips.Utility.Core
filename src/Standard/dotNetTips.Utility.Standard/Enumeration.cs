@@ -4,7 +4,7 @@
 // Created          : 02-11-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 02-12-2020
+// Last Modified On : 05-08-2020
 // ***********************************************************************
 // <copyright file="Enumeration.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -28,6 +28,7 @@ namespace dotNetTips.Utility.Standard
     /// <seealso cref="System.IComparable" />
     public abstract class Enumeration : IComparable
     {
+
         /// <summary>
         /// The display name
         /// </summary>
@@ -52,6 +53,89 @@ namespace dotNetTips.Utility.Standard
         {
             this._value = value;
             this._displayName = displayName;
+        }
+
+        /// <summary>
+        /// Gets the display name.
+        /// </summary>
+        /// <value>The display name.</value>
+        public string DisplayName => this._displayName;
+
+        /// <summary>
+        /// Gets the value.
+        /// </summary>
+        /// <value>The value.</value>
+        public int Value => this._value;
+
+        /// <summary>
+        /// Implements the &gt;= operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator >=(Enumeration left, Enumeration right)
+        {
+            return left is null ? right is null : left.CompareTo(right) >= 0;
+        }
+
+        /// <summary>
+        /// Implements the &gt; operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator >(Enumeration left, Enumeration right)
+        {
+            return left is object && left.CompareTo(right) > 0;
+        }
+
+        /// <summary>
+        /// Implements the == operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator ==(Enumeration left, Enumeration right)
+        {
+            if (left is null)
+            {
+                return right is null;
+            }
+
+            return left.Equals(right);
+        }
+
+        /// <summary>
+        /// Implements the &lt;= operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator <=(Enumeration left, Enumeration right)
+        {
+            return left is null || left.CompareTo(right) <= 0;
+        }
+
+        /// <summary>
+        /// Implements the &lt; operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator <(Enumeration left, Enumeration right)
+        {
+            return left is null ? right is object : left.CompareTo(right) < 0;
+        }
+
+        /// <summary>
+        /// Implements the != operator.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator !=(Enumeration left, Enumeration right)
+        {
+            return !(left == right);
         }
 
         /// <summary>
@@ -125,87 +209,5 @@ namespace dotNetTips.Utility.Standard
         /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
         public override string ToString() => this.DisplayName;
 
-        /// <summary>
-        /// Gets the display name.
-        /// </summary>
-        /// <value>The display name.</value>
-        public string DisplayName => this._displayName;
-
-        /// <summary>
-        /// Gets the value.
-        /// </summary>
-        /// <value>The value.</value>
-        public int Value => this._value;
-
-        /// <summary>
-        /// Implements the == operator.
-        /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator ==(Enumeration left, Enumeration right)
-        {
-            if (left is null)
-            {
-                return right is null;
-            }
-
-            return left.Equals(right);
-        }
-
-        /// <summary>
-        /// Implements the != operator.
-        /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator !=(Enumeration left, Enumeration right)
-        {
-            return !(left == right);
-        }
-
-        /// <summary>
-        /// Implements the &lt; operator.
-        /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator <(Enumeration left, Enumeration right)
-        {
-            return left is null ? right is object : left.CompareTo(right) < 0;
-        }
-
-        /// <summary>
-        /// Implements the &lt;= operator.
-        /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator <=(Enumeration left, Enumeration right)
-        {
-            return left is null || left.CompareTo(right) <= 0;
-        }
-
-        /// <summary>
-        /// Implements the &gt; operator.
-        /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator >(Enumeration left, Enumeration right)
-        {
-            return left is object && left.CompareTo(right) > 0;
-        }
-
-        /// <summary>
-        /// Implements the &gt;= operator.
-        /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator >=(Enumeration left, Enumeration right)
-        {
-            return left is null ? right is null : left.CompareTo(right) >= 0;
-        }
     }
 }

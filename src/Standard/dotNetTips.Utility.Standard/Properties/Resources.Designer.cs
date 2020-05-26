@@ -169,11 +169,38 @@ namespace dotNetTips.Utility.Standard.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid email address..
+        /// </summary>
+        internal static string InvalidEmailAddress {
+            get {
+                return ResourceManager.GetString("InvalidEmailAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid StringType..
+        /// </summary>
+        internal static string InvalidStringType {
+            get {
+                return ResourceManager.GetString("InvalidStringType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid type..
         /// </summary>
         internal static string InvalidType {
             get {
                 return ResourceManager.GetString("InvalidType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid url address..
+        /// </summary>
+        internal static string InvalidUrlAddress {
+            get {
+                return ResourceManager.GetString("InvalidUrlAddress", resourceCulture);
             }
         }
         

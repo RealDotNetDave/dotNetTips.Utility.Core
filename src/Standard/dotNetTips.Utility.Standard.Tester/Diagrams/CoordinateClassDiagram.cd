@@ -1,18 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Struct Name="dotNetTips.Utility.Standard.Tester.Models.Coordinate">
+  <Struct Name="dotNetTips.Utility.Standard.Tester.Models.CoordinateProper">
     <Position X="2.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEgAAAAAAAAAAAAIAAAAAAAAAAYiA=</HashCode>
-      <FileName>Models\Coordinate.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Struct>
-  <Struct Name="dotNetTips.Utility.Standard.Tester.Models.CoordinateFixed">
-    <Position X="4.25" Y="1.25" Width="1.5" />
-    <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQEgACAAgAAAAAAAIAAAAAAAAAAZyA=</HashCode>
-      <FileName>Models\CoordinateFixed.cs</FileName>
+      <FileName>Models\CoordinateProper.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Struct>

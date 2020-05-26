@@ -77,7 +77,9 @@ namespace dotNetTips.Utility.Standard.Extensions
                     returnValue = (T)keyValue;
                 }
 
+#pragma warning disable CS8603 // Possible null reference return.
                 return returnValue;
+#pragma warning restore CS8603 // Possible null reference return.
             }
             else
             {

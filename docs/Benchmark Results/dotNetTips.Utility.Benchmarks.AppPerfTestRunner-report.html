@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>dotNetTips.Utility.Benchmarks.AppPerfTestRunner-20200319-181041</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
+Unknown processor
+.NET Core SDK=3.1.200
+  [Host]     : .NET Core 3.1.2 (CoreCLR 4.700.20.6602, CoreFX 4.700.20.6702), X64 RyuJIT
+  Job-KHIYCC : .NET Core 3.1.2 (CoreCLR 4.700.20.6602, CoreFX 4.700.20.6702), X64 RyuJIT
+</code></pre>
+<pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
+Categories=App  
+</code></pre>
+
+<table>
+<thead><tr><th>           Method</th><th>    Mean</th><th>  Error</th><th> StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>GetEnvironmentVariables</td><td>23,506.566 ns</td><td>48.1175 ns</td><td>40.1803 ns</td><td>1.5259</td><td>0.0305</td><td>-</td><td>14504 B</td>
+</tr><tr><td>IsProcessRunning</td><td>370,173.398 ns</td><td>1,564.2891 ns</td><td>1,463.2370 ns</td><td>13.1836</td><td>1.4648</td><td>-</td><td>128800 B</td>
+</tr><tr><td>IsRunning</td><td>729,797.598 ns</td><td>1,734.3867 ns</td><td>1,622.3464 ns</td><td>15.6250</td><td>1.9531</td><td>-</td><td>149472 B</td>
+</tr><tr><td>IsRunningFromAspNet</td><td>1.299 ns</td><td>0.0412 ns</td><td>0.0385 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ReferencedAssemblies</td><td>105,343.074 ns</td><td>1,378.1771 ns</td><td>1,221.7181 ns</td><td>4.3945</td><td>-</td><td>-</td><td>42544 B</td>
+</tr><tr><td>StackTrace</td><td>67,755.902 ns</td><td>135.4476 ns</td><td>120.0708 ns</td><td>2.1973</td><td>-</td><td>-</td><td>21071 B</td>
+</tr><tr><td>WorkingSet</td><td>185.872 ns</td><td>0.3724 ns</td><td>0.3301 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr></tbody></table>
+</body>
+</html>

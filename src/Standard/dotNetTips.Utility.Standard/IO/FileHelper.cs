@@ -4,7 +4,7 @@
 // Created          : 02-11-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 03-08-2020
+// Last Modified On : 05-26-2020
 // ***********************************************************************
 // <copyright file="FileHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -103,7 +103,10 @@ namespace dotNetTips.Utility.Standard.IO
         /// <returns>IEnumerable&lt;KeyValuePair&lt;System.String, System.String&gt;&gt;.</returns>
         public static IEnumerable<(string FileName, string ErrorMessage)> DeleteFiles(this IEnumerable<string> files)
         {
-            Encapsulation.TryValidateParam(files, nameof(files));
+            if (files.HasItems() == false)
+            {
+                return null;
+            }
 
             var errors = new List<(string FileName, string ErrorMessage)>();
 

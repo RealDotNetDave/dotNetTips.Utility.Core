@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyVersion>2020.4.23.33876</AssemblyVersion>
+    <FileVersion>2020.4.23.33876</FileVersion>
+  </PropertyGroup>
+
+</Project>

@@ -17,7 +17,7 @@ using dotNetTips.Utility.Standard.Security;
 using dotNetTips.Utility.Standard.Tester;
 using System.Security.Cryptography;
 
-namespace dotNetTips.Utility.Benchmarks.IO
+namespace dotNetTips.Utility.Benchmarks.Security
 {
     [BenchmarkCategory(nameof(EncryptionHelper))]
     public class EncryptionHelperPerfTestRunner : PerfTestRunner

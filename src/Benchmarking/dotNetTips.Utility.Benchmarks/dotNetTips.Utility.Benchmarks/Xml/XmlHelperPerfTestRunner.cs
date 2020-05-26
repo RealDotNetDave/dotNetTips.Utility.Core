@@ -17,7 +17,7 @@ using dotNetTips.Utility.Standard.Tester.Collections;
 using dotNetTips.Utility.Standard.Tester.Models;
 using dotNetTips.Utility.Standard.Xml;
 
-namespace dotNetTips.Utility.Benchmarks.Logging
+namespace dotNetTips.Utility.Benchmarks.Xml
 {
     [BenchmarkCategory(nameof(XmlHelper))]
     public class XmlHelperPerfTestRunner : CollectionPerfTestRunner

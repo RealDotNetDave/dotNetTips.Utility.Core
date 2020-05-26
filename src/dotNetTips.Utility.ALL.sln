@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetTips.Tips.Utility.Standard.Tests", "Unit Tests\dotNetTips.Utility.Standard.Tests\dotNetTips.Tips.Utility.Standard.Tests.csproj", "{67708FC3-3728-416E-8ADC-03910D81C97B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetTips.Utility.Standard.Extensions.Tests", "Unit Tests\dotNetTips.Utility.Standard.Extensions.Tests\dotNetTips.Utility.Standard.Extensions.Tests.csproj", "{5ADC1DC7-06FE-497A-8826-E7C4EBF7A95E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,12 +48,19 @@ Global
 		{67708FC3-3728-416E-8ADC-03910D81C97B}.Full Build|Any CPU.Build.0 = Debug|Any CPU
 		{67708FC3-3728-416E-8ADC-03910D81C97B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67708FC3-3728-416E-8ADC-03910D81C97B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ADC1DC7-06FE-497A-8826-E7C4EBF7A95E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ADC1DC7-06FE-497A-8826-E7C4EBF7A95E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ADC1DC7-06FE-497A-8826-E7C4EBF7A95E}.Full Build|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ADC1DC7-06FE-497A-8826-E7C4EBF7A95E}.Full Build|Any CPU.Build.0 = Debug|Any CPU
+		{5ADC1DC7-06FE-497A-8826-E7C4EBF7A95E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ADC1DC7-06FE-497A-8826-E7C4EBF7A95E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{67708FC3-3728-416E-8ADC-03910D81C97B} = {7D31174B-1F64-4BAB-8EA1-E1718FC5FC10}
+		{5ADC1DC7-06FE-497A-8826-E7C4EBF7A95E} = {7D31174B-1F64-4BAB-8EA1-E1718FC5FC10}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FE2EAC79-B604-46B0-BAAA-A640DC427744}

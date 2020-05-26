@@ -4,7 +4,7 @@
 // Created          : 06-10-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 03-03-2019
+// Last Modified On : 03-09-2020
 // ***********************************************************************
 // <copyright file="InMemoryCacheUnitTest.cs" company="McCarter Consulting">
 //     David McCarter - dotNetTips.com
@@ -26,19 +26,19 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Cache
         /// <summary>
         /// The test count
         /// </summary>
-       private const int _testCount = 100;
+        private const int _testCount = 100;
 
         /// <summary>
         /// Adds the items to cache.
         /// </summary>
         [TestMethod]
-        public void AddItemsToCache()
+        public void AddItemsToCachTest()
         {
             var cache = InMemoryCache.Instance;
 
-            for (int i = 0; i < _testCount; i++)
+            for (int count = 0; count < _testCount; count++)
             {
-                cache.AddCacheItem<int>(RandomData.GenerateKey(), RandomData.GenerateInteger(i, 1000000));
+                cache.AddCacheItem<int>(key: RandomData.GenerateKey(), item: RandomData.GenerateInteger(count, 1000000));
             }
 
             Assert.IsTrue(cache.Count == _testCount);

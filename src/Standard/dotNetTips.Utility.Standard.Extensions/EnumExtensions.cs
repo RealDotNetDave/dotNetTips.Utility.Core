@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-04-2019
+// Last Modified On : 05-11-2020
 // ***********************************************************************
 // <copyright file="EnumExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
@@ -14,6 +14,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+
 
 namespace dotNetTips.Utility.Standard.Extensions
 {
@@ -28,8 +29,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">The type of T.</typeparam>
         /// <param name="val">The value.</param>
         /// <returns>T.</returns>
-        /// <exception cref="System.ArgumentNullException">The exception.</exception>
         /// <exception cref="ArgumentNullException">val</exception>
+        /// <exception cref="System.ArgumentNullException">The exception.</exception>
         public static T As<T>(this Enum val)
         {
             if (val == null)
@@ -66,8 +67,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">The type of T.</typeparam>
         /// <param name="enumeration">The enumeration.</param>
         /// <returns>IList&lt;EnumItem&lt;T&gt;&gt;.</returns>
-        /// <exception cref="System.ArgumentNullException">The exception.</exception>
         /// <exception cref="ArgumentNullException">enumeration</exception>
+        /// <exception cref="System.ArgumentNullException">The exception.</exception>
         public static IList<EnumItem<T>> GetItems<T>(this Enum enumeration)
         {
             if (enumeration == null)
@@ -97,8 +98,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">The type of T.</typeparam>
         /// <param name="name">The name.</param>
         /// <returns>T.</returns>
-        /// <exception cref="System.ArgumentException">The exception.</exception>
         /// <exception cref="ArgumentException">name</exception>
+        /// <exception cref="System.ArgumentException">The exception.</exception>
         public static T Parse<T>(this string name) where T : struct
         {
             if (string.IsNullOrEmpty(name))

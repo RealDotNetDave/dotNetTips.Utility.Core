@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2019.12.37</Version>
+    <Version>2020.5.26.1</Version>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
     <Product>dotNetTips.Utility.Standard</Product>
@@ -15,10 +15,12 @@
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
     <PackageReleaseNotes>-- AUG 14 2019: Initial release.
 -- AUG 31 2019: Cleanup of models including fixes.
--- DEC 02 2019: Added new methods for creating ramdom files. Code cleanup.</PackageReleaseNotes>
+-- DEC 02 2019: Added new methods for creating ramdom files. Code cleanup.
+-- MAR 2020: Quartertly release.
+-- MAY 2020: Added more functionality to RandomData.</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>2020.3.8.32912</AssemblyVersion>
-    <FileVersion>2020.3.8.32912</FileVersion>
+    <AssemblyVersion>2020.5.26.40121</AssemblyVersion>
+    <FileVersion>2020.5.26.40121</FileVersion>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -46,7 +48,22 @@
   <ItemGroup>
     <PackageReference Include="dotNetTips.Utility.Standard" Version="2020.3.1.2" />
     <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2020.3.1.1" />
-    <PackageReference Include="Microsoft.NETCore.Platforms" Version="3.0.0" />
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

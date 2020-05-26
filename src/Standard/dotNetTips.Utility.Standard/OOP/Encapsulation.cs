@@ -4,7 +4,7 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 12-02-2019
+// Last Modified On : 05-26-2020
 // ***********************************************************************
 // <copyright file="Encapsulation.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -22,7 +22,7 @@ using System.Text.RegularExpressions;
 namespace dotNetTips.Utility.Standard.OOP
 {
     /// <summary>
-    /// Class Encapsulation.
+    /// Class to validate method parameters.
     /// </summary>
     public static class Encapsulation
     {
@@ -239,28 +239,6 @@ namespace dotNetTips.Utility.Standard.OOP
         }
 
         /// <summary>
-        /// Tries the validate an integer value.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <param name="minimumValue">The minimum value.</param>
-        /// <param name="maximumValue">The maximum value.</param>
-        /// <param name="paramName">Name of the parameter.</param>
-        /// <param name="message">The error message.</param>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static void TryValidateParam(int value, int minimumValue= int.MinValue, int maximumValue=int.MaxValue, string paramName = "", string message = "")
-        {
-            if (value< minimumValue || value> maximumValue)
-            {
-                if (message.IsNull())
-                {
-                    message = Resources.NumberNotInRange;
-                }
-
-                throw new ArgumentOutOfRangeException(message, paramName);
-            }
-        }
-
-        /// <summary>
         /// Tries to validate a method parameter.
         /// </summary>
         /// <param name="collection">The collection.</param>
@@ -366,6 +344,94 @@ namespace dotNetTips.Utility.Standard.OOP
         }
 
         /// <summary>
+        /// Tries the validate an integer value.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="minimumValue">The minimum value.</param>
+        /// <param name="maximumValue">The maximum value.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <param name="message">The error message.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static void TryValidateParam(int value, int minimumValue = int.MinValue, int maximumValue = int.MaxValue, string paramName = "", string message = "")
+        {
+            if (value.IsInRange(minimumValue, maximumValue) == false)
+            {
+                if (message.IsNull())
+                {
+                    message = Resources.NumberNotInRange;
+                }
+
+                throw new ArgumentOutOfRangeException(message, paramName);
+            }
+        }
+
+        /// <summary>
+        /// Tries the validate a <see cref="double" /> parameter.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="minimumValue">The minimum value.</param>
+        /// <param name="maximumValue">The maximum value.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <param name="message">The message.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static void TryValidateParam(double value, double minimumValue = double.MinValue, double maximumValue = double.MaxValue, string paramName = "", string message = "")
+        {
+            if (value.IsInRange(minimumValue, maximumValue) == false)
+            {
+                if (message.IsNull())
+                {
+                    message = Resources.NumberNotInRange;
+                }
+
+                throw new ArgumentOutOfRangeException(message, paramName);
+            }
+        }
+
+        /// <summary>
+        /// Tries the validate a <see cref="long" /> parameter.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="minimumValue">The minimum value.</param>
+        /// <param name="maximumValue">The maximum value.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <param name="message">The message.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static void TryValidateParam(long value, long minimumValue = long.MinValue, long maximumValue = long.MaxValue, string paramName = "", string message = "")
+        {
+            if (value.IsInRange(minimumValue, maximumValue) == false)
+            {
+                if (message.IsNull())
+                {
+                    message = Resources.NumberNotInRange;
+                }
+
+                throw new ArgumentOutOfRangeException(message, paramName);
+            }
+        }
+
+        /// <summary>
+        /// Tries the validate a <see cref="decimal" /> parameter.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="minimumValue">The minimum value.</param>
+        /// <param name="maximumValue">The maximum value.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <param name="message">The message.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static void TryValidateParam(decimal value, decimal minimumValue = decimal.MinValue, decimal maximumValue = decimal.MaxValue, string paramName = "", string message = "")
+        {
+            if (value.IsInRange(minimumValue, maximumValue) == false)
+            {
+                if (message.IsNull())
+                {
+                    message = Resources.NumberNotInRange;
+                }
+
+                throw new ArgumentOutOfRangeException(message, paramName);
+            }
+        }
+
+        /// <summary>
         /// Tries to validate a method parameter.
         /// </summary>
         /// <param name="value">The value.</param>
@@ -399,6 +465,73 @@ namespace dotNetTips.Utility.Standard.OOP
                 }
 
                 throw new ArgumentInvalidException(message, paramName);
+            }
+        }
+
+
+        /// <summary>
+        /// Tries the validate a <see cref="string" /> parameter.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="stringType">Type of the string.</param>
+        /// <param name="minimumLength">The minimum length.</param>
+        /// <param name="maximumLength">The maximum length.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <param name="message">The message.</param>
+        /// <exception cref="ArgumentInvalidException">
+        /// </exception>
+        public static void TryValidateParam(string value, StringType stringType, int minimumLength, int maximumLength, string paramName, string message = "")
+        {
+            TryValidateParam(value, paramName, message);
+            TryValidateParam(stringType, nameof(stringType), Resources.InvalidStringType);
+
+            if (value.Length < minimumLength)
+            {
+                if (message.IsNull())
+                {
+                    message = Resources.StringDoesNotMatchMinimumLength;
+                }
+
+                throw new ArgumentInvalidException(message, paramName);
+            }
+
+            if (value.Length > maximumLength)
+            {
+                if (message.IsNull())
+                {
+                    message = Resources.StringDoesNotMatchMaximumLength;
+                }
+
+                throw new ArgumentInvalidException(message, paramName);
+            }
+
+            //Final string validation
+            switch (stringType)
+            {
+                case StringType.Email:
+                    if (value.IsEmailAddress() == false)
+                    {
+                        if (message.IsNull())
+                        {
+                            message = Resources.InvalidEmailAddress;
+                        }
+
+                        throw new ArgumentInvalidException(message, paramName);
+                    }
+
+                    break;
+                case StringType.Url:
+                    if (value.IsUrl() == false)
+                    {
+                        if (message.IsNull())
+                        {
+                            message = Resources.InvalidUrlAddress;
+                        }
+
+                        throw new ArgumentInvalidException(message, paramName);
+                    }
+
+                    break;
             }
         }
 
