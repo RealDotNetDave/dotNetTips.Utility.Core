@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-20200528-154853</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.18363.836 (1909/November2018Update/19H2)
+Intel Core i7-7660U CPU 2.50GHz (Kaby Lake), 1 CPU, 4 logical and 2 physical cores
+.NET Core SDK=3.1.300
+  [Host]     : .NET Core 3.1.4 (CoreCLR 4.700.20.20201, CoreFX 4.700.20.22101), X64 RyuJIT
+  Job-LAEGID : .NET Core 3.1.4 (CoreCLR 4.700.20.20201, CoreFX 4.700.20.22101), X64 RyuJIT
+</code></pre>
+<pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
+Categories=ObjectExtensions  
+</code></pre>
+
+<table>
+<thead><tr><th>     Method</th><th>    Mean</th><th>Error</th><th> StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>As</td><td>2.0632 ns</td><td>0.0938 ns</td><td>0.2693 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>Clone</td><td>7,170.6605 ns</td><td>279.1813 ns</td><td>801.0235 ns</td><td>0.8087</td><td>-</td><td>-</td><td>7792 B</td>
+</tr><tr><td>ComputeMD5Hash</td><td>8,423.2766 ns</td><td>168.0092 ns</td><td>302.9552 ns</td><td>0.4730</td><td>-</td><td>-</td><td>4656 B</td>
+</tr><tr><td>ComputeSha256Hash</td><td>11,032.1338 ns</td><td>212.1334 ns</td><td>365.9197 ns</td><td>0.5646</td><td>-</td><td>-</td><td>5432 B</td>
+</tr><tr><td>DisposeFields</td><td>9,694.0858 ns</td><td>193.5444 ns</td><td>416.6247 ns</td><td>0.6866</td><td>-</td><td>-</td><td>6616 B</td>
+</tr><tr><td>FromJson</td><td>18,500.0905 ns</td><td>368.6301 ns</td><td>1,063.5821 ns</td><td>1.5869</td><td>-</td><td>-</td><td>15120 B</td>
+</tr><tr><td>HasProperty</td><td>398.8364 ns</td><td>7.2437 ns</td><td>11.2775 ns</td><td>0.0262</td><td>-</td><td>-</td><td>248 B</td>
+</tr><tr><td>IsNotNull</td><td>0.1277 ns</td><td>0.0403 ns</td><td>0.0747 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>IsNull</td><td>0.3998 ns</td><td>0.0483 ns</td><td>0.1193 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>StripNull</td><td>11.7791 ns</td><td>0.2773 ns</td><td>0.6314 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ToJson</td><td>5,939.8224 ns</td><td>118.0538 ns</td><td>249.0156 ns</td><td>0.3357</td><td>-</td><td>-</td><td>3216 B</td>
+</tr><tr><td>TryDispose</td><td>720.5043 ns</td><td>14.0967 ns</td><td>18.3297 ns</td><td>0.3071</td><td>0.0010</td><td>-</td><td>2912 B</td>
+</tr></tbody></table>
+</body>
+</html>

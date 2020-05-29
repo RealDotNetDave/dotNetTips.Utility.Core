@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -231,5 +231,8 @@
   </data>
   <data name="RegexWindowsFilePath" xml:space="preserve">
     <value>([A-Z]:\\[^/:\*\?&lt;&gt;\|]+\.\w{2,6})|(\\{2}[^/:\*\?&lt;&gt;\|]+\.\w{2,6})</value>
+  </data>
+  <data name="ListCannotBeReadOnly" xml:space="preserve">
+    <value>List cannot be read-only.</value>
   </data>
 </root>

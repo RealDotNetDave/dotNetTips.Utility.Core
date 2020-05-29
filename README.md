@@ -16,7 +16,7 @@ Below is the list of current projects in this repository:
 *   [dotNetTips.Utility.Standard.Tester][5]: Code for use in unit tests/ benchmarks. For article and video on how to use this assembly, go to: [https://dotnettips.wordpress.com/2020/03/27/unit-testing-with-random-data](https://dotnettips.wordpress.com/2020/03/27/unit-testing-with-random-data)
 
 ## Benchmark Tests
-Here are the results from the current benchmark tests:
+Here are the results from the current benchmark tests that takes over 3 hours to run:
 
 * [App][6]
 * [Collections.DistinctBlockingCollection<T>][7]

@@ -29,8 +29,8 @@ namespace dotNetTips.Utility.Benchmarks.IO
     {
         private readonly DistinctBlockingCollection<string> _filesToDelete = new DistinctBlockingCollection<string>();
 
-        private int _fileCount = 1000;
-        private int _fileLength = 500;
+        private int _fileCount = 100;
+        private int _fileLength = 100;
 
         private IEnumerable<FileInfo> _tempFiles;
 
@@ -59,6 +59,7 @@ namespace dotNetTips.Utility.Benchmarks.IO
             ConsoleLogger.Default.WriteLine(LogKind.Info, $"Files Copied: {this._tempFiles.Count()}.");
 
         }
+
         [Benchmark(Description = nameof(FileProcessor.CopyFiles))]
         public void TestCopyFilesWithEvent()
         {

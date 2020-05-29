@@ -37,7 +37,15 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="value">The value.</param>
         /// <returns>T.</returns>
         /// <exception cref="ArgumentNullException">value - Value cannot be null.</exception>
-        public static T As<T>(this object value) => (T)value;
+        public static T As<T>(this object value)
+        {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
+            return (T)value;
+        }
 
         /// <summary>
         /// Clones the specified object.

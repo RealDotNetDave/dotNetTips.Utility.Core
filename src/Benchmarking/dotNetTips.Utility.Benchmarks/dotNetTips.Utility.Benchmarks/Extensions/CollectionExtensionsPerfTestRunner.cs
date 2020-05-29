@@ -13,6 +13,7 @@
 // ***********************************************************************
 using BenchmarkDotNet.Attributes;
 using dotNetTips.Utility.Standard.Extensions;
+using dotNetTips.Utility.Standard.Tester.Collections;
 using dotNetTips.Utility.Standard.Tester.Models;
 using System.Linq;
 
@@ -50,7 +51,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = "CollectionExtensions.Clone")]
         public void TestClone()
         {
-            var result = base.personProperCollection.Clone<PersonProper>();
+            var result = base.personProperCollection.Clone<PersonCollection<PersonProper>>();
 
             base.Consumer.Consume(result);
         }

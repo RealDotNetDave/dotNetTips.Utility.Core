@@ -36,7 +36,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(ObjectExtensions.As))]
         public void TestAs()
         {
-            var result = this._person.As<Person>();
+            var result = this._person.As<IPerson>();
 
             base.Consumer.Consume(result);
         }

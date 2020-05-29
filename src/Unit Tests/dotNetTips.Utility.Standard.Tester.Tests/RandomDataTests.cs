@@ -1,16 +1,87 @@
+// ***********************************************************************
+// Assembly         : dotNetTips.Utility.Standard.Tester.Tests
+// Author           : David McCarter
+// Created          : 03-08-2020
+//
+// Last Modified By : David McCarter
+// Last Modified On : 05-27-2020
+// ***********************************************************************
+// <copyright file="RandomDataTests.cs" company="dotNetTips.Utility.Standard.Tester.Tests">
+//     Copyright (c) McCarter Consulting. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 using dotNetTips.Utility.Standard.IO;
+using dotNetTips.Utility.Standard.Tester.Collections;
 using dotNetTips.Utility.Standard.Tester.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
 using System.Linq;
+using dotNetTips.Utility.Standard.Extensions;
+using System.Diagnostics;
 
 namespace dotNetTips.Utility.Standard.Tester.Tests
 {
     [TestClass]
     public class RandomDataTests
     {
+
         private const int _fileLength = 5000;
+
+        [TestMethod]
+        public void AddToPersonCollectionTest()
+        {
+            const int count = 100;
+
+            try
+            {
+                var people = RandomData.GeneratePersonCollection<PersonProper>(count);
+
+                var newPeople = new PersonCollection<PersonProper>();
+
+                foreach (var person in people)
+                {
+                    newPeople.AddIfNotExists(person);
+                }
+
+                Assert.IsTrue(newPeople.Count == count);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                Assert.Fail();
+            }
+
+        }
+
+
+        [TestMethod]
+        public void ClonePersonProperTest()
+        {
+            var person = RandomData.GeneratePerson<PersonProper>();
+
+            try
+            {
+                var personClone = person.Clone<PersonProper>();
+
+                Assert.IsNotNull(personClone);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                Assert.Fail();
+            }
+        }
+
+
+        [TestMethod]
+        public void GenerateByteArrayTest()
+        {
+            var byteArray = RandomData.GenerateByteArray(10);
+
+            Assert.IsTrue(byteArray.Count() > 0);
+        }
 
         [TestMethod]
         public void GenerateCharacterTest()
@@ -335,6 +406,14 @@ namespace dotNetTips.Utility.Standard.Tester.Tests
         }
 
         [TestMethod]
+        public void GenerateRandomFileNameTest()
+        {
+            var stringValue = RandomData.GenerateRandomFileName();
+
+            Assert.IsNotNull(stringValue);
+        }
+
+        [TestMethod]
         public void GenerateRandomFileNameWithExtTest()
         {
             const string extension = "dotnettips";
@@ -346,14 +425,6 @@ namespace dotNetTips.Utility.Standard.Tester.Tests
             Assert.IsTrue(new FileInfo(stringValue).Name.Length == 10 + extension.Length + 1);
 
             Assert.IsTrue(stringValue.EndsWith(extension));
-        }
-
-        [TestMethod]
-        public void GenerateRandomFileNameTest()
-        {
-            var stringValue = RandomData.GenerateRandomFileName();
-
-            Assert.IsNotNull(stringValue);
         }
 
         [TestMethod]
@@ -455,16 +526,6 @@ namespace dotNetTips.Utility.Standard.Tester.Tests
         }
 
         [TestMethod]
-        public void GenerateWordTest()
-        {
-            var stringValue = RandomData.GenerateWord(25);
-
-            Assert.IsNotNull(stringValue);
-
-            Assert.IsTrue(stringValue.Length == 25);
-        }
-
-        [TestMethod]
         public void GenerateWordsTest()
         {
             const int wordCount = 10;
@@ -475,11 +536,14 @@ namespace dotNetTips.Utility.Standard.Tester.Tests
         }
 
         [TestMethod]
-        public void GenerateByteArrayTest()
+        public void GenerateWordTest()
         {
-            var byteArray = RandomData.GenerateByteArray(10);
+            var stringValue = RandomData.GenerateWord(25);
 
-            Assert.IsTrue(byteArray.Count() > 0);
+            Assert.IsNotNull(stringValue);
+
+            Assert.IsTrue(stringValue.Length == 25);
         }
+
     }
 }

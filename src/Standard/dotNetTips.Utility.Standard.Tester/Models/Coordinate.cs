@@ -4,7 +4,7 @@
 // Created          : 01-07-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 03-09-2020
+// Last Modified On : 03-10-2020
 // ***********************************************************************
 // <copyright file="Coordinate.cs" company="dotNetTips.com - McCarter Consulting">
 //     2019: David McCarter - McCarter Consulting

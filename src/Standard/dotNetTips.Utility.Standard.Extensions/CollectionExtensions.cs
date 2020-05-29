@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using dotNetTips.Utility.Standard.Extensions.Properties;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -90,7 +91,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             if (list.IsReadOnly)
             {
-                throw new ArgumentException("List cannot be read-only.", nameof(list));
+                throw new ArgumentException(Resources.ListCannotBeReadOnly, nameof(list));
             }
 
             if (items.HasItems())

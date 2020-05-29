@@ -178,6 +178,15 @@ namespace dotNetTips.Utility.Standard.Extensions.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to List cannot be read-only..
+        /// </summary>
+        internal static string ListCannotBeReadOnly {
+            get {
+                return ResourceManager.GetString("ListCannotBeReadOnly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MB.
         /// </summary>
         internal static string MB {

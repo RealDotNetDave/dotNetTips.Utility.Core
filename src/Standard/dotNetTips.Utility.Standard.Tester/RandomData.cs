@@ -4,7 +4,7 @@
 // Created          : 01-19-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 03-10-2020
+// Last Modified On : 05-27-2020
 // ***********************************************************************
 // <copyright file="RandomData.cs" company="dotNetTips.Utility.Standard.Tester">
 //     Copyright (c) dotNetTips.com - McCarter Consulting. All rights reserved.
@@ -15,6 +15,7 @@ using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.OOP;
 using dotNetTips.Utility.Standard.Tester.Collections;
 using dotNetTips.Utility.Standard.Tester.Models;
+using dotNetTips.Utility.Standard.Tester.Properties;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -28,7 +29,7 @@ namespace dotNetTips.Utility.Standard.Tester
     /// <summary>
     /// Methods to randomly generate data for unit and benchmark testing.
     /// </summary>
-    /// <remarks>Original code from: https://github.com/andrewseward/Any-.Net </remarks>
+    /// <remarks>Original code from: https://github.com/andrewseward/Any-.Net</remarks>
     public static class RandomData
     {
 
@@ -536,7 +537,7 @@ namespace dotNetTips.Utility.Standard.Tester
         {
             Encapsulation.TryValidateParam(minLength, minimumValue: 1, paramName: nameof(minLength));
             Encapsulation.TryValidateParam(maxLength, minimumValue: 1, paramName: nameof(maxLength));
-            Encapsulation.TryValidateParam<ArgumentOutOfRangeException>(maxLength >= minLength, message: "Minimum lenghth cannot be greater than maximum length.");
+            Encapsulation.TryValidateParam<ArgumentOutOfRangeException>(maxLength >= minLength, message: Resources.MinimumLenghthCannotBeGreaterThanMaximumLe);
 
             return GenerateWord(minLength, maxLength, DefaultMinCharacter, DefaultMaxCharacter);
         }

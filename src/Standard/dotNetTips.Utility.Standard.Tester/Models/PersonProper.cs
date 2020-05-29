@@ -4,14 +4,16 @@
 // Created          : 07-17-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 03-10-2020
+// Last Modified On : 05-27-2020
 // ***********************************************************************
 // <copyright file="PersonProper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.OOP;
+using dotNetTips.Utility.Standard.Tester.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -149,7 +151,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                     return;
                 }
 
-                this._address1 = value.Length > 100 ? throw new ArgumentOutOfRangeException(nameof(this.Address1), "Address length is limited to 100 characters.") : value;
+                this._address1 = value.HasValue(0, 100) == false ? throw new ArgumentOutOfRangeException(nameof(this.Address1), Resources.AddressLengthIsLimitedTo100Characters) : value;
             }
         }
 
@@ -175,7 +177,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                     return;
                 }
 
-                this._address2 = value.Length > 100 ? throw new ArgumentOutOfRangeException(nameof(this.Address2), "Address length is limited to 100 characters.") : value;
+                this._address2 = value.HasValue(0, 100) == false ? throw new ArgumentOutOfRangeException(nameof(this.Address2), Resources.AddressLengthIsLimitedTo100Characters) : value;
             }
         }
 
@@ -208,7 +210,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                     return;
                 }
 
-                this._bornOn = value.ToUniversalTime() > DateTimeOffset.UtcNow ? throw new ArgumentOutOfRangeException(nameof(this.BornOn), "Person BornOn cannot be in the future.") : value;
+                this._bornOn = value.ToUniversalTime() > DateTimeOffset.UtcNow ? throw new ArgumentOutOfRangeException(nameof(this.BornOn), Resources.PersonBornOnCannotBeInTheFuture) : value;
             }
         }
 
@@ -234,7 +236,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                     return;
                 }
 
-                this._cellPhone = value.Length > 50 ? throw new ArgumentOutOfRangeException(nameof(this.CellPhone), "Address length is limited to 50 characters.") : value;
+                this._cellPhone = value.HasValue(0, 50) == false ? throw new ArgumentOutOfRangeException(nameof(this.CellPhone), Resources.PhoneNumberIsLimitedTo50Characters) : value;
             }
         }
 
@@ -260,7 +262,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                     return;
                 }
 
-                this._city = value.Length > 100 ? throw new ArgumentOutOfRangeException(nameof(this.City), "City length is limited to 100 characters.") : value;
+                this._city = value.HasValue(0, 100) == false ? throw new ArgumentOutOfRangeException(nameof(this.City), Resources.CityLengthIsLimitedTo100Characters) : value;
             }
         }
 
@@ -286,7 +288,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                     return;
                 }
 
-                this._country = value.Length > 50 ? throw new ArgumentOutOfRangeException(nameof(this.Country), "Country length is limited to 50 characters.") : value;
+                this._country = value.HasValue(0, 50) == false ? throw new ArgumentOutOfRangeException(nameof(this.Country), Resources.CountryLengthIsLimitedTo50Characters) : value;
             }
         }
 
@@ -312,7 +314,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                     return;
                 }
 
-                this._email = value.Length > 75 ? throw new ArgumentOutOfRangeException(nameof(this.Email), "Email length is limited to 75 characters.") : value;
+                this._email = value.HasValue(0, 75) == false ? throw new ArgumentOutOfRangeException(nameof(this.Email), Resources.EmailLengthIsLimitedTo75Characters) : value;
             }
         }
 
@@ -337,7 +339,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                     return;
                 }
 
-                this._firstName = value.Length > 50 ? throw new ArgumentOutOfRangeException(nameof(this.Email), "First name length is limited to 50 characters.") : value;
+                this._firstName = value.HasValue(0, 50) == false ? throw new ArgumentOutOfRangeException(nameof(this.FirstName), Resources.FirstNameLengthIsLimitedTo50Characters) : value;
             }
         }
 
@@ -362,7 +364,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                     return;
                 }
 
-                this._homePhone = value.Length > 50 ? throw new ArgumentOutOfRangeException(nameof(this.HomePhone), "Home phone length is limited to 50 characters.") : value;
+                this._homePhone = value.HasValue(0, 50) == false ? throw new ArgumentOutOfRangeException(nameof(this.HomePhone), Resources.PhoneNumberIsLimitedTo50Characters) : value;
             }
         }
 
@@ -387,7 +389,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                     return;
                 }
 
-                this._id = value.Length > 256 ? throw new ArgumentOutOfRangeException(nameof(this.Id), "Id length is limited to 50 characters.") : value;
+                this._id = value.HasValue(0, 50) == false ? throw new ArgumentOutOfRangeException(nameof(this.Id), Resources.IdLengthIsLimitedTo50Characters) : value;
             }
         }
 
@@ -412,7 +414,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                     return;
                 }
 
-                this._lastName = value.Length > 50 ? throw new ArgumentOutOfRangeException(nameof(this.LastName), "Last name length is limited to 50 characters.") : value;
+                this._lastName = value.HasValue(0, 50) == false ? throw new ArgumentOutOfRangeException(nameof(this.LastName), Resources.LastNameLengthIsLimitedTo50Characters) : value;
             }
         }
 
@@ -437,7 +439,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                     return;
                 }
 
-                this._postalCode = value.Length > 20 ? throw new ArgumentOutOfRangeException(nameof(this.PostalCode), "Postal code length is limited to 15 characters.") : value;
+                this._postalCode = value.HasValue(0, 15) == false ? throw new ArgumentOutOfRangeException(nameof(this.PostalCode), Resources.PostalCodeLengthIsLimitedTo15Characters) : value;
             }
         }
 
@@ -509,13 +511,13 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                 return 1;
             }
 
-            var result = _address1.CompareTo(other._address1);
+            var result = string.Compare(_address1, other._address1, StringComparison.CurrentCultureIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = _address2.CompareTo(other._address2);
+            result = string.Compare(_address2, other._address2, StringComparison.CurrentCultureIgnoreCase);
             if (result != 0)
             {
                 return result;
@@ -527,55 +529,55 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                 return result;
             }
 
-            result = _cellPhone.CompareTo(other._cellPhone);
+            result = string.Compare(_cellPhone, other._cellPhone, StringComparison.CurrentCultureIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = _city.CompareTo(other._city);
+            result = string.Compare(_city, other._city, StringComparison.CurrentCultureIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = _country.CompareTo(other._country);
+            result = string.Compare(_country, other._country, StringComparison.CurrentCultureIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = _email.CompareTo(other._email);
+            result = string.Compare(_email, other._email, StringComparison.CurrentCultureIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = _firstName.CompareTo(other._firstName);
+            result = string.Compare(_firstName, other._firstName, StringComparison.CurrentCultureIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = _homePhone.CompareTo(other._homePhone);
+            result = string.Compare(_homePhone, other._homePhone, StringComparison.CurrentCultureIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = _id.CompareTo(other._id);
+            result = string.Compare(_id, other._id, StringComparison.CurrentCultureIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = _lastName.CompareTo(other._lastName);
+            result = string.Compare(_lastName, other._lastName, StringComparison.CurrentCultureIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = _postalCode.CompareTo(other._postalCode);
+            result = string.Compare(_postalCode, other._postalCode, StringComparison.CurrentCultureIgnoreCase);
             if (result != 0)
             {
                 return result;
@@ -597,12 +599,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                 return true;
             }
 
-            if (obj is null)
-            {
-                return false;
-            }
-
-            throw new NotImplementedException();
+            return false;
         }
 
         /// <summary>
@@ -618,12 +615,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                 return true;
             }
 
-            if (other is null)
-            {
-                return false;
-            }
-
-            throw new NotImplementedException();
+            return false;
         }
 
 

@@ -4,7 +4,7 @@
 // Created          : 06-04-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 03-09-2020
+// Last Modified On : 05-27-2020
 // ***********************************************************************
 // <copyright file="PersonFixed.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -189,27 +189,27 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                 return 1;
             }
 
-            var result = this.Email.CompareTo(other.Email);
+            var result = string.Compare(this.Email, other.Email, StringComparison.CurrentCultureIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = this.Id.CompareTo(other.Id);
-
-            if (result != 0)
-            {
-                return result;
-            }
-
-            result = this.Address1.CompareTo(other.Address1);
+            result = string.Compare(this.Id, other.Id, StringComparison.CurrentCultureIgnoreCase);
 
             if (result != 0)
             {
                 return result;
             }
 
-            result = this.Address2.CompareTo(other.Address2);
+            result = string.Compare(this.Address1, other.Address1, StringComparison.CurrentCultureIgnoreCase);
+
+            if (result != 0)
+            {
+                return result;
+            }
+
+            result = string.Compare(this.Address2, other.Address2, StringComparison.CurrentCultureIgnoreCase);
 
             if (result != 0)
             {
@@ -222,48 +222,48 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                 return result;
             }
 
-            result = this.CellPhone.CompareTo(other.CellPhone);
+            result = string.Compare(this.CellPhone, other.CellPhone, StringComparison.CurrentCultureIgnoreCase);
 
             if (result != 0)
             {
                 return result;
             }
 
-            result = this.City.CompareTo(other.City);
+            result = string.Compare(this.City, other.City, StringComparison.CurrentCultureIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = this.Country.CompareTo(other.Country);
-
-            if (result != 0)
-            {
-                return result;
-            }
-
-            result = this.FirstName.CompareTo(other.FirstName);
+            result = string.Compare(this.Country, other.Country, StringComparison.CurrentCultureIgnoreCase);
 
             if (result != 0)
             {
                 return result;
             }
 
-            result = this.HomePhone.CompareTo(other.HomePhone);
+            result = string.Compare(this.FirstName, other.FirstName, StringComparison.CurrentCultureIgnoreCase);
 
             if (result != 0)
             {
                 return result;
             }
 
-            result = this.LastName.CompareTo(other.LastName);
+            result = string.Compare(this.HomePhone, other.HomePhone, StringComparison.CurrentCultureIgnoreCase);
 
             if (result != 0)
             {
                 return result;
             }
 
-            result = this.PostalCode.CompareTo(other.PostalCode);
+            result = string.Compare(this.LastName, other.LastName, StringComparison.CurrentCultureIgnoreCase);
+
+            if (result != 0)
+            {
+                return result;
+            }
+
+            result = string.Compare(this.PostalCode, other.PostalCode, StringComparison.CurrentCultureIgnoreCase);
 
             if (result != 0)
             {
@@ -286,12 +286,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                 return true;
             }
 
-            if (obj is null)
-            {
-                return false;
-            }
-
-            throw new NotImplementedException();
+            return false;
         }
 
         /// <summary>
@@ -307,12 +302,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                 return true;
             }
 
-            if (other is null)
-            {
-                return false;
-            }
-
-            throw new NotImplementedException();
+            return false;
         }
 
         /// <summary>
