@@ -19,8 +19,8 @@
 -- MAR 2020: Quartertly release.
 -- MAY 2020: Added more functionality to RandomData.</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>2020.5.28.43048</AssemblyVersion>
-    <FileVersion>2020.5.28.43048</FileVersion>
+    <AssemblyVersion>2020.6.3.39561</AssemblyVersion>
+    <FileVersion>2020.6.3.39561</FileVersion>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>

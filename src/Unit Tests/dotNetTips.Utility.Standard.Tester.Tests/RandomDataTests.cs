@@ -78,7 +78,7 @@ namespace dotNetTips.Utility.Standard.Tester.Tests
         [TestMethod]
         public void GenerateByteArrayTest()
         {
-            var byteArray = RandomData.GenerateByteArray(10);
+            var byteArray = RandomData.GenerateByteArray(.01);
 
             Assert.IsTrue(byteArray.Count() > 0);
         }

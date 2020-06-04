@@ -568,9 +568,11 @@ namespace dotNetTips.Utility.Standard.Tester
         /// </summary>
         /// <param name="sizeInKb">The size in kb.</param>
         /// <returns>System.Byte[].</returns>
-        public static byte[] GenerateByteArray(int sizeInKb)
+        public static byte[] GenerateByteArray(double sizeInKb)
         {
-            Byte[] bytes = new Byte[sizeInKb * 1024];
+            int size = Convert.ToInt32( sizeInKb * 1024);
+
+            Byte[] bytes = new Byte[size];
             _random.NextBytes(bytes);
 
             return bytes;

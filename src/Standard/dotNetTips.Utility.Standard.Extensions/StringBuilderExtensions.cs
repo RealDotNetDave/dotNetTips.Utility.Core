@@ -4,7 +4,7 @@
 // Created          : 05-11-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 05-11-2020
+// Last Modified On : 06-03-2020
 // ***********************************************************************
 // <copyright file="StringBuilderExtensions.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -19,11 +19,12 @@ using System.Text;
 namespace dotNetTips.Utility.Standard.Extensions
 {
     /// <summary>
-    /// Class StringBuilderExtensions.
+    /// StringBuilder Extensions.
     /// </summary>
-    /// TODO Edit XML Comment Template for StringBuilderExtensions
     public static class StringBuilderExtensions
     {
+
+        private const string DefaultSeparator = ", ";
 
         /// <summary>
         /// Appends the bytes.
@@ -37,26 +38,11 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             for (var i = 0; i < bytes.Length; i++)
             {
-                if (i > 31)
-                {
-                    builder.Append("...");
-                    break;
-                }
-
                 builder.Append(bytes[i].ToString("X2", CultureInfo.InvariantCulture));
             }
 
             builder.Append('\'');
         }
-        /// <summary>
-        /// Appends the join.
-        /// </summary>
-        /// <param name="stringBuilder">The string builder.</param>
-        /// <param name="values">The values.</param>
-        /// <param name="separator">The separator.</param>
-        /// <returns>StringBuilder.</returns>
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
-        public static StringBuilder AppendJoin(this StringBuilder stringBuilder, IEnumerable<string> values, string separator = ", ") => stringBuilder.AppendJoin(values, (sb, value) => sb.Append(value), separator);
 
         /// <summary>
         /// Appends the join.
@@ -66,20 +52,42 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="values">The values.</param>
         /// <returns>StringBuilder.</returns>
         /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
-        public static StringBuilder AppendJoin(this StringBuilder stringBuilder, string separator, params string[] values) => stringBuilder.AppendJoin(values, (sb, value) => sb.Append(value), separator);
+        public static StringBuilder AppendValues(this StringBuilder stringBuilder, string separator, IEnumerable<string> values)
+        {
+            separator = SetSeparator(separator);
+
+            return stringBuilder.AppendValues(separator, values, (sb, value) => sb.Append(value));
+        }
+
+        /// <summary>
+        /// Appends the join.
+        /// </summary>
+        /// <param name="stringBuilder">The string builder.</param>
+        /// <param name="separator">The separator.</param>
+        /// <param name="values">The values.</param>
+        /// <returns>StringBuilder.</returns>
+        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        public static StringBuilder AppendValues(this StringBuilder stringBuilder, string separator, params string[] values)
+        {
+            separator = SetSeparator(separator);
+
+            return stringBuilder.AppendValues(separator, values, (sb, value) => sb.Append(value));
+        }
 
         /// <summary>
         /// Appends the join.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="stringBuilder">The string builder.</param>
+        /// <param name="separator">The separator.</param>
         /// <param name="values">The values.</param>
         /// <param name="joinAction">The join action.</param>
-        /// <param name="separator">The separator.</param>
         /// <returns>StringBuilder.</returns>
         /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
-        public static StringBuilder AppendJoin<T>(this StringBuilder stringBuilder, IEnumerable<T> values, Action<StringBuilder, T> joinAction, string separator = ", ")
+        public static StringBuilder AppendValues<T>(this StringBuilder stringBuilder, string separator, IEnumerable<T> values, Action<StringBuilder, T> joinAction)
         {
+            separator = SetSeparator(separator);
+
             var appended = false;
 
             foreach (var value in values)
@@ -103,14 +111,16 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TParam">The type of the t parameter.</typeparam>
         /// <param name="stringBuilder">The string builder.</param>
+        /// <param name="separator">The separator.</param>
         /// <param name="values">The values.</param>
         /// <param name="param">The parameter.</param>
         /// <param name="joinAction">The join action.</param>
-        /// <param name="separator">The separator.</param>
         /// <returns>StringBuilder.</returns>
         /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
-        public static StringBuilder AppendJoin<T, TParam>(this StringBuilder stringBuilder, IEnumerable<T> values, TParam param, Action<StringBuilder, T, TParam> joinAction, string separator = ", ")
+        public static StringBuilder AppendValues<T, TParam>(this StringBuilder stringBuilder, string separator, IEnumerable<T> values, TParam param, Action<StringBuilder, T, TParam> joinAction)
         {
+            separator = SetSeparator(separator);
+
             var appended = false;
 
             foreach (var value in values)
@@ -135,15 +145,17 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="TParam1">The type of the t param1.</typeparam>
         /// <typeparam name="TParam2">The type of the t param2.</typeparam>
         /// <param name="stringBuilder">The string builder.</param>
+        /// <param name="separator">The separator.</param>
         /// <param name="values">The values.</param>
         /// <param name="param1">The param1.</param>
         /// <param name="param2">The param2.</param>
         /// <param name="joinAction">The join action.</param>
-        /// <param name="separator">The separator.</param>
         /// <returns>StringBuilder.</returns>
         /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
-        public static StringBuilder AppendJoin<T, TParam1, TParam2>(this StringBuilder stringBuilder, IEnumerable<T> values, TParam1 param1, TParam2 param2, Action<StringBuilder, T, TParam1, TParam2> joinAction, string separator = ", ")
+        public static StringBuilder AppendValues<T, TParam1, TParam2>(this StringBuilder stringBuilder, string separator, IEnumerable<T> values, TParam1 param1, TParam2 param2, Action<StringBuilder, T, TParam1, TParam2> joinAction)
         {
+            separator = SetSeparator(separator);
+
             var appended = false;
 
             foreach (var value in values)
@@ -159,6 +171,16 @@ namespace dotNetTips.Utility.Standard.Extensions
             }
 
             return stringBuilder;
+        }
+
+        private static string SetSeparator(string separator)
+        {
+            if (separator.HasValue() == false)
+            {
+                separator = DefaultSeparator;
+            }
+
+            return separator;
         }
 
     }
