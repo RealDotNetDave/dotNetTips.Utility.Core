@@ -455,11 +455,26 @@ namespace dotNetTips.Utility.Standard.Extensions
         public static bool HasItems(this IEnumerable source) => source?.Count() > 0;
 
         /// <summary>
+        /// Determines whether the specified collection has items specified.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="items">The items.</param>
+        /// <returns><c>true</c> if the specified items has items; otherwise, <c>false</c>.</returns>
+        public static bool ContainsAny<T>(this IEnumerable<T> source, params T[] items)
+        {
+            var itemsList = items.ToList();
+
+            return itemsList.HasItems() ? source.ToList().Any(p => itemsList.Contains(p)) : false;
+        }
+
+        /// <summary>
         /// *Determines whether the specified source has items.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <returns><c>true</c> if the specified source has items; otherwise, <c>false</c>.</returns>
         public static bool HasItems(this ICollection source) => source?.Count > 0;
+
 
         /// <summary>
         /// *Determines whether the specified source has items.

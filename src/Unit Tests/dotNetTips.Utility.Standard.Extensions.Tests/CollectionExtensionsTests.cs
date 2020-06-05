@@ -102,6 +102,19 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         }
 
         [TestMethod]
+        public void ContainsAnyTest()
+        {
+            var collection = RandomData.GenerateCoordinateCollection<Coordinate>(10).ToList();
+            var coordinate = RandomData.GenerateCoordinate<Coordinate>();
+
+            Assert.IsFalse(collection.ContainsAny(coordinate));
+
+            collection.Add(coordinate);
+
+            Assert.IsTrue(collection.ContainsAny(coordinate));
+        }
+
+        [TestMethod]
         public void ToDelimitedStringTest()
         {
             var words = RandomData.GenerateWords(10, 25, 50);
