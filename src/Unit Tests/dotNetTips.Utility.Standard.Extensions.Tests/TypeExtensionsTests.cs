@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 using dotNetTips.Utility.Standard.Tester.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -80,14 +81,51 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         [TestMethod]
         public void GetTypeMembersWithGivenAttributeTest()
         {
-            //var result = GetFieldsAndProperties(typeof(TestType), BindingFlags.Default);
-
             var result = typeof(TestType).GetTypeMembersWithAttribute<XmlIgnoreAttribute>();
 
             Assert.IsTrue(result.Count() == 1);
         }
+
+        [TestMethod]
+        public void GetAttributeTypeTest()
+        {
+            var result = typeof(TestType).GetAttribute<XmlRootAttribute>();
+
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void GetAttributeMethodTest()
+        {
+            var method = typeof(TestType).GetAllMethods().Where(p => p.Name == "get_UserName").FirstOrDefault();
+
+            var result = method.GetAttribute<CompilerGeneratedAttribute>();
+
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void GetAttributePropertyTest()
+        {
+            var property = typeof(TestType).GetAllProperties().FirstOrDefault();
+
+            var result = property.GetAttribute<DebuggerBrowsableAttribute>();
+
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void GetAttributeFieldTest()
+        {
+            var field = typeof(TestType).GetAllFields().FirstOrDefault();
+
+            var result = field.GetAttribute<XmlIgnoreAttribute>();
+
+            Assert.IsNotNull(result);
+        }
     }
 
+    [XmlRoot]
     public class TestType
     {
         [XmlIgnore]
@@ -109,6 +147,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         }
 
         [XmlIgnore]
+        [DebuggerBrowsable(DebuggerBrowsableState.RootHidden)]
         public string UserName { get; set; }
 
 

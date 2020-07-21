@@ -159,7 +159,7 @@ namespace dotNetTips.Utility.Standard.Extensions
             var allFields = type.GetFields()
                                 .Select(f => (
                                     Name: f.Name,
-                                    Attribute: f.ResolveAttribute<TAttribute>(),
+                                    Attribute: f.GetAttribute<TAttribute>(),
                                     IsPrivate: f.IsPrivate,
                                     IsStatic: f.IsStatic,
                                     ParameterType: f.FieldType));
@@ -167,7 +167,7 @@ namespace dotNetTips.Utility.Standard.Extensions
             var allProperties = type.GetProperties()
                                     .Select(p => (
                                         Name: p.Name,
-                                        Attribute: p.ResolveAttribute<TAttribute>(),
+                                        Attribute: p.GetAttribute<TAttribute>(),
                                         IsPrivate: p.GetSetMethod() == null,
                                         IsStatic: p.GetSetMethod() != null && p.GetSetMethod().IsStatic,
                                         PropertyType: p.PropertyType));
@@ -190,7 +190,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns><c>true</c> if the specified method information has attribute; otherwise, <c>false</c>.</returns>
         /// <remarks>NEW: Orginal Code from: https://github.com/dotnet/BenchmarkDotNet</remarks>
         public static bool HasAttribute<T>(this MethodInfo methodInfo) where T : Attribute =>
-            methodInfo.ResolveAttribute<T>() != null;
+            methodInfo.GetAttribute<T>() != null;
 
         /// <summary>
         /// Determines whether [has parameterless constructor] [the specified type].
@@ -247,7 +247,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="type">The type.</param>
         /// <returns>T.</returns>
         /// <remarks>NEW: Orginal Code from: https://github.com/dotnet/BenchmarkDotNet</remarks>
-        public static T ResolveAttribute<T>(this Type type) where T : Attribute =>
+        public static T GetAttribute<T>(this Type type) where T : Attribute =>
     type?.GetTypeInfo().GetCustomAttributes(typeof(T), false).OfType<T>().FirstOrDefault();
 
         /// <summary>
@@ -257,7 +257,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="methodInfo">The method information.</param>
         /// <returns>T.</returns>
         /// <remarks>NEW: Orginal Code from: https://github.com/dotnet/BenchmarkDotNet</remarks>
-        public static T ResolveAttribute<T>(this MethodInfo methodInfo) where T : Attribute =>
+        public static T GetAttribute<T>(this MethodInfo methodInfo) where T : Attribute =>
             methodInfo?.GetCustomAttributes(typeof(T), false).FirstOrDefault() as T;
 
         /// <summary>
@@ -267,7 +267,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="propertyInfo">The property information.</param>
         /// <returns>T.</returns>
         /// <remarks>NEW: Orginal Code from: https://github.com/dotnet/BenchmarkDotNet</remarks>
-        public static T ResolveAttribute<T>(this PropertyInfo propertyInfo) where T : Attribute =>
+        public static T GetAttribute<T>(this PropertyInfo propertyInfo) where T : Attribute =>
             propertyInfo?.GetCustomAttributes(typeof(T), false).FirstOrDefault() as T;
 
         /// <summary>
@@ -277,7 +277,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="fieldInfo">The field information.</param>
         /// <returns>T.</returns>
         /// <remarks>NEW: Orginal Code from: https://github.com/dotnet/BenchmarkDotNet</remarks>
-        public static T ResolveAttribute<T>(this FieldInfo fieldInfo) where T : Attribute =>
+        public static T GetAttribute<T>(this FieldInfo fieldInfo) where T : Attribute =>
             fieldInfo?.GetCustomAttributes(typeof(T), false).FirstOrDefault() as T;
 
     }
