@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 11-21-2019
+// Last Modified On : 07-15-2020
 // ***********************************************************************
 // <copyright file="ThreadExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
@@ -13,6 +13,7 @@
 // ***********************************************************************
 using System;
 using System.Threading;
+using Microsoft.Extensions.Logging;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {
@@ -52,6 +53,44 @@ namespace dotNetTips.Utility.Standard.Extensions
                 Thread.SpinWait(waitInterations);
             }
             while (thread.IsAlive && DateTime.Now < stopAt);
+        }
+
+        /// <summary>
+        /// Tries the set priority.
+        /// </summary>
+        /// <param name="thread">The thread.</param>
+        /// <param name="priority">The priority.</param>
+        /// <param name="logger">The logger.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="ArgumentNullException">thread
+        /// or
+        /// logger</exception>
+        /// <exception cref="ArgumentOutOfRangeException">priority</exception>
+        /// <remarks>NEW: Orginal Code from: https://github.com/dotnet/BenchmarkDotNet </remarks>
+        public static bool TrySetPriority(this Thread thread, ThreadPriority priority, ILogger logger)
+        {
+            if (thread == null)
+            {
+                throw new ArgumentNullException(nameof(thread));
+            }
+
+            if (Enum.IsDefined(typeof(ThreadPriority), priority) == false)
+            {
+                throw new ArgumentOutOfRangeException(nameof(priority));
+            }
+
+            try
+            {
+                thread.Priority = priority;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                logger?.LogError(ex, $"Failed to set up priority {priority} for thread {thread}. Make sure you have the right permissions.");
+            }
+
+            return false;
+
         }
     }
 }

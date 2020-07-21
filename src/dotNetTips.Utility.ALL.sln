@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetTips.Tips.Utility.Sta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetTips.Utility.Standard.Extensions.Tests", "Unit Tests\dotNetTips.Utility.Standard.Extensions.Tests\dotNetTips.Utility.Standard.Extensions.Tests.csproj", "{5ADC1DC7-06FE-497A-8826-E7C4EBF7A95E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetTips.Utility.Core.AspNet", "Core\dotNetTips.Utility.Core.AspNet\dotNetTips.Utility.Core.AspNet.csproj", "{BD3C734C-E795-408F-BD90-B12029BBFB87}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,12 @@ Global
 		{5ADC1DC7-06FE-497A-8826-E7C4EBF7A95E}.Full Build|Any CPU.Build.0 = Debug|Any CPU
 		{5ADC1DC7-06FE-497A-8826-E7C4EBF7A95E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5ADC1DC7-06FE-497A-8826-E7C4EBF7A95E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD3C734C-E795-408F-BD90-B12029BBFB87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD3C734C-E795-408F-BD90-B12029BBFB87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD3C734C-E795-408F-BD90-B12029BBFB87}.Full Build|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD3C734C-E795-408F-BD90-B12029BBFB87}.Full Build|Any CPU.Build.0 = Debug|Any CPU
+		{BD3C734C-E795-408F-BD90-B12029BBFB87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD3C734C-E795-408F-BD90-B12029BBFB87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

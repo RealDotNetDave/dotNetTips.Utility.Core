@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace dotNetTips.Utility.Standard.Collections.Generic
 {
@@ -23,10 +24,9 @@ namespace dotNetTips.Utility.Standard.Collections.Generic
     /// Class SortedList.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <seealso cref="dotNetTips.Utility.Standard.ICloneable{T}" />
     /// <seealso cref="System.Collections.Generic.List{T}" />
     [DebuggerDisplay("Count = {Count}"), Serializable]
-    public class FastSortedList<T> : List<T>, ICloneable<T>
+    public class FastSortedList<T> : List<T>
     {
         /// <summary>
         /// True or False if the list has been sorted.
@@ -69,12 +69,6 @@ namespace dotNetTips.Utility.Standard.Collections.Generic
 
             this._sorted = false;
         }
-
-        /// <summary>
-        /// Cones this instance.
-        /// </summary>
-        /// <returns>T.</returns>
-        public T Cone() => this.Clone<T>();
 
         /// <summary>
         /// Returns an enumerator that iterates through the <see cref="T:System.Collections.Generic.List`1"></see>.

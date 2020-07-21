@@ -1,16 +1,29 @@
-﻿using dotNetTips.Utility.Standard.IO;
-using dotNetTips.Utility.Standard.Tester;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿// ***********************************************************************
+// Assembly         : dotNetTips.Tips.Utility.Standard.Tests
+// Author           : David McCarter
+// Created          : 05-28-2020
+//
+// Last Modified By : David McCarter
+// Last Modified On : 07-20-2020
+// ***********************************************************************
+// <copyright file="FileProcessorTests.cs" company="McCarter Consulting">
+//     David McCarter - dotNetTips.com
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using dotNetTips.Utility.Standard.IO;
+using dotNetTips.Utility.Standard.Tester;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dotNetTips.Tips.Utility.Standard.Tests.IO
 {
     [TestClass]
-    public class FileProcessorUnitTests
+    public class FileProcessorTests
     {
         [TestMethod]
         public void CopyFilesWithEventTest()
@@ -28,9 +41,9 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
 
         private void Processor_Processed(object sender, FileProgressEventArgs e)
         {
-           Debug.WriteLine(e.Message);
+            Debug.WriteLine(e.Message);
 
-           File.Delete(e.Name);
+            File.Delete(e.Name);
         }
 
         private IEnumerable<FileInfo> GenerateTempFiles(int fileCount, int fileLength)

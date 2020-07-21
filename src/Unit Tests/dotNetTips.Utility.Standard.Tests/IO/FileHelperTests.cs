@@ -4,21 +4,21 @@
 // Created          : 06-15-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 05-08-2020
+// Last Modified On : 07-20-2020
 // ***********************************************************************
-// <copyright file="FileHelperUnitTests.cs" company="McCarter Consulting">
+// <copyright file="FileHelperTests.cs" company="McCarter Consulting">
 //     David McCarter - dotNetTips.com
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Extensions;
-using dotNetTips.Utility.Standard.IO;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using dotNetTips.Utility.Standard.Extensions;
+using dotNetTips.Utility.Standard.IO;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dotNetTips.Tips.Utility.Standard.Tests.IO
 {
@@ -26,26 +26,40 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
     /// Class DirectoryHelperUnitTest.
     /// </summary>
     [TestClass]
-    public class FileHelperUnitTests
+    public class FileHelperTests
     {
+
+        private DirectoryInfo _tempPath;
 
         [TestMethod]
         public async Task CopyFileAsyncTestAsync()
         {
             try
             {
-                var options = new EnumerationOptions
-                {
-                    IgnoreInaccessible = false,
-                    RecurseSubdirectories = true,
-
-                };
-
                 var directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
                 var fileToCopy = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).GetDirectories().Where(p => p.GetFiles().Count() > 0).Randomize().FirstOrDefault().GetFiles().FirstOrDefault();
 
                 var result = await FileHelper.CopyFileAsync(fileToCopy, this._tempPath).ConfigureAwait(true);
+
+                Assert.IsTrue(result > 0);
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void CopyFileTest()
+        {
+            try
+            {
+                var directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+                var fileToCopy = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).GetDirectories().Where(p => p.GetFiles().Count() > 0).Randomize().FirstOrDefault().GetFiles().FirstOrDefault();
+
+                var result = FileHelper.CopyFile(fileToCopy, this._tempPath);
 
                 Assert.IsTrue(result > 0);
             }
@@ -94,6 +108,24 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
             }
         }
 
+        [TestMethod()]
+        public void FileHasInvalidPathCharsTest()
+        {
+            var fileName = "dotnettips.config";
+
+            var result = FileHelper.FileHasInvalidChars(fileName);
+
+            Assert.IsFalse(result);
+
+            //Test invalid path
+            fileName = $"{fileName}:";
+
+            result = FileHelper.FileHasInvalidChars(fileName);
+
+            Assert.IsTrue(result);
+
+        }
+
         [TestInitialize]
         public void Initialize()
         {
@@ -114,6 +146,5 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
             }
         }
 
-        private DirectoryInfo _tempPath;
     }
 }

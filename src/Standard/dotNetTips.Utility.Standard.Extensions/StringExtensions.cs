@@ -4,19 +4,19 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 05-13-2020
+// Last Modified On : 07-16-2020
 // ***********************************************************************
 // <copyright file="StringExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Extensions.Properties;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using dotNetTips.Utility.Standard.Extensions.Properties;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {
@@ -135,6 +135,30 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
+        /// Equals the ignore case.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="valueToCompare">The value to compare.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <remarks>NEW</remarks>
+        public static bool EqualsIgnoreCase(this string input, string valueToCompare)
+        {
+            return string.Equals(input, valueToCompare, StringComparison.OrdinalIgnoreCase);
+        }
+
+        /// <summary>
+        /// Equals the or both null or empty.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="valueToCompare">The value to compare.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <remarks>NEW</remarks>
+        public static bool EqualsOrBothNullOrEmpty(this string input, string valueToCompare)
+        {
+            return string.Equals(input ?? string.Empty, valueToCompare ?? string.Empty, StringComparison.Ordinal);
+        }
+
+        /// <summary>
         /// Determines whether the specified input has value.
         /// </summary>
         /// <param name="input">The input.</param>
@@ -142,19 +166,6 @@ namespace dotNetTips.Utility.Standard.Extensions
         public static bool HasValue(this string input)
         {
             return input == null ? false : input.Trim().Length > 0;
-        }
-
-        /// <summary>
-        /// Determines whether the specified expression has value based on a regular expression.
-        /// </summary>
-        public static bool HasValue(this string input, string expression, RegexOptions options)
-        {
-            if (input.HasValue() && expression.HasValue())
-            {
-                return new Regex(expression, options).IsMatch(input);
-            }
-
-            return false;
         }
 
         /// <summary>
@@ -183,6 +194,23 @@ namespace dotNetTips.Utility.Standard.Extensions
         public static bool HasValue(this string input, string value)
         {
             return input == null ? false : input.Trim() == value.Trim();
+        }
+
+        /// <summary>
+        /// Determines whether the specified expression has value based on a regular expression.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="expression">The expression.</param>
+        /// <param name="options">The options.</param>
+        /// <returns><c>true</c> if the specified expression has value; otherwise, <c>false</c>.</returns>
+        public static bool HasValue(this string input, string expression, RegexOptions options)
+        {
+            if (input.HasValue() && expression.HasValue())
+            {
+                return new Regex(expression, options).IsMatch(input);
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -372,6 +400,81 @@ namespace dotNetTips.Utility.Standard.Extensions
             }
 
             return input.Trim().Split(new char[] { ',' }, options: StringSplitOptions.RemoveEmptyEntries);
+        }
+
+        /// <summary>
+        /// Splits the string.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="separator">The separator.</param>
+        /// <param name="options">The options.</param>
+        /// <returns>System.String[].</returns>
+        /// <remarks>NEW</remarks>
+        public static string[] Split(this string value, char separator, StringSplitOptions options = StringSplitOptions.None) => value.Split(new[] { separator }, options);
+
+        /// <summary>
+        /// Splits the string.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="separator">The separator.</param>
+        /// <param name="options">The options.</param>
+        /// <returns>System.String[].</returns>
+        /// <remarks>NEW</remarks>
+        public static string[] Split(this string value, string separator, StringSplitOptions options = StringSplitOptions.None) => value.Split(new[] { separator }, options);
+
+        /// <summary>
+        /// Splits the string.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="separator">The separator.</param>
+        /// <param name="count">The count.</param>
+        /// <param name="options">The options.</param>
+        /// <returns>System.String[].</returns>
+        /// <remarks>NEW</remarks>
+        public static string[] Split(this string value, char separator, int count, StringSplitOptions options = StringSplitOptions.None) => value.Split(new[] { separator }, count, options);
+
+        /// <summary>
+        /// Splits the string.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="separator">The separator.</param>
+        /// <param name="count">The count.</param>
+        /// <param name="options">The options.</param>
+        /// <returns>System.String[].</returns>
+        public static string[] Split(this string value, string separator, int count, StringSplitOptions options = StringSplitOptions.None) => value.Split(new[] { separator }, count, options);
+
+        /// <summary>
+        /// Starts the with ordinal.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="valueToCompare">The value to compare.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <remarks>NEW</remarks>
+        public static bool StartsWithOrdinal(this string input, string valueToCompare)
+        {
+            if (valueToCompare == null)
+            {
+                return false;
+            }
+
+            return 0 == string.Compare(input, 0, valueToCompare, 0, valueToCompare.Length, StringComparison.Ordinal);
+        }
+
+        /// <summary>
+        /// Starts the with ordinal ignore case.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="valueToCompare">The value to compare.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <remarks>NEW</remarks>
+        public static bool StartsWithOrdinalIgnoreCase(this string input, string valueToCompare)
+        {
+            if (valueToCompare == null)
+            {
+                return false;
+            }
+
+            return 0 == string.Compare(input, 0, valueToCompare, 0, valueToCompare.Length, StringComparison.OrdinalIgnoreCase);
         }
 
         /// <summary>

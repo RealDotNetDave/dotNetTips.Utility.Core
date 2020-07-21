@@ -4,16 +4,13 @@
 // Created          : 02-11-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 05-26-2020
+// Last Modified On : 07-20-2020
 // ***********************************************************************
 // <copyright file="FileHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Extensions;
-using dotNetTips.Utility.Standard.OOP;
-using dotNetTips.Utility.Standard.Properties;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,6 +19,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using dotNetTips.Utility.Standard.Extensions;
+using dotNetTips.Utility.Standard.OOP;
+using dotNetTips.Utility.Standard.Properties;
 
 namespace dotNetTips.Utility.Standard.IO
 {
@@ -35,6 +35,16 @@ namespace dotNetTips.Utility.Standard.IO
         /// The count for retries.
         /// </summary>
         private const int Retries = 10;
+
+        private static readonly char[] _invalidFileNameChars = Path.GetInvalidFileNameChars()
+.Where(c => c != Path.DirectorySeparatorChar && c != Path.AltDirectorySeparatorChar).ToArray();
+
+        /// <summary>
+        /// Gets the invalid file name chars.
+        /// </summary>
+        /// <value>The invalid file name chars.</value>
+        /// <remarks>NEW</remarks>
+        public static char[] InvalidFileNameChars => _invalidFileNameChars;
 
         /// <summary>
         /// Copies the file to a new directory.
@@ -201,6 +211,19 @@ namespace dotNetTips.Utility.Standard.IO
                     await localStream.FlushAsync().ConfigureAwait(true);
                 }
             }
+        }
+
+        /// <summary>
+        /// Determines whether [has invalid path chars] [the specified file name].
+        /// </summary>
+        /// <param name="fileName">The path.</param>
+        /// <returns><c>true</c> if [has invalid path chars] [the specified file name]; otherwise, <c>false</c>.</returns>
+        /// <remarks>NEW</remarks>
+        public static bool FileHasInvalidChars(string fileName)
+        {
+            Encapsulation.TryValidateParam(fileName, nameof(fileName));
+
+            return fileName.IndexOfAny(_invalidFileNameChars) != -1;
         }
 
         /// <summary>

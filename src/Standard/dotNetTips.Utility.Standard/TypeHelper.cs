@@ -11,13 +11,13 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Extensions;
-using dotNetTips.Utility.Standard.OOP;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using dotNetTips.Utility.Standard.Extensions;
+using dotNetTips.Utility.Standard.OOP;
 
 namespace dotNetTips.Utility.Standard
 {
@@ -226,6 +226,48 @@ namespace dotNetTips.Utility.Standard
             hash = instance.GetType().GetRuntimeProperties().Where(p => p != null).Select(prop => prop.GetValue(instance)).Where(value => value != null).Aggregate(-1, (accumulator, value) => accumulator ^ value.GetHashCode());
 
             return hash;
+        }
+
+        /// <summary>
+        /// Finds the generic type.
+        /// </summary>
+        /// <param name="definition">The definition.</param>
+        /// <param name="type">The type.</param>
+        /// <returns>Type.</returns>
+        /// <remarks>NEW</remarks>
+        public static Type FindGenericType(Type definition, Type type)
+        {
+            bool? definitionIsInterface = null;
+
+            while (type != null && type != typeof(object))
+            {
+                if (type.IsGenericType && type.GetGenericTypeDefinition() == definition)
+                {
+                    return type;
+                }
+
+                if (!definitionIsInterface.HasValue)
+                {
+                    definitionIsInterface = definition.IsInterface;
+                }
+
+                if (definitionIsInterface.GetValueOrDefault())
+                {
+                    for (var i = 0; i < type.GetInterfaces().Length; i++)
+                    {
+                        var found = FindGenericType(definition, type.GetInterfaces()[i]);
+
+                        if (found != null)
+                        {
+                            return found;
+                        }
+                    }
+                }
+
+                type = type.BaseType;
+            }
+
+            return null;
         }
     }
 }

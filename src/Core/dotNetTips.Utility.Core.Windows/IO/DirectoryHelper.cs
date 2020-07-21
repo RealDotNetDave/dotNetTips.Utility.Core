@@ -12,9 +12,6 @@
 // <summary>Methods for directory operations.</summary>
 // ***********************************************************************
 
-using dotNetTips.Utility.Core.Windows.Win32;
-using dotNetTips.Utility.Standard.Extensions;
-using dotNetTips.Utility.Standard.OOP;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -22,6 +19,9 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using dotNetTips.Utility.Core.Windows.Win32;
+using dotNetTips.Utility.Standard.Extensions;
+using dotNetTips.Utility.Standard.OOP;
 
 namespace dotNetTips.Utility.Core.Windows.IO
 {

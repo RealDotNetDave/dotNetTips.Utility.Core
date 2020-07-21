@@ -54,7 +54,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="obj">The object.</param>
         /// <returns>T.</returns>
         /// <exception cref="ArgumentNullException">obj</exception>
-        public static T Clone<T>(this object obj)
+        public static T Clone<T>(this object obj) where T : class
         {
             if (obj is null)
             {
@@ -68,7 +68,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 formatter.Serialize(stream, obj);
                 stream.Seek(0, SeekOrigin.Begin);
 
-                return (T)formatter.Deserialize(stream);
+                return formatter.Deserialize(stream) as T;
             }
         }
 

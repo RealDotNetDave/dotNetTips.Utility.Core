@@ -38,7 +38,7 @@ namespace dotNetTips.Utility.Standard.Extensions
             {
                 throw new ArgumentNullException(nameof(request), $"{nameof(request)} is null.");
             }
-
+        
             using (var ms = new MemoryStream(2048))
             {
                 await request.Body.CopyToAsync(ms).ConfigureAwait(true);

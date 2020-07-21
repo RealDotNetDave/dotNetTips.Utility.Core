@@ -4,7 +4,7 @@
 // Created          : 07-11-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 03-03-2019
+// Last Modified On : 07-20-2020
 // ***********************************************************************
 // <copyright file="PathHelperc.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -12,7 +12,10 @@
 // <summary></summary>
 // ***********************************************************************
 
+using System.IO;
+using System.Linq;
 using dotNetTips.Utility.Standard.OOP;
+using Microsoft.Extensions.Primitives;
 
 namespace dotNetTips.Utility.Standard.IO
 {
@@ -21,6 +24,64 @@ namespace dotNetTips.Utility.Standard.IO
     /// </summary>
     public static class PathHelper
     {
+
+        private static readonly char[] _invalidFilterChars = FileHelper.InvalidFileNameChars.Where(c => c != '*' && c != '|' && c != '?').ToArray();
+        private static readonly char[] _invalidPathNameChars = Path.GetInvalidPathChars().Where(c => c != Path.DirectorySeparatorChar && c != Path.AltDirectorySeparatorChar).ToArray();
+
+        private static readonly char[] _pathSeparators = new[] { Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar };
+
+        /// <summary>
+        /// Gets the invalid filter chars.
+        /// </summary>
+        /// <value>The invalid filter chars.</value>
+        /// <remarks>NEW</remarks>
+        public static char[] InvalidFilterChars => _invalidFilterChars;
+
+        /// <summary>
+        /// Gets the invalid path name chars.
+        /// </summary>
+        /// <value>The invalid path name chars.</value>
+        /// <remarks>NEW</remarks>
+        public static char[] InvalidPathNameChars => _invalidPathNameChars;
+
+        /// <summary>
+        /// Gets the path separators.
+        /// </summary>
+        /// <value>The path separators.</value>
+        /// <remarks>NEW</remarks>
+        public static char[] PathSeparators => _pathSeparators;
+
+        /// <summary>
+        /// Ensures the trailing slash.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns>System.String.</returns>
+        /// <remarks>NEW</remarks>
+        public static string EnsureTrailingSlash(string path)
+        {
+            Encapsulation.TryValidateParam(path, nameof(path));
+
+            if (path[path.Length - 1] != Path.DirectorySeparatorChar)
+            {
+                return path + Path.DirectorySeparatorChar;
+            }
+
+            return path;
+        }
+
+        /// <summary>
+        /// Determines whether [has invalid filter chars] [the specified path].
+        /// </summary>
+        /// <param name="filter">The path.</param>
+        /// <returns><c>true</c> if [has invalid filter chars] [the specified path]; otherwise, <c>false</c>.</returns>
+        /// <remarks>NEW</remarks>
+        public static bool HasInvalidFilterChars(string filter)
+        {
+            Encapsulation.TryValidateParam(filter, nameof(filter));
+
+            return filter.IndexOfAny(_invalidFilterChars) != -1;
+        }
+
         /// <summary>
         /// Checks to see if path contains any wild cards.
         /// </summary>
@@ -32,5 +93,58 @@ namespace dotNetTips.Utility.Standard.IO
 
             return (path?.IndexOf('*') != -1) || (path?.IndexOf('?') != -1);
         }
+
+
+
+        /// <summary>
+        /// Pathes the has invalid chars.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <remarks>NEW</remarks>
+        public static bool PathHasInvalidChars(string path)
+        {
+            Encapsulation.TryValidateParam(path, nameof(path));
+
+            return path.IndexOfAny(_invalidPathNameChars) != -1;
+        }
+
+        /// <summary>
+        /// Determines if path navigates above root.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <remarks>NEW</remarks>
+        public static bool PathNavigatesAboveRoot(string path)
+        {
+            Encapsulation.TryValidateParam(path, nameof(path));
+
+            var tokenizer = new StringTokenizer(path, _pathSeparators);
+            int depth = 0;
+
+            foreach (var segment in tokenizer)
+            {
+                if (segment.Equals(".") || segment.Equals(string.Empty))
+                {
+                    continue;
+                }
+                else if (segment.Equals(".."))
+                {
+                    depth--;
+
+                    if (depth == -1)
+                    {
+                        return true;
+                    }
+                }
+                else
+                {
+                    depth++;
+                }
+            }
+
+            return false;
+        }
+
     }
 }

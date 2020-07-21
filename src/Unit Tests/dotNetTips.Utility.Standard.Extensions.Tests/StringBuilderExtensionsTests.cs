@@ -1,7 +1,7 @@
-﻿using dotNetTips.Utility.Standard.Tester;
+﻿using System.Text;
+using dotNetTips.Utility.Standard.Tester;
 using dotNetTips.Utility.Standard.Tester.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Text;
 
 namespace dotNetTips.Utility.Standard.Extensions.Tests
 {
@@ -12,7 +12,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         public void AppendBytesTest()
         {
             var sb = new StringBuilder();
-            var byteArray = RandomData.GenerateByteArray(1);
+            var byteArray = RandomData.GenerateByteArray(sizeInKb: 1);
             sb.AppendBytes(byteArray);
 
             Assert.IsTrue(sb.Length > 50);
@@ -22,7 +22,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         public void AppendJoinTest01()
         {
             var sb = new StringBuilder();
-            var values = RandomData.GenerateWords(5, 5, 7);
+            var values = RandomData.GenerateWords(count: 5, minLength: 5, maxLength: 7);
 
             sb.AppendValues(", ", values);
 
@@ -34,14 +34,14 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         public void AppendJoinTest02()
         {
             var sb = new StringBuilder();
-            var values = RandomData.GenerateCoordinateCollection<Coordinate>(5);
+            var values = RandomData.GenerateCoordinateCollection<Coordinate>(count: 5);
 
-            sb.AppendValues(", ",values, (sb, person) =>
-            {
-                sb.Append(person.X);
-                sb.Append(ControlChars.Colon);
-                sb.Append(person.Y);
-            });
+            sb.AppendValues(", ", values, (person) =>
+             {
+                 sb.Append(person.X);
+                 sb.Append(ControlChars.Colon);
+                 sb.Append(person.Y);
+             });
 
             Assert.IsTrue(sb.Length > 100);
         }

@@ -1,24 +1,25 @@
 ﻿// ***********************************************************************
 // Assembly         : dotNetTips.Tips.Utility.Standard.Tests
 // Author           : David McCarter
-// Created          : 06-15-2018
+// Created          : 10-09-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 03-03-2019
+// Last Modified On : 07-20-2020
 // ***********************************************************************
-// <copyright file="DirectoryHelperUnitTest.cs" company="McCarter Consulting">
+// <copyright file="DirectoryHelperTests.cs" company="McCarter Consulting">
 //     David McCarter - dotNetTips.com
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Extensions;
-using dotNetTips.Utility.Standard.IO;
-using dotNetTips.Utility.Standard.Tester;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using dotNetTips.Utility.Standard.Extensions;
+using dotNetTips.Utility.Standard.IO;
+using dotNetTips.Utility.Standard.Tester;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dotNetTips.Tips.Utility.Standard.Tests.IO
 {
@@ -26,7 +27,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
     /// Class DirectoryHelperUnitTest.
     /// </summary>
     [TestClass]
-    public class DirectoryHelperUnitTest
+    public class DirectoryHelperTests
     {
         /// <summary>
         /// Loads the one drive folders test.
