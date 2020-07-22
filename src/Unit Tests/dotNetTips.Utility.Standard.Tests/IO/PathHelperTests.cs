@@ -13,6 +13,7 @@
 // ***********************************************************************
 using System;
 using System.IO;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dotNetTips.Utility.Standard.IO.Tests
@@ -29,6 +30,30 @@ namespace dotNetTips.Utility.Standard.IO.Tests
             var result = PathHelper.EnsureTrailingSlash(path);
 
             Assert.IsTrue(result.EndsWith(Path.DirectorySeparatorChar));
+        }
+
+        [TestMethod]
+        public void InvalidFilterCharsTest()
+        {
+            var result = PathHelper.InvalidFilterChars;
+
+            Assert.IsTrue(result.Count() > 0);
+        }
+
+        [TestMethod]
+        public void InvalidPathNameCharsTest()
+        {
+            var result = PathHelper.InvalidPathNameChars;
+
+            Assert.IsTrue(result.Count() > 0);
+        }
+
+        [TestMethod]
+        public void PathSeparatorsTest()
+        {
+            var result = PathHelper.PathSeparators;
+
+            Assert.IsTrue(result.Count() > 0);
         }
 
 
