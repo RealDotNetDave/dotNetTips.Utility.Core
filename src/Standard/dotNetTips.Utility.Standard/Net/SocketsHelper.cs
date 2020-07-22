@@ -25,7 +25,7 @@ namespace dotNetTips.Utility.Standard.Net
         /// Creates the and start TCP listener on anonymous port. Binds to an OS-assigned port.
         /// </summary>
         /// <returns>System.ValueTuple&lt;TcpListener, System.Int32&gt;.</returns>
-        /// <remarks>NEW</remarks>
+        /// <remarks>NEW: From .NET Core source.</remarks>
         public static (TcpListener listener, int port) CreateAndStartTcpListenerOnAnonymousPort()
         {
             var listener = new TcpListener(IPAddress.IPv6Any, 0);

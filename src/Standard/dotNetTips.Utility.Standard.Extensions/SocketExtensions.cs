@@ -22,7 +22,6 @@ namespace dotNetTips.Utility.Standard.Extensions
     /// </summary>
     public static class SocketExtensions
     {
-
         /// <summary>
         /// Binds to an IP address and OS-assigned port. Returns the chosen port.
         /// </summary>
@@ -86,5 +85,6 @@ namespace dotNetTips.Utility.Standard.Extensions
                 }
             }
         }
+
     }
 }
