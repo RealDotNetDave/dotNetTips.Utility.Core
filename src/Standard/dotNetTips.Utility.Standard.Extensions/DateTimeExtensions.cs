@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-18-2020
+// Last Modified On : 07-22-2020
 // ***********************************************************************
 // <copyright file="DateTimeExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
@@ -18,7 +18,7 @@ using dotNetTips.Utility.Standard.Extensions.Properties;
 namespace dotNetTips.Utility.Standard.Extensions
 {
     /// <summary>
-    /// Extensions for DateTime
+    /// Extensions for DateTime and DateTimeOffset
     /// </summary>
     public static class DateTimeExtensions
     {

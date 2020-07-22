@@ -4,7 +4,7 @@
 // Created          : 05-07-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 05-13-2020
+// Last Modified On : 07-22-2020
 // ***********************************************************************
 // <copyright file="StringExtensionsTests.cs" company="dotNetTips.Utility.Standard.Extensions.Tests">
 //     Copyright (c) McCarter Consulting. All rights reserved.
@@ -19,18 +19,6 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
     [TestClass]
     public class StringExtensionsTests
     {
-
-        [TestMethod]
-        public void HasValueTest()
-        {
-            var testValue = RandomData.GenerateWord(10);
-
-            Assert.IsTrue(testValue.HasValue());
-
-            Assert.IsTrue(testValue.HasValue(10));
-
-            Assert.IsFalse(testValue.HasValue("XXXXX"));
-        }
 
         [TestMethod]
         public void ComputeMD5HashTest()
@@ -67,6 +55,14 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         }
 
         [TestMethod]
+        public void DefaultIfNullOrEmptyTest()
+        {
+            string testValue = null;
+
+            Assert.IsTrue(testValue.DefaultIfNullOrEmpty(RandomData.GenerateWord(5)).Length == 5);
+        }
+
+        [TestMethod]
         public void DefaultIfNullTest()
         {
             string testValue = null;
@@ -78,11 +74,33 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         }
 
         [TestMethod]
-        public void DefaultIfNullOrEmptyTest()
+        public void EqualsIgnoreCaseTest()
         {
-            string testValue = null;
+            var testValue = RandomData.GenerateWord(10);
 
-            Assert.IsTrue(testValue.DefaultIfNullOrEmpty(RandomData.GenerateWord(5)).Length == 5);
+            Assert.IsTrue(testValue.EqualsIgnoreCase(testValue));
+        }
+
+        [TestMethod]
+        public void EqualsOrBothNullOrEmptyTest()
+        {
+            var testValue = RandomData.GenerateWord(10);
+
+            Assert.IsTrue(testValue.EqualsOrBothNullOrEmpty(testValue));
+
+            Assert.IsTrue(string.Empty.EqualsOrBothNullOrEmpty(null));
+        }
+
+        [TestMethod]
+        public void HasValueTest()
+        {
+            var testValue = RandomData.GenerateWord(10);
+
+            Assert.IsTrue(testValue.HasValue());
+
+            Assert.IsTrue(testValue.HasValue(10));
+
+            Assert.IsFalse(testValue.HasValue("XXXXX"));
         }
 
         [TestMethod]
@@ -114,11 +132,84 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         }
 
         [TestMethod]
+        public void SplitWithCharAndCountTest()
+        {
+            var testValue = $"coding, programming, microsoft";
+
+            var result = testValue.Split(',', 2, System.StringSplitOptions.RemoveEmptyEntries);
+
+            Assert.IsTrue(result.Count() == 2);
+
+            result = testValue.Split(',', 1, System.StringSplitOptions.None);
+
+            Assert.IsTrue(result.Count() == 1);
+        }
+
+        [TestMethod]
+        public void SplitWithCharTest()
+        {
+            var testValue = $"coding, programming, microsoft";
+
+            var result = testValue.Split(',', System.StringSplitOptions.RemoveEmptyEntries);
+
+            Assert.IsTrue(result.Count() == 3);
+
+            result = testValue.Split(',', System.StringSplitOptions.None);
+
+            Assert.IsTrue(result.Count() == 3);
+        }
+
+        [TestMethod]
+        public void SplitWithStringAndCountTest()
+        {
+            var testValue = $"coding, programming, microsoft";
+
+            var result = testValue.Split(",", 2, System.StringSplitOptions.RemoveEmptyEntries);
+
+            Assert.IsTrue(result.Count() == 2);
+
+            result = testValue.Split(",", 1, System.StringSplitOptions.None);
+
+            Assert.IsTrue(result.Count() == 1);
+        }
+
+        [TestMethod]
+        public void SplitWithStringTest()
+        {
+            var testValue = $"coding, programming, microsoft";
+
+            var result = testValue.Split(",", System.StringSplitOptions.RemoveEmptyEntries);
+
+            Assert.IsTrue(result.Count() == 3);
+
+            result = testValue.Split(",", System.StringSplitOptions.None);
+
+            Assert.IsTrue(result.Count() == 3);
+        }
+
+        [TestMethod]
+        public void StartsWithOrdinalIgnoreCaseTest()
+        {
+            var testValue = RandomData.GenerateWord(10);
+
+            Assert.IsTrue(testValue.StartsWithOrdinalIgnoreCase(testValue));
+        }
+
+        [TestMethod]
+        public void StartsWithOrdinalTest()
+        {
+            var testValue = RandomData.GenerateWord(10);
+
+            Assert.IsTrue(testValue.StartsWithOrdinal(testValue));
+        }
+
+        [TestMethod]
         public void TrimTest()
         {
             var testValue = RandomData.GenerateWord(25) + "   ";
 
             Assert.IsTrue(testValue.ToTrimmedString().Length == 25);
         }
+
     }
 }

@@ -4,7 +4,7 @@
 // Created          : 07-17-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-17-2020
+// Last Modified On : 07-22-2020
 // ***********************************************************************
 // <copyright file="HttpResponseHeaderExtensions.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -20,6 +20,7 @@ namespace dotNetTips.Utility.Standard.Extensions
     /// </summary>
     public static class HttpResponseHeaderExtensions
     {
+
         private static readonly string[] _headerNames = {
             "Cache-Control",
             "Connection",
@@ -63,5 +64,6 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             return _headerNames[(int)header];
         }
+
     }
 }

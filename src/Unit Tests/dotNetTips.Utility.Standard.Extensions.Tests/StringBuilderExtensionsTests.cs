@@ -1,4 +1,17 @@
-﻿using System.Text;
+﻿// ***********************************************************************
+// Assembly         : dotNetTips.Utility.Standard.Extensions.Tests
+// Author           : David McCarter
+// Created          : 05-11-2020
+//
+// Last Modified By : David McCarter
+// Last Modified On : 07-22-2020
+// ***********************************************************************
+// <copyright file="StringBuilderExtensionsTests.cs" company="dotNetTips.Utility.Standard.Extensions.Tests">
+//     Copyright (c) McCarter Consulting. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System.Text;
 using dotNetTips.Utility.Standard.Tester;
 using dotNetTips.Utility.Standard.Tester.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -8,6 +21,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
     [TestClass]
     public class StringBuilderExtensionsTests
     {
+
         [TestMethod]
         public void AppendBytesTest()
         {
@@ -34,7 +48,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         public void AppendJoinTest02()
         {
             var sb = new StringBuilder();
-            var values = RandomData.GenerateCoordinateCollection<Coordinate>(count: 5);
+            var values = RandomData.GenerateCoordinateCollection<Coordinate>(count: 15);
 
             sb.AppendValues(", ", values, (person) =>
              {
@@ -43,7 +57,8 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
                  sb.Append(person.Y);
              });
 
-            Assert.IsTrue(sb.Length > 100);
+            Assert.IsTrue(sb.Length > 50);
         }
+
     }
 }

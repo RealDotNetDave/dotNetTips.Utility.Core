@@ -4,7 +4,7 @@
 // Created          : 02-14-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 06-05-2020
+// Last Modified On : 07-22-2020
 // ***********************************************************************
 // <copyright file="CollectionExtensions.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -56,10 +56,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">The type of T.</typeparam>
         /// <param name="list">The list.</param>
         /// <param name="item">The value.</param>
+        /// <exception cref="ArgumentException">list - List cannot be read-only.</exception>
         /// <exception cref="ArgumentNullException">list - List cannot be null.
         /// or
         /// value - Value cannot be null.</exception>
-        /// <exception cref="ArgumentException">list - List cannot be read-only.</exception>
         /// <exception cref="System.ArgumentNullException">list - List cannot be null.
         /// or
         /// value - Value cannot be null.</exception>
@@ -92,10 +92,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">The type of T.</typeparam>
         /// <param name="list">The list.</param>
         /// <param name="items">The values.</param>
+        /// <exception cref="ArgumentException">list - List cannot be read-only.</exception>
         /// <exception cref="ArgumentNullException">list - List cannot be null.
         /// or
         /// values - Values cannot be null.</exception>
-        /// <exception cref="ArgumentException">list - List cannot be read-only.</exception>
         public static void AddIfNotExists<T>(this ICollection<T> list, params T[] items)
         {
             if (list.IsReadOnly)
@@ -121,11 +121,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="key">The key.</param>
         /// <param name="value">The value.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <exception cref="ArgumentNullException">
-        /// key
+        /// <exception cref="ArgumentNullException">key
         /// or
-        /// value
-        /// </exception>
+        /// value</exception>
         /// <remarks>NEW: Orginal Code from .NET Core.</remarks>
         public static void AddIfNotExists<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
@@ -171,8 +169,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="list">The list.</param>
         /// <param name="items">The new items.</param>
         /// <param name="insureUnique">Set to true if items added to list are unique.</param>
-        /// <exception cref="ArgumentNullException">items</exception>
         /// <exception cref="ArgumentException">items</exception>
+        /// <exception cref="ArgumentNullException">items</exception>
         /// <exception cref="System.ArgumentNullException">items</exception>
         public static void AddRange<T>(this ICollection<T> list, IEnumerable<T> items, bool insureUnique = false)
         {
@@ -212,10 +210,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="items">The items.</param>
         /// <param name="key">The key.</param>
         /// <param name="value">The value.</param>
-        /// <exception cref="ArgumentNullException">list - Dictionary cannot be null.
+        /// <exception cref="ArgumentException">list - Dictionary cannot be null.
         /// or
         /// key - Key cannot be null.</exception>
-        /// <exception cref="ArgumentException">list - Dictionary cannot be null.
+        /// <exception cref="ArgumentNullException">list - Dictionary cannot be null.
         /// or
         /// key - Key cannot be null.</exception>
         /// <exception cref="System.ArgumentNullException">list - Dictionary cannot be null.
@@ -404,6 +402,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="source">The source.</param>
         /// <param name="comparer">The comparer.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
+        /// <exception cref="ArgumentNullException">comparer</exception>
         /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
         public static IEnumerable<T> Distinct<T>(this IEnumerable<T> source, Func<T, T, bool> comparer) where T : class
         {
@@ -485,6 +484,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="source">The source.</param>
         /// <param name="alternate">The alternate.</param>
         /// <returns>T.</returns>
+        /// <exception cref="ArgumentNullException">alternate</exception>
         /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
         public static T FirstOr<T>(this IEnumerable<T> source, T alternate)
         {
@@ -504,6 +504,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="predicate">The predicate.</param>
         /// <param name="alternate">The alternate.</param>
         /// <returns>T.</returns>
+        /// <exception cref="ArgumentNullException">
+        /// predicate
+        /// or
+        /// alternate
+        /// </exception>
         /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
         public static T FirstOr<T>(this IEnumerable<T> source, Func<T, bool> predicate, T alternate)
         {
@@ -729,8 +734,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="list">The list.</param>
         /// <param name="sortExpression">The sort expression.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
-        /// <exception cref="ArgumentNullException">The exception.</exception>
         /// <exception cref="InvalidCastException">The exception.</exception>
+        /// <exception cref="ArgumentNullException">The exception.</exception>
         /// <exception cref="System.InvalidCastException">The exception.</exception>
         /// <remarks>Original code by: C.F.Meijers</remarks>
         public static IEnumerable<T> OrderBy<T>(this IEnumerable<T> list, string sortExpression)
@@ -787,14 +792,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="list">The list.</param>
         /// <param name="pageSize">Size of the page.</param>
         /// <returns>IEnumerable&lt;IEnumerable&lt;T&gt;&gt;.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">pageSize</exception>
         /// <exception cref="ArgumentNullException">list - Source cannot be null.
         /// or
         /// list - Page size cannot be 0 length.</exception>
-        /// <exception cref="ArgumentOutOfRangeException">pageSize</exception>
-        /// <exception cref="System.ArgumentNullException">list - Source cannot be null.
+        /// <exception cref="System.ArgumentNullException">pageSize</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">list - Source cannot be null.
         /// or
         /// list - Page size cannot be 0 length.</exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">pageSize</exception>
         public static IEnumerable<IEnumerable<T>> Page<T>(this IEnumerable<T> list, int pageSize)
         {
             if (pageSize < 1)
@@ -941,6 +946,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="first">The first.</param>
         /// <param name="second">The second.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="ArgumentNullException">second</exception>
         /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
         public static bool StructuralSequenceEqual<T>(this IEnumerable<T> first, IEnumerable<T> second)
         {

@@ -4,7 +4,7 @@
 // Created          : 07-15-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-15-2020
+// Last Modified On : 07-22-2020
 // ***********************************************************************
 // <copyright file="ProcessExtensions.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -24,6 +24,7 @@ namespace dotNetTips.Utility.Standard.Extensions
     /// </summary>
     public static class ProcessExtensions
     {
+
         /// <summary>
         /// Ensures the high priority.
         /// </summary>
@@ -61,39 +62,40 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Tries the set priority.
+        /// Runs the process and ignore output.
         /// </summary>
-        /// <param name="process">The process.</param>
-        /// <param name="priority">The priority.</param>
-        /// <param name="logger">The logger.</param>
-        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <exception cref="ArgumentNullException">process or logger error</exception>
-        /// <exception cref="ArgumentOutOfRangeException">priority</exception>
+        /// <param name="fileName">Name of the file.</param>
+        /// <param name="arguments">The arguments.</param>
+        /// <param name="timeout">The timeout.</param>
+        /// <returns>System.Int32.</returns>
+        /// <exception cref="ArgumentException">fileName</exception>
         /// <remarks>NEW: Orginal Code from: https://github.com/dotnet/BenchmarkDotNet</remarks>
-        public static bool TrySetPriority(this Process process, ProcessPriorityClass priority, ILogger logger)
+        public static int RunProcessAndIgnoreOutput(string fileName, string arguments, TimeSpan timeout)
         {
-            if (process == null)
+            if (string.IsNullOrEmpty(fileName) && File.Exists(fileName) == false)
             {
-                throw new ArgumentNullException(nameof(process));
+                throw new ArgumentException($"{nameof(fileName)} is null, empty or the file does not exist.", nameof(fileName));
             }
 
-            if (Enum.IsDefined(typeof(ProcessPriorityClass), priority) == false)
+            var startInfo = new ProcessStartInfo
             {
-                throw new ArgumentOutOfRangeException(nameof(priority));
-            }
+                FileName = fileName,
+                Arguments = arguments,
+                RedirectStandardOutput = false,
+                RedirectStandardError = false,
+                UseShellExecute = false,
+                CreateNoWindow = true
+            };
 
-            try
+            using (var process = Process.Start(startInfo))
             {
-                process.PriorityClass = priority;
-                return true;
-            }
-            catch (Exception ex)
-            {
-                logger?.LogError(ex,
-                    $"// ! Failed to set up priority {priority} for process {process}. Make sure you have the right permissions.");
-            }
+                if (!process.WaitForExit((int)timeout.TotalMilliseconds))
+                {
+                    process.Kill();
+                }
 
-            return false;
+                return process.ExitCode;
+            }
         }
 
 
@@ -137,40 +139,40 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Runs the process and ignore output.
+        /// Tries the set priority.
         /// </summary>
-        /// <param name="fileName">Name of the file.</param>
-        /// <param name="arguments">The arguments.</param>
-        /// <param name="timeout">The timeout.</param>
-        /// <returns>System.Int32.</returns>
-        /// <exception cref="ArgumentException">fileName</exception>
+        /// <param name="process">The process.</param>
+        /// <param name="priority">The priority.</param>
+        /// <param name="logger">The logger.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="ArgumentNullException">process or logger error</exception>
+        /// <exception cref="ArgumentOutOfRangeException">priority</exception>
         /// <remarks>NEW: Orginal Code from: https://github.com/dotnet/BenchmarkDotNet</remarks>
-        public static int RunProcessAndIgnoreOutput(string fileName, string arguments, TimeSpan timeout)
+        public static bool TrySetPriority(this Process process, ProcessPriorityClass priority, ILogger logger)
         {
-            if (string.IsNullOrEmpty(fileName) && File.Exists(fileName) == false)
+            if (process == null)
             {
-                throw new ArgumentException($"{nameof(fileName)} is null, empty or the file does not exist.", nameof(fileName));
+                throw new ArgumentNullException(nameof(process));
             }
 
-            var startInfo = new ProcessStartInfo
+            if (Enum.IsDefined(typeof(ProcessPriorityClass), priority) == false)
             {
-                FileName = fileName,
-                Arguments = arguments,
-                RedirectStandardOutput = false,
-                RedirectStandardError = false,
-                UseShellExecute = false,
-                CreateNoWindow = true
-            };
-
-            using (var process = Process.Start(startInfo))
-            {
-                if (!process.WaitForExit((int)timeout.TotalMilliseconds))
-                {
-                    process.Kill();
-                }
-
-                return process.ExitCode;
+                throw new ArgumentOutOfRangeException(nameof(priority));
             }
+
+            try
+            {
+                process.PriorityClass = priority;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                logger?.LogError(ex,
+                    $"// ! Failed to set up priority {priority} for process {process}. Make sure you have the right permissions.");
+            }
+
+            return false;
         }
+
     }
 }

@@ -4,7 +4,7 @@
 // Created          : 08-09-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 11-21-2019
+// Last Modified On : 07-22-2020
 // ***********************************************************************
 // <copyright file="TypeHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -26,44 +26,6 @@ namespace dotNetTips.Utility.Standard
     /// </summary>
     public static class TypeHelper
     {
-        /// <summary>
-        /// Loads the derived types of a type.
-        /// </summary>
-        /// <param name="types">The types.</param>
-        /// <param name="baseType">Type of the base.</param>
-        /// <param name="classOnly">if set to <c>true</c> [class only].</param>
-        /// <returns>IEnumerable&lt;Type&gt;.</returns>
-        private static IEnumerable<Type> LoadDerivedTypes(IEnumerable<TypeInfo> types, Type baseType, bool classOnly)
-        {
-            // works out the derived types
-            List<TypeInfo> list = types.ToList();
-
-            for (int i = 0; i < list.Count; i++)
-            {
-                TypeInfo type = list[i];
-
-                // if classOnly, it must be a class
-                // useful when you want to create instance
-                if (classOnly && !type.IsClass)
-                {
-                    continue;
-                }
-
-                if (baseType.IsInterface)
-                {
-                    if (type.GetInterface(baseType.FullName) != null)
-                    {
-                        // add it to result list
-                        yield return type;
-                    }
-                }
-                else if (type.IsSubclassOf(baseType))
-                {
-                    // add it to result list
-                    yield return type;
-                }
-            }
-        }
 
         /// <summary>
         /// Creates type instance.
@@ -163,8 +125,8 @@ namespace dotNetTips.Utility.Standard
         /// <param name="baseType">Type of the base.</param>
         /// <param name="classOnly">if set to <c>true</c> [class only].</param>
         /// <returns>IEnumerable&lt;Type&gt;.</returns>
-        /// <exception cref="dotNetTips.Utility.Standard.DirectoryNotFoundException">Could not find path.</exception>
         /// <exception cref="DirectoryNotFoundException">Could not find path.</exception>
+        /// <exception cref="dotNetTips.Utility.Standard.DirectoryNotFoundException">Could not find path.</exception>
         /// <exception cref="System.IO.DirectoryNotFoundException">Could not find path.</exception>
         /// <exception cref="ArgumentNullException">Could not find path.</exception>
         public static IEnumerable<Type> FindDerivedTypes(string path, SearchOption searchOption, Type baseType, bool classOnly)
@@ -229,45 +191,43 @@ namespace dotNetTips.Utility.Standard
         }
 
         /// <summary>
-        /// Finds the generic type.
+        /// Loads the derived types of a type.
         /// </summary>
-        /// <param name="definition">The definition.</param>
-        /// <param name="type">The type.</param>
-        /// <returns>Type.</returns>
-        /// <remarks>NEW</remarks>
-        public static Type FindGenericType(Type definition, Type type)
+        /// <param name="types">The types.</param>
+        /// <param name="baseType">Type of the base.</param>
+        /// <param name="classOnly">if set to <c>true</c> [class only].</param>
+        /// <returns>IEnumerable&lt;Type&gt;.</returns>
+        private static IEnumerable<Type> LoadDerivedTypes(IEnumerable<TypeInfo> types, Type baseType, bool classOnly)
         {
-            bool? definitionIsInterface = null;
+            // works out the derived types
+            List<TypeInfo> list = types.ToList();
 
-            while (type != null && type != typeof(object))
+            for (int i = 0; i < list.Count; i++)
             {
-                if (type.IsGenericType && type.GetGenericTypeDefinition() == definition)
+                TypeInfo type = list[i];
+
+                // if classOnly, it must be a class
+                // useful when you want to create instance
+                if (classOnly && !type.IsClass)
                 {
-                    return type;
+                    continue;
                 }
 
-                if (!definitionIsInterface.HasValue)
+                if (baseType.IsInterface)
                 {
-                    definitionIsInterface = definition.IsInterface;
-                }
-
-                if (definitionIsInterface.GetValueOrDefault())
-                {
-                    for (var i = 0; i < type.GetInterfaces().Length; i++)
+                    if (type.GetInterface(baseType.FullName) != null)
                     {
-                        var found = FindGenericType(definition, type.GetInterfaces()[i]);
-
-                        if (found != null)
-                        {
-                            return found;
-                        }
+                        // add it to result list
+                        yield return type;
                     }
                 }
-
-                type = type.BaseType;
+                else if (type.IsSubclassOf(baseType))
+                {
+                    // add it to result list
+                    yield return type;
+                }
             }
-
-            return null;
         }
+
     }
 }
