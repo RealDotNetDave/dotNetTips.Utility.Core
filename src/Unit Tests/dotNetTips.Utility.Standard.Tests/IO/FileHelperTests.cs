@@ -108,7 +108,15 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
             }
         }
 
-        [TestMethod()]
+        [TestMethod]
+        public void InvalidFileNameCharsTest()
+        {
+            var result = FileHelper.InvalidFileNameChars;
+
+            Assert.IsTrue(result.Count() > 0);
+        }
+
+        [TestMethod]
         public void FileHasInvalidPathCharsTest()
         {
             var fileName = "dotnettips.config";
