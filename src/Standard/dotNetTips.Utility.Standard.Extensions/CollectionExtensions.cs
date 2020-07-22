@@ -13,7 +13,6 @@
 // ***********************************************************************
 using System;
 using System.Collections;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Collections.ObjectModel;
@@ -110,6 +109,39 @@ namespace dotNetTips.Utility.Standard.Extensions
                 {
                     list.AddIfNotExists(items[index]);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Tries the add.
+        /// </summary>
+        /// <typeparam name="TKey">The type of the t key.</typeparam>
+        /// <typeparam name="TValue">The type of the t value.</typeparam>
+        /// <param name="dictionary">The dictionary.</param>
+        /// <param name="key">The key.</param>
+        /// <param name="value">The value.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="ArgumentNullException">
+        /// key
+        /// or
+        /// value
+        /// </exception>
+        /// <remarks>NEW: Orginal Code from .NET Core.</remarks>
+        public static void AddIfNotExists<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue value)
+        {
+            if (key == null)
+            {
+                throw new ArgumentNullException(nameof(key), $"{nameof(key)} is null.");
+            }
+
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value), $"{nameof(value)} is null.");
+            }
+
+            if (!dictionary.IsReadOnly && !dictionary.ContainsKey(key))
+            {
+                dictionary.Add(key, value);
             }
         }
 
@@ -254,6 +286,36 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
+        /// Ares the equal.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="input">The input.</param>
+        /// <param name="listToCheck">The list to check.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
+        public static bool AreEqual<T>(this IList<T> input, IList<T> listToCheck)
+        {
+            if (input == null && listToCheck == null)
+            {
+                return true;
+            }
+
+            if (input == null || listToCheck == null || input.Count != listToCheck.Count)
+            {
+                return false;
+            }
+
+            var areSame = true;
+
+            for (var i = 0; i < input.Count; i++)
+            {
+                areSame &= (input[i].Equals(listToCheck[i]));
+            }
+
+            return areSame;
+        }
+
+        /// <summary>
         /// Returns a <see cref="System.String" /> that represents this instance.
         /// </summary>
         /// <param name="bytes">The bytes.</param>
@@ -325,20 +387,6 @@ namespace dotNetTips.Utility.Standard.Extensions
             }
 
             return count;
-        }
-
-        /// <summary>
-        /// Creates the specified key.
-        /// </summary>
-        /// <typeparam name="TKey">The type of the t key.</typeparam>
-        /// <typeparam name="TValue">The type of the t value.</typeparam>
-        /// <param name="key">The key.</param>
-        /// <param name="keyValue">The key value.</param>
-        /// <returns>KeyValuePair&lt;TKey, TValue&gt;.</returns>
-        /// <remarks>NEW</remarks>
-        public static KeyValuePair<TKey, TValue> Create<TKey, TValue>(TKey key, TValue keyValue)
-        {
-            return new KeyValuePair<TKey, TValue>(key, keyValue);
         }
 
         /// <summary>
@@ -537,107 +585,33 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <typeparam name="TKey">The type of the t key.</typeparam>
         /// <typeparam name="TValue">The type of the t value.</typeparam>
-        /// <typeparam name="TArg">The type of the t argument.</typeparam>
         /// <param name="dictionary">The dictionary.</param>
         /// <param name="key">The key.</param>
-        /// <param name="valueFactory">The value factory.</param>
-        /// <param name="factoryArgument">The factory argument.</param>
+        /// <param name="value">The value.</param>
         /// <returns>TValue.</returns>
-        /// <exception cref="ArgumentNullException">
-        /// key
+        /// <exception cref="ArgumentNullException">key
         /// or
-        /// valueFactory
-        /// </exception>
+        /// valueFactory</exception>
         /// <remarks>NEW</remarks>
-        public static TValue GetOrAdd<TKey, TValue, TArg>(this ConcurrentDictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TArg, TValue> valueFactory, TArg factoryArgument)
+        public static TValue GetOrAdd<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
             if (key == null)
             {
                 throw new ArgumentNullException(nameof(key));
             }
 
-            if (valueFactory == null)
+            if (value == null)
             {
-                throw new ArgumentNullException(nameof(valueFactory));
+                throw new ArgumentNullException(nameof(value));
             }
 
-            while (true)
+            if (dictionary.TryGetValue(key, out TValue item) == false)
             {
-                TValue value;
-
-                if (dictionary.TryGetValue(key, out value))
-                {
-                    return value;
-                }
-
-                value = valueFactory(key, factoryArgument);
-
-                if (dictionary.TryAdd(key, value))
-                {
-                    return value;
-                }
-            }
-        }
-
-
-        /// <summary>
-        /// Adds the or update.
-        /// </summary>
-        /// <typeparam name="TKey">The type of the t key.</typeparam>
-        /// <typeparam name="TValue">The type of the t value.</typeparam>
-        /// <typeparam name="TArg">The type of the t argument.</typeparam>
-        /// <param name="dictionary">The dictionary.</param>
-        /// <param name="key">The key.</param>
-        /// <param name="addValueFactory">The add value factory.</param>
-        /// <param name="updateValueFactory">The update value factory.</param>
-        /// <param name="factoryArgument">The factory argument.</param>
-        /// <returns>TValue.</returns>
-        /// <exception cref="ArgumentNullException">
-        /// key
-        /// or
-        /// addValueFactory
-        /// or
-        /// updateValueFactory
-        /// </exception>
-        /// <remarks>NEW</remarks>
-        public static TValue AddOrUpdate<TKey, TValue, TArg>(this ConcurrentDictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TArg, TValue> addValueFactory, Func<TKey, TValue, TArg, TValue> updateValueFactory, TArg factoryArgument)
-        {
-            if (key == null)
-            {
-                throw new ArgumentNullException(nameof(key));
+                dictionary.Add(key, value);
+                item = value;
             }
 
-            if (addValueFactory == null)
-            {
-                throw new ArgumentNullException(nameof(addValueFactory));
-            }
-
-            if (updateValueFactory == null)
-            {
-                throw new ArgumentNullException(nameof(updateValueFactory));
-            }
-
-            while (true)
-            {
-                TValue value;
-
-                if (dictionary.TryGetValue(key, out value))
-                {
-                    TValue updatedValue = updateValueFactory(key, value, factoryArgument);
-                    if (dictionary.TryUpdate(key, updatedValue, value))
-                    {
-                        return updatedValue;
-                    }
-                }
-                else
-                {
-                    value = addValueFactory(key, factoryArgument);
-                    if (dictionary.TryAdd(key, value))
-                    {
-                        return value;
-                    }
-                }
-            }
+            return item;
         }
 
         /// <summary>
@@ -970,6 +944,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
         public static bool StructuralSequenceEqual<T>(this IEnumerable<T> first, IEnumerable<T> second)
         {
+            if (second == null)
+            {
+                throw new ArgumentNullException(nameof(second), $"{nameof(second)} is null.");
+            }
+
             if (ReferenceEquals(first, second))
             {
                 return true;
@@ -990,22 +969,6 @@ namespace dotNetTips.Utility.Standard.Extensions
                     return !secondEnumerator.MoveNext();
                 }
             }
-        }
-
-        /// <summary>
-        /// Converts IList<typeparamref name="T"/>> to array.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="list">The list.</param>
-        /// <returns>T[].</returns>
-        /// <remarks>NEW</remarks>
-        public static T[] ToArray<T>(this IList<T> list)
-        {
-            T[] result = new T[list.Count];
-
-            list.CopyTo(result, 0);
-
-            return result;
         }
 
         /// <summary>
@@ -1206,66 +1169,42 @@ namespace dotNetTips.Utility.Standard.Extensions
             return new ReadOnlyCollection<T>(list);
         }
 
-        /// <summary>
-        /// Tries the add.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="collection">The collection.</param>
-        /// <param name="value">The value.</param>
-        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <exception cref="ArgumentNullException">value</exception>
-        public static bool TryAdd<T>(this ICollection<T> collection, T value)
-        {
-            if (value == null)
-            {
-                throw new ArgumentNullException(nameof(value), $"{nameof(value)} is null.");
-            }
-
-            if (!collection.IsReadOnly && !collection.Contains(value))
-            {
-                collection.Add(value);
-
-                return true;
-            }
-
-            return false;
-        }
 
         /// <summary>
-        /// Tries the add.
+        /// Adds the or update.
         /// </summary>
         /// <typeparam name="TKey">The type of the t key.</typeparam>
         /// <typeparam name="TValue">The type of the t value.</typeparam>
         /// <param name="dictionary">The dictionary.</param>
         /// <param name="key">The key.</param>
         /// <param name="value">The value.</param>
-        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <exception cref="ArgumentNullException">
-        /// key
+        /// <returns>TValue.</returns>
+        /// <exception cref="ArgumentNullException">key
         /// or
-        /// value
-        /// </exception>
-        /// <remarks>NEW: Orginal Code from .NET Core.</remarks>
-        public static bool TryAdd<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue value)
+        /// addValueFactory
+        /// or
+        /// updateValueFactory</exception>
+        /// <remarks>NEW</remarks>
+        public static TValue Upsert<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
             if (key == null)
             {
-                throw new ArgumentNullException(nameof(key), $"{nameof(key)} is null.");
+                throw new ArgumentNullException(nameof(key));
             }
 
             if (value == null)
             {
-                throw new ArgumentNullException(nameof(value), $"{nameof(value)} is null.");
+                throw new ArgumentNullException(nameof(value));
             }
 
-            if (!dictionary.IsReadOnly && !dictionary.ContainsKey(key))
+
+            if (dictionary.TryGetValue(key, out TValue item) == false)
             {
                 dictionary.Add(key, value);
-
-                return true;
+                item = value;
             }
 
-            return false;
+            return item;
         }
 
         /// <summary>

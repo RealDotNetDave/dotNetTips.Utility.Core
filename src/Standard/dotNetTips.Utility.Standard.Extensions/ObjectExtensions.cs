@@ -4,14 +4,13 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 05-08-2020
+// Last Modified On : 07-21-2020
 // ***********************************************************************
 // <copyright file="ObjectExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Extensions.Properties;
 using System;
 using System.Collections;
 using System.Globalization;
@@ -21,6 +20,7 @@ using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 using System.Text;
+using dotNetTips.Utility.Standard.Extensions.Properties;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {
@@ -31,7 +31,7 @@ namespace dotNetTips.Utility.Standard.Extensions
     {
 
         /// <summary>
-        /// Returns the specified value.
+        /// Converts object to a different type.
         /// </summary>
         /// <typeparam name="T">The type of T.</typeparam>
         /// <param name="value">The value.</param>
@@ -134,9 +134,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 throw new ArgumentNullException(nameof(obj), $"{nameof(obj)} is null.");
             }
 
-            var fieldInfos = obj.GetType().GetRuntimeFields();
-
-            var list = fieldInfos.Where(p => p.IsStatic == false).ToList();
+            var list = obj.GetType().GetRuntimeFields().Where(p => p.IsStatic == false).ToList();
 
             for (int fieldCount = 0; fieldCount < list.Count; fieldCount++)
             {
@@ -172,8 +170,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>T.</returns>
         /// <exception cref="FileNotFoundException">The exception.</exception>
         /// <exception cref="System.IO.FileNotFoundException">The exception.</exception>
-        public static T FromJsonFile<T>(string fileName)
-            where T : class
+        public static T FromJsonFile<T>(string fileName) where T : class
         {
             if (File.Exists(fileName) == false)
             {

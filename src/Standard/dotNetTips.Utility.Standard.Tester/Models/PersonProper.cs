@@ -11,9 +11,6 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Extensions;
-using dotNetTips.Utility.Standard.OOP;
-using dotNetTips.Utility.Standard.Tester.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +18,9 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
+using dotNetTips.Utility.Standard.Extensions;
+using dotNetTips.Utility.Standard.OOP;
+using dotNetTips.Utility.Standard.Tester.Properties;
 
 namespace dotNetTips.Utility.Standard.Tester.Models
 {
@@ -603,19 +603,19 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         }
 
         /// <summary>
-        /// Equalses the specified other.
+        /// Equals the specified other.
         /// </summary>
         /// <param name="other">The other.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         /// <exception cref="NotImplementedException"></exception>
         public bool Equals(PersonProper other)
         {
-            if (ReferenceEquals(this, other))
+            if (other == null)
             {
-                return true;
+                return false;
             }
 
-            return false;
+            return ReferenceEquals(this, other);
         }
 
 

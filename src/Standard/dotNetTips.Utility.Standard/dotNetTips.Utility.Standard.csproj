@@ -3,8 +3,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.xml</DocumentationFile>
     <OutputPath>..\..\..\appbin\</OutputPath>
-    <AssemblyVersion>2020.7.20.38759</AssemblyVersion>
-    <FileVersion>2020.7.20.38759</FileVersion>
+    <AssemblyVersion>2020.7.21.38177</AssemblyVersion>
+    <FileVersion>2020.7.21.38177</FileVersion>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
@@ -73,12 +73,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.4" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.4" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="3.1.4" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.4" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.4" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.4" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.6" />
     <PackageReference Include="Microsoft.VisualBasic" Version="10.3.0" />
     <PackageReference Include="System.Collections.Immutable" Version="1.7.1" />
     <PackageReference Include="System.Diagnostics.Process" Version="4.3.0" />

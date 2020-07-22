@@ -12,8 +12,8 @@
     <RepositoryUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
-    <AssemblyVersion>2020.7.16.36478</AssemblyVersion>
-    <FileVersion>2020.7.16.36478</FileVersion>
+    <AssemblyVersion>2020.7.21.38177</AssemblyVersion>
+    <FileVersion>2020.7.21.38177</FileVersion>
     <Version>2020.6.9.1</Version>
   </PropertyGroup>
 
@@ -24,9 +24,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.4" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.1.4" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.6" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
   </ItemGroup>
 

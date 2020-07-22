@@ -1,9 +1,19 @@
-﻿using System.ComponentModel;
+﻿// ***********************************************************************
+// Assembly         : dotNetTips.Utility.Standard.Extensions.Tests
+// Author           : David McCarter
+// Created          : 07-20-2020
+//
+// Last Modified By : David McCarter
+// Last Modified On : 07-21-2020
+// ***********************************************************************
+// <copyright file="TypeExtensionsTests.cs" company="dotNetTips.Utility.Standard.Extensions.Tests">
+//     Copyright (c) McCarter Consulting. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 using System.Data;
 using System.Diagnostics;
-using System.Diagnostics.Contracts;
 using System.Linq;
-using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 using dotNetTips.Utility.Standard.Tester.Models;
@@ -11,9 +21,60 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dotNetTips.Utility.Standard.Extensions.Tests
 {
+
+    public abstract class AbstractTestType
+    {
+
+        public abstract string Name();
+
+    }
+
+    [XmlRoot]
+    public class TestType
+    {
+
+        [XmlIgnore]
+        private readonly string _test = "Test";
+
+        [XmlIgnore]
+        [DebuggerBrowsable(DebuggerBrowsableState.RootHidden)]
+        public string UserName { get; set; }
+
+
+        public static string GetName()
+        {
+            return "GetName";
+        }
+
+        /// <summary>
+        /// Invokes the specified input.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>System.String.</returns>
+        public string Invoke(string input)
+        {
+            return input;
+        }
+
+        public void Run<T>() where T : class
+        {
+            //Do Nothing
+        }
+
+    }
+
     [TestClass]
     public class TypeExtensionsTests
     {
+
+        [TestMethod]
+        public void GetAbstractMethodsTest()
+        {
+            var result = typeof(AbstractTestType).GetAllAbstractMethods();
+
+            Assert.IsTrue(result.Count() == 1);
+        }
+
         [TestMethod]
         public void GetAllFieldsTest()
         {
@@ -39,9 +100,47 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         }
 
         [TestMethod]
-        public void GetAbstractMethodsTest()
+        public void GetAttributeFieldTest()
         {
-            var result = typeof(AbstractTestType).GetAllAbstractMethods();
+            var field = typeof(TestType).GetAllFields().FirstOrDefault();
+
+            var result = field.GetAttribute<XmlIgnoreAttribute>();
+
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void GetAttributeMethodTest()
+        {
+            var method = typeof(TestType).GetAllMethods().Where(p => p.Name == "get_UserName").FirstOrDefault();
+
+            var result = method.GetAttribute<CompilerGeneratedAttribute>();
+
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void GetAttributePropertyTest()
+        {
+            var property = typeof(TestType).GetAllProperties().FirstOrDefault();
+
+            var result = property.GetAttribute<DebuggerBrowsableAttribute>();
+
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void GetAttributeTypeTest()
+        {
+            var result = typeof(TestType).GetAttribute<XmlRootAttribute>();
+
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void GetGenericMethodsTest()
+        {
+            var result = typeof(TestType).GetAllGenericMethods();
 
             Assert.IsTrue(result.Count() == 1);
         }
@@ -52,14 +151,6 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             var result = typeof(PersonProper).GetAllProperties();
 
             Assert.IsTrue(result.Count() == 13);
-        }
-
-        [TestMethod]
-        public void GetGenericMethodsTest()
-        {
-            var result = typeof(TestType).GetAllGenericMethods();
-
-            Assert.IsTrue(result.Count() == 1);
         }
 
         [TestMethod]
@@ -86,79 +177,5 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             Assert.IsTrue(result.Count() == 1);
         }
 
-        [TestMethod]
-        public void GetAttributeTypeTest()
-        {
-            var result = typeof(TestType).GetAttribute<XmlRootAttribute>();
-
-            Assert.IsNotNull(result);
-        }
-
-        [TestMethod]
-        public void GetAttributeMethodTest()
-        {
-            var method = typeof(TestType).GetAllMethods().Where(p => p.Name == "get_UserName").FirstOrDefault();
-
-            var result = method.GetAttribute<CompilerGeneratedAttribute>();
-
-            Assert.IsNotNull(result);
-        }
-
-        [TestMethod]
-        public void GetAttributePropertyTest()
-        {
-            var property = typeof(TestType).GetAllProperties().FirstOrDefault();
-
-            var result = property.GetAttribute<DebuggerBrowsableAttribute>();
-
-            Assert.IsNotNull(result);
-        }
-
-        [TestMethod]
-        public void GetAttributeFieldTest()
-        {
-            var field = typeof(TestType).GetAllFields().FirstOrDefault();
-
-            var result = field.GetAttribute<XmlIgnoreAttribute>();
-
-            Assert.IsNotNull(result);
-        }
-    }
-
-    [XmlRoot]
-    public class TestType
-    {
-        [XmlIgnore]
-        private readonly string _test = "Test";
-
-        /// <summary>
-        /// Invokes the specified input.
-        /// </summary>
-        /// <param name="input">The input.</param>
-        /// <returns>System.String.</returns>
-        public string Invoke(string input)
-        {
-            return input;
-        }
-
-        public void Run<T>() where T : class
-        {
-            //Do Nothing
-        }
-
-        [XmlIgnore]
-        [DebuggerBrowsable(DebuggerBrowsableState.RootHidden)]
-        public string UserName { get; set; }
-
-
-        public static string GetName()
-        {
-            return "GetName";
-        }
-    }
-
-    public abstract class AbstractTestType
-    {
-        public abstract string Name();
     }
 }
