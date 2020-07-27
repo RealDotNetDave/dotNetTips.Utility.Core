@@ -40,6 +40,24 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         }
 
         [TestMethod]
+        public void ListHashCodeTest()
+        {
+            var people = RandomData.GeneratePersonCollection<PersonProper>(10);
+
+            var result = people.ListHashCode();
+
+            Assert.IsTrue(result.IsInRange(int.MinValue, int.MaxValue));
+
+            result = people.ToArray().ListHashCode();
+
+            Assert.IsTrue(result.IsInRange(int.MinValue, int.MaxValue));
+
+            result = people.ToReadOnlyCollection().ListHashCode();
+
+            Assert.IsTrue(result.IsInRange(int.MinValue, int.MaxValue));
+        }
+
+        [TestMethod]
         public void RemoveFirstTest()
         {
             var people = RandomData.GeneratePersonCollection<PersonProper>(10).ToArray();
@@ -142,6 +160,8 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             collection.Add(coordinate);
 
             Assert.IsTrue(collection.ContainsAny(coordinate));
+
+            Assert.IsTrue(collection.ToArray().ContainsAny(coordinate));
         }
 
 

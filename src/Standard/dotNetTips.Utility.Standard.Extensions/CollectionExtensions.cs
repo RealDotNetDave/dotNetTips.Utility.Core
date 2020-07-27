@@ -40,16 +40,34 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="item">The item.</param>
         /// <returns>T[].</returns>
         /// <remarks>NEW</remarks>
-        public static T[] AddFirst<T>(this IList<T> list, T item)
+        public static IList<T> AddFirst<T>(this IList<T> list, T item)
         {
-            T[] result = new T[list.Count + 1];
+            List<T> result = new List<T>(list.Count + 1);
 
             result[0] = item;
 
-            list.CopyTo(result, 1);
+            list.CopyTo(result.ToArray(), 1);
 
             return result;
         }
+
+        /// <summary>
+        /// Adds the first.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="array">The array.</param>
+        /// <param name="item">The item.</param>
+        /// <returns>T[].</returns>
+        /// <remarks>NEW: From .NET Core source.</remarks>
+        public static T[] AddFirst<T>(this T[] array, T item)
+        {
+            var result = new T[array.Length + 1];
+            result[0] = item;
+            array.CopyTo(result, 1);
+
+            return result;
+        }
+
         /// <summary>
         /// Adds if not exists.
         /// </summary>
@@ -60,10 +78,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">list - List cannot be null.
         /// or
         /// value - Value cannot be null.</exception>
-        /// <exception cref="System.ArgumentNullException">list - List cannot be null.
+        /// <exception cref="System.ArgumentNullException">list - List cannot be read-only.</exception>
+        /// <exception cref="System.ArgumentException">list - List cannot be null.
         /// or
         /// value - Value cannot be null.</exception>
-        /// <exception cref="System.ArgumentException">list - List cannot be read-only.</exception>
         public static void AddIfNotExists<T>(this ICollection<T> list, T item)
         {
             if (list.IsReadOnly)
@@ -93,9 +111,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="list">The list.</param>
         /// <param name="items">The values.</param>
         /// <exception cref="ArgumentException">list - List cannot be read-only.</exception>
-        /// <exception cref="ArgumentNullException">list - List cannot be null.
-        /// or
-        /// values - Values cannot be null.</exception>
+        /// <exception cref="ArgumentNullException">list - List cannot be read-only.</exception>
         public static void AddIfNotExists<T>(this ICollection<T> list, params T[] items)
         {
             if (list.IsReadOnly)
@@ -151,13 +167,30 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="item">The item.</param>
         /// <returns>T[].</returns>
         /// <remarks>NEW</remarks>
-        public static T[] AddLast<T>(this IList<T> list, T item)
+        public static IList<T> AddLast<T>(this IList<T> list, T item)
         {
-            T[] result = new T[list.Count + 1];
+            var result = new List<T>(list.Count + 1);
 
-            list.CopyTo(result, 0);
+            list.CopyTo(result.ToArray(), 0);
 
             result[list.Count] = item;
+
+            return result;
+        }
+
+        /// <summary>
+        /// Adds the last.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="array">The array.</param>
+        /// <param name="item">The item.</param>
+        /// <returns>T[].</returns>
+        /// <remarks>NEW: From .NET Core source.</remarks>
+        public static T[] AddLast<T>(this T[] array, T item)
+        {
+            var result = new T[array.Length + 1];
+            array.CopyTo(result, 0);
+            result[array.Length] = item;
 
             return result;
         }
@@ -340,9 +373,24 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <remarks>NEW</remarks>
         public static bool ContainsAny<T>(this IEnumerable<T> source, params T[] items)
         {
-            var itemsList = items.ToList();
+            var itemsList = items.ToReadOnlyCollection();
 
             return itemsList.HasItems() ? source.ToList().Any(p => itemsList.Contains(p)) : false;
+        }
+
+        /// <summary>
+        /// Determines whether the specified collection has items specified.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="items">The items.</param>
+        /// <returns><c>true</c> if the specified items has items; otherwise, <c>false</c>.</returns>
+        /// <remarks>NEW</remarks>
+        public static bool ContainsAny<T>(this T[] source, params T[] items)
+        {
+            var itemsList = items.ToReadOnlyCollection();
+
+            return itemsList.HasItems() ? source.ToReadOnlyCollection().Any(p => itemsList.Contains(p)) : false;
         }
 
         /// <summary>
@@ -504,11 +552,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="predicate">The predicate.</param>
         /// <param name="alternate">The alternate.</param>
         /// <returns>T.</returns>
-        /// <exception cref="ArgumentNullException">
-        /// predicate
+        /// <exception cref="ArgumentNullException">predicate
         /// or
-        /// alternate
-        /// </exception>
+        /// alternate</exception>
         /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
         public static T FirstOr<T>(this IEnumerable<T> source, Func<T, bool> predicate, T alternate)
         {
@@ -726,6 +772,54 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
+        /// Collections the hash code.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list">The list.</param>
+        /// <returns>System.Int32.</returns>
+        /// <remarks>NEW: FROM .NET CORE SOURCE</remarks>
+        public static int ListHashCode<T>(this ReadOnlyCollection<T> list)
+        {
+            var comparer = EqualityComparer<T>.Default;
+
+            int hash = list.Where(t => t != null).Aggregate(6551, (accumulator, t) => accumulator ^= (accumulator << 5) ^ comparer.GetHashCode(t));
+
+            return hash;
+        }
+
+        /// <summary>
+        /// Collections the hash code.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list">The list.</param>
+        /// <returns>System.Int32.</returns>
+        /// <remarks>NEW: FROM .NET CORE SOURCE</remarks>
+        public static int ListHashCode<T>(this IList<T> list)
+        {
+            var comparer = EqualityComparer<T>.Default;
+
+            int hash = list.Where(t => t != null).Aggregate(6551, (accumulator, t) => accumulator ^= (accumulator << 5) ^ comparer.GetHashCode(t));
+
+            return hash;
+        }
+
+        /// <summary>
+        /// Collections the hash code.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list">The list.</param>
+        /// <returns>System.Int32.</returns>
+        /// <remarks>NEW: FROM .NET CORE SOURCE</remarks>
+        public static int ListHashCode<T>(this T[] list)
+        {
+            var comparer = EqualityComparer<T>.Default;
+
+            int hash = list.Where(t => t != null).Aggregate(6551, (accumulator, t) => accumulator ^= (accumulator << 5) ^ comparer.GetHashCode(t));
+
+            return hash;
+        }
+
+        /// <summary>
         /// Orders a list based on a sort expression. Useful in object data binding scenarios where
         /// the ObjectDataSource generates a dynamic sort expression (example: "Name desc") that
         /// specifies the property of the object sort on.
@@ -793,9 +887,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="pageSize">Size of the page.</param>
         /// <returns>IEnumerable&lt;IEnumerable&lt;T&gt;&gt;.</returns>
         /// <exception cref="ArgumentOutOfRangeException">pageSize</exception>
-        /// <exception cref="ArgumentNullException">list - Source cannot be null.
-        /// or
-        /// list - Page size cannot be 0 length.</exception>
+        /// <exception cref="ArgumentNullException">pageSize</exception>
         /// <exception cref="System.ArgumentNullException">pageSize</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">list - Source cannot be null.
         /// or
@@ -903,6 +995,22 @@ namespace dotNetTips.Utility.Standard.Extensions
             T[] result = new T[array.Length - 1];
 
             Array.Copy(array, 1, result, 0, result.Length);
+
+            return result;
+        }
+
+
+        /// <summary>
+        /// Removes the last.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="array">The array.</param>
+        /// <returns>T[].</returns>
+        /// <remarks>NEW: From .NET Core source.</remarks>
+        public static T[] RemoveLast<T>(this T[] array)
+        {
+            T[] result = new T[array.Length - 1];
+            Array.Copy(array, result, result.Length);
 
             return result;
         }
@@ -1174,7 +1282,6 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             return new ReadOnlyCollection<T>(list);
         }
-
 
         /// <summary>
         /// Adds the or update.

@@ -11,11 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using System.Linq;
 using BenchmarkDotNet.Attributes;
 using dotNetTips.Utility.Standard.Extensions;
+using dotNetTips.Utility.Standard.Tester;
 using dotNetTips.Utility.Standard.Tester.Collections;
 using dotNetTips.Utility.Standard.Tester.Models;
-using System.Linq;
 
 namespace dotNetTips.Utility.Benchmarks.Extensions
 {
@@ -35,6 +36,50 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
             }
 
             base.Consumer.Consume(people);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.AddFirst) + ":List")]
+        public void TestAddFirstToList()
+        {
+            var people = base.personProperCollection.CopyToList();
+            var person = RandomData.GeneratePerson<PersonProper>();
+
+            var result = people.AddFirst(person);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.AddFirst) + ":Array")]
+        public void TestAddFirstToArray()
+        {
+            var people = base.personProperCollection.CopyToList().ToArray();
+            var person = RandomData.GeneratePerson<PersonProper>();
+
+            var result = people.AddFirst(person);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.AddLast) + ":List")]
+        public void TestAddLastToList()
+        {
+            var people = base.personProperCollection.CopyToList();
+            var person = RandomData.GeneratePerson<PersonProper>();
+
+            var result = people.AddLast(person);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.AddLast) + ":Array")]
+        public void TestAddLastToArray()
+        {
+            var people = base.personProperCollection.CopyToList().ToArray();
+            var person = RandomData.GeneratePerson<PersonProper>();
+
+            var result = people.AddLast(person);
+
+            base.Consumer.Consume(result);
         }
 
         [Benchmark(Description = nameof(CollectionExtensions.AddRange))]

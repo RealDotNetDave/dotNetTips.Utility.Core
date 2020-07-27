@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using System.Linq;
 using System.Text;
 using dotNetTips.Utility.Standard.Tester;
 using dotNetTips.Utility.Standard.Tester.Models;
@@ -58,6 +59,21 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
              });
 
             Assert.IsTrue(sb.Length > 50);
+        }
+
+        [TestMethod]
+        public void AppendKeyValueTest()
+        {
+            var people = RandomData.GeneratePersonCollection<PersonProper>(10).ToDictionary(p => p.Id);
+
+            var sb = new StringBuilder();
+
+            foreach(var person in people)
+            {
+                sb.AppendKeyValue(person.Key, person.Value.Email);
+            }
+
+            Assert.IsTrue(sb.ToString().Length > 50);
         }
 
     }

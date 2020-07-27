@@ -4,17 +4,18 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 06-03-2019
+// Last Modified On : 07-22-2020
 // ***********************************************************************
 // <copyright file="ExceptionExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Extensions.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
+using dotNetTips.Utility.Standard.Extensions.Properties;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {
@@ -23,6 +24,7 @@ namespace dotNetTips.Utility.Standard.Extensions
     /// </summary>
     public static class ExceptionExtensions
     {
+
         /// <summary>
         /// Hierarchy.
         /// </summary>
@@ -30,8 +32,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="source">The source.</param>
         /// <param name="nextItem">The next item.</param>
         /// <returns>IEnumerable&lt;TSource&gt;.</returns>
-        public static IEnumerable<TSource> FromHierarchy<TSource>(this TSource source, Func<TSource, TSource> nextItem)
-            where TSource : class => FromHierarchy(source, nextItem, s => s != null);
+        public static IEnumerable<TSource> FromHierarchy<TSource>(this TSource source, Func<TSource, TSource> nextItem) where TSource : class => FromHierarchy(source, nextItem, s => s != null);
 
         /// <summary>
         /// Hierarchy.
@@ -85,6 +86,41 @@ namespace dotNetTips.Utility.Standard.Extensions
             return string.Join(separator, messages);
         }
 
+
+        /// <summary>
+        /// Determines whether the specified ex is critical.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        /// <returns><c>true</c> if the specified ex is critical; otherwise, <c>false</c>.</returns>
+        /// <remarks>NEW: FROM .NET CORE SOURCE</remarks>
+        public static bool IsCritical(this Exception ex)
+        {
+            return ex is NullReferenceException
+                    || ex is StackOverflowException
+                    || ex is OutOfMemoryException
+                    || ex is System.Threading.ThreadAbortException
+                    || ex is IndexOutOfRangeException
+                    || ex is AccessViolationException;
+        }
+
+        /// <summary>
+        /// Determines whether the specified ex is fatal.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        /// <returns><c>true</c> if the specified ex is fatal; otherwise, <c>false</c>.</returns>
+        public static bool IsFatal(this Exception ex) => ex is OutOfMemoryException;
+
+        /// <summary>
+        /// Determines whether [is security or critical] [the specified ex].
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        /// <returns><c>true</c> if [is security or critical] [the specified ex]; otherwise, <c>false</c>.</returns>
+        /// <remarks>NEW: FROM .NET CORE SOURCE</remarks>
+        public static bool IsSecurityOrCritical(this Exception ex)
+        {
+            return (ex is SecurityException) || ex.IsCritical();
+        }
+
         /// <summary>
         /// Traverses Exception.
         /// </summary>
@@ -108,5 +144,6 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             return ex.InnerException.TraverseFor<T>();
         }
+
     }
 }

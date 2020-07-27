@@ -11,9 +11,9 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using System.Diagnostics;
 using dotNetTips.Utility.Standard;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Diagnostics;
 
 namespace dotNetTips.Tips.Utility.Standard.Tests
 {
@@ -27,9 +27,9 @@ namespace dotNetTips.Tips.Utility.Standard.Tests
         /// Tests the loading application information.
         /// </summary>
         [TestMethod]
-        public void TestLoadingAppInfo()
+        public void LoadingAppInfoTest()
         {
-            var info = App.AppInfo;
+            AppInfo info = App.AppInfo;
 
             Assert.IsTrue(string.IsNullOrEmpty(info.FileVersion) == false);
             Assert.IsTrue(string.IsNullOrEmpty(info.Version) == false);
@@ -39,15 +39,15 @@ namespace dotNetTips.Tips.Utility.Standard.Tests
         /// Tests the loading environment variables.
         /// </summary>
         [TestMethod]
-        public void TestLoadingEnvironmentVariables()
+        public void LoadingEnvironmentVariablesTest()
         {
-            var variables = App.GetEnvironmentVariables();
+            System.Collections.Immutable.IImmutableDictionary<string, string> variables = App.GetEnvironmentVariables();
 
             Assert.IsNotNull(variables);
 
             Assert.IsTrue(variables.Count > 0);
 
-            foreach (var variable in variables)
+            foreach (System.Collections.Generic.KeyValuePair<string, string> variable in variables)
             {
                 Debug.WriteLine($"{variable.Key}:{variable.Value}");
             }
@@ -57,11 +57,19 @@ namespace dotNetTips.Tips.Utility.Standard.Tests
         /// Tests the loading environment variable.
         /// </summary>
         [TestMethod]
-        public void TestLoadingEnvironmentVariable()
+        public void LoadingEnvironmentVariableTest()
         {
             var variables = App.GetEnvironmentVariables();
 
             Assert.IsTrue(variables.ContainsKey(EnvironmentKey.Path.ToString()));
+        }
+
+        [TestMethod]
+        public void ExecutingFolderTest()
+        {
+            var result = App.ExecutingFolder();
+
+            Assert.IsTrue(string.IsNullOrEmpty(result) == false);
         }
     }
 }

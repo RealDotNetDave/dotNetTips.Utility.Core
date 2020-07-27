@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-22-2019
+// Last Modified On : 07-23-2020
 // ***********************************************************************
 // <copyright file="NumberExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
@@ -35,6 +35,83 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             var n = value - step;
             return n < lowerBound ? lowerBound : n;
+        }
+
+        /// <summary>
+        /// Determines whether the specified value is negative.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns><c>true</c> if the specified value is negative; otherwise, <c>false</c>.</returns>
+        /// <remarks>NEW: From .NET Core Source</remarks>
+        public static bool IsNegative(this double value)
+        {
+            return Math.Sign(value) == -1;
+        }
+
+        /// <summary>
+        /// Determines whether the specified value is negative.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns><c>true</c> if the specified value is negative; otherwise, <c>false</c>.</returns>
+        /// <remarks>NEW: From .NET Core Source</remarks>
+        public static bool IsNegative(this int value)
+        {
+            return Math.Sign(value) == -1;
+        }
+
+        /// <summary>
+        /// Determines whether the specified value is negative.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns><c>true</c> if the specified value is negative; otherwise, <c>false</c>.</returns>
+        /// <remarks>NEW: From .NET Core Source</remarks>
+        public static bool IsNegative(this long value)
+        {
+            return Math.Sign(value) == -1;
+        }
+
+        /// <summary>
+        /// Determines whether the specified value is negative.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns><c>true</c> if the specified value is negative; otherwise, <c>false</c>.</returns>
+        /// <remarks>NEW: From .NET Core Source</remarks>
+        public static bool IsNegative(this sbyte value)
+        {
+            return Math.Sign(value) == -1;
+        }
+
+        /// <summary>
+        /// Determines whether the specified value is negative.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns><c>true</c> if the specified value is negative; otherwise, <c>false</c>.</returns>
+        /// <remarks>NEW: From .NET Core Source</remarks>
+        public static bool IsNegative(this short value)
+        {
+            return Math.Sign(value) == -1;
+        }
+
+        /// <summary>
+        /// Determines whether the specified value is negative.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns><c>true</c> if the specified value is negative; otherwise, <c>false</c>.</returns>
+        /// <remarks>NEW: From .NET Core Source</remarks>
+        public static bool IsNegative(this decimal value)
+        {
+            return Math.Sign(value) == -1;
+        }
+
+        /// <summary>
+        /// Determines whether the specified value is negative.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns><c>true</c> if the specified value is negative; otherwise, <c>false</c>.</returns>
+        /// <remarks>NEW: From .NET Core Source</remarks>
+        public static bool IsNegative(this float value)
+        {
+            return Math.Sign(value) == -1;
         }
 
         /// <summary>

@@ -13,6 +13,7 @@
 // ***********************************************************************
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -123,7 +124,6 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>System.String.</returns>
         public static string DefaultIfNull(this string value, string defaultValue) => value ?? (defaultValue ?? string.Empty);
 
-        /// <summary>
         /// Defaults if null or empty.
         /// </summary>
         /// <param name="value">The value.</param>
@@ -364,6 +364,36 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
+        /// Determines whether the specified input is whitespace.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns><c>true</c> if the specified input is whitespace; otherwise, <c>false</c>.</returns>
+        /// <remarks>NEW: From .NET Core source.</remarks>
+        public static bool IsWhitespace(this string input)
+        {
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (!IsWhitespace(input[i]))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Determines whether the specified character is whitespace.
+        /// </summary>
+        /// <param name="character">The character.</param>
+        /// <returns><c>true</c> if the specified character is whitespace; otherwise, <c>false</c>.</returns>
+        /// <remarks>NEW: From .NET Core source.</remarks>
+        public static bool IsWhitespace(this char character)
+        {
+            return (character <= ' ' && (character == ' ' || character == '\t' || character == '\r' || character == '\n'));
+        }
+
+        /// <summary>
         /// Changes the trailing ellipsis in a string to a period.
         /// </summary>
         /// <param name="input">The input.</param>
@@ -475,6 +505,47 @@ namespace dotNetTips.Utility.Standard.Extensions
             }
 
             return 0 == string.Compare(input, 0, valueToCompare, 0, valueToCompare.Length, StringComparison.OrdinalIgnoreCase);
+        }
+
+        /// <summary>
+        /// Substrings the trim.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="length">The length.</param>
+        /// <returns>System.String.</returns>
+        /// <remarks>NEW: CODE FROM .NET CORE SOURCE</remarks>
+        public static string SubstringTrim(this string value, int startIndex, int length)
+        {
+            Debug.Assert(value != null, "string must be non-null");
+            Debug.Assert(startIndex >= 0, "startIndex must be non-negative");
+            Debug.Assert(length >= 0, "length must be non-negative");
+            Debug.Assert(startIndex <= value.Length - length, "startIndex + length must be <= value.Length");
+
+            if (length == 0)
+            {
+                return string.Empty;
+            }
+
+            int endIndex = startIndex + length - 1;
+
+            while (startIndex <= endIndex && char.IsWhiteSpace(value[startIndex]))
+            {
+                startIndex++;
+            }
+
+            while (endIndex >= startIndex && char.IsWhiteSpace(value[endIndex]))
+            {
+                endIndex--;
+            }
+
+            int newLength = endIndex - startIndex + 1;
+            Debug.Assert(newLength >= 0 && newLength <= value.Length, "Expected resulting length to be within value's length");
+
+            return
+                newLength == 0 ? string.Empty :
+                newLength == value.Length ? value :
+                value.Substring(startIndex, newLength);
         }
 
         /// <summary>

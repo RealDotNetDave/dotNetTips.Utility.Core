@@ -98,4 +98,3 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
     }
 }
-}
