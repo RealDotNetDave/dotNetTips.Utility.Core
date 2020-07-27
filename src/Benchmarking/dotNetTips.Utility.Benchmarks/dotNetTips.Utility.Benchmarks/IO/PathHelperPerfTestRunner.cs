@@ -11,9 +11,9 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using System;
 using BenchmarkDotNet.Attributes;
 using dotNetTips.Utility.Standard.IO;
-using System;
 
 namespace dotNetTips.Utility.Benchmarks.IO
 {
@@ -21,9 +21,17 @@ namespace dotNetTips.Utility.Benchmarks.IO
     public class PathHelperPerfTestRunner : PerfTestRunner
     {
         [Benchmark(Description = nameof(PathHelper.PathContainsWildcard))]
-        public void TestPathContainsWildcard()
+        public void PathContainsWildcardTest()
         {
-            var result= PathHelper.PathContainsWildcard(Environment.CurrentDirectory);
+            var result = PathHelper.PathContainsWildcard(Environment.CurrentDirectory);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(PathHelper.PathContainsWildcard))]
+        public void EnsureTrailingSlashTest()
+        {
+            var result = PathHelper.EnsureTrailingSlash(Environment.CurrentDirectory);
 
             base.Consumer.Consume(result);
         }

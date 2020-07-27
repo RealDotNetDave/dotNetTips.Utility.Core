@@ -4,7 +4,7 @@
 // Created          : 02-11-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-20-2020
+// Last Modified On : 07-27-2020
 // ***********************************************************************
 // <copyright file="FileHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -292,9 +292,7 @@ namespace dotNetTips.Utility.Standard.IO
         {
             Encapsulation.TryValidateParam(gzipPath, nameof(gzipPath));
             Encapsulation.TryValidateParam(expandedFilePath, nameof(expandedFilePath));
-            Encapsulation.TryValidateParam<ArgumentInvalidException>(File.Exists(gzipPath),
-                                                                     nameof(gzipPath),
-                                                                     "GZip file not found.");
+            Encapsulation.TryValidateParam<ArgumentInvalidException>(File.Exists(gzipPath), nameof(gzipPath), "GZip file not found.");
 
             await UnGZipAsync(gzipPath, expandedFilePath).ConfigureAwait(true);
 
@@ -314,9 +312,7 @@ namespace dotNetTips.Utility.Standard.IO
         {
             Encapsulation.TryValidateParam(zipPath, nameof(zipPath));
             Encapsulation.TryValidateParam(expandToDirectory, nameof(expandToDirectory));
-            Encapsulation.TryValidateParam<ArgumentInvalidException>(File.Exists(zipPath),
-                                                                     nameof(zipPath),
-                                                                     Resources.ZipFileNotFound);
+            Encapsulation.TryValidateParam<ArgumentInvalidException>(File.Exists(zipPath), nameof(zipPath), Resources.ZipFileNotFound);
 
             await UnWinZipAsync(zipPath, expandToDirectory).ConfigureAwait(true);
         }

@@ -23,7 +23,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="value">if set to <c>true</c> [value].</param>
         /// <returns>System.String.</returns>
-        /// <remarks>NEW: Orginal Code from: https://github.com/dotnet/BenchmarkDotNet</remarks>
+        /// <remarks>NEW: Orginal Code from: https://github.com/dotnet/BenchmarkDotNet </remarks>
         public static string ToLowerCase(this bool value) => value ? "true" : "false";
     }
 }

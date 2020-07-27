@@ -42,13 +42,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <remarks>NEW</remarks>
         public static IList<T> AddFirst<T>(this IList<T> list, T item)
         {
-            List<T> result = new List<T>(list.Count + 1);
+            if (item == null)
+            {
+                throw new ArgumentNullException(nameof(item), $"{nameof(item)} is null.");
+            }
 
-            result[0] = item;
+            list.Insert(0, item);
 
-            list.CopyTo(result.ToArray(), 1);
-
-            return result;
+            return list;
         }
 
         /// <summary>
@@ -61,6 +62,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <remarks>NEW: From .NET Core source.</remarks>
         public static T[] AddFirst<T>(this T[] array, T item)
         {
+            if (item == null)
+            {
+                throw new ArgumentNullException(nameof(item), $"{nameof(item)} is null.");
+            }
+
             var result = new T[array.Length + 1];
             result[0] = item;
             array.CopyTo(result, 1);
@@ -169,13 +175,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <remarks>NEW</remarks>
         public static IList<T> AddLast<T>(this IList<T> list, T item)
         {
-            var result = new List<T>(list.Count + 1);
+            if (item == null)
+            {
+                throw new ArgumentNullException(nameof(item), $"{nameof(item)} is null.");
+            }
 
-            list.CopyTo(result.ToArray(), 0);
+            list.Insert(list.Count, item);
 
-            result[list.Count] = item;
-
-            return result;
+            return list;
         }
 
         /// <summary>
