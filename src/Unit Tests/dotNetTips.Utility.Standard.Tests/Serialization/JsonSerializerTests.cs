@@ -6,6 +6,8 @@ using System.Text;
 using dotNetTips.Utility.Standard.Tester;
 using dotNetTips.Utility.Standard.Tester.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using dotNetTips.Utility.Standard.Extensions;
+using dotNetTips.Utility.Standard.Serialization;
 
 namespace dotNetTips.Tips.Utility.Standard.Tests.Serialization
 {
@@ -13,7 +15,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Serialization
     public class JsonSerializerTests
     {
         [TestMethod]
-        public void TestSerializingPersonToJson()
+        public void SerializingPersonToJsonTest()
         {
             var person = RandomData.GeneratePerson<PersonProper>();
 
@@ -25,7 +27,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Serialization
         }
 
         [TestMethod]
-        public void TestSerializingPersonCollectionToJson()
+        public void SerializingPersonCollectionToJsonTest()
         {
             var people = RandomData.GeneratePersonCollection<PersonProper>(10).ToList();
 
@@ -37,7 +39,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Serialization
         }
 
         [TestMethod]
-        public void TestDeserializingPersonFromJson()
+        public void DeserializingPersonFromJsonTest()
         {
             var person = RandomData.GeneratePerson<PersonProper>();
 
@@ -47,7 +49,17 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Serialization
         }
 
         [TestMethod]
-        public void TestDeserializingPersonCollectionFromJson()
+        public void JsonEqualsTest()
+        {
+            var person1 = RandomData.GeneratePerson<PersonProper>().ToJson();
+            var person2 = RandomData.GeneratePerson<PersonProper>().ToJson();
+
+            Assert.IsTrue(JsonSerializer.JsonEqual(person1, person1));
+            Assert.IsFalse(JsonSerializer.JsonEqual(person1, person2));
+        }
+
+        [TestMethod]
+        public void DeserializingPersonCollectionFromJsonTest()
         {
             var people = RandomData.GeneratePersonCollection<PersonProper>(10).ToList();
 

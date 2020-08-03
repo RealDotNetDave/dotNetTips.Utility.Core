@@ -13,6 +13,7 @@
 // ***********************************************************************
 using System;
 using System.Threading;
+using dotNetTips.Utility.Standard.Common;
 using Microsoft.Extensions.Logging;
 
 namespace dotNetTips.Utility.Standard.Extensions
@@ -60,14 +61,13 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="thread">The thread.</param>
         /// <param name="priority">The priority.</param>
-        /// <param name="logger">The logger.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         /// <exception cref="ArgumentNullException">thread
         /// or
         /// logger</exception>
         /// <exception cref="ArgumentOutOfRangeException">priority</exception>
-        /// <remarks>NEW: Orginal Code from: https://github.com/dotnet/BenchmarkDotNet </remarks>
-        public static bool TrySetPriority(this Thread thread, ThreadPriority priority, ILogger logger)
+        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
+        public static bool TrySetPriority(this Thread thread, ThreadPriority priority)
         {
             if (thread == null)
             {
@@ -84,13 +84,10 @@ namespace dotNetTips.Utility.Standard.Extensions
                 thread.Priority = priority;
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                logger?.LogError(ex, $"Failed to set up priority {priority} for thread {thread}. Make sure you have the right permissions.");
+                throw;
             }
-
-            return false;
-
         }
     }
 }

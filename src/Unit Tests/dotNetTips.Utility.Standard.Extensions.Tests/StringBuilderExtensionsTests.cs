@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using System;
 using System.Linq;
 using System.Text;
 using dotNetTips.Utility.Standard.Tester;
@@ -68,12 +69,18 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
 
             var sb = new StringBuilder();
 
-            foreach(var person in people)
+            foreach (var person in people)
             {
                 sb.AppendKeyValue(person.Key, person.Value.Email);
+                sb.AppendKeyValue(person.Key, person.Value.Email, includeQuotes: true);
+                sb.AppendKeyValue(person.Key, person.Value.Email, includeComma: true);
+                sb.AppendKeyValue(person.Key, person.Value.Email, includeQuotes: true, includeComma: true);
+
+                Assert.ThrowsException<ArgumentNullException>(() => sb.AppendKeyValue(person.Key, null));
+                Assert.ThrowsException<ArgumentNullException>(() => sb.AppendKeyValue(null, person.Value.Email));
             }
 
-            Assert.IsTrue(sb.ToString().Length > 50);
+            Assert.IsTrue(sb.ToString().Length > 50 * 4);
         }
 
     }

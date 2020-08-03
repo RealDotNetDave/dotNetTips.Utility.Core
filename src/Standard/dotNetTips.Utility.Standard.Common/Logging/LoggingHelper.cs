@@ -1,45 +1,53 @@
 ﻿// ***********************************************************************
-// Assembly         : dotNetTips.Utility.Standard
+// Assembly         : dotNetTip.Utility.Standard.Common
 // Author           : David McCarter
-// Created          : 06-06-2018
+// Created          : 07-30-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-04-2019
+// Last Modified On : 07-30-2020
 // ***********************************************************************
 // <copyright file="LoggingHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Extensions;
-using dotNetTips.Utility.Standard.OOP;
+
+using dotNetTipis.Utility.Standard.Common;
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
+using System.Linq;
 
-namespace dotNetTips.Utility.Standard.Logging
+namespace dotNetTips.Utility.Standard.Common.Logging
 {
     /// <summary>
-    /// Class LoggingHelper.
+    /// Logging Helper.
     /// </summary>
     public static class LoggingHelper
     {
+
         /// <summary>
         /// Retrieves all exception messages.
         /// </summary>
         /// <param name="ex">The ex.</param>
         /// <returns>IEnumerable&lt;System.String&gt;.</returns>
-        public static ImmutableList<string> RetrieveAllExceptionMessages(Exception ex)
+        public static string[] RetrieveAllExceptionMessages(Exception ex)
         {
-            Encapsulation.TryValidateParam<ArgumentNullException>(ex != null, nameof(ex));
-
-            var messages = new List<string>();
+            if (ex == null)
+            {
+                ExceptionThrower.ThrowArgumentNullException(Resources.ExMessageNullException, nameof(ex));
+            }
 
             var exceptions = RetrieveAllExceptions(ex);
 
-            exceptions.ForEach(exception => messages.Add(ex.Message));
+            var messages = new string[exceptions.Count()];
 
-            return messages.ToImmutableList();
+            for (int i = 0; i < exceptions.Length; i++)
+            {
+                messages[i] = exceptions[i].Message;
+            }
+
+
+            return messages;
         }
 
         /// <summary>
@@ -47,9 +55,12 @@ namespace dotNetTips.Utility.Standard.Logging
         /// </summary>
         /// <param name="ex">The ex.</param>
         /// <returns>IEnumerable&lt;Exception&gt;.</returns>
-        public static ImmutableList<Exception> RetrieveAllExceptions(Exception ex)
+        public static Exception[] RetrieveAllExceptions(Exception ex)
         {
-            Encapsulation.TryValidateParam<ArgumentNullException>(ex != null, nameof(ex));
+            if (ex == null)
+            {
+                ExceptionThrower.ThrowArgumentNullException(Resources.ExMessageNullException, nameof(ex));
+            }
 
             var collection = new List<Exception>();
 
@@ -57,13 +68,14 @@ namespace dotNetTips.Utility.Standard.Logging
             {
                 collection = new List<Exception> { ex };
 
-                if (ex.InnerException.IsNotNull())
+                if (ex.InnerException is null == false)
                 {
                     collection.AddRange(RetrieveAllExceptions(ex.InnerException));
                 }
             }
 
-            return collection.ToImmutable();
+            return collection.ToArray();
         }
+
     }
 }

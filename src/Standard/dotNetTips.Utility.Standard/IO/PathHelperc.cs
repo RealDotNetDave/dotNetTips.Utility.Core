@@ -14,6 +14,7 @@
 
 using System.IO;
 using System.Linq;
+using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.OOP;
 using Microsoft.Extensions.Primitives;
 
@@ -34,21 +35,21 @@ namespace dotNetTips.Utility.Standard.IO
         /// Gets the invalid filter chars.
         /// </summary>
         /// <value>The invalid filter chars.</value>
-        /// <remarks>NEW</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.New)]
         public static char[] InvalidFilterChars => _invalidFilterChars;
 
         /// <summary>
         /// Gets the invalid path name chars.
         /// </summary>
         /// <value>The invalid path name chars.</value>
-        /// <remarks>NEW</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.New)]
         public static char[] InvalidPathNameChars => _invalidPathNameChars;
 
         /// <summary>
         /// Gets the path separators.
         /// </summary>
         /// <value>The path separators.</value>
-        /// <remarks>NEW</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.New)]
         public static char[] PathSeparators => _pathSeparators;
 
         /// <summary>
@@ -56,7 +57,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// </summary>
         /// <param name="path">The path.</param>
         /// <returns>System.String.</returns>
-        /// <remarks>NEW</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 88, BenchMarkStatus = BenchMarkStatus.Completed,  Status = Status.New)]
         public static string EnsureTrailingSlash(string path)
         {
             Encapsulation.TryValidateParam(path, nameof(path));
@@ -74,7 +75,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// </summary>
         /// <param name="filter">The path.</param>
         /// <returns><c>true</c> if [has invalid filter chars] [the specified path]; otherwise, <c>false</c>.</returns>
-        /// <remarks>NEW</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static bool HasInvalidFilterChars(string filter)
         {
             Encapsulation.TryValidateParam(filter, nameof(filter));
@@ -101,50 +102,12 @@ namespace dotNetTips.Utility.Standard.IO
         /// </summary>
         /// <param name="path">The path.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <remarks>NEW</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static bool PathHasInvalidChars(string path)
         {
             Encapsulation.TryValidateParam(path, nameof(path));
 
             return path.IndexOfAny(_invalidPathNameChars) != -1;
         }
-
-        /// <summary>
-        /// Determines if path navigates above root.
-        /// </summary>
-        /// <param name="path">The path.</param>
-        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <remarks>NEW</remarks>
-        public static bool PathNavigatesAboveRoot(string path)
-        {
-            Encapsulation.TryValidateParam(path, nameof(path));
-
-            var tokenizer = new StringTokenizer(path, _pathSeparators);
-            int depth = 0;
-
-            foreach (var segment in tokenizer)
-            {
-                if (segment.Equals(".") || segment.Equals(string.Empty))
-                {
-                    continue;
-                }
-                else if (segment.Equals(".."))
-                {
-                    depth--;
-
-                    if (depth == -1)
-                    {
-                        return true;
-                    }
-                }
-                else
-                {
-                    depth++;
-                }
-            }
-
-            return false;
-        }
-
     }
 }

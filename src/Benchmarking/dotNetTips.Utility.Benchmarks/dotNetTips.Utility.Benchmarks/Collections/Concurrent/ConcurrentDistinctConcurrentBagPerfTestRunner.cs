@@ -32,7 +32,7 @@ namespace dotNetTips.Utility.Benchmarks.Collections.Concurrent
         }
 
         [Benchmark(Description = "Creating Using Constructor.")]
-        public void TestCreating01()
+        public void Creating01()
         {
             var fakePeople = new DistinctConcurrentBag<PersonProper>(this.personProperCollection);
 
@@ -40,7 +40,7 @@ namespace dotNetTips.Utility.Benchmarks.Collections.Concurrent
         }
 
         [Benchmark(Description = "Creating Using ForEach().")]
-        public void TestCreating02()
+        public void Creating02()
         {
             var fakePeople = new DistinctConcurrentBag<PersonProper>();
 
@@ -50,7 +50,7 @@ namespace dotNetTips.Utility.Benchmarks.Collections.Concurrent
         }
 
         [Benchmark(Description = "Looping with foreach().")]
-        public void TestLoopingForEach01()
+        public void LoopingForEach01()
         {
             foreach (var person in this._distinctConcurrentBag)
             {

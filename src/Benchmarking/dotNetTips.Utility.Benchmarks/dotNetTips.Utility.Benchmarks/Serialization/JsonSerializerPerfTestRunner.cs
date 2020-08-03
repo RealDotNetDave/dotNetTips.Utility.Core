@@ -33,7 +33,7 @@ namespace dotNetTips.Utility.Benchmarks.Serialization
         }
 
         [Benchmark(Description = nameof(JsonSerializer.Deserialize))]
-        public void TestDeserialize()
+        public void DeserializeTest()
         {
             var result = JsonSerializer.Deserialize<PersonCollection<PersonProper>>(_json);
 
@@ -41,9 +41,17 @@ namespace dotNetTips.Utility.Benchmarks.Serialization
         }
 
         [Benchmark(Description = nameof(JsonSerializer.Serialize))]
-        public void TestSerialize()
+        public void SerializeTest()
         {
             var result = JsonSerializer.Serialize(base.personProperCollection);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(JsonSerializer.Deserialize))]
+        public void JsonEqualTest()
+        {
+            var result = JsonSerializer.JsonEqual(_json, _json);
 
             base.Consumer.Consume(result);
         }

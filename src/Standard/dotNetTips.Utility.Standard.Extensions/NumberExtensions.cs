@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.Extensions.Properties;
 
 namespace dotNetTips.Utility.Standard.Extensions
@@ -42,7 +43,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns><c>true</c> if the specified value is negative; otherwise, <c>false</c>.</returns>
-        /// <remarks>NEW: From .NET Core Source</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.New)]
         public static bool IsNegative(this double value)
         {
             return Math.Sign(value) == -1;
@@ -53,7 +54,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns><c>true</c> if the specified value is negative; otherwise, <c>false</c>.</returns>
-        /// <remarks>NEW: From .NET Core Source</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.New)]
         public static bool IsNegative(this int value)
         {
             return Math.Sign(value) == -1;
@@ -64,7 +65,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns><c>true</c> if the specified value is negative; otherwise, <c>false</c>.</returns>
-        /// <remarks>NEW: From .NET Core Source</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static bool IsNegative(this long value)
         {
             return Math.Sign(value) == -1;
@@ -75,7 +76,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns><c>true</c> if the specified value is negative; otherwise, <c>false</c>.</returns>
-        /// <remarks>NEW: From .NET Core Source</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static bool IsNegative(this sbyte value)
         {
             return Math.Sign(value) == -1;
@@ -86,7 +87,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns><c>true</c> if the specified value is negative; otherwise, <c>false</c>.</returns>
-        /// <remarks>NEW: From .NET Core Source</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static bool IsNegative(this short value)
         {
             return Math.Sign(value) == -1;
@@ -97,7 +98,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns><c>true</c> if the specified value is negative; otherwise, <c>false</c>.</returns>
-        /// <remarks>NEW: From .NET Core Source</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.New)]
         public static bool IsNegative(this decimal value)
         {
             return Math.Sign(value) == -1;
@@ -108,7 +109,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns><c>true</c> if the specified value is negative; otherwise, <c>false</c>.</returns>
-        /// <remarks>NEW: From .NET Core Source</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static bool IsNegative(this float value)
         {
             return Math.Sign(value) == -1;

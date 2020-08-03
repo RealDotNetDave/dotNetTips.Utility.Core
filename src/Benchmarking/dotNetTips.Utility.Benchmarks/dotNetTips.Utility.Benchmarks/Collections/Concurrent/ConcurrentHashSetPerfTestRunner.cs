@@ -31,7 +31,7 @@ namespace dotNetTips.Utility.Benchmarks.Collections.Concurrent
         }
 
         [Benchmark(Description = "Create Using Constructor.")]
-        public void TestCreating01()
+        public void Creating01()
         {
             var result = new ConcurrentHashSet<PersonProper>(base.personProperCollection);
 
@@ -39,7 +39,7 @@ namespace dotNetTips.Utility.Benchmarks.Collections.Concurrent
         }
 
         [Benchmark(Description = "Create Using ForEach().")]
-        public void TestCreating02()
+        public void Creating02()
         {
             var fakePeople = new ConcurrentHashSet<PersonProper>();
 
@@ -49,7 +49,7 @@ namespace dotNetTips.Utility.Benchmarks.Collections.Concurrent
         }
 
         [Benchmark(Description = "Looping with foreach().")]
-        public void TestLoopingForEach01()
+        public void LoopingForEach01()
         {
             foreach (var person in this._peopleConcurrentHashSet)
             {

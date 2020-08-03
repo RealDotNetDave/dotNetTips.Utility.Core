@@ -23,7 +23,7 @@ namespace dotNetTips.Utility.Benchmarks
         public override void Setup() { base.Setup(); }
 
         [Benchmark(Description = nameof(App.GetEnvironmentVariables))]
-        public void TestGetEnvironmentVariables()
+        public void GetEnvironmentVariables()
         {
             var result = App.GetEnvironmentVariables();
 
@@ -31,7 +31,7 @@ namespace dotNetTips.Utility.Benchmarks
         }
 
         [Benchmark(Description = nameof(App.IsProcessRunning))]
-        public void TestIsProcessRunning()
+        public void IsProcessRunning()
         {
             var result = App.IsProcessRunning("devenv");
 
@@ -39,7 +39,7 @@ namespace dotNetTips.Utility.Benchmarks
         }
 
         [Benchmark(Description = nameof(App.IsRunning))]
-        public void TestIsRunning()
+        public void IsRunning()
         {
             var result = App.IsRunning();
 
@@ -47,7 +47,7 @@ namespace dotNetTips.Utility.Benchmarks
         }
 
         [Benchmark(Description = nameof(App.IsRunningFromAspNet))]
-        public void TestIsRunningFromAspNet()
+        public void IsRunningFromAspNet()
         {
             var result = App.IsRunningFromAspNet();
 
@@ -55,7 +55,7 @@ namespace dotNetTips.Utility.Benchmarks
         }
 
         [Benchmark(Description = nameof(App.ReferencedAssemblies))]
-        public void TestReferencedAssemblies()
+        public void ReferencedAssemblies()
         {
             var result = App.ReferencedAssemblies();
 
@@ -63,7 +63,7 @@ namespace dotNetTips.Utility.Benchmarks
         }
 
         [Benchmark(Description = nameof(App.StackTrace))]
-        public void TestStackTrace()
+        public void StackTrace()
         {
             var result = App.StackTrace;
 
@@ -71,7 +71,7 @@ namespace dotNetTips.Utility.Benchmarks
         }
 
         [Benchmark(Description = nameof(App.WorkingSet))]
-        public void TestWorkingSet()
+        public void WorkingSet()
         {
             var result = App.WorkingSet;
 

@@ -31,7 +31,7 @@ namespace dotNetTips.Utility.Benchmarks
         }
 
         [Benchmark(Description = nameof(TypeHelper.Create))]
-        public void TestCreate()
+        public void Create()
         {
             var result = TypeHelper.Create<PersonProper>();
 
@@ -39,7 +39,7 @@ namespace dotNetTips.Utility.Benchmarks
         }
 
         [Benchmark(Description = nameof(TypeHelper.DoesObjectEqualInstance))]
-        public void TestDoesObjectEqualInstance()
+        public void DoesObjectEqualInstance()
         {
             var person1 = RandomData.GeneratePerson<PersonProper>();
             var person2 = RandomData.GeneratePerson<PersonProper>();
@@ -50,7 +50,7 @@ namespace dotNetTips.Utility.Benchmarks
         }
 
         [Benchmark(Description = nameof(TypeHelper.FindDerivedTypes))]
-        public void TestFindDerivedTypes()
+        public void FindDerivedTypes()
         {
             var result = TypeHelper.FindDerivedTypes(typeof(PersonProper), true);
 
@@ -58,7 +58,7 @@ namespace dotNetTips.Utility.Benchmarks
         }
 
         [Benchmark(Description = nameof(TypeHelper.GetDefault))]
-        public void TestGetDefault()
+        public void GetDefault()
         {
             var result = TypeHelper.GetDefault<PersonProper>();
 
@@ -66,9 +66,25 @@ namespace dotNetTips.Utility.Benchmarks
         }
 
         [Benchmark(Description = nameof(TypeHelper.GetInstanceHashCode))]
-        public void TestGetInstanceHashCode()
+        public void GetInstanceHashCode()
         {
             var result = TypeHelper.GetInstanceHashCode(this._personProper);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(TypeHelper.GetTypeDisplayName) + ":Variable")]
+        public void GetTypeDisplayNameVariableTest()
+        {
+            var result = TypeHelper.GetTypeDisplayName(this._personProper, true);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(TypeHelper.GetTypeDisplayName) + ":Type")]
+        public void GetTypeDisplayNameTypeTest()
+        {
+            var result = TypeHelper.GetTypeDisplayName(typeof(PersonProper), true, true, true, '|');
 
             base.Consumer.Consume(result);
         }

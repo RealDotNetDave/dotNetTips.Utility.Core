@@ -19,6 +19,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.OOP;
 using dotNetTips.Utility.Standard.Properties;
@@ -43,7 +44,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// Gets the invalid file name chars.
         /// </summary>
         /// <value>The invalid file name chars.</value>
-        /// <remarks>NEW</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.New)]
         public static char[] InvalidFileNameChars => _invalidFileNameChars;
 
         /// <summary>
@@ -128,7 +129,7 @@ namespace dotNetTips.Utility.Standard.IO
                 }
                 catch (Exception ex) when (ex is ArgumentException ||
                   ex is ArgumentNullException ||
-                  ex is DirectoryNotFoundException ||
+                  ex is System.IO.DirectoryNotFoundException ||
                   ex is IOException ||
                   ex is NotSupportedException ||
                   ex is PathTooLongException ||
@@ -218,7 +219,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// </summary>
         /// <param name="fileName">The path.</param>
         /// <returns><c>true</c> if [has invalid path chars] [the specified file name]; otherwise, <c>false</c>.</returns>
-        /// <remarks>NEW</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.New)]
         public static bool FileHasInvalidChars(string fileName)
         {
             Encapsulation.TryValidateParam(fileName, nameof(fileName));

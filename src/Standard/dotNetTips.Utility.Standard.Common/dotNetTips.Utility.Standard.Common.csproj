@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyVersion>2020.8.3.32734</AssemblyVersion>
+    <FileVersion>2020.8.3.32734</FileVersion>
+    <Version>2020.7.31.2</Version>
+    <Authors>David McCarter</Authors>
+    <Company>dotNetTips.com - David McCarter</Company>
+    <Description>Common .NET Standard Code</Description>
+    <RepositoryUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Copyright>McCarter Consulting (David McCarter)</Copyright>
+    <NeutralLanguage>English (United States)</NeutralLanguage>
+    <PackageReleaseNotes>--First Release</PackageReleaseNotes>
+    <AssemblyName>dotNetTips.Utility.Standard.Common</AssemblyName>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\..\..\appbin\</OutputPath>
+    <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Common.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\..\appbin\</OutputPath>
+    <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Common.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if $(ConfigurationName) == Release (dotnet pack &quot;$(ProjectPath)&quot; --no-build --include-source --include-symbols --output  &quot;c:\dotNetTips.com\NuGet&quot;)" />
+  </Target>
+
+</Project>

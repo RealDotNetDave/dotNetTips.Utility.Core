@@ -33,7 +33,7 @@ namespace dotNetTips.Utility.Benchmarks.Xml
         }
 
         [Benchmark(Description = nameof(XmlHelper.Deserialize))]
-        public void TestDeserialize()
+        public void Deserialize()
         {
             var result = XmlHelper.Deserialize<PersonCollection<PersonProper>>(_xml);
 
@@ -41,7 +41,7 @@ namespace dotNetTips.Utility.Benchmarks.Xml
         }
 
         [Benchmark(Description = nameof(XmlHelper.Serialize))]
-        public void TestSerialize()
+        public void Serialize()
         {
             var result = XmlHelper.Serialize(base.personProperCollection);
 

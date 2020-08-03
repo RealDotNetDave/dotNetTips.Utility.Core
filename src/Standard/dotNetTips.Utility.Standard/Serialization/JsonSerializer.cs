@@ -17,6 +17,7 @@ using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Text.Json;
+using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.OOP;
 
 namespace dotNetTips.Utility.Standard.Serialization
@@ -77,7 +78,7 @@ namespace dotNetTips.Utility.Standard.Serialization
         /// <param name="actual">The actual.</param>
         /// <param name="expected">The expected.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <remarks>NEW</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static bool JsonEqual(string actual, string expected)
         {
             using (var expectedDom = JsonDocument.Parse(expected))

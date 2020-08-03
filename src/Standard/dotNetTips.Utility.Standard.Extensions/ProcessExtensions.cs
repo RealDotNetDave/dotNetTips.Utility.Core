@@ -15,13 +15,15 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using dotNetTips.Utility.Standard.Common;
 using Microsoft.Extensions.Logging;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {
     /// <summary>
-    /// Class ProcessExtensions.
+    /// Process Extensions.
     /// </summary>
+    [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
     public static class ProcessExtensions
     {
 
@@ -30,7 +32,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="process">The process.</param>
         /// <param name="logger">The logger.</param>
-        /// <remarks>NEW: Orginal Code from: https://github.com/dotnet/BenchmarkDotNet</remarks>
+        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static void EnsureHighPriority(this Process process, ILogger logger)
         {
             try
@@ -48,7 +50,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="process">The process.</param>
         /// <param name="logger">The logger.</param>
-        /// <remarks>NEW: Orginal Code from: https://github.com/dotnet/BenchmarkDotNet</remarks>
+        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static void EnsureLowPriority(this Process process, ILogger logger)
         {
             try
@@ -69,7 +71,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="timeout">The timeout.</param>
         /// <returns>System.Int32.</returns>
         /// <exception cref="ArgumentException">fileName</exception>
-        /// <remarks>NEW: Orginal Code from: https://github.com/dotnet/BenchmarkDotNet</remarks>
+        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static int RunProcessAndIgnoreOutput(string fileName, string arguments, TimeSpan timeout)
         {
             if (string.IsNullOrEmpty(fileName) && File.Exists(fileName) == false)
@@ -107,7 +109,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="timeout">The timeout.</param>
         /// <returns>System.ValueTuple&lt;System.Int32, System.String&gt;.</returns>
         /// <exception cref="ArgumentException">fileName</exception>
-        /// <remarks>NEW: Orginal Code from: https://github.com/dotnet/BenchmarkDotNet</remarks>
+        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static (int exitCode, string output) RunProcessAndReadOutput(string fileName, string arguments, TimeSpan timeout)
         {
             if (string.IsNullOrEmpty(fileName) && File.Exists(fileName) == false)
@@ -147,7 +149,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         /// <exception cref="ArgumentNullException">process or logger error</exception>
         /// <exception cref="ArgumentOutOfRangeException">priority</exception>
-        /// <remarks>NEW: Orginal Code from: https://github.com/dotnet/BenchmarkDotNet</remarks>
+        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static bool TrySetPriority(this Process process, ProcessPriorityClass priority, ILogger logger)
         {
             if (process == null)

@@ -21,7 +21,7 @@ namespace dotNetTips.Utility.Benchmarks.IO
     {
 
         [Benchmark(Description = nameof(DriveHelper.GetFixedDrives))]
-        public void TestGetFixedDrives()
+        public void GetFixedDrives()
         {
             var result = DriveHelper.GetFixedDrives();
 
@@ -29,7 +29,7 @@ namespace dotNetTips.Utility.Benchmarks.IO
         }
 
         [Benchmark(Description = nameof(DriveHelper.GetRemovableDrives))]
-        public void TestGetRemovableDrives()
+        public void GetRemovableDrives()
         {
             var result = DriveHelper.GetRemovableDrives();
 

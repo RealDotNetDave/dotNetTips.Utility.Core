@@ -14,7 +14,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace dotNetTips.Utility.Standard
+namespace dotNetTips.Utility.Standard.Common
 {
     /// <summary>
     /// Class MessageNotQueuedException.

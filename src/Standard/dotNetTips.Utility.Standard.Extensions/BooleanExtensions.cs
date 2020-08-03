@@ -11,11 +11,14 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using dotNetTips.Utility.Standard.Common;
+
 namespace dotNetTips.Utility.Standard.Extensions
 {
     /// <summary>
     /// Class BooleanExtensions.
     /// </summary>
+    [Information(nameof(BooleanExtensions), author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.New)]
     public static class BooleanExtensions
     {
         /// <summary>
@@ -23,7 +26,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="value">if set to <c>true</c> [value].</param>
         /// <returns>System.String.</returns>
-        /// <remarks>NEW: Orginal Code from: https://github.com/dotnet/BenchmarkDotNet </remarks>
+        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.New)]
         public static string ToLowerCase(this bool value) => value ? "true" : "false";
     }
 }

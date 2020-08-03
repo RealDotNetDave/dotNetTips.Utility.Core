@@ -30,6 +30,10 @@ namespace dotNetTips.Utility.Standard.IO.Tests
             var result = PathHelper.EnsureTrailingSlash(path);
 
             Assert.IsTrue(result.EndsWith(Path.DirectorySeparatorChar));
+
+            result = PathHelper.EnsureTrailingSlash(@"C:\Windows\");
+
+            Assert.IsTrue(result.EndsWith(Path.DirectorySeparatorChar));
         }
 
         [TestMethod]
@@ -83,18 +87,6 @@ namespace dotNetTips.Utility.Standard.IO.Tests
 
             Assert.IsFalse(result);
         }
-
-
-        [TestMethod()]
-        public void PathNavigatesAboveRootTest()
-        {
-            var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-
-            var result = PathHelper.PathNavigatesAboveRoot(path);
-
-            Assert.IsFalse(result);
-        }
-
 
         [TestMethod()]
         public void PathHasInvalidCharsTest()

@@ -15,6 +15,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.OOP;
 
@@ -29,35 +30,35 @@ namespace dotNetTips.Utility.Standard.Net
         /// <summary>
         /// Tries the parse email address.
         /// </summary>
-        /// <param name="data">The data.</param>
+        /// <param name="email">The data.</param>
         /// <param name="parsedAddress">The parsed address.</param>
         /// <param name="throwExceptionIfFail">if set to <c>true</c> [throw exception if fail].</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        public static bool TryParseAddress(string data, out ParseAddressInfo parsedAddress, bool throwExceptionIfFail)
+        public static bool TryParseEmailAddress(string email, out ParseAddressInfo parsedAddress, bool throwExceptionIfFail)
         {
-            Encapsulation.TryValidateParam(data, nameof(data));
+            Encapsulation.TryValidateParam(email, nameof(email));
 
-            return TryParseAddress(data, false, data.Length - 1, out parsedAddress, throwExceptionIfFail);
+            return TryParseEmailAddress(email, false, email.Length - 1, out parsedAddress, throwExceptionIfFail);
         }
 
         /// <summary>
         /// Tries the parse email addresses.
         /// </summary>
-        /// <param name="data">The data.</param>
+        /// <param name="email">The data.</param>
         /// <param name="info">The information.</param>
         /// <param name="throwExceptionIfFail">if set to <c>true</c> [throw exception if fail].</param>
         /// <param name="separator">The separator.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <remarks>NEW: From .NET Core Source</remarks>
-        public static bool TryParseAddresses(string data, out ParseAddressInfo[] info, bool throwExceptionIfFail, char separator = ',')
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
+        public static bool TryParseEmailAddresses(string email, out ParseAddressInfo[] info, bool throwExceptionIfFail, char separator = ',')
         {
             var result = new List<ParseAddressInfo>();
 
-            var addresses = data.Split(separator);
+            var addresses = email.Split(separator);
 
             for (var i = 0; i < addresses.Length; i++)
             {
-                var success = TryParseAddress(addresses[i], out ParseAddressInfo parsedInfo, throwExceptionIfFail);
+                var success = TryParseEmailAddress(addresses[i], out ParseAddressInfo parsedInfo, throwExceptionIfFail);
 
                 if (success && parsedInfo.IsNotNull())
                 {
@@ -65,9 +66,17 @@ namespace dotNetTips.Utility.Standard.Net
                 }
             }
 
-            info = result.ToArray();
+            if (result.HasItems())
+            {
+                info = result.ToArray();
 
-            return true;
+                return true;
+            }
+            else
+            {
+                info = null;
+                return false;
+            }
         }
 
         /// <summary>
@@ -124,8 +133,8 @@ namespace dotNetTips.Utility.Standard.Net
         /// <exception cref="FormatException">Invalid email address.
         /// or
         /// Invalid character: {(index &gt;= 0 ? data[index] : MailBnfHelper.EndAngleBracket)}.</exception>
-        /// <remarks>NEW: From .NET Core Source</remarks>
-        private static bool TryParseAddress(string data, bool expectMultipleAddresses, int index, out ParseAddressInfo parseAddressInfo, bool throwExceptionIfFail)
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 64.06, Status = Status.New)]
+        private static bool TryParseEmailAddress(string data, bool expectMultipleAddresses, int index, out ParseAddressInfo parseAddressInfo, bool throwExceptionIfFail)
         {
             Debug.Assert(!string.IsNullOrEmpty(data));
             Debug.Assert(index >= 0 && index < data.Length, "Index out of range: " + index + ", " + data.Length);

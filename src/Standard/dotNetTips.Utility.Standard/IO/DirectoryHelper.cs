@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.OOP;
 using System;
@@ -228,7 +229,7 @@ namespace dotNetTips.Utility.Standard.IO
                         }
                     }
                 }
-                catch (Exception ex) when (ex is DirectoryNotFoundException || ex is SecurityException || ex is UnauthorizedAccessException)
+                catch (Exception ex) when (ex is System.IO.DirectoryNotFoundException || ex is SecurityException || ex is UnauthorizedAccessException)
                 {
                     System.Diagnostics.Trace.WriteLine(ex.Message);
                 }
@@ -265,7 +266,7 @@ namespace dotNetTips.Utility.Standard.IO
                         files.AddIfNotExists(directoryFiles);
                     }
                 }
-                catch (Exception ex) when (ex is DirectoryNotFoundException || ex is SecurityException)
+                catch (Exception ex) when (ex is System.IO.DirectoryNotFoundException || ex is SecurityException)
                 {
                     System.Diagnostics.Trace.WriteLine(ex.Message);
                 }
@@ -350,7 +351,7 @@ namespace dotNetTips.Utility.Standard.IO
                 {
                     folders.AddRange(SafeDirectorySearch(rootDirectory.GetDirectories(searchPattern, searchOption)[directoryCount], searchPattern));
                 }
-                catch (Exception ex) when (ex is ArgumentException || ex is ArgumentNullException || ex is ArgumentOutOfRangeException || ex is DirectoryNotFoundException || ex is UnauthorizedAccessException)
+                catch (Exception ex) when (ex is ArgumentException || ex is ArgumentNullException || ex is ArgumentOutOfRangeException || ex is System.IO.DirectoryNotFoundException || ex is UnauthorizedAccessException)
                 {
                     System.Diagnostics.Trace.WriteLine(ex.Message);
                 }

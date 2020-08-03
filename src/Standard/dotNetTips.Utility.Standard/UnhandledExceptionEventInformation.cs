@@ -12,6 +12,8 @@
 // <summary></summary>
 // ***********************************************************************
 
+using dotNetTips.Utility.Standard.Common;
+
 namespace dotNetTips.Utility.Standard
 {
 

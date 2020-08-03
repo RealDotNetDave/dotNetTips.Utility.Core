@@ -47,7 +47,7 @@ namespace dotNetTips.Utility.Benchmarks.IO
         }
 
         //[Benchmark(Description = nameof(DirectoryHelper.LoadOneDriveFolders))]
-        //public void TestLoadOneDriveFolders()
+        //public void LoadOneDriveFolders()
         //{
         //    foreach (var folder in DirectoryHelper.LoadOneDriveFolders())
         //    {
@@ -56,7 +56,7 @@ namespace dotNetTips.Utility.Benchmarks.IO
         //}
 
         [Benchmark(Description = nameof(DirectoryHelper.LoadFiles))]
-        public void TestLoadDirectoryFiles()
+        public void LoadDirectoryFiles()
         {
             var searchFolders = new List<DirectoryInfo>
             {
@@ -91,7 +91,7 @@ namespace dotNetTips.Utility.Benchmarks.IO
         }
 
         [Benchmark(Description = nameof(DirectoryHelper.SafeDirectorySearch))]
-        public void TestSafeDirectorySearch()
+        public void SafeDirectorySearch()
         {
             var result = DirectoryHelper.SafeDirectorySearch(new DirectoryInfo(_tempFilePath), "*." + FileExtension);
 
@@ -99,7 +99,7 @@ namespace dotNetTips.Utility.Benchmarks.IO
         }
 
         [Benchmark(Description = nameof(DirectoryHelper.SafeFileSearch))]
-        public void TestSafeFileSearch()
+        public void SafeFileSearch()
         {
             var result = DirectoryHelper.SafeFileSearch(new DirectoryInfo(_tempFilePath), "*.*", SearchOption.AllDirectories);
 

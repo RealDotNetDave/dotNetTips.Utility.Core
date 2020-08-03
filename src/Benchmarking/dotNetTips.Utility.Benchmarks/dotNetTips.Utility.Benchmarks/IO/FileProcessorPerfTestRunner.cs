@@ -61,7 +61,7 @@ namespace dotNetTips.Utility.Benchmarks.IO
         }
 
         [Benchmark(Description = nameof(FileProcessor.CopyFiles))]
-        public void TestCopyFilesWithEvent()
+        public void CopyFilesWithEvent()
         {
             var processor = new FileProcessor();
 
@@ -73,7 +73,7 @@ namespace dotNetTips.Utility.Benchmarks.IO
         }
 
         [Benchmark(Description = nameof(FileProcessor.DeleteFiles))]
-        public void TestDeleteFilesWithEvent()
+        public void DeleteFilesWithEvent()
         {
             var tempFiles = RandomData.GenerateFiles(_fileCount, _fileLength);
 
@@ -87,7 +87,7 @@ namespace dotNetTips.Utility.Benchmarks.IO
         }
 
         [Benchmark(Description = nameof(FileProcessor.DeleteFolders))]
-        public void TestDeleteFoldersWithEvent()
+        public void DeleteFoldersWithEvent()
         {
             const int Capacity = 100;
             var tempFolder = Path.GetTempPath();

@@ -34,7 +34,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         }
 
         [Benchmark(Description = nameof(ObjectExtensions.As))]
-        public void TestAs()
+        public void As()
         {
             var result = this._person.As<IPerson>();
 
@@ -42,7 +42,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         }
 
         [Benchmark(Description = nameof(ObjectExtensions.Clone))]
-        public void TestClone()
+        public void Clone()
         {
             var result = this._person.Clone<PersonProper>();
 
@@ -50,7 +50,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         }
 
         [Benchmark(Description = nameof(ObjectExtensions.ComputeMD5Hash))]
-        public void TestComputeMD5Hash()
+        public void ComputeMD5Hash()
         {
             var result = this._person.ComputeMD5Hash();
 
@@ -58,7 +58,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         }
 
         [Benchmark(Description = nameof(ObjectExtensions.ComputeSha256Hash))]
-        public void TestComputeSha256Hash()
+        public void ComputeSha256Hash()
         {
             var result = this._person.ComputeSha256Hash();
 
@@ -66,7 +66,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         }
 
         [Benchmark(Description = nameof(ObjectExtensions.DisposeFields))]
-        public void TestDisposeFields()
+        public void DisposeFields()
         {
             System.Data.DataTable disposableType = new System.Data.DataTable("TEST");
 
@@ -74,7 +74,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         }
 
         [Benchmark(Description = nameof(ObjectExtensions.FromJson))]
-        public void TestFromJson()
+        public void FromJson()
         {
             var result = this._peopleJson.FromJson<PersonProper>();
 
@@ -82,7 +82,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         }
 
         [Benchmark(Description = nameof(ObjectExtensions.HasProperty))]
-        public void TestHasProperty()
+        public void HasProperty()
         {
             var result = this._person.HasProperty("City");
 
@@ -90,7 +90,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         }
 
         [Benchmark(Description = nameof(ObjectExtensions.IsNotNull))]
-        public void TestIsNotNull()
+        public void IsNotNull()
         {
             var result = this._person.IsNotNull();
 
@@ -98,7 +98,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         }
 
         [Benchmark(Description = nameof(ObjectExtensions.IsNull))]
-        public void TestIsNull()
+        public void IsNull()
         {
             var result = this._person.IsNull();
 
@@ -106,7 +106,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         }
 
         [Benchmark(Description = nameof(ObjectExtensions.StripNull))]
-        public void TestStripNull()
+        public void StripNull()
         {
             var result = this._person.StripNull();
 
@@ -114,7 +114,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         }
 
         [Benchmark(Description = nameof(ObjectExtensions.ToJson))]
-        public void TestToJson()
+        public void ToJson()
         {
             var result = this._person.ToJson();
 
@@ -122,7 +122,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         }
 
         [Benchmark(Description = nameof(ObjectExtensions.TryDispose))]
-        public void TestTryDispose()
+        public void TryDispose()
         {
             System.Data.DataTable disposableType = new System.Data.DataTable("TEST");
 

@@ -32,7 +32,7 @@ namespace dotNetTips.Utility.Benchmarks
         }
 
         [Benchmark(Description = nameof(Services.AllServices))]
-        public void TestAllServices()
+        public void AllServices()
         {
             var result = Services.AllServices();
 
@@ -40,7 +40,7 @@ namespace dotNetTips.Utility.Benchmarks
         }
 
         [Benchmark(Description = nameof(Services.ServiceExists))]
-        public void TestServiceExists()
+        public void ServiceExists()
         {
             var result = Services.ServiceExists(_service);
 
@@ -48,7 +48,7 @@ namespace dotNetTips.Utility.Benchmarks
         }
 
         [Benchmark(Description = nameof(Services.ServiceStatus))]
-        public void TestServiceStatus()
+        public void ServiceStatus()
         {
             var result = Services.ServiceStatus(_service);
 

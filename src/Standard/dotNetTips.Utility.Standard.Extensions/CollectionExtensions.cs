@@ -22,6 +22,8 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using dotNetTipis.Utility.Standard.Common;
+using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.Extensions.Properties;
 
 namespace dotNetTips.Utility.Standard.Extensions
@@ -39,9 +41,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="list">The list.</param>
         /// <param name="item">The item.</param>
         /// <returns>T[].</returns>
-        /// <remarks>NEW</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static IList<T> AddFirst<T>(this IList<T> list, T item)
         {
+            if (list.IsReadOnly)
+            {
+                ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
+            }
+
             if (item == null)
             {
                 throw new ArgumentNullException(nameof(item), $"{nameof(item)} is null.");
@@ -59,7 +66,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="array">The array.</param>
         /// <param name="item">The item.</param>
         /// <returns>T[].</returns>
-        /// <remarks>NEW: From .NET Core source.</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static T[] AddFirst<T>(this T[] array, T item)
         {
             if (item == null)
@@ -92,7 +99,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             if (list.IsReadOnly)
             {
-                throw new ArgumentException("List cannot be read-only.", nameof(list));
+                ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
             }
 
             if (item == null)
@@ -122,15 +129,59 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             if (list.IsReadOnly)
             {
-                throw new ArgumentException(Resources.ListCannotBeReadOnly, nameof(list));
+                ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
             }
 
             if (items.HasItems())
             {
                 for (int index = 0; index < items.Length; index++)
                 {
-                    list.AddIfNotExists(items[index]);
+                    if (items[index].IsNotNull())
+                    {
+                        list.AddIfNotExists(items[index]);
+                    }
                 }
+            }
+        }
+
+        /// <summary>
+        /// Adds if not exists.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list">The list.</param>
+        /// <param name="item">The item.</param>
+        /// <param name="comparer">The comparer.</param>
+        /// <exception cref="ArgumentException">List cannot be read-only. - list</exception>
+        /// <exception cref="ArgumentNullException">
+        /// item
+        /// or
+        /// comparer
+        /// </exception>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 87.5, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        public static void AddIfNotExists<T>(this ICollection<T> list, T item, IEqualityComparer<T> comparer)
+        {
+            if (list.IsReadOnly)
+            {
+                ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
+            }
+
+            if (item == null)
+            {
+                throw new ArgumentNullException(nameof(item), $"{nameof(item)} is null.");
+            }
+
+            if (comparer == null)
+            {
+                throw new ArgumentNullException(nameof(comparer), $"{nameof(comparer)} is null.");
+            }
+
+            if (list.Contains(item, comparer))
+            {
+                return;
+            }
+            else
+            {
+                list.Add(item);
             }
         }
 
@@ -146,7 +197,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">key
         /// or
         /// value</exception>
-        /// <remarks>NEW: Orginal Code from .NET Core.</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static void AddIfNotExists<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
             if (key == null)
@@ -172,9 +223,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="list">The list.</param>
         /// <param name="item">The item.</param>
         /// <returns>T[].</returns>
-        /// <remarks>NEW</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static IList<T> AddLast<T>(this IList<T> list, T item)
         {
+            if (list.IsReadOnly)
+            {
+                ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
+            }
+
             if (item == null)
             {
                 throw new ArgumentNullException(nameof(item), $"{nameof(item)} is null.");
@@ -192,9 +248,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="array">The array.</param>
         /// <param name="item">The item.</param>
         /// <returns>T[].</returns>
-        /// <remarks>NEW: From .NET Core source.</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static T[] AddLast<T>(this T[] array, T item)
         {
+            if (item == null)
+            {
+                throw new ArgumentNullException("Item cannot be null.", nameof(item));
+            }
+
             var result = new T[array.Length + 1];
             array.CopyTo(result, 0);
             result[array.Length] = item;
@@ -214,14 +275,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="System.ArgumentNullException">items</exception>
         public static void AddRange<T>(this ICollection<T> list, IEnumerable<T> items, bool insureUnique = false)
         {
-            if (list.IsReadOnly)
-            {
-                throw new ArgumentException("List cannot be read-only.", nameof(list));
-            }
-
             if (items.HasItems() == false)
             {
-                throw new ArgumentNullException(nameof(items), $"{nameof(items)} is null.");
+                return;
+            }
+
+            if (list.IsReadOnly)
+            {
+                ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
             }
 
             if (items.HasItems())
@@ -264,12 +325,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             if (list.IsReadOnly)
             {
-                throw new ArgumentException("List cannot be read-only.", nameof(list));
-            }
-
-            if (items.HasItems() == false)
-            {
-                throw new ArgumentNullException(nameof(items), $"{nameof(items)} is null or is empty.");
+                ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
             }
 
             if (key is null)
@@ -299,7 +355,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The input.</param>
         /// <param name="arrayToCheck">The array to check.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <remarks>NEW: Orginal Code from EF Core.</remarks>
+        [Information("From .NET EF Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 52.94, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
         public static bool AreEqual<T>(this T[] input, T[] arrayToCheck)
         {
@@ -330,6 +386,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The input.</param>
         /// <param name="listToCheck">The list to check.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        [Information("From .NET EF Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 90.91, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
         public static bool AreEqual<T>(this IList<T> input, IList<T> listToCheck)
         {
@@ -371,18 +428,28 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Determines whether the specified collection has items specified.
+        /// Clones the specified array.
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="source">The source.</param>
-        /// <param name="items">The items.</param>
-        /// <returns><c>true</c> if the specified items has items; otherwise, <c>false</c>.</returns>
-        /// <remarks>NEW</remarks>
-        public static bool ContainsAny<T>(this IEnumerable<T> source, params T[] items)
+        /// <param name="input">The input.</param>
+        /// <returns>T[].</returns>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        public static T[] Clone<T>(this T[] input)
         {
-            var itemsList = items.ToReadOnlyCollection();
+            if (input == null)
+            {
+                return null;
+            }
 
-            return itemsList.HasItems() ? source.ToList().Any(p => itemsList.Contains(p)) : false;
+            if (input.Length == 0)
+            {
+                return Array.Empty<T>();
+            }
+
+            var copy = new T[input.Length];
+            Array.Copy(sourceArray: input, sourceIndex: 0, destinationArray: copy, destinationIndex: 0, length: input.Length);
+
+            return copy;
         }
 
         /// <summary>
@@ -392,12 +459,42 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="source">The source.</param>
         /// <param name="items">The items.</param>
         /// <returns><c>true</c> if the specified items has items; otherwise, <c>false</c>.</returns>
-        /// <remarks>NEW</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 91.67, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        public static bool ContainsAny<T>(this IEnumerable<T> source, params T[] items)
+        {
+            if (items.HasItems() == false)
+            {
+                return false;
+            }
+            else
+            {
+                var itemsList = items.ToReadOnlyCollection();
+
+                return itemsList.HasItems() ? source.ToList().Any(p => itemsList.Contains(p)) : false;
+            }
+        }
+
+        /// <summary>
+        /// Determines whether the specified collection has items specified.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="items">The items.</param>
+        /// <returns><c>true</c> if the specified items has items; otherwise, <c>false</c>.</returns>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 88.89, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static bool ContainsAny<T>(this T[] source, params T[] items)
         {
-            var itemsList = items.ToReadOnlyCollection();
+            if (items.HasItems() == false)
+            {
+                return false;
+            }
+            else
+            {
 
-            return itemsList.HasItems() ? source.ToReadOnlyCollection().Any(p => itemsList.Contains(p)) : false;
+                var itemsList = items.ToReadOnlyCollection();
+
+                return itemsList.HasItems() ? source.ToReadOnlyCollection().Any(p => itemsList.Contains(p)) : false;
+            }
         }
 
         /// <summary>
@@ -541,7 +638,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>T.</returns>
         /// <exception cref="ArgumentNullException">alternate</exception>
         /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
-        public static T FirstOr<T>(this IEnumerable<T> source, T alternate)
+        public static T FirstOrDefault<T>(this IEnumerable<T> source, T alternate)
         {
             if (alternate == null)
             {
@@ -563,7 +660,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// or
         /// alternate</exception>
         /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
-        public static T FirstOr<T>(this IEnumerable<T> source, Func<T, bool> predicate, T alternate)
+        public static T FirstOrDefault<T>(this IEnumerable<T> source, Func<T, bool> predicate, T alternate)
         {
             if (predicate == null)
             {
@@ -575,7 +672,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 throw new ArgumentNullException(nameof(alternate), $"{nameof(alternate)} is null.");
             }
 
-            return source.Where(predicate).FirstOr(alternate);
+            return source.Where(predicate).FirstOrDefault(alternate);
         }
 
         /// <summary>
@@ -595,7 +692,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             if (list.HasItems() == false)
             {
-                throw new ArgumentNullException(nameof(list), $"{nameof(list)} is null or is empty.");
+                return null;
             }
 
             if (match is null)
@@ -626,16 +723,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>IEnumerable&lt;System.String&gt;.</returns>
         /// <exception cref="ArgumentException">delimitedInput</exception>
         /// <remarks>Code by: Blake Pell</remarks>
-        public static IEnumerable<string> FromDelimitedString(this string delimitedInput, char delimiter)
+        public static IEnumerable<string> FromDelimitedString(this string delimitedInput, char delimiter = ',')
         {
-            if (string.IsNullOrEmpty(delimitedInput))
-            {
-                throw new ArgumentException($"{nameof(delimitedInput)} is null or empty.", nameof(delimitedInput));
-            }
-
-            var items = delimitedInput.Split(delimiter);
-
-            return items.AsEnumerable();
+            return delimitedInput.Split(delimiter).AsEnumerable();
         }
 
         /// <summary>
@@ -650,7 +740,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">key
         /// or
         /// valueFactory</exception>
-        /// <remarks>NEW</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static TValue GetOrAdd<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
             if (key == null)
@@ -763,7 +853,17 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
         public static int IndexOf<T>(this IEnumerable<T> source, T item, IEqualityComparer<T> comparer)
         {
-            return source.Select((x, index) => comparer.Equals(item, x) ? index : -1).FirstOr(x => x != -1, -1);
+            if (item == null)
+            {
+                throw new ArgumentNullException(nameof(item), $"{nameof(item)} is null.");
+            }
+
+            if (comparer == null)
+            {
+                throw new ArgumentNullException(nameof(comparer), $"{nameof(comparer)} is null.");
+            }
+
+            return source.Select((x, index) => comparer.Equals(item, x) ? index : -1).FirstOrDefault(x => x != -1, -1);
         }
 
         /// <summary>
@@ -779,12 +879,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Collections the hash code.
+        /// Gets HashCode for the Collection.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="list">The list.</param>
         /// <returns>System.Int32.</returns>
-        /// <remarks>NEW: FROM .NET CORE SOURCE</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static int ListHashCode<T>(this ReadOnlyCollection<T> list)
         {
             var comparer = EqualityComparer<T>.Default;
@@ -800,7 +900,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T"></typeparam>
         /// <param name="list">The list.</param>
         /// <returns>System.Int32.</returns>
-        /// <remarks>NEW: FROM .NET CORE SOURCE</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static int ListHashCode<T>(this IList<T> list)
         {
             var comparer = EqualityComparer<T>.Default;
@@ -811,12 +911,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Collections the hash code.
+        /// Get hashcode for the entire list.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="list">The list.</param>
         /// <returns>System.Int32.</returns>
-        /// <remarks>NEW: FROM .NET CORE SOURCE</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static int ListHashCode<T>(this T[] list)
         {
             var comparer = EqualityComparer<T>.Default;
@@ -827,7 +927,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Orders a list based on a sort expression. Useful in object data binding scenarios where
+        /// Orders a list based on a sort expression. Useful in object 
+        /// binding scenarios where
         /// the ObjectDataSource generates a dynamic sort expression (example: "Name desc") that
         /// specifies the property of the object sort on.
         /// </summary>
@@ -996,7 +1097,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T"></typeparam>
         /// <param name="array">The array.</param>
         /// <returns>T[].</returns>
-        /// <remarks>NEW</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static T[] RemoveFirst<T>(this T[] array)
         {
             T[] result = new T[array.Length - 1];
@@ -1013,7 +1114,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T"></typeparam>
         /// <param name="array">The array.</param>
         /// <returns>T[].</returns>
-        /// <remarks>NEW: From .NET Core source.</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static T[] RemoveLast<T>(this T[] array)
         {
             T[] result = new T[array.Length - 1];
@@ -1101,25 +1202,28 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>System.String.</returns>
         /// <exception cref="ArgumentNullException">list - Source cannot be null or have a 0 value.</exception>
         /// <exception cref="System.ArgumentNullException">list - Source cannot be null or have a 0 value.</exception>
-        public static string ToDelimitedString<T>(this IEnumerable<T> list, char delimiter)
+        public static string ToDelimitedString<T>(this IEnumerable<T> list, char delimiter = ',')
         {
-            var sb = new StringBuilder();
-
-            if (list.HasItems())
+            if (list.HasItems() == false)
             {
+                return string.Empty;
+            }
+            else
+            {
+                var sb = new StringBuilder();
 
                 list.ToList().ForEach(item =>
                 {
                     if (sb.Length > 0)
                     {
-                        sb.Append(delimiter.ToString(CultureInfo.CurrentCulture));
+                        sb.Append(delimiter.ToString(CultureInfo.CurrentCulture).ToTrimmed());
                     }
 
                     sb.Append(item.ToString());
                 });
-            }
 
-            return sb.ToString();
+                return sb.ToString();
+            }
         }
 
         /// <summary>
@@ -1304,7 +1408,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// addValueFactory
         /// or
         /// updateValueFactory</exception>
-        /// <remarks>NEW</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static TValue Upsert<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
             if (key == null)

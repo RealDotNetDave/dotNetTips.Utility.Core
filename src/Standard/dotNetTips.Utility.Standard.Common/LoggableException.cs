@@ -11,7 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Logging;
+using dotNetTips.Utility.Standard.Common.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -24,7 +24,7 @@ using System.Security;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace dotNetTips.Utility.Standard
+namespace dotNetTips.Utility.Standard.Common
 {
     /// <summary>
     /// Class LoggableException.
@@ -114,15 +114,16 @@ namespace dotNetTips.Utility.Standard
         /// Gets Exception message, including inner Exceptions.
         /// </summary>
         /// <value>The messages.</value>
-        public virtual IEnumerable<string> Messages
+        public virtual string[] Messages
         {
             get
             {
                 var exceptions = LoggingHelper.RetrieveAllExceptions(this);
                 var errorMessages = new List<string>();
 
-                exceptions.ForEach(current =>
+                for (int i = 0; i < exceptions.Length; i++)
                 {
+                    var current = exceptions[i];
                     errorMessages.Add(current.GetType().FullName);
                     errorMessages.Add(ReflectException(current));
 
@@ -130,9 +131,9 @@ namespace dotNetTips.Utility.Standard
                     {
                         errorMessages.Add(current.StackTrace);
                     }
-                });
+                }
 
-                return errorMessages;
+                return errorMessages.ToArray();
             }
         }
 

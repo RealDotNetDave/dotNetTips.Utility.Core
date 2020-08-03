@@ -320,7 +320,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">obj</exception>
         public static void TryDispose(this IDisposable obj, bool throwException)
         {
-            if (obj == null)
+            if (obj.IsNull())
             {
                 throw new ArgumentNullException(nameof(obj));
             }
@@ -328,11 +328,16 @@ namespace dotNetTips.Utility.Standard.Extensions
             // Swallow exception on purpose.
             try
             {
-                if (IsNotNull(obj))
+                if (obj is IAsyncDisposable asyncDisposable)
+                {
+                    asyncDisposable.DisposeAsync();
+                }
+                else
                 {
                     obj.Dispose();
-                    obj = null;
                 }
+
+                obj = null;
             }
             catch
             {

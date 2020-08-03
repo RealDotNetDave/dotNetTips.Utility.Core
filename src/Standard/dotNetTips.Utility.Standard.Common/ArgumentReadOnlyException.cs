@@ -11,10 +11,11 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using dotNetTipis.Utility.Standard.Common;
 using System;
 using System.Runtime.Serialization;
 
-namespace dotNetTips.Utility.Standard
+namespace dotNetTips.Utility.Standard.Common
 {
     /// <summary>
     /// Class ArgumentIsReadOnlyException.
@@ -27,7 +28,7 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// Initializes a new instance of the <see cref="ArgumentReadOnlyException" /> class.
         /// </summary>
-        public ArgumentReadOnlyException() : base("Go to dotNetTips.com!")
+        public ArgumentReadOnlyException() : base(Resources.ExMessageReadonlyCollection)
         {
         }
 
@@ -35,16 +36,16 @@ namespace dotNetTips.Utility.Standard
         /// Initializes a new instance of the <see cref="ArgumentReadOnlyException" /> class.
         /// </summary>
         /// <param name="message">The message that describes the error.</param>
-        public ArgumentReadOnlyException(string message) : base(message)
+        public ArgumentReadOnlyException(string paramName) : base(Resources.ExMessageReadonlyCollection, paramName)
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ArgumentReadOnlyException" /> class.
         /// </summary>
-        /// <param name="paramName">Name of the parameter.</param>
         /// <param name="message">The message.</param>
-        public ArgumentReadOnlyException(string paramName, string message) : base(paramName, message)
+        /// <param name="paramName">Name of the parameter.</param>
+        public ArgumentReadOnlyException(string message, string paramName) : base(paramName, message)
         {
         }
 

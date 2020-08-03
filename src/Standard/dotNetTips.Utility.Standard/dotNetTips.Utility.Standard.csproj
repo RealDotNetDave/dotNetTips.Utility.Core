@@ -3,8 +3,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.xml</DocumentationFile>
     <OutputPath>..\..\..\appbin\</OutputPath>
-    <AssemblyVersion>2020.7.27.41345</AssemblyVersion>
-    <FileVersion>2020.7.27.41345</FileVersion>
+    <AssemblyVersion>2020.8.3.32825</AssemblyVersion>
+    <FileVersion>2020.8.3.32825</FileVersion>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
@@ -19,7 +19,7 @@
     <AssemblyOriginatorKeyFile>dotNetTips.Utility.Standard.snk</AssemblyOriginatorKeyFile>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2020.7.23.1</Version>
+    <Version>2020.7.31.2</Version>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
     <Configurations>Debug;Release;Full Build</Configurations>
     <PackageLicenseUrl></PackageLicenseUrl>
@@ -110,6 +110,7 @@
     <Folder Include="Win32\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\dotNetTips.Utility.Standard.Common\dotNetTips.Utility.Standard.Common.csproj" />
     <ProjectReference Include="..\dotNetTips.Utility.Standard.Extensions\dotNetTips.Utility.Standard.Extensions.csproj" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

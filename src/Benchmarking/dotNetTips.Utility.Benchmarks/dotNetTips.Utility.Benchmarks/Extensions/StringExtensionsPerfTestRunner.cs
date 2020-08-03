@@ -12,24 +12,21 @@
 // <summary></summary>
 // ***********************************************************************
 using BenchmarkDotNet.Attributes;
+using dotNetTips.Utility.Standard;
 using dotNetTips.Utility.Standard.Extensions;
+using dotNetTips.Utility.Standard.Tester;
 
 namespace dotNetTips.Utility.Benchmarks.Extensions
 {
     [BenchmarkCategory(nameof(StringExtensions))]
     public class StringExtensionsPerfTestRunner : PerfTestRunner
     {
+
+        private string _commaDelimitedString;
         private string _stringToTrim;
 
-        public override void Setup()
-        {
-            base.Setup();
-
-            this._stringToTrim = "         " + LongTestString + "                   ";
-        }
-
         [Benchmark(Description = nameof(StringExtensions.ComputeSha256Hash))]
-        public void TestComputeMD5Hash()
+        public void ComputeMD5Hash()
         {
             var result = LongTestString.ComputeSha256Hash();
 
@@ -37,7 +34,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         }
 
         [Benchmark(Description = nameof(StringExtensions.Concat))]
-        public void TestConcat()
+        public void Concat()
         {
             var result = LongTestString.Concat(",", true, "TEST1", "TEST2");
 
@@ -45,7 +42,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         }
 
         [Benchmark(Description = nameof(StringExtensions.ContainsAny))]
-        public void TestContainsAny()
+        public void ContainsAny()
         {
             var result = LongTestString.ContainsAny("A", "Z");
 
@@ -53,7 +50,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         }
 
         [Benchmark(Description = nameof(StringExtensions.DefaultIfNull))]
-        public void TestDefaultIfNull()
+        public void DefaultIfNull()
         {
             var result = LongTestString.DefaultIfNull();
 
@@ -61,15 +58,47 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         }
 
         [Benchmark(Description = nameof(StringExtensions.DefaultIfNullOrEmpty))]
-        public void TestDefaultIfNullOrEmpty()
+        public void DefaultIfNullOrEmpty()
         {
             var result = LongTestString.DefaultIfNullOrEmpty("David");
 
             base.Consumer.Consume(result);
         }
 
+        [Benchmark(Description = nameof(StringExtensions.EqualsIgnoreCase))]
+        public void EqualsIgnoreCase()
+        {
+            var result = RandomData.GenerateWord(10).EqualsIgnoreCase(RandomData.GenerateWord(5));
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.EqualsOrBothNullOrEmpty))]
+        public void EqualsOrBothNullOrEmpty()
+        {
+            var result = RandomData.GenerateWord(10).EqualsOrBothNullOrEmpty(RandomData.GenerateWord(5));
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.IsAsciiLetter))]
+        public void IsAsciiLetter()
+        {
+            var result = RandomData.GenerateCharacter().IsAsciiLetter();
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.IsAsciiLetterOrDigit))]
+        public void IsAsciiLetterOrDigit()
+        {
+            var result = RandomData.GenerateCharacter().IsAsciiLetterOrDigit();
+
+            base.Consumer.Consume(result);
+        }
+
         [Benchmark(Description = nameof(StringExtensions.HasValue))]
-        public void TestHasValue()
+        public void HasValue()
         {
             var result = LongTestString.HasValue();
 
@@ -77,17 +106,129 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         }
 
         [Benchmark(Description = nameof(StringExtensions.Indent))]
-        public void TestIndent()
+        public void Indent()
         {
             var result = LongTestString.Indent(10, '>');
 
             base.Consumer.Consume(result);
         }
 
-        [Benchmark(Description = nameof(StringExtensions.ToTrimmedString))]
-        public void TestToTrimmedString()
+        public override void Setup()
         {
-            var result = this._stringToTrim.ToTrimmedString();
+            base.Setup();
+            this._commaDelimitedString = RandomData.GenerateWords(10, 5, 10).ToDelimitedString();
+            this._stringToTrim = "         " + LongTestString + "                   ";
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.Split) + ":Char Separator")]
+        public void SplitCharSeparator()
+        {
+            var result = this._commaDelimitedString.Split(ControlChars.Comma, System.StringSplitOptions.None);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.Split) + ":Char Separator-Count")]
+        public void SplitCharSeparatorCount()
+        {
+            var result = this._commaDelimitedString.Split(ControlChars.Comma, 2, System.StringSplitOptions.None);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.Split) + ":Char Separator-RemoveEmptyEntries")]
+        public void SplitCharSeparatorRemoveEmptyEntries()
+        {
+            var result = this._commaDelimitedString.Split(ControlChars.Comma, System.StringSplitOptions.RemoveEmptyEntries);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.Split) + ":Char Separator-Count-RemoveEmptyEntries")]
+        public void SplitCharSeparatorRemoveEmptyEntriesCount()
+        {
+            var result = this._commaDelimitedString.Split(ControlChars.Comma, 2, System.StringSplitOptions.RemoveEmptyEntries);
+
+            base.Consumer.Consume(result);
+        }
+
+        ///new
+        [Benchmark(Description = nameof(StringExtensions.Split) + ":String Separator")]
+        public void SplitStringSeparator()
+        {
+            var result = this._commaDelimitedString.Split(",", System.StringSplitOptions.None);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.Split) + ":String Separator-Count")]
+        public void SplitStringSeparatorCount()
+        {
+            var result = this._commaDelimitedString.Split(",", 2, System.StringSplitOptions.None);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.Split) + ":String Separator-RemoveEmptyEntries")]
+        public void SplitStringSeparatorRemoveEmptyEntries()
+        {
+            var result = this._commaDelimitedString.Split(",", System.StringSplitOptions.RemoveEmptyEntries);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.Split) + ":String Separator-Count-RemoveEmptyEntries")]
+        public void SplitStringSeparatorRemoveEmptyEntriesCount()
+        {
+            var result = this._commaDelimitedString.Split(",", 2, System.StringSplitOptions.RemoveEmptyEntries);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.StartsWithOrdinal))]
+        public void StartsWithOrdinal()
+        {
+            var result = RandomData.GenerateWord(10).StartsWithOrdinal(RandomData.GenerateWord(5));
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.StartsWithOrdinalIgnoreCase))]
+        public void StartsWithOrdinalIgnoreCase()
+        {
+            var result = RandomData.GenerateWord(10).StartsWithOrdinalIgnoreCase(RandomData.GenerateWord(5));
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.SubstringTrim))]
+        public void SubstringTrim()
+        {
+            var result = RandomData.GenerateWord(100).SubstringTrim(25, 25);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.ToTrimmed))]
+        public void ToTrimmedString()
+        {
+            var result = this._stringToTrim.ToTrimmed();
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.IsWhitespace)+":String")]
+        public void IsWhitespaceString()
+        {
+            var result = this._stringToTrim.IsWhitespace();
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.IsWhitespace) + ":Char")]
+        public void IsWhitespaceChar()
+        {
+            var result = RandomData.GenerateCharacter().IsWhitespace();
 
             base.Consumer.Consume(result);
         }

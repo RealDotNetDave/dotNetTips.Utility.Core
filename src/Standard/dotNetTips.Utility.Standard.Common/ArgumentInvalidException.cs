@@ -14,7 +14,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace dotNetTips.Utility.Standard
+namespace dotNetTips.Utility.Standard.Common
 {
     /// <summary>
     /// Class ArgumentIsInvalidException.
@@ -26,7 +26,7 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// Initializes a new instance of the <see cref="ArgumentInvalidException" /> class.
         /// </summary>
-        public ArgumentInvalidException() : base("Go to dotNetTips.com for help.")
+        public ArgumentInvalidException() : base(Resources.GoToDotNetTipsComForHelp)
         {
         }
 

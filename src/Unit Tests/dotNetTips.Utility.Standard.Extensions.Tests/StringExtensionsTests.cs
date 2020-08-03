@@ -13,6 +13,7 @@
 // ***********************************************************************
 using dotNetTips.Utility.Standard.Tester;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace dotNetTips.Utility.Standard.Extensions.Tests
 {
@@ -101,6 +102,18 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             Assert.IsTrue(testValue.HasValue(10));
 
             Assert.IsFalse(testValue.HasValue("XXXXX"));
+        }
+
+        [TestMethod]
+        public void HasWhiteSpaceTest()
+        {
+            var testWithText = RandomData.GenerateWord(10);
+            var testWithWhitespace = "      ";
+
+            Assert.IsFalse(testWithText.IsWhitespace());
+            Assert.IsTrue(testWithWhitespace.IsWhitespace());
+            Assert.IsTrue(' '.IsWhitespace());
+            Assert.IsFalse('d'.IsWhitespace());
         }
 
         [TestMethod]
@@ -204,11 +217,26 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         }
 
         [TestMethod]
+        public void SubstringTrimTest()
+        {
+            var testValue = RandomData.GenerateWord(50);
+
+            //Test Params
+            Assert.ThrowsException<ArgumentNullException>(() => string.Empty.SubstringTrim(1, 10));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => testValue.SubstringTrim(-100, 10));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => testValue.SubstringTrim(1, -10));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => testValue.SubstringTrim(1, 100));
+
+            //Test
+            Assert.IsTrue(testValue.SubstringTrim(1, 10).HasValue());
+        }
+
+        [TestMethod]
         public void TrimTest()
         {
             var testValue = RandomData.GenerateWord(25) + "   ";
 
-            Assert.IsTrue(testValue.ToTrimmedString().Length == 25);
+            Assert.IsTrue(testValue.ToTrimmed().Length == 25);
         }
 
     }

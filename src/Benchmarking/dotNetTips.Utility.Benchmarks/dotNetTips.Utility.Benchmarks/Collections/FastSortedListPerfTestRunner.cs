@@ -31,7 +31,7 @@ namespace dotNetTips.Utility.Benchmarks.Collections.Concurrent
         }
 
         [Benchmark(Description = "Creating Using Constructor")]
-        public void TestCreating01()
+        public void Creating01()
         {
             var people = new FastSortedList<PersonProper>(base.personProperCollection);
 
@@ -39,7 +39,7 @@ namespace dotNetTips.Utility.Benchmarks.Collections.Concurrent
         }
 
         [Benchmark(Description = "Creating Using for()")]
-        public void TestCreating02()
+        public void Creating02()
         {
             var fakePeople = new FastSortedList<PersonProper>();
 
@@ -52,7 +52,7 @@ namespace dotNetTips.Utility.Benchmarks.Collections.Concurrent
         }
 
         [Benchmark(Description = "Looping with ForEach()")]
-        public void TestLoopingForEach01()
+        public void LoopingForEach01()
         {
             this._peopleFastSortedList.ForEach(p =>
             {
@@ -61,13 +61,13 @@ namespace dotNetTips.Utility.Benchmarks.Collections.Concurrent
         }
 
         [Benchmark(Description = "Sort()")]
-        public void TestSort01()
+        public void Sort01()
         {
             this._peopleFastSortedList.Sort();
         }
 
         [Benchmark(Description = "Sort(delegate) on Country")]
-        public void TestSort02()
+        public void Sort02()
         {
             this._peopleFastSortedList.Sort(delegate (PersonProper p1, PersonProper p2)
             {

@@ -1,7 +1,7 @@
-﻿using dotNetTips.Utility.Standard.OOP;
-using System;
+﻿using System;
 using System.IO;
 using System.Security.Cryptography;
+using dotNetTips.Utility.Standard.OOP;
 
 namespace dotNetTips.Utility.Standard.Security
 {

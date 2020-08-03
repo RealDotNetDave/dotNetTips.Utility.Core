@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.Properties;
 using System;
@@ -140,7 +141,7 @@ namespace dotNetTips.Utility.Standard.OOP
                     message = Resources.DirectoryDoesNotExist;
                 }
 
-                throw new DirectoryNotFoundException(message, directory.FullName);
+                throw new dotNetTips.Utility.Standard.Common.DirectoryNotFoundException(message, directory.FullName);
             }
         }
 
@@ -181,7 +182,7 @@ namespace dotNetTips.Utility.Standard.OOP
         /// <param name="paramName">Name of the parameter.</param>
         /// <param name="message">The message.</param>
         /// <exception cref="ArgumentInvalidException"></exception>
-        /// <exception cref="dotNetTips.Utility.Standard.ArgumentInvalidException"></exception>
+        /// <exception cref="dotNetTips.Utility.Standard.Common.ArgumentInvalidException"></exception>
         /// <exception cref="System.ArgumentException"></exception>
         public static void TryValidateParam(Guid value, string paramName, string message = "")
         {

@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetTips.Utility.Standard
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetTips.Utility.Core.AspNet", "Core\dotNetTips.Utility.Core.AspNet\dotNetTips.Utility.Core.AspNet.csproj", "{BD3C734C-E795-408F-BD90-B12029BBFB87}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetTips.Utility.Standard.Common", "Standard\dotNetTips.Utility.Standard.Common\dotNetTips.Utility.Standard.Common.csproj", "{29BCFF88-E7F8-427F-8F97-F6B3A5E1730C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,12 @@ Global
 		{BD3C734C-E795-408F-BD90-B12029BBFB87}.Full Build|Any CPU.Build.0 = Debug|Any CPU
 		{BD3C734C-E795-408F-BD90-B12029BBFB87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD3C734C-E795-408F-BD90-B12029BBFB87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29BCFF88-E7F8-427F-8F97-F6B3A5E1730C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29BCFF88-E7F8-427F-8F97-F6B3A5E1730C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29BCFF88-E7F8-427F-8F97-F6B3A5E1730C}.Full Build|Any CPU.ActiveCfg = Debug|Any CPU
+		{29BCFF88-E7F8-427F-8F97-F6B3A5E1730C}.Full Build|Any CPU.Build.0 = Debug|Any CPU
+		{29BCFF88-E7F8-427F-8F97-F6B3A5E1730C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29BCFF88-E7F8-427F-8F97-F6B3A5E1730C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

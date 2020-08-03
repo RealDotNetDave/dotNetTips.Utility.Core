@@ -11,7 +11,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Net
         {
             var address = "David McCarter <dotnetdave@live.com>";
 
-            var result = MailHelper.TryParseAddress(address, out ParseAddressInfo parsedAddress, true);
+            var result = MailHelper.TryParseEmailAddress(address, out ParseAddressInfo parsedAddress, true);
 
             Assert.IsTrue(result);
             Assert.IsTrue(parsedAddress.IsNotNull());
@@ -21,12 +21,23 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Net
         [TestMethod]
         public void TryParseAddressMultiTest()
         {
+            ParseAddressInfo[] parsedAddress;
+
             var address = "dotNetDave <dotnetdave@live.com>, David McCarter <davidmccarter@live.com>";
 
-            var result = MailHelper.TryParseAddresses(address, out ParseAddressInfo[] parsedAddress, true);
+            var result = MailHelper.TryParseEmailAddresses(address, out parsedAddress, true);
 
             Assert.IsTrue(result);
             Assert.IsTrue(parsedAddress.Count() == 2);
+
+            result = MailHelper.TryParseEmailAddresses(address, out parsedAddress, false);
+
+            Assert.IsTrue(result);
+            Assert.IsTrue(parsedAddress.Count() == 2);
+
+            result = MailHelper.TryParseEmailAddresses("david", out parsedAddress, false);
+
+            Assert.IsFalse(result);
         }
     }
 }

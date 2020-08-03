@@ -41,7 +41,7 @@ namespace dotNetTips.Utility.Benchmarks.Collections.Concurrent
         }
 
         [Benchmark(Description = "Creating Using Constructor.")]
-        public void TestCreating01()
+        public void Creating01()
         {
             var people = new DistinctBlockingCollection<PersonProper>(base.personProperCollection);
 
@@ -49,7 +49,7 @@ namespace dotNetTips.Utility.Benchmarks.Collections.Concurrent
         }
 
         [Benchmark(Description = "Creating Using for().")]
-        public void TestCreating02()
+        public void Creating02()
         {
             var fakePeople = new DistinctBlockingCollection<PersonProper>();
 
@@ -62,7 +62,7 @@ namespace dotNetTips.Utility.Benchmarks.Collections.Concurrent
         }
 
         [Benchmark(Description = "Looping with foreach().")]
-        public void TestLoopingForEach01()
+        public void LoopingForEach01()
         {
             foreach (var person in this._peopleDistinctBlockingCollection)
             {
@@ -71,7 +71,7 @@ namespace dotNetTips.Utility.Benchmarks.Collections.Concurrent
         }
 
         [Benchmark(Description = "Looping with Parallel.ForEach().")]
-        public void TestLoopingForEach02()
+        public void LoopingForEach02()
         {
             Parallel.ForEach(this._peopleDistinctBlockingCollection, p =>
                         {

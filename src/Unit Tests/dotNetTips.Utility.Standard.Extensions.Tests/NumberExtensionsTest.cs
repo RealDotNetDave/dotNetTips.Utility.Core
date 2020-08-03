@@ -23,7 +23,9 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         public void IsNegativeTest()
         {
             const int testNumber = 10;
+            const int testBadNumber = -100;
 
+            //Test good number
             Assert.IsFalse(testNumber.IsNegative());
 
             Assert.IsFalse(Convert.ToDecimal(testNumber).IsNegative());
@@ -35,6 +37,20 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             Assert.IsFalse(Convert.ToInt64(testNumber).IsNegative());
 
             Assert.IsFalse(Convert.ToInt16(testNumber).IsNegative());
+
+
+            //Test bad number
+            Assert.IsTrue(testBadNumber.IsNegative());
+
+            Assert.IsTrue(Convert.ToDecimal(testBadNumber).IsNegative());
+
+            Assert.IsTrue(Convert.ToDouble(testBadNumber).IsNegative());
+
+            Assert.IsTrue(Convert.ToSByte(testBadNumber).IsNegative());
+
+            Assert.IsTrue(Convert.ToInt64(testBadNumber).IsNegative());
+
+            Assert.IsTrue(Convert.ToInt16(testBadNumber).IsNegative());
         }
     }
 }

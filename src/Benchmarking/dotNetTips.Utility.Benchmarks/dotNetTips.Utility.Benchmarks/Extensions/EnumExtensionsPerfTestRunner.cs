@@ -21,7 +21,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
     public class EnumExtensionsPerfTestRunner : PerfTestRunner
     {
         [Benchmark(Description = nameof(EnumExtensions.GetDescription))]
-        public void TestGetDescription()
+        public void GetDescription()
         {
             var testEnum = StringComparison.OrdinalIgnoreCase;
 
@@ -31,7 +31,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         }
 
         [Benchmark(Description = nameof(EnumExtensions.GetItems))]
-        public void TestGetItems()
+        public void GetItems()
         {
             var testEnum = StringComparison.OrdinalIgnoreCase;
 

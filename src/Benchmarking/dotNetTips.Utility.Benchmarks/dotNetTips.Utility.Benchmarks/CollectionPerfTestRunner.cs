@@ -4,7 +4,7 @@
 // Created          : 10-02-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-05-2019
+// Last Modified On : 08-01-2020
 // ***********************************************************************
 // <copyright file="CollectionPerfTestRunner.cs" company="dotNetTips.Utility.Benchmarks">
 //     Copyright (c) McCarter Consulting. All rights reserved.
@@ -26,52 +26,59 @@ namespace dotNetTips.Utility.Benchmarks
     /// Implements the <see cref="dotNetTips.Utility.Benchmarks.PerfTestRunner" />
     /// </summary>
     /// <seealso cref="dotNetTips.Utility.Benchmarks.PerfTestRunner" />
-    /// TODO Edit XML Comment Template for CollectionPerfTestRunner
     public class CollectionPerfTestRunner : PerfTestRunner
     {
 
         /// <summary>
         /// The person fixed collection
         /// </summary>
-        /// TODO Edit XML Comment Template for personFixedCollection
         protected PersonCollection<PersonFixed> personFixedCollection;
+
+        /// <summary>
+        /// The person proper array full
+        /// </summary>
+        protected PersonProper[] personProperArrayFull;
+
+        /// <summary>
+        /// The person proper array half
+        /// </summary>
+        protected PersonProper[] personProperArrayHalf;
 
         /// <summary>
         /// The person proper collection
         /// </summary>
-        /// TODO Edit XML Comment Template for personProperCollection
         protected PersonCollection<PersonProper> personProperCollection;
+
+        /// <summary>
+        /// The person proper collection half count
+        /// </summary>
+        protected List<PersonProper> personProperListHalf;
 
         /// <summary>
         /// The person proper dictionary
         /// </summary>
-        /// TODO Edit XML Comment Template for personProperDictionary
         protected Dictionary<string, PersonProper> personProperDictionary;
 
         /// <summary>
         /// The sortable person proper collection
         /// </summary>
-        /// TODO Edit XML Comment Template for sortablePersonProperCollection
         protected PersonCollection<PersonProper> sortablePersonProperCollection;
 
         /// <summary>
         /// The test email
         /// </summary>
-        /// TODO Edit XML Comment Template for testEmail
         protected string testEmail;
 
         /// <summary>
         /// Gets or sets the collection count.
         /// </summary>
         /// <value>The collection count.</value>
-        /// TODO Edit XML Comment Template for CollectionCount
-        [Params(25, 50, 100, 250)]
+        [Params(25, 50, 100, 250, 500)]
         public int CollectionCount { get; set; }
 
         /// <summary>
         /// Setups this instance.
         /// </summary>
-        /// TODO Edit XML Comment Template for Setup
         public override void Setup()
         {
             base.Setup();
@@ -89,6 +96,11 @@ namespace dotNetTips.Utility.Benchmarks
             this.testEmail = this.personProperCollection[RandomData.GenerateInteger(0, this.CollectionCount - 1)].Email;
 
             this.sortablePersonProperCollection = new PersonCollection<PersonProper>(this.personProperCollection);
+
+            this.personProperArrayFull = this.personProperCollection.ToArray();
+            this.personProperArrayHalf = this.personProperCollection.Take(CollectionCount / 2).ToArray();
+
+            this.personProperListHalf = this.personProperCollection.Take(CollectionCount / 2).ToList();
         }
 
     }

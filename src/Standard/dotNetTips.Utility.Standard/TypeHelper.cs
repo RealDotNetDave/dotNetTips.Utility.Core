@@ -16,6 +16,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
+using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.OOP;
 
@@ -26,6 +28,28 @@ namespace dotNetTips.Utility.Standard
     /// </summary>
     public static class TypeHelper
     {
+
+        private const char DefaultNestedTypeDelimiter = '+';
+
+        private static readonly Dictionary<Type, string> _builtInTypeNames = new Dictionary<Type, string>
+        {
+            { typeof(void), "void" },
+            { typeof(bool), "bool" },
+            { typeof(byte), "byte" },
+            { typeof(char), "char" },
+            { typeof(decimal), "decimal" },
+            { typeof(double), "double" },
+            { typeof(float), "float" },
+            { typeof(int), "int" },
+            { typeof(long), "long" },
+            { typeof(object), "object" },
+            { typeof(sbyte), "sbyte" },
+            { typeof(short), "short" },
+            { typeof(string), "string" },
+            { typeof(uint), "uint" },
+            { typeof(ulong), "ulong" },
+            { typeof(ushort), "ushort" }
+        };
 
         /// <summary>
         /// Creates type instance.
@@ -125,8 +149,7 @@ namespace dotNetTips.Utility.Standard
         /// <param name="baseType">Type of the base.</param>
         /// <param name="classOnly">if set to <c>true</c> [class only].</param>
         /// <returns>IEnumerable&lt;Type&gt;.</returns>
-        /// <exception cref="DirectoryNotFoundException">Could not find path.</exception>
-        /// <exception cref="dotNetTips.Utility.Standard.DirectoryNotFoundException">Could not find path.</exception>
+        /// <exception cref="dotNetTips.Utility.Standard.Common.DirectoryNotFoundException">Could not find path.</exception>
         /// <exception cref="System.IO.DirectoryNotFoundException">Could not find path.</exception>
         /// <exception cref="ArgumentNullException">Could not find path.</exception>
         public static IEnumerable<Type> FindDerivedTypes(string path, SearchOption searchOption, Type baseType, bool classOnly)
@@ -138,7 +161,7 @@ namespace dotNetTips.Utility.Standard
 
             if (Directory.Exists(path) == false)
             {
-                throw new DirectoryNotFoundException("Could not find path.", path);
+                throw new dotNetTips.Utility.Standard.Common.DirectoryNotFoundException("Could not find path.", path);
             }
 
             var files = Directory.EnumerateFiles(path, "*.dll", searchOption);
@@ -191,6 +214,37 @@ namespace dotNetTips.Utility.Standard
         }
 
         /// <summary>
+        /// Gets the display name of the type.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <param name="fullName">if set to <c>true</c> [full name].</param>
+        /// <returns>System.String.</returns>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/31/2020", modifiedOn: "7/31/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        public static string GetTypeDisplayName(object item, bool fullName = true)
+        {
+            return item == null ? null : GetTypeDisplayName(item.GetType(), fullName);
+        }
+
+        /// <summary>
+        /// Pretty print a type name.
+        /// </summary>
+        /// <param name="type">The <see cref="Type"/>.</param>
+        /// <param name="fullName"><c>true</c> to print a fully qualified name.</param>
+        /// <param name="includeGenericParameterNames"><c>true</c> to include generic parameter names.</param>
+        /// <param name="includeGenericParameters"><c>true</c> to include generic parameters.</param>
+        /// <param name="nestedTypeDelimiter">Character to use as a delimiter in nested type names</param>
+        /// <returns>The pretty printed type name.</returns>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/31/2020", modifiedOn: "7/31/2020", UnitTestCoverage = 100, Status = Status.New)]
+        public static string GetTypeDisplayName(Type type, bool fullName = true, bool includeGenericParameterNames = false, bool includeGenericParameters = true, char nestedTypeDelimiter = DefaultNestedTypeDelimiter)
+        {
+            var builder = new StringBuilder();
+
+            ProcessType(builder, type, new DisplayNameOptions(fullName, includeGenericParameterNames, includeGenericParameters, nestedTypeDelimiter));
+
+            return builder.ToString();
+        }
+
+        /// <summary>
         /// Loads the derived types of a type.
         /// </summary>
         /// <param name="types">The types.</param>
@@ -227,6 +281,136 @@ namespace dotNetTips.Utility.Standard
                     yield return type;
                 }
             }
+        }
+
+        private static void ProcessArrayType(StringBuilder builder, Type type, in DisplayNameOptions options)
+        {
+            Type innerType = type;
+            while (innerType.IsArray)
+            {
+                innerType = innerType.GetElementType();
+            }
+
+            ProcessType(builder, innerType, options);
+
+            while (type.IsArray)
+            {
+                builder.Append(ControlChars.StartSquareBracket);
+                builder.Append(ControlChars.Comma, type.GetArrayRank() - 1);
+                builder.Append(ControlChars.EndSquareBracket);
+                type = type.GetElementType();
+            }
+        }
+
+        private static void ProcessGenericType(StringBuilder builder, Type type, Type[] genericArguments, int length, in DisplayNameOptions options)
+        {
+            int offset = 0;
+
+            if (type.IsNested)
+            {
+                offset = type.DeclaringType.GetGenericArguments().Length;
+            }
+
+            if (options.FullName)
+            {
+                if (type.IsNested)
+                {
+                    ProcessGenericType(builder, type.DeclaringType, genericArguments, offset, options);
+                    builder.Append(options.NestedTypeDelimiter);
+                }
+                else if (!string.IsNullOrEmpty(type.Namespace))
+                {
+                    builder.Append(type.Namespace);
+                    builder.Append(ControlChars.Dot);
+                }
+            }
+
+            int genericPartIndex = type.Name.IndexOf('`');
+            if (genericPartIndex <= 0)
+            {
+                builder.Append(type.Name);
+                return;
+            }
+
+            builder.Append(type.Name, 0, genericPartIndex);
+
+            if (options.IncludeGenericParameters)
+            {
+                builder.Append(ControlChars.StartAngleBracket);
+
+                for (int i = offset; i < length; i++)
+                {
+                    ProcessType(builder, genericArguments[i], options);
+
+                    if (i + 1 == length)
+                    {
+                        continue;
+                    }
+
+                    builder.Append(ControlChars.Comma);
+                    if (options.IncludeGenericParameterNames || !genericArguments[i + 1].IsGenericParameter)
+                    {
+                        builder.Append(ControlChars.Space);
+                    }
+                }
+
+                builder.Append(ControlChars.EndAngleBracket);
+            }
+        }
+
+        private static void ProcessType(StringBuilder builder, Type type, in DisplayNameOptions options)
+        {
+            if (type.IsGenericType)
+            {
+                Type[] genericArguments = type.GetGenericArguments();
+                ProcessGenericType(builder, type, genericArguments, genericArguments.Length, options);
+            }
+            else if (type.IsArray)
+            {
+                ProcessArrayType(builder, type, options);
+            }
+            else if (_builtInTypeNames.TryGetValue(type, out string builtInName))
+            {
+                builder.Append(builtInName);
+            }
+            else if (type.IsGenericParameter)
+            {
+                if (options.IncludeGenericParameterNames)
+                {
+                    builder.Append(type.Name);
+                }
+            }
+            else
+            {
+                string name = options.FullName ? type.FullName : type.Name;
+                builder.Append(name);
+
+                if (options.NestedTypeDelimiter != DefaultNestedTypeDelimiter)
+                {
+                    builder.Replace(DefaultNestedTypeDelimiter, options.NestedTypeDelimiter, builder.Length - name.Length, name.Length);
+                }
+            }
+        }
+
+        private readonly struct DisplayNameOptions
+        {
+
+            public DisplayNameOptions(bool fullName, bool includeGenericParameterNames, bool includeGenericParameters, char nestedTypeDelimiter)
+            {
+                FullName = fullName;
+                IncludeGenericParameters = includeGenericParameters;
+                IncludeGenericParameterNames = includeGenericParameterNames;
+                NestedTypeDelimiter = nestedTypeDelimiter;
+            }
+
+            public bool FullName { get; }
+
+            public bool IncludeGenericParameterNames { get; }
+
+            public bool IncludeGenericParameters { get; }
+
+            public char NestedTypeDelimiter { get; }
+
         }
 
     }

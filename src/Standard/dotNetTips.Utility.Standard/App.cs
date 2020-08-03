@@ -4,13 +4,14 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 03-04-2020
+// Last Modified On : 07-31-2020
 // ***********************************************************************
 // <copyright file="App.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.OOP;
 using System;
@@ -31,8 +32,7 @@ namespace dotNetTips.Utility.Standard
     /// Class ApplicationHelper.
     /// </summary>
     public static class App
-    {
-
+    { 
         /// <summary>
         /// The temporary ASP files location
         /// </summary>
@@ -126,6 +126,7 @@ namespace dotNetTips.Utility.Standard
         /// Returns the folder path for the entry assembly.
         /// </summary>
         /// <returns>System.String.</returns>
+        [Information(nameof(ExecutingFolder), author: "David McCarter", createdOn: "6/26/2017", modifiedOn: "7/31/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static string ExecutingFolder()
         {
             return new FileInfo(Assembly.GetEntryAssembly().Location).Directory.ToString();
@@ -262,6 +263,7 @@ namespace dotNetTips.Utility.Standard
         private static AppInfo InitAppInfo()
         {
             var assembly = Assembly.GetEntryAssembly();
+           
             var appInfo = new AppInfo()
             {
                 Company = assembly.GetCustomAttributes<AssemblyCompanyAttribute>().FirstOrDefault()?.Company,

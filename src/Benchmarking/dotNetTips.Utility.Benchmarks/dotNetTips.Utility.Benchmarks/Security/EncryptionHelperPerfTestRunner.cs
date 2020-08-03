@@ -34,7 +34,7 @@ namespace dotNetTips.Utility.Benchmarks.Security
         }
 
         [Benchmark(Description = "RijndaelEncryption")]
-        public void TestRijndaelEncryption()
+        public void RijndaelEncryption()
         {
             using var keys = new RijndaelManaged();
 
@@ -46,7 +46,7 @@ namespace dotNetTips.Utility.Benchmarks.Security
         }
 
         [Benchmark(Description = "AesEncryption")]
-        public void TestAesEncrypt()
+        public void AesEncrypt()
         {
             using var keys = new AesManaged();
 

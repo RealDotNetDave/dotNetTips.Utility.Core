@@ -116,6 +116,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
             Assert.IsTrue(result.Count() > 0);
         }
 
+
         [TestMethod]
         public void FileHasInvalidPathCharsTest()
         {

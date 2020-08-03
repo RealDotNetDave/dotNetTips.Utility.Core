@@ -30,6 +30,7 @@ namespace dotNetTips.Utility.Benchmarks
         {
             var config = DefaultConfig.Instance.With(Job.Default.With(CsProjCoreToolchain.NetCoreApp30));
 
+
             BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).RunAll(config);
 
             //BenchmarkRunner.Run<CollectionExtensionsPerfTestRunner>(config);

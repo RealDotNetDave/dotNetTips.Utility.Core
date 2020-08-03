@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using dotNetTips.Utility.Standard.Common;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

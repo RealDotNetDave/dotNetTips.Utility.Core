@@ -13,19 +13,21 @@
 // ***********************************************************************
 using System.Net;
 using System.Net.Sockets;
+using dotNetTips.Utility.Standard.Common;
 
 namespace dotNetTips.Utility.Standard.Net
 {
     /// <summary>
     /// Helper methods for Sockets.
     /// </summary>
+    [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
     public static class SocketsHelper
     {
         /// <summary>
         /// Creates the and start TCP listener on anonymous port. Binds to an OS-assigned port.
         /// </summary>
         /// <returns>System.ValueTuple&lt;TcpListener, System.Int32&gt;.</returns>
-        /// <remarks>NEW: From .NET Core source.</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static (TcpListener listener, int port) CreateAndStartTcpListenerOnAnonymousPort()
         {
             var listener = new TcpListener(IPAddress.IPv6Any, 0);

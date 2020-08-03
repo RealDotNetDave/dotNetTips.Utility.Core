@@ -12,7 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 using BenchmarkDotNet.Attributes;
-using dotNetTips.Utility.Standard.Logging;
+using dotNetTips.Utility.Standard.Common.Logging;
 using System;
 using System.Linq;
 
@@ -32,7 +32,7 @@ namespace dotNetTips.Utility.Benchmarks.Logging
         }
 
         [Benchmark(Description = nameof(LoggingHelper.RetrieveAllExceptionMessages))]
-        public void TestRetrieveAllExceptionMessages()
+        public void RetrieveAllExceptionMessages()
         {
             var exceptions = LoggingHelper.RetrieveAllExceptionMessages(this._testException).ToArray();
 
@@ -46,7 +46,7 @@ namespace dotNetTips.Utility.Benchmarks.Logging
         }
 
         [Benchmark(Description = nameof(LoggingHelper.RetrieveAllExceptions))]
-        public void TestRetrieveAllExceptions()
+        public void RetrieveAllExceptions()
         {
             var result = LoggingHelper.RetrieveAllExceptions(this._testException).Select(ex => ex).Count();
 

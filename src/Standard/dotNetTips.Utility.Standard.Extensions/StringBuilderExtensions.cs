@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using dotNetTips.Utility.Standard.Common;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -21,6 +22,7 @@ namespace dotNetTips.Utility.Standard.Extensions
     /// <summary>
     /// StringBuilder Extensions.
     /// </summary>
+    [Information(nameof(StringBuilderExtensions), "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
     public static class StringBuilderExtensions
     {
 
@@ -33,7 +35,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="sb">The builder.</param>
         /// <param name="bytes">The bytes.</param>
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        [Information("Orginal code from efcore-master on GitHub", author: "David McCarter", createdOn: "5/26/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 80, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static void AppendBytes(this StringBuilder sb, byte[] bytes)
         {
             if ((bytes == null) || (bytes.Length == 0))
@@ -60,7 +62,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="joinAction">The join action.</param>
         /// <param name="separator">The separator.</param>
         /// <returns>StringBuilder.</returns>
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        [Information("Orginal code from efcore-master on GitHub", author: "David McCarter", createdOn: "5/26/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static StringBuilder AppendJoin<T>(this StringBuilder sb, IEnumerable<T> values, Action<StringBuilder, T> joinAction, string separator = ", ")
         {
             if (values == null)
@@ -101,7 +103,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="joinAction">The join action.</param>
         /// <param name="separator">The separator.</param>
         /// <returns>StringBuilder.</returns>
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        [Information("Orginal code from efcore-master on GitHub", author: "David McCarter", createdOn: "5/26/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static StringBuilder AppendJoin<T, TParam>(this StringBuilder sb, IEnumerable<T> values, TParam param, Action<StringBuilder, T, TParam> joinAction, string separator = ", ")
         {
             if (values == null)
@@ -137,7 +139,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Appends the join.
+        /// Appends the values.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TParam1">The type of the t param1.</typeparam>
@@ -149,7 +151,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="joinAction">The join action.</param>
         /// <param name="separator">The separator.</param>
         /// <returns>StringBuilder.</returns>
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        [Information("Orginal code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static StringBuilder AppendJoin<T, TParam1, TParam2>(this StringBuilder sb, IEnumerable<T> values, TParam1 param1, TParam2 param2, Action<StringBuilder, T, TParam1, TParam2> joinAction, string separator = ", ")
         {
             if (param1 == null)
@@ -202,7 +204,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// or
         /// value
         /// </exception>
-        /// <remarks>NEW: FROM .NET CORE SOURCE</remarks>
+        [Information("FROM .NET CORE SOURCE", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 65, Status = Status.New)]
         public static void AppendKeyValue(this StringBuilder sb, string key, string value, bool includeQuotes = true, bool includeComma = true)
         {
             if (string.IsNullOrEmpty(key))
@@ -262,7 +264,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="separator">The separator.</param>
         /// <param name="values">The values.</param>
         /// <returns>StringBuilder.</returns>
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        [Information("Orginal code from efcore-master on GitHub.", author: "David McCarter", createdOn: "7/1/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 75, Status = Status.Available)]
         public static StringBuilder AppendValues(this StringBuilder sb, string separator, IEnumerable<string> values)
         {
             if (values == null)
@@ -282,7 +284,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="separator">The separator.</param>
         /// <param name="values">The values.</param>
         /// <returns>StringBuilder.</returns>
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        [Information("Orginal code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static StringBuilder AppendValues(this StringBuilder sb, string separator, params string[] values)
         {
             if ((values == null) || (values.Length == 0))
@@ -304,7 +306,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="values">The values.</param>
         /// <param name="joinAction">The join action.</param>
         /// <returns>StringBuilder.</returns>
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        [Information("Orginal code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 82, Status = Status.Available)]
         public static StringBuilder AppendValues<T>(this StringBuilder sb, string separator, IEnumerable<T> values, Action<T> joinAction)
         {
             if (values == null)
@@ -347,7 +349,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="param">The parameter.</param>
         /// <param name="joinAction">The join action.</param>
         /// <returns>StringBuilder.</returns>
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        [Information("Orginal code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static StringBuilder AppendValues<T, TParam>(this StringBuilder sb, string separator, IEnumerable<T> values, TParam param, Action<T, TParam> joinAction)
         {
             if (values == null)
@@ -397,7 +399,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="param2">The param2.</param>
         /// <param name="joinAction">The join action.</param>
         /// <returns>StringBuilder.</returns>
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        [Information("Orginal code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static StringBuilder AppendValues<T, TParam1, TParam2>(this StringBuilder sb, string separator, IEnumerable<T> values, TParam1 param1, TParam2 param2, Action<StringBuilder, T, TParam1, TParam2> joinAction)
         {
             if (values == null)

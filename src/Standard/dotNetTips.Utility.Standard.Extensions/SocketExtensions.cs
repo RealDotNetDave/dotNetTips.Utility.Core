@@ -14,12 +14,14 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using dotNetTips.Utility.Standard.Common;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {
     /// <summary>
     /// Extensions for Socket.
     /// </summary>
+    [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
     public static class SocketExtensions
     {
         /// <summary>
@@ -28,7 +30,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="socket">The socket.</param>
         /// <param name="address">The address.</param>
         /// <returns>System.Int32.</returns>
-        /// <remarks>NEW: From .NET Core source.</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static int BindToAnonymousPort(this Socket socket, IPAddress address)
         {
             socket.Bind(new IPEndPoint(address, 0));
@@ -43,7 +45,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="socket">The socket.</param>
         /// <param name="force">if set to <c>true</c> [force].</param>
-        /// <remarks>NEW: From .NET Core source.</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static void ForceNonBlocking(this Socket socket, bool force)
         {
             if (force)
@@ -61,7 +63,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="remoteEndpoint">The remote endpoint.</param>
         /// <param name="millisecondsTimeout">The milliseconds timeout.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <remarks>NEW: From .NET Core source.</remarks>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static bool TryConnect(this Socket socket, EndPoint remoteEndpoint, int millisecondsTimeout)
         {
             using (var mre = new ManualResetEventSlim(false))
