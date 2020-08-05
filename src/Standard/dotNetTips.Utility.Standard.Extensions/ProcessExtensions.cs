@@ -35,6 +35,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static void EnsureHighPriority(this Process process, ILogger logger)
         {
+            if (process.IsNull())
+            {
+                throw new ArgumentNullException(nameof(process), $"{nameof(process)} is null.");
+            }
+
             try
             {
                 process.PriorityClass = ProcessPriorityClass.High;
@@ -53,6 +58,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static void EnsureLowPriority(this Process process, ILogger logger)
         {
+            if (process == null)
+            {
+                throw new ArgumentNullException(nameof(process), $"{nameof(process)} is null.");
+            }
+
             try
             {
                 process.PriorityClass = ProcessPriorityClass.BelowNormal;

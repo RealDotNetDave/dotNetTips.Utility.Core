@@ -39,7 +39,7 @@ namespace dotNetTips.Utility.Standard.Common.Logging
 
             var exceptions = RetrieveAllExceptions(ex);
 
-            var messages = new string[exceptions.Count()];
+            var messages = new string[exceptions.Length];
 
             for (int i = 0; i < exceptions.Length; i++)
             {

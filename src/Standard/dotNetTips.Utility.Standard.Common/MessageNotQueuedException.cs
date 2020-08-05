@@ -18,8 +18,9 @@ namespace dotNetTips.Utility.Standard.Common
 {
     /// <summary>
     /// Class MessageNotQueuedException.
+    /// Implements the <see cref="dotNetTips.Utility.Standard.Common.LoggableException" />
     /// </summary>
-    /// <seealso cref="dotNetTips.Utility.Standard.LoggableException" />
+    /// <seealso cref="dotNetTips.Utility.Standard.Common.LoggableException" />
     /// <seealso cref="System.Exception" />
     [Serializable]
     public class MessageNotQueuedException : LoggableException

@@ -1,12 +1,14 @@
 # Welcome to dotNetTips.Utility for .NET Core & .NET Standard
 
-![dotNetTips.com](https://dotnettips.files.wordpress.com/2020/03/2020-dotnettips.com-logo-earth400.75x.png)
+![dotNetTips.com](docs/Graphics/2020%20-%20dotNetTips%20-%20KLOS@0.25x.png)
+
 This repository is for the dotNetTips.Utility code for .NET Core & .NET Standard (formerly in a different repository).
 
 Much of this code is documented on <a href="https://dotnettips.wordpress.com/tag/dotnettips-utility/" target="_blank">dotNetTips.com</a>.
 
 ## Projects
-Below is the list of current projects in this repository:
+![Assembly Layout](docs/Graphics/Assembly%20Layout.jpg)
+Below is the list of current projects in this repository
 ### .NET Core
 *  	[dotNetTips.Utility.Core.EntityFramework][1] (preview): Common code for Entity Framework Core.
 *   [dotNetTips.Utility.Core.Windows][2]: Common code for Windows.
@@ -20,24 +22,25 @@ Here are the results from the current benchmark tests that takes over 3 hours to
 
 * [App][6]
 * [Collections.DistinctBlockingCollection<T>][7]
-* [Collections.Generic.FastSortedList<T>][8]
-* [Collections.Generic.Concurrent.DistinctConcurrentBag<T>][9]
-* [Collections.Generic.Concurrent.ConcurrentHashSet<T>][10]
-* [Devices.Clock][11]
-* [Extensions.CollectionExtensions][12]
-* [Extensions.EnumExtensions][13]
-* [Extensions.ObjectExtensions][14]
-* [Extensions.StringExtensions][15]
-* [IO.DirectoryHelper][16]
-* [IO.DriveHelper][17]
-* [IO.FileHelper][18]
-* [IO.FileProcessor][19]
-* [IO.PathHelper][20]
-* [Logging.LoggingHelper][21]
+* [Collections.Generic.Concurrent.ConcurrentHashSet<T>][8]
+* [Collections.Generic.Concurrent.DistinctBlockingCollection][9]
+* [Collections.Generic.Concurrent.DistinctConcurrentBag<T>][10]
+* [Collections.Generic.FastSortedList<T>][11]
+* [Devices.Clock][12]
+* [Extensions.CollectionExtensions][13]
+* [Extensions.EnumExtensions][14]
+* [Extensions.ObjectExtensions][15]
+* [Extensions.StringExtensions][16]
+* [IO.DirectoryHelper][17]
+* [IO.DriveHelper][18]
+* [IO.FileHelper][19]
+* [IO.FileProcessor][20]
+* [IO.PathHelper][21]
+* [Logging.LoggingHelper][22]
 * Security.EncryptionHelper
-* [Services][22]
+* [Services][23]
 * Serializer.JsonSerializer
-* [TypeHelper][23]
+* [TypeHelper][24]
 * Xml.XmlHelper
 
 ## Your Support Is Needed
@@ -50,19 +53,20 @@ Do you have code you would like to submit to these repositories? Submit a pull r
   [5]: https://github.com/RealDotNetDave/dotNetTips.Utility.Core/tree/master/src/Standard/dotNetTips.Utility.Standard.Tester
   [6]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.AppPerfTestRunner-report-github.md
   [7]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Collections.Concurrent.DistinctBlockingCollectionPerfTestRunner-report-github.md
-  [8]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner-report-github.md
-  [9]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner-report-github.md
-  [10]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner-report-github.md
-  [11]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Devices.ClockPerfTestRunner-report-github.md
-  [12]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Extensions.CollectionExtensionsPerfTestRunner-report-github.md
-  [13]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Extensions.EnumExtensionsPerfTestRunner-report-github.md
-  [14]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-report-github.md
-  [15]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner-report-github.md
-  [16]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner-report-github.md
-  [17]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.IO.DriveHelperPerfTestRunner-report-github.md
-  [18]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner-report-github.md
-  [19]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.IO.FileProcessorPerfTestRunner-report-github.md
-  [20]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.IO.PathHelperPerfTestRunner-report-github.md
-  [21]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-report-github.md
-  [22]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.ServicesPerfTestRunner-report-github.md
-  [23]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.TypeHelperPerfTestRunner-report-github.md
+  [8]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner-report-github.md
+  [9]: docs%2FBenchmark%2520Results%2FdotNetTips.Utility.Benchmarks.Collections.Concurrent.DistinctBlockingCollectionPerfTestRunner-report-github.md
+  [10]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner-report-github.md
+  [11]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner-report-github.md
+  [12]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Devices.ClockPerfTestRunner-report-github.md
+  [13]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Extensions.CollectionExtensionsPerfTestRunner-report-github.md
+  [14]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Extensions.EnumExtensionsPerfTestRunner-report-github.md
+  [15]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-report-github.md
+  [16]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner-report-github.md
+  [17]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner-report-github.md
+  [18]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.IO.DriveHelperPerfTestRunner-report-github.md
+  [19]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner-report-github.md
+  [20]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.IO.FileProcessorPerfTestRunner-report-github.md
+  [21]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.IO.PathHelperPerfTestRunner-report-github.md
+  [22]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-report-github.md
+  [23]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.ServicesPerfTestRunner-report-github.md
+  [24]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.TypeHelperPerfTestRunner-report-github.md

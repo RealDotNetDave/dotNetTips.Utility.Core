@@ -11,9 +11,6 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Common;
-using dotNetTips.Utility.Standard.Extensions;
-using dotNetTips.Utility.Standard.OOP;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,6 +22,9 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
+using dotNetTips.Utility.Standard.Common;
+using dotNetTips.Utility.Standard.Extensions;
+using dotNetTips.Utility.Standard.OOP;
 
 namespace dotNetTips.Utility.Standard
 {

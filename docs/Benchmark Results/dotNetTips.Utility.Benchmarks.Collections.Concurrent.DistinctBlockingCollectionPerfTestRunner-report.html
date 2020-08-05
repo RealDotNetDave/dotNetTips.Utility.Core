@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.Collections.Concurrent.DistinctBlockingCollectionPerfTestRunner-20200528-135236</title>
+<title>dotNetTips.Utility.Benchmarks.Collections.Concurrent.DistinctBlockingCollectionPerfTestRunner-20200803-161936</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,11 +13,11 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.12.1, OS=Windows 10.0.18363.836 (1909/November2018Update/19H2)
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.388 (2004/?/20H1)
 Intel Core i7-7660U CPU 2.50GHz (Kaby Lake), 1 CPU, 4 logical and 2 physical cores
-.NET Core SDK=3.1.300
-  [Host]     : .NET Core 3.1.4 (CoreCLR 4.700.20.20201, CoreFX 4.700.20.22101), X64 RyuJIT
-  Job-LAEGID : .NET Core 3.1.4 (CoreCLR 4.700.20.20201, CoreFX 4.700.20.22101), X64 RyuJIT
+.NET Core SDK=3.1.302
+  [Host]     : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+  Job-GMGNJH : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
 </code></pre>
 <pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=DistinctBlockingCollection,GenericCollections  
@@ -26,22 +26,26 @@ Categories=DistinctBlockingCollection,GenericCollections
 <table>
 <thead><tr><th>                      Method</th><th>CollectionCount</th><th>  Mean</th><th> Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>&#39;Creating Using Constructor.&#39;</td><td>25</td><td>7,535.19 ns</td><td>149.216 ns</td><td>420.868 ns</td><td>0.1373</td><td>-</td><td>-</td><td>1440 B</td>
-</tr><tr><td>&#39;Creating Using Constructor.&#39;</td><td>50</td><td>13,725.28 ns</td><td>433.280 ns</td><td>1,270.736 ns</td><td>0.1678</td><td>-</td><td>-</td><td>1640 B</td>
-</tr><tr><td>&#39;Creating Using Constructor.&#39;</td><td>100</td><td>26,918.04 ns</td><td>855.401 ns</td><td>2,508.742 ns</td><td>0.1831</td><td>-</td><td>-</td><td>2040 B</td>
-</tr><tr><td>&#39;Creating Using Constructor.&#39;</td><td>250</td><td>63,506.73 ns</td><td>1,988.430 ns</td><td>5,862.931 ns</td><td>0.2441</td><td>-</td><td>-</td><td>3240 B</td>
-</tr><tr><td>&#39;Creating Using for().&#39;</td><td>25</td><td>7,245.97 ns</td><td>137.865 ns</td><td>348.402 ns</td><td>0.1221</td><td>-</td><td>-</td><td>1208 B</td>
-</tr><tr><td>&#39;Creating Using for().&#39;</td><td>50</td><td>14,638.20 ns</td><td>317.525 ns</td><td>931.245 ns</td><td>0.1221</td><td>-</td><td>-</td><td>1208 B</td>
-</tr><tr><td>&#39;Creating Using for().&#39;</td><td>100</td><td>27,174.04 ns</td><td>1,003.745 ns</td><td>2,959.564 ns</td><td>0.1221</td><td>-</td><td>-</td><td>1208 B</td>
-</tr><tr><td>&#39;Creating Using for().&#39;</td><td>250</td><td>68,453.89 ns</td><td>1,094.894 ns</td><td>1,024.165 ns</td><td>0.1221</td><td>-</td><td>-</td><td>1208 B</td>
-</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>25</td><td>105.44 ns</td><td>2.131 ns</td><td>2.771 ns</td><td>0.0085</td><td>-</td><td>-</td><td>80 B</td>
-</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>50</td><td>100.66 ns</td><td>2.061 ns</td><td>2.956 ns</td><td>0.0083</td><td>-</td><td>-</td><td>80 B</td>
-</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>100</td><td>97.26 ns</td><td>1.989 ns</td><td>4.448 ns</td><td>0.0083</td><td>-</td><td>-</td><td>80 B</td>
-</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>250</td><td>97.21 ns</td><td>1.995 ns</td><td>3.389 ns</td><td>0.0083</td><td>-</td><td>-</td><td>80 B</td>
-</tr><tr><td>&#39;Looping with Parallel.ForEach().&#39;</td><td>25</td><td>2,841.05 ns</td><td>55.459 ns</td><td>72.112 ns</td><td>0.6256</td><td>-</td><td>-</td><td>5170 B</td>
-</tr><tr><td>&#39;Looping with Parallel.ForEach().&#39;</td><td>50</td><td>2,825.20 ns</td><td>56.453 ns</td><td>128.573 ns</td><td>0.6104</td><td>-</td><td>-</td><td>5170 B</td>
-</tr><tr><td>&#39;Looping with Parallel.ForEach().&#39;</td><td>100</td><td>2,837.95 ns</td><td>55.848 ns</td><td>88.580 ns</td><td>0.6409</td><td>-</td><td>-</td><td>5169 B</td>
-</tr><tr><td>&#39;Looping with Parallel.ForEach().&#39;</td><td>250</td><td>2,870.75 ns</td><td>57.150 ns</td><td>97.045 ns</td><td>0.6409</td><td>-</td><td>-</td><td>5173 B</td>
+</thead><tbody><tr><td>&#39;Creating Using Constructor.&#39;</td><td>25</td><td>3,387.97 ns</td><td>64.980 ns</td><td>84.492 ns</td><td>0.1488</td><td>-</td><td>-</td><td>1440 B</td>
+</tr><tr><td>&#39;Creating Using Constructor.&#39;</td><td>50</td><td>6,292.71 ns</td><td>110.103 ns</td><td>131.070 ns</td><td>0.1755</td><td>-</td><td>-</td><td>1640 B</td>
+</tr><tr><td>&#39;Creating Using Constructor.&#39;</td><td>100</td><td>12,944.76 ns</td><td>255.812 ns</td><td>467.766 ns</td><td>0.2136</td><td>-</td><td>-</td><td>2040 B</td>
+</tr><tr><td>&#39;Creating Using Constructor.&#39;</td><td>250</td><td>30,015.45 ns</td><td>590.225 ns</td><td>1,049.123 ns</td><td>0.3357</td><td>-</td><td>-</td><td>3240 B</td>
+</tr><tr><td>&#39;Creating Using Constructor.&#39;</td><td>500</td><td>60,648.90 ns</td><td>1,192.329 ns</td><td>2,592.025 ns</td><td>0.4883</td><td>-</td><td>-</td><td>5240 B</td>
+</tr><tr><td>&#39;Creating Using for().&#39;</td><td>25</td><td>3,413.63 ns</td><td>65.818 ns</td><td>94.394 ns</td><td>0.1259</td><td>-</td><td>-</td><td>1208 B</td>
+</tr><tr><td>&#39;Creating Using for().&#39;</td><td>50</td><td>6,264.26 ns</td><td>122.767 ns</td><td>194.721 ns</td><td>0.1221</td><td>-</td><td>-</td><td>1208 B</td>
+</tr><tr><td>&#39;Creating Using for().&#39;</td><td>100</td><td>12,506.58 ns</td><td>244.707 ns</td><td>477.283 ns</td><td>0.1221</td><td>-</td><td>-</td><td>1208 B</td>
+</tr><tr><td>&#39;Creating Using for().&#39;</td><td>250</td><td>30,484.02 ns</td><td>601.013 ns</td><td>1,254.537 ns</td><td>0.1221</td><td>-</td><td>-</td><td>1208 B</td>
+</tr><tr><td>&#39;Creating Using for().&#39;</td><td>500</td><td>59,700.32 ns</td><td>1,181.290 ns</td><td>2,542.852 ns</td><td>-</td><td>-</td><td>-</td><td>1208 B</td>
+</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>25</td><td>50.94 ns</td><td>1.042 ns</td><td>1.622 ns</td><td>0.0085</td><td>-</td><td>-</td><td>80 B</td>
+</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>50</td><td>52.35 ns</td><td>1.068 ns</td><td>2.518 ns</td><td>0.0085</td><td>-</td><td>-</td><td>80 B</td>
+</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>100</td><td>52.11 ns</td><td>1.059 ns</td><td>1.088 ns</td><td>0.0085</td><td>-</td><td>-</td><td>80 B</td>
+</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>250</td><td>51.57 ns</td><td>1.045 ns</td><td>1.884 ns</td><td>0.0085</td><td>-</td><td>-</td><td>80 B</td>
+</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>500</td><td>51.18 ns</td><td>1.050 ns</td><td>2.597 ns</td><td>0.0085</td><td>-</td><td>-</td><td>80 B</td>
+</tr><tr><td>&#39;Looping with Parallel.ForEach().&#39;</td><td>25</td><td>2,415.50 ns</td><td>35.763 ns</td><td>33.453 ns</td><td>0.6485</td><td>-</td><td>-</td><td>5170 B</td>
+</tr><tr><td>&#39;Looping with Parallel.ForEach().&#39;</td><td>50</td><td>2,381.96 ns</td><td>34.264 ns</td><td>30.374 ns</td><td>0.6599</td><td>-</td><td>-</td><td>5166 B</td>
+</tr><tr><td>&#39;Looping with Parallel.ForEach().&#39;</td><td>100</td><td>2,424.28 ns</td><td>47.601 ns</td><td>44.526 ns</td><td>0.6409</td><td>-</td><td>-</td><td>5169 B</td>
+</tr><tr><td>&#39;Looping with Parallel.ForEach().&#39;</td><td>250</td><td>2,422.41 ns</td><td>38.683 ns</td><td>36.184 ns</td><td>0.6447</td><td>-</td><td>-</td><td>5169 B</td>
+</tr><tr><td>&#39;Looping with Parallel.ForEach().&#39;</td><td>500</td><td>2,367.11 ns</td><td>38.612 ns</td><td>34.228 ns</td><td>0.6523</td><td>-</td><td>-</td><td>5167 B</td>
 </tr></tbody></table>
 </body>
 </html>

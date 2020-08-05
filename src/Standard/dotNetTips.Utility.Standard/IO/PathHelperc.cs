@@ -16,7 +16,6 @@ using System.IO;
 using System.Linq;
 using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.OOP;
-using Microsoft.Extensions.Primitives;
 
 namespace dotNetTips.Utility.Standard.IO
 {

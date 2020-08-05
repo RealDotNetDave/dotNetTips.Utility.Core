@@ -11,6 +11,8 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using dotNetTipis.Utility.Standard.Common;
+using dotNetTips.Utility.Standard.Common;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,9 +24,6 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using dotNetTipis.Utility.Standard.Common;
-using dotNetTips.Utility.Standard.Common;
-using dotNetTips.Utility.Standard.Extensions.Properties;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {
@@ -44,6 +43,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static IList<T> AddFirst<T>(this IList<T> list, T item)
         {
+            if (list.DoesNotHaveItems())
+            {
+                throw new ArgumentNullException(nameof(list), $"{nameof(list)} is null.");
+            }
+
             if (list.IsReadOnly)
             {
                 ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
@@ -69,6 +73,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static T[] AddFirst<T>(this T[] array, T item)
         {
+            if (array == null)
+            {
+                throw new ArgumentNullException(nameof(array), $"{nameof(array)} is null or empty.");
+            }
+
             if (item == null)
             {
                 throw new ArgumentNullException(nameof(item), $"{nameof(item)} is null.");
@@ -97,6 +106,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// value - Value cannot be null.</exception>
         public static void AddIfNotExists<T>(this ICollection<T> list, T item)
         {
+            if ((list == null))
+            {
+                throw new ArgumentNullException(nameof(list), $"{nameof(list)} is null.");
+            }
+
             if (list.IsReadOnly)
             {
                 ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
@@ -127,6 +141,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">list - List cannot be read-only.</exception>
         public static void AddIfNotExists<T>(this ICollection<T> list, params T[] items)
         {
+            if ((list == null))
+            {
+                throw new ArgumentException($"{nameof(list)} is null.", nameof(list));
+            }
+
             if (list.IsReadOnly)
             {
                 ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
@@ -145,7 +164,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Adds if not exists.
+        /// Adds item if not exists.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="list">The list.</param>
@@ -160,6 +179,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 87.5, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static void AddIfNotExists<T>(this ICollection<T> list, T item, IEqualityComparer<T> comparer)
         {
+            if (list.IsNull())
+            {
+                throw new ArgumentException($"{nameof(list)} is null.", nameof(list));
+            }
+
             if (list.IsReadOnly)
             {
                 ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
@@ -200,12 +224,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static void AddIfNotExists<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
-            if (key == null)
+            if (key.IsNull())
             {
                 throw new ArgumentNullException(nameof(key), $"{nameof(key)} is null.");
             }
 
-            if (value == null)
+            if (value.IsNull())
             {
                 throw new ArgumentNullException(nameof(value), $"{nameof(value)} is null.");
             }
@@ -226,6 +250,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static IList<T> AddLast<T>(this IList<T> list, T item)
         {
+            if (list.IsNull())
+            {
+                throw new ArgumentNullException(nameof(list), $"{nameof(list)} is null.");
+            }
+
             if (list.IsReadOnly)
             {
                 ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
@@ -253,7 +282,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             if (item == null)
             {
-                throw new ArgumentNullException("Item cannot be null.", nameof(item));
+                throw new ArgumentNullException(nameof(item), "Item cannot be null.");
             }
 
             var result = new T[array.Length + 1];
@@ -640,11 +669,6 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
         public static T FirstOrDefault<T>(this IEnumerable<T> source, T alternate)
         {
-            if (alternate == null)
-            {
-                throw new ArgumentNullException(nameof(alternate), $"{nameof(alternate)} is null.");
-            }
-
             return source.DefaultIfEmpty(alternate).First();
         }
 
@@ -725,6 +749,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <remarks>Code by: Blake Pell</remarks>
         public static IEnumerable<string> FromDelimitedString(this string delimitedInput, char delimiter = ',')
         {
+            if (string.IsNullOrEmpty(delimitedInput))
+            {
+                throw new ArgumentException($"{nameof(delimitedInput)} is null or empty.", nameof(delimitedInput));
+            }
+
             return delimitedInput.Split(delimiter).AsEnumerable();
         }
 
@@ -763,11 +792,18 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Determines whether the specified source has items.
+        /// Determines whether the specified source has items or is null.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <returns><c>true</c> if the specified source has items; otherwise, <c>false</c>.</returns>
         public static bool HasItems(this IEnumerable source) => source?.Count() > 0;
+
+        /// <summary>
+        /// Determines whether the specified source does not have items or is null.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <returns><c>true</c> if the specified source has items; otherwise, <c>false</c>.</returns>
+        public static bool DoesNotHaveItems(this IEnumerable source) => source?.Count() <= 0;
 
         /// <summary>
         /// Determines whether the specified source has items.
@@ -775,6 +811,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="source">The source.</param>
         /// <returns><c>true</c> if the specified source has items; otherwise, <c>false</c>.</returns>
         public static bool HasItems(this ICollection source) => source?.Count > 0;
+
+
+        /// <summary>
+        /// Determines whether the specified source does not have items or is null.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <returns><c>true</c> if the specified source has items; otherwise, <c>false</c>.</returns>
+        public static bool DoesNotHaveItems(this ICollection source) => source?.Count <= 0;
 
 
         /// <summary>
@@ -786,12 +830,21 @@ namespace dotNetTips.Utility.Standard.Extensions
         public static bool HasItems<T>(this ObservableCollection<T> source) => source?.Count > 0;
 
         /// <summary>
+        /// Determines whether the specified source does not have items or is null.
+        /// </summary>
+        /// <typeparam name="T">The type of T.</typeparam>
+        /// <param name="source">The source.</param>
+        /// <returns><c>true</c> if the specified source has items; otherwise, <c>false</c>.</returns>
+        public static bool DoesNotHaveItems<T>(this ObservableCollection<T> source) => source?.Count <= 0;
+
+        /// <summary>
         /// Determines whether the specified count has items.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="count">The specific count.</param>
         /// <returns><c>true</c> if the specified count has items; otherwise, <c>false</c>.</returns>
         public static bool HasItems(this IEnumerable source, int count) => source?.Count() == count;
+
 
         /// <summary>
         /// Determines whether the specified count has items.

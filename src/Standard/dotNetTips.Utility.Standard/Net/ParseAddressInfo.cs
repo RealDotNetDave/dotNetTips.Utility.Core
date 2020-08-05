@@ -13,7 +13,6 @@
 // ***********************************************************************
 
 using dotNetTips.Utility.Standard.Extensions;
-using System;
 
 namespace dotNetTips.Utility.Standard.Net
 {

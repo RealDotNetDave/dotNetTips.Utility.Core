@@ -11,12 +11,11 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
+using dotNetTips.Utility.Standard.Extensions;
 
 namespace dotNetTips.Utility.Standard.Collections.Generic
 {

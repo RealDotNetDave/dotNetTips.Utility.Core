@@ -11,7 +11,6 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTipis.Utility.Standard.Common;
 using System;
 using System.Runtime.Serialization;
 
@@ -20,8 +19,8 @@ namespace dotNetTips.Utility.Standard.Common
     /// <summary>
     /// Class ArgumentIsReadOnlyException.
     /// </summary>
-    /// <seealso cref="System.ArgumentException" />
-    /// <seealso cref="System.Exception" />
+    /// <seealso cref="ArgumentException" />
+    /// <seealso cref="Exception" />
     [Serializable]
     public sealed class ArgumentReadOnlyException : ArgumentException
     {
@@ -35,7 +34,7 @@ namespace dotNetTips.Utility.Standard.Common
         /// <summary>
         /// Initializes a new instance of the <see cref="ArgumentReadOnlyException" /> class.
         /// </summary>
-        /// <param name="message">The message that describes the error.</param>
+        /// <param name="paramName">Name of the parameter.</param>
         public ArgumentReadOnlyException(string paramName) : base(Resources.ExMessageReadonlyCollection, paramName)
         {
         }

@@ -11,14 +11,14 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Diagnostics;
-using dotNetTips.Utility.Standard.OOP;
-using dotNetTips.Utility.Standard.Properties;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security;
+using dotNetTips.Utility.Standard.Diagnostics;
+using dotNetTips.Utility.Standard.OOP;
+using dotNetTips.Utility.Standard.Properties;
 
 namespace dotNetTips.Utility.Standard.IO
 {

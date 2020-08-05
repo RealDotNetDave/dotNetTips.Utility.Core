@@ -11,13 +11,13 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.OOP;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
+using dotNetTips.Utility.Standard.OOP;
 
 namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
 {
@@ -821,7 +821,10 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// </summary>
         /// <param name="item">The object to remove from the <see cref="T:System.Collections.Generic.ICollection`1"></see>.</param>
         /// <returns>true if <paramref name="item">item</paramref> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1"></see>; otherwise, false. This method also returns false if <paramref name="item">item</paramref> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1"></see>.</returns>
-        bool ICollection<T>.Remove(T item) => this.TryRemove(item);
+        bool ICollection<T>.Remove(T item)
+        {
+            return this.TryRemove(item);
+        }
 
         /// <summary>
         /// Class Node.

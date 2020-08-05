@@ -11,12 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.OOP;
-using dotNetTips.Utility.Standard.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceProcess;
+using dotNetTips.Utility.Standard.OOP;
+using dotNetTips.Utility.Standard.Properties;
 
 namespace dotNetTips.Utility.Standard
 {

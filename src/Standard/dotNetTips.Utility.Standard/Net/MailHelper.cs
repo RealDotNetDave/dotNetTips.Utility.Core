@@ -52,6 +52,11 @@ namespace dotNetTips.Utility.Standard.Net
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static bool TryParseEmailAddresses(string email, out ParseAddressInfo[] info, bool throwExceptionIfFail, char separator = ',')
         {
+            if (string.IsNullOrEmpty(email))
+            {
+                throw new ArgumentException($"{nameof(email)} is null or empty.", nameof(email));
+            }
+
             var result = new List<ParseAddressInfo>();
 
             var addresses = email.Split(separator);

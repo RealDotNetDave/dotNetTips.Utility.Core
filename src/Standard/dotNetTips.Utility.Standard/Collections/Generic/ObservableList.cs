@@ -12,14 +12,13 @@
 // <summary>From .NET EF Core source.</summary>
 // ***********************************************************************
 
-using dotNetTips.Utility.Standard.Common;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
+using dotNetTips.Utility.Standard.Common;
 
 namespace dotNetTips.Utility.Standard.Collections.Generic
 {

@@ -351,13 +351,19 @@ namespace dotNetTips.Utility.Standard.Net
         internal static void ValidateHeaderName(string data)
         {
             int offset = 0;
+            
             for (; offset < data.Length; offset++)
             {
                 if (data[offset] > Ftext.Length || !Ftext[data[offset]])
+                {
                     throw new FormatException("Invalid header name.");
+                }
             }
+
             if (offset == 0)
+            {
                 throw new FormatException("Invalid header name.");
+            }
         }
 
         private static bool CheckForUnicode(char ch, bool allowUnicode)

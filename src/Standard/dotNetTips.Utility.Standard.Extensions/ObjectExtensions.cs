@@ -77,6 +77,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="data">The data.</param>
         /// <returns>System.String.</returns>
+        [Obsolete("Use SHA256 hash instead. This method will be removed at the end of 2020.")]
         public static string ComputeMD5Hash(this object data)
         {
             // Create a MD5   

@@ -8,8 +8,8 @@
     <Configurations>Release</Configurations>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <AssemblyVersion>2020.8.2.33026</AssemblyVersion>
-    <FileVersion>2020.8.2.33026</FileVersion>
+    <AssemblyVersion>2020.8.3.41053</AssemblyVersion>
+    <FileVersion>2020.8.3.41053</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

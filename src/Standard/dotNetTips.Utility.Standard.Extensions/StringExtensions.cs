@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-30-2020
+// Last Modified On : 08-04-2020
 // ***********************************************************************
 // <copyright file="StringExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
@@ -181,12 +181,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The input.</param>
         /// <param name="length">Checks for specific length of the string.</param>
         /// <returns><c>true</c> if the specified length has value; otherwise, <c>false</c>.</returns>
-        /// <exception cref="ArgumentOutOfRangeException">Minimum length must be larger than 0.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Minimum length must be greater than 0.</exception>
         public static bool HasValue(this string input, int length)
         {
-            if (length < 0)
+            if (length <= 0)
             {
-                throw new ArgumentOutOfRangeException("Minimum length must be larger than 0.");
+                throw new ArgumentOutOfRangeException(nameof(length), "Minimum length must be greater than 0.");
             }
 
             return input == null ? false : input.Trim().Length == length;
@@ -198,8 +198,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The input.</param>
         /// <param name="value">Checks for a specific value.</param>
         /// <returns><c>true</c> if the specified value has value; otherwise, <c>false</c>.</returns>
+        /// <exception cref="ArgumentException">value</exception>
         public static bool HasValue(this string input, string value)
         {
+            if (string.IsNullOrEmpty(value))
+            {
+                throw new ArgumentException($"{nameof(value)} is null or empty.", nameof(value));
+            }
+
             return input == null ? false : input.Trim() == value.Trim();
         }
 
@@ -227,12 +233,17 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="minLength">The minimum length.</param>
         /// <param name="maxLength">The maximum length.</param>
         /// <returns><c>true</c> if the specified minimum length has value; otherwise, <c>false</c>.</returns>
-        /// <exception cref="ArgumentOutOfRangeException">Minimum length must be larger than 0.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Minimum length must be greater than 0.</exception>
         public static bool HasValue(this string input, int minLength, int maxLength)
         {
             if (minLength < 0)
             {
-                throw new ArgumentOutOfRangeException("Minimum length must be larger than 0.");
+                throw new ArgumentOutOfRangeException(nameof(minLength), "Minimum length must be greater than 0.");
+            }
+
+            if (maxLength < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(maxLength), "Maximum length must be greater than 0.");
             }
 
             return input == null ? false : input.Length.IsInRange(minLength, maxLength);
@@ -446,19 +457,22 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Splits the specified input using ',' and removes empty entries.
+        /// Splits the string.
         /// </summary>
-        /// <param name="input">The input.</param>
-        /// <returns>IEnumerable&lt;System.String&gt;.</returns>
-        /// <exception cref="ArgumentException">input</exception>
-        public static IEnumerable<string> SplitRemoveEmpty(this string input)
+        /// <param name="value">The value.</param>
+        /// <param name="separator">The separator.</param>
+        /// <param name="options">The options.</param>
+        /// <returns>System.String[].</returns>
+        /// <exception cref="ArgumentException">value</exception>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        public static string[] Split(this string value, char separator, StringSplitOptions options = StringSplitOptions.None)
         {
-            if (string.IsNullOrEmpty(input))
+            if (string.IsNullOrEmpty(value))
             {
-                throw new ArgumentException($"{nameof(input)} is null or empty.", nameof(input));
+                throw new ArgumentException($"{nameof(value)} is null or empty.", nameof(value));
             }
 
-            return input.Trim().Split(new char[] { ',' }, options: StringSplitOptions.RemoveEmptyEntries);
+            return value.Split(new[] { separator }, options);
         }
 
         /// <summary>
@@ -468,18 +482,26 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="separator">The separator.</param>
         /// <param name="options">The options.</param>
         /// <returns>System.String[].</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
-        public static string[] Split(this string value, char separator, StringSplitOptions options = StringSplitOptions.None) => value.Split(new[] { separator }, options);
-
-        /// <summary>
-        /// Splits the string.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <param name="separator">The separator.</param>
-        /// <param name="options">The options.</param>
-        /// <returns>System.String[].</returns>
+        /// <exception cref="ArgumentException">
+        /// value
+        /// or
+        /// separator
+        /// </exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
-        public static string[] Split(this string value, string separator, StringSplitOptions options = StringSplitOptions.None) => value.Split(new[] { separator }, options);
+        public static string[] Split(this string value, string separator, StringSplitOptions options = StringSplitOptions.None)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                throw new ArgumentException($"{nameof(value)} is null or empty.", nameof(value));
+            }
+
+            if (string.IsNullOrEmpty(separator))
+            {
+                throw new ArgumentException($"{nameof(separator)} is null or empty.", nameof(separator));
+            }
+
+            return value.Split(new[] { separator }, options);
+        }
 
         /// <summary>
         /// Splits the string.
@@ -500,9 +522,24 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="count">The count.</param>
         /// <param name="options">The options.</param>
         /// <returns>System.String[].</returns>
-        /// <returns>System.String[].</returns>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static string[] Split(this string value, string separator, int count, StringSplitOptions options = StringSplitOptions.None) => value.Split(new[] { separator }, count, options);
+
+        /// <summary>
+        /// Splits the specified input using ',' and removes empty entries.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>IEnumerable&lt;System.String&gt;.</returns>
+        /// <exception cref="ArgumentException">input</exception>
+        public static IEnumerable<string> SplitRemoveEmpty(this string input)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                throw new ArgumentException($"{nameof(input)} is null or empty.", nameof(input));
+            }
+
+            return input.Trim().Split(new char[] { ',' }, options: StringSplitOptions.RemoveEmptyEntries);
+        }
 
         /// <summary>
         /// Starts the with ordinal.
@@ -546,34 +583,32 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="length">The length.</param>
         /// <returns>System.String.</returns>
         /// <exception cref="ArgumentNullException">Input value must not be null - value</exception>
-        /// <exception cref="ArgumentOutOfRangeException">
-        /// Start index cannot be negative. - startIndex
+        /// <exception cref="ArgumentOutOfRangeException">Start index cannot be negative. - startIndex
         /// or
         /// Length cannot be negative. - length
         /// or
-        /// startIndex + length must be <= value.Length
-        /// </exception>
+        /// startIndex + length must be less than or equal to value.Length</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 81.08, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static string SubstringTrim(this string value, int startIndex, int length)
         {
             if (value.HasValue() == false)
             {
-                throw new ArgumentNullException("Input value must not be null", nameof(value));
+                throw new ArgumentNullException(nameof(value), "Input value must not be null");
             }
 
             if (startIndex.IsNegative())
             {
-                throw new ArgumentOutOfRangeException("Start index cannot be negative.", nameof(startIndex));
+                throw new ArgumentOutOfRangeException(nameof(startIndex), "Start index cannot be negative.");
             }
 
             if (length.IsNegative())
             {
-                throw new ArgumentOutOfRangeException("Length cannot be negative.", nameof(length));
+                throw new ArgumentOutOfRangeException(nameof(length), "Length cannot be negative.");
             }
 
             if (startIndex >= value.Length - length)
             {
-                throw new ArgumentOutOfRangeException("startIndex + length must be <= value.Length");
+                throw new ArgumentOutOfRangeException(nameof(startIndex), "startIndex + length must be <= value.Length");
             }
 
             if (length == 0)
@@ -620,7 +655,6 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             return input.TrimEnd().TrimStart();
         }
-
 
     }
 }

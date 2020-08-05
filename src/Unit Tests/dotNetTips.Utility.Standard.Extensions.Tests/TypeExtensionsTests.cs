@@ -32,10 +32,6 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
     [XmlRoot]
     public class TestType
     {
-
-        [XmlIgnore]
-        private readonly string _test = "Test";
-
         [XmlIgnore]
         [DebuggerBrowsable(DebuggerBrowsableState.RootHidden)]
         public string UserName { get; set; }
@@ -80,7 +76,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         {
             var result = typeof(TestType).GetAllFields();
 
-            Assert.IsTrue(result.Count() == 2);
+            Assert.IsTrue(result.Count() == 1);
 
             result = typeof(PersonProper).GetAllFields();
 
@@ -104,7 +100,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         {
             var field = typeof(TestType).GetAllFields().FirstOrDefault();
 
-            var result = field.GetAttribute<XmlIgnoreAttribute>();
+            var result = field.GetAttribute<CompilerGeneratedAttribute>();
 
             Assert.IsNotNull(result);
         }

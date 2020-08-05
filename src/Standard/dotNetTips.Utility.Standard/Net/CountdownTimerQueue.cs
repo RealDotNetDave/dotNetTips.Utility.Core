@@ -50,7 +50,7 @@ namespace dotNetTips.Utility.Standard.Net
             // Create the doubly-linked list with a sentinel head and tail so that this member never needs updating.
             _timers = new CountdownTimerNode();
             _timers.Next = _timers;
-            _timers.Prev = _timers;
+            _timers.Prev = _timers; 
         }
 
         /// <summary>

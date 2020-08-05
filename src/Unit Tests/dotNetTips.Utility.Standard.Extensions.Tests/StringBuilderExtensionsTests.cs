@@ -76,8 +76,8 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
                 sb.AppendKeyValue(person.Key, person.Value.Email, includeComma: true);
                 sb.AppendKeyValue(person.Key, person.Value.Email, includeQuotes: true, includeComma: true);
 
-                Assert.ThrowsException<ArgumentNullException>(() => sb.AppendKeyValue(person.Key, null));
-                Assert.ThrowsException<ArgumentNullException>(() => sb.AppendKeyValue(null, person.Value.Email));
+                Assert.ThrowsException<ArgumentException>(() => sb.AppendKeyValue(person.Key, null));
+                Assert.ThrowsException<ArgumentException>(() => sb.AppendKeyValue(null, person.Value.Email));
             }
 
             Assert.IsTrue(sb.ToString().Length > 50 * 4);

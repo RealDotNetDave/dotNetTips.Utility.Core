@@ -237,6 +237,11 @@ namespace dotNetTips.Utility.Standard
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/31/2020", modifiedOn: "7/31/2020", UnitTestCoverage = 100, Status = Status.New)]
         public static string GetTypeDisplayName(Type type, bool fullName = true, bool includeGenericParameterNames = false, bool includeGenericParameters = true, char nestedTypeDelimiter = DefaultNestedTypeDelimiter)
         {
+            if (type == null)
+            {
+                throw new ArgumentNullException(nameof(type), $"{nameof(type)} is null.");
+            }
+
             var builder = new StringBuilder();
 
             ProcessType(builder, type, new DisplayNameOptions(fullName, includeGenericParameterNames, includeGenericParameters, nestedTypeDelimiter));

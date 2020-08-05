@@ -11,8 +11,8 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.OOP;
 using System;
+using dotNetTips.Utility.Standard.OOP;
 
 namespace dotNetTips.Utility.Standard
 {

@@ -12,12 +12,12 @@
 // <summary></summary>
 // ***********************************************************************
 
-using dotNetTips.Utility.Standard.OOP;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using dotNetTips.Utility.Standard.OOP;
 
 namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
 {

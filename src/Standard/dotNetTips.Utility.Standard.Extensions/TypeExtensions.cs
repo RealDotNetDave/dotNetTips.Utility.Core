@@ -60,7 +60,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 0, Status = Status.New)]
     public static IEnumerable<FieldInfo> GetAllDeclaredFields(this Type type)
     {
-        for (int i = 0; i < type.GetFields(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly).Length; i++)
+            if (type == null)
+            {
+                throw new ArgumentNullException(nameof(type), $"{nameof(type)} is null.");
+            }
+
+            for (int i = 0; i < type.GetFields(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly).Length; i++)
         {
             yield return type.GetFields(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly)[i];
         }

@@ -38,6 +38,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("Orginal code from efcore-master on GitHub", author: "David McCarter", createdOn: "5/26/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 80, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static void AppendBytes(this StringBuilder sb, byte[] bytes)
         {
+            if (sb == null)
+            {
+                throw new ArgumentNullException(nameof(sb), $"{nameof(sb)} is null.");
+            }
+
             if ((bytes == null) || (bytes.Length == 0))
             {
                 throw new ArgumentException($"{nameof(bytes)} is null or empty.", nameof(bytes));
@@ -65,6 +70,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("Orginal code from efcore-master on GitHub", author: "David McCarter", createdOn: "5/26/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static StringBuilder AppendJoin<T>(this StringBuilder sb, IEnumerable<T> values, Action<StringBuilder, T> joinAction, string separator = ", ")
         {
+            if (sb == null)
+            {
+                throw new ArgumentNullException(nameof(sb), $"{nameof(sb)} is null.");
+            }
+
             if (values == null)
             {
                 throw new ArgumentNullException(nameof(values), $"{nameof(values)} is null.");
@@ -106,17 +116,22 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("Orginal code from efcore-master on GitHub", author: "David McCarter", createdOn: "5/26/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static StringBuilder AppendJoin<T, TParam>(this StringBuilder sb, IEnumerable<T> values, TParam param, Action<StringBuilder, T, TParam> joinAction, string separator = ", ")
         {
-            if (values == null)
+            if (sb.IsNull())
+            {
+                throw new ArgumentNullException(nameof(sb), $"{nameof(sb)} is null.");
+            }
+
+            if (values.IsNull())
             {
                 throw new ArgumentNullException(nameof(values), $"{nameof(values)} is null.");
             }
 
-            if (param == null)
+            if (param.IsNull())
             {
                 throw new ArgumentNullException(nameof(param), $"{nameof(param)} is null.");
             }
 
-            if (joinAction == null)
+            if (joinAction.IsNull())
             {
                 throw new ArgumentNullException(nameof(joinAction), $"{nameof(joinAction)} is null.");
             }
@@ -154,22 +169,27 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("Orginal code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static StringBuilder AppendJoin<T, TParam1, TParam2>(this StringBuilder sb, IEnumerable<T> values, TParam1 param1, TParam2 param2, Action<StringBuilder, T, TParam1, TParam2> joinAction, string separator = ", ")
         {
-            if (param1 == null)
+            if (sb.IsNull())
+            {
+                throw new ArgumentNullException(nameof(sb), $"{nameof(sb)} is null.");
+            }
+
+            if (param1.IsNull())
             {
                 throw new ArgumentNullException(nameof(param1), $"{nameof(param1)} is null.");
             }
 
-            if (param2 == null)
+            if (param2.IsNull())
             {
                 throw new ArgumentNullException(nameof(param2), $"{nameof(param2)} is null.");
             }
 
-            if (values == null)
+            if (values.HasItems() == false)
             {
                 throw new ArgumentNullException(nameof(values), $"{nameof(values)} is null.");
             }
 
-            if (joinAction == null)
+            if (joinAction.IsNull())
             {
                 throw new ArgumentNullException(nameof(joinAction), $"{nameof(joinAction)} is null.");
             }
@@ -207,6 +227,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("FROM .NET CORE SOURCE", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 65, Status = Status.New)]
         public static void AppendKeyValue(this StringBuilder sb, string key, string value, bool includeQuotes = true, bool includeComma = true)
         {
+            if (sb.IsNull())
+            {
+                throw new ArgumentNullException(nameof(sb), $"{nameof(sb)} is null.");
+            }
+
             if (string.IsNullOrEmpty(key))
             {
                 throw new ArgumentException($"{nameof(key)} is null or empty.", nameof(key));
@@ -267,7 +292,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("Orginal code from efcore-master on GitHub.", author: "David McCarter", createdOn: "7/1/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 75, Status = Status.Available)]
         public static StringBuilder AppendValues(this StringBuilder sb, string separator, IEnumerable<string> values)
         {
-            if (values == null)
+            if (sb.IsNull())
+            {
+                throw new ArgumentNullException(nameof(sb), $"{nameof(sb)} is null.");
+            }
+
+            if (values.HasItems() == false)
             {
                 throw new ArgumentNullException(nameof(values), $"{nameof(values)} is null.");
             }
@@ -287,7 +317,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("Orginal code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static StringBuilder AppendValues(this StringBuilder sb, string separator, params string[] values)
         {
-            if ((values == null) || (values.Length == 0))
+            if (sb.IsNull())
+            {
+                throw new ArgumentNullException(nameof(sb), $"{nameof(sb)} is null.");
+            }
+
+            if (values.HasItems()==false)
             {
                 throw new ArgumentException($"{nameof(values)} is null or empty.", nameof(values));
             }
@@ -309,12 +344,17 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("Orginal code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 82, Status = Status.Available)]
         public static StringBuilder AppendValues<T>(this StringBuilder sb, string separator, IEnumerable<T> values, Action<T> joinAction)
         {
-            if (values == null)
+            if (sb.IsNull())
+            {
+                throw new ArgumentNullException(nameof(sb), $"{nameof(sb)} is null.");
+            }
+
+            if (values.HasItems()==false)
             {
                 throw new ArgumentNullException(nameof(values), $"{nameof(values)} is null.");
             }
 
-            if (joinAction == null)
+            if (joinAction.IsNull())
             {
                 throw new ArgumentNullException(nameof(joinAction), $"{nameof(joinAction)} is null.");
             }
@@ -352,17 +392,22 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("Orginal code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static StringBuilder AppendValues<T, TParam>(this StringBuilder sb, string separator, IEnumerable<T> values, TParam param, Action<T, TParam> joinAction)
         {
-            if (values == null)
+            if (sb.IsNull())
+            {
+                throw new ArgumentNullException(nameof(sb), $"{nameof(sb)} is null.");
+            }
+
+            if (values.HasItems()==false)
             {
                 throw new ArgumentNullException(nameof(values), $"{nameof(values)} is null.");
             }
 
-            if (param == null)
+            if (param.IsNull())
             {
                 throw new ArgumentNullException(nameof(param), $"{nameof(param)} is null.");
             }
 
-            if (joinAction == null)
+            if (joinAction.IsNull())
             {
                 throw new ArgumentNullException(nameof(joinAction), $"{nameof(joinAction)} is null.");
             }
@@ -402,22 +447,27 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("Orginal code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static StringBuilder AppendValues<T, TParam1, TParam2>(this StringBuilder sb, string separator, IEnumerable<T> values, TParam1 param1, TParam2 param2, Action<StringBuilder, T, TParam1, TParam2> joinAction)
         {
-            if (values == null)
+            if (sb.IsNull())
+            {
+                throw new ArgumentNullException(nameof(sb), $"{nameof(sb)} is null.");
+            }
+
+            if (values.DoesNotHaveItems())
             {
                 throw new ArgumentNullException(nameof(values), $"{nameof(values)} is null.");
             }
 
-            if (param1 == null)
+            if (param1.IsNull())
             {
                 throw new ArgumentNullException(nameof(param1), $"{nameof(param1)} is null.");
             }
 
-            if (param2 == null)
+            if (param2.IsNull())
             {
                 throw new ArgumentNullException(nameof(param2), $"{nameof(param2)} is null.");
             }
 
-            if (joinAction == null)
+            if (joinAction.IsNull())
             {
                 throw new ArgumentNullException(nameof(joinAction), $"{nameof(joinAction)} is null.");
             }

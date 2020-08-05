@@ -11,10 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using dotNetTips.Utility.Standard.Common;
+using System;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Threading;
-using dotNetTips.Utility.Standard.Common;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {
@@ -66,25 +68,32 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static bool TryConnect(this Socket socket, EndPoint remoteEndpoint, int millisecondsTimeout)
         {
-            using (var mre = new ManualResetEventSlim(false))
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                using (var sea = new SocketAsyncEventArgs() { RemoteEndPoint = remoteEndpoint, UserToken = mre })
+                using (var mre = new ManualResetEventSlim(false))
                 {
-                    sea.Completed += (s, e) => ((ManualResetEventSlim)e.UserToken).Set();
-
-                    var pending = socket.ConnectAsync(sea);
-
-                    if (!pending || mre.Wait(millisecondsTimeout))
+                    using (var sea = new SocketAsyncEventArgs() { RemoteEndPoint = remoteEndpoint, UserToken = mre })
                     {
-                        return sea.SocketError == SocketError.Success;
+                        sea.Completed += (s, e) => ((ManualResetEventSlim)e.UserToken).Set();
+
+                        var pending = socket.ConnectAsync(sea);
+
+                        if (!pending || mre.Wait(millisecondsTimeout))
+                        {
+                            return sea.SocketError == SocketError.Success;
+                        }
+
+                        Socket.CancelConnectAsync(sea); // this will close the socket!
+
+                        // In case of time-out, ManualResetEventSlim is left undisposed to avoid race conditions,
+                        // letting SafeHandle's finalizer to do the cleanup.
+                        return false;
                     }
-
-                    Socket.CancelConnectAsync(sea); // this will close the socket!
-
-                    // In case of time-out, ManualResetEventSlim is left undisposed to avoid race conditions,
-                    // letting SafeHandle's finalizer to do the cleanup.
-                    return false;
                 }
+            }
+            else
+            {
+                throw new PlatformNotSupportedException();
             }
         }
 

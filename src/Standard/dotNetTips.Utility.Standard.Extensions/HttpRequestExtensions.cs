@@ -34,6 +34,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">request</exception>
         public static async Task<byte[]> GetRawBodyBytesAsync(this HttpRequest request)
         {
+            if (request.IsNull())
+            {
+                throw new ArgumentNullException(nameof(request), $"{nameof(request)} is null.");
+            }
+
             using (var ms = new MemoryStream(2048))
             {
                 await request.Body.CopyToAsync(ms).ConfigureAwait(true);
@@ -51,6 +56,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="System.ArgumentNullException">request</exception>
         public static async Task<string> GetRawBodyStringAsync(this HttpRequest request, Encoding encoding)
         {
+            if (request == null)
+            {
+                throw new ArgumentNullException(nameof(request), $"{nameof(request)} is null.");
+            }
+
             if (encoding == null)
             {
                 encoding = Encoding.UTF8;
@@ -102,9 +112,13 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">request</exception>
         /// <exception cref="Exception">HttpRequest has no body.</exception>
         /// <remarks>Orginal code by Jerry Nixon</remarks>
-
         public static bool TryGetBody(this HttpRequest request, out byte[] value)
         {
+            if (request == null)
+            {
+                throw new ArgumentNullException(nameof(request), $"{nameof(request)} is null.");
+            }
+
             try
             {
                 if ((request.Body?.Length ?? 0) == 0)

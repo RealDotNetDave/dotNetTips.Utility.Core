@@ -31,7 +31,7 @@ namespace dotNetTips.Utility.Standard.Net
         private const int TickCountResolution = 15;
         private static readonly LinkedList<WeakReference> _newQueues = new LinkedList<WeakReference>();
         private static readonly LinkedList<WeakReference> _queues = new LinkedList<WeakReference>();
-        private static readonly Hashtable _queuesCache = new Hashtable();
+        private static readonly Dictionary<object, WeakReference> _queuesCache = new Dictionary<object, WeakReference>();
         private static readonly WaitHandle[] _threadEvents = { _threadShutdownEvent, _threadReadyEvent };
         private static readonly AutoResetEvent _threadReadyEvent = new AutoResetEvent(false);
         private static readonly ManualResetEvent _threadShutdownEvent = new ManualResetEvent(false);
