@@ -4,7 +4,7 @@
 // Created          : 07-15-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-22-2020
+// Last Modified On : 08-04-2020
 // ***********************************************************************
 // <copyright file="ProcessExtensions.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -32,6 +32,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="process">The process.</param>
         /// <param name="logger">The logger.</param>
+        /// <exception cref="ArgumentNullException">process</exception>
         [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static void EnsureHighPriority(this Process process, ILogger logger)
         {
@@ -55,6 +56,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="process">The process.</param>
         /// <param name="logger">The logger.</param>
+        /// <exception cref="ArgumentNullException">process</exception>
         [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static void EnsureLowPriority(this Process process, ILogger logger)
         {

@@ -4,7 +4,7 @@
 // Created          : 06-20-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 11-21-2019
+// Last Modified On : 08-05-2020
 // ***********************************************************************
 // <copyright file="MessageNotQueuedException.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -25,16 +25,20 @@ namespace dotNetTips.Utility.Standard.Common
     [Serializable]
     public class MessageNotQueuedException : LoggableException
     {
-        /// <summary>
-        /// Gets the message identifier.
-        /// </summary>
-        /// <value>The message identifier.</value>
-        public string MessageId { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MessageNotQueuedException" /> class.
         /// </summary>
         public MessageNotQueuedException()
+        {
+
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MessageNotQueuedException" /> class.
+        /// </summary>
+        /// <param name="message">The message that describes the error.</param>
+        public MessageNotQueuedException(string message) : base(message)
         {
 
         }
@@ -52,21 +56,21 @@ namespace dotNetTips.Utility.Standard.Common
         /// <summary>
         /// Initializes a new instance of the <see cref="MessageNotQueuedException" /> class.
         /// </summary>
+        /// <param name="message">The error message that explains the reason for the exception.</param>
+        /// <param name="innerException">The inner exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        public MessageNotQueuedException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MessageNotQueuedException" /> class.
+        /// </summary>
         /// <param name="message">The message.</param>
         /// <param name="messageId">The message identifier.</param>
         /// <param name="innerException">The inner exception.</param>
         public MessageNotQueuedException(string message, string messageId, Exception innerException) : base(message, innerException)
         {
             this.MessageId = messageId;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MessageNotQueuedException" /> class.
-        /// </summary>
-        /// <param name="message">The message that describes the error.</param>
-        public MessageNotQueuedException(string message) : base(message)
-        {
-
         }
 
         /// <summary>
@@ -82,12 +86,10 @@ namespace dotNetTips.Utility.Standard.Common
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MessageNotQueuedException" /> class.
+        /// Gets the message identifier.
         /// </summary>
-        /// <param name="message">The error message that explains the reason for the exception.</param>
-        /// <param name="innerException">The inner exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
-        public MessageNotQueuedException(string message, Exception innerException) : base(message, innerException)
-        {
-        }
+        /// <value>The message identifier.</value>
+        public string MessageId { get; private set; }
+
     }
 }

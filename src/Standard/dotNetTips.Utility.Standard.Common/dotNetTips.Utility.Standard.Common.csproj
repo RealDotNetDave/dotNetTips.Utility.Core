@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyVersion>2020.8.5.29052</AssemblyVersion>
-    <FileVersion>2020.8.5.29052</FileVersion>
+    <AssemblyVersion>2020.8.5.30166</AssemblyVersion>
+    <FileVersion>2020.8.5.30166</FileVersion>
     <Version>2020.7.31.2</Version>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>

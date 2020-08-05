@@ -4,7 +4,7 @@
 // Created          : 03-14-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 02-29-2020
+// Last Modified On : 08-04-2020
 // ***********************************************************************
 // <copyright file="ConcurrentHashSet.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -34,6 +34,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1710:Identifiers should have correct suffix", Justification = "<Pending>")]
     public sealed class ConcurrentHashSet<T> : IReadOnlyCollection<T>, ICollection<T>
     {
+
         /// <summary>
         /// The default capacity
         /// </summary>
@@ -205,6 +206,12 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         }
 
         /// <summary>
+        /// Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1"></see> is read-only.
+        /// </summary>
+        /// <value><c>true</c> if this instance is read only; otherwise, <c>false</c>.</value>
+        bool ICollection<T>.IsReadOnly => false;
+
+        /// <summary>
         /// Gets the number of items contained in the <see cref="ConcurrentHashSet{T}" />.
         /// </summary>
         /// <value>The number of items contained in the <see cref="ConcurrentHashSet{T}" />.</value>
@@ -269,10 +276,67 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         private static int DefaultConcurrencyLevel => Environment.ProcessorCount;
 
         /// <summary>
-        /// Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1"></see> is read-only.
+        /// Adds an item to the <see cref="T:System.Collections.Generic.ICollection">.</see>.
         /// </summary>
-        /// <value><c>true</c> if this instance is read only; otherwise, <c>false</c>.</value>
-        bool ICollection<T>.IsReadOnly => false;
+        /// <param name="item">The object to add to the <see cref="T:System.Collections.Generic.ICollection"></see>.</param>
+        void ICollection<T>.Add(T item) => this.Add(item);
+
+        /// <summary>
+        /// Copies the elements of the <see cref="T:System.Collections.Generic.ICollection`1"></see> to an <see cref="T:System.Array"></see>, starting at a particular <see cref="T:System.Array"></see> index.
+        /// </summary>
+        /// <param name="array">The one-dimensional <see cref="T:System.Array"></see> that is the destination of the elements copied from <see cref="T:System.Collections.Generic.ICollection`1"></see>. The <see cref="T:System.Array"></see> must have zero-based indexing.</param>
+        /// <param name="arrayIndex">The zero-based index in array at which copying begins.</param>
+        /// <exception cref="ArgumentException">The index is equal to or greater than the length of the array, or the number of elements in the set is greater than the available space from index to the end of the destination array.</exception>
+        /// <exception cref="System.ArgumentException">The index is equal to or greater than the length of the array, or the number of elements in the set is greater than the available space from index to the end of the destination array.</exception>
+        /// <exception cref="ArgumentNullException">The index is equal to or greater than the length of the array, or the number of elements in the set is greater than the available space from index to the end of the destination array.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">The index is equal to or greater than the length of the array, or the number of elements in the set is greater than the available space from index to the end of the destination array.</exception>
+        void ICollection<T>.CopyTo(T[] array, int arrayIndex)
+        {
+            Encapsulation.TryValidateParam(array, nameof(array));
+            Encapsulation.TryValidateParam<ArgumentOutOfRangeException>(arrayIndex < 0, nameof(arrayIndex));
+
+            var locksAcquired = 0;
+
+            try
+            {
+                this.AcquireAllLocks(ref locksAcquired);
+
+                var count = 0;
+
+                for (var i = 0; i < this._tables._locks.Length && count >= 0; i++)
+                {
+                    count += this._tables._countPerLock[i];
+                }
+
+                // "count" itself or "count + arrayIndex" can overflow
+                if (array.Length - count < arrayIndex || count < 0)
+                {
+                    throw new ArgumentException("The index is equal to or greater than the length of the array, or the number of elements in the set is greater than the available space from index to the end of the destination array.");
+                }
+
+                this.CopyToItems(array, arrayIndex);
+            }
+            finally
+            {
+                this.ReleaseLocks(0, locksAcquired);
+            }
+        }
+
+        /// <summary>
+        /// Removes the first occurrence of a specific object from the <see cref="T:System.Collections.Generic.ICollection`1"></see>.
+        /// </summary>
+        /// <param name="item">The object to remove from the <see cref="T:System.Collections.Generic.ICollection`1"></see>.</param>
+        /// <returns>true if <paramref name="item">item</paramref> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1"></see>; otherwise, false. This method also returns false if <paramref name="item">item</paramref> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1"></see>.</returns>
+        bool ICollection<T>.Remove(T item)
+        {
+            return this.TryRemove(item);
+        }
+
+        /// <summary>
+        /// Returns an enumerator that iterates through a collection.
+        /// </summary>
+        /// <returns>An <see cref="T:System.Collections.IEnumerator"></see> object that can be used to iterate through the collection.</returns>
+        IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
 
         /// <summary>
         /// Adds the specified item to the <see cref="ConcurrentHashSet{T}" />.
@@ -492,12 +556,6 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         }
 
         /// <summary>
-        /// Adds an item to the <see cref="T:System.Collections.Generic.ICollection">.</see>.
-        /// </summary>
-        /// <param name="item">The object to add to the <see cref="T:System.Collections.Generic.ICollection"></see>.</param>
-        void ICollection<T>.Add(T item) => this.Add(item);
-
-        /// <summary>
         /// Adds item to the collection.
         /// </summary>
         /// <param name="item">The item.</param>
@@ -583,47 +641,6 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         }
 
         /// <summary>
-        /// Copies the elements of the <see cref="T:System.Collections.Generic.ICollection`1"></see> to an <see cref="T:System.Array"></see>, starting at a particular <see cref="T:System.Array"></see> index.
-        /// </summary>
-        /// <param name="array">The one-dimensional <see cref="T:System.Array"></see> that is the destination of the elements copied from <see cref="T:System.Collections.Generic.ICollection`1"></see>. The <see cref="T:System.Array"></see> must have zero-based indexing.</param>
-        /// <param name="arrayIndex">The zero-based index in array at which copying begins.</param>
-        /// <exception cref="ArgumentException">The index is equal to or greater than the length of the array, or the number of elements in the set is greater than the available space from index to the end of the destination array.</exception>
-        /// <exception cref="System.ArgumentException">The index is equal to or greater than the length of the array, or the number of elements in the set is greater than the available space from index to the end of the destination array.</exception>
-        /// <exception cref="ArgumentNullException">The index is equal to or greater than the length of the array, or the number of elements in the set is greater than the available space from index to the end of the destination array.</exception>
-        /// <exception cref="ArgumentOutOfRangeException">The index is equal to or greater than the length of the array, or the number of elements in the set is greater than the available space from index to the end of the destination array.</exception>
-        void ICollection<T>.CopyTo(T[] array, int arrayIndex)
-        {
-            Encapsulation.TryValidateParam(array, nameof(array));
-            Encapsulation.TryValidateParam<ArgumentOutOfRangeException>(arrayIndex < 0, nameof(arrayIndex));
-
-            var locksAcquired = 0;
-
-            try
-            {
-                this.AcquireAllLocks(ref locksAcquired);
-
-                var count = 0;
-
-                for (var i = 0; i < this._tables._locks.Length && count >= 0; i++)
-                {
-                    count += this._tables._countPerLock[i];
-                }
-
-                // "count" itself or "count + arrayIndex" can overflow
-                if (array.Length - count < arrayIndex || count < 0)
-                {
-                    throw new ArgumentException("The index is equal to or greater than the length of the array, or the number of elements in the set is greater than the available space from index to the end of the destination array.");
-                }
-
-                this.CopyToItems(array, arrayIndex);
-            }
-            finally
-            {
-                this.ReleaseLocks(0, locksAcquired);
-            }
-        }
-
-        /// <summary>
         /// Copies items.
         /// </summary>
         /// <param name="array">The array.</param>
@@ -640,12 +657,6 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
                 }
             }
         }
-
-        /// <summary>
-        /// Returns an enumerator that iterates through a collection.
-        /// </summary>
-        /// <returns>An <see cref="T:System.Collections.IEnumerator"></see> object that can be used to iterate through the collection.</returns>
-        IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
 
         /// <summary>
         /// Grows the table.
@@ -817,20 +828,11 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         }
 
         /// <summary>
-        /// Removes the first occurrence of a specific object from the <see cref="T:System.Collections.Generic.ICollection`1"></see>.
-        /// </summary>
-        /// <param name="item">The object to remove from the <see cref="T:System.Collections.Generic.ICollection`1"></see>.</param>
-        /// <returns>true if <paramref name="item">item</paramref> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1"></see>; otherwise, false. This method also returns false if <paramref name="item">item</paramref> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1"></see>.</returns>
-        bool ICollection<T>.Remove(T item)
-        {
-            return this.TryRemove(item);
-        }
-
-        /// <summary>
         /// Class Node.
         /// </summary>
         private class Node
         {
+
             /// <summary>
             /// The Hashcode
             /// </summary>
@@ -858,6 +860,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
                 this._hashCode = hashcode;
                 this._next = next;
             }
+
         }
 
         /// <summary>
@@ -865,6 +868,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// </summary>
         private class Tables
         {
+
             /// <summary>
             /// The buckets
             /// </summary>
@@ -892,6 +896,8 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
                 this._locks = locks;
                 this._countPerLock = countPerLock;
             }
+
         }
+
     }
 }

@@ -4,7 +4,7 @@
 // Created          : 08-09-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-22-2020
+// Last Modified On : 08-04-2020
 // ***********************************************************************
 // <copyright file="TypeHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -228,12 +228,13 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// Pretty print a type name.
         /// </summary>
-        /// <param name="type">The <see cref="Type"/>.</param>
+        /// <param name="type">The <see cref="Type" />.</param>
         /// <param name="fullName"><c>true</c> to print a fully qualified name.</param>
         /// <param name="includeGenericParameterNames"><c>true</c> to include generic parameter names.</param>
         /// <param name="includeGenericParameters"><c>true</c> to include generic parameters.</param>
         /// <param name="nestedTypeDelimiter">Character to use as a delimiter in nested type names</param>
         /// <returns>The pretty printed type name.</returns>
+        /// <exception cref="ArgumentNullException">type</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/31/2020", modifiedOn: "7/31/2020", UnitTestCoverage = 100, Status = Status.New)]
         public static string GetTypeDisplayName(Type type, bool fullName = true, bool includeGenericParameterNames = false, bool includeGenericParameters = true, char nestedTypeDelimiter = DefaultNestedTypeDelimiter)
         {
@@ -397,9 +398,20 @@ namespace dotNetTips.Utility.Standard
             }
         }
 
+        /// <summary>
+        /// Struct DisplayNameOptions
+        /// </summary>
         private readonly struct DisplayNameOptions
         {
 
+            /// <summary>
+            /// Initializes a new instance of the <see cref="DisplayNameOptions"/> struct.
+            /// </summary>
+            /// <param name="fullName">if set to <c>true</c> [full name].</param>
+            /// <param name="includeGenericParameterNames">if set to <c>true</c> [include generic parameter names].</param>
+            /// <param name="includeGenericParameters">if set to <c>true</c> [include generic parameters].</param>
+            /// <param name="nestedTypeDelimiter">The nested type delimiter.</param>
+            /// TODO Edit XML Comment Template for #ctor
             public DisplayNameOptions(bool fullName, bool includeGenericParameterNames, bool includeGenericParameters, char nestedTypeDelimiter)
             {
                 FullName = fullName;
@@ -408,12 +420,32 @@ namespace dotNetTips.Utility.Standard
                 NestedTypeDelimiter = nestedTypeDelimiter;
             }
 
+            /// <summary>
+            /// Gets a value indicating whether [full name].
+            /// </summary>
+            /// <value><c>true</c> if [full name]; otherwise, <c>false</c>.</value>
+            /// TODO Edit XML Comment Template for FullName
             public bool FullName { get; }
 
+            /// <summary>
+            /// Gets a value indicating whether [include generic parameter names].
+            /// </summary>
+            /// <value><c>true</c> if [include generic parameter names]; otherwise, <c>false</c>.</value>
+            /// TODO Edit XML Comment Template for IncludeGenericParameterNames
             public bool IncludeGenericParameterNames { get; }
 
+            /// <summary>
+            /// Gets a value indicating whether [include generic parameters].
+            /// </summary>
+            /// <value><c>true</c> if [include generic parameters]; otherwise, <c>false</c>.</value>
+            /// TODO Edit XML Comment Template for IncludeGenericParameters
             public bool IncludeGenericParameters { get; }
 
+            /// <summary>
+            /// Gets the nested type delimiter.
+            /// </summary>
+            /// <value>The nested type delimiter.</value>
+            /// TODO Edit XML Comment Template for NestedTypeDelimiter
             public char NestedTypeDelimiter { get; }
 
         }

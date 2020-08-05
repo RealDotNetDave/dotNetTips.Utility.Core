@@ -4,7 +4,7 @@
 // Created          : 02-11-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-27-2020
+// Last Modified On : 08-04-2020
 // ***********************************************************************
 // <copyright file="FileHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)

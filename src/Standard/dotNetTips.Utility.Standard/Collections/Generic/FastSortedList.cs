@@ -4,7 +4,7 @@
 // Created          : 02-14-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 02-29-2020
+// Last Modified On : 08-04-2020
 // ***********************************************************************
 // <copyright file="FastSortedList.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -27,6 +27,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic
     [DebuggerDisplay("Count = {Count}"), Serializable]
     public class FastSortedList<T> : List<T>
     {
+
         /// <summary>
         /// True or False if the list has been sorted.
         /// </summary>
@@ -121,5 +122,6 @@ namespace dotNetTips.Utility.Standard.Collections.Generic
                 this._sorted = true;
             }
         }
+
     }
 }

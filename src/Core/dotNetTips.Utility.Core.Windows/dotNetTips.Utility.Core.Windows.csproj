@@ -4,8 +4,8 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
-    <AssemblyVersion>2020.8.5.29751</AssemblyVersion>
-    <FileVersion>2020.8.5.29751</FileVersion>
+    <AssemblyVersion>2020.8.5.30166</AssemblyVersion>
+    <FileVersion>2020.8.5.30166</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>2020.7.31.2</Version>
     <Authors>David McCarter</Authors>

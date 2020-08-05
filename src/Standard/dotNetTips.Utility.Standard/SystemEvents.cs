@@ -4,7 +4,7 @@
 // Created          : 07-09-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 02-29-2020
+// Last Modified On : 08-04-2020
 // ***********************************************************************
 // <copyright file="SystemEvents.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -25,6 +25,7 @@ namespace dotNetTips.Utility.Standard
     /// </summary>
     public static class SystemEvents
     {
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SystemEvents" /> class. Sets up events.
         /// </summary>
@@ -36,6 +37,11 @@ namespace dotNetTips.Utility.Standard
             AppDomain.CurrentDomain.ProcessExit += CurrentDomain_ProcessExit;
             AppDomain.CurrentDomain.FirstChanceException += CurrentDomain_FirstChanceException;
         }
+
+        /// <summary>
+        /// Occurs when [system changed].
+        /// </summary>
+        public static event EventHandler<SystemChangedEventArgs> SystemChanged;
 
         /// <summary>
         /// Handles the FirstChanceException event of the CurrentDomain control.
@@ -74,25 +80,6 @@ namespace dotNetTips.Utility.Standard
         }
 
         /// <summary>
-        /// Handles the NetworkAvailabilityChanged event of the NetworkChange control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="NetworkAvailabilityEventArgs" /> instance containing the event data.</param>
-        private static void NetworkChange_NetworkAvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
-        {
-            var eventInfo = new List<NetworkAvailabilityChangedEventInformation>(1)
-            {
-                new NetworkAvailabilityChangedEventInformation { NetworkAvailable = e.IsAvailable }
-            };
-
-            Trace.Write($"Network available: {e.IsAvailable}");
-
-            var eventArgs = new SystemChangedEventArgs { SystemEventType = SystemEventType.NetworkAvailabilityChanged, EventInformation = eventInfo };
-
-            OnSystemChanged(eventArgs);
-        }
-
-        /// <summary>
         /// Networks the address changed callback.
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -122,9 +109,23 @@ namespace dotNetTips.Utility.Standard
         }
 
         /// <summary>
-        /// Occurs when [system changed].
+        /// Handles the NetworkAvailabilityChanged event of the NetworkChange control.
         /// </summary>
-        public static event EventHandler<SystemChangedEventArgs> SystemChanged;
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="NetworkAvailabilityEventArgs" /> instance containing the event data.</param>
+        private static void NetworkChange_NetworkAvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
+        {
+            var eventInfo = new List<NetworkAvailabilityChangedEventInformation>(1)
+            {
+                new NetworkAvailabilityChangedEventInformation { NetworkAvailable = e.IsAvailable }
+            };
+
+            Trace.Write($"Network available: {e.IsAvailable}");
+
+            var eventArgs = new SystemChangedEventArgs { SystemEventType = SystemEventType.NetworkAvailabilityChanged, EventInformation = eventInfo };
+
+            OnSystemChanged(eventArgs);
+        }
 
         /// <summary>
         /// Handles the <see cref="E:SystemChanged" /> event.

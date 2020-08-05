@@ -482,11 +482,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="separator">The separator.</param>
         /// <param name="options">The options.</param>
         /// <returns>System.String[].</returns>
-        /// <exception cref="ArgumentException">
-        /// value
+        /// <exception cref="ArgumentException">value
         /// or
-        /// separator
-        /// </exception>
+        /// separator</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static string[] Split(this string value, string separator, StringSplitOptions options = StringSplitOptions.None)
         {

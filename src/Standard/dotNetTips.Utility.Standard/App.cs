@@ -4,7 +4,7 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-31-2020
+// Last Modified On : 08-05-2020
 // ***********************************************************************
 // <copyright file="App.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -32,7 +32,8 @@ namespace dotNetTips.Utility.Standard
     /// Class ApplicationHelper.
     /// </summary>
     public static class App
-    { 
+    {
+
         /// <summary>
         /// The temporary ASP files location
         /// </summary>
@@ -263,7 +264,7 @@ namespace dotNetTips.Utility.Standard
         private static AppInfo InitAppInfo()
         {
             var assembly = Assembly.GetEntryAssembly();
-           
+
             var appInfo = new AppInfo()
             {
                 Company = assembly.GetCustomAttributes<AssemblyCompanyAttribute>().FirstOrDefault()?.Company,

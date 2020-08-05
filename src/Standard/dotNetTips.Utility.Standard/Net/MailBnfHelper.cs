@@ -4,7 +4,7 @@
 // Created          : 07-23-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-23-2020
+// Last Modified On : 08-05-2020
 // ***********************************************************************
 // <copyright file="MailBnfHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -351,7 +351,7 @@ namespace dotNetTips.Utility.Standard.Net
         internal static void ValidateHeaderName(string data)
         {
             int offset = 0;
-            
+
             for (; offset < data.Length; offset++)
             {
                 if (data[offset] > Ftext.Length || !Ftext[data[offset]])

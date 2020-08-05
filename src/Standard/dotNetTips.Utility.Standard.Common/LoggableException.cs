@@ -4,7 +4,7 @@
 // Created          : 06-06-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 05-03-2020
+// Last Modified On : 08-05-2020
 // ***********************************************************************
 // <copyright file="LoggableException.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -34,6 +34,7 @@ namespace dotNetTips.Utility.Standard.Common
     [Serializable]
     public class LoggableException : Exception
     {
+
         /// <summary>
         /// The exception has been logged
         /// </summary>
@@ -111,30 +112,6 @@ namespace dotNetTips.Utility.Standard.Common
         }
 
         /// <summary>
-        /// Gets Exception message, including inner Exceptions.
-        /// </summary>
-        /// <value>The messages.</value>
-        public virtual string[] Messages()
-        {
-                var exceptions = LoggingHelper.RetrieveAllExceptions(this);
-                var errorMessages = new List<string>();
-
-                for (int i = 0; i < exceptions.Length; i++)
-                {
-                    var current = exceptions[i];
-                    errorMessages.Add(current.GetType().FullName);
-                    errorMessages.Add(ReflectException(current));
-
-                    if (current.StackTrace != null)
-                    {
-                        errorMessages.Add(current.StackTrace);
-                    }
-                }
-
-                return errorMessages.ToArray();
-        }
-
-        /// <summary>
         /// Gets or sets the user message.
         /// </summary>
         /// <value>The user message.</value>
@@ -151,6 +128,31 @@ namespace dotNetTips.Utility.Standard.Common
             base.GetObjectData(info, context);
 
             info.AddValue(nameof(this.UserMessage), this.UserMessage);
+        }
+
+        /// <summary>
+        /// Gets Exception message, including inner Exceptions.
+        /// </summary>
+        /// <returns>System.String[].</returns>
+        /// <value>The messages.</value>
+        public virtual string[] Messages()
+        {
+            var exceptions = LoggingHelper.RetrieveAllExceptions(this);
+            var errorMessages = new List<string>();
+
+            for (int i = 0; i < exceptions.Length; i++)
+            {
+                var current = exceptions[i];
+                errorMessages.Add(current.GetType().FullName);
+                errorMessages.Add(ReflectException(current));
+
+                if (current.StackTrace != null)
+                {
+                    errorMessages.Add(current.StackTrace);
+                }
+            }
+
+            return errorMessages.ToArray();
         }
 
         /// <summary>
@@ -185,5 +187,6 @@ namespace dotNetTips.Utility.Standard.Common
 
             return sb.ToString();
         }
+
     }
 }

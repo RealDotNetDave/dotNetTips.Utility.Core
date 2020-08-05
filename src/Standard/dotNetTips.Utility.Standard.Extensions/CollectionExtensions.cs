@@ -4,7 +4,7 @@
 // Created          : 02-14-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-22-2020
+// Last Modified On : 08-05-2020
 // ***********************************************************************
 // <copyright file="CollectionExtensions.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -40,6 +40,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="list">The list.</param>
         /// <param name="item">The item.</param>
         /// <returns>T[].</returns>
+        /// <exception cref="ArgumentNullException">
+        /// list
+        /// or
+        /// item
+        /// </exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static IList<T> AddFirst<T>(this IList<T> list, T item)
         {
@@ -70,6 +75,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="array">The array.</param>
         /// <param name="item">The item.</param>
         /// <returns>T[].</returns>
+        /// <exception cref="ArgumentNullException">
+        /// array
+        /// or
+        /// item
+        /// </exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static T[] AddFirst<T>(this T[] array, T item)
         {
@@ -96,14 +106,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">The type of T.</typeparam>
         /// <param name="list">The list.</param>
         /// <param name="item">The value.</param>
-        /// <exception cref="ArgumentException">list - List cannot be read-only.</exception>
         /// <exception cref="ArgumentNullException">list - List cannot be null.
         /// or
         /// value - Value cannot be null.</exception>
-        /// <exception cref="System.ArgumentNullException">list - List cannot be read-only.</exception>
-        /// <exception cref="System.ArgumentException">list - List cannot be null.
+        /// <exception cref="ArgumentException">list - List cannot be read-only.</exception>
+        /// <exception cref="System.ArgumentNullException">list - List cannot be null.
         /// or
         /// value - Value cannot be null.</exception>
+        /// <exception cref="System.ArgumentException">list - List cannot be read-only.</exception>
         public static void AddIfNotExists<T>(this ICollection<T> list, T item)
         {
             if ((list == null))
@@ -171,11 +181,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="item">The item.</param>
         /// <param name="comparer">The comparer.</param>
         /// <exception cref="ArgumentException">List cannot be read-only. - list</exception>
-        /// <exception cref="ArgumentNullException">
-        /// item
+        /// <exception cref="ArgumentNullException">item
         /// or
-        /// comparer
-        /// </exception>
+        /// comparer</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 87.5, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static void AddIfNotExists<T>(this ICollection<T> list, T item, IEqualityComparer<T> comparer)
         {
@@ -247,6 +255,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="list">The list.</param>
         /// <param name="item">The item.</param>
         /// <returns>T[].</returns>
+        /// <exception cref="ArgumentNullException">
+        /// list
+        /// or
+        /// item
+        /// </exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static IList<T> AddLast<T>(this IList<T> list, T item)
         {
@@ -277,6 +290,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="array">The array.</param>
         /// <param name="item">The item.</param>
         /// <returns>T[].</returns>
+        /// <exception cref="ArgumentNullException">item - Item cannot be null.</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static T[] AddLast<T>(this T[] array, T item)
         {
@@ -340,10 +354,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="items">The items.</param>
         /// <param name="key">The key.</param>
         /// <param name="value">The value.</param>
-        /// <exception cref="ArgumentException">list - Dictionary cannot be null.
+        /// <exception cref="ArgumentNullException">list - Dictionary cannot be null.
         /// or
         /// key - Key cannot be null.</exception>
-        /// <exception cref="ArgumentNullException">list - Dictionary cannot be null.
+        /// <exception cref="ArgumentException">list - Dictionary cannot be null.
         /// or
         /// key - Key cannot be null.</exception>
         /// <exception cref="System.ArgumentNullException">list - Dictionary cannot be null.
@@ -596,6 +610,29 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
+        /// Determines whether the specified source does not have items or is null.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <returns><c>true</c> if the specified source has items; otherwise, <c>false</c>.</returns>
+        public static bool DoesNotHaveItems(this IEnumerable source) => source?.Count() <= 0;
+
+
+        /// <summary>
+        /// Determines whether the specified source does not have items or is null.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <returns><c>true</c> if the specified source has items; otherwise, <c>false</c>.</returns>
+        public static bool DoesNotHaveItems(this ICollection source) => source?.Count <= 0;
+
+        /// <summary>
+        /// Determines whether the specified source does not have items or is null.
+        /// </summary>
+        /// <typeparam name="T">The type of T.</typeparam>
+        /// <param name="source">The source.</param>
+        /// <returns><c>true</c> if the specified source has items; otherwise, <c>false</c>.</returns>
+        public static bool DoesNotHaveItems<T>(this ObservableCollection<T> source) => source?.Count <= 0;
+
+        /// <summary>
         /// Fasts any.
         /// </summary>
         /// <typeparam name="T">The type of T.</typeparam>
@@ -799,26 +836,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         public static bool HasItems(this IEnumerable source) => source?.Count() > 0;
 
         /// <summary>
-        /// Determines whether the specified source does not have items or is null.
-        /// </summary>
-        /// <param name="source">The source.</param>
-        /// <returns><c>true</c> if the specified source has items; otherwise, <c>false</c>.</returns>
-        public static bool DoesNotHaveItems(this IEnumerable source) => source?.Count() <= 0;
-
-        /// <summary>
         /// Determines whether the specified source has items.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <returns><c>true</c> if the specified source has items; otherwise, <c>false</c>.</returns>
         public static bool HasItems(this ICollection source) => source?.Count > 0;
-
-
-        /// <summary>
-        /// Determines whether the specified source does not have items or is null.
-        /// </summary>
-        /// <param name="source">The source.</param>
-        /// <returns><c>true</c> if the specified source has items; otherwise, <c>false</c>.</returns>
-        public static bool DoesNotHaveItems(this ICollection source) => source?.Count <= 0;
 
 
         /// <summary>
@@ -828,14 +850,6 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="source">The source.</param>
         /// <returns><c>true</c> if the specified source has items; otherwise, <c>false</c>.</returns>
         public static bool HasItems<T>(this ObservableCollection<T> source) => source?.Count > 0;
-
-        /// <summary>
-        /// Determines whether the specified source does not have items or is null.
-        /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
-        /// <param name="source">The source.</param>
-        /// <returns><c>true</c> if the specified source has items; otherwise, <c>false</c>.</returns>
-        public static bool DoesNotHaveItems<T>(this ObservableCollection<T> source) => source?.Count <= 0;
 
         /// <summary>
         /// Determines whether the specified count has items.
@@ -903,6 +917,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="item">The item.</param>
         /// <param name="comparer">The comparer.</param>
         /// <returns>System.Int32.</returns>
+        /// <exception cref="ArgumentNullException">
+        /// item
+        /// or
+        /// comparer
+        /// </exception>
         /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
         public static int IndexOf<T>(this IEnumerable<T> source, T item, IEqualityComparer<T> comparer)
         {
@@ -980,7 +999,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Orders a list based on a sort expression. Useful in object 
+        /// Orders a list based on a sort expression. Useful in object
         /// binding scenarios where
         /// the ObjectDataSource generates a dynamic sort expression (example: "Name desc") that
         /// specifies the property of the object sort on.
@@ -1050,9 +1069,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentOutOfRangeException">pageSize</exception>
         /// <exception cref="ArgumentNullException">pageSize</exception>
         /// <exception cref="System.ArgumentNullException">pageSize</exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">list - Source cannot be null.
-        /// or
-        /// list - Page size cannot be 0 length.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">pageSize</exception>
         public static IEnumerable<IEnumerable<T>> Page<T>(this IEnumerable<T> list, int pageSize)
         {
             if (pageSize < 1)

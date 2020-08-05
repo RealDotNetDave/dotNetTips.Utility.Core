@@ -4,7 +4,7 @@
 // Created          : 07-24-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-24-2020
+// Last Modified On : 08-04-2020
 // ***********************************************************************
 // <copyright file="InfiniteTimerQueue.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -23,8 +23,9 @@ namespace dotNetTips.Utility.Standard.Net
     /// <seealso cref="dotNetTips.Utility.Standard.Net.CountdownTimerQueue" />
     public class InfiniteTimerQueue : CountdownTimerQueue
     {
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="InfiniteTimerQueue"/> class.
+        /// Initializes a new instance of the <see cref="InfiniteTimerQueue" /> class.
         /// </summary>
         public InfiniteTimerQueue() : base(Timeout.Infinite) { }
 
@@ -35,5 +36,6 @@ namespace dotNetTips.Utility.Standard.Net
         /// <param name="context">The context.</param>
         /// <returns>CountdownTimerTimer.</returns>
         public override CancelationTimer CreateTimer(Callback callback, object context) => new InfiniteTimer();
+
     }
 }

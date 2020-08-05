@@ -4,7 +4,7 @@
 // Created          : 07-24-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-24-2020
+// Last Modified On : 08-04-2020
 // ***********************************************************************
 // <copyright file="CountdownTimerQueue.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -50,7 +50,7 @@ namespace dotNetTips.Utility.Standard.Net
             // Create the doubly-linked list with a sentinel head and tail so that this member never needs updating.
             _timers = new CountdownTimerNode();
             _timers.Next = _timers;
-            _timers.Prev = _timers; 
+            _timers.Prev = _timers;
         }
 
         /// <summary>

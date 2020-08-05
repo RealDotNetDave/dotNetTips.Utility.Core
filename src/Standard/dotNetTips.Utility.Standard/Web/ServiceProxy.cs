@@ -4,7 +4,7 @@
 // Created          : 04-02-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 02-29-2020
+// Last Modified On : 08-04-2020
 // ***********************************************************************
 // <copyright file="ServiceProxy.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -24,15 +24,6 @@ namespace dotNetTips.Utility.Standard.Web
     /// <seealso cref="System.IDisposable" />
     public abstract class ServiceProxy<T> where T : ICommunicationObject, IDisposable
     {
-        /// <summary>
-        /// The channel
-        /// </summary>
-        private T _channel;
-
-        /// <summary>
-        /// The channel factory
-        /// </summary>
-        private IChannelFactory<T> _channelFactory;
 
         /// <summary>
         /// The lock
@@ -43,6 +34,15 @@ namespace dotNetTips.Utility.Standard.Web
         /// The service endpoint
         /// </summary>
         private readonly string _serviceEndpoint;
+        /// <summary>
+        /// The channel
+        /// </summary>
+        private T _channel;
+
+        /// <summary>
+        /// The channel factory
+        /// </summary>
+        private IChannelFactory<T> _channelFactory;
 
 
         private bool _disposed;
@@ -57,20 +57,35 @@ namespace dotNetTips.Utility.Standard.Web
         }
 
         /// <summary>
-        /// Initializes this instance.
+        /// Gets the channel.
         /// </summary>
-        private void Initialize()
+        /// <value>The channel.</value>
+        protected T Channel
         {
-            lock (this._lock)
+            get
             {
-                if (this.Channel != null)
-                {
-                    return;
-                }
-
-                this._channelFactory = new ChannelFactory<T>(this._serviceEndpoint);
-                this.Channel = this._channelFactory.CreateChannel(new EndpointAddress(this._serviceEndpoint));
+                this.Initialize();
+                return this._channel;
             }
+
+            private set => this._channel = value;
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether <see cref="ServiceProxy{T}" /> is disposed.
+        /// </summary>
+        /// <value><c>true</c> if disposed; otherwise, <c>false</c>.</value>
+        protected bool Disposed { get => _disposed; set => _disposed = value; }
+
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
+        public virtual void Dispose()
+        {
+            this.Dispose(true);
+
+            // Unregister object for finalization.
+            GC.SuppressFinalize(this);
         }
 
         /// <summary>
@@ -115,35 +130,21 @@ namespace dotNetTips.Utility.Standard.Web
         }
 
         /// <summary>
-        /// Gets the channel.
+        /// Initializes this instance.
         /// </summary>
-        /// <value>The channel.</value>
-        protected T Channel
+        private void Initialize()
         {
-            get
+            lock (this._lock)
             {
-                this.Initialize();
-                return this._channel;
+                if (this.Channel != null)
+                {
+                    return;
+                }
+
+                this._channelFactory = new ChannelFactory<T>(this._serviceEndpoint);
+                this.Channel = this._channelFactory.CreateChannel(new EndpointAddress(this._serviceEndpoint));
             }
-
-            private set => this._channel = value;
         }
 
-        /// <summary>
-        /// Gets or sets a value indicating whether <see cref="ServiceProxy{T}" /> is disposed.
-        /// </summary>
-        /// <value><c>true</c> if disposed; otherwise, <c>false</c>.</value>
-        protected bool Disposed { get => _disposed; set => _disposed = value; }
-
-        /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-        /// </summary>
-        public virtual void Dispose()
-        {
-            this.Dispose(true);
-
-            // Unregister object for finalization.
-            GC.SuppressFinalize(this);
-        }
     }
 }

@@ -4,7 +4,7 @@
 // Created          : 07-22-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-23-2020
+// Last Modified On : 08-04-2020
 // ***********************************************************************
 // <copyright file="MailHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -49,6 +49,7 @@ namespace dotNetTips.Utility.Standard.Net
         /// <param name="throwExceptionIfFail">if set to <c>true</c> [throw exception if fail].</param>
         /// <param name="separator">The separator.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="ArgumentException">email</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static bool TryParseEmailAddresses(string email, out ParseAddressInfo[] info, bool throwExceptionIfFail, char separator = ',')
         {
@@ -111,133 +112,6 @@ namespace dotNetTips.Utility.Standard.Net
                     return false;
                 }
             }
-        }
-
-        //
-        // Parse a single MailAddress, potentially from a list.
-        //
-        // Preconditions:
-        //  - Index must be within the bounds of the data string.
-        //  - The data string must not be null or empty
-        //
-        // Postconditions:
-        // - Returns a valid MailAddress object parsed from the string
-        // - For a single MailAddress index is set to -1
-        // - For a list data[index] is the comma separator or -1 if the end of the data string was reached.
-        //
-        // Throws a FormatException or false is returned if any part of the MailAddress is invalid.
-        /// <summary>
-        /// Tries the parse address.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        /// <param name="expectMultipleAddresses">if set to <c>true</c> [expect multiple addresses].</param>
-        /// <param name="index">The index.</param>
-        /// <param name="parseAddressInfo">The parse address information.</param>
-        /// <param name="throwExceptionIfFail">if set to <c>true</c> [throw exception if fail].</param>
-        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <exception cref="FormatException">Invalid email address.
-        /// or
-        /// Invalid character: {(index &gt;= 0 ? data[index] : MailBnfHelper.EndAngleBracket)}.</exception>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 64.06, Status = Status.New)]
-        private static bool TryParseEmailAddress(string data, bool expectMultipleAddresses, int index, out ParseAddressInfo parseAddressInfo, bool throwExceptionIfFail)
-        {
-            Debug.Assert(!string.IsNullOrEmpty(data));
-            Debug.Assert(index >= 0 && index < data.Length, "Index out of range: " + index + ", " + data.Length);
-
-            // Parsed components to be assembled as a MailAddress later
-            string displayName;
-
-            // Skip comments and whitespace
-            if (!TryReadCfwsAndThrowIfIncomplete(data, index, out index, throwExceptionIfFail))
-            {
-                parseAddressInfo = default;
-                return false;
-            }
-
-            // Do we expect angle brackets around the address?
-            // e.g. ("display name" <user@domain>)
-            bool expectAngleBracket = false;
-
-            if (data[index] == ControlChars.EndAngleBracket)
-            {
-                expectAngleBracket = true;
-                index--;
-            }
-
-            if (!TryParseDomain(data, ref index, out string domain, throwExceptionIfFail))
-            {
-                parseAddressInfo = default;
-                return false;
-            }
-
-            // The next character after the domain must be the '@' symbol
-            if (data[index] != ControlChars.At)
-            {
-                if (throwExceptionIfFail)
-                {
-                    throw new FormatException("Invalid email address.");
-                }
-                else
-                {
-                    parseAddressInfo = default;
-                    return false;
-                }
-            }
-
-            // Skip the '@' symbol
-            index--;
-
-            if (!TryParseLocalPart(data, ref index, expectAngleBracket, expectMultipleAddresses, out string localPart, throwExceptionIfFail))
-            {
-                parseAddressInfo = default;
-                return false;
-            }
-
-            // Check for a matching angle bracket around the address
-            if (expectAngleBracket)
-            {
-                if (index >= 0 && data[index] == ControlChars.StartAngleBracket)
-                {
-                    index--; // Skip the angle bracket
-                    // Skip whitespace, but leave comments, as they may be part of the display name.
-                    if (!WhitespaceReader.TryReadFwsReverse(data, index, out index, throwExceptionIfFail))
-                    {
-                        parseAddressInfo = default;
-                        return false;
-                    }
-                }
-                else
-                {
-                    // Mismatched angle brackets
-                    if (throwExceptionIfFail)
-                    {
-                        throw new FormatException($"Invalid character: {(index >= 0 ? data[index] : ControlChars.EndAngleBracket)}.");
-                    }
-                    else
-                    {
-                        parseAddressInfo = default;
-                        return false;
-                    }
-                }
-            }
-
-            // Is there anything left to parse?
-            // There could still be a display name or another address
-            if (index >= 0 && !(expectMultipleAddresses && data[index] == ControlChars.Comma))
-            {
-                if (!TryParseDisplayName(data, ref index, expectMultipleAddresses, out displayName, throwExceptionIfFail))
-                {
-                    parseAddressInfo = default;
-                    return false;
-                }
-            }
-            else
-            {
-                displayName = string.Empty;
-            }
-
-            parseAddressInfo = new ParseAddressInfo(displayName, localPart, domain);
-            return true;
         }
 
         // Parses the display-name section of an address.  In departure from the RFC, we attempt to read data in the
@@ -390,6 +264,133 @@ namespace dotNetTips.Utility.Standard.Net
                 return false;
             }
 
+            return true;
+        }
+
+        //
+        // Parse a single MailAddress, potentially from a list.
+        //
+        // Preconditions:
+        //  - Index must be within the bounds of the data string.
+        //  - The data string must not be null or empty
+        //
+        // Postconditions:
+        // - Returns a valid MailAddress object parsed from the string
+        // - For a single MailAddress index is set to -1
+        // - For a list data[index] is the comma separator or -1 if the end of the data string was reached.
+        //
+        // Throws a FormatException or false is returned if any part of the MailAddress is invalid.
+        /// <summary>
+        /// Tries the parse address.
+        /// </summary>
+        /// <param name="data">The data.</param>
+        /// <param name="expectMultipleAddresses">if set to <c>true</c> [expect multiple addresses].</param>
+        /// <param name="index">The index.</param>
+        /// <param name="parseAddressInfo">The parse address information.</param>
+        /// <param name="throwExceptionIfFail">if set to <c>true</c> [throw exception if fail].</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="FormatException">Invalid email address.
+        /// or
+        /// Invalid character: {(index &gt;= 0 ? data[index] : MailBnfHelper.EndAngleBracket)}.</exception>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 64.06, Status = Status.New)]
+        private static bool TryParseEmailAddress(string data, bool expectMultipleAddresses, int index, out ParseAddressInfo parseAddressInfo, bool throwExceptionIfFail)
+        {
+            Debug.Assert(!string.IsNullOrEmpty(data));
+            Debug.Assert(index >= 0 && index < data.Length, "Index out of range: " + index + ", " + data.Length);
+
+            // Parsed components to be assembled as a MailAddress later
+            string displayName;
+
+            // Skip comments and whitespace
+            if (!TryReadCfwsAndThrowIfIncomplete(data, index, out index, throwExceptionIfFail))
+            {
+                parseAddressInfo = default;
+                return false;
+            }
+
+            // Do we expect angle brackets around the address?
+            // e.g. ("display name" <user@domain>)
+            bool expectAngleBracket = false;
+
+            if (data[index] == ControlChars.EndAngleBracket)
+            {
+                expectAngleBracket = true;
+                index--;
+            }
+
+            if (!TryParseDomain(data, ref index, out string domain, throwExceptionIfFail))
+            {
+                parseAddressInfo = default;
+                return false;
+            }
+
+            // The next character after the domain must be the '@' symbol
+            if (data[index] != ControlChars.At)
+            {
+                if (throwExceptionIfFail)
+                {
+                    throw new FormatException("Invalid email address.");
+                }
+                else
+                {
+                    parseAddressInfo = default;
+                    return false;
+                }
+            }
+
+            // Skip the '@' symbol
+            index--;
+
+            if (!TryParseLocalPart(data, ref index, expectAngleBracket, expectMultipleAddresses, out string localPart, throwExceptionIfFail))
+            {
+                parseAddressInfo = default;
+                return false;
+            }
+
+            // Check for a matching angle bracket around the address
+            if (expectAngleBracket)
+            {
+                if (index >= 0 && data[index] == ControlChars.StartAngleBracket)
+                {
+                    index--; // Skip the angle bracket
+                    // Skip whitespace, but leave comments, as they may be part of the display name.
+                    if (!WhitespaceReader.TryReadFwsReverse(data, index, out index, throwExceptionIfFail))
+                    {
+                        parseAddressInfo = default;
+                        return false;
+                    }
+                }
+                else
+                {
+                    // Mismatched angle brackets
+                    if (throwExceptionIfFail)
+                    {
+                        throw new FormatException($"Invalid character: {(index >= 0 ? data[index] : ControlChars.EndAngleBracket)}.");
+                    }
+                    else
+                    {
+                        parseAddressInfo = default;
+                        return false;
+                    }
+                }
+            }
+
+            // Is there anything left to parse?
+            // There could still be a display name or another address
+            if (index >= 0 && !(expectMultipleAddresses && data[index] == ControlChars.Comma))
+            {
+                if (!TryParseDisplayName(data, ref index, expectMultipleAddresses, out displayName, throwExceptionIfFail))
+                {
+                    parseAddressInfo = default;
+                    return false;
+                }
+            }
+            else
+            {
+                displayName = string.Empty;
+            }
+
+            parseAddressInfo = new ParseAddressInfo(displayName, localPart, domain);
             return true;
         }
 

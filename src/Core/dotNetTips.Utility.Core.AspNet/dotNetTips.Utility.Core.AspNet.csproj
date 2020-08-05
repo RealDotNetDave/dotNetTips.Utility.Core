@@ -12,8 +12,8 @@
     <RepositoryUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
-    <AssemblyVersion>2020.8.5.29052</AssemblyVersion>
-    <FileVersion>2020.8.5.29052</FileVersion>
+    <AssemblyVersion>2020.8.5.30166</AssemblyVersion>
+    <FileVersion>2020.8.5.30166</FileVersion>
     <Version>2020.6.9.1</Version>
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
   </PropertyGroup>

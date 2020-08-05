@@ -4,7 +4,7 @@
 // Created          : 06-06-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-30-2020
+// Last Modified On : 08-04-2020
 // ***********************************************************************
 // <copyright file="DirectoryNotFoundException.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -19,7 +19,9 @@ namespace dotNetTips.Utility.Standard.Common
     /// <summary>
     /// Class DirectoryNotFoundException.
     /// Implements the <see cref="LoggableException" />
+    /// Implements the <see cref="dotNetTips.Utility.Standard.Common.LoggableException" />
     /// </summary>
+    /// <seealso cref="dotNetTips.Utility.Standard.Common.LoggableException" />
     /// <seealso cref="LoggableException" />
     /// <seealso cref="Exception" />
     [Serializable]

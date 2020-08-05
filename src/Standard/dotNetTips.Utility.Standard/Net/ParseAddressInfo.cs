@@ -4,7 +4,7 @@
 // Created          : 07-23-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-23-2020
+// Last Modified On : 08-05-2020
 // ***********************************************************************
 // <copyright file="ParseAddressInfo.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -21,6 +21,7 @@ namespace dotNetTips.Utility.Standard.Net
     /// </summary>
     public readonly struct ParseAddressInfo
     {
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ParseAddressInfo" /> struct.
         /// </summary>
@@ -57,5 +58,6 @@ namespace dotNetTips.Utility.Standard.Net
 
             return DisplayName.HasValue() ? $"{this.DisplayName} <{email}>" : email;
         }
+
     }
 }

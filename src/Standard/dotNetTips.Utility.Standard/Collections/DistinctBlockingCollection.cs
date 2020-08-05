@@ -4,7 +4,7 @@
 // Created          : 01-23-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 05-02-2020
+// Last Modified On : 08-04-2020
 // ***********************************************************************
 // <copyright file="DistinctBlockingCollection.cs" company="dotNetTips.Utility.Standard">
 //     Copyright (c) dotNetTips.com - McCarter Consulting. All rights reserved.
@@ -29,6 +29,7 @@ namespace dotNetTips.Utility.Standard.Collections
     /// <seealso cref="System.Collections.Concurrent.BlockingCollection{T}" />
     public class DistinctBlockingCollection<T> : BlockingCollection<T>, ICloneable<T>
     {
+
         /// <summary>
         /// Initializes a new instance of the <see cref="DistinctBlockingCollection{T}" /> class.
         /// </summary>
@@ -149,5 +150,6 @@ namespace dotNetTips.Utility.Standard.Collections
         /// <param name="item">The item.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         private bool ItemNotInCollection(T item) { return item == null && this.Contains(item) == false; }
+
     }
 }

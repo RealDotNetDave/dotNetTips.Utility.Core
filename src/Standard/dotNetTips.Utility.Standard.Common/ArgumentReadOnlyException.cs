@@ -4,7 +4,7 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-31-2019
+// Last Modified On : 08-05-2020
 // ***********************************************************************
 // <copyright file="ArgumentReadOnlyException.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -18,12 +18,15 @@ namespace dotNetTips.Utility.Standard.Common
 {
     /// <summary>
     /// Class ArgumentIsReadOnlyException.
+    /// Implements the <see cref="System.ArgumentException" />
     /// </summary>
+    /// <seealso cref="System.ArgumentException" />
     /// <seealso cref="ArgumentException" />
     /// <seealso cref="Exception" />
     [Serializable]
     public sealed class ArgumentReadOnlyException : ArgumentException
     {
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ArgumentReadOnlyException" /> class.
         /// </summary>
@@ -74,5 +77,6 @@ namespace dotNetTips.Utility.Standard.Common
         private ArgumentReadOnlyException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
+
     }
 }

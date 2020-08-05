@@ -4,7 +4,7 @@
 // Created          : 07-29-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-02-2020
+// Last Modified On : 08-05-2020
 // ***********************************************************************
 // <copyright file="InformationAttribute.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -51,7 +51,6 @@ namespace dotNetTips.Utility.Standard.Common
         /// <summary>
         /// The not set
         /// </summary>
-        /// TODO Edit XML Comment Template for NotSet
         NotSet,
 
         /// <summary>
@@ -78,17 +77,18 @@ namespace dotNetTips.Utility.Standard.Common
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Enum | AttributeTargets.Interface | AttributeTargets.Constructor | AttributeTargets.Method | AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Event | AttributeTargets.Delegate, Inherited = false)]
     public sealed class InformationAttribute : Attribute
     {
+
         private double _unitTestCoverage = 0;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="InformationAttribute"/> class.
+        /// Initializes a new instance of the <see cref="InformationAttribute" /> class.
         /// </summary>
         public InformationAttribute()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="InformationAttribute"/> class.
+        /// Initializes a new instance of the <see cref="InformationAttribute" /> class.
         /// </summary>
         /// <param name="message">The message.</param>
         /// <param name="author">The author.</param>
@@ -98,7 +98,7 @@ namespace dotNetTips.Utility.Standard.Common
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="InformationAttribute"/> class.
+        /// Initializes a new instance of the <see cref="InformationAttribute" /> class.
         /// </summary>
         /// <param name="message">The message.</param>
         /// <param name="author">The author.</param>
@@ -133,16 +133,16 @@ namespace dotNetTips.Utility.Standard.Common
         public string Author { get; }
 
         /// <summary>
+        /// Gets or sets the benchmark status.
+        /// </summary>
+        /// <value>The bench mark status.</value>
+        public BenchMarkStatus BenchMarkStatus { get; set; } = BenchMarkStatus.None;
+
+        /// <summary>
         /// Gets the created on date.
         /// </summary>
         /// <value>The created on.</value>
         public DateTimeOffset CreatedOn { get; }
-
-        /// <summary>
-        /// Gets or sets the status.
-        /// </summary>
-        /// <value>The status.</value>
-        public Status Status { get; set; } = Status.Available;
 
         /// <summary>
         /// Gets the description of the type, method or event.
@@ -163,17 +163,17 @@ namespace dotNetTips.Utility.Standard.Common
         public DateTimeOffset ModifiedOn { get; }
 
         /// <summary>
-        /// Gets or sets the benchmark status.
+        /// Gets or sets the status.
         /// </summary>
-        /// <value>The bench mark status.</value>
-        public BenchMarkStatus BenchMarkStatus { get; set; } = BenchMarkStatus.None;
+        /// <value>The status.</value>
+        public Status Status { get; set; } = Status.Available;
 
         /// <summary>
         /// Gets or sets the unit test coverage.
         /// </summary>
-        /// <remarks>Value must be between 0 - 100</remarks>
         /// <value>The unit test coverage.</value>
         /// <exception cref="ArgumentOutOfRangeException">Unit test coverage must be in the range of 0 - 100. - UnitTestCoverage</exception>
+        /// <remarks>Value must be between 0 - 100</remarks>
         public double UnitTestCoverage
         {
             get => this._unitTestCoverage;

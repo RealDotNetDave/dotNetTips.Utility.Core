@@ -4,7 +4,7 @@
 // Created          : 07-11-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-20-2020
+// Last Modified On : 08-04-2020
 // ***********************************************************************
 // <copyright file="PathHelperc.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -56,7 +56,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// </summary>
         /// <param name="path">The path.</param>
         /// <returns>System.String.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 88, BenchMarkStatus = BenchMarkStatus.Completed,  Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 88, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
         public static string EnsureTrailingSlash(string path)
         {
             Encapsulation.TryValidateParam(path, nameof(path));
@@ -108,5 +108,6 @@ namespace dotNetTips.Utility.Standard.IO
 
             return path.IndexOfAny(_invalidPathNameChars) != -1;
         }
+
     }
 }

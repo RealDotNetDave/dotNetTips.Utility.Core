@@ -4,7 +4,7 @@
 // Created          : 06-01-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-26-2020
+// Last Modified On : 08-04-2020
 // ***********************************************************************
 // <copyright file="HttpRequestExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
@@ -108,8 +108,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="request">The HTTPRequest object.</param>
         /// <param name="value">The return value.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <exception cref="ArgumentException">HttpRequest has no body.</exception>
         /// <exception cref="ArgumentNullException">request</exception>
+        /// <exception cref="ArgumentException">HttpRequest has no body.</exception>
         /// <exception cref="Exception">HttpRequest has no body.</exception>
         /// <remarks>Orginal code by Jerry Nixon</remarks>
         public static bool TryGetBody(this HttpRequest request, out byte[] value)
