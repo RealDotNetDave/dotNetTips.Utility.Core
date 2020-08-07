@@ -11,8 +11,6 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTipis.Utility.Standard.Common;
-using dotNetTips.Utility.Standard.Common;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,6 +22,8 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using dotNetTipis.Utility.Standard.Common;
+using dotNetTips.Utility.Standard.Common;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {

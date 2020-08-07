@@ -4,17 +4,17 @@
 // Created          : 06-15-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 11-26-2019
+// Last Modified On : 08-07-2020
 // ***********************************************************************
 // <copyright file="RegistryHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.OOP;
-using Microsoft.Win32;
 using System;
 using System.Runtime.InteropServices;
+using dotNetTips.Utility.Standard.OOP;
+using Microsoft.Win32;
 
 namespace dotNetTips.Utility.Core.Windows.Win32
 {

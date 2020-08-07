@@ -4,7 +4,7 @@
 // Created          : 07-24-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-24-2020
+// Last Modified On : 08-07-2020
 // ***********************************************************************
 // <copyright file="InfiniteTimer.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -18,7 +18,9 @@ namespace dotNetTips.Utility.Standard.Net
     /// <summary>
     /// A dummy infinite timer.
     /// Implements the <see cref="CancelationTimer" />
+    /// Implements the <see cref="dotNetTips.Utility.Standard.Net.CancelationTimer" />
     /// </summary>
+    /// <seealso cref="dotNetTips.Utility.Standard.Net.CancelationTimer" />
     /// <seealso cref="CancelationTimer" />
     public class InfiniteTimer : CancelationTimer
     {
@@ -26,7 +28,7 @@ namespace dotNetTips.Utility.Standard.Net
         private int _cancelled;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="InfiniteTimer"/> class.
+        /// Initializes a new instance of the <see cref="InfiniteTimer" /> class.
         /// </summary>
         public InfiniteTimer() : base(Timeout.Infinite) { }
 

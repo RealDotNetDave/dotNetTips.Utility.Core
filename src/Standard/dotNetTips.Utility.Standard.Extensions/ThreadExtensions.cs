@@ -14,7 +14,6 @@
 using System;
 using System.Threading;
 using dotNetTips.Utility.Standard.Common;
-using Microsoft.Extensions.Logging;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {

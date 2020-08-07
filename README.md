@@ -14,6 +14,7 @@ Below is the list of current projects in this repository
 *   [dotNetTips.Utility.Core.Windows][2]: Common code for Windows.
 ### .NET Standard
 *   [dotNetTips.Utility.Standard][3]: Main assembly for common code.
+*   dotNetTips.Utility.Standard.Common: Common code used in all the other .NET Core and .NET Standard assemblies.
 *   [dotNetTips.Utility.Standard.Extensions][4]: Common extension methods.
 *   [dotNetTips.Utility.Standard.Tester][5]: Code for use in unit tests/ benchmarks. For article and video on how to use this assembly, go to: [https://dotnettips.wordpress.com/2020/03/27/unit-testing-with-random-data](https://dotnettips.wordpress.com/2020/03/27/unit-testing-with-random-data)
 

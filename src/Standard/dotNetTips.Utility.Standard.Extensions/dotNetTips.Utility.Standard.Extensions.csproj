@@ -3,8 +3,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Extensions.xml</DocumentationFile>
     <OutputPath>..\..\..\appbin\</OutputPath>
-    <AssemblyVersion>2020.8.7.32692</AssemblyVersion>
-    <FileVersion>2020.8.7.32692</FileVersion>
+    <AssemblyVersion>2020.8.7.34644</AssemblyVersion>
+    <FileVersion>2020.8.7.34644</FileVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
@@ -19,7 +19,7 @@
     <AssemblyOriginatorKeyFile>dotNetTips.com.pfx</AssemblyOriginatorKeyFile>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2020.7.31.2</Version>
+     <Version>2020.8.9.0</Version>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
     <AssemblyName>dotNetTips.Utility.Standard.Extensions</AssemblyName>
     <RootNamespace>dotNetTips.Utility.Standard.Extensions</RootNamespace>
@@ -30,7 +30,8 @@
 -- DEC 2019 (QUARTERLY RELEASE): Code cleanup.
 -- FEB 2020: Code cleanup. Added more overloads for TryValidateParam.
 -- MAR 2020 (QUARTERLY RELEASE): New extension methods. Code cleanup.
--- MAY 2020: Added BytesToString. Added StringBuilderExtensions.</PackageReleaseNotes>
+-- MAY 2020: Added BytesToString. Added StringBuilderExtensions.
+-- AUG 2020: New helper methods &amp; classes. Code cleanup.</PackageReleaseNotes>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>

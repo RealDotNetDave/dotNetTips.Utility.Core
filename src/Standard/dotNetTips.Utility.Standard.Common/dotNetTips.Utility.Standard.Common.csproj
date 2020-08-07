@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyVersion>2020.8.7.32692</AssemblyVersion>
-    <FileVersion>2020.8.7.32692</FileVersion>
-    <Version>2020.7.31.2</Version>
+    <AssemblyVersion>2020.8.7.34644</AssemblyVersion>
+    <FileVersion>2020.8.7.34644</FileVersion>
+     <Version>2020.8.9.0</Version>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
     <Description>Common .NET Standard Code</Description>
@@ -12,7 +12,7 @@
     <RepositoryType>git</RepositoryType>
     <Copyright>McCarter Consulting (David McCarter)</Copyright>
     <NeutralLanguage>English (United States)</NeutralLanguage>
-    <PackageReleaseNotes>--First Release</PackageReleaseNotes>
+    <PackageReleaseNotes>-- AUG 2020: First release.</PackageReleaseNotes>
     <AssemblyName>dotNetTips.Utility.Standard.Common</AssemblyName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>

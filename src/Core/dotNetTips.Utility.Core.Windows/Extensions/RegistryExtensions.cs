@@ -4,17 +4,17 @@
 // Created          : 06-16-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 11-21-2019
+// Last Modified On : 08-07-2020
 // ***********************************************************************
 // <copyright file="RegistryExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.OOP;
-using Microsoft.Win32;
 using System;
 using System.Runtime.InteropServices;
+using dotNetTips.Utility.Standard.OOP;
+using Microsoft.Win32;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {

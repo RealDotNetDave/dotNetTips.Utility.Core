@@ -4,7 +4,7 @@
 // Created          : 07-22-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-04-2020
+// Last Modified On : 08-07-2020
 // ***********************************************************************
 // <copyright file="MailHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)

@@ -12,10 +12,9 @@
 // <summary></summary>
 // ***********************************************************************
 
-using dotNetTipis.Utility.Standard.Common;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using dotNetTipis.Utility.Standard.Common;
 
 namespace dotNetTips.Utility.Standard.Common.Logging
 {

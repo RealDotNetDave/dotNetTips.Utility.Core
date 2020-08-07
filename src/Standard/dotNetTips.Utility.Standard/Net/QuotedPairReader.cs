@@ -4,7 +4,7 @@
 // Created          : 07-23-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-23-2020
+// Last Modified On : 08-07-2020
 // ***********************************************************************
 // <copyright file="QuotedPairReader.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)

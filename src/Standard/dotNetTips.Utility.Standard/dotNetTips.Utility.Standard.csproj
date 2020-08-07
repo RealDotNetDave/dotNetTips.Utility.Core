@@ -3,8 +3,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.xml</DocumentationFile>
     <OutputPath>..\..\..\appbin\</OutputPath>
-    <AssemblyVersion>2020.8.7.32756</AssemblyVersion>
-    <FileVersion>2020.8.7.32756</FileVersion>
+    <AssemblyVersion>2020.8.7.34644</AssemblyVersion>
+    <FileVersion>2020.8.7.34644</FileVersion>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
@@ -19,7 +19,7 @@
     <AssemblyOriginatorKeyFile>dotNetTips.Utility.Standard.snk</AssemblyOriginatorKeyFile>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2020.7.31.2</Version>
+     <Version>2020.8.9.0</Version>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
     <Configurations>Debug;Release;Full Build</Configurations>
     <PackageLicenseUrl></PackageLicenseUrl>
@@ -32,7 +32,8 @@
 -- DEC 2019 (QUARTERLY RELEASE): Code cleanup. Moved some methods to the new dotNetTips.Utility.Core.Windows project/ NuGet.
 -- FEB 2020: Code cleanup. Removed outdated encryption methods. Added ProgressiveRetry method and ExecutionHelper.cs.
 -- MAR 2020 (QUARTERLY RELEASE): Code cleanup. New code for PregressiveRetry.
--- MAY 2020: Added new overloads for TryValidateParam.</PackageReleaseNotes>
+-- MAY 2020: Added new overloads for TryValidateParam.
+-- AUG 2020: New helper methods &amp; classes. Code cleanup.</PackageReleaseNotes>
     <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
     <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
   </PropertyGroup>

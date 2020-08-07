@@ -11,7 +11,6 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Common.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -23,6 +22,7 @@ using System.Runtime.Serialization;
 using System.Security;
 using System.Text;
 using System.Xml.Serialization;
+using dotNetTips.Utility.Standard.Common.Logging;
 
 namespace dotNetTips.Utility.Standard.Common
 {

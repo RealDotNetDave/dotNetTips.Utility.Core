@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace dotNetTips.Utility.Standard.Extensions.Properties {
-    using System;
-    
-    
+namespace dotNetTips.Utility.Standard.Extensions.Properties
+{
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>

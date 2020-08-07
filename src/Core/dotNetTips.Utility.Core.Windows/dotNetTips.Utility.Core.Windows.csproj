@@ -4,10 +4,10 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
-    <AssemblyVersion>2020.8.7.32756</AssemblyVersion>
-    <FileVersion>2020.8.7.32756</FileVersion>
+    <AssemblyVersion>2020.8.7.34644</AssemblyVersion>
+    <FileVersion>2020.8.7.34644</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2020.7.31.2</Version>
+    <Version>2020.8.9.0</Version>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
     <Description>Common .NET Core Code for Windows</Description>
@@ -19,7 +19,8 @@
     <PackageReleaseNotes>-- OCT 2019: Initial Release
 -- DEC 2019 (QUARTERLY RELEASE): Code cleanup.
 -- FEB 2020: Code cleanup.
--- MAR 2020 (QUARTERLY RELEASE): Code cleanup.</PackageReleaseNotes>
+-- MAR 2020 (QUARTERLY RELEASE): Code cleanup.
+-- AUG 2020: Code cleanup.</PackageReleaseNotes>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>

@@ -4,7 +4,7 @@
 // Created          : 08-09-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-04-2020
+// Last Modified On : 08-07-2020
 // ***********************************************************************
 // <copyright file="TypeHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -404,7 +404,7 @@ namespace dotNetTips.Utility.Standard
         {
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="DisplayNameOptions"/> struct.
+            /// Initializes a new instance of the <see cref="DisplayNameOptions" /> struct.
             /// </summary>
             /// <param name="fullName">if set to <c>true</c> [full name].</param>
             /// <param name="includeGenericParameterNames">if set to <c>true</c> [include generic parameter names].</param>
