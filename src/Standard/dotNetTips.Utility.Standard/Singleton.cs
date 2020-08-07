@@ -39,7 +39,7 @@ namespace dotNetTips.Utility.Standard
         /// <returns>LoadData.</returns>
         protected static void LoadData(T data)
         {
-            if(data != null)
+            if (data != null)
             {
                 _instance = data;
             }

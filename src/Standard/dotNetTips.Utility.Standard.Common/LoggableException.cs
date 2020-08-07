@@ -29,8 +29,8 @@ namespace dotNetTips.Utility.Standard.Common
     /// <summary>
     /// Class LoggableException.
     /// </summary>
-    /// <seealso cref="System.Exception" />
-    /// <seealso cref="System.Xml.Serialization.IXmlSerializable" />
+    /// <seealso cref="Exception" />
+    /// <seealso cref="IXmlSerializable" />
     [Serializable]
     public class LoggableException : Exception
     {
@@ -83,7 +83,7 @@ namespace dotNetTips.Utility.Standard.Common
         /// <param name="serializationInfo">The serialization information.</param>
         /// <param name="streamingContext">The streaming context.</param>
         /// <exception cref="NotImplementedException">The exception.</exception>
-        /// <exception cref="System.NotImplementedException">The exception.</exception>
+        /// <exception cref="NotImplementedException">The exception.</exception>
         protected LoggableException(SerializationInfo serializationInfo, StreamingContext streamingContext)
          : base(serializationInfo, streamingContext)
         {
@@ -96,10 +96,7 @@ namespace dotNetTips.Utility.Standard.Common
         /// <value><c>true</c> if this instance has been logged; otherwise, <c>false</c>.</value>
         public bool HasBeenLogged
         {
-            get
-            {
-                return this._hasBeenLogged;
-            }
+            get => this._hasBeenLogged;
 
             set
             {

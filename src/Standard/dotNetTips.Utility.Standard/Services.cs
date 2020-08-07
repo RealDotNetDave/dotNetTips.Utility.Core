@@ -29,9 +29,12 @@ namespace dotNetTips.Utility.Standard
         /// Alls the services.
         /// </summary>
         /// <returns>IEnumerable&lt;System.String&gt;.</returns>
-        public static IEnumerable<string> AllServices() => ServiceController.GetServices()
-            .Select(p => p.ServiceName)
-            .AsEnumerable();
+        public static IEnumerable<string> AllServices()
+        {
+            return ServiceController.GetServices()
+                        .Select(p => p.ServiceName)
+                        .AsEnumerable();
+        }
 
         /// <summary>
         /// Services the exists.
@@ -51,7 +54,6 @@ namespace dotNetTips.Utility.Standard
         /// <param name="serviceName">Name of the service.</param>
         /// <returns>ServiceControllerStatus.</returns>
         /// <exception cref="InvalidOperationException">Service not found.</exception>
-        /// <exception cref="System.InvalidOperationException">Service not found.</exception>
         public static ServiceControllerStatus ServiceStatus(string serviceName)
         {
             var service = LoadService(serviceName);
@@ -163,7 +165,9 @@ namespace dotNetTips.Utility.Standard
         /// </summary>
         /// <param name="serviceName">Name of the service.</param>
         /// <returns>ServiceController.</returns>
-        private static ServiceController LoadService(string serviceName) => ServiceController.GetServices()
-            .FirstOrDefault(p => p.ServiceName == serviceName);
+        private static ServiceController LoadService(string serviceName)
+        {
+            return ServiceController.GetServices().FirstOrDefault(p => p.ServiceName == serviceName);
+        }
     }
 }

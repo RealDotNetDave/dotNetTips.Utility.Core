@@ -116,7 +116,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="System.ArgumentException">list - List cannot be read-only.</exception>
         public static void AddIfNotExists<T>(this ICollection<T> list, T item)
         {
-            if ((list == null))
+            if (list == null)
             {
                 throw new ArgumentNullException(nameof(list), $"{nameof(list)} is null.");
             }
@@ -315,7 +315,6 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="insureUnique">Set to true if items added to list are unique.</param>
         /// <exception cref="ArgumentException">items</exception>
         /// <exception cref="ArgumentNullException">items</exception>
-        /// <exception cref="System.ArgumentNullException">items</exception>
         public static void AddRange<T>(this ICollection<T> list, IEnumerable<T> items, bool insureUnique = false)
         {
             if (items.HasItems() == false)
@@ -588,7 +587,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="TKey">The type of the t key.</typeparam>
         /// <typeparam name="TValue">The type of the t value.</typeparam>
         /// <param name="items">The items.</param>
-        public static void DisposeCollection<TKey, TValue>(this IDictionary<TKey, TValue> items) => ProcessCollectionToDispose(items.Select(p => p.Value));
+        public static void DisposeCollection<TKey, TValue>(this IDictionary<TKey, TValue> items)
+        {
+            ProcessCollectionToDispose(items.Select(p => p.Value));
+        }
 
         /// <summary>
         /// Returns distinct collection using the specified comparer.

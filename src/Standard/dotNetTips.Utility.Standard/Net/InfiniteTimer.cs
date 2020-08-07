@@ -17,9 +17,9 @@ namespace dotNetTips.Utility.Standard.Net
 {
     /// <summary>
     /// A dummy infinite timer.
-    /// Implements the <see cref="dotNetTips.Utility.Standard.Net.CancelationTimer" />
+    /// Implements the <see cref="CancelationTimer" />
     /// </summary>
-    /// <seealso cref="dotNetTips.Utility.Standard.Net.CancelationTimer" />
+    /// <seealso cref="CancelationTimer" />
     public class InfiniteTimer : CancelationTimer
     {
 

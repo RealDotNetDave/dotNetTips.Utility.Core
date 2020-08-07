@@ -179,20 +179,19 @@ namespace dotNetTips.Utility.Standard.Common
             get => this._unitTestCoverage;
             set
             {
-                if (IsInRange(value, 0, 100))
-                {
-                    this._unitTestCoverage = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException("Unit test coverage must be in the range of 0 - 100.", nameof(UnitTestCoverage));
-                }
+                this._unitTestCoverage = IsInRange(value, 0, 100) ? value : throw new ArgumentOutOfRangeException("Unit test coverage must be in the range of 0 - 100.", nameof(UnitTestCoverage));
             }
         }
 
-        private static bool IsInRange(int value, int lower, int upper) => value >= lower && value <= upper;
+        private static bool IsInRange(int value, int lower, int upper)
+        {
+            return value >= lower && value <= upper;
+        }
 
-        private static bool IsInRange(double value, double lower, double upper) => value >= lower && value <= upper;
+        private static bool IsInRange(double value, double lower, double upper)
+        {
+            return value >= lower && value <= upper;
+        }
 
     }
 }

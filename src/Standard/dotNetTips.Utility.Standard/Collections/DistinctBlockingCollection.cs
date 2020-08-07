@@ -105,7 +105,10 @@ namespace dotNetTips.Utility.Standard.Collections
         /// <param name="item">The item to be added to the collection.</param>
         /// <returns>true if <paramref name="item" /> could be added; otherwise false. If the item is a duplicate, and the
         /// underlying collection does not accept duplicate items, then an <see cref="T:System.InvalidOperationException" /> is thrown.</returns>
-        public new bool TryAdd(T item) { return ItemNotInCollection(item) ? base.TryAdd(item) : false; }
+        public new bool TryAdd(T item)
+        {
+            return ItemNotInCollection(item) ? base.TryAdd(item) : false;
+        }
 
         /// <summary>
         /// Tries to add the specified item to the <see cref="T:System.Collections.Concurrent.BlockingCollection`1" />
@@ -118,7 +121,9 @@ namespace dotNetTips.Utility.Standard.Collections
         /// false. If the item is a duplicate, and the underlying collection does not accept duplicate items, then an
         /// <see cref="T:System.InvalidOperationException" /> is thrown.</returns>
         public new bool TryAdd(T item, int millisecondsTimeout)
-        { return ItemNotInCollection(item) ? base.TryAdd(item, millisecondsTimeout) : false; }
+        {
+            return ItemNotInCollection(item) ? base.TryAdd(item, millisecondsTimeout) : false;
+        }
 
         /// <summary>
         /// Tries to add the specified item to the <see cref="T:System.Collections.Concurrent.BlockingCollection`1" />.
@@ -128,7 +133,9 @@ namespace dotNetTips.Utility.Standard.Collections
         /// <returns>true if the <paramref name="item" /> could be added to the collection within the specified time span;
         /// otherwise, false.</returns>
         public new bool TryAdd(T item, TimeSpan timeout)
-        { return ItemNotInCollection(item) ? base.TryAdd(item, timeout) : false; }
+        {
+            return ItemNotInCollection(item) ? base.TryAdd(item, timeout) : false;
+        }
 
         /// <summary>
         /// Tries to add the specified item to the <see cref="T:System.Collections.Concurrent.BlockingCollection`1" />

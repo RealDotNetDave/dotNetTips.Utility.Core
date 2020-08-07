@@ -131,7 +131,10 @@ namespace dotNetTips.Utility.Standard
         /// Handles the <see cref="E:SystemChanged" /> event.
         /// </summary>
         /// <param name="e">The <see cref="SystemChangedEventArgs" /> instance containing the event data.</param>
-        private static void OnSystemChanged(SystemChangedEventArgs e) => SystemChanged?.Invoke(AppDomain.CurrentDomain, e);
+        private static void OnSystemChanged(SystemChangedEventArgs e)
+        {
+            SystemChanged?.Invoke(AppDomain.CurrentDomain, e);
+        }
 
     }
 }

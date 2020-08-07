@@ -27,6 +27,7 @@ namespace dotNetTips.Utility.Standard.Serialization
     /// </summary>
     public static class JsonSerializer
     {
+
         /// <summary>
         /// Deserializes the specified Json.
         /// </summary>
@@ -47,6 +48,24 @@ namespace dotNetTips.Utility.Standard.Serialization
             }
 
             return obj;
+        }
+
+        /// <summary>
+        /// Jsons the equal.
+        /// </summary>
+        /// <param name="actual">The actual.</param>
+        /// <param name="expected">The expected.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        public static bool JsonEqual(string actual, string expected)
+        {
+            using (var expectedDom = JsonDocument.Parse(expected))
+            {
+                using (var actualDom = JsonDocument.Parse(actual))
+                {
+                    return JsonEqual(expectedDom.RootElement, actualDom.RootElement);
+                }
+            }
         }
 
         /// <summary>
@@ -72,27 +91,9 @@ namespace dotNetTips.Utility.Standard.Serialization
             return json;
         }
 
-        /// <summary>
-        /// Jsons the equal.
-        /// </summary>
-        /// <param name="actual">The actual.</param>
-        /// <param name="expected">The expected.</param>
-        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
-        public static bool JsonEqual(string actual, string expected)
-        {
-            using (var expectedDom = JsonDocument.Parse(expected))
-            {
-                using (var actualDom = JsonDocument.Parse(actual))
-                {
-                    return JsonEqual(expectedDom.RootElement, actualDom.RootElement);
-                }
-            }
-        }
-
         private static bool JsonEqual(JsonElement expected, JsonElement actual)
         {
-            JsonValueKind valueKind = expected.ValueKind;
+            var valueKind = expected.ValueKind;
 
             if (valueKind != actual.ValueKind)
             {
@@ -124,23 +125,26 @@ namespace dotNetTips.Utility.Standard.Serialization
 
                     return true;
                 case JsonValueKind.Array:
-                    JsonElement.ArrayEnumerator expectedEnumerator = actual.EnumerateArray();
-                    JsonElement.ArrayEnumerator actualEnumerator = expected.EnumerateArray();
-
-                    while (expectedEnumerator.MoveNext())
+                    using (var expectedEnumerator = actual.EnumerateArray())
                     {
-                        if (!actualEnumerator.MoveNext())
+                        using (var actualEnumerator = expected.EnumerateArray())
                         {
-                            return false;
-                        }
+                            while (expectedEnumerator.MoveNext())
+                            {
+                                if (!actualEnumerator.MoveNext())
+                                {
+                                    return false;
+                                }
 
-                        if (!JsonEqual(expectedEnumerator.Current, actualEnumerator.Current))
-                        {
-                            return false;
+                                if (!JsonEqual(expectedEnumerator.Current, actualEnumerator.Current))
+                                {
+                                    return false;
+                                }
+                            }
+
+                            return !actualEnumerator.MoveNext();
                         }
                     }
-
-                    return !actualEnumerator.MoveNext();
                 case JsonValueKind.String:
                     return expected.GetString() == actual.GetString();
                 case JsonValueKind.Number:
@@ -152,5 +156,6 @@ namespace dotNetTips.Utility.Standard.Serialization
                     throw new NotSupportedException($"Unexpected JsonValueKind: JsonValueKind.{valueKind}.");
             }
         }
+
     }
 }

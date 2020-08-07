@@ -177,7 +177,8 @@ namespace dotNetTips.Utility.Standard.Net
                             var now = Environment.TickCount;
                             var nextTick = 0;
                             var haveNextTick = false;
-                            for (LinkedListNode<WeakReference> node = _queues.First; node != null; /* node = node.Next must be done in the body */)
+
+                            for (var node = _queues.First; node != null; /* node = node.Next must be done in the body */)
                             {
                                 var queue = (CountdownTimerQueue)node.Value.Target;
                                 if (queue == null)

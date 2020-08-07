@@ -150,7 +150,6 @@ namespace dotNetTips.Utility.Standard
         /// <param name="classOnly">if set to <c>true</c> [class only].</param>
         /// <returns>IEnumerable&lt;Type&gt;.</returns>
         /// <exception cref="dotNetTips.Utility.Standard.Common.DirectoryNotFoundException">Could not find path.</exception>
-        /// <exception cref="System.IO.DirectoryNotFoundException">Could not find path.</exception>
         /// <exception cref="ArgumentNullException">Could not find path.</exception>
         public static IEnumerable<Type> FindDerivedTypes(string path, SearchOption searchOption, Type baseType, bool classOnly)
         {
@@ -168,7 +167,7 @@ namespace dotNetTips.Utility.Standard
 
             var list = files.ToList();
 
-            for (int i = 0; i < list.Count; i++)
+            for (var i = 0; i < list.Count; i++)
             {
                 string file = list[i];
                 var assy = Assembly.LoadFile(file);
@@ -260,11 +259,11 @@ namespace dotNetTips.Utility.Standard
         private static IEnumerable<Type> LoadDerivedTypes(IEnumerable<TypeInfo> types, Type baseType, bool classOnly)
         {
             // works out the derived types
-            List<TypeInfo> list = types.ToList();
+            var list = types.ToList();
 
-            for (int i = 0; i < list.Count; i++)
+            for (var i = 0; i < list.Count; i++)
             {
-                TypeInfo type = list[i];
+                var type = list[i];
 
                 // if classOnly, it must be a class
                 // useful when you want to create instance
@@ -310,7 +309,7 @@ namespace dotNetTips.Utility.Standard
 
         private static void ProcessGenericType(StringBuilder builder, Type type, Type[] genericArguments, int length, in DisplayNameOptions options)
         {
-            int offset = 0;
+            var offset = 0;
 
             if (type.IsNested)
             {
@@ -331,7 +330,7 @@ namespace dotNetTips.Utility.Standard
                 }
             }
 
-            int genericPartIndex = type.Name.IndexOf('`');
+            var genericPartIndex = type.Name.IndexOf('`');
             if (genericPartIndex <= 0)
             {
                 builder.Append(type.Name);
@@ -344,7 +343,7 @@ namespace dotNetTips.Utility.Standard
             {
                 builder.Append(ControlChars.StartAngleBracket);
 
-                for (int i = offset; i < length; i++)
+                for (var i = offset; i < length; i++)
                 {
                     ProcessType(builder, genericArguments[i], options);
 
@@ -368,14 +367,14 @@ namespace dotNetTips.Utility.Standard
         {
             if (type.IsGenericType)
             {
-                Type[] genericArguments = type.GetGenericArguments();
+                var genericArguments = type.GetGenericArguments();
                 ProcessGenericType(builder, type, genericArguments, genericArguments.Length, options);
             }
             else if (type.IsArray)
             {
                 ProcessArrayType(builder, type, options);
             }
-            else if (_builtInTypeNames.TryGetValue(type, out string builtInName))
+            else if (_builtInTypeNames.TryGetValue(type, out var builtInName))
             {
                 builder.Append(builtInName);
             }
@@ -388,7 +387,7 @@ namespace dotNetTips.Utility.Standard
             }
             else
             {
-                string name = options.FullName ? type.FullName : type.Name;
+                var name = options.FullName ? type.FullName : type.Name;
                 builder.Append(name);
 
                 if (options.NestedTypeDelimiter != DefaultNestedTypeDelimiter)
@@ -411,7 +410,6 @@ namespace dotNetTips.Utility.Standard
             /// <param name="includeGenericParameterNames">if set to <c>true</c> [include generic parameter names].</param>
             /// <param name="includeGenericParameters">if set to <c>true</c> [include generic parameters].</param>
             /// <param name="nestedTypeDelimiter">The nested type delimiter.</param>
-            /// TODO Edit XML Comment Template for #ctor
             public DisplayNameOptions(bool fullName, bool includeGenericParameterNames, bool includeGenericParameters, char nestedTypeDelimiter)
             {
                 FullName = fullName;
@@ -424,28 +422,24 @@ namespace dotNetTips.Utility.Standard
             /// Gets a value indicating whether [full name].
             /// </summary>
             /// <value><c>true</c> if [full name]; otherwise, <c>false</c>.</value>
-            /// TODO Edit XML Comment Template for FullName
             public bool FullName { get; }
 
             /// <summary>
             /// Gets a value indicating whether [include generic parameter names].
             /// </summary>
             /// <value><c>true</c> if [include generic parameter names]; otherwise, <c>false</c>.</value>
-            /// TODO Edit XML Comment Template for IncludeGenericParameterNames
             public bool IncludeGenericParameterNames { get; }
 
             /// <summary>
             /// Gets a value indicating whether [include generic parameters].
             /// </summary>
             /// <value><c>true</c> if [include generic parameters]; otherwise, <c>false</c>.</value>
-            /// TODO Edit XML Comment Template for IncludeGenericParameters
             public bool IncludeGenericParameters { get; }
 
             /// <summary>
             /// Gets the nested type delimiter.
             /// </summary>
             /// <value>The nested type delimiter.</value>
-            /// TODO Edit XML Comment Template for NestedTypeDelimiter
             public char NestedTypeDelimiter { get; }
 
         }

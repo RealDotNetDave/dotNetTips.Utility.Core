@@ -170,14 +170,7 @@ namespace dotNetTips.Utility.Standard.Net
                 if (index >= 0 && !(expectMultipleAddresses && data[index] == ControlChars.Comma))
                 {
                     // If there was still data, only a comma could have been the next valid character
-                    if (throwExceptionIfFail)
-                    {
-                        throw new FormatException($"Invalid character: {data[index]}.");
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    return throwExceptionIfFail ? throw new FormatException($"Invalid character: {data[index]}.") : false;
                 }
             }
             else
@@ -341,7 +334,7 @@ namespace dotNetTips.Utility.Standard.Net
             // Skip the '@' symbol
             index--;
 
-            if (!TryParseLocalPart(data, ref index, expectAngleBracket, expectMultipleAddresses, out string localPart, throwExceptionIfFail))
+            if (!TryParseLocalPart(data, ref index, expectAngleBracket, expectMultipleAddresses, out var localPart, throwExceptionIfFail))
             {
                 parseAddressInfo = default;
                 return false;
@@ -420,7 +413,7 @@ namespace dotNetTips.Utility.Standard.Net
             }
 
             // Mark the start of the local-part
-            int startingIndex = index;
+            var startingIndex = index;
 
             // Is the local-part component in quoted-string format or dot-atom format?
             if (data[index] == ControlChars.Quote)

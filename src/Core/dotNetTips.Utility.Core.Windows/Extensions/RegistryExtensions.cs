@@ -30,7 +30,6 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="name">The name.</param>
         /// <returns>RegistryKey.</returns>
         /// <exception cref="PlatformNotSupportedException">The exception.</exception>
-        /// <exception cref="System.PlatformNotSupportedException">The exception.</exception>
         public static RegistryKey GetSubKey(this RegistryKey key, string name)
         {
             Encapsulation.TryValidateParam<ArgumentNullException>(key != null, nameof(key));
@@ -56,7 +55,6 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="name">The name.</param>
         /// <returns>T.</returns>
         /// <exception cref="PlatformNotSupportedException">The exception.</exception>
-        /// <exception cref="System.PlatformNotSupportedException">The exception.</exception>
         public static T GetValue<T>(this RegistryKey key, string name)
         {
             Encapsulation.TryValidateParam<ArgumentNullException>(key != null, nameof(key));

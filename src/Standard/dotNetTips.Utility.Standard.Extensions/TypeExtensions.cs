@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-04-2020
+// Last Modified On : 08-07-2020
 // ***********************************************************************
 // <copyright file="TypeExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
@@ -170,8 +170,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="type">The type.</param>
         /// <returns>T.</returns>
         [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 87.5, Status = Status.New)]
-        public static T GetAttribute<T>(this Type type) where T : Attribute =>
-type?.GetTypeInfo().GetCustomAttributes(typeof(T), false).OfType<T>().FirstOrDefault();
+        public static T GetAttribute<T>(this Type type) where T : Attribute
+        {
+            return type?.GetTypeInfo().GetCustomAttributes(typeof(T), false).OfType<T>().FirstOrDefault();
+        }
 
         /// <summary>
         /// Resolves the attribute.
@@ -180,8 +182,10 @@ type?.GetTypeInfo().GetCustomAttributes(typeof(T), false).OfType<T>().FirstOrDef
         /// <param name="methodInfo">The method information.</param>
         /// <returns>T.</returns>
         [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.New)]
-        public static T GetAttribute<T>(this MethodInfo methodInfo) where T : Attribute =>
-        methodInfo?.GetCustomAttributes(typeof(T), false).FirstOrDefault() as T;
+        public static T GetAttribute<T>(this MethodInfo methodInfo) where T : Attribute
+        {
+            return methodInfo?.GetCustomAttributes(typeof(T), false).FirstOrDefault() as T;
+        }
 
         /// <summary>
         /// Resolves the attribute.
@@ -190,8 +194,10 @@ type?.GetTypeInfo().GetCustomAttributes(typeof(T), false).OfType<T>().FirstOrDef
         /// <param name="propertyInfo">The property information.</param>
         /// <returns>T.</returns>
         [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.New)]
-        public static T GetAttribute<T>(this PropertyInfo propertyInfo) where T : Attribute =>
-        propertyInfo?.GetCustomAttributes(typeof(T), false).FirstOrDefault() as T;
+        public static T GetAttribute<T>(this PropertyInfo propertyInfo) where T : Attribute
+        {
+            return propertyInfo?.GetCustomAttributes(typeof(T), false).FirstOrDefault() as T;
+        }
 
         /// <summary>
         /// Resolves the attribute.
@@ -200,8 +206,10 @@ type?.GetTypeInfo().GetCustomAttributes(typeof(T), false).OfType<T>().FirstOrDef
         /// <param name="fieldInfo">The field information.</param>
         /// <returns>T.</returns>
         [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.New)]
-        public static T GetAttribute<T>(this FieldInfo fieldInfo) where T : Attribute =>
-        fieldInfo?.GetCustomAttributes(typeof(T), false).FirstOrDefault() as T;
+        public static T GetAttribute<T>(this FieldInfo fieldInfo) where T : Attribute
+        {
+            return fieldInfo?.GetCustomAttributes(typeof(T), false).FirstOrDefault() as T;
+        }
         /// <summary>
         /// Gets the field hash.
         /// </summary>
@@ -231,7 +239,7 @@ type?.GetTypeInfo().GetCustomAttributes(typeof(T), false).OfType<T>().FirstOrDef
         public static (string Name, TAttribute Attribute, bool IsPrivate, bool IsStatic, Type ParameterType)[] GetTypeMembersWithAttribute<TAttribute>(this Type type)
    where TAttribute : Attribute
         {
-            var allFields = type.GetFields()
+            IEnumerable<(string Name, TAttribute Attribute, bool IsPrivate, bool IsStatic, Type ParameterType)> allFields = type.GetFields()
                                 .Select(f => (
                                     Name: f.Name,
                                     Attribute: f.GetAttribute<TAttribute>(),

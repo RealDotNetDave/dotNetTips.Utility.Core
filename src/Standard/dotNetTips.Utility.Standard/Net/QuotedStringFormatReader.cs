@@ -179,7 +179,7 @@ namespace dotNetTips.Utility.Standard.Net
                     break;
                 }
                 // Check for escaped characters
-                if (!QuotedPairReader.TryCountQuotedChars(data, index, permitUnicode, out int quotedCharCount, throwExceptionIfFail))
+                if (!QuotedPairReader.TryCountQuotedChars(data, index, permitUnicode, out var quotedCharCount, throwExceptionIfFail))
                 {
                     outIndex = default;
                     return false;
@@ -223,14 +223,7 @@ namespace dotNetTips.Utility.Standard.Net
         // non-whitespace control characters as well as all remaining ASCII chars except backslash and double quote.
         private static bool IsValidQtext(bool allowUnicode, char ch)
         {
-            if (ch > MailBnfHelper.Ascii7bitMaxValue)
-            {
-                return allowUnicode;
-            }
-            else
-            {
-                return MailBnfHelper.Qtext[ch];
-            }
+            return ch > MailBnfHelper.Ascii7bitMaxValue ? allowUnicode : MailBnfHelper.Qtext[ch];
         }
 
     }

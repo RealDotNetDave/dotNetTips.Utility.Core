@@ -33,19 +33,12 @@ namespace dotNetTips.Utility.Core.Windows.Win32
         /// </summary>
         /// <param name="name">The name.</param>
         /// <returns>RegistryKey.</returns>
-        /// <exception cref="System.PlatformNotSupportedException">The platform exception.</exception>
+        /// <exception cref="PlatformNotSupportedException">The platform exception.</exception>
         public static RegistryKey GetCurrentUserRegistryKey(string name)
         {
             Encapsulation.TryValidateParam(name, nameof(name));
 
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                return Registry.CurrentUser.OpenSubKey(name);
-            }
-            else
-            {
-                throw new PlatformNotSupportedException();
-            }
+            return RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? Registry.CurrentUser.OpenSubKey(name) : throw new PlatformNotSupportedException();
         }
     }
 }

@@ -49,7 +49,6 @@ namespace dotNetTips.Utility.Standard.Xml
         /// <param name="fileName">Name of the file.</param>
         /// <returns>T.</returns>
         /// <exception cref="FileNotFoundException">File not found. Cannot deserialize from XML.</exception>
-        /// <exception cref="System.IO.FileNotFoundException">File not found. Cannot deserialize from XML.</exception>
         public static T DeserializeFromXmlFile<T>(string fileName)
         {
             Encapsulation.TryValidateParam(fileName, nameof(fileName));

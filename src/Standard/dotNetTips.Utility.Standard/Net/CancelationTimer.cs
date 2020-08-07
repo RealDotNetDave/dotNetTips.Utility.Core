@@ -4,7 +4,7 @@
 // Created          : 07-24-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-04-2020
+// Last Modified On : 08-05-2020
 // ***********************************************************************
 // <copyright file="CancelationTimer.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -25,6 +25,7 @@ namespace dotNetTips.Utility.Standard.Net
 
         private readonly int _durationMilliseconds;
         private readonly int _startTimeMilliseconds;
+        private bool disposedValue;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CancelationTimer" /> class.
@@ -61,9 +62,31 @@ namespace dotNetTips.Utility.Standard.Net
         public abstract bool Cancel();
 
         /// <summary>
+        /// Releases unmanaged and - optionally - managed resources.
+        /// </summary>
+        /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    this.Cancel();
+                }
+
+                disposedValue = true;
+            }
+        }
+
+
+        /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
-        public void Dispose() => Cancel();
-
+        public void Dispose()
+        {
+            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
+        }
     }
 }

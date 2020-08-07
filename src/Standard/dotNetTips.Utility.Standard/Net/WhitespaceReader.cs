@@ -62,7 +62,7 @@ namespace dotNetTips.Utility.Standard.Net
             Debug.Assert(!string.IsNullOrEmpty(data), "data was null or empty");
             Debug.Assert(index < data.Length, "index was outside the bounds of the string");
 
-            int commentDepth = 0;
+            var commentDepth = 0;
 
             // Check for valid whitespace
             if (!TryReadFwsReverse(data, index, out index, throwExceptionIfFail))
@@ -74,7 +74,7 @@ namespace dotNetTips.Utility.Standard.Net
             while (index >= 0)
             {
                 // Check for escaped characters.  They must be within comments.
-                if (!QuotedPairReader.TryCountQuotedChars(data, index, true, out int quotedCharCount, throwExceptionIfFail))
+                if (!QuotedPairReader.TryCountQuotedChars(data, index, true, out var quotedCharCount, throwExceptionIfFail))
                 {
                     outIndex = default;
                     return false;

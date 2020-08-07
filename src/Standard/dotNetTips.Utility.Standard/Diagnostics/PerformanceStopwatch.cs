@@ -31,6 +31,7 @@ namespace dotNetTips.Utility.Standard.Diagnostics
         {
             var sw = TypeHelper.Create<PerformanceStopwatch>();
             sw.Start();
+
             return sw;
         }
 
@@ -43,7 +44,7 @@ namespace dotNetTips.Utility.Standard.Diagnostics
             this.Stop();
             var result = this.Elapsed;
             base.Reset();
-      
+
             return result;
         }
 

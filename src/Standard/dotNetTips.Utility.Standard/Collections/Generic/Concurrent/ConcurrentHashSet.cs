@@ -4,7 +4,7 @@
 // Created          : 03-14-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-04-2020
+// Last Modified On : 08-07-2020
 // ***********************************************************************
 // <copyright file="ConcurrentHashSet.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -252,7 +252,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
                 {
                     this.AcquireAllLocks(ref acquiredLocks);
 
-                    for (int counter = 0; counter < this._tables._countPerLock.Length; counter++)
+                    for (var counter = 0; counter < this._tables._countPerLock.Length; counter++)
                     {
                         if (this._tables._countPerLock[counter] != 0)
                         {
@@ -346,7 +346,10 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// successfully; false if it already exists.</returns>
         /// <exception cref="T:System.OverflowException">The <see cref="ConcurrentHashSet{T}" />
         /// contains too many items.</exception>
-        public bool Add(T item) => this.AddInternal(item, this._comparer.GetHashCode(item), true);
+        public bool Add(T item)
+        {
+            return this.AddInternal(item, this._comparer.GetHashCode(item), true);
+        }
 
         /// <summary>
         /// Removes all items from the <see cref="ConcurrentHashSet{T}" />.

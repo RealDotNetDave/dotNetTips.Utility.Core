@@ -11,10 +11,10 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Common;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
+using dotNetTips.Utility.Standard.Common;
 
 namespace dotNetTipis.Utility.Standard.Common
 {
@@ -32,7 +32,7 @@ namespace dotNetTipis.Utility.Standard.Common
         /// <exception cref="ArgumentNullException"></exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020",  Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", Status = Status.New)]
         public static void ThrowArgumentException(string message, string paramName)
         {
             throw new ArgumentException(paramName, message.DefaultIfNull(Resources.ExMessageInvalidArgument));
@@ -61,7 +61,7 @@ namespace dotNetTipis.Utility.Standard.Common
         /// <exception cref="ArgumentNullException"></exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020",  Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", Status = Status.New)]
         public static void ThrowArgumentNullException(string message, string paramName)
         {
             throw new ArgumentNullException(paramName, message.DefaultIfNull(Resources.ExMessageArgumentNull));
@@ -75,7 +75,7 @@ namespace dotNetTipis.Utility.Standard.Common
         /// <exception cref="ArgumentNullException"></exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020",  Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", Status = Status.New)]
         public static void ThrowArgumentNullException(string message, Exception innerException)
         {
             throw new ArgumentNullException(message.DefaultIfNull(Resources.ExMessageArgumentNull), innerException);
@@ -88,7 +88,7 @@ namespace dotNetTipis.Utility.Standard.Common
         /// <exception cref="ArgumentReadOnlyException"></exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020",  Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", Status = Status.New)]
         public static void ThrowArgumentReadOnlyCollectionException(string paramName)
         {
             throw new ArgumentReadOnlyException(paramName);
@@ -121,7 +121,10 @@ namespace dotNetTipis.Utility.Standard.Common
             throw new InvalidOperationException(message.DefaultIfNull(Resources.ExMessageInvalidOperation), innerException);
         }
 
-        private static string DefaultIfNull(this string value, string defaultValue) => value ?? (defaultValue ?? string.Empty);
+        private static string DefaultIfNull(this string value, string defaultValue)
+        {
+            return value ?? (defaultValue ?? string.Empty);
+        }
 
     }
 }

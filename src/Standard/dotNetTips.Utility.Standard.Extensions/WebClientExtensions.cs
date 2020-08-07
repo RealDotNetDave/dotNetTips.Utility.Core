@@ -4,14 +4,13 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 11-26-2019
+// Last Modified On : 08-07-2020
 // ***********************************************************************
 // <copyright file="WebClientExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using System;
 using System.IO;
 using System.Net;
 using System.Runtime.Serialization.Json;

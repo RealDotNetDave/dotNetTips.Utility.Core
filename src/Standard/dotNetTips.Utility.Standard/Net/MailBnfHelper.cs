@@ -4,7 +4,7 @@
 // Created          : 07-23-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-05-2020
+// Last Modified On : 08-07-2020
 // ***********************************************************************
 // <copyright file="MailBnfHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -37,10 +37,10 @@ namespace dotNetTips.Utility.Standard.Net
         /// </summary>
         /// <param name="value">The value.</param>
         /// <param name="builder">The builder.</param>
-        /// <returns>System.String.</returns>
+        /// <returns>System.St3.1.302"ring.</returns>
         internal static string GetDateTimeString(DateTime value, StringBuilder builder)
         {
-            StringBuilder localBuilder = (builder != null ? builder : new StringBuilder());
+            var localBuilder = (builder != null ? builder : new StringBuilder());
             localBuilder.Append(value.Day);
             localBuilder.Append(' ');
             localBuilder.Append(s_months[value.Month]);
@@ -89,7 +89,9 @@ namespace dotNetTips.Utility.Standard.Net
         /// <param name="allowUnicode">if set to <c>true</c> [allow unicode].</param>
         internal static void GetTokenOrQuotedString(string data, StringBuilder builder, bool allowUnicode)
         {
-            int offset = 0, start = 0;
+            var offset = 0;
+            var start = 0;
+
             for (; offset < data.Length; offset++)
             {
                 if (CheckForUnicode(data[offset], allowUnicode))
@@ -140,7 +142,7 @@ namespace dotNetTips.Utility.Standard.Net
         /// <returns><c>true</c> if [has cr or lf] [the specified data]; otherwise, <c>false</c>.</returns>
         internal static bool HasCROrLF(string data)
         {
-            for (int i = 0; i < data.Length; i++)
+            for (var i = 0; i < data.Length; i++)
             {
                 if (data[i] == '\r' || data[i] == '\n')
                 {
@@ -228,8 +230,8 @@ namespace dotNetTips.Utility.Standard.Net
             {
                 ++offset;
             }
-            int start = offset;
-            StringBuilder localBuilder = (builder != null ? builder : new StringBuilder());
+            var start = offset;
+            var localBuilder = (builder ?? new StringBuilder());
             for (; offset < data.Length; offset++)
             {
                 if (data[offset] == '\\')
@@ -285,7 +287,7 @@ namespace dotNetTips.Utility.Standard.Net
         /// Invalid character: {data[offset]}.</exception>
         internal static string ReadToken(string data, ref int offset, StringBuilder builder)
         {
-            int start = offset;
+            var start = offset;
             for (; offset < data.Length; offset++)
             {
                 if (data[offset] > Ascii7bitMaxValue)
@@ -317,7 +319,7 @@ namespace dotNetTips.Utility.Standard.Net
         /// Invalid character: {data[offset]}.</exception>
         internal static bool SkipCFWS(string data, ref int offset)
         {
-            int comments = 0;
+            var comments = 0;
             for (; offset < data.Length; offset++)
             {
                 if (data[offset] > 127)
@@ -350,7 +352,7 @@ namespace dotNetTips.Utility.Standard.Net
         /// Invalid header name.</exception>
         internal static void ValidateHeaderName(string data)
         {
-            int offset = 0;
+            var offset = 0;
 
             for (; offset < data.Length; offset++)
             {
@@ -388,9 +390,9 @@ namespace dotNetTips.Utility.Standard.Net
         {
             // atext = ALPHA / DIGIT / "!" / "#" / "$" / "%" / "&" / "'" / "*" / "+" / "-" / "/" / "=" / "?" / "^" / "_" / "`" / "{" / "|" / "}" / "~"
             var atext = new bool[128];
-            for (int i = '0'; i <= '9'; i++) { atext[i] = true; }
-            for (int i = 'A'; i <= 'Z'; i++) { atext[i] = true; }
-            for (int i = 'a'; i <= 'z'; i++) { atext[i] = true; }
+            for (var i = '0'; i <= '9'; i++) { atext[i] = true; }
+            for (var i = 'A'; i <= 'Z'; i++) { atext[i] = true; }
+            for (var i = 'a'; i <= 'z'; i++) { atext[i] = true; }
             atext['!'] = true;
             atext['#'] = true;
             atext['$'] = true;
@@ -417,13 +419,13 @@ namespace dotNetTips.Utility.Standard.Net
         {
             // ctext- %d1-8 / %d11 / %d12 / %d14-31 / %33-39 / %42-91 / %93-127
             var ctext = new bool[128];
-            for (int i = 1; i <= 8; i++) { ctext[i] = true; }
+            for (var i = 1; i <= 8; i++) { ctext[i] = true; }
             ctext[11] = true;
             ctext[12] = true;
-            for (int i = 14; i <= 31; i++) { ctext[i] = true; }
-            for (int i = 33; i <= 39; i++) { ctext[i] = true; }
-            for (int i = 42; i <= 91; i++) { ctext[i] = true; }
-            for (int i = 93; i <= 127; i++) { ctext[i] = true; }
+            for (var i = 14; i <= 31; i++) { ctext[i] = true; }
+            for (var i = 33; i <= 39; i++) { ctext[i] = true; }
+            for (var i = 42; i <= 91; i++) { ctext[i] = true; }
+            for (var i = 93; i <= 127; i++) { ctext[i] = true; }
             return ctext;
         }
 
@@ -431,12 +433,12 @@ namespace dotNetTips.Utility.Standard.Net
         {
             // fdtext = %d1-8 / %d11 / %d12 / %d14-31 / %d33-90 / %d94-127
             var dtext = new bool[128];
-            for (int i = 1; i <= 8; i++) { dtext[i] = true; }
+            for (var i = 1; i <= 8; i++) { dtext[i] = true; }
             dtext[11] = true;
             dtext[12] = true;
-            for (int i = 14; i <= 31; i++) { dtext[i] = true; }
-            for (int i = 33; i <= 90; i++) { dtext[i] = true; }
-            for (int i = 94; i <= 127; i++) { dtext[i] = true; }
+            for (var i = 14; i <= 31; i++) { dtext[i] = true; }
+            for (var i = 33; i <= 90; i++) { dtext[i] = true; }
+            for (var i = 94; i <= 127; i++) { dtext[i] = true; }
             return dtext;
         }
 
@@ -444,8 +446,8 @@ namespace dotNetTips.Utility.Standard.Net
         {
             // ftext = %d33-57 / %d59-126
             var ftext = new bool[128];
-            for (int i = 33; i <= 57; i++) { ftext[i] = true; }
-            for (int i = 59; i <= 126; i++) { ftext[i] = true; }
+            for (var i = 33; i <= 57; i++) { ftext[i] = true; }
+            for (var i = 59; i <= 126; i++) { ftext[i] = true; }
             return ftext;
         }
 
@@ -453,12 +455,12 @@ namespace dotNetTips.Utility.Standard.Net
         {
             // fqtext = %d1-9 / %d11 / %d12 / %d14-33 / %d35-91 / %d93-127
             var qtext = new bool[128];
-            for (int i = 1; i <= 9; i++) { qtext[i] = true; }
+            for (var i = 1; i <= 9; i++) { qtext[i] = true; }
             qtext[11] = true;
             qtext[12] = true;
-            for (int i = 14; i <= 33; i++) { qtext[i] = true; }
-            for (int i = 35; i <= 91; i++) { qtext[i] = true; }
-            for (int i = 93; i <= 127; i++) { qtext[i] = true; }
+            for (var i = 14; i <= 33; i++) { qtext[i] = true; }
+            for (var i = 35; i <= 91; i++) { qtext[i] = true; }
+            for (var i = 93; i <= 127; i++) { qtext[i] = true; }
             return qtext;
         }
 
@@ -466,7 +468,7 @@ namespace dotNetTips.Utility.Standard.Net
         {
             // ttext = %d33-126 except '()<>@,;:\"/[]?='
             var ttext = new bool[128];
-            for (int i = 33; i <= 126; i++) { ttext[i] = true; }
+            for (var i = 33; i <= 126; i++) { ttext[i] = true; }
             ttext['('] = false;
             ttext[')'] = false;
             ttext['<'] = false;

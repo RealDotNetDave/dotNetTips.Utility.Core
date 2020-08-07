@@ -4,7 +4,7 @@
 // Created          : 07-22-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 06-03-2019
+// Last Modified On : 08-07-2020
 // ***********************************************************************
 // <copyright file="SystemChangedEventArgs.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -19,8 +19,10 @@ namespace dotNetTips.Utility.Standard
 {
     /// <summary>
     /// Class SystemChangedEventArgs. This class cannot be inherited.
+    /// Implements the <see cref="System.EventArgs" />
     /// </summary>
     /// <seealso cref="System.EventArgs" />
+    /// <seealso cref="EventArgs" />
     public sealed class SystemChangedEventArgs : EventArgs
     {
         /// <summary>

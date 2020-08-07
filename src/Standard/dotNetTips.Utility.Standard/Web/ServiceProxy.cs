@@ -95,7 +95,7 @@ namespace dotNetTips.Utility.Standard.Web
         {
             if (this.Channel != null)
             {
-                ((ICommunicationObject)this.Channel).Close();
+                this.Channel.Close();
             }
         }
 

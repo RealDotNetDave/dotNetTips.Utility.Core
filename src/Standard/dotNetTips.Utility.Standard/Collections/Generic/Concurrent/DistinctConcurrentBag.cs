@@ -4,7 +4,7 @@
 // Created          : 12-14-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-04-2020
+// Last Modified On : 08-05-2020
 // ***********************************************************************
 // <copyright file="DistinctConcurrentBag.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)

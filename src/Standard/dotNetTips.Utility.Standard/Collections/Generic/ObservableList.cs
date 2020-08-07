@@ -300,7 +300,10 @@ namespace dotNetTips.Utility.Standard.Collections.Generic
         /// </summary>
         /// <param name="other">The collection to compare to the current hash set.</param>
         /// <returns><see langword="true" /> if the hash set and other share at least one common element; otherwise, <see langword="false" />.</returns>
-        public virtual bool Overlaps(IEnumerable<T> other) => _set.Overlaps(other);
+        public virtual bool Overlaps(IEnumerable<T> other)
+        {
+            return _set.Overlaps(other);
+        }
 
         /// <summary>
         /// Removes the specified element from the hash set.

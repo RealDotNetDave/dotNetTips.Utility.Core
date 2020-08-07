@@ -67,7 +67,7 @@ namespace dotNetTips.Utility.Standard.Net
             }
 
             // Count the preceding backslashes
-            int backslashCount = CountBackslashes(data, index - 1);
+            var backslashCount = CountBackslashes(data, index - 1);
 
             // For an even number of backslashes, the original character was NOT escaped/quoted
             if (backslashCount % 2 == 0)
@@ -109,7 +109,7 @@ namespace dotNetTips.Utility.Standard.Net
             Debug.Assert(index >= 0 && data[index] == ControlChars.Backslash, "index was not a backslash: " + index);
 
             // Find all the backslashes. It's possible that there are multiple escaped/quoted backslashes.
-            int backslashCount = 0;
+            var backslashCount = 0;
             do
             {
                 backslashCount++;
