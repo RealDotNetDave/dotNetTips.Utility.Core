@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2020.5.27.2</Version>
+    <Version>2020.8.9.0</Version>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
     <Product>dotNetTips.Utility.Standard</Product>
@@ -17,10 +17,11 @@
 -- AUG 31 2019: Cleanup of models including fixes.
 -- DEC 02 2019: Added new methods for creating ramdom files. Code cleanup.
 -- MAR 2020: Quartertly release.
--- MAY 2020: Added more functionality to RandomData.</PackageReleaseNotes>
+-- MAY 2020: Added more functionality to RandomData.
+-- AUG 2020: Code cleanup.</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>2020.7.30.39713</AssemblyVersion>
-    <FileVersion>2020.7.30.39713</FileVersion>
+    <AssemblyVersion>2020.8.7.37337</AssemblyVersion>
+    <FileVersion>2020.8.7.37337</FileVersion>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -51,8 +52,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="dotNetTips.Utility.Standard" Version="2020.5.26.2" />
-    <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2020.5.26.2" />
+    <PackageReference Include="dotNetTips.Utility.Standard" Version="2020.8.9" />
+    <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2020.8.9" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

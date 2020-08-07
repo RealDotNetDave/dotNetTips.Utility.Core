@@ -4,18 +4,13 @@
 // Created          : 01-19-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 05-27-2020
+// Last Modified On : 06-03-2020
 // ***********************************************************************
 // <copyright file="RandomData.cs" company="dotNetTips.Utility.Standard.Tester">
 //     Copyright (c) dotNetTips.com - McCarter Consulting. All rights reserved.
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Extensions;
-using dotNetTips.Utility.Standard.OOP;
-using dotNetTips.Utility.Standard.Tester.Collections;
-using dotNetTips.Utility.Standard.Tester.Models;
-using dotNetTips.Utility.Standard.Tester.Properties;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -23,6 +18,11 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using dotNetTips.Utility.Standard.Extensions;
+using dotNetTips.Utility.Standard.OOP;
+using dotNetTips.Utility.Standard.Tester.Collections;
+using dotNetTips.Utility.Standard.Tester.Models;
+using dotNetTips.Utility.Standard.Tester.Properties;
 
 namespace dotNetTips.Utility.Standard.Tester
 {
@@ -73,6 +73,21 @@ namespace dotNetTips.Utility.Standard.Tester
         /// </summary>
         /// <value>The long test string.</value>
         public static string LongTestString => Properties.Resources.LongTestString;
+
+        /// <summary>
+        /// Generates the byte array.
+        /// </summary>
+        /// <param name="sizeInKb">The size in kb.</param>
+        /// <returns>System.Byte[].</returns>
+        public static byte[] GenerateByteArray(double sizeInKb)
+        {
+            var size = Convert.ToInt32(sizeInKb * 1024);
+
+            var bytes = new Byte[size];
+            _random.NextBytes(bytes);
+
+            return bytes;
+        }
 
         /// <summary>
         /// Creates a random character.
@@ -196,7 +211,7 @@ namespace dotNetTips.Utility.Standard.Tester
 
             var files = new List<string>(count);
 
-            for (int fileCount = 0; fileCount < count; fileCount++)
+            for (var fileCount = 0; fileCount < count; fileCount++)
             {
                 files.Add(GenerateTempFile(fileLength));
             }
@@ -221,7 +236,7 @@ namespace dotNetTips.Utility.Standard.Tester
 
             var files = new List<string>(count);
 
-            for (int fileCount = 0; fileCount < count; fileCount++)
+            for (var fileCount = 0; fileCount < count; fileCount++)
             {
                 var fileName = GenerateRandomFileName(25, fileExtension);
                 files.Add(GenerateFile(fileName, fileLength));
@@ -249,7 +264,7 @@ namespace dotNetTips.Utility.Standard.Tester
 
             Directory.CreateDirectory(path);
 
-            for (int fileCount = 0; fileCount < count; fileCount++)
+            for (var fileCount = 0; fileCount < count; fileCount++)
             {
                 var fileName = GenerateRandomFileName(path);
                 files.Add(GenerateFile(fileName, fileLength));
@@ -290,7 +305,7 @@ namespace dotNetTips.Utility.Standard.Tester
         /// <example>"446085072052112"</example>
         public static string GenerateNumber(int length)
         {
-            Encapsulation.TryValidateParam(length, 1, int.MaxValue, nameof(length));
+            Encapsulation.TryValidateParam(value: length, minimumValue: 1, maximumValue: int.MaxValue, paramName: nameof(length));
 
             var sb = new StringBuilder(length);
 
@@ -543,42 +558,6 @@ namespace dotNetTips.Utility.Standard.Tester
         }
 
         /// <summary>
-        /// Generates a list of words.
-        /// </summary>
-        /// <param name="count">The word count.</param>
-        /// <param name="minLength">The minimum length.</param>
-        /// <param name="maxLength">The maximum length.</param>
-        /// <returns>ImmutableList&lt;System.String&gt;.</returns>
-        public static ImmutableList<string> GenerateWords(int count, int minLength, int maxLength)
-        {
-            Encapsulation.TryValidateParam(count, minimumValue: 1, paramName: nameof(count));
-
-            var strings = new List<string>();
-
-            for (int wordCount = 0; wordCount < count; wordCount++)
-            {
-                strings.Add(GenerateWord(minLength, maxLength));
-            }
-
-            return strings.ToImmutableList();
-        }
-
-        /// <summary>
-        /// Generates the byte array.
-        /// </summary>
-        /// <param name="sizeInKb">The size in kb.</param>
-        /// <returns>System.Byte[].</returns>
-        public static byte[] GenerateByteArray(double sizeInKb)
-        {
-            int size = Convert.ToInt32( sizeInKb * 1024);
-
-            Byte[] bytes = new Byte[size];
-            _random.NextBytes(bytes);
-
-            return bytes;
-        }
-
-        /// <summary>
         /// Creates a random word.
         /// </summary>
         /// <param name="length">The length.</param>
@@ -594,7 +573,7 @@ namespace dotNetTips.Utility.Standard.Tester
 
             for (var wordCount = 0; wordCount < length; wordCount++)
             {
-                word.Append(GenerateCharacter(minCharacter, maxCharacter));
+                _ = word.Append(GenerateCharacter(minCharacter, maxCharacter));
             }
 
             return word.ToString();
@@ -610,6 +589,27 @@ namespace dotNetTips.Utility.Standard.Tester
         /// <returns>System.String.</returns>
         /// <example>ACRNFTPAE</example>
         public static string GenerateWord(int minLength, int maxLength, char minCharacter, char maxCharacter) => GenerateWord(GenerateInteger(minLength, maxLength), minCharacter, maxCharacter);
+
+        /// <summary>
+        /// Generates a list of words.
+        /// </summary>
+        /// <param name="count">The word count.</param>
+        /// <param name="minLength">The minimum length.</param>
+        /// <param name="maxLength">The maximum length.</param>
+        /// <returns>ImmutableList&lt;System.String&gt;.</returns>
+        public static ImmutableList<string> GenerateWords(int count, int minLength, int maxLength)
+        {
+            Encapsulation.TryValidateParam(count, minimumValue: 1, paramName: nameof(count));
+
+            var strings = new List<string>();
+
+            for (var wordCount = 0; wordCount < count; wordCount++)
+            {
+                strings.Add(GenerateWord(minLength, maxLength));
+            }
+
+            return strings.ToImmutableList();
+        }
 
         /// <summary>
         /// Picks a random string from an array.

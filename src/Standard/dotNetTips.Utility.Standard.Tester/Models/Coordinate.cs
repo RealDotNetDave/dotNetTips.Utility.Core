@@ -60,17 +60,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// <exception cref="NotImplementedException"></exception>
         public override bool Equals(object obj)
         {
-            if (ReferenceEquals(this, obj))
-            {
-                return true;
-            }
-
-            if (obj is null)
-            {
-                return false;
-            }
-
-            throw new NotImplementedException();
+            return ReferenceEquals(this, obj);
         }
 
         /// <summary>
@@ -87,8 +77,8 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         public override int GetHashCode()
         {
             var hashCode = 1861411795;
-            hashCode = hashCode * -1521134295 + this.X.GetHashCode();
-            hashCode = hashCode * -1521134295 + this.Y.GetHashCode();
+            hashCode = (hashCode * -1521134295) + this.X.GetHashCode();
+            hashCode = (hashCode * -1521134295) + this.Y.GetHashCode();
             return hashCode;
         }
 
