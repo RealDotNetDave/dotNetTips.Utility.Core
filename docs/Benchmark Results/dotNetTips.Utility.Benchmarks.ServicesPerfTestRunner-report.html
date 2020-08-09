@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.ServicesPerfTestRunner-20200803-155317</title>
+<title>dotNetTips.Utility.Benchmarks.ServicesPerfTestRunner-20200807-152725</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -14,10 +14,10 @@
 <body>
 <pre><code>
 BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.388 (2004/?/20H1)
-Intel Core i7-7660U CPU 2.50GHz (Kaby Lake), 1 CPU, 4 logical and 2 physical cores
-.NET Core SDK=3.1.302
+Unknown processor
+.NET Core SDK=3.1.400
   [Host]     : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
-  Job-GMGNJH : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+  Job-GUNMTB : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
 </code></pre>
 <pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
 Categories=Services  
@@ -26,9 +26,9 @@ Categories=Services
 <table>
 <thead><tr><th> Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>AllServices</td><td>1.265 ms</td><td>0.0243 ms</td><td>0.0610 ms</td><td>9.7656</td><td>3.9063</td><td>-</td><td>105.06 KB</td>
-</tr><tr><td>ServiceExists</td><td>1.293 ms</td><td>0.0257 ms</td><td>0.0620 ms</td><td>9.7656</td><td>3.9063</td><td>-</td><td>105.13 KB</td>
-</tr><tr><td>ServiceStatus</td><td>1.269 ms</td><td>0.0250 ms</td><td>0.0450 ms</td><td>9.7656</td><td>3.9063</td><td>-</td><td>105.13 KB</td>
+</thead><tbody><tr><td>AllServices</td><td>978.8 &mu;s</td><td>5.55 &mu;s</td><td>4.92 &mu;s</td><td>9.7656</td><td>3.9063</td><td>-</td><td>105.06 KB</td>
+</tr><tr><td>ServiceExists</td><td>977.2 &mu;s</td><td>5.86 &mu;s</td><td>5.19 &mu;s</td><td>9.7656</td><td>4.8828</td><td>-</td><td>105.13 KB</td>
+</tr><tr><td>ServiceStatus</td><td>970.7 &mu;s</td><td>3.92 &mu;s</td><td>3.47 &mu;s</td><td>10.7422</td><td>4.8828</td><td>-</td><td>105.13 KB</td>
 </tr></tbody></table>
 </body>
 </html>

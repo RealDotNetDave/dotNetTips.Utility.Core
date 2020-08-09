@@ -11,12 +11,13 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using System.Collections.Generic;
+using System.Linq;
 using BenchmarkDotNet.Attributes;
+using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.Tester;
 using dotNetTips.Utility.Standard.Tester.Collections;
 using dotNetTips.Utility.Standard.Tester.Models;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace dotNetTips.Utility.Benchmarks
 {
@@ -69,11 +70,17 @@ namespace dotNetTips.Utility.Benchmarks
         /// </summary>
         protected string testEmail;
 
+        protected byte[] byteArray;
+
+        protected CoordinateProper[] coordinateArray;
+
+        protected string delimitedString;
+
         /// <summary>
         /// Gets or sets the collection count.
         /// </summary>
         /// <value>The collection count.</value>
-        [Params(25, 50, 100, 250, 500)]
+        [Params(25, 50, 100, 250, 500, 1000)]
         public int CollectionCount { get; set; }
 
         /// <summary>
@@ -101,6 +108,12 @@ namespace dotNetTips.Utility.Benchmarks
             this.personProperArrayHalf = this.personProperCollection.Take(CollectionCount / 2).ToArray();
 
             this.personProperListHalf = this.personProperCollection.Take(CollectionCount / 2).ToList();
+
+            this.byteArray = RandomData.GenerateByteArray(CollectionCount / 2);
+
+            this.coordinateArray = RandomData.GenerateCoordinateCollection<CoordinateProper>(CollectionCount).ToArray();
+
+            this.delimitedString = this.coordinateArray.ToDelimitedString();
         }
 
     }

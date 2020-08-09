@@ -11,7 +11,6 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -24,7 +23,7 @@ using CollectionExtensions = dotNetTips.Utility.Standard.Extensions.CollectionEx
 
 namespace dotNetTips.Utility.Benchmarks.Extensions
 {
-    [BenchmarkCategory(nameof(Standard.Extensions.CollectionExtensions))]
+    [BenchmarkCategory(nameof(CollectionExtensions))]
     public class CollectionExtensionsPerfTestRunner : CollectionPerfTestRunner
     {
 
@@ -115,8 +114,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         {
             var people = new System.Collections.Generic.List<PersonProper>();
 
-            Standard.Extensions.CollectionExtensions
-                .AddRange<PersonProper>(people, base.personProperCollection.PickRandom(base.CollectionCount / 2), true);
+            CollectionExtensions.AddRange(people, base.personProperCollection.PickRandom(base.CollectionCount / 2), true);
 
             base.Consumer.Consume(people);
         }
@@ -133,6 +131,14 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         public void AreEqualList()
         {
             var result = base.personProperCollection.AreEqual(base.personProperListHalf);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.BytesToString))]
+        public void BytesToString()
+        {
+            var result = base.byteArray.BytesToString();
 
             base.Consumer.Consume(result);
         }
@@ -183,6 +189,15 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
             base.Consumer.Consume(result);
         }
 
+        [Benchmark(Description = nameof(CollectionExtensions.Distinct))]
+        public void Distinct()
+        {
+            var comparer = new PersonProperComparer();
+            var result = base.personProperCollection.Distinct(comparer);
+
+            base.Consumer.Consume(result);
+        }
+
         [Benchmark(Description = nameof(CollectionExtensions.FastAny))]
         public void FastAny()
         {
@@ -195,6 +210,44 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         public void FastCount()
         {
             var result = base.personProperCollection.FastCount(p => p.City.Contains("SAN"));
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.FirstOrDefault) + ": Alternate")]
+        public void FirstOrDefaultAlternate()
+        {
+            var person = RandomData.GeneratePerson<PersonProper>();
+
+            var result = base.personProperCollection.FirstOrDefault(person);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.FirstOrDefault) + ": Predicate, Alternate")]
+        public void FirstOrDefaultPredicateAlternate()
+        {
+            var person = RandomData.GeneratePerson<PersonProper>();
+
+            var result = base.personProperCollection.FirstOrDefault(p => p.Id == person.Id, person);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.FirstOrNull))]
+        public void FirstOrNull()
+        {
+            var coord = RandomData.GenerateCoordinate<CoordinateProper>();
+
+            var result = base.coordinateArray.FirstOrNull(p => p.X == coord.X);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.FromDelimitedString))]
+        public void FromDelimitedString()
+        {
+            var result = base.delimitedString.FromDelimitedString();
 
             base.Consumer.Consume(result);
         }
@@ -230,6 +283,23 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
             base.Consumer.Consume(result);
         }
 
+        [Benchmark(Description = nameof(CollectionExtensions.IndexOf))]
+        public void IndexOf()
+        {
+            var result = base.personProperCollection.IndexOf(base.personProperCollection.Last());
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.IndexOf) + ":Comparer")]
+        public void IndexOfComparer()
+        {
+            var comparer = new PersonProperComparer();
+            var result = base.personProperCollection.IndexOf(base.personProperCollection.Last(), comparer);
+
+            base.Consumer.Consume(result);
+        }
+
         [Benchmark(Description = nameof(CollectionExtensions.ListHashCode) + ":Array")]
         public void ListHashCodeArray()
         {
@@ -258,6 +328,14 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         public void OrderBy()
         {
             var result = base.personProperCollection.OrderBy(p => p.City);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.OrderByOrdinal))]
+        public void OrderByOrdinal()
+        {
+            var result = base.personProperCollection.OrderByOrdinal(p => p.City);
 
             base.Consumer.Consume(result);
         }
@@ -309,6 +387,24 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
 
             base.Consumer.Consume(result);
         }
+
+        [Benchmark(Description = nameof(CollectionExtensions.StartsWith))]
+        public void StartsWith()
+        {
+            var result = base.personProperArrayFull.StartsWith(base.personProperArrayHalf);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.StructuralSequenceEqual))]
+        public void StructuralSequenceEqual()
+        {
+            var result = base.personProperArrayFull.StructuralSequenceEqual(base.personProperArrayHalf);
+
+            base.Consumer.Consume(result);
+        }
+
+
         public override void Setup() { base.Setup(); }
 
         [Benchmark(Description = nameof(CollectionExtensions.ToDelimitedString))]
@@ -335,10 +431,18 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
             base.Consumer.Consume(result);
         }
 
-        [Benchmark(Description = nameof(CollectionExtensions.ToImmutable))]
-        public void ToImmutable()
+        [Benchmark(Description = nameof(CollectionExtensions.ToImmutable) + ": List")]
+        public void ToImmutableList()
         {
             var result = base.personProperCollection.ToImmutable();
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.ToImmutable) + ": Dictionary")]
+        public void ToImmutableDictionary()
+        {
+            var result = base.personProperDictionary.ToImmutable();
 
             base.Consumer.Consume(result);
         }
