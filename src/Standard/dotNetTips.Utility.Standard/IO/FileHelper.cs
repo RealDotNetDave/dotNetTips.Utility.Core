@@ -44,7 +44,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// Gets the invalid file name chars.
         /// </summary>
         /// <value>The invalid file name chars.</value>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static char[] InvalidFileNameChars => _invalidFileNameChars;
 
         /// <summary>
@@ -219,7 +219,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// </summary>
         /// <param name="fileName">The path.</param>
         /// <returns><c>true</c> if [has invalid path chars] [the specified file name]; otherwise, <c>false</c>.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static bool FileHasInvalidChars(string fileName)
         {
             Encapsulation.TryValidateParam(fileName, nameof(fileName));

@@ -252,7 +252,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentException">key
         /// or
         /// value</exception>
-        [Information("FROM .NET CORE SOURCE", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 65, Status = Status.New)]
+        [Information("FROM .NET CORE SOURCE", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 65, Status = Status.Available)]
         public static void AppendKeyValue(this StringBuilder sb, string key, string value, bool includeQuotes = true, bool includeComma = true)
         {
             if (sb.IsNull())

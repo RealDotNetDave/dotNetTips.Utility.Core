@@ -65,7 +65,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// or
         /// logger</exception>
         /// <exception cref="ArgumentOutOfRangeException">priority</exception>
-        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool TrySetPriority(this Thread thread, ThreadPriority priority)
         {
             if (thread == null)

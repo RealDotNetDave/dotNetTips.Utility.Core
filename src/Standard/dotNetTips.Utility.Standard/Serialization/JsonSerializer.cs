@@ -56,7 +56,7 @@ namespace dotNetTips.Utility.Standard.Serialization
         /// <param name="actual">The actual.</param>
         /// <param name="expected">The expected.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool JsonEqual(string actual, string expected)
         {
             using (var expectedDom = JsonDocument.Parse(expected))

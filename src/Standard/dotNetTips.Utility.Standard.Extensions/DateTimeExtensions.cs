@@ -42,7 +42,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The input.</param>
         /// <param name="dayOfWeek">The day of week.</param>
         /// <returns>DateTimeOffset.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 77.78, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 77.78, Status = Status.Available)]
         public static DateTimeOffset GetLastDayOfWeek(this DateTimeOffset input, DayOfWeek dayOfWeek)
         {
             return input.AddDays((input.DayOfWeek > dayOfWeek ? input.DayOfWeek - dayOfWeek : 7 - (int)dayOfWeek + (int)input.DayOfWeek) * -1);
@@ -70,7 +70,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The input.</param>
         /// <param name="dayOfWeek">The day of week.</param>
         /// <returns>DateTimeOffset.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 77.78, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 77.78, Status = Status.Available)]
         public static DateTimeOffset GetNextDayOfWeek(this DateTimeOffset input, DayOfWeek dayOfWeek)
         {
             var daysToAdd = 0;
@@ -99,7 +99,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="intersectingStartDate">The intersecting start date.</param>
         /// <param name="intersectingEndDate">The intersecting end date.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.Available)]
         public static bool Intersects(this DateTimeOffset startDate, DateTimeOffset endDate, DateTimeOffset intersectingStartDate, DateTimeOffset intersectingEndDate) => intersectingEndDate >= startDate &&
     intersectingStartDate <= endDate;
 
@@ -153,7 +153,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="date">The date.</param>
         /// <param name="compareTo">The date to compare.</param>
         /// <returns>DateTime.</returns>
-        [Information(nameof(Max), author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.New)]
+        [Information(nameof(Max), author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.Available)]
         public static DateTime Max(this DateTime date, DateTime compareTo)
         {
             return date > compareTo ? date : compareTo;
@@ -165,7 +165,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="date">The date.</param>
         /// <param name="compareTo">The date to compare.</param>
         /// <returns>DateTimeOffset.</returns>
-        [Information(nameof(Max), author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.New)]
+        [Information(nameof(Max), author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.Available)]
         public static DateTimeOffset Max(this DateTimeOffset date, DateTimeOffset compareTo)
         {
             return date > compareTo ? date : compareTo;
@@ -197,7 +197,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="date">The date.</param>
         /// <param name="day">The day.</param>
         /// <returns>DateTimeOffset.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static DateTimeOffset NextDayOfWeek(this DateTimeOffset date, DayOfWeek day = DayOfWeek.Monday)
         {
             while (true)
@@ -243,7 +243,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns>System.String.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 41.67, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 41.67, Status = Status.Available)]
         public static string ToFriendlyDateString(this DateTimeOffset input)
         {
             var formattedDate = string.Empty;

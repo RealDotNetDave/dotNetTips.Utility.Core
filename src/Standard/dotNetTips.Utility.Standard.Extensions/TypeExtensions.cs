@@ -41,7 +41,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="type">The type.</param>
         /// <returns>IEnumerable&lt;FieldInfo&gt;.</returns>
         /// <exception cref="ArgumentNullException">type</exception>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static IEnumerable<FieldInfo> GetAllDeclaredFields(this Type type)
         {
             if (type == null)
@@ -60,7 +60,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns>IEnumerable&lt;MethodInfo&gt;.</returns>
-        [Information("Orginal Code .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information("Orginal Code .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static IEnumerable<MethodInfo> GetAllDeclaredMethods(this Type type)
         {
             for (int i = 0; i < type.GetMethods(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly).Length; i++)
@@ -93,7 +93,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns>IEnumerable&lt;MethodInfo&gt;.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static IEnumerable<MethodInfo> GetAllGenericMethods(this Type type)
         {
             return type.GetRuntimeMethods().Where(m => m.IsGenericMethod);
@@ -104,7 +104,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns>IEnumerable&lt;MethodInfo&gt;.</returns>
-        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.New)]
+        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static IEnumerable<MethodInfo> GetAllMethods(this Type type)
         {
             var typeInfo = type.GetTypeInfo();
@@ -125,7 +125,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns>IEnumerable&lt;PropertyInfo&gt;.</returns>
-        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.New)]
+        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static IEnumerable<PropertyInfo> GetAllProperties(this Type type)
         {
             var typeInfo = type.GetTypeInfo();
@@ -146,7 +146,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns>IEnumerable&lt;MethodInfo&gt;.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static IEnumerable<MethodInfo> GetAllPublicMethods(this Type type)
         {
             return type.GetRuntimeMethods().Where(m => m.IsPublic);
@@ -157,7 +157,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns>IEnumerable&lt;MethodInfo&gt;.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static IEnumerable<MethodInfo> GetAllStaticMethods(this Type type)
         {
             return type.GetRuntimeMethods().Where(m => m.IsStatic);
@@ -169,7 +169,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T"></typeparam>
         /// <param name="type">The type.</param>
         /// <returns>T.</returns>
-        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 87.5, Status = Status.New)]
+        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 87.5, Status = Status.Available)]
         public static T GetAttribute<T>(this Type type) where T : Attribute
         {
             return type?.GetTypeInfo().GetCustomAttributes(typeof(T), false).OfType<T>().FirstOrDefault();
@@ -181,7 +181,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T"></typeparam>
         /// <param name="methodInfo">The method information.</param>
         /// <returns>T.</returns>
-        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.New)]
+        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.Available)]
         public static T GetAttribute<T>(this MethodInfo methodInfo) where T : Attribute
         {
             return methodInfo?.GetCustomAttributes(typeof(T), false).FirstOrDefault() as T;
@@ -193,7 +193,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T"></typeparam>
         /// <param name="propertyInfo">The property information.</param>
         /// <returns>T.</returns>
-        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.New)]
+        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.Available)]
         public static T GetAttribute<T>(this PropertyInfo propertyInfo) where T : Attribute
         {
             return propertyInfo?.GetCustomAttributes(typeof(T), false).FirstOrDefault() as T;
@@ -205,7 +205,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T"></typeparam>
         /// <param name="fieldInfo">The field information.</param>
         /// <returns>T.</returns>
-        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.New)]
+        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.Available)]
         public static T GetAttribute<T>(this FieldInfo fieldInfo) where T : Attribute
         {
             return fieldInfo?.GetCustomAttributes(typeof(T), false).FirstOrDefault() as T;
@@ -235,7 +235,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="type">The type.</param>
         /// <returns>System.ValueTuple&lt;System.String, TAttribute, System.Boolean, System.Boolean, Type&gt;[].</returns>
         /// <exception cref="InvalidOperationException">Member \"{member.Name}\" must be public if it has the [{typeof(TAttribute).Name}] attribute applied to it</exception>
-        [Information("https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 81.82, Status = Status.New)]
+        [Information("https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 81.82, Status = Status.Available)]
         public static (string Name, TAttribute Attribute, bool IsPrivate, bool IsStatic, Type ParameterType)[] GetTypeMembersWithAttribute<TAttribute>(this Type type)
    where TAttribute : Attribute
         {
@@ -271,7 +271,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T"></typeparam>
         /// <param name="methodInfo">The method information.</param>
         /// <returns><c>true</c> if the specified method information has attribute; otherwise, <c>false</c>.</returns>
-        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool HasAttribute<T>(this MethodInfo methodInfo) where T : Attribute =>
         methodInfo.GetAttribute<T>() != null;
 
@@ -282,7 +282,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="type">The type.</param>
         /// <param name="baseClass">The base class.</param>
         /// <returns><c>true</c> if [has baseclass of] [the specified base class]; otherwise, <c>false</c>.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool HasBaseClass(this Type type, Type baseClass)
         {
             if (type == baseClass)
@@ -324,7 +324,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns><c>true</c> if the specified type is nullable; otherwise, <c>false</c>.</returns>
-        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information("Orginal Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool IsNullable(this Type type) => Nullable.GetUnderlyingType(type) != null;
 
         /// <summary>
@@ -333,7 +333,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="property">The property.</param>
         /// <returns><c>true</c> if the specified property is static; otherwise, <c>false</c>.</returns>
         /// <exception cref="ArgumentNullException">property</exception>
-        [Information("From .NET EF Core source.", author: "David McCarter", createdOn: "7/31/2020", modifiedOn: "7/31/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information("From .NET EF Core source.", author: "David McCarter", createdOn: "7/31/2020", modifiedOn: "7/31/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool IsStatic(this PropertyInfo property)
         {
             if (property == null)

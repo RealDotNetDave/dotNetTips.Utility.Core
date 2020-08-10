@@ -93,7 +93,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="ex">The ex.</param>
         /// <returns><c>true</c> if the specified ex is critical; otherwise, <c>false</c>.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool IsCritical(this Exception ex)
         {
             return ex is NullReferenceException
@@ -109,7 +109,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="ex">The ex.</param>
         /// <returns><c>true</c> if the specified ex is fatal; otherwise, <c>false</c>.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool IsFatal(this Exception ex) => ex is OutOfMemoryException;
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="ex">The ex.</param>
         /// <returns><c>true</c> if [is security or critical] [the specified ex]; otherwise, <c>false</c>.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool IsSecurityOrCritical(this Exception ex)
         {
             return (ex is SecurityException) || ex.IsCritical();

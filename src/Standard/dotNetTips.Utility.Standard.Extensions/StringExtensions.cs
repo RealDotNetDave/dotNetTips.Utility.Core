@@ -147,7 +147,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The input.</param>
         /// <param name="valueToCompare">The value to compare.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        [Information(nameof(EqualsIgnoreCase), "David McCarter", "7/15/2020", "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information(nameof(EqualsIgnoreCase), "David McCarter", "7/15/2020", "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool EqualsIgnoreCase(this string input, string valueToCompare)
         {
             return string.Equals(input, valueToCompare, StringComparison.OrdinalIgnoreCase);
@@ -159,7 +159,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The input.</param>
         /// <param name="valueToCompare">The value to compare.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        [Information(nameof(EqualsOrBothNullOrEmpty), "David McCarter", "7/15/2020", "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information(nameof(EqualsOrBothNullOrEmpty), "David McCarter", "7/15/2020", "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool EqualsOrBothNullOrEmpty(this string input, string valueToCompare)
         {
             return string.Equals(input ?? string.Empty, valueToCompare ?? string.Empty, StringComparison.Ordinal);
@@ -295,7 +295,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="character">The character.</param>
         /// <returns><c>true</c> if [is ASCII letter] [the specified character]; otherwise, <c>false</c>.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool IsAsciiLetter(this char character)
         {
             return (((uint)character - 'A') & ~0x20) < 26;
@@ -306,7 +306,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="character">The character.</param>
         /// <returns><c>true</c> if [is ASCII letter or digit] [the specified character]; otherwise, <c>false</c>.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool IsAsciiLetterOrDigit(this char character)
         {
             return ((((uint)character - 'A') & ~0x20) < 26) || (((uint)character - '0') < 10);
@@ -408,7 +408,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns><c>true</c> if the specified input is whitespace; otherwise, <c>false</c>.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool IsWhitespace(this string input)
         {
             for (int i = 0; i < input.Length; i++)
@@ -427,7 +427,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="character">The character.</param>
         /// <returns><c>true</c> if the specified character is whitespace; otherwise, <c>false</c>.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool IsWhitespace(this char character)
         {
             return (character <= ' ' && (character == ' ' || character == '\t' || character == '\r' || character == '\n'));
@@ -464,7 +464,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="options">The options.</param>
         /// <returns>System.String[].</returns>
         /// <exception cref="ArgumentException">value</exception>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static string[] Split(this string value, char separator, StringSplitOptions options = StringSplitOptions.None)
         {
             if (string.IsNullOrEmpty(value))
@@ -485,7 +485,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentException">value
         /// or
         /// separator</exception>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static string[] Split(this string value, string separator, StringSplitOptions options = StringSplitOptions.None)
         {
             if (string.IsNullOrEmpty(value))
@@ -509,7 +509,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="count">The count.</param>
         /// <param name="options">The options.</param>
         /// <returns>System.String[].</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static string[] Split(this string value, char separator, int count, StringSplitOptions options = StringSplitOptions.None) => value.Split(new[] { separator }, count, options);
 
         /// <summary>
@@ -520,7 +520,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="count">The count.</param>
         /// <param name="options">The options.</param>
         /// <returns>System.String[].</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static string[] Split(this string value, string separator, int count, StringSplitOptions options = StringSplitOptions.None) => value.Split(new[] { separator }, count, options);
 
         /// <summary>
@@ -545,7 +545,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The input.</param>
         /// <param name="valueToCompare">The value to compare.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool StartsWithOrdinal(this string input, string valueToCompare)
         {
             if (valueToCompare == null)
@@ -562,7 +562,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The input.</param>
         /// <param name="valueToCompare">The value to compare.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool StartsWithOrdinalIgnoreCase(this string input, string valueToCompare)
         {
             if (valueToCompare == null)
@@ -586,7 +586,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// Length cannot be negative. - length
         /// or
         /// startIndex + length must be less than or equal to value.Length</exception>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 81.08, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 81.08, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static string SubstringTrim(this string value, int startIndex, int length)
         {
             if (value.HasValue() == false)

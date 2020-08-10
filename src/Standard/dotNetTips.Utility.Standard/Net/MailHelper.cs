@@ -50,7 +50,7 @@ namespace dotNetTips.Utility.Standard.Net
         /// <param name="separator">The separator.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         /// <exception cref="ArgumentException">email</exception>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool TryParseEmailAddresses(string email, out ParseAddressInfo[] info, bool throwExceptionIfFail, char separator = ',')
         {
             if (string.IsNullOrEmpty(email))
@@ -285,7 +285,7 @@ namespace dotNetTips.Utility.Standard.Net
         /// <exception cref="FormatException">Invalid email address.
         /// or
         /// Invalid character: {(index &gt;= 0 ? data[index] : MailBnfHelper.EndAngleBracket)}.</exception>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 64.06, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 64.06, Status = Status.Available)]
         private static bool TryParseEmailAddress(string data, bool expectMultipleAddresses, int index, out ParseAddressInfo parseAddressInfo, bool throwExceptionIfFail)
         {
             Debug.Assert(!string.IsNullOrEmpty(data));

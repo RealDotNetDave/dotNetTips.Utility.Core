@@ -19,7 +19,7 @@ namespace dotNetTips.Utility.Standard.Extensions
     /// <summary>
     /// Class HttpResponseHeaderExtensions.
     /// </summary>
-    [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
+    [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
     public static class HttpResponseHeaderExtensions
     {
 
@@ -61,7 +61,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="header">The header.</param>
         /// <returns>System.String.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static string GetName(this HttpResponseHeader header)
         {
             return _headerNames[(int)header];

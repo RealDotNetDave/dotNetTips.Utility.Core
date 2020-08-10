@@ -34,21 +34,21 @@ namespace dotNetTips.Utility.Standard.IO
         /// Gets the invalid filter chars.
         /// </summary>
         /// <value>The invalid filter chars.</value>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static char[] InvalidFilterChars => _invalidFilterChars;
 
         /// <summary>
         /// Gets the invalid path name chars.
         /// </summary>
         /// <value>The invalid path name chars.</value>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static char[] InvalidPathNameChars => _invalidPathNameChars;
 
         /// <summary>
         /// Gets the path separators.
         /// </summary>
         /// <value>The path separators.</value>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static char[] PathSeparators => _pathSeparators;
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// </summary>
         /// <param name="path">The path.</param>
         /// <returns>System.String.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 88, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 88, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static string EnsureTrailingSlash(string path)
         {
             Encapsulation.TryValidateParam(path, nameof(path));
@@ -74,7 +74,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// </summary>
         /// <param name="filter">The path.</param>
         /// <returns><c>true</c> if [has invalid filter chars] [the specified path]; otherwise, <c>false</c>.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool HasInvalidFilterChars(string filter)
         {
             Encapsulation.TryValidateParam(filter, nameof(filter));
@@ -101,7 +101,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// </summary>
         /// <param name="path">The path.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool PathHasInvalidChars(string path)
         {
             Encapsulation.TryValidateParam(path, nameof(path));

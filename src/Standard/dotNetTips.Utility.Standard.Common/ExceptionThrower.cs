@@ -32,7 +32,7 @@ namespace dotNetTipis.Utility.Standard.Common
         /// <exception cref="ArgumentNullException"></exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", Status = Status.Available)]
         public static void ThrowArgumentException(string message, string paramName)
         {
             throw new ArgumentException(paramName, message.DefaultIfNull(Resources.ExMessageInvalidArgument));
@@ -47,7 +47,7 @@ namespace dotNetTipis.Utility.Standard.Common
         /// <exception cref="ArgumentNullException"></exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", Status = Status.Available)]
         public static void ThrowArgumentException(string message, Exception innerException)
         {
             throw new ArgumentException(message.DefaultIfNull(Resources.ExMessageInvalidArgument), innerException);
@@ -61,7 +61,7 @@ namespace dotNetTipis.Utility.Standard.Common
         /// <exception cref="ArgumentNullException"></exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", Status = Status.Available)]
         public static void ThrowArgumentNullException(string message, string paramName)
         {
             throw new ArgumentNullException(paramName, message.DefaultIfNull(Resources.ExMessageArgumentNull));
@@ -75,7 +75,7 @@ namespace dotNetTipis.Utility.Standard.Common
         /// <exception cref="ArgumentNullException"></exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", Status = Status.Available)]
         public static void ThrowArgumentNullException(string message, Exception innerException)
         {
             throw new ArgumentNullException(message.DefaultIfNull(Resources.ExMessageArgumentNull), innerException);
@@ -88,7 +88,7 @@ namespace dotNetTipis.Utility.Standard.Common
         /// <exception cref="ArgumentReadOnlyException"></exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", Status = Status.Available)]
         public static void ThrowArgumentReadOnlyCollectionException(string paramName)
         {
             throw new ArgumentReadOnlyException(paramName);
@@ -101,7 +101,7 @@ namespace dotNetTipis.Utility.Standard.Common
         /// <exception cref="InvalidOperationException"></exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", Status = Status.Available)]
         public static void ThrowInvalidOperationException(string message)
         {
             throw new InvalidOperationException(message.DefaultIfNull(Resources.ExMessageInvalidOperation));
@@ -115,7 +115,7 @@ namespace dotNetTipis.Utility.Standard.Common
         /// <exception cref="InvalidOperationException"></exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", Status = Status.Available)]
         public static void ThrowInvalidOperationException(string message, Exception innerException)
         {
             throw new InvalidOperationException(message.DefaultIfNull(Resources.ExMessageInvalidOperation), innerException);

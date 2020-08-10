@@ -24,7 +24,7 @@ namespace dotNetTips.Utility.Standard.Extensions
     /// <summary>
     /// Extensions methods for Stream.
     /// </summary>
-    [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
+    [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
     public static class StreamExtensions
     {
 
@@ -35,7 +35,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="destination">The destination.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>ValueTask&lt;System.Int32&gt;.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static ValueTask<int> ReadAsync(this Stream stream, Memory<byte> destination, CancellationToken cancellationToken = default)
         {
             if (MemoryMarshal.TryGetArray(destination, out ArraySegment<byte> array))
@@ -71,7 +71,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="source">The source.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>ValueTask.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static ValueTask WriteAsync(this Stream stream, ReadOnlyMemory<byte> source, CancellationToken cancellationToken = default)
         {
             if (MemoryMarshal.TryGetArray(source, out ArraySegment<byte> array))
