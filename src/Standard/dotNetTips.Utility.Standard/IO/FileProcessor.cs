@@ -133,7 +133,7 @@ namespace dotNetTips.Utility.Standard.IO
                     try
                     {
                         var psw = PerformanceStopwatch.StartNew();
-
+                        //TODO: ADD ASYNC - await Task.Run(()=> method);
                         tempFile.Delete();
 
                         var perf = psw.StopReset();

@@ -52,6 +52,84 @@ namespace dotNetTips.Utility.Standard.IO
         public static char[] PathSeparators => _pathSeparators;
 
         /// <summary>
+        /// Combines the paths.
+        /// </summary>
+        /// <param name="createIfNotExists">if set to <c>true</c> [create path if it does not exists].</param>
+        /// <param name="paths">The paths.</param>
+        /// <returns>DirectoryInfo.</returns>
+        [Information(nameof(CombinePaths), author: "David McCarter", createdOn: "8/10/2020", modifiedOn: "8/10/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        public static DirectoryInfo CombinePaths(bool createIfNotExists, params string[] paths)
+        {
+            Encapsulation.TryValidateParam(paths, nameof(paths));
+
+            var pathString = Path.Combine(paths);
+
+            var di = new DirectoryInfo(pathString);
+
+            if (createIfNotExists && di.Exists is false)
+            {
+                di.Create();
+            }
+
+            return di;
+        }
+
+        /// <summary>
+        /// Combines the specified path strings.
+        /// </summary>
+        /// <param name="path1">The path1.</param>
+        /// <param name="path2">The path2.</param>
+        /// <param name="createIfNotExists">if set to <c>true</c> [create path if it does not exists].</param>
+        /// <returns>DirectoryInfo.</returns>
+        [Information(nameof(CombinePaths), author: "David McCarter", createdOn: "8/10/2020", modifiedOn: "8/10/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        public static DirectoryInfo CombinePaths(string path1, string path2, bool createIfNotExists = false)
+        {
+            Encapsulation.TryValidateParam(path1, nameof(path1));
+            Encapsulation.TryValidateParam(path2, nameof(path2));
+
+            return CombinePaths(createIfNotExists, path1, path2);
+        }
+
+        /// <summary>
+        /// Combines the paths.
+        /// </summary>
+        /// <param name="path1">The path1.</param>
+        /// <param name="path2">The path2.</param>
+        /// <param name="path3">The path3.</param>
+        /// <param name="createIfNotExists">if set to <c>true</c> [create path if it does not exists].</param>
+        /// <returns>DirectoryInfo.</returns>
+        /// <returns>DirectoryInfo.</returns>
+        [Information(nameof(CombinePaths), author: "David McCarter", createdOn: "8/10/2020", modifiedOn: "8/10/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        public static DirectoryInfo CombinePaths(string path1, string path2, string path3, bool createIfNotExists = false)
+        {
+            Encapsulation.TryValidateParam(path1, nameof(path1));
+            Encapsulation.TryValidateParam(path2, nameof(path2));
+            Encapsulation.TryValidateParam(path3, nameof(path3));
+
+            return CombinePaths(createIfNotExists, path1, path2, path3);
+        }
+
+        /// <summary>
+        /// Combines the paths.
+        /// </summary>
+        /// <param name="path1">The path1.</param>
+        /// <param name="path2">The path2.</param>
+        /// <param name="path3">The path3.</param>
+        /// <param name="path4">The path4.</param>
+        /// <param name="createIfNotExists">if set to <c>true</c> [create path if it does not exists].</param>
+        /// <returns>DirectoryInfo.</returns>
+        [Information(nameof(CombinePaths), author: "David McCarter", createdOn: "8/10/2020", modifiedOn: "8/10/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        public static DirectoryInfo CombinePaths(string path1, string path2, string path3, string path4, bool createIfNotExists = false)
+        {
+            Encapsulation.TryValidateParam(path1, nameof(path1));
+            Encapsulation.TryValidateParam(path2, nameof(path2));
+            Encapsulation.TryValidateParam(path3, nameof(path3));
+            Encapsulation.TryValidateParam(path4, nameof(path4));
+
+            return CombinePaths(createIfNotExists, path1, path2, path3, path4);
+        }
+
+        /// <summary>
         /// Ensures the trailing slash.
         /// </summary>
         /// <param name="path">The path.</param>
