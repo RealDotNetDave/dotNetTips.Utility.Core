@@ -18,6 +18,7 @@ namespace dotNetTips.Utility.Standard.Common
     /// <summary>
     /// BenchMarkStatus attribute to add more meta data for types.
     /// </summary>
+    /// <remarks>For use in InformationAttribute.</remarks>
     [Information(message: "For use in InformationAttribute.", author: "David McCarter", createdOn: "7/29/2020", modifiedOn: "8/4/2020", BenchMarkStatus = BenchMarkStatus.NotRequired, Status = Status.Available)]
     public enum BenchMarkStatus
     {
@@ -45,6 +46,7 @@ namespace dotNetTips.Utility.Standard.Common
     /// <summary>
     /// Information status.
     /// </summary>
+    /// <remarks>For use in InformationAttribute.</remarks>
     [Information(message: "For use in InformationAttribute.", author: "David McCarter", createdOn: "7/29/2020", modifiedOn: "8/4/2020", BenchMarkStatus = BenchMarkStatus.NotRequired, Status = Status.Available)]
     public enum Status
     {
@@ -179,7 +181,7 @@ namespace dotNetTips.Utility.Standard.Common
             get => this._unitTestCoverage;
             set
             {
-                this._unitTestCoverage = IsInRange(value, 0, 100) ? value : throw new ArgumentOutOfRangeException("Unit test coverage must be in the range of 0 - 100.", nameof(UnitTestCoverage));
+                this._unitTestCoverage = IsInRange(value, 0, 100) ? value : throw new ArgumentOutOfRangeException("Unit test coverage must be in the range of 0 - 100.", nameof(value));
             }
         }
 

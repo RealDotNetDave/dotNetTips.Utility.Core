@@ -13,6 +13,7 @@
 // ***********************************************************************
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -26,6 +27,41 @@ namespace dotNetTips.Utility.Standard.Extensions
     /// </summary>
     public static class StringExtensions
     {
+        /// <summary>
+        /// Converts delimited string to list.
+        /// </summary>
+        /// <param name="delimitedInput">The string buffer.</param>
+        /// <param name="delimiter">The delimiter.</param>
+        /// <returns>IEnumerable&lt;System.String&gt;.</returns>
+        /// <exception cref="ArgumentException">delimitedInput</exception>
+        /// <remarks>Code by: Blake Pell</remarks>
+        [Obsolete("This method to be removed. Use instead DelimitedStringToArray.", true)]
+        public static IEnumerable<string> FromDelimitedString(this string delimitedInput, char delimiter = ',')
+        {
+            return delimitedInput.DelimitedStringToArray(delimiter).AsEnumerable();
+        }
+
+        /// <summary>
+        /// Turns a delimited string to a string array.
+        /// </summary>
+        /// <param name="delimitedInput">The delimited input.</param>
+        /// <param name="delimiter">The delimiter.</param>
+        /// <returns>System.String[].</returns>
+        [Information(nameof(DelimitedStringToArray), "David McCarter", "8/13/2020", "8/13/2020", UnitTestCoverage = 0, Status = Status.New)]
+        public static string[] DelimitedStringToArray(this string delimitedInput, char delimiter = ',')
+        {
+            if (delimitedInput.IsNull())
+            {
+                ExceptionThrower.ThrowArgumentNullException(nameof(delimitedInput));
+            }
+
+            if (delimiter.IsNull())
+            {
+                delimiter = ControlChars.Comma;
+            }
+
+            return delimitedInput.Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
+        }
 
         /// <summary>
         /// Computes the sha256 hash.

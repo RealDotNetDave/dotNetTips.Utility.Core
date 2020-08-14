@@ -11,14 +11,11 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using System;
-
-namespace dotNetTips.Utility.Standard
+namespace dotNetTips.Utility.Standard.Common
 {
     /// <summary>
     /// Class ControlChars.
     /// </summary>
-    [Obsolete("This class will be removed at the end of 2020. Instead use this class from the dotNetTips.Utility.Standard.Common assembly/ NuGet package.")]
     public static class ControlChars
     {
 

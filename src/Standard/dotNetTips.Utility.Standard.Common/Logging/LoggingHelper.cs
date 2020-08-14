@@ -14,7 +14,6 @@
 
 using System;
 using System.Collections.Generic;
-using dotNetTipis.Utility.Standard.Common;
 
 namespace dotNetTips.Utility.Standard.Common.Logging
 {

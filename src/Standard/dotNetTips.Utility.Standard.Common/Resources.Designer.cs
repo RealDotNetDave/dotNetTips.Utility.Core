@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace dotNetTips.Utility.Standard.Common
-{
-
-
+namespace dotNetTips.Utility.Standard.Common {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -66,6 +66,15 @@ namespace dotNetTips.Utility.Standard.Common
         internal static string ExMessageArgumentNull {
             get {
                 return ResourceManager.GetString("ExMessageArgumentNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The specified directory was not found..
+        /// </summary>
+        internal static string ExMessageDirectoryNotFound {
+            get {
+                return ResourceManager.GetString("ExMessageDirectoryNotFound", resourceCulture);
             }
         }
         

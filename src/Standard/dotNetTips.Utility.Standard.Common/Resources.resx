@@ -1,4 +1,4 @@
-
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -119,6 +119,9 @@
   </resheader>
   <data name="ExMessageArgumentNull" xml:space="preserve">
     <value>Argument cannot be null.</value>
+  </data>
+  <data name="ExMessageDirectoryNotFound" xml:space="preserve">
+    <value>The specified directory was not found.</value>
   </data>
   <data name="ExMessageInvalidArgument" xml:space="preserve">
     <value>Invalid argument.</value>
