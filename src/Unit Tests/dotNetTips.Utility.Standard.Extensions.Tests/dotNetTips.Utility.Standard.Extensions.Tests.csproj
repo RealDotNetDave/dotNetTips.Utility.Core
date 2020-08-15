@@ -8,6 +8,8 @@
     <AssemblyVersion>2020.8.7.34644</AssemblyVersion>
 
     <FileVersion>2020.8.7.34644</FileVersion>
+
+    <NeutralLanguage></NeutralLanguage>
   </PropertyGroup>
 
   <ItemGroup>

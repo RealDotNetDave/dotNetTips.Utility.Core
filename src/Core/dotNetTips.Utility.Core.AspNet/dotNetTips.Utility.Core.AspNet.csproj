@@ -16,6 +16,8 @@
     <FileVersion>2020.8.7.34644</FileVersion>
     <Version>2020.6.9.1</Version>
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <NeutralLanguage></NeutralLanguage>
+    <PackageIcon>2020 - dotNetTips - Real World - Earth@0.1x.png</PackageIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -33,6 +35,13 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.1.7" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.7" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\docs\Graphics\2020 - dotNetTips - Real World - Earth@0.1x.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -11,10 +11,11 @@
     <RepositoryUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Copyright>McCarter Consulting (David McCarter)</Copyright>
-    <NeutralLanguage>English (United States)</NeutralLanguage>
+    <NeutralLanguage></NeutralLanguage>
     <PackageReleaseNotes>-- AUG 2020: First release.</PackageReleaseNotes>
     <AssemblyName>dotNetTips.Utility.Standard.Common</AssemblyName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageIcon>2020 - dotNetTips - Real World - Earth@0.1x.png</PackageIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -47,6 +48,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\docs\Graphics\2020 - dotNetTips - Real World - Earth@0.1x.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

@@ -21,10 +21,11 @@
 -- FEB 2020: Code cleanup.
 -- MAR 2020 (QUARTERLY RELEASE): Code cleanup.
 -- AUG 2020: Code cleanup.</PackageReleaseNotes>
-    <NeutralLanguage>en-US</NeutralLanguage>
+    <NeutralLanguage></NeutralLanguage>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
     <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+    <PackageIcon>2020 - dotNetTips - Real World - Earth@0.1x.png</PackageIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -40,6 +41,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\..\..\docs\Graphics\2020 - dotNetTips - Real World - Earth@0.1x.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <None Include="..\..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 

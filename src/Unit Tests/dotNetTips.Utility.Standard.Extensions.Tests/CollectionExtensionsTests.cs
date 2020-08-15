@@ -17,6 +17,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
+using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.Tester;
 using dotNetTips.Utility.Standard.Tester.Collections;
@@ -41,20 +42,20 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             var peopleArray = peopleList.ToArray();
             var person = RandomData.GeneratePerson<PersonProper>();
 
-
             // Collection test
             var result1 = peopleList.AddFirst(person);
 
             Assert.IsTrue(result1.First().Equals(person));
-            _ = Assert.ThrowsException<ArgumentNullException>(() => peopleList.AddFirst(null));
-            _ = Assert.ThrowsException<ArgumentException>(() => peopleList.ToReadOnlyCollection().AddFirst(person));
+            Assert.IsTrue(peopleList.AddFirst(null).Count == peopleList.Count);
+            _ = Assert.ThrowsException<ArgumentReadOnlyException>(() => peopleList.ToReadOnlyCollection().AddFirst(person));
 
             // Array Test
             var result2 = peopleArray.AddFirst(person);
-
+            PersonProper[] nullArray = default(PersonProper[]);
             Assert.IsTrue(result2.First().Equals(person));
-            _ = Assert.ThrowsException<ArgumentNullException>(() => peopleArray.AddFirst(null));
-            _ = Assert.ThrowsException<ArgumentException>(() => Array.AsReadOnly(peopleArray).AddFirst(person));
+            _ = Assert.ThrowsException<ArgumentNullException>(() => nullArray.AddFirst(null));
+            _ = Assert.ThrowsException<ArgumentNullException>(() => result2.AddFirst(null));
+            _ = Assert.ThrowsException<ArgumentReadOnlyException>(() => Array.AsReadOnly(result2).AddFirst(person));
 
         }
 
@@ -162,7 +163,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             // Test Array
             var result2 = peopleArray.AddLast(person);
             Assert.IsTrue(result2.Last().Equals(person));
-            _ = Assert.ThrowsException<ArgumentNullException>(() => peopleArray.AddFirst(null));
+            Assert.IsTrue(peopleArray.AddLast(null).Length == peopleArray.Length);
 
         }
 
@@ -206,7 +207,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
 
             //Test Null
             PersonCollection<PersonProper> nullCollection = null;
-            
+
             Assert.IsTrue(nullCollection.AreEqual(null));
         }
 

@@ -45,19 +45,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static IList<T> AddFirst<T>(this IList<T> list, T item)
         {
-            if (list.DoesNotHaveItems())
+            if (list.DoesNotHaveItems() || item == null)
             {
-                ExceptionThrower.ThrowArgumentNullException(nameof(list));
+                return list;
             }
 
             if (list.IsReadOnly)
             {
                 ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
-            }
-
-            if (item == null)
-            {
-                ExceptionThrower.ThrowArgumentNullException(nameof(item));
             }
 
             list.Insert(0, item);
@@ -78,9 +73,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static T[] AddFirst<T>(this T[] array, T item)
         {
-            if (array == null)
+            if (array.IsNull())
             {
-                throw new ArgumentNullException(nameof(array), $"{nameof(array)} is null or empty.");
+                ExceptionThrower.ThrowArgumentNullException(nameof(array));
             }
 
             if (item == null)
@@ -124,19 +119,13 @@ namespace dotNetTips.Utility.Standard.Extensions
                 ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
             }
 
-            if (item == null)
-            {
-                ExceptionThrower.ThrowArgumentNullException(nameof(item));
-            }
-
-            if (list.Contains(item))
+            if (item == null || list.Contains(item))
             {
                 return;
             }
-            else
-            {
-                list.Add(item);
-            }
+
+
+            list.Add(item);
         }
 
         /// <summary>
@@ -178,7 +167,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">list - List cannot be read-only.</exception>
         public static void AddIfNotExists<T>(this ICollection<T> list, params T[] items)
         {
-            if ((list == null))
+            if (list == null)
             {
                 throw new ArgumentException($"{nameof(list)} is null.", nameof(list));
             }
@@ -1035,7 +1024,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <remarks>Original code by: C.F.Meijers</remarks>
         public static IEnumerable<T> OrderBy<T>(this IEnumerable<T> list, string sortExpression)
         {
-            if (sortExpression.HasValue()==false)
+            if (sortExpression.HasValue() == false)
             {
                 return null;
             }
@@ -1093,7 +1082,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="System.ArgumentOutOfRangeException">pageSize</exception>
         public static IEnumerable<IEnumerable<T>> Page<T>(this IEnumerable<T> list, int pageSize)
         {
-           pageSize= pageSize.EnsureMinimumValue(1);
+            pageSize = pageSize.EnsureMinimumValue(1);
 
             using (var enumerator = list.GetEnumerator())
             {
