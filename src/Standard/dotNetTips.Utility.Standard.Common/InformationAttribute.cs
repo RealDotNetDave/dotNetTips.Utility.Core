@@ -4,7 +4,7 @@
 // Created          : 07-29-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-05-2020
+// Last Modified On : 08-21-2020
 // ***********************************************************************
 // <copyright file="InformationAttribute.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -168,13 +168,13 @@ namespace dotNetTips.Utility.Standard.Common
         /// Gets or sets the status.
         /// </summary>
         /// <value>The status.</value>
-        public Status Status { get; set; } = Status.Available;
+        public Status Status { get; set; } = Status.NotSet;
 
         /// <summary>
         /// Gets or sets the unit test coverage.
         /// </summary>
         /// <value>The unit test coverage.</value>
-        /// <exception cref="ArgumentOutOfRangeException">Unit test coverage must be in the range of 0 - 100. - UnitTestCoverage</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Unit test coverage must be in the range of 0 - 100. - value</exception>
         /// <remarks>Value must be between 0 - 100</remarks>
         public double UnitTestCoverage
         {
@@ -183,11 +183,6 @@ namespace dotNetTips.Utility.Standard.Common
             {
                 this._unitTestCoverage = IsInRange(value, 0, 100) ? value : throw new ArgumentOutOfRangeException("Unit test coverage must be in the range of 0 - 100.", nameof(value));
             }
-        }
-
-        private static bool IsInRange(int value, int lower, int upper)
-        {
-            return value >= lower && value <= upper;
         }
 
         private static bool IsInRange(double value, double lower, double upper)

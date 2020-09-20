@@ -4,7 +4,7 @@
 // Created          : 07-11-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-04-2020
+// Last Modified On : 09-19-2020
 // ***********************************************************************
 // <copyright file="PathHelperc.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -15,6 +15,7 @@
 using System.IO;
 using System.Linq;
 using dotNetTips.Utility.Standard.Common;
+using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.OOP;
 
 namespace dotNetTips.Utility.Standard.IO
@@ -25,43 +26,22 @@ namespace dotNetTips.Utility.Standard.IO
     public static class PathHelper
     {
 
-        private static readonly char[] _invalidFilterChars = FileHelper.InvalidFileNameChars.Where(c => c != '*' && c != '|' && c != '?').ToArray();
-        private static readonly char[] _invalidPathNameChars = Path.GetInvalidPathChars().Where(c => c != Path.DirectorySeparatorChar && c != Path.AltDirectorySeparatorChar).ToArray();
-
-        private static readonly char[] _pathSeparators = new[] { Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar };
-
-        /// <summary>
-        /// Gets the invalid filter chars.
-        /// </summary>
-        /// <value>The invalid filter chars.</value>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
-        public static char[] InvalidFilterChars => _invalidFilterChars;
-
-        /// <summary>
-        /// Gets the invalid path name chars.
-        /// </summary>
-        /// <value>The invalid path name chars.</value>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
-        public static char[] InvalidPathNameChars => _invalidPathNameChars;
-
-        /// <summary>
-        /// Gets the path separators.
-        /// </summary>
-        /// <value>The path separators.</value>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
-        public static char[] PathSeparators => _pathSeparators;
-
         /// <summary>
         /// Combines the paths.
         /// </summary>
         /// <param name="createIfNotExists">if set to <c>true</c> [create path if it does not exists].</param>
         /// <param name="paths">The paths.</param>
         /// <returns>DirectoryInfo.</returns>
-        [Information(nameof(CombinePaths), author: "David McCarter", createdOn: "8/10/2020", modifiedOn: "8/10/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        [Information(nameof(CombinePaths), author: "David McCarter", createdOn: "8/10/2020", modifiedOn: "8/10/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
         public static DirectoryInfo CombinePaths(bool createIfNotExists, params string[] paths)
         {
             Encapsulation.TryValidateParam(paths, nameof(paths));
 
+            for (int paramCount = 0; paramCount < paths.Count(); paramCount++)
+            {
+                paths[paramCount] = paths[paramCount].ToTrimmed();
+            }
+         
             var pathString = Path.Combine(paths);
 
             var di = new DirectoryInfo(pathString);
@@ -70,19 +50,19 @@ namespace dotNetTips.Utility.Standard.IO
             {
                 di.Create();
             }
-
+        
             return di;
         }
 
         /// <summary>
         /// Combines the specified path strings.
         /// </summary>
+        /// <param name="createIfNotExists">if set to <c>true</c> [create path if it does not exists].</param>
         /// <param name="path1">The path1.</param>
         /// <param name="path2">The path2.</param>
-        /// <param name="createIfNotExists">if set to <c>true</c> [create path if it does not exists].</param>
         /// <returns>DirectoryInfo.</returns>
-        [Information(nameof(CombinePaths), author: "David McCarter", createdOn: "8/10/2020", modifiedOn: "8/10/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
-        public static DirectoryInfo CombinePaths(string path1, string path2, bool createIfNotExists = false)
+        [Information(nameof(CombinePaths), author: "David McCarter", createdOn: "8/10/2020", modifiedOn: "8/10/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        public static DirectoryInfo CombinePaths(bool createIfNotExists, string path1, string path2)
         {
             Encapsulation.TryValidateParam(path1, nameof(path1));
             Encapsulation.TryValidateParam(path2, nameof(path2));
@@ -93,14 +73,13 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// Combines the paths.
         /// </summary>
+        /// <param name="createIfNotExists">if set to <c>true</c> [create path if it does not exists].</param>
         /// <param name="path1">The path1.</param>
         /// <param name="path2">The path2.</param>
         /// <param name="path3">The path3.</param>
-        /// <param name="createIfNotExists">if set to <c>true</c> [create path if it does not exists].</param>
         /// <returns>DirectoryInfo.</returns>
-        /// <returns>DirectoryInfo.</returns>
-        [Information(nameof(CombinePaths), author: "David McCarter", createdOn: "8/10/2020", modifiedOn: "8/10/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
-        public static DirectoryInfo CombinePaths(string path1, string path2, string path3, bool createIfNotExists = false)
+        [Information(nameof(CombinePaths), author: "David McCarter", createdOn: "8/10/2020", modifiedOn: "8/10/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        public static DirectoryInfo CombinePaths(bool createIfNotExists, string path1, string path2, string path3)
         {
             Encapsulation.TryValidateParam(path1, nameof(path1));
             Encapsulation.TryValidateParam(path2, nameof(path2));
@@ -112,14 +91,14 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// Combines the paths.
         /// </summary>
+        /// <param name="createIfNotExists">if set to <c>true</c> [create path if it does not exists].</param>
         /// <param name="path1">The path1.</param>
         /// <param name="path2">The path2.</param>
         /// <param name="path3">The path3.</param>
         /// <param name="path4">The path4.</param>
-        /// <param name="createIfNotExists">if set to <c>true</c> [create path if it does not exists].</param>
         /// <returns>DirectoryInfo.</returns>
-        [Information(nameof(CombinePaths), author: "David McCarter", createdOn: "8/10/2020", modifiedOn: "8/10/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
-        public static DirectoryInfo CombinePaths(string path1, string path2, string path3, string path4, bool createIfNotExists = false)
+        [Information(nameof(CombinePaths), author: "David McCarter", createdOn: "8/10/2020", modifiedOn: "8/10/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        public static DirectoryInfo CombinePaths(bool createIfNotExists, string path1, string path2, string path3, string path4)
         {
             Encapsulation.TryValidateParam(path1, nameof(path1));
             Encapsulation.TryValidateParam(path2, nameof(path2));
@@ -134,7 +113,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// </summary>
         /// <param name="path">The path.</param>
         /// <returns>System.String.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 88, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static string EnsureTrailingSlash(string path)
         {
             Encapsulation.TryValidateParam(path, nameof(path));
@@ -157,7 +136,7 @@ namespace dotNetTips.Utility.Standard.IO
         {
             Encapsulation.TryValidateParam(filter, nameof(filter));
 
-            return filter.IndexOfAny(_invalidFilterChars) != -1;
+            return filter.IndexOfAny(InvalidFilterChars) != -1;
         }
 
         /// <summary>
@@ -173,7 +152,6 @@ namespace dotNetTips.Utility.Standard.IO
         }
 
 
-
         /// <summary>
         /// Pathes the has invalid chars.
         /// </summary>
@@ -184,8 +162,39 @@ namespace dotNetTips.Utility.Standard.IO
         {
             Encapsulation.TryValidateParam(path, nameof(path));
 
-            return path.IndexOfAny(_invalidPathNameChars) != -1;
+            return path.IndexOfAny(InvalidPathNameChars) != -1;
         }
 
+        /// <summary>
+        /// Gets the invalid filter chars.
+        /// </summary>
+        /// <value>The invalid filter chars.</value>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
+        public static char[] InvalidFilterChars
+        {
+            get;
+        } = FileHelper.InvalidFileNameChars.Where(c => c != '*' && c != '|' && c != '?').ToArray();
+
+        /// <summary>
+        /// Gets the invalid path name chars.
+        /// </summary>
+        /// <value>The invalid path name chars.</value>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
+        public static char[] InvalidPathNameChars
+        {
+            get;
+        } = Path.GetInvalidPathChars()
+            .Where(c => c != Path.DirectorySeparatorChar && c != Path.AltDirectorySeparatorChar)
+            .ToArray();
+
+        /// <summary>
+        /// Gets the path separators.
+        /// </summary>
+        /// <value>The path separators.</value>
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
+        public static char[] PathSeparators
+        {
+            get;
+        } = new[] { Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar };
     }
 }

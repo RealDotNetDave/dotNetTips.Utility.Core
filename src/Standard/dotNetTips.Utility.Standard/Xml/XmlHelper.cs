@@ -4,7 +4,7 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-07-2020
+// Last Modified On : 09-19-2020
 // ***********************************************************************
 // <copyright file="XmlHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -14,7 +14,8 @@
 using System;
 using System.IO;
 using System.Xml;
-using System.Xml.Serialization;
+using System.Xml.Linq;
+using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.OOP;
 
 namespace dotNetTips.Utility.Standard.Xml
@@ -27,29 +28,29 @@ namespace dotNetTips.Utility.Standard.Xml
         /// <summary>
         /// Deserialize the specified XML.
         /// </summary>
-        /// <typeparam name="T">Type</typeparam>
+        /// <typeparam name="TResult">Type</typeparam>
         /// <param name="xml">The XML.</param>
         /// <returns>T.</returns>
         /// <exception cref="ArgumentNullException">xml</exception>
-        public static T Deserialize<T>(string xml)
+        public static TResult Deserialize<TResult>(string xml)
         {
             Encapsulation.TryValidateParam(xml, nameof(xml));
 
             using (var sr = new StringReader(xml))
             {
-                var xs = new XmlSerializer(typeof(T));
-                return (T)xs.Deserialize(sr);
+                var xs = new System.Xml.Serialization.XmlSerializer(typeof(TResult));
+                return (TResult)xs.Deserialize(sr);
             }
         }
 
         /// <summary>
         /// De-serializes from XML file.
         /// </summary>
-        /// <typeparam name="T">Type</typeparam>
+        /// <typeparam name="TResult">Type</typeparam>
         /// <param name="fileName">Name of the file.</param>
         /// <returns>T.</returns>
         /// <exception cref="FileNotFoundException">File not found. Cannot deserialize from XML.</exception>
-        public static T DeserializeFromXmlFile<T>(string fileName)
+        public static TResult DeserializeFromXmlFile<TResult>(string fileName)
         {
             Encapsulation.TryValidateParam(fileName, nameof(fileName));
 
@@ -58,7 +59,7 @@ namespace dotNetTips.Utility.Standard.Xml
                 throw new FileNotFoundException("File not found. Cannot deserialize from XML.", fileName);
             }
 
-            return Deserialize<T>(File.ReadAllText(fileName));
+            return Deserialize<TResult>(File.ReadAllText(fileName));
         }
 
         /// <summary>
@@ -73,9 +74,9 @@ namespace dotNetTips.Utility.Standard.Xml
 
             using (var writer = new StringWriter())
             {
-                using (var xmlWriter = XmlWriter.Create(writer))
+                using (var xmlWriter = System.Xml.XmlWriter.Create(writer))
                 {
-                    var serializer = new XmlSerializer(obj.GetType());
+                    var serializer = new System.Xml.Serialization.XmlSerializer(obj.GetType());
                     serializer.Serialize(xmlWriter, obj);
 
                     return writer.ToString();
@@ -99,6 +100,37 @@ namespace dotNetTips.Utility.Standard.Xml
             }
 
             File.WriteAllText(fileName, Serialize(obj));
+        }
+
+        /// <summary>
+        /// Securely convert string to XDocument.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>XDocument.</returns>
+        [Information(nameof(StringToXDocument), "David McCarter", "9/9/2020", "9/9/2020", Status = Status.New, UnitTestCoverage = 100, BenchMarkStatus = 0)]
+        public static XDocument StringToXDocument(string input)
+        {
+            return StringToXDocument(input, null);
+        }
+
+        /// <summary>
+        /// Securely convert string to XDocument.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="resolver">The resolver.</param>
+        /// <returns>XDocument.</returns>
+        /// <remarks>Uses DtdProcessing.Prohibit</remarks>
+        [Information(nameof(StringToXDocument), "David McCarter", "9/9/2020", "9/9/2020", Status = Status.New, UnitTestCoverage = 100, BenchMarkStatus = 0)]
+        public static XDocument StringToXDocument(string input, XmlResolver resolver)
+        {
+            Encapsulation.TryValidateParam(input, nameof(input));
+
+            var options = new System.Xml.XmlReaderSettings { DtdProcessing = DtdProcessing.Prohibit, XmlResolver = resolver  };
+        
+            using (var reader = XmlReader.Create(new StringReader(input), options))
+            {
+                return XDocument.Load(reader);
+            }
         }
     }
 }

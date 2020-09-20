@@ -4,7 +4,7 @@
 // Created          : 07-24-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-07-2020
+// Last Modified On : 09-19-2020
 // ***********************************************************************
 // <copyright file="CountdownTimer.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -62,13 +62,17 @@ namespace dotNetTips.Utility.Standard.Net
 
             TimerQueue queue;
             object key = durationMilliseconds; // Box once.
-            var weakQueue = (WeakReference)_queuesCache[key];
+            WeakReference weakQueue = null;
 
             if (weakQueue == null || (queue = (TimerQueue)weakQueue.Target) == null)
             {
                 lock (_newQueues)
                 {
-                    weakQueue = (WeakReference)_queuesCache[key];
+                    if (_queuesCache.ContainsKey(key))
+                    {
+                        weakQueue = (WeakReference)_queuesCache[key];
+                    }
+
                     if (weakQueue == null || (queue = (TimerQueue)weakQueue.Target) == null)
                     {
                         queue = new CountdownTimerQueue(durationMilliseconds);

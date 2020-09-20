@@ -4,7 +4,7 @@
 // Created          : 07-30-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-13-2020
+// Last Modified On : 09-19-2020
 // ***********************************************************************
 // <copyright file="ExceptionThrower.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -22,6 +22,11 @@ namespace dotNetTips.Utility.Standard.Common
     /// </summary>
     public static class ExceptionThrower
     {
+
+        private static string DefaultIfNull(this string value, string defaultValue)
+        {
+            return value ?? (defaultValue ?? string.Empty);
+        }
 
         /// <summary>
         /// Throws the ArgumentException.
@@ -128,6 +133,47 @@ namespace dotNetTips.Utility.Standard.Common
         }
 
         /// <summary>
+        /// Throws the argument out of range exception.
+        /// </summary>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        [ExcludeFromCodeCoverage]
+        [Information(nameof(ThrowArgumentOutOfRangeException), author: "David McCarter", createdOn: "9/5/2020", modifiedOn: "9/5/2020", Status = Status.New)]
+        public static void ThrowArgumentOutOfRangeException(string paramName)
+        {
+            throw new ArgumentOutOfRangeException(paramName, Resources.ExArgumentOutOfRange);
+        }
+
+        /// <summary>
+        /// Throws the argument out of range exception.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        [ExcludeFromCodeCoverage]
+        [Information(nameof(ThrowArgumentOutOfRangeException), author: "David McCarter", createdOn: "9/5/2020", modifiedOn: "9/5/2020", Status = Status.New)]
+        public static void ThrowArgumentOutOfRangeException(string message, string paramName)
+        {
+            throw new ArgumentOutOfRangeException(paramName, message.DefaultIfNull(Resources.ExArgumentOutOfRange));
+        }
+
+        /// <summary>
+        /// Throws the argument out of range exception.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <param name="innerException">The inner exception.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        [ExcludeFromCodeCoverage]
+        [Information(nameof(ThrowArgumentOutOfRangeException), author: "David McCarter", createdOn: "9/5/2020", modifiedOn: "9/5/2020", Status = Status.New)]
+        public static void ThrowArgumentOutOfRangeException(string message, Exception innerException)
+        {
+            throw new ArgumentOutOfRangeException(message.DefaultIfNull(Resources.ExArgumentOutOfRange), innerException);
+        }
+
+        /// <summary>
         /// Throws the ArgumentReadOnlyException.
         /// </summary>
         /// <param name="paramName">Name of the parameter.</param>
@@ -198,11 +244,5 @@ namespace dotNetTips.Utility.Standard.Common
         {
             throw new InvalidOperationException(message.DefaultIfNull(Resources.ExMessageInvalidOperation), innerException);
         }
-
-        private static string DefaultIfNull(this string value, string defaultValue)
-        {
-            return value ?? (defaultValue ?? string.Empty);
-        }
-
     }
 }

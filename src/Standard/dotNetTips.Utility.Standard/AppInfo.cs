@@ -4,7 +4,7 @@
 // Created          : 08-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 06-03-2019
+// Last Modified On : 08-27-2020
 // ***********************************************************************
 // <copyright file="AppInfo.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -108,7 +108,7 @@ namespace dotNetTips.Utility.Standard
         /// <returns>System.String.</returns>
         public string NameAndVersion()
         {
-            return string.Format(CultureInfo.CurrentCulture, Properties.Resources.AppNameAndVersion, (object)this.Product, (object)this.Version);
+            return string.Format(CultureInfo.CurrentCulture, Properties.Resources.AppNameAndVersion,this.Product, this.Version);
         }
     }
 }

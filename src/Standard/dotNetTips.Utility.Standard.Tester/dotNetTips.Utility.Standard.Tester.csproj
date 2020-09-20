@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2020.8.9.0</Version>
+    <Version>2020.9.20.01</Version>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
     <Product>dotNetTips.Utility.Standard</Product>
@@ -13,15 +13,16 @@
     <RepositoryUrl>https://dotnettips.visualstudio.com/dotNetTips.Utility.Standard.Tester</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
-    <PackageReleaseNotes>-- AUG 14 2019: Initial release.
+    <PackageReleaseNotes>-- SEP 2020: Updated NuGet packages.
+-- AUG 14 2019: Initial release.
 -- AUG 31 2019: Cleanup of models including fixes.
 -- DEC 02 2019: Added new methods for creating ramdom files. Code cleanup.
 -- MAR 2020: Quartertly release.
 -- MAY 2020: Added more functionality to RandomData.
 -- AUG 2020: Code cleanup.</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>2020.8.7.37337</AssemblyVersion>
-    <FileVersion>2020.8.7.37337</FileVersion>
+    <AssemblyVersion>2020.9.20.37339</AssemblyVersion>
+    <FileVersion>2020.9.20.37339</FileVersion>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -52,13 +53,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="dotNetTips.Utility.Standard" Version="2020.8.9" />
-    <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2020.8.9" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0">
+    <PackageReference Include="dotNetTips.Utility.Standard" Version="2020.9.20.1" />
+    <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2020.9.20.1" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.NETCore.Platforms" Version="3.1.1" />
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="3.1.3" />
   </ItemGroup>
 
   <ItemGroup>

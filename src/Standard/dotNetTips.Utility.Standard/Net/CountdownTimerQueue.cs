@@ -4,7 +4,7 @@
 // Created          : 07-24-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-04-2020
+// Last Modified On : 09-19-2020
 // ***********************************************************************
 // <copyright file="CountdownTimerQueue.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -28,10 +28,6 @@ namespace dotNetTips.Utility.Standard.Net
     public class CountdownTimerQueue : TimerQueue
     {
 
-        // This sentinel TimerNode acts as both the head and the tail, allowing nodes to go in and out of the list without updating
-        // any TimerQueue members.  _timers.Next is the true head, and .Prev the true tail.  This also serves as the list's lock.
-        private readonly CountdownTimerNode _timers;
-
         // This is a GCHandle that holds onto the TimerQueue when active timers are in it.
         // The TimerThread only holds WeakReferences to it so that it can be collected when the user lets go of it.
         // But we don't want the user to HAVE to keep a reference to it when timers are active in it.
@@ -39,6 +35,10 @@ namespace dotNetTips.Utility.Standard.Net
         // The TimerThread will always notice it's empty eventually, since the TimerThread will always wake up and
         // try to fire the timer, even if it was cancelled and removed prematurely.
         private IntPtr _thisHandle;
+
+        // This sentinel TimerNode acts as both the head and the tail, allowing nodes to go in and out of the list without updating
+        // any TimerQueue members.  _timers.Next is the true head, and .Prev the true tail.  This also serves as the list's lock.
+        private readonly CountdownTimerNode _timers;
 
         /// <summary>
         /// Create a new TimerQueue.  TimerQueues must be created while s_NewQueues is locked in

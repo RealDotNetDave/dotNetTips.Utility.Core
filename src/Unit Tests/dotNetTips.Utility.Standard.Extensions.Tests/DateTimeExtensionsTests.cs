@@ -21,7 +21,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         [TestMethod]
         public void DateTimeGetNextTest()
         {
-            var result = DateTime.Now.GetNextDayOfWeek(DayOfWeek.Monday);
+            var result = DateTime.Now.GetNext(DayOfWeek.Monday);
 
             this.PrintResult(result, nameof(DateTimeGetNextTest));
 

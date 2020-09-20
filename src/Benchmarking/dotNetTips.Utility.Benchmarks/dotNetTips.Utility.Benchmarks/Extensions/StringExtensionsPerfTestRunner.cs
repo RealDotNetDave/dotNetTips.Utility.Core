@@ -65,6 +65,14 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
             base.Consumer.Consume(result);
         }
 
+        [Benchmark(Description = nameof(StringExtensions.DelimitedStringToArray))]
+        public void DelimitedStringToArray()
+        {
+            var result = this._commaDelimitedString.DelimitedStringToArray();
+
+            base.Consumer.Consume(result);
+        }
+
         [Benchmark(Description = nameof(StringExtensions.EqualsIgnoreCase))]
         public void EqualsIgnoreCase()
         {
@@ -77,6 +85,22 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         public void EqualsOrBothNullOrEmpty()
         {
             var result = RandomData.GenerateWord(10).EqualsOrBothNullOrEmpty(RandomData.GenerateWord(5));
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.HasValue))]
+        public void HasValue()
+        {
+            var result = LongTestString.HasValue();
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.Indent))]
+        public void Indent()
+        {
+            var result = LongTestString.Indent(10, '>');
 
             base.Consumer.Consume(result);
         }
@@ -97,18 +121,18 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
             base.Consumer.Consume(result);
         }
 
-        [Benchmark(Description = nameof(StringExtensions.HasValue))]
-        public void HasValue()
+        [Benchmark(Description = nameof(StringExtensions.IsWhitespace) + ":Char")]
+        public void IsWhitespaceChar()
         {
-            var result = LongTestString.HasValue();
+            var result = RandomData.GenerateCharacter().IsWhitespace();
 
             base.Consumer.Consume(result);
         }
 
-        [Benchmark(Description = nameof(StringExtensions.Indent))]
-        public void Indent()
+        [Benchmark(Description = nameof(StringExtensions.IsWhitespace) + ":String")]
+        public void IsWhitespaceString()
         {
-            var result = LongTestString.Indent(10, '>');
+            var result = this._stringToTrim.IsWhitespace();
 
             base.Consumer.Consume(result);
         }
@@ -213,22 +237,6 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         public void ToTrimmedString()
         {
             var result = this._stringToTrim.ToTrimmed();
-
-            base.Consumer.Consume(result);
-        }
-
-        [Benchmark(Description = nameof(StringExtensions.IsWhitespace)+":String")]
-        public void IsWhitespaceString()
-        {
-            var result = this._stringToTrim.IsWhitespace();
-
-            base.Consumer.Consume(result);
-        }
-
-        [Benchmark(Description = nameof(StringExtensions.IsWhitespace) + ":Char")]
-        public void IsWhitespaceChar()
-        {
-            var result = RandomData.GenerateCharacter().IsWhitespace();
 
             base.Consumer.Consume(result);
         }

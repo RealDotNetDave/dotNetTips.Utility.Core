@@ -63,7 +63,7 @@ namespace dotNetTips.Utility.Benchmarks.IO
         {
             DirectoryInfo destPath = this._tempFolder;
 
-            FileInfo tempFile = this._tempFiles.PickRandom(1).SingleOrDefault();
+            FileInfo tempFile = this._tempFiles.PickRandom();
 
             var result = FileHelper.CopyFile(tempFile, destPath);
 
@@ -75,7 +75,7 @@ namespace dotNetTips.Utility.Benchmarks.IO
         {
             DirectoryInfo destPath = this._tempFolder;
 
-            FileInfo tempFile = this._tempFiles.PickRandom(1).SingleOrDefault();
+            FileInfo tempFile = this._tempFiles.PickRandom();
 
             var result = await FileHelper.CopyFileAsync(tempFile, destPath).ConfigureAwait(false);
 

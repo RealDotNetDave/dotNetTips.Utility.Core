@@ -3,9 +3,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.xml</DocumentationFile>
     <OutputPath>..\..\..\appbin\</OutputPath>
-    <AssemblyVersion>2020.8.7.34644</AssemblyVersion>
-    <FileVersion>2020.8.7.34644</FileVersion>
-    <NeutralLanguage>English</NeutralLanguage>
+    <AssemblyVersion>2020.9.20.34651</AssemblyVersion>
+    <FileVersion>2020.9.20.34651</FileVersion>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
     <Description>Common .NET Standard Code</Description>
@@ -19,7 +18,7 @@
     <AssemblyOriginatorKeyFile>dotNetTips.Utility.Standard.snk</AssemblyOriginatorKeyFile>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-     <Version>2020.8.9.0</Version>
+    <Version>2020.9.20.01</Version>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
     <Configurations>Debug;Release;Full Build</Configurations>
     <PackageLicenseUrl></PackageLicenseUrl>
@@ -27,7 +26,8 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <PackageReleaseNotes>-- JUN 2019 (QUARTERLY RELEASE): New methods for DirectoryHelper and FileHelper. Code cleanup.
+    <PackageReleaseNotes>-- SEP 2019: Added CollectionRandomizer, WebHelper, XmlReaderSettings, also new methods and code cleanup.
+-- JUN 2019 (QUARTERLY RELEASE): New methods for DirectoryHelper and FileHelper. Code cleanup.
 -- AUG 2019 (QUARTERLY RELEASE): Code &amp; documentation cleanup. Code fixes. New code in LoggingHelper, ComputerInfo.
 -- DEC 2019 (QUARTERLY RELEASE): Code cleanup. Moved some methods to the new dotNetTips.Utility.Core.Windows project/ NuGet.
 -- FEB 2020: Code cleanup. Removed outdated encryption methods. Added ProgressiveRetry method and ExecutionHelper.cs.
@@ -71,6 +71,7 @@
     <Compile Remove="ISingleton.cs" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -79,7 +80,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.7" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.8" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.7" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="3.1.7" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.7" />
@@ -89,6 +90,7 @@
     <PackageReference Include="System.Collections.Immutable" Version="1.7.1" />
     <PackageReference Include="System.Diagnostics.Process" Version="4.3.0" />
     <PackageReference Include="System.Globalization" Version="4.3.0" />
+    <PackageReference Include="System.Management" Version="4.7.0" />
     <PackageReference Include="System.Memory" Version="4.5.4" />
     <PackageReference Include="System.Runtime.Serialization.Json" Version="4.3.0" />
     <PackageReference Include="System.Security.AccessControl" Version="4.7.0" />

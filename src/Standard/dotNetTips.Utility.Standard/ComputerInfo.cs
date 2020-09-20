@@ -4,7 +4,7 @@
 // Created          : 10-15-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 06-20-2019
+// Last Modified On : 09-05-2020
 // ***********************************************************************
 // <copyright file="ComputerInfo.cs" company="dotNetTips.com - McCarter Consulting">
 //     dotNetTips.com - McCarter Consulting. All rights reserved.
@@ -13,9 +13,12 @@
 // ***********************************************************************
 using System;
 using System.Collections.Immutable;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
+using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.Extensions;
 
 namespace dotNetTips.Utility.Standard
@@ -23,138 +26,177 @@ namespace dotNetTips.Utility.Standard
     /// <summary>
     /// Class ComputerInfo.
     /// </summary>
+    [Information(nameof(ComputerInfo), "David McCarter", "10/15/2018 ", "9/5/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available, UnitTestCoverage = 100)]
+    [DataContract(Namespace = "dotNetTips.com/Info")]
     public class ComputerInfo
     {
+
+        /// <summary>
+        /// Gets the computer culture.
+        /// </summary>
+        /// <value>The computer culture.</value>
+        [DataMember]
+        public string ComputerCulture { get; internal set; } = CultureInfo.CurrentCulture.ThreeLetterISOLanguageName;
+
+        /// <summary>
+        /// Gets the computer UI culture.
+        /// </summary>
+        /// <value>The computer UI culture.</value>
+        [DataMember]
+        public string ComputerUICulture { get; internal set; } = CultureInfo.CurrentUICulture.ThreeLetterISOLanguageName;
         /// <summary>
         /// Gets the current managed tread identifier.
         /// </summary>
         /// <value>The current managed tread identifier.</value>
-        public int CurrentManagedTreadId { get; } = Environment.CurrentManagedThreadId;
+        [DataMember]
+        public int CurrentManagedTreadId { get; internal set; } = Environment.CurrentManagedThreadId;
 
         /// <summary>
         /// Gets the current stack trace information.
         /// </summary>
         /// <value>The current stack trace.</value>
-        public string CurrentStackTrace { get; } = Environment.StackTrace;
+        [DataMember]
+        public string CurrentStackTrace { get; internal set; } = Environment.StackTrace;
 
         /// <summary>
         /// Gets the current system tick count.
         /// </summary>
         /// <value>The current system tick count.</value>
-        public int CurrentSystemTickCount { get; } = Environment.TickCount;
+        [DataMember]
+        public int CurrentSystemTickCount { get; internal set; } = Environment.TickCount;
+
         /// <summary>
         /// Gets the current working directory.
         /// </summary>
         /// <value>The current directory.</value>
-        public string CurrentWorkingDirectory { get; } = Environment.CurrentDirectory;
+        [DataMember]
+        public string CurrentWorkingDirectory { get; internal set; } = Environment.CurrentDirectory;
 
         /// <summary>
         /// Gets the framework description.
         /// </summary>
         /// <value>The framework description.</value>
-        public string FrameworkDescription { get; } = RuntimeInformation.FrameworkDescription;
+        [DataMember]
+        public string FrameworkDescription { get; internal set; } = RuntimeInformation.FrameworkDescription;
 
         /// <summary>
         /// Gets the framework version.
         /// </summary>
         /// <value>The framework version.</value>
-        public Version FrameworkVersion { get; } = Environment.Version;
+        [DataMember]
+        public Version FrameworkVersion { get; internal set; } = Environment.Version;
 
         /// <summary>
         /// Gets a value indicating whether this instance has shutdown started.
         /// </summary>
         /// <value><c>true</c> if this instance has shutdown started; otherwise, <c>false</c>.</value>
-        public bool HasShutdownStarted { get; } = Environment.HasShutdownStarted;
+        [DataMember]
+        public bool HasShutdownStarted { get; internal set; } = Environment.HasShutdownStarted;
 
         /// <summary>
         /// Gets the ip addresses.
         /// </summary>
         /// <value>The ip address.</value>
-        public string IPAddress { get; } = Dns.GetHostAddresses(Dns.GetHostName()).Where(p => p.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork).ToList().ToDelimitedString(char.Parse(","));
+        [DataMember]
+        public string IPAddress { get; internal set; } = Dns.GetHostAddresses(Dns.GetHostName()).Where(p => p.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork).ToList().ToDelimitedString(char.Parse(","));
 
         /// <summary>
         /// Gets a value indicating whether [is64 bit operating system].
         /// </summary>
         /// <value><c>true</c> if [is64 bit operating system]; otherwise, <c>false</c>.</value>
-        public bool Is64BitOperatingSystem { get; } = Environment.Is64BitOperatingSystem;
+        [DataMember]
+        public bool Is64BitOperatingSystem { get; internal set; } = Environment.Is64BitOperatingSystem;
 
         /// <summary>
         /// Gets a value indicating whether [is64 bit process].
         /// </summary>
         /// <value><c>true</c> if [is64 bit process]; otherwise, <c>false</c>.</value>
-        public bool Is64BitProcess { get; } = Environment.Is64BitProcess;
+        [DataMember]
+        public bool Is64BitProcess { get; internal set; } = Environment.Is64BitProcess;
 
         /// <summary>
         /// Gets a value indicating whether the user is interactive.
         /// </summary>
         /// <value><c>true</c> if this instance is user interactive; otherwise, <c>false</c>.</value>
-        public bool IsUserInteractive { get; } = Environment.UserInteractive;
+        [DataMember]
+        public bool IsUserInteractive { get; internal set; } = Environment.UserInteractive;
 
         /// <summary>
         /// Gets the logical drives.
         /// </summary>
         /// <value>The logical drives.</value>
-        public ImmutableList<string> LogicalDrives { get; } = Environment.GetLogicalDrives().ToImmutable();
+        [DataMember]
+        public ImmutableList<string> LogicalDrives { get; internal set; } = Environment.GetLogicalDrives().ToImmutable();
 
         /// <summary>
         /// Gets the name of the machine.
         /// </summary>
         /// <value>The name of the machine.</value>
-        public string MachineName { get; } = Environment.MachineName;
+        [DataMember]
+        public string MachineName { get; internal set; } = Environment.MachineName;
 
         /// <summary>
         /// Gets the os architecture.
         /// </summary>
         /// <value>The os architecture.</value>
-        public Architecture OSArchitecture { get; } = RuntimeInformation.OSArchitecture;
+        [DataMember]
+        public Architecture OSArchitecture { get; internal set; } = RuntimeInformation.OSArchitecture;
 
         /// <summary>
         /// Gets the os version.
         /// </summary>
         /// <value>The os version.</value>
-        public string OSDescription { get; } = RuntimeInformation.OSDescription;
+        [DataMember]
+        public string OSDescription { get; internal set; } = RuntimeInformation.OSDescription;
 
 
         /// <summary>
         /// Gets the size of the os memory page.
         /// </summary>
         /// <value>The size of the os memory page.</value>
-        public int OsMemoryPageSize { get; } = Environment.SystemPageSize;
+        [DataMember]
+        public int OsMemoryPageSize { get; internal set; } = Environment.SystemPageSize;
 
         /// <summary>
         /// Gets the physical memory in use.
         /// </summary>
         /// <value>The physical memory in use.</value>
-        public long PhysicalMemoryInUse { get; } = Environment.WorkingSet;
+        [DataMember]
+        public long PhysicalMemoryInUse { get; internal set; } = Environment.WorkingSet;
 
         /// <summary>
         /// Gets the process architecture.
         /// </summary>
         /// <value>The process architecture.</value>
-        public Architecture ProcessArchitecture { get; } = RuntimeInformation.ProcessArchitecture;
+        [DataMember]
+        public Architecture ProcessArchitecture { get; internal set; } = RuntimeInformation.ProcessArchitecture;
 
         /// <summary>
         /// Gets the processor count.
         /// </summary>
         /// <value>The processor count.</value>
-        public int ProcessorCount { get; } = Environment.ProcessorCount;
+        [DataMember]
+        public int ProcessorCount { get; internal set; } = Environment.ProcessorCount;
 
         /// <summary>
         /// Gets the system directory.
         /// </summary>
         /// <value>The system directory.</value>
-        public string SystemDirectory { get; } = Environment.SystemDirectory;
+        [DataMember]
+        public string SystemDirectory { get; internal set; } = Environment.SystemDirectory;
 
         /// <summary>
         /// Gets the name of the user domain.
         /// </summary>
         /// <value>The name of the user domain.</value>
-        public string UserDomainName { get; } = Environment.UserDomainName;
+        [DataMember]
+        public string UserDomainName { get; internal set; } = Environment.UserDomainName;
 
         /// <summary>
         /// Gets the name of the user.
         /// </summary>
         /// <value>The name of the user.</value>
-        public string UserName { get; } = Environment.UserName;
+        [DataMember]
+        public string UserName { get; internal set; } = Environment.UserName;
     }
 }

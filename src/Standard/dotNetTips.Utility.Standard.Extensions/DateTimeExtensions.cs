@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-22-2020
+// Last Modified On : 09-03-2020
 // ***********************************************************************
 // <copyright file="DateTimeExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
@@ -55,7 +55,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="dayOfWeek">The day of week.</param>
         /// <returns>DateTime.</returns>
         /// <exception cref="ArgumentNullException">input - Input is invalid.</exception>
-        public static DateTime GetNextDayOfWeek(this DateTime input, DayOfWeek dayOfWeek)
+        public static DateTime GetNext(this DateTime input, DayOfWeek dayOfWeek)
         {
             var daysToAdd = 0;
 

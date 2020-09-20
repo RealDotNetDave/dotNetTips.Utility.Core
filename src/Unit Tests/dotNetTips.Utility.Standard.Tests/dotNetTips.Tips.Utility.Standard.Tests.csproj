@@ -5,9 +5,9 @@
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyVersion>2020.8.7.34644</AssemblyVersion>
+    <AssemblyVersion>2020.9.20.34651</AssemblyVersion>
 
-    <FileVersion>2020.8.7.34644</FileVersion>
+    <FileVersion>2020.9.20.34651</FileVersion>
 
     <Authors>David McCarter - dotNetTips.com</Authors>
 
@@ -16,8 +16,6 @@
     <Description>Unit Tests</Description>
 
     <Copyright>David McCarter - dotNetTips.com</Copyright>
-
-    <NeutralLanguage></NeutralLanguage>
 
     <PackageLicenseUrl />
   </PropertyGroup>

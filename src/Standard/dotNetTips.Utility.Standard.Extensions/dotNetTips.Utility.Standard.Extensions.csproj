@@ -3,9 +3,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Extensions.xml</DocumentationFile>
     <OutputPath>..\..\..\appbin\</OutputPath>
-    <AssemblyVersion>2020.8.7.34644</AssemblyVersion>
-    <FileVersion>2020.8.7.34644</FileVersion>
-    <NeutralLanguage>en</NeutralLanguage>
+    <AssemblyVersion>2020.9.20.34651</AssemblyVersion>
+    <FileVersion>2020.9.20.34651</FileVersion>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
     <Description>Common .NET Standard Code Extensions</Description>
@@ -19,13 +18,14 @@
     <AssemblyOriginatorKeyFile>dotNetTips.com.pfx</AssemblyOriginatorKeyFile>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-     <Version>2020.8.9.0</Version>
+    <Version>2020.9.20.01</Version>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
     <AssemblyName>dotNetTips.Utility.Standard.Extensions</AssemblyName>
     <RootNamespace>dotNetTips.Utility.Standard.Extensions</RootNamespace>
     <Configurations>Debug;Release;Full Build</Configurations>
     <PackageLicenseUrl></PackageLicenseUrl>
-    <PackageReleaseNotes>-- JUN 2019 (QUARTERLY RELEASE): Code cleanup.
+    <PackageReleaseNotes>-- SEP 2019: Added types HttpContextExtensions, HttpContextExtensions and LINQExtensions. Added new methods and code cleanup.
+-- JUN 2019 (QUARTERLY RELEASE): Code cleanup.
 -- AUG 2019 (QUARTERLY RELEASE): Code &amp; documentation cleanup. Code fixes. New code in CollectionExtensions.
 -- DEC 2019 (QUARTERLY RELEASE): Code cleanup.
 -- FEB 2020: Code cleanup. Added more overloads for TryValidateParam.
@@ -64,7 +64,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.7" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.8" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.7" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="3.1.7" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.7" />

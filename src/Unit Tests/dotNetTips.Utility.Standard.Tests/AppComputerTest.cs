@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 using System.Diagnostics;
+using System.Text.Json;
 using dotNetTips.Utility.Standard;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -21,7 +22,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests
     /// Class AppTest.
     /// </summary>
     [TestClass]
-    public class AppTest
+    public class AppComputerTest
     {
         /// <summary>
         /// Tests the loading application information.
@@ -33,6 +34,14 @@ namespace dotNetTips.Tips.Utility.Standard.Tests
 
             Assert.IsTrue(string.IsNullOrEmpty(info.FileVersion) == false);
             Assert.IsTrue(string.IsNullOrEmpty(info.Version) == false);
+        }
+
+        [TestMethod]
+        public void LoadingNameAndVersionTest()
+        {
+            var info = App.AppInfo.NameAndVersion();
+
+            Assert.IsFalse(string.IsNullOrEmpty(info));
         }
 
         /// <summary>
@@ -70,6 +79,26 @@ namespace dotNetTips.Tips.Utility.Standard.Tests
             var result = App.ExecutingFolder();
 
             Assert.IsTrue(string.IsNullOrEmpty(result) == false);
+        }
+
+        [TestMethod]
+        public void ComputerInfoTest()
+        {
+            var result = new ComputerInfo();
+
+            Assert.IsNotNull(result);
+
+            Assert.IsNotNull(result.IPAddress);
+
+            //Serialize to Json
+            var json = JsonSerializer.Serialize(result);
+
+            Assert.IsTrue(string.IsNullOrEmpty(json) == false);
+
+            //De-serialize Json
+            var jsonResult = JsonSerializer.Deserialize<ComputerInfo>(json);
+
+            Assert.IsNotNull(jsonResult);
         }
     }
 }

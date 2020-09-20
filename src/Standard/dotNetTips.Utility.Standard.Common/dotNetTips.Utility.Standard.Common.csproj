@@ -2,17 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyVersion>2020.8.7.34644</AssemblyVersion>
-    <FileVersion>2020.8.7.34644</FileVersion>
-     <Version>2020.8.9.0</Version>
+    <AssemblyVersion>2020.9.20.34651</AssemblyVersion>
+    <FileVersion>2020.9.20.34651</FileVersion>
+    <Version>2020.9.20.01</Version>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
     <Description>Common .NET Standard Code</Description>
     <RepositoryUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Copyright>McCarter Consulting (David McCarter)</Copyright>
-    <NeutralLanguage></NeutralLanguage>
-    <PackageReleaseNotes>-- AUG 2020: First release.</PackageReleaseNotes>
+    <PackageReleaseNotes>-- SEP 2019: Added Date class. New methods and code cleanup.
+-- AUG 2020: First release.</PackageReleaseNotes>
     <AssemblyName>dotNetTips.Utility.Standard.Common</AssemblyName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageIcon>2020 - dotNetTips - Real World - Earth@0.1x.png</PackageIcon>
@@ -27,6 +27,11 @@
     <OutputPath>..\..\..\appbin\</OutputPath>
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Common.xml</DocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Date.cs" />
+    <Compile Remove="DateOLD.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.0">

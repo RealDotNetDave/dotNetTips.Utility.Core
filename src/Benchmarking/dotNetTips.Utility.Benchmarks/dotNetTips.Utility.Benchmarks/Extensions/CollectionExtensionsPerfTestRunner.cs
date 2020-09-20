@@ -37,10 +37,34 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
             base.Consumer.Consume(result);
         }
 
+        [Benchmark(Description = nameof(CollectionExtensions.AddIfNotExists) + ":Parm Array")]
+        public void AddIfNotExistsCollection01()
+        {
+            var people = new List<PersonProper>(base.CollectionCount);
+            var newPeople = new List<PersonProper>(base.CollectionCount / 10).ToArray();
+
+
+            var result = people.AddIfNotExists(newPeople);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.AddIfNotExists) + ":Dup Parm Array")]
+        public void AddIfNotExistsCollection02()
+        {
+            var people = new List<PersonProper>(base.CollectionCount);
+            var newPeople = people.Shuffle(base.CollectionCount / 10).ToArray();
+
+
+            var result = people.AddIfNotExists(newPeople);
+
+            base.Consumer.Consume(result);
+        }
+
         [Benchmark(Description = nameof(CollectionExtensions.AddIfNotExists) + ":Comparer")]
         public void AddIfNotExistsComparer()
         {
-            var people = new System.Collections.Generic.List<PersonProper>(base.CollectionCount);
+            var people = new List<PersonProper>(base.CollectionCount);
             var comparer = new PersonProperComparer();
 
             foreach (var person in base.personProperCollection)
@@ -54,11 +78,11 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(CollectionExtensions.AddIfNotExists) + ":Dictionary")]
         public void AddIfNotExistsDictionary()
         {
-            var people = new System.Collections.Generic.Dictionary<string, PersonProper>(base.CollectionCount);
+            var people = new Dictionary<string, PersonProper>(base.CollectionCount);
 
             foreach (var person in base.personProperDictionary)
             {
-                people.AddIfNotExists<string, PersonProper>(person.Key, person.Value);
+                people.AddIfNotExists(person.Key, person.Value);
             }
 
             base.Consumer.Consume(people);
@@ -67,7 +91,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(CollectionExtensions.AddIfNotExists) + ":Param Array")]
         public void AddIfNotExistsParamArray()
         {
-            var people = new System.Collections.Generic.List<PersonProper>(CollectionCount / 2);
+            var people = new List<PersonProper>(CollectionCount / 2);
 
             people.AddIfNotExists(base.personProperArrayHalf);
 
@@ -77,7 +101,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(CollectionExtensions.AddIfNotExists) + ":Single")]
         public void AddIfNotExistsSingle()
         {
-            var people = new System.Collections.Generic.List<PersonProper>(base.CollectionCount);
+            var people = new List<PersonProper>(base.CollectionCount);
 
             foreach (var person in base.personProperCollection)
             {
@@ -86,6 +110,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
 
             base.Consumer.Consume(people);
         }
+
 
         [Benchmark(Description = nameof(CollectionExtensions.AddLast) + ":Array")]
         public void AddLastToArray()
@@ -112,9 +137,9 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(CollectionExtensions.AddRange))]
         public void AddRange()
         {
-            var people = new System.Collections.Generic.List<PersonProper>();
+            var people = new List<PersonProper>();
 
-            CollectionExtensions.AddRange(people, base.personProperCollection.PickRandom(base.CollectionCount / 2), true);
+            CollectionExtensions.AddRange(people, base.personProperCollection.Take(base.CollectionCount / 10), true);
 
             base.Consumer.Consume(people);
         }
@@ -143,6 +168,17 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
             base.Consumer.Consume(result);
         }
 
+        [Benchmark(Description = nameof(CollectionExtensions.ClearNulls))]
+        public void ClearNulls()
+        {
+            var people = base.personProperCollection;
+            people.Add(null);
+
+            var result = people.ClearNulls();
+
+            base.Consumer.Consume(result);
+        }
+
         [Benchmark(Description = nameof(CollectionExtensions.Clone))]
         public void Clone()
         {
@@ -154,7 +190,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(CollectionExtensions.ContainsAny) + ":Array")]
         public void ContainsAnyArray()
         {
-            var people = base.personProperArrayFull.PickRandom(CollectionCount / 2).ToList();
+            var people = base.personProperArrayFull.Take(base.CollectionCount / 10).ToList();
             people.Add(RandomData.GeneratePerson<PersonProper>());
 
             var result = base.personProperArrayFull.ContainsAny(people.ToArray());
@@ -165,7 +201,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(CollectionExtensions.ContainsAny) + ":List")]
         public void ContainsAnyList()
         {
-            var people = base.personProperCollection.PickRandom(CollectionCount / 2).ToList();
+            var people = base.personProperCollection.Take(base.CollectionCount / 10).ToList();
             people.Add(RandomData.GeneratePerson<PersonProper>());
 
             var result = base.personProperCollection.ContainsAny(people.ToArray());
@@ -244,13 +280,6 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
             base.Consumer.Consume(result);
         }
 
-        [Benchmark(Description = nameof(CollectionExtensions.FromDelimitedString))]
-        public void FromDelimitedString()
-        {
-            var result = base.delimitedString.FromDelimitedString();
-
-            base.Consumer.Consume(result);
-        }
 
         [Benchmark(Description = nameof(CollectionExtensions.GetOrAdd) + ":Dictionary")]
         public void GetOrAddDictionary()
@@ -355,15 +384,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(CollectionExtensions.PickRandom))]
         public void PickRandom()
         {
-            var result = base.personProperCollection.PickRandom(CollectionCount / 2);
-
-            base.Consumer.Consume(result);
-        }
-
-        [Benchmark(Description = nameof(CollectionExtensions.Randomize))]
-        public void Randomize()
-        {
-            var result = base.personProperCollection.Randomize();
+            var result = base.personProperCollection.Take(base.CollectionCount / 10);
 
             base.Consumer.Consume(result);
         }
@@ -388,6 +409,25 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
             base.Consumer.Consume(result);
         }
 
+
+        public override void Setup() { base.Setup(); }
+
+
+        [Benchmark(Description = nameof(CollectionExtensions.Shuffle))]
+        public void Shuffle()
+        {
+            var result = base.personProperCollection.Shuffle();
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.Shuffle))]
+        public void ShuffleWithCount()
+        {
+            var result = base.personProperCollection.Shuffle(base.CollectionCount / 10);
+
+            base.Consumer.Consume(result);
+        }
+
         [Benchmark(Description = nameof(CollectionExtensions.StartsWith))]
         public void StartsWith()
         {
@@ -403,9 +443,6 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
 
             base.Consumer.Consume(result);
         }
-
-
-        public override void Setup() { base.Setup(); }
 
         [Benchmark(Description = nameof(CollectionExtensions.ToDelimitedString))]
         public void ToDelimitedString()
@@ -431,18 +468,18 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
             base.Consumer.Consume(result);
         }
 
-        [Benchmark(Description = nameof(CollectionExtensions.ToImmutable) + ": List")]
-        public void ToImmutableList()
-        {
-            var result = base.personProperCollection.ToImmutable();
-
-            base.Consumer.Consume(result);
-        }
-
         [Benchmark(Description = nameof(CollectionExtensions.ToImmutable) + ": Dictionary")]
         public void ToImmutableDictionary()
         {
             var result = base.personProperDictionary.ToImmutable();
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(CollectionExtensions.ToImmutable) + ": List")]
+        public void ToImmutableList()
+        {
+            var result = base.personProperCollection.ToImmutable();
 
             base.Consumer.Consume(result);
         }

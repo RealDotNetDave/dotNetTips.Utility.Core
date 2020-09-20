@@ -3,28 +3,28 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotNetTips.Utility.Core.Windows", "Core\dotNetTips.Utility.Core.Windows\dotNetTips.Utility.Core.Windows.csproj", "{7DEB5C20-3374-4054-8350-B2859503B002}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetTips.Utility.Core.Windows", "Core\dotNetTips.Utility.Core.Windows\dotNetTips.Utility.Core.Windows.csproj", "{7DEB5C20-3374-4054-8350-B2859503B002}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotNetTips.Utility.Standard", "Standard\dotNetTips.Utility.Standard\dotNetTips.Utility.Standard.csproj", "{FC4AA7C1-8166-4F23-B604-16B71F400106}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetTips.Utility.Standard", "Standard\dotNetTips.Utility.Standard\dotNetTips.Utility.Standard.csproj", "{FC4AA7C1-8166-4F23-B604-16B71F400106}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotNetTips.Utility.Standard.Extensions", "Standard\dotNetTips.Utility.Standard.Extensions\dotNetTips.Utility.Standard.Extensions.csproj", "{992E4EFD-F913-4A45-B334-25972573D398}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetTips.Utility.Standard.Extensions", "Standard\dotNetTips.Utility.Standard.Extensions\dotNetTips.Utility.Standard.Extensions.csproj", "{992E4EFD-F913-4A45-B334-25972573D398}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{7EB0FAA0-E86D-45E3-BCA8-7BED3C170133}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{7D31174B-1F64-4BAB-8EA1-E1718FC5FC10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotNetTips.Tips.Utility.Standard.Tests", "Unit Tests\dotNetTips.Utility.Standard.Tests\dotNetTips.Tips.Utility.Standard.Tests.csproj", "{67708FC3-3728-416E-8ADC-03910D81C97B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetTips.Tips.Utility.Standard.Tests", "Unit Tests\dotNetTips.Utility.Standard.Tests\dotNetTips.Tips.Utility.Standard.Tests.csproj", "{67708FC3-3728-416E-8ADC-03910D81C97B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotNetTips.Utility.Standard.Extensions.Tests", "Unit Tests\dotNetTips.Utility.Standard.Extensions.Tests\dotNetTips.Utility.Standard.Extensions.Tests.csproj", "{5ADC1DC7-06FE-497A-8826-E7C4EBF7A95E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetTips.Utility.Standard.Extensions.Tests", "Unit Tests\dotNetTips.Utility.Standard.Extensions.Tests\dotNetTips.Utility.Standard.Extensions.Tests.csproj", "{5ADC1DC7-06FE-497A-8826-E7C4EBF7A95E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotNetTips.Utility.Core.AspNet", "Core\dotNetTips.Utility.Core.AspNet\dotNetTips.Utility.Core.AspNet.csproj", "{BD3C734C-E795-408F-BD90-B12029BBFB87}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotNetTips.Utility.Standard.Common", "Standard\dotNetTips.Utility.Standard.Common\dotNetTips.Utility.Standard.Common.csproj", "{29BCFF88-E7F8-427F-8F97-F6B3A5E1730C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetTips.Utility.Standard.Common", "Standard\dotNetTips.Utility.Standard.Common\dotNetTips.Utility.Standard.Common.csproj", "{29BCFF88-E7F8-427F-8F97-F6B3A5E1730C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{558C3937-A1F3-4CB5-84AA-642D74DF9997}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetTips.Utility.Core.Windows.Tests", "dotNetTips.Utility.Core.Windows.Tests\dotNetTips.Utility.Core.Windows.Tests.csproj", "{507F0633-0F93-4F4C-B492-BD9929CF701D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,18 +63,18 @@ Global
 		{5ADC1DC7-06FE-497A-8826-E7C4EBF7A95E}.Full Build|Any CPU.Build.0 = Debug|Any CPU
 		{5ADC1DC7-06FE-497A-8826-E7C4EBF7A95E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5ADC1DC7-06FE-497A-8826-E7C4EBF7A95E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BD3C734C-E795-408F-BD90-B12029BBFB87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD3C734C-E795-408F-BD90-B12029BBFB87}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD3C734C-E795-408F-BD90-B12029BBFB87}.Full Build|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD3C734C-E795-408F-BD90-B12029BBFB87}.Full Build|Any CPU.Build.0 = Debug|Any CPU
-		{BD3C734C-E795-408F-BD90-B12029BBFB87}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD3C734C-E795-408F-BD90-B12029BBFB87}.Release|Any CPU.Build.0 = Release|Any CPU
 		{29BCFF88-E7F8-427F-8F97-F6B3A5E1730C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{29BCFF88-E7F8-427F-8F97-F6B3A5E1730C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29BCFF88-E7F8-427F-8F97-F6B3A5E1730C}.Full Build|Any CPU.ActiveCfg = Debug|Any CPU
 		{29BCFF88-E7F8-427F-8F97-F6B3A5E1730C}.Full Build|Any CPU.Build.0 = Debug|Any CPU
 		{29BCFF88-E7F8-427F-8F97-F6B3A5E1730C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29BCFF88-E7F8-427F-8F97-F6B3A5E1730C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{507F0633-0F93-4F4C-B492-BD9929CF701D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{507F0633-0F93-4F4C-B492-BD9929CF701D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{507F0633-0F93-4F4C-B492-BD9929CF701D}.Full Build|Any CPU.ActiveCfg = Release|Any CPU
+		{507F0633-0F93-4F4C-B492-BD9929CF701D}.Full Build|Any CPU.Build.0 = Release|Any CPU
+		{507F0633-0F93-4F4C-B492-BD9929CF701D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{507F0633-0F93-4F4C-B492-BD9929CF701D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +82,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{67708FC3-3728-416E-8ADC-03910D81C97B} = {7D31174B-1F64-4BAB-8EA1-E1718FC5FC10}
 		{5ADC1DC7-06FE-497A-8826-E7C4EBF7A95E} = {7D31174B-1F64-4BAB-8EA1-E1718FC5FC10}
+		{507F0633-0F93-4F4C-B492-BD9929CF701D} = {7D31174B-1F64-4BAB-8EA1-E1718FC5FC10}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FE2EAC79-B604-46B0-BAAA-A640DC427744}

@@ -25,13 +25,6 @@ namespace dotNetTips.Utility.Benchmarks.Xml
 
         private string _xml;
 
-        public override void Setup()
-        {
-            base.Setup();
-
-            _xml = XmlHelper.Serialize(base.personProperCollection);
-        }
-
         [Benchmark(Description = nameof(XmlHelper.Deserialize))]
         public void Deserialize()
         {
@@ -44,6 +37,21 @@ namespace dotNetTips.Utility.Benchmarks.Xml
         public void Serialize()
         {
             var result = XmlHelper.Serialize(base.personProperCollection);
+
+            base.Consumer.Consume(result);
+        }
+
+        public override void Setup()
+        {
+            base.Setup();
+
+            _xml = XmlHelper.Serialize(base.personProperCollection);
+        }
+
+        [Benchmark(Description = nameof(XmlHelper.StringToXDocument))]
+        public void StringToXDocument()
+        {
+            var result = XmlHelper.StringToXDocument(Properties.Resources.XmlTestData);
 
             base.Consumer.Consume(result);
         }

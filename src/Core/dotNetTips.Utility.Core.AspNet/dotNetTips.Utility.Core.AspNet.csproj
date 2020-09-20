@@ -14,9 +14,8 @@
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
     <AssemblyVersion>2020.8.7.34644</AssemblyVersion>
     <FileVersion>2020.8.7.34644</FileVersion>
-    <Version>2020.6.9.1</Version>
+    <Version>2020.9.20.01</Version>
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
-    <NeutralLanguage></NeutralLanguage>
     <PackageIcon>2020 - dotNetTips - Real World - Earth@0.1x.png</PackageIcon>
   </PropertyGroup>
 

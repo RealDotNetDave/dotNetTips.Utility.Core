@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 using BenchmarkDotNet.Attributes;
+using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.IO;
 
 namespace dotNetTips.Utility.Benchmarks.IO
@@ -19,6 +20,14 @@ namespace dotNetTips.Utility.Benchmarks.IO
     [BenchmarkCategory(nameof(DriveHelper))]
     public class DriveHelperPerfTestRunner : PerfTestRunner
     {
+
+        [Benchmark(Description = nameof(DriveHelper.GetDriveSerialNumber))]
+        public void GetDriveSerialNumber()
+        {
+            var result = DriveHelper.GetDriveSerialNumber(DriveHelper.GetFixedDrives().PickRandom().Name);
+
+            base.Consumer.Consume(result);
+        }
 
         [Benchmark(Description = nameof(DriveHelper.GetFixedDrives))]
         public void GetFixedDrives()

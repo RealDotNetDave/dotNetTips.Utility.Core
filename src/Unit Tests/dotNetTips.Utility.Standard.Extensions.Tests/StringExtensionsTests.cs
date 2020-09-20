@@ -20,7 +20,6 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
     [TestClass]
     public class StringExtensionsTests
     {
-
         [TestMethod]
         public void ComputeMD5HashTest()
         {
@@ -71,7 +70,6 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             Assert.IsTrue(testValue.DefaultIfNull().Length == 0);
 
             Assert.IsTrue(testValue.DefaultIfNull(RandomData.GenerateWord(5)).Length == 5);
-
         }
 
         [TestMethod]
@@ -105,6 +103,16 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         }
 
         [TestMethod]
+        public void DelimitedStringToArrayTest()
+        {
+            var inputString = "Microsoft .NET, Visual Studio, Azure";
+
+            var result = inputString.DelimitedStringToArray();
+
+            Assert.IsTrue(result.Count() == 3);
+
+        }
+        [TestMethod]
         public void HasWhiteSpaceTest()
         {
             var testWithText = RandomData.GenerateWord(10);
@@ -124,6 +132,22 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             var result = testValue.Indent(2, '>');
 
             Assert.IsTrue(result.Length > 100);
+        }
+
+        [TestMethod]
+        public void IsEmptyTest()
+        {
+            Assert.IsFalse(RandomData.GenerateWord(10).IsEmpty());
+
+            Assert.IsTrue(string.Empty.IsEmpty());
+        }
+
+        [TestMethod]
+        public void IsNotEmptyTest()
+        {
+            Assert.IsTrue(RandomData.GenerateWord(10).IsNotEmpty());
+
+            Assert.IsFalse(string.Empty.IsNotEmpty());
         }
 
         [TestMethod]
@@ -238,6 +262,5 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
 
             Assert.IsTrue(testValue.ToTrimmed().Length == 25);
         }
-
     }
 }

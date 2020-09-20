@@ -4,7 +4,7 @@
 // Created          : 02-11-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-11-2020
+// Last Modified On : 09-19-2020
 // ***********************************************************************
 // <copyright file="FileHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -147,7 +147,8 @@ namespace dotNetTips.Utility.Standard.IO
         /// </summary>
         /// <param name="remoteFileUrl">The remote file URL.</param>
         /// <param name="localFilePath">The local file path.</param>
-        public static void DownloadFileFromWeb(Uri remoteFileUrl, string localFilePath)
+        /// <param name="clientId">The client identifier.</param>
+        public static void DownloadFileFromWeb(Uri remoteFileUrl, string localFilePath, string clientId = "NONE")
         {
             Encapsulation.TryValidateParam(remoteFileUrl, nameof(remoteFileUrl));
             Encapsulation.TryValidateParam(localFilePath, nameof(localFilePath));
@@ -156,6 +157,8 @@ namespace dotNetTips.Utility.Standard.IO
 
             using (var client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Add("CLIENTID", clientId);
+
                 using (var localStream = File.Create(localFilePath))
                 {
                     using (var stream = client.GetStreamAsync(remoteFileUrl).Result)
@@ -209,7 +212,7 @@ namespace dotNetTips.Utility.Standard.IO
                         await stream.CopyToAsync(localStream).ConfigureAwait(true);
                     }
 
-                    await localStream.FlushAsync().ConfigureAwait(true);
+                    await localStream.FlushAsync();
                 }
             }
         }

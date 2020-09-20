@@ -4,7 +4,7 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-07-2020
+// Last Modified On : 09-19-2020
 // ***********************************************************************
 // <copyright file="JsonSerializer.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -31,20 +31,20 @@ namespace dotNetTips.Utility.Standard.Serialization
         /// <summary>
         /// Deserializes the specified Json.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TResult">The type of the t result.</typeparam>
         /// <param name="json">The json.</param>
         /// <returns>T.</returns>
-        public static T Deserialize<T>(string json)
-            where T : class
+        public static TResult Deserialize<TResult>(string json)
+            where TResult : class
         {
             Encapsulation.TryValidateParam(json, nameof(json));
 
-            var obj = TypeHelper.GetDefault<T>();
-
+            var obj = TypeHelper.GetDefault<TResult>();
+            
             using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
             {
-                var ser = new DataContractJsonSerializer(typeof(T));
-                obj = ser.ReadObject(ms) as T;
+                var ser = new DataContractJsonSerializer(typeof(TResult));
+                obj = ser.ReadObject(ms) as TResult;
             }
 
             return obj;
@@ -156,6 +156,5 @@ namespace dotNetTips.Utility.Standard.Serialization
                     throw new NotSupportedException($"Unexpected JsonValueKind: JsonValueKind.{valueKind}.");
             }
         }
-
     }
 }
