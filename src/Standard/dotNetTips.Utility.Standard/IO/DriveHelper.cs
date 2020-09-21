@@ -4,7 +4,7 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 09-19-2020
+// Last Modified On : 09-21-2020
 // ***********************************************************************
 // <copyright file="DriveHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -32,7 +32,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// </summary>
         /// <param name="drive">The drive.</param>
         /// <returns>System.String.</returns>
-        [Information(nameof(GetDriveSerialNumber), author: "David McCarter", createdOn: "9/6/2020", modifiedOn: "9/6/2020", UnitTestCoverage = 100, Status = Status.New)]
+        [Information(nameof(GetDriveSerialNumber), author: "David McCarter", createdOn: "9/6/2020", modifiedOn: "9/6/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static string GetDriveSerialNumber(string drive)
         {
             Encapsulation.TryValidateParam(drive, nameof(drive));

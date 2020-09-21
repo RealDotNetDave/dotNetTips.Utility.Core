@@ -4,7 +4,7 @@
 // Created          : 07-30-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 09-19-2020
+// Last Modified On : 09-21-2020
 // ***********************************************************************
 // <copyright file="ExceptionThrower.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -68,7 +68,7 @@ namespace dotNetTips.Utility.Standard.Common
         /// <exception cref="ArgumentNullException"></exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
-        [Information(nameof(ThrowArgumentInvalidException), author: "David McCarter", createdOn: "8/13/2020", modifiedOn: "8/13/2020", Status = Status.New)]
+        [Information(nameof(ThrowArgumentInvalidException), author: "David McCarter", createdOn: "8/13/2020", modifiedOn: "8/13/2020", Status = Status.Available)]
         public static void ThrowArgumentInvalidException(string message, string paramName)
         {
             throw new ArgumentInvalidException(paramName, message.DefaultIfNull(Resources.ExMessageInvalidArgument));
@@ -84,7 +84,7 @@ namespace dotNetTips.Utility.Standard.Common
         /// <exception cref="ArgumentNullException"></exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
-        [Information(nameof(ThrowArgumentInvalidException), author: "David McCarter", createdOn: "8/13/2020", modifiedOn: "8/13/2020", Status = Status.New)]
+        [Information(nameof(ThrowArgumentInvalidException), author: "David McCarter", createdOn: "8/13/2020", modifiedOn: "8/13/2020", Status = Status.Available)]
         public static void ThrowArgumentInvalidException(string message, Exception innerException)
         {
             throw new ArgumentInvalidException(message.DefaultIfNull(Resources.ExMessageInvalidArgument), innerException);
@@ -98,7 +98,7 @@ namespace dotNetTips.Utility.Standard.Common
         /// <exception cref="ArgumentNullException"></exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "8/12/2020", modifiedOn: "8/12/2020", Status = Status.New)]
+        [Information("From .NET Core source.", author: "David McCarter", createdOn: "8/12/2020", modifiedOn: "8/12/2020", Status = Status.Available)]
         public static void ThrowArgumentNullException(string paramName)
         {
             throw new ArgumentNullException(paramName, Resources.ExMessageArgumentNull);
@@ -139,7 +139,7 @@ namespace dotNetTips.Utility.Standard.Common
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
-        [Information(nameof(ThrowArgumentOutOfRangeException), author: "David McCarter", createdOn: "9/5/2020", modifiedOn: "9/5/2020", Status = Status.New)]
+        [Information(nameof(ThrowArgumentOutOfRangeException), author: "David McCarter", createdOn: "9/5/2020", modifiedOn: "9/5/2020", Status = Status.Available)]
         public static void ThrowArgumentOutOfRangeException(string paramName)
         {
             throw new ArgumentOutOfRangeException(paramName, Resources.ExArgumentOutOfRange);
@@ -153,7 +153,7 @@ namespace dotNetTips.Utility.Standard.Common
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
-        [Information(nameof(ThrowArgumentOutOfRangeException), author: "David McCarter", createdOn: "9/5/2020", modifiedOn: "9/5/2020", Status = Status.New)]
+        [Information(nameof(ThrowArgumentOutOfRangeException), author: "David McCarter", createdOn: "9/5/2020", modifiedOn: "9/5/2020", Status = Status.Available)]
         public static void ThrowArgumentOutOfRangeException(string message, string paramName)
         {
             throw new ArgumentOutOfRangeException(paramName, message.DefaultIfNull(Resources.ExArgumentOutOfRange));
@@ -167,7 +167,7 @@ namespace dotNetTips.Utility.Standard.Common
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
-        [Information(nameof(ThrowArgumentOutOfRangeException), author: "David McCarter", createdOn: "9/5/2020", modifiedOn: "9/5/2020", Status = Status.New)]
+        [Information(nameof(ThrowArgumentOutOfRangeException), author: "David McCarter", createdOn: "9/5/2020", modifiedOn: "9/5/2020", Status = Status.Available)]
         public static void ThrowArgumentOutOfRangeException(string message, Exception innerException)
         {
             throw new ArgumentOutOfRangeException(message.DefaultIfNull(Resources.ExArgumentOutOfRange), innerException);
@@ -196,7 +196,7 @@ namespace dotNetTips.Utility.Standard.Common
         /// <exception cref="ArgumentNullException"></exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
-        [Information(nameof(ThrowDirectoryNotFoundException), author: "David McCarter", createdOn: "8/13/2020", modifiedOn: "8/13/2020", Status = Status.New)]
+        [Information(nameof(ThrowDirectoryNotFoundException), author: "David McCarter", createdOn: "8/13/2020", modifiedOn: "8/13/2020", Status = Status.Available)]
         public static void ThrowDirectoryNotFoundException(string message, string paramName)
         {
             throw new ArgumentInvalidException(paramName, message.DefaultIfNull(Resources.ExMessageDirectoryNotFound));
@@ -212,7 +212,7 @@ namespace dotNetTips.Utility.Standard.Common
         /// <exception cref="ArgumentNullException"></exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
-        [Information(nameof(ThrowDirectoryNotFoundException), author: "David McCarter", createdOn: "8/13/2020", modifiedOn: "8/13/2020", Status = Status.New)]
+        [Information(nameof(ThrowDirectoryNotFoundException), author: "David McCarter", createdOn: "8/13/2020", modifiedOn: "8/13/2020", Status = Status.Available)]
         public static void ThrowDirectoryNotFoundException(string message, Exception innerException)
         {
             throw new ArgumentInvalidException(message.DefaultIfNull(Resources.ExMessageDirectoryNotFound), innerException);

@@ -4,7 +4,7 @@
 // Created          : 02-14-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 09-19-2020
+// Last Modified On : 09-21-2020
 // ***********************************************************************
 // <copyright file="CollectionExtensions.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -190,7 +190,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="list">The list.</param>
         /// <param name="items">The items.</param>
         /// <returns>T[].</returns>
-        [Information(nameof(AddIfNotExists), author: "David McCarter", createdOn: "8/12/2020", modifiedOn: "8/12/2020", UnitTestCoverage = 82.61, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        [Information(nameof(AddIfNotExists), author: "David McCarter", createdOn: "8/12/2020", modifiedOn: "8/12/2020", UnitTestCoverage = 82.61, BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available)]
         public static T[] AddIfNotExists<T>(this T[] list, params T[] items)
         {
             if (list.IsNull())
@@ -610,7 +610,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T"></typeparam>
         /// <param name="source">The source.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        [Information(nameof(AddIfNotExists), author: "David McCarter", createdOn: "8/12/2020", modifiedOn: "8/12/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        [Information(nameof(AddIfNotExists), author: "David McCarter", createdOn: "8/12/2020", modifiedOn: "8/12/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available)]
         public static bool ClearNulls<T>(this List<T> source)
         {
             if (source.HasItems() == false)
@@ -813,7 +813,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>System.Int32.</returns>
         /// <exception cref="ArgumentNullException">predicate</exception>
         /// <exception cref="System.ArgumentNullException">predicate</exception>
-        /// <exception cref="Exception">source or source</exception>
+        /// <exception cref="Exception">predicate</exception>
         public static int FastCount<T>(this IEnumerable<T> source, Func<T, bool> predicate)
         {
             if (predicate is null)
@@ -867,6 +867,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">predicate</exception>
         /// <exception cref="ArgumentNullException">alternate</exception>
         /// <exception cref="ArgumentNullException">predicate</exception>
+        /// <exception cref="ArgumentNullException">alternate</exception>
         /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
         public static T FirstOrDefault<T>(this IEnumerable<T> source, Func<T, bool> predicate, T alternate)
         {
@@ -932,6 +933,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">key</exception>
         /// <exception cref="ArgumentNullException">value</exception>
         /// <exception cref="ArgumentNullException">key</exception>
+        /// <exception cref="ArgumentNullException">value</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static TValue GetOrAdd<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
@@ -1213,7 +1215,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T"></typeparam>
         /// <param name="list">The list.</param>
         /// <returns>T.</returns>
-        [Information(nameof(PickRandom), "David McCarter", "8/26/2020", "9/19/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.New, UnitTestCoverage = 100)]
+        [Information(nameof(PickRandom), "David McCarter", "8/26/2020", "9/19/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available, UnitTestCoverage = 100)]
         public static T PickRandom<T>(this IEnumerable<T> list)
         {
             var index = new Random().Next(0, list.Count() - 1);
@@ -1313,7 +1315,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="list">The items.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
         /// <exception cref="ArgumentNullException">list</exception>
-        [Information(nameof(Shuffle), "David McCarter", "8/26/2020", "8/26/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.New, UnitTestCoverage = 80)]
+        [Information(nameof(Shuffle), "David McCarter", "8/26/2020", "8/26/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available, UnitTestCoverage = 80)]
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> list)
         {
             if (list.DoesNotHaveItems())
@@ -1331,7 +1333,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="list">The items.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
         /// <exception cref="ArgumentNullException">list</exception>
-        [Information(nameof(Shuffle), "David McCarter", "8/27/2020", "8/27/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.New, UnitTestCoverage = 83.33)]
+        [Information(nameof(Shuffle), "David McCarter", "8/27/2020", "8/27/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available, UnitTestCoverage = 83.33)]
         public static ImmutableArray<T> Shuffle<T>(this ImmutableArray<T> list)
         {
             if (list == null)
@@ -1351,7 +1353,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>IEnumerable&lt;T&gt;.</returns>
         /// <exception cref="ArgumentNullException">list</exception>
         /// <exception cref="ArgumentOutOfRangeException">count - Count must be greater than 0</exception>
-        [Information(nameof(Shuffle), "David McCarter", "8/26/2020", "8/26/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.New, UnitTestCoverage = 60)]
+        [Information(nameof(Shuffle), "David McCarter", "8/26/2020", "8/26/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available, UnitTestCoverage = 60)]
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> list, int count)
         {
             if (list == null)
@@ -1622,6 +1624,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">key</exception>
         /// <exception cref="ArgumentNullException">value</exception>
         /// <exception cref="ArgumentNullException">key</exception>
+        /// <exception cref="ArgumentNullException">value</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static TValue Upsert<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {

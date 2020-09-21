@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 09-19-2020
+// Last Modified On : 09-21-2020
 // ***********************************************************************
 // <copyright file="StringExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
@@ -146,7 +146,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="delimitedInput">The delimited input.</param>
         /// <param name="delimiter">The delimiter.</param>
         /// <returns>System.String[].</returns>
-        [Information(nameof(DelimitedStringToArray), "David McCarter", "8/13/2020", "8/13/2020", UnitTestCoverage = 90, Status = Status.New)]
+        [Information(nameof(DelimitedStringToArray), "David McCarter", "8/13/2020", "8/13/2020", UnitTestCoverage = 90, Status = Status.Available)]
         public static string[] DelimitedStringToArray(this string delimitedInput, char delimiter = ',')
         {
             if(delimitedInput.IsNull())
@@ -260,6 +260,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns><c>true</c> if the specified minimum length has value; otherwise, <c>false</c>.</returns>
         /// <exception cref="ArgumentOutOfRangeException">minLength - Minimum length must be greater than 0.</exception>
         /// <exception cref="ArgumentOutOfRangeException">maxLength - Maximum length must be greater than 0.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">minLength - Minimum length must be greater than 0.</exception>
         public static bool HasValue(this string input, int minLength, int maxLength)
         {
             if(minLength < 0)
@@ -362,7 +363,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns><c>true</c> if the specified input is empty; otherwise, <c>false</c>.</returns>
-        [Information(nameof(IsEmpty), "David McCarter", "8/18/20", ModifiedBy = "David McCarter", Status = Status.New, UnitTestCoverage = 100)]
+        [Information(nameof(IsEmpty), "David McCarter", "8/18/20", ModifiedBy = "David McCarter", Status = Status.Available, UnitTestCoverage = 100)]
         public static bool IsEmpty(this string input)
         {
             return input.IsNotNull() && input.Length == 0 ? true : false;
@@ -391,7 +392,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns><c>true</c> if [is not empty] [the specified input]; otherwise, <c>false</c>.</returns>
-        [Information(nameof(IsEmpty), "David McCarter", "8/18/20", ModifiedBy = "David McCarter", Status = Status.New, UnitTestCoverage = 100)]
+        [Information(nameof(IsEmpty), "David McCarter", "8/18/20", ModifiedBy = "David McCarter", Status = Status.Available, UnitTestCoverage = 100)]
         public static bool IsNotEmpty(this string input)
         {
             return input.IsNotNull() && input.Length > 0 ? true : false;
@@ -513,6 +514,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>System.String[].</returns>
         /// <exception cref="ArgumentException">value</exception>
         /// <exception cref="ArgumentException">separator</exception>
+        /// <exception cref="ArgumentException">value</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static string[] Split(this string value,
                                      string separator,

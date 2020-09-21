@@ -4,7 +4,7 @@
 // Created          : 10-09-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 09-19-2020
+// Last Modified On : 09-21-2020
 // ***********************************************************************
 // <copyright file="RegistryHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -63,7 +63,7 @@ namespace dotNetTips.Utility.Core.Windows.Win32
         /// <param name="registryKeyType">Type of the registry key.</param>
         /// <returns>RegistryKey.</returns>
         /// <exception cref="PlatformNotSupportedException"></exception>
-        [Information(nameof(GetRegistryKey), "David McCarter", "9/10/2020", "9/10/2020", Status = Status.New, UnitTestCoverage = 90, BenchMarkStatus = 0)]
+        [Information(nameof(GetRegistryKey), "David McCarter", "9/10/2020", "9/10/2020", Status = Status.Available, UnitTestCoverage = 90, BenchMarkStatus = 0)]
         public static RegistryKey? GetRegistryKey(string keyName, RegistryHive registryKeyType)
         {
             if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows) == false)

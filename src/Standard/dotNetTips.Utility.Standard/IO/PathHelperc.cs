@@ -4,7 +4,7 @@
 // Created          : 07-11-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 09-19-2020
+// Last Modified On : 09-21-2020
 // ***********************************************************************
 // <copyright file="PathHelperc.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -32,7 +32,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// <param name="createIfNotExists">if set to <c>true</c> [create path if it does not exists].</param>
         /// <param name="paths">The paths.</param>
         /// <returns>DirectoryInfo.</returns>
-        [Information(nameof(CombinePaths), author: "David McCarter", createdOn: "8/10/2020", modifiedOn: "8/10/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        [Information(nameof(CombinePaths), author: "David McCarter", createdOn: "8/10/2020", modifiedOn: "8/10/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available)]
         public static DirectoryInfo CombinePaths(bool createIfNotExists, params string[] paths)
         {
             Encapsulation.TryValidateParam(paths, nameof(paths));
@@ -61,7 +61,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// <param name="path1">The path1.</param>
         /// <param name="path2">The path2.</param>
         /// <returns>DirectoryInfo.</returns>
-        [Information(nameof(CombinePaths), author: "David McCarter", createdOn: "8/10/2020", modifiedOn: "8/10/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        [Information(nameof(CombinePaths), author: "David McCarter", createdOn: "8/10/2020", modifiedOn: "8/10/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available)]
         public static DirectoryInfo CombinePaths(bool createIfNotExists, string path1, string path2)
         {
             Encapsulation.TryValidateParam(path1, nameof(path1));
@@ -78,7 +78,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// <param name="path2">The path2.</param>
         /// <param name="path3">The path3.</param>
         /// <returns>DirectoryInfo.</returns>
-        [Information(nameof(CombinePaths), author: "David McCarter", createdOn: "8/10/2020", modifiedOn: "8/10/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        [Information(nameof(CombinePaths), author: "David McCarter", createdOn: "8/10/2020", modifiedOn: "8/10/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available)]
         public static DirectoryInfo CombinePaths(bool createIfNotExists, string path1, string path2, string path3)
         {
             Encapsulation.TryValidateParam(path1, nameof(path1));
@@ -97,7 +97,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// <param name="path3">The path3.</param>
         /// <param name="path4">The path4.</param>
         /// <returns>DirectoryInfo.</returns>
-        [Information(nameof(CombinePaths), author: "David McCarter", createdOn: "8/10/2020", modifiedOn: "8/10/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        [Information(nameof(CombinePaths), author: "David McCarter", createdOn: "8/10/2020", modifiedOn: "8/10/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available)]
         public static DirectoryInfo CombinePaths(bool createIfNotExists, string path1, string path2, string path3, string path4)
         {
             Encapsulation.TryValidateParam(path1, nameof(path1));

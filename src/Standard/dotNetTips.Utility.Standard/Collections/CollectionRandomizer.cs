@@ -4,7 +4,7 @@
 // Created          : 08-26-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 09-19-2020
+// Last Modified On : 09-21-2020
 // ***********************************************************************
 // <copyright file="CollectionRandomizer.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -25,7 +25,7 @@ namespace dotNetTips.Utility.Standard.Collections
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <remarks>The CollectionRandomizer is designed to shuffle a collection and allow retrieving items by using GetNext().</remarks>
-    [Information(nameof(CollectionRandomizer<T>), author: "David McCarter and Kristine Tran", createdOn: "8/26/2020", modifiedOn: "8/27/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+    [Information(nameof(CollectionRandomizer<T>), author: "David McCarter and Kristine Tran", createdOn: "8/26/2020", modifiedOn: "8/27/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available)]
     public sealed class CollectionRandomizer<T>
     {
         private ImmutableArray<T> _collection;

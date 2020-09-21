@@ -4,7 +4,7 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 09-19-2020
+// Last Modified On : 09-21-2020
 // ***********************************************************************
 // <copyright file="XmlHelper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -107,7 +107,7 @@ namespace dotNetTips.Utility.Standard.Xml
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns>XDocument.</returns>
-        [Information(nameof(StringToXDocument), "David McCarter", "9/9/2020", "9/9/2020", Status = Status.New, UnitTestCoverage = 100, BenchMarkStatus = 0)]
+        [Information(nameof(StringToXDocument), "David McCarter", "9/9/2020", "9/9/2020", Status = Status.Available, UnitTestCoverage = 100, BenchMarkStatus = 0)]
         public static XDocument StringToXDocument(string input)
         {
             return StringToXDocument(input, null);
@@ -120,7 +120,7 @@ namespace dotNetTips.Utility.Standard.Xml
         /// <param name="resolver">The resolver.</param>
         /// <returns>XDocument.</returns>
         /// <remarks>Uses DtdProcessing.Prohibit</remarks>
-        [Information(nameof(StringToXDocument), "David McCarter", "9/9/2020", "9/9/2020", Status = Status.New, UnitTestCoverage = 100, BenchMarkStatus = 0)]
+        [Information(nameof(StringToXDocument), "David McCarter", "9/9/2020", "9/9/2020", Status = Status.Available, UnitTestCoverage = 100, BenchMarkStatus = 0)]
         public static XDocument StringToXDocument(string input, XmlResolver resolver)
         {
             Encapsulation.TryValidateParam(input, nameof(input));
