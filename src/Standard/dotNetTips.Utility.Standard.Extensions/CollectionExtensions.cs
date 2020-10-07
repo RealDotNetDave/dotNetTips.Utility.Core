@@ -303,11 +303,9 @@ namespace dotNetTips.Utility.Standard.Extensions
             {
                 return false;
             }
-            else
-            {
-                list.Add(item);
-                return true;
-            }
+
+            list.Add(item);
+            return true;
         }
 
         /// <summary>
@@ -348,10 +346,8 @@ namespace dotNetTips.Utility.Standard.Extensions
                 dictionary.Add(key, value);
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         /// <summary>
@@ -617,10 +613,8 @@ namespace dotNetTips.Utility.Standard.Extensions
             {
                 return false;
             }
-            else
-            {
-                return source.RemoveAll(p => p.IsNull()) > 0;
-            }
+
+            return source.RemoveAll(p => p.IsNull()) > 0;
         }
 
         /// <summary>
@@ -661,12 +655,10 @@ namespace dotNetTips.Utility.Standard.Extensions
             {
                 return false;
             }
-            else
-            {
-                var itemsList = items.ToReadOnlyCollection();
 
-                return itemsList.HasItems() ? source.ToList().Any(p => itemsList.Contains(p)) : false;
-            }
+            var itemsList = items.ToReadOnlyCollection();
+
+            return itemsList.HasItems() ? source.ToList().Any(p => itemsList.Contains(p)) : false;
         }
 
         /// <summary>
@@ -683,12 +675,10 @@ namespace dotNetTips.Utility.Standard.Extensions
             {
                 return false;
             }
-            else
-            {
-                var itemsList = items.ToReadOnlyCollection();
 
-                return itemsList.HasItems() ? source.ToReadOnlyCollection().Any(p => itemsList.Contains(p)) : false;
-            }
+            var itemsList = items.ToReadOnlyCollection();
+
+            return itemsList.HasItems() ? source.ToReadOnlyCollection().Any(p => itemsList.Contains(p)) : false;
         }
 
         /// <summary>
@@ -836,10 +826,8 @@ namespace dotNetTips.Utility.Standard.Extensions
 
                 return count;
             }
-            else
-            {
-                return source.Count(predicate);
-            }
+
+            return source.Count(predicate);
         }
 
         /// <summary>
@@ -1454,23 +1442,21 @@ namespace dotNetTips.Utility.Standard.Extensions
             {
                 return string.Empty;
             }
-            else
-            {
-                var sb = new StringBuilder();
 
-                list.ToList()
-                    .ForEach(item =>
+            var sb = new StringBuilder();
+
+            list.ToList()
+                .ForEach(item =>
+                {
+                    if (sb.Length > 0)
                     {
-                        if (sb.Length > 0)
-                        {
-                            sb.Append(delimiter.ToString(CultureInfo.CurrentCulture).ToTrimmed());
-                        }
+                        sb.Append(delimiter.ToString(CultureInfo.CurrentCulture).ToTrimmed());
+                    }
 
-                        sb.Append(item.ToString());
-                    });
+                    sb.Append(item.ToString());
+                });
 
-                return sb.ToString();
-            }
+            return sb.ToString();
         }
 
         /// <summary>
