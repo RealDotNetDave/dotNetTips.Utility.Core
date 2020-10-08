@@ -38,6 +38,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information(nameof(GetTrackedObjects), author: "David McCarter", createdOn: "10/8/2020", modifiedOn: "10/8/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static IList<Tuple<T, T>> GetTrackedObjects<T>(this DataContext context)
         {
+            if (context is null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
+
             List<Tuple<T, T>> result = new List<Tuple<T, T>>();
             var dcType = typeof(DataContext);
 
