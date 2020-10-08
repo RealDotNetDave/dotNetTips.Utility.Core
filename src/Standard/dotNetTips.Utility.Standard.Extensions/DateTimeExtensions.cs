@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 09-03-2020
+// Last Modified On : 10-05-2020
 // ***********************************************************************
 // <copyright file="DateTimeExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
@@ -137,6 +137,66 @@ namespace dotNetTips.Utility.Standard.Extensions
         public static bool IsInRange(this DateTimeOffset value, DateTimeOffset beginningTime, DateTimeOffset endTime)
         {
             return value >= beginningTime & value <= endTime;
+        }
+
+        /// <summary>
+        /// Determines whether [is in range throws exception] [the specified beginning time].
+        /// Throws Exception if invalid.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="beginningTime">The beginning time.</param>
+        /// <param name="endTime">The end time.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <returns><c>true</c> if [is in range throws exception] [the specified beginning time]; otherwise, <c>false</c>.</returns>
+        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.New)]
+        public static bool IsInRangeThrowsException(this DateTime value, DateTime beginningTime, DateTime endTime, string paramName)
+        {
+            if (value.IsInRange(beginningTime, endTime) == false)
+            {
+                ExceptionThrower.ThrowArgumentOutOfRangeException(paramName);
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Determines whether [is in range throws exception] [the specified beginning time].
+        /// Throws Exception if invalid.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="beginningTime">The beginning time.</param>
+        /// <param name="endTime">The end time.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <returns><c>true</c> if [is in range throws exception] [the specified beginning time]; otherwise, <c>false</c>.</returns>
+        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.New)]
+        public static bool IsInRangeThrowsException(this TimeSpan value, TimeSpan beginningTime, TimeSpan endTime, string paramName)
+        {
+            if (value.IsInRange(beginningTime, endTime) == false)
+            {
+                ExceptionThrower.ThrowArgumentOutOfRangeException(paramName);
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Determines whether [is in range throws exception] [the specified beginning time].
+        /// Throws Exception if invalid.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="beginningTime">The beginning time.</param>
+        /// <param name="endTime">The end time.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <returns><c>true</c> if [is in range throws exception] [the specified beginning time]; otherwise, <c>false</c>.</returns>
+        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.New)]
+        public static bool IsInRangeThrowsException(this DateTimeOffset value, DateTimeOffset beginningTime, DateTimeOffset endTime, string paramName)
+        {
+            if (value.IsInRange(beginningTime, endTime) == false)
+            {
+                ExceptionThrower.ThrowArgumentOutOfRangeException(paramName);
+            }
+
+            return true;
         }
 
         /// <summary>

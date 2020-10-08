@@ -5,14 +5,14 @@
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyVersion>2020.9.21.34653</AssemblyVersion>
+    <AssemblyVersion>2020.10.8.34666</AssemblyVersion>
 
-    <FileVersion>2020.9.21.34653</FileVersion>
+    <FileVersion>2020.10.8.34666</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="dotNetTips.Utility.Standard.Tester" Version="2020.8.9" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.0" />
+    <PackageReference Include="dotNetTips.Utility.Standard.Tester" Version="2020.9.20.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.1.2" />
     <PackageReference Include="MSTest.TestFramework" Version="2.1.2" />
   </ItemGroup>

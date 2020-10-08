@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-23-2020
+// Last Modified On : 10-05-2020
 // ***********************************************************************
 // <copyright file="NumberExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
@@ -17,6 +17,7 @@ using System.Globalization;
 using System.Linq;
 using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.Extensions.Properties;
+using Microsoft.Extensions.Primitives;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {
@@ -36,6 +37,216 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             var n = value - step;
             return n < lowerBound ? lowerBound : n;
+        }
+
+        /// <summary>
+        /// Ensures the minimum value.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="minValue">The minimum value.</param>
+        /// <returns>System.Int32.</returns>
+        public static int EnsureMinimumValue(this int value, int minValue)
+        {
+            return value < minValue ? minValue : value;
+        }
+
+        /// <summary>
+        /// Formats the number to size string.
+        /// </summary>
+        /// <param name="fileSize">Size of the file.</param>
+        /// <returns>System.String.</returns>
+        public static string FormatSizeToString(this long fileSize)
+        {
+            long size = 0;
+
+            while (fileSize > 1024 && size < 4)
+            {
+                fileSize = Convert.ToInt64(fileSize / 1024);
+                size += 1;
+            }
+
+            return $"{fileSize} {((new string[] { Resources.Bytes, Resources.KB, Resources.MB, Resources.GB })[Convert.ToInt32(size)])}";
+        }
+
+        /// <summary>
+        /// Increment a number ensuring it never passes a given upper-bound.
+        /// </summary>
+        /// <param name="value">Number to process</param>
+        /// <param name="upperBound">Upper bound</param>
+        /// <param name="step">Step of the increment</param>
+        /// <returns>Integer</returns>
+        public static int Increment(this int value, int upperBound = 100, int step = 1)
+        {
+            var number = value + step;
+            return number > upperBound ? upperBound : number;
+        }
+
+        /// <summary>
+        /// Indicate whether the number is even.
+        /// </summary>
+        /// <param name="value">Number to process</param>
+        /// <returns>True/False</returns>
+        public static bool IsEven(this int value) => (value % 2) == 0;
+
+        /// <summary>
+        /// Indicate whether the number falls in the specified range.
+        /// </summary>
+        /// <param name="value">Number to process</param>
+        /// <param name="lower">Lower bound</param>
+        /// <param name="upper">Upper bound</param>
+        /// <returns>True/False</returns>
+        public static bool IsInRange(this int value, int lower, int upper)
+        {
+            return value >= lower && value <= upper;
+        }
+
+        /// <summary>
+        /// Determines whether [is in range] [the specified lower].
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="lower">The lower.</param>
+        /// <param name="upper">The upper.</param>
+        /// <returns><c>true</c> if [is in range] [the specified lower]; otherwise, <c>false</c>.</returns>
+        public static bool IsInRange(this long value, long lower, long upper)
+        {
+            return value >= lower && value <= upper;
+        }
+
+        /// <summary>
+        /// Determines whether [is in range] [the specified lower].
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="lower">The lower.</param>
+        /// <param name="upper">The upper.</param>
+        /// <returns><c>true</c> if [is in range] [the specified lower]; otherwise, <c>false</c>.</returns>
+        public static bool IsInRange(this double value, double lower, double upper)
+        {
+            return value >= lower && value <= upper;
+        }
+
+        /// <summary>
+        /// Determines whether [is in range] [the specified lower].
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="lower">The lower.</param>
+        /// <param name="upper">The upper.</param>
+        /// <returns><c>true</c> if [is in range] [the specified lower]; otherwise, <c>false</c>.</returns>
+        public static bool IsInRange(this decimal value, decimal lower, decimal upper)
+        {
+            return value >= lower && value <= upper;
+        }
+
+        /// <summary>
+        /// Determines whether [is in range throws exception] [the specified value].
+        /// Throws Exception if invalid.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="lower">The lower.</param>
+        /// <param name="upper">The upper.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <returns>System.Boolean.</returns>
+        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 0, Status = Status.New)]
+        public static bool IsInRangeThrowsException(this long value, long lower, long upper, string paramName)
+        {
+            if (value.IsInRange(lower, upper) == false)
+            {
+                ExceptionThrower.ThrowArgumentOutOfRangeException(paramName);
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Determines whether [is in range throws exception] [the specified value].
+        /// Throws Exception if invalid.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="lower">The lower.</param>
+        /// <param name="upper">The upper.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <returns>System.Boolean.</returns>
+        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.New)]
+        public static bool IsInRangeThrowsException(this double value, double lower, double upper, string paramName)
+        {
+            if (value.IsInRange(lower, upper) == false)
+            {
+                ExceptionThrower.ThrowArgumentOutOfRangeException(paramName);
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Determines whether [is in range throws exception] [the specified value].
+        /// Throws Exception if invalid.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="lower">The lower.</param>
+        /// <param name="upper">The upper.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <returns>System.Boolean.</returns>
+        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.New)]
+        public static bool IsInRangeThrowsException(this decimal value, decimal lower, decimal upper, string paramName)
+        {
+            if (value.IsInRange(lower, upper) == false)
+            {
+                ExceptionThrower.ThrowArgumentOutOfRangeException(paramName);
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Determines whether [is in range] [the specified lower] and will throw Exception if false.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="lower">The lower.</param>
+        /// <param name="upper">The upper.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <returns>
+        ///   <c>true</c> if [is in range] [the specified lower]; otherwise, <c>false</c>.</returns>
+        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.New)]
+        public static bool IsInRangeThrowsException(this int value, int lower, int upper, string paramName)
+        {
+            if (value.IsInRange(lower, upper) == false)
+            {
+                ExceptionThrower.ThrowArgumentOutOfRangeException(paramName);
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Determines if the Integer is of the specified interval. E.g. if the interval is 100 and
+        /// the integer is 400, it would return true. This function uses the Mod operator, for the
+        /// above example: (300 Mod 100 = 0)
+        /// </summary>
+        /// <param name="value">The number.</param>
+        /// <param name="interval">The interval.</param>
+        /// <returns><c>true</c> if the specified number is interval; otherwise, <c>false</c>.</returns>
+        public static bool IsInterval(this int value, int interval)
+        {
+            return value % interval == 0 ? true : false;
+        }
+
+        /// <summary>
+        /// Determines whether [is interval throws exception] [the specified value] and throws Exception
+        /// if invalid.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="interval">The interval.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <returns>System.Boolean.</returns>
+        [Information(nameof(IsIntervalThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.New)]
+        public static bool IsIntervalThrowsException(this int value, int interval, string paramName)
+        {
+            if (value.IsInterval(interval) == false)
+            {
+                ExceptionThrower.ThrowArgumentOutOfRangeException(paramName);
+            }
+
+            return true;
+
         }
 
         /// <summary>
@@ -114,83 +325,6 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             return Math.Sign(value) == -1;
         }
-
-        /// <summary>
-        /// Ensures the minimum value.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <param name="minValue">The minimum value.</param>
-        /// <returns>System.Int32.</returns>
-        public static int EnsureMinimumValue(this int value, int minValue)
-        {
-            return value < minValue ? minValue : value;
-        }
-
-        /// <summary>
-        /// Increment a number ensuring it never passes a given upper-bound.
-        /// </summary>
-        /// <param name="value">Number to process</param>
-        /// <param name="upperBound">Upper bound</param>
-        /// <param name="step">Step of the increment</param>
-        /// <returns>Integer</returns>
-        public static int Increment(this int value, int upperBound = 100, int step = 1)
-        {
-            var number = value + step;
-            return number > upperBound ? upperBound : number;
-        }
-
-        /// <summary>
-        /// Indicate whether the number is even.
-        /// </summary>
-        /// <param name="value">Number to process</param>
-        /// <returns>True/False</returns>
-        public static bool IsEven(this int value) => (value % 2) == 0;
-
-        /// <summary>
-        /// Indicate whether the number falls in the specified range.
-        /// </summary>
-        /// <param name="value">Number to process</param>
-        /// <param name="lower">Lower bound</param>
-        /// <param name="upper">Upper bound</param>
-        /// <returns>True/False</returns>
-        public static bool IsInRange(this int value, int lower, int upper) => value >= lower && value <= upper;
-
-        /// <summary>
-        /// Determines whether [is in range] [the specified lower].
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <param name="lower">The lower.</param>
-        /// <param name="upper">The upper.</param>
-        /// <returns><c>true</c> if [is in range] [the specified lower]; otherwise, <c>false</c>.</returns>
-        public static bool IsInRange(this long value, long lower, long upper) => value >= lower && value <= upper;
-
-        /// <summary>
-        /// Determines whether [is in range] [the specified lower].
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <param name="lower">The lower.</param>
-        /// <param name="upper">The upper.</param>
-        /// <returns><c>true</c> if [is in range] [the specified lower]; otherwise, <c>false</c>.</returns>
-        public static bool IsInRange(this double value, double lower, double upper) => value >= lower && value <= upper;
-
-        /// <summary>
-        /// Determines whether [is in range] [the specified lower].
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <param name="lower">The lower.</param>
-        /// <param name="upper">The upper.</param>
-        /// <returns><c>true</c> if [is in range] [the specified lower]; otherwise, <c>false</c>.</returns>
-        public static bool IsInRange(this decimal value, decimal lower, decimal upper) => value >= lower && value <= upper;
-
-        /// <summary>
-        /// Determines if the Integer is of the specified interval. E.g. if the interval is 100 and
-        /// the integer is 400, it would return true. This function uses the Mod operator, for the
-        /// above example: (300 Mod 100 = 0)
-        /// </summary>
-        /// <param name="value">The number.</param>
-        /// <param name="interval">The interval.</param>
-        /// <returns><c>true</c> if the specified number is interval; otherwise, <c>false</c>.</returns>
-        public static bool IsInterval(this int value, int interval) => value % interval == 0 ? true : false;
 
         /// <summary>
         /// Noes the duplicates.
@@ -356,24 +490,6 @@ namespace dotNetTips.Utility.Standard.Extensions
             }
 
             return words;
-        }
-
-        /// <summary>
-        /// Formats the number to size string.
-        /// </summary>
-        /// <param name="fileSize">Size of the file.</param>
-        /// <returns>System.String.</returns>
-        public static string FormatSizeToString(this long fileSize)
-        {
-            long size = 0;
-
-            while (fileSize > 1024 && size < 4)
-            {
-                fileSize = Convert.ToInt64(fileSize / 1024);
-                size += 1;
-            }
-
-            return $"{fileSize} {((new string[] { Resources.Bytes, Resources.KB, Resources.MB, Resources.GB })[Convert.ToInt32(size)])}";
         }
     }
 }

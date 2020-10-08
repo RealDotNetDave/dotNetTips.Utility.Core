@@ -189,6 +189,42 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             Assert.IsTrue(result);
         }
 
+        [TestMethod]
+        public void IsInRangeThrowsExceptionTestDateTime()
+        {
+            var now = DateTime.Now;
+
+            var result1 = now.IsInRangeThrowsException(now.Subtract(new TimeSpan(1, 0, 0, 0)), now.AddDays(1), "TEST");
+
+            Assert.IsTrue(result1);
+
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => now.IsInRangeThrowsException(now.AddDays(1), now.AddDays(5), "TEST"));
+        }
+
+        [TestMethod]
+        public void IsInRangeThrowsExceptionTestDateTimeOffset()
+        {
+            var now = DateTimeOffset.Now;
+
+            var result1 = now.IsInRangeThrowsException(now.Subtract(new TimeSpan(1, 0, 0, 0)), now.AddDays(1), "TEST");
+
+            Assert.IsTrue(result1);
+
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => now.IsInRangeThrowsException(now.AddDays(1), now.AddDays(5), "TEST"));
+        }
+
+        [TestMethod]
+        public void IsInRangeThrowsExceptionTestTimeSpan()
+        {
+            var now = TimeSpan.FromDays(5);
+
+            var result1 = now.IsInRangeThrowsException(now.Subtract(new TimeSpan(1, 0, 0, 0)), TimeSpan.FromDays(2).Add(new TimeSpan(1,0,0,0)), "TEST");
+
+            Assert.IsTrue(result1);
+
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => now.IsInRangeThrowsException(now.Add(new TimeSpan(10, 0, 0, 0)), new TimeSpan(20, 0, 0, 0), "TEST"));
+        }
+
         private void PrintResult<T>(T input, string methodName)
         {
             var message = $"{methodName}: {input}";

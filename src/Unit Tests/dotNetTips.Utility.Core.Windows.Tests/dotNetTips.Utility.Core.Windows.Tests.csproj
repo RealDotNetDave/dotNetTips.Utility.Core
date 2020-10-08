@@ -5,20 +5,19 @@
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyVersion>2020.9.21.9</AssemblyVersion>
+    <AssemblyVersion>2020.10.8.18</AssemblyVersion>
 
-    <FileVersion>2020.9.21.9</FileVersion>
+    <FileVersion>2020.10.8.18</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
-    <PackageReference Include="MSTest.TestAdapter" Version="2.1.0" />
-    <PackageReference Include="MSTest.TestFramework" Version="2.1.0" />
-    <PackageReference Include="coverlet.collector" Version="1.2.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.1.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.1.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\dotNetTips.Utility.Core.Windows\dotNetTips.Utility.Core.Windows.csproj" />
+    <ProjectReference Include="..\..\Core\dotNetTips.Utility.Core.Windows\dotNetTips.Utility.Core.Windows.csproj" />
   </ItemGroup>
 
 </Project>

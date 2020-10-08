@@ -25,6 +25,8 @@ namespace dotNetTips.Utility.Benchmarks
         public const string ReferenceType = "Ref Type";
         public const string Reflection = "Reflection";
         public const string ValueType = "Value Type";
+        public const string String = "String";
+        public const string Security = "Security";
 
     }
 }

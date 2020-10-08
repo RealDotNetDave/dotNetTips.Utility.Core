@@ -40,8 +40,8 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(CollectionExtensions.AddIfNotExists) + ":Parm Array")]
         public void AddIfNotExistsCollection01()
         {
-            var people = new List<PersonProper>(base.CollectionCount);
-            var newPeople = new List<PersonProper>(base.CollectionCount / 10).ToArray();
+            var people = new List<PersonProper>(base.personProperCollection);
+            var newPeople = new List<PersonProper>(base.personProperCollection).Take(10).ToArray();
 
 
             var result = people.AddIfNotExists(newPeople);
@@ -52,8 +52,8 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(CollectionExtensions.AddIfNotExists) + ":Dup Parm Array")]
         public void AddIfNotExistsCollection02()
         {
-            var people = new List<PersonProper>(base.CollectionCount);
-            var newPeople = people.Shuffle(base.CollectionCount / 10).ToArray();
+            var people = new List<PersonProper>(base.personProperCollection);
+            var newPeople = people.Shuffle(10).ToArray();
 
 
             var result = people.AddIfNotExists(newPeople);

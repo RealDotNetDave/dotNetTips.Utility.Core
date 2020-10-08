@@ -28,9 +28,7 @@ namespace dotNetTips.Utility.Benchmarks
         /// </summary>
         private static void Main()
         {
-            var config = DefaultConfig.Instance.With(Job.Default.With(CsProjCoreToolchain.NetCoreApp30));
-
-
+            var config = DefaultConfig.Instance.With(Job.Default.With(CsProjCoreToolchain.NetCoreApp31));
            
 
             BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).RunAll(config);

@@ -13,6 +13,7 @@
 // ***********************************************************************
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using dotNetTips.Utility.Standard.Extensions;
 
 namespace dotNetTips.Utility.Standard.Extensions.Tests
 {
@@ -51,6 +52,46 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             Assert.IsTrue(Convert.ToInt64(testBadNumber).IsNegative());
 
             Assert.IsTrue(Convert.ToInt16(testBadNumber).IsNegative());
+        }
+
+        [TestMethod]
+        public void IsInRangeThrowsExceptionDecimal()
+        {
+            decimal number = 10.10m;
+
+            Assert.IsTrue(number.IsInRangeThrowsException(1.10m, 20.55m, "TEST"));
+
+            Assert.ThrowsException<ArgumentOutOfRangeException>(()=>number.IsInRangeThrowsException(122.10m, 22220.55m, "TEST"));
+        }
+
+        [TestMethod]
+        public void IsInRangeThrowsExceptionDouble()
+        {
+            double number = 10.10;
+
+            Assert.IsTrue(number.IsInRangeThrowsException(1.10, 20.55, "TEST"));
+
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => number.IsInRangeThrowsException(122.10, 22220.55, "TEST"));
+        }
+
+        [TestMethod]
+        public void IsInRangeThrowsExceptionInt()
+        {
+            int number = 10;
+
+            Assert.IsTrue(number.IsInRangeThrowsException(1, 20, "TEST"));
+
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => number.IsInRangeThrowsException(122, 22220, "TEST"));
+        }
+
+        [TestMethod]
+        public void IsInRangeThrowsExceptionLong()
+        {
+            long number = 10;
+
+            Assert.IsTrue(number.IsInRangeThrowsException(1, 20, "TEST"));
+
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => number.IsInRangeThrowsException(122, 22220, "TEST"));
         }
     }
 }
