@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace dotNetTips.Utility.Standard.Properties
-{
-
-
+namespace dotNetTips.Utility.Standard.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -237,6 +237,15 @@ namespace dotNetTips.Utility.Standard.Properties
         internal static string ParameterIsInvalid {
             get {
                 return ResourceManager.GetString("ParameterIsInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The SecureString is Null or does not contain text..
+        /// </summary>
+        internal static string SecureStringIsEmpty {
+            get {
+                return ResourceManager.GetString("SecureStringIsEmpty", resourceCulture);
             }
         }
         

@@ -24,6 +24,7 @@ namespace dotNetTips.Utility.Standard.Net
     /// <summary>
     /// Class MailHelper.
     /// </summary>
+    [Information(nameof(EmailAddress), "David McCarter", "10/15/2020", "10/15/2020", UnitTestCoverage = 0, Status = Status.New)]
     public static class MailHelper
     {
 

@@ -23,6 +23,7 @@
     <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2020.11.1.2" />
     <PackageReference Include="dotNetTips.Utility.Standard.Tester" Version="2020.9.20.1" />
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Data.Services.Client" Version="5.8.4" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">

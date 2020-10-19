@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 09-21-2020
+// Last Modified On : 10-08-2020
 // ***********************************************************************
 // <copyright file="StringExtensions.cs" company="dotNetTips.com - David McCarter">
 //     dotNetTips.com - David McCarter
@@ -13,6 +13,8 @@
 // ***********************************************************************
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -37,7 +39,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         public static string ComputeSha256Hash(this string data)
         {
             // Create a SHA256   
-            using(var sha256Hash = SHA256.Create())
+            using (var sha256Hash = SHA256.Create())
             {
                 // ComputeHash - returns byte array  
                 var bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(data));
@@ -46,6 +48,66 @@ namespace dotNetTips.Utility.Standard.Extensions
                 return bytes.BytesToString();
             }
         }
+
+        /// <summary>
+        /// Converts base64 string to string.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns>System.String.</returns>
+        [Information(nameof(FromBase64), "David McCarter", "10/8/2020", "10/8/2020", UnitTestCoverage = 0, Status = Status.New)]
+        public static string FromBase64(this string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                return value;
+            }
+            else
+            {
+                var encoding = new ASCIIEncoding();
+                return encoding.GetString(Convert.FromBase64String(value));
+            }
+        }
+
+        /// <summary>
+        /// Extracts a string from a beginning and end value.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="start">The start.</param>
+        /// <param name="end">The end.</param>
+        /// <returns>System.String.</returns>
+        [Information(nameof(Extract), "David McCarter", "10/8/2020", "10/8/2020", UnitTestCoverage = 0, Status = Status.New)]
+        public static string Extract(this string value, string start, string end)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                return value;
+            }
+            else
+            {
+                int i = value.IndexOf(start, StringComparison.CurrentCulture);
+                int j = value.IndexOf(end, StringComparison.CurrentCulture);
+
+                return value.Substring(i, j - i);
+            }
+        }
+
+        /// <summary>
+        /// Converts to title case.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <returns>System.String.</returns>
+        /// <exception cref="ArgumentException">'{nameof(source)}' cannot be null or empty - source</exception>
+        [Information(nameof(Extract), "David McCarter", "10/8/2020", "10/8/2020", UnitTestCoverage = 0, Status = Status.New)]
+        public static string ToTitleCase(this string source)
+        {
+            if (string.IsNullOrEmpty(source))
+            {
+                throw new ArgumentException($"'{nameof(source)}' cannot be null or empty", nameof(source));
+            }
+
+            return new CultureInfo(CultureInfo.CurrentCulture.DisplayName).TextInfo.ToTitleCase(source);
+        }
+
 
         /// <summary>
         /// Concatenates the specified first message with passed in string[].
@@ -59,27 +121,28 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information(nameof(Concat), "David McCarter", "9/15/2017", "7/29/2020", UnitTestCoverage = 78, Status = Status.Available)]
         public static string Concat(this string firstMessage, string delimiter, bool addLineFeed, params string[] args)
         {
-            if(string.IsNullOrEmpty(firstMessage))
+            if (string.IsNullOrEmpty(firstMessage))
             {
                 throw new ArgumentException($"{nameof(firstMessage)} is null or empty.", nameof(firstMessage));
             }
 
-            if(string.IsNullOrEmpty(delimiter))
+            if (string.IsNullOrEmpty(delimiter))
             {
                 delimiter = string.Empty;
             }
 
             var sb = new StringBuilder(firstMessage);
 
-            if(args.HasItems())
+            if (args.HasItems())
             {
-                for(var argCount = 0; argCount < args.Length; argCount++)
+                for (var argCount = 0; argCount < args.Length; argCount++)
                 {
                     var value = args[argCount];
-                    if(addLineFeed)
+                    if (addLineFeed)
                     {
                         sb.AppendLine(value);
-                    } else
+                    }
+                    else
                     {
                         sb.Append(string.Concat(value, delimiter));
                     }
@@ -101,7 +164,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information(nameof(ContainsAny), "David McCarter", "9/15/2017", "7/29/2020", UnitTestCoverage = 75, Status = Status.Available)]
         public static bool ContainsAny(this string input, params string[] characters)
         {
-            if(string.IsNullOrEmpty(input))
+            if (string.IsNullOrEmpty(input))
             {
                 throw new ArgumentException($"{nameof(input)} is null or empty.", nameof(input));
             }
@@ -149,12 +212,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information(nameof(DelimitedStringToArray), "David McCarter", "8/13/2020", "8/13/2020", UnitTestCoverage = 90, Status = Status.Available)]
         public static string[] DelimitedStringToArray(this string delimitedInput, char delimiter = ',')
         {
-            if(delimitedInput.IsNull())
+            if (delimitedInput.IsNull())
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(delimitedInput));
             }
 
-            if(delimiter.IsNull())
+            if (delimiter.IsNull())
             {
                 delimiter = ControlChars.Comma;
             }
@@ -209,7 +272,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentOutOfRangeException">length - Minimum length must be greater than 0.</exception>
         public static bool HasValue(this string input, int length)
         {
-            if(length <= 0)
+            if (length <= 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(length), "Minimum length must be greater than 0.");
             }
@@ -226,7 +289,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentException">value</exception>
         public static bool HasValue(this string input, string value)
         {
-            if(string.IsNullOrEmpty(value))
+            if (string.IsNullOrEmpty(value))
             {
                 throw new ArgumentException($"{nameof(value)} is null or empty.", nameof(value));
             }
@@ -243,7 +306,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns><c>true</c> if the specified expression has value; otherwise, <c>false</c>.</returns>
         public static bool HasValue(this string input, string expression, RegexOptions options)
         {
-            if(input.HasValue() && expression.HasValue())
+            if (input.HasValue() && expression.HasValue())
             {
                 return new Regex(expression, options).IsMatch(input);
             }
@@ -261,14 +324,15 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentOutOfRangeException">minLength - Minimum length must be greater than 0.</exception>
         /// <exception cref="ArgumentOutOfRangeException">maxLength - Maximum length must be greater than 0.</exception>
         /// <exception cref="ArgumentOutOfRangeException">minLength - Minimum length must be greater than 0.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">maxLength - Maximum length must be greater than 0.</exception>
         public static bool HasValue(this string input, int minLength, int maxLength)
         {
-            if(minLength < 0)
+            if (minLength < 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(minLength), "Minimum length must be greater than 0.");
             }
 
-            if(maxLength < 0)
+            if (maxLength < 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(maxLength), "Maximum length must be greater than 0.");
             }
@@ -287,29 +351,29 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">length</exception>
         public static string Indent(this string str, int length, char indentationCharacter)
         {
-            if(string.IsNullOrEmpty(str))
+            if (string.IsNullOrEmpty(str))
             {
                 throw new ArgumentException($"{nameof(str)} is null or empty.", nameof(str));
             }
 
-            if(length == 0)
+            if (length == 0)
             {
                 throw new ArgumentNullException(nameof(length), Resources.LengthMustBeGreaterThan0);
             }
 
             var sb = new StringBuilder();
 
-            if(length < 0)
+            if (length < 0)
             {
                 sb.Append(str);
             }
 
-            for(var charCount = 1; charCount <= Math.Abs(length); charCount++)
+            for (var charCount = 1; charCount <= Math.Abs(length); charCount++)
             {
                 sb.Append(indentationCharacter);
             }
 
-            if(length > 0)
+            if (length > 0)
             {
                 sb.Append(str);
             }
@@ -438,9 +502,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool IsWhitespace(this string input)
         {
-            for(int i = 0; i < input.Length; i++)
+            for (int i = 0; i < input.Length; i++)
             {
-                if(!IsWhitespace(input[i]))
+                if (!IsWhitespace(input[i]))
                 {
                     return false;
                 }
@@ -462,6 +526,31 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
+        /// Parses the specified value.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="value">The value.</param>
+        /// <returns>T.</returns>
+        [Information(nameof(Parse), "David McCarter", "10/8/2020", "10/8/2020", UnitTestCoverage = 0, Status = Status.New)]
+        public static T Parse<T>(this string value)
+        {
+            // Get default value for type so if string
+            // is empty then we can return default value.
+            T result = default(T);
+
+            if (!string.IsNullOrEmpty(value))
+            {
+                // we are not going to handle exception here
+                // if you need SafeParse then you should create
+                // another method specially for that.
+                TypeConverter tc = TypeDescriptor.GetConverter(typeof(T));
+                result = (T)tc.ConvertFrom(value);
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Changes the trailing ellipsis in a string to a period.
         /// </summary>
         /// <param name="input">The input.</param>
@@ -469,14 +558,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentException">input</exception>
         public static string ReplaceEllipsisWithPeriod(this string input)
         {
-            if(string.IsNullOrEmpty(input))
+            if (string.IsNullOrEmpty(input))
             {
                 throw new ArgumentException($"{nameof(input)} is null or empty.", nameof(input));
             }
 
             input = input.ToTrimmed();
 
-            if(input.EndsWith("...", StringComparison.OrdinalIgnoreCase))
+            if (input.EndsWith("...", StringComparison.OrdinalIgnoreCase))
             {
                 input = input.Substring(0, input.Length - 2);
             }
@@ -497,7 +586,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                                      char separator,
                                      StringSplitOptions options = StringSplitOptions.None)
         {
-            if(string.IsNullOrEmpty(value))
+            if (string.IsNullOrEmpty(value))
             {
                 throw new ArgumentException($"{nameof(value)} is null or empty.", nameof(value));
             }
@@ -515,17 +604,18 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentException">value</exception>
         /// <exception cref="ArgumentException">separator</exception>
         /// <exception cref="ArgumentException">value</exception>
+        /// <exception cref="ArgumentException">separator</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static string[] Split(this string value,
                                      string separator,
                                      StringSplitOptions options = StringSplitOptions.None)
         {
-            if(string.IsNullOrEmpty(value))
+            if (string.IsNullOrEmpty(value))
             {
                 throw new ArgumentException($"{nameof(value)} is null or empty.", nameof(value));
             }
 
-            if(string.IsNullOrEmpty(separator))
+            if (string.IsNullOrEmpty(separator))
             {
                 throw new ArgumentException($"{nameof(separator)} is null or empty.", nameof(separator));
             }
@@ -575,7 +665,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentException">input</exception>
         public static IEnumerable<string> SplitRemoveEmpty(this string input)
         {
-            if(string.IsNullOrEmpty(input))
+            if (string.IsNullOrEmpty(input))
             {
                 throw new ArgumentException($"{nameof(input)} is null or empty.", nameof(input));
             }
@@ -592,7 +682,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool StartsWithOrdinal(this string input, string valueToCompare)
         {
-            if(valueToCompare == null)
+            if (valueToCompare == null)
             {
                 return false;
             }
@@ -609,7 +699,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool StartsWithOrdinalIgnoreCase(this string input, string valueToCompare)
         {
-            if(valueToCompare == null)
+            if (valueToCompare == null)
             {
                 return false;
             }
@@ -632,51 +722,71 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 81.08, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static string SubstringTrim(this string value, int startIndex, int length)
         {
-            if(value.HasValue() == false)
+            if (value.HasValue() == false)
             {
                 throw new ArgumentNullException(nameof(value), "Input value must not be null");
             }
 
-            if(startIndex.IsNegative())
+            if (startIndex.IsNegative())
             {
                 throw new ArgumentOutOfRangeException(nameof(startIndex), "Start index cannot be negative.");
             }
 
-            if(length.IsNegative())
+            if (length.IsNegative())
             {
                 throw new ArgumentOutOfRangeException(nameof(length), "Length cannot be negative.");
             }
 
-            if(startIndex >= value.Length - length)
+            if (startIndex >= value.Length - length)
             {
                 throw new ArgumentOutOfRangeException(nameof(startIndex), "startIndex + length must be <= value.Length");
             }
 
-            if(length == 0)
+            if (length == 0)
             {
                 return string.Empty;
             }
 
             int endIndex = startIndex + length - 1;
 
-            while(startIndex <= endIndex && char.IsWhiteSpace(value[startIndex]))
+            while (startIndex <= endIndex && char.IsWhiteSpace(value[startIndex]))
             {
                 startIndex++;
             }
 
-            while(endIndex >= startIndex && char.IsWhiteSpace(value[endIndex]))
+            while (endIndex >= startIndex && char.IsWhiteSpace(value[endIndex]))
             {
                 endIndex--;
             }
 
             int newLength = endIndex - startIndex + 1;
 
-            if(newLength == 0)
+            if (newLength == 0)
             {
                 return string.Empty;
-            } else
+            }
+            else
             {
                 return newLength == value.Length ? value : value.Substring(startIndex, newLength);
+            }
+        }
+
+        /// <summary>
+        /// Converts string to base64.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns>System.String.</returns>
+        [Information(nameof(ToBase64), "David McCarter", "10/8/2020", "10/8/2020", UnitTestCoverage = 0, Status = Status.New)]
+        public static string ToBase64(this string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                return value;
+            }
+            else
+            {
+                var encoding = new ASCIIEncoding();
+                return Convert.ToBase64String(encoding.GetBytes(value));
             }
         }
 
@@ -688,12 +798,167 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentException">input</exception>
         public static string ToTrimmed(this string input)
         {
-            if(string.IsNullOrEmpty(input))
+            if (string.IsNullOrEmpty(input))
             {
                 throw new ArgumentException($"{nameof(input)} is null or empty.", nameof(input));
             }
 
             return input.TrimEnd().TrimStart();
         }
+
+        private static byte[] GetHash(string input, HashType hash)
+        {
+            byte[] inputBytes = Encoding.ASCII.GetBytes(input);
+
+            switch (hash)
+            {
+                case HashType.HMAC:
+                    {
+                        return HMAC.Create().ComputeHash(inputBytes);
+                    }
+
+                case HashType.HMACMD5:
+                    {
+                        return HMACMD5.Create().ComputeHash(inputBytes);
+                    }
+
+                case HashType.HMACSHA1:
+                    {
+                        return HMACSHA1.Create().ComputeHash(inputBytes);
+                    }
+
+                case HashType.HMACSHA256:
+                    {
+                        return HMACSHA256.Create().ComputeHash(inputBytes);
+                    }
+
+                case HashType.HMACSHA384:
+                    {
+                        return HMACSHA384.Create().ComputeHash(inputBytes);
+                    }
+
+                case HashType.HMACSHA512:
+                    {
+                        return HMACSHA512.Create().ComputeHash(inputBytes);
+                    }
+
+                case HashType.MD5:
+                    {
+                        return MD5.Create().ComputeHash(inputBytes);
+                    }
+
+                case HashType.SHA1:
+                    {
+                        return SHA1.Create().ComputeHash(inputBytes);
+                    }
+
+                case HashType.SHA256:
+                    {
+                        return SHA256.Create().ComputeHash(inputBytes);
+                    }
+
+                case HashType.SHA384:
+                    {
+                        return SHA384.Create().ComputeHash(inputBytes);
+                    }
+
+                case HashType.SHA512:
+                    {
+                        return SHA512.Create().ComputeHash(inputBytes);
+                    }
+
+                default:
+                    {
+                        return inputBytes;
+                    }
+            }
+        }
+
+        /// <summary>
+        /// Computes a hash from the string.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="hashType">Type of the hash.</param>
+        /// <returns>System.String.</returns>
+        /// <exception cref="ArgumentException">'{nameof(input)}' cannot be null or empty - input</exception>
+        [Information(nameof(ComputeHash), "David McCarter", "10/8/2020", "10/8/2020", UnitTestCoverage = 0, Status = Status.New)]
+        public static string ComputeHash(this string input, HashType hashType)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                throw new ArgumentException($"'{nameof(input)}' cannot be null or empty", nameof(input));
+            }
+
+            var hash = GetHash(input, hashType);
+            var sb = new StringBuilder();
+
+            for (int i = 0; i <= hash.Length - 1; i++)
+            {
+                sb.Append(hash[i].ToString("x2", CultureInfo.InvariantCulture));
+            }
+
+            return sb.ToString();
+        }
+    }
+
+    /// <summary>
+    /// Enum for HashType
+    /// </summary>
+    public enum HashType
+    {
+        /// <summary>
+        /// HMAC hash
+        /// </summary>
+        HMAC,
+
+        /// <summary>
+        /// HMACMD5 hash
+        /// </summary>
+        HMACMD5,
+
+        /// <summary>
+        /// HMACSHA1 hash
+        /// </summary>
+        HMACSHA1,
+
+        /// <summary>
+        ///HMACSHA256 hash
+        /// </summary>
+        HMACSHA256,
+
+        /// <summary>
+        /// HMACSHA384 hash
+        /// </summary>
+        HMACSHA384,
+
+        /// <summary>
+        /// HMACSHA512 hash
+        /// </summary>
+        HMACSHA512,
+
+        /// <summary>
+        /// MD5 hash
+        /// </summary>
+        MD5,
+
+        /// <summary>
+        /// SHA1 hash
+        /// </summary>
+        SHA1,
+
+        /// <summary>
+        /// SHA256 hash
+        /// </summary>
+        SHA256,
+
+        /// <summary>
+        /// SHA384 hash
+        /// </summary>
+        SHA384,
+
+        /// <summary>
+        ///  SHA512 hash
+        /// </summary>
+        SHA512
     }
 }

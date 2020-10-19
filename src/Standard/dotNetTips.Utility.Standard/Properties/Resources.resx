@@ -1,4 +1,4 @@
-
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -206,5 +206,8 @@
   </data>
   <data name="InvalidUrlAddress" xml:space="preserve">
     <value>Invalid url address.</value>
+  </data>
+  <data name="SecureStringIsEmpty" xml:space="preserve">
+    <value>The SecureString is Null or does not contain text.</value>
   </data>
 </root>

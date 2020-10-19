@@ -13,6 +13,7 @@
 // ***********************************************************************
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security;
 using dotNetTips.Utility.Standard.Common;
@@ -33,7 +34,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="source">The source.</param>
         /// <param name="nextItem">The next item.</param>
         /// <returns>IEnumerable&lt;TSource&gt;.</returns>
-        public static IEnumerable<TSource> FromHierarchy<TSource>(this TSource source, Func<TSource, TSource> nextItem) where TSource : class => FromHierarchy(source, nextItem, s => s != null);
+        public static IEnumerable<TSource> FromHierarchy<TSource>(this TSource source, Func<TSource, TSource> nextItem) where TSource : Exception => FromHierarchy(source, nextItem, s => s != null);
 
         /// <summary>
         /// Hierarchy.
@@ -49,7 +50,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="System.ArgumentNullException">canContinue
         /// or
         /// nextItem</exception>
-        public static IEnumerable<TSource> FromHierarchy<TSource>(this TSource source, Func<TSource, TSource> nextItem, Func<TSource, bool> canContinue)
+        public static IEnumerable<TSource> FromHierarchy<TSource>(this TSource source, Func<TSource, TSource> nextItem, Func<TSource, bool> canContinue) where TSource : Exception
         {
             if (canContinue == null)
             {
@@ -75,16 +76,56 @@ namespace dotNetTips.Utility.Standard.Extensions
         public static string GetAllMessages(this Exception exception) => GetAllMessages(exception, Environment.NewLine);
 
         /// <summary>
-        /// Gets all messages.
+        /// Gets all Exception messages.
         /// </summary>
         /// <param name="exception">The exception.</param>
         /// <param name="separator">The separator.</param>
         /// <returns>System.String.</returns>
         public static string GetAllMessages(this Exception exception, string separator = " ")
         {
+            if (exception is null)
+            {
+                throw new ArgumentNullException(nameof(exception));
+            }
+
+            if (string.IsNullOrEmpty(separator))
+            {
+                throw new ArgumentException($"'{nameof(separator)}' cannot be null or empty", nameof(separator));
+            }
+
             var messages = exception.FromHierarchy(ex => ex.InnerException).Select(ex => ex.Message);
 
             return string.Join(separator, messages);
+        }
+
+        /// <summary>
+        /// Gets all messages with stack trace.
+        /// </summary>
+        /// <param name="exception">The exception.</param>
+        /// <param name="separator">The separator.</param>
+        /// <returns>System.String.</returns>
+        /// <exception cref="ArgumentNullException">exception</exception>
+        /// <exception cref="ArgumentException">'{nameof(separator)}' cannot be null or empty - separator</exception>
+        [Information(nameof(GetAllMessagesWithStackTrace), author: "David McCarter", createdOn: "10/12/2020", modifiedOn: "10/12/2020", UnitTestCoverage = 100, Status = Status.Available)]
+        public static List<(string message, string StackTrace)> GetAllMessagesWithStackTrace(this Exception exception, string separator = " ")
+        {
+            if (exception is null)
+            {
+                throw new ArgumentNullException(nameof(exception));
+            }
+
+            if (string.IsNullOrEmpty(separator))
+            {
+                throw new ArgumentException($"'{nameof(separator)}' cannot be null or empty", nameof(separator));
+            }
+
+            var messages = exception.FromHierarchy(ex => ex.InnerException)
+                .Select(ex => new { Message = ex.Message, StackTrace = ex.StackTrace.IsNotEmpty() ? ex.StackTrace : "NONE" })
+                .AsEnumerable()
+                .Select(c => (c.Message, c.StackTrace))
+                .ToList();
+
+            return messages;
         }
 
 
