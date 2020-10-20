@@ -4,7 +4,7 @@
 // Created          : 10-08-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-08-2020
+// Last Modified On : 10-20-2020
 // ***********************************************************************
 // <copyright file="TempFileManager.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -22,32 +22,32 @@ using dotNetTips.Utility.Standard.OOP;
 namespace dotNetTips.Utility.Core.Windows.IO
 {
     /// <summary>
-    /// TempFileManager creates and maintains a list of temporary files.
-    /// Implements the <see cref="System.IDisposable" />
+    /// TempFileManager creates and maintains a list of temporary files. Implements the <see cref="System.IDisposable"/>
+    ///
     /// </summary>
-    /// <seealso cref="System.IDisposable" />
-    [Information(nameof(TempFileManager), "David McCarter", "10/8/2020", "10/8/2020", UnitTestCoverage = 0, Status = Status.New)]
+    /// <seealso cref="System.IDisposable"/>
+    [Information(nameof(TempFileManager), "David McCarter", "10/8/2020", "10/20/2020", UnitTestCoverage = 100, Status = Status.New)]
     public class TempFileManager : IDisposable
     {
         private bool _disposed;
         private List<string> _files = new List<string>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TempFileManager" /> class.
+        /// Initializes a new instance of the <see cref="TempFileManager"/> class.
         /// </summary>
         public TempFileManager()
         {
         }
 
-        private string GenerateRandomFile()
-        {
-            return Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
-        }
+        private string GenerateRandomFile() { return Path.GetTempFileName(); }
 
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources.
         /// </summary>
-        /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        /// <param name="disposing">
+        /// <c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged
+        /// resources.
+        /// </param>
         protected virtual new void Dispose(bool disposing)
         {
             if (!(this._disposed))
@@ -78,7 +78,7 @@ namespace dotNetTips.Utility.Core.Windows.IO
         }
 
         /// <summary>
-        /// Creates mutiple temp files.
+        /// Creates multiple temp files.
         /// </summary>
         /// <param name="count">The count.</param>
         /// <returns>ImmutableArray&lt;System.String&gt;.</returns>
@@ -89,7 +89,9 @@ namespace dotNetTips.Utility.Core.Windows.IO
 
             for (int fileCount = 0; fileCount < count; fileCount++)
             {
-                files.Add(GenerateRandomFile());
+                var fileName = GenerateRandomFile();
+
+                files.Add(fileName);
             }
 
             this._files.AddRange(files);
@@ -102,13 +104,14 @@ namespace dotNetTips.Utility.Core.Windows.IO
         /// </summary>
         public void DeleteAllFiles()
         {
-            string[] tempFiles = new string[this._files.Count - 1 + 1];
-
-            this._files.CopyTo(tempFiles, 0);
-
-            for (var i = 0; i < tempFiles.Length; i++)
+            if (this._files.HasItems())
             {
-                this.DeleteFile(tempFiles[i]);
+                var files = this._files.CopyToList();
+
+                foreach (var fileName in files)
+                {
+                    this.DeleteFile(fileName);
+                }
             }
         }
 
@@ -144,10 +147,6 @@ namespace dotNetTips.Utility.Core.Windows.IO
         /// List of files currently being managed.
         /// </summary>
         /// <returns>IReadOnlyCollection&lt;System.String&gt;.</returns>
-        public IReadOnlyCollection<string> FilesList()
-        {
-            return new ReadOnlyCollection<string>(this._files);
-        }
+        public IReadOnlyCollection<string> FilesList() { return new ReadOnlyCollection<string>(this._files); }
     }
-
 }

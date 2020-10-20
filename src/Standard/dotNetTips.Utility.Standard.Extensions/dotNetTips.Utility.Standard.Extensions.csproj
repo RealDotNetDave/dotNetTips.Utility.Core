@@ -3,8 +3,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Extensions.xml</DocumentationFile>
     <OutputPath>..\..\..\appbin\</OutputPath>
-    <AssemblyVersion>2020.10.19.34682</AssemblyVersion>
-    <FileVersion>2020.10.19.34682</FileVersion>
+    <AssemblyVersion>2020.10.20.34694</AssemblyVersion>
+    <FileVersion>2020.10.20.34694</FileVersion>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
     <Description>Common .NET Standard Code Extensions</Description>
