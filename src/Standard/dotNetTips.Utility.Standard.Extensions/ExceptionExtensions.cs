@@ -13,7 +13,6 @@
 // ***********************************************************************
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Security;
 using dotNetTips.Utility.Standard.Common;
@@ -34,7 +33,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="source">The source.</param>
         /// <param name="nextItem">The next item.</param>
         /// <returns>IEnumerable&lt;TSource&gt;.</returns>
-        public static IEnumerable<TSource> FromHierarchy<TSource>(this TSource source, Func<TSource, TSource> nextItem) where TSource : Exception => FromHierarchy(source, nextItem, s => s != null);
+        public static IEnumerable<TSource> FromHierarchy<TSource>(this TSource source, Func<TSource, TSource> nextItem)
+            where TSource : Exception => FromHierarchy(source, nextItem, s => s != null);
 
         /// <summary>
         /// Hierarchy.
@@ -44,25 +44,28 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="nextItem">The next item.</param>
         /// <param name="canContinue">The can continue.</param>
         /// <returns>IEnumerable&lt;TSource&gt;.</returns>
-        /// <exception cref="ArgumentNullException">canContinue
-        /// or
-        /// nextItem</exception>
-        /// <exception cref="System.ArgumentNullException">canContinue
-        /// or
-        /// nextItem</exception>
-        public static IEnumerable<TSource> FromHierarchy<TSource>(this TSource source, Func<TSource, TSource> nextItem, Func<TSource, bool> canContinue) where TSource : Exception
+        /// <exception cref="ArgumentNullException">
+        /// canContinue or nextItem
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// canContinue or nextItem
+        /// </exception>
+        public static IEnumerable<TSource> FromHierarchy<TSource>(this TSource source,
+                                                                  Func<TSource, TSource> nextItem,
+                                                                  Func<TSource, bool> canContinue)
+            where TSource : Exception
         {
-            if (canContinue == null)
+            if(canContinue == null)
             {
                 throw new ArgumentNullException(nameof(canContinue), $"{nameof(canContinue)} is null.");
             }
 
-            if (nextItem == null)
+            if(nextItem == null)
             {
                 throw new ArgumentNullException(nameof(nextItem), $"{nameof(nextItem)} is null.");
             }
 
-            for (var current = source; canContinue(current); current = nextItem(current))
+            for(var current = source; canContinue(current); current = nextItem(current))
             {
                 yield return current;
             }
@@ -83,12 +86,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>System.String.</returns>
         public static string GetAllMessages(this Exception exception, string separator = " ")
         {
-            if (exception is null)
+            if(exception is null)
             {
                 throw new ArgumentNullException(nameof(exception));
             }
 
-            if (string.IsNullOrEmpty(separator))
+            if(string.IsNullOrEmpty(separator))
             {
                 throw new ArgumentException($"'{nameof(separator)}' cannot be null or empty", nameof(separator));
             }
@@ -105,22 +108,27 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="separator">The separator.</param>
         /// <returns>System.String.</returns>
         /// <exception cref="ArgumentNullException">exception</exception>
-        /// <exception cref="ArgumentException">'{nameof(separator)}' cannot be null or empty - separator</exception>
+        /// <exception cref="ArgumentException">'separator' cannot be null or empty - separator</exception>
         [Information(nameof(GetAllMessagesWithStackTrace), author: "David McCarter", createdOn: "10/12/2020", modifiedOn: "10/12/2020", UnitTestCoverage = 100, Status = Status.Available)]
-        public static List<(string message, string StackTrace)> GetAllMessagesWithStackTrace(this Exception exception, string separator = " ")
+        public static List<(string message, string StackTrace)> GetAllMessagesWithStackTrace(this Exception exception,
+                                                                                             string separator = " ")
         {
-            if (exception is null)
+            if(exception is null)
             {
                 throw new ArgumentNullException(nameof(exception));
             }
 
-            if (string.IsNullOrEmpty(separator))
+            if(string.IsNullOrEmpty(separator))
             {
                 throw new ArgumentException($"'{nameof(separator)}' cannot be null or empty", nameof(separator));
             }
 
             var messages = exception.FromHierarchy(ex => ex.InnerException)
-                .Select(ex => new { Message = ex.Message, StackTrace = ex.StackTrace.IsNotEmpty() ? ex.StackTrace : "NONE" })
+                .Select(ex => new
+                {
+                    Message = ex.Message,
+                    StackTrace = ex.StackTrace.IsNotEmpty() ? ex.StackTrace : "NONE"
+                })
                 .AsEnumerable()
                 .Select(c => (c.Message, c.StackTrace))
                 .ToList();
@@ -137,12 +145,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool IsCritical(this Exception ex)
         {
-            return ex is NullReferenceException
-                    || ex is StackOverflowException
-                    || ex is OutOfMemoryException
-                    || ex is System.Threading.ThreadAbortException
-                    || ex is IndexOutOfRangeException
-                    || ex is AccessViolationException;
+            return ex is NullReferenceException ||
+                ex is StackOverflowException ||
+                ex is OutOfMemoryException ||
+                ex is System.Threading.ThreadAbortException ||
+                ex is IndexOutOfRangeException ||
+                ex is AccessViolationException;
         }
 
         /// <summary>
@@ -160,9 +168,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns><c>true</c> if [is security or critical] [the specified ex]; otherwise, <c>false</c>.</returns>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool IsSecurityOrCritical(this Exception ex)
-        {
-            return (ex is SecurityException) || ex.IsCritical();
-        }
+        { return (ex is SecurityException) || ex.IsCritical(); }
 
         /// <summary>
         /// Traverses Exception.
@@ -175,18 +181,17 @@ namespace dotNetTips.Utility.Standard.Extensions
         public static T TraverseFor<T>(this Exception ex)
             where T : class
         {
-            if (ex is null)
+            if(ex is null)
             {
                 throw new ArgumentNullException(nameof(ex), Resources.ExceptionCannotBeNull);
             }
 
-            if (ReferenceEquals(ex.GetType(), typeof(T)))
+            if(ReferenceEquals(ex.GetType(), typeof(T)))
             {
                 return ex as T;
             }
 
             return ex.InnerException.TraverseFor<T>();
         }
-
     }
 }

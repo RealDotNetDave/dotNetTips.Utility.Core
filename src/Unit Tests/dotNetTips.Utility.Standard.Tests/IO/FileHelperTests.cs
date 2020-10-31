@@ -32,15 +32,15 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
         private DirectoryInfo _tempPath;
 
         [TestMethod]
-        public async Task CopyFileAsyncTestAsync()
+        public async Task CopyFileAsyncTest()
         {
             try
             {
                 var directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-                var fileToCopy = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).GetDirectories().Where(p => p.GetFiles().Count() > 0).Randomize().FirstOrDefault().GetFiles().FirstOrDefault();
+                var fileToCopy = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).GetDirectories().Where(p => p.GetFiles().Count() > 0).Shuffle().FirstOrDefault().GetFiles().FirstOrDefault();
 
-                var result = await FileHelper.CopyFileAsync(fileToCopy, this._tempPath).ConfigureAwait(true);
+                var result = await FileHelper.CopyFileAsync(file: fileToCopy, destinationFolder: this._tempPath).ConfigureAwait(true);
 
                 Assert.IsTrue(result > 0);
             }
@@ -57,7 +57,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
             {
                 var directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-                var fileToCopy = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).GetDirectories().Where(p => p.GetFiles().Count() > 0).Randomize().FirstOrDefault().GetFiles().FirstOrDefault();
+                var fileToCopy = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).GetDirectories().Where(p => p.GetFiles().Count() > 0).Shuffle().FirstOrDefault().GetFiles().FirstOrDefault();
 
                 var result = FileHelper.CopyFile(fileToCopy, this._tempPath);
 
@@ -74,7 +74,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
         {
             try
             {
-                var filesToCopy = new DirectoryInfo(Environment.CurrentDirectory).GetFiles("*.*", SearchOption.AllDirectories).Randomize().Take(5);
+                var filesToCopy = new DirectoryInfo(Environment.CurrentDirectory).GetFiles("*.*", SearchOption.AllDirectories).Shuffle().Take(5);
 
                 var filesCopied = new List<FileInfo>(filesToCopy.Count());
 
@@ -86,6 +86,8 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
                 var result = FileHelper.DeleteFiles(filesCopied.Select(p => p.FullName));
 
                 Assert.IsTrue(result.Count() == 0);
+
+                Assert.IsNull(FileHelper.DeleteFiles(null));
             }
             catch (Exception ex)
             {
@@ -94,7 +96,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
         }
 
         [TestMethod]
-        public void DownloadFileFromTheWebTest()
+        public void DownloadFileFromWebTest()
         {
             try
             {
@@ -109,11 +111,24 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
         }
 
         [TestMethod]
+        public async Task DownloadFileFromWebAsyncTest()
+        {
+            try
+            {
+                const string fileToDownload = @"https://dotnettips.files.wordpress.com/2018/03/cropped-rtw-dotnettips-com-logo05x1.png";
+
+                await FileHelper.DownloadFileFromWebAsync(new Uri(fileToDownload), Path.Combine(this._tempPath.FullName, "dotNetTips.Com.logo.png"));
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+        }
+
+        [TestMethod]
         public void InvalidFileNameCharsTest()
         {
-            var result = FileHelper.InvalidFileNameChars;
-
-            Assert.IsTrue(result.Count() > 0);
+            Assert.IsTrue(FileHelper.InvalidFileNameChars.HasItems());
         }
 
 
@@ -151,7 +166,12 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
                     directory.Delete();
                 }
 
-                FileHelper.DeleteFiles(this._tempPath.EnumerateFiles().Select(p => p.FullName));
+                var filesToDelete = this._tempPath.EnumerateFiles().Select(p => p.FullName);
+
+                if (filesToDelete.HasItems())
+                {
+                    FileHelper.DeleteFiles(filesToDelete);
+                }
             }
         }
 

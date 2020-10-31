@@ -18,7 +18,7 @@ using dotNetTips.Utility.Standard.Common;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {
-    //https://exceptionnotfound.net/using-conditional-csharp-linq-clauses-to-make-a-multiple-input-search-engine/
+    //TODO: https://exceptionnotfound.net/using-conditional-csharp-linq-clauses-to-make-a-multiple-input-search-engine/
 
     /// <summary>
     /// Class LINQExtensions.
@@ -34,11 +34,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="should">if set to <c>true</c> [should].</param>
         /// <param name="transforms">The transforms.</param>
         /// <returns>IQueryable&lt;T&gt;.</returns>
-        [Information("Orginal code from https://github.com/exceptionnotfound/ConditionalLinqQueryEngine", "David McCarter", "8/18/20", ModifiedBy = "David McCarter", Status = Status.Available, UnitTestCoverage = 0)]
-        public static IQueryable<T> If<T>(this IQueryable<T> input, bool should, params Func<IQueryable<T>, IQueryable<T>>[] transforms)
-        {
-            return should ? transforms.Aggregate(input, (current, transform) => transform.Invoke(current)) : input;
-        }
+        [Information("Original code from https://github.com/exceptionnotfound/ConditionalLinqQueryEngine", "David McCarter", "8/18/20", ModifiedBy = "David McCarter", Status = Status.Available, UnitTestCoverage = 0)]
+        public static IQueryable<T> If<T>(this IQueryable<T> input,
+                                          bool should,
+                                          params Func<IQueryable<T>, IQueryable<T>>[] transforms)
+        { return should ? transforms.Aggregate(input, (current, transform) => transform.Invoke(current)) : input; }
 
         /// <summary>
         /// Ifs the specified should.
@@ -48,10 +48,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="should">if set to <c>true</c> [should].</param>
         /// <param name="transforms">The transforms.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
-        [Information("Orginal code from https://github.com/exceptionnotfound/ConditionalLinqQueryEngine", "David McCarter", "8/18/20", ModifiedBy = "David McCarter", Status = Status.Available, UnitTestCoverage = 0)]
-        public static IEnumerable<T> If<T>(this IEnumerable<T> input, bool should, params Func<IEnumerable<T>, IEnumerable<T>>[] transforms)
-        {
-            return should ? transforms.Aggregate(input, (current, transform) => transform.Invoke(current)) : input;
-        }
+        [Information("Original code from https://github.com/exceptionnotfound/ConditionalLinqQueryEngine", "David McCarter", "8/18/20", ModifiedBy = "David McCarter", Status = Status.Available, UnitTestCoverage = 0)]
+        public static IEnumerable<T> If<T>(this IEnumerable<T> input,
+                                           bool should,
+                                           params Func<IEnumerable<T>, IEnumerable<T>>[] transforms)
+        { return should ? transforms.Aggregate(input, (current, transform) => transform.Invoke(current)) : input; }
     }
 }

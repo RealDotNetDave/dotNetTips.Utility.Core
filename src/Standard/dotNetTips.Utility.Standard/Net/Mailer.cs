@@ -4,13 +4,16 @@
 // Created          : 10-09-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-15-2020
+// Last Modified On : 10-21-2020
 // ***********************************************************************
 // <copyright file="Mailer.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using dotNetTips.Utility.Standard.Common;
+using dotNetTips.Utility.Standard.Extensions;
+using dotNetTips.Utility.Standard.OOP;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,38 +21,46 @@ using System.Globalization;
 using System.Linq;
 using System.Net.Mail;
 using System.Threading.Tasks;
-using dotNetTips.Utility.Standard.Common;
-using dotNetTips.Utility.Standard.Extensions;
-using dotNetTips.Utility.Standard.OOP;
 
 namespace dotNetTips.Utility.Standard.Net
 {
     /// <summary>
-    /// Class Mailer. Implements the <see cref="System.IDisposable"/>
+    /// Class Mailer. Implements the <see cref="System.IDisposable" />
     /// </summary>
-    /// <seealso cref="System.IDisposable"/>
+    /// <seealso cref="System.IDisposable" />
     [Information(nameof(Mailer), "David McCarter", "10/09/2020", "10/15/2020", UnitTestCoverage = 0, Status = Status.New)]
     public class Mailer : IDisposable
     {
+        /// <summary>
+        /// The disposed
+        /// </summary>
         private bool _disposed;
 
         /// <summary>
-        /// The mail server
+        /// The mail server.
         /// </summary>
         private SmtpClient _mailServer;
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="host">SMTP host address (required).</param>
-        public Mailer(string host) { this._mailServer = new SmtpClient(host); }
 
         /// <summary>
-        /// Constructor
+        /// Initializes a new instance of the <see cref="Mailer"/> class.
         /// </summary>
-        /// <param name="host">SMTP host address (required)</param>
-        /// <param name="port">SMTP host port (required)</param>
-        public Mailer(string host, Int32 port) { this._mailServer = new SmtpClient(host, port); }
+        /// <param name="host">SMTP host address (required).</param>
+        public Mailer(string host)
+        {
+            this._mailServer = new SmtpClient(host);
+        }
+
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Mailer"/> class.
+        /// </summary>
+        /// <param name="host">SMTP host address (required).</param>
+        /// <param name="port">SMTP host port (required).</param>
+        public Mailer(string host, int port)
+        {
+            this._mailServer = new SmtpClient(host, port);
+        }
 
         /// <summary>
         /// Creates the mail message.
@@ -59,35 +70,32 @@ namespace dotNetTips.Utility.Standard.Net
         /// <param name="message">The message.</param>
         /// <param name="bodyHtml">if set to <c>true</c> [body HTML].</param>
         /// <param name="sendAddresses">The send addresses.</param>
-        private static MailMessage CreateMailMessage(EmailAddress fromAddress,
-                                                     string subject,
-                                                     string message,
-                                                     bool bodyHtml,
-                                                     EmailAddress[] sendAddresses)
+        /// <returns>MailMessage.</returns>
+        private static MailMessage CreateMailMessage(EmailAddress fromAddress, string subject, string message, bool bodyHtml, EmailAddress[] sendAddresses)
         {
             var mailMessage = new MailMessage();
 
-            foreach(var tempSendTo in sendAddresses.Where(p => p.IsAddressValid()).ToArray())
+            foreach (var tempSendTo in sendAddresses.Where(p => p.IsAddressValid()).ToArray())
             {
-                switch(tempSendTo.EmailAddressType)
+                switch (tempSendTo.EmailAddressType)
                 {
                     case EmailAddressType.SendBcc:
-                    {
-                        mailMessage.Bcc.Add(new MailAddress(tempSendTo.Address, tempSendTo.Name));
-                        break;
-                    }
+                        {
+                            mailMessage.Bcc.Add(new MailAddress(tempSendTo.Address, tempSendTo.Name));
+                            break;
+                        }
 
                     case EmailAddressType.SendCC:
-                    {
-                        mailMessage.CC.Add(new MailAddress(tempSendTo.Address, tempSendTo.Name));
-                        break;
-                    }
+                        {
+                            mailMessage.CC.Add(new MailAddress(tempSendTo.Address, tempSendTo.Name));
+                            break;
+                        }
 
                     default:
-                    {
-                        mailMessage.To.Add(new MailAddress(tempSendTo.Address, tempSendTo.Name));
-                        break;
-                    }
+                        {
+                            mailMessage.To.Add(new MailAddress(tempSendTo.Address, tempSendTo.Name));
+                            break;
+                        }
                 }
             }
 
@@ -100,9 +108,14 @@ namespace dotNetTips.Utility.Standard.Net
             return mailMessage;
         }
 
+        /// <summary>
+        /// Sends the mail message.
+        /// </summary>
+        /// <param name="tempMessage">The temporary message.</param>
+        /// <param name="userToken">The user token.</param>
         private void SendMailMessage(MailMessage tempMessage, object userToken)
         {
-            if(userToken.IsNotNull())
+            if (userToken.IsNotNull())
             {
                 this._mailServer.SendAsync(tempMessage, userToken);
                 return;
@@ -114,17 +127,15 @@ namespace dotNetTips.Utility.Standard.Net
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources.
         /// </summary>
-        /// <param name="disposing">
-        /// <c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged
-        /// resources.
-        /// </param>
-        protected virtual new void Dispose(bool disposing)
+        /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged
+        /// resources.</param>
+        protected virtual void Dispose(bool disposing)
         {
-            if(this._disposed == false)
+            if (this._disposed == false)
             {
                 // If disposing equals true, dispose all managed
                 // and unmanaged resources.
-                if((disposing))
+                if (disposing)
                 {
                     // Dispose managed resources.
                     this.DisposeFields();
@@ -148,7 +159,7 @@ namespace dotNetTips.Utility.Standard.Net
 
             var addresses = new List<EmailAddress>();
             addresses.AddRange(emailAddresses.Select(address => new EmailAddress(address)
-                { EmailAddressType = emailAddressType }));
+            { EmailAddressType = emailAddressType }));
 
             return addresses.ToArray();
         }
@@ -156,7 +167,7 @@ namespace dotNetTips.Utility.Standard.Net
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
-        public new void Dispose()
+        public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
@@ -166,7 +177,10 @@ namespace dotNetTips.Utility.Standard.Net
         /// Sends mail.
         /// </summary>
         /// <param name="message">Message object.</param>
-        public void SendMail(MailMessage message) { this.SendMailMessage(message, null); }
+        public void SendMail(MailMessage message)
+        {
+            this.SendMailMessage(message, null);
+        }
 
         /// <summary>
         /// Sends mail.
@@ -190,7 +204,7 @@ namespace dotNetTips.Utility.Standard.Net
             // 'Set default types, just in case.
             fromAddress.EmailAddressType = EmailAddressType.SendFrom;
 
-            using(var tempMessage = CreateMailMessage(fromAddress, subject, message, bodyHtml, sendAddresses))
+            using (var tempMessage = CreateMailMessage(fromAddress, subject, message, bodyHtml, sendAddresses))
             {
                 this.SendMailMessage(tempMessage, null);
             }
@@ -255,7 +269,7 @@ namespace dotNetTips.Utility.Standard.Net
             // 'Set default types, just in case.
             fromAddress.EmailAddressType = EmailAddressType.SendFrom;
 
-            using(var tempMessage = CreateMailMessage(fromAddress, subject, message, bodyHtml, sendAddresses))
+            using (var tempMessage = CreateMailMessage(fromAddress, subject, message, bodyHtml, sendAddresses))
             {
                 await _mailServer.SendMailAsync(tempMessage);
             }
@@ -302,7 +316,7 @@ namespace dotNetTips.Utility.Standard.Net
             Encapsulation.TryValidateParam(message, nameof(message));
             Encapsulation.TryValidateParam<ArgumentInvalidException>(sendToAddress.IsAddressValid() == false);
 
-            using(var mailProcess = new Process())
+            using (var mailProcess = new Process())
             {
                 var processInfo = new ProcessStartInfo()
                 {
@@ -325,7 +339,7 @@ namespace dotNetTips.Utility.Standard.Net
         /// Timeout for the SMTP server.
         /// </summary>
         /// <value>The timeout.</value>
-        public Int32 Timeout
+        public int Timeout
         {
             get { return this._mailServer.Timeout; }
             set { this._mailServer.Timeout = value.EnsureMinimumValue(100); }

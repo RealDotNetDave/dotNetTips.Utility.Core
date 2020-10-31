@@ -1,4 +1,4 @@
-
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -132,7 +132,7 @@
   <data name="ExMessageNullException" xml:space="preserve">
     <value>Exception cannot be null.</value>
   </data>
-  <data name="ExMessageReadonlyCollection" xml:space="preserve">
+  <data name="ExMessageReadOnlyCollection" xml:space="preserve">
     <value>Collection cannot be read-only.</value>
   </data>
   <data name="GoToDotNetTipsComForHelp" xml:space="preserve">

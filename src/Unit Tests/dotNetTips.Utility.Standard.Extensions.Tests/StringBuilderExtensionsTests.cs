@@ -55,7 +55,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             sb.AppendValues(", ", values, (person) =>
              {
                  sb.Append(person.X);
-                 sb.Append(ControlChars.Colon);
+                 sb.Append(dotNetTips.Utility.Standard.Common.ControlChars.Colon);
                  sb.Append(person.Y);
              });
 

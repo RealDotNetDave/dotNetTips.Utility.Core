@@ -14,13 +14,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using LinqToDB;
-using System.Data.Linq;
-using System.Runtime.CompilerServices;
 using dotNetTips.Utility.Standard.Common;
+using LinqToDB;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {

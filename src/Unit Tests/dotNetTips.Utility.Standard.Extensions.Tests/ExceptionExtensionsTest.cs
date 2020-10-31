@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Data.Services.Client;
-using System.Diagnostics;
 using System.Security;
 using System.ServiceModel.Security;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -43,7 +41,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         [TestMethod]
         public void GetAllMessagesTest()
         {
-            var innerEx = new SecurityException("Messsage from SecurityException", new DataServiceClientException("Cannot access service!"));
+            var innerEx = new SecurityException("Message from SecurityException", new DataMisalignedException("Cannot access service!"));
 
             var ex = new SecurityAccessDeniedException("Message from SecurityAccessDeniedException", innerEx);
 
@@ -55,7 +53,8 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         [TestMethod]
         public void GetAllMessagesWithStackTraceTest()
         {
-            var innerEx = new SecurityException("Messsage from SecurityException", new DataServiceClientException("Cannot access service!"));
+            var innerEx = new SecurityException("Message from SecurityException",
+                                                new DataMisalignedException("Cannot access service!"));
 
             var ex = new SecurityAccessDeniedException("Message from SecurityAccessDeniedException", innerEx);
 

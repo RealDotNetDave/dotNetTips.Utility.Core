@@ -85,13 +85,13 @@ namespace dotNetTips.Utility.Standard.Net
                     index -= quotedCharCount;
                 }
                 // Start a new comment
-                else if (data[index] == ControlChars.EndComment)
+                else if (data[index] == dotNetTips.Utility.Standard.Common.ControlChars.EndComment)
                 {
                     commentDepth++;
                     index--;
                 }
                 // Finish a comment
-                else if (data[index] == ControlChars.StartComment)
+                else if (data[index] == dotNetTips.Utility.Standard.Common.ControlChars.StartComment)
                 {
                     commentDepth--;
                     if (commentDepth < 0)
@@ -99,7 +99,7 @@ namespace dotNetTips.Utility.Standard.Net
                         if (throwExceptionIfFail)
                         {
                             // Mismatched '('
-                            throw new FormatException($"Invalid character: {ControlChars.StartComment}.");
+                            throw new FormatException($"Invalid character: {dotNetTips.Utility.Standard.Common.ControlChars.StartComment}.");
                         }
                         else
                         {
@@ -192,12 +192,12 @@ namespace dotNetTips.Utility.Standard.Net
             for (; index >= 0; index--)
             {
                 // Check for a valid CRLF pair
-                if (data[index] == ControlChars.CR && expectCR)
+                if (data[index] == dotNetTips.Utility.Standard.Common.ControlChars.CR && expectCR)
                 {
                     expectCR = false; // valid pair
                 }
                 // LF without CR, or CR without LF, invalid
-                else if (data[index] == ControlChars.CR || expectCR)
+                else if (data[index] == dotNetTips.Utility.Standard.Common.ControlChars.CR || expectCR)
                 {
                     if (throwExceptionIfFail)
                     {
@@ -211,12 +211,12 @@ namespace dotNetTips.Utility.Standard.Net
                 }
                 // LF is only valid if preceded by a CR.
                 // Skip both if they're found together.
-                else if (data[index] == ControlChars.LF)
+                else if (data[index] == dotNetTips.Utility.Standard.Common.ControlChars.LF)
                 {
                     expectCR = true;
                 }
                 // Skip whitespace
-                else if (data[index] == ControlChars.Space || data[index] == ControlChars.Tab)
+                else if (data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Space || data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Tab)
                 {
                     // No-op
                 }

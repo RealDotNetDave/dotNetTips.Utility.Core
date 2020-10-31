@@ -147,17 +147,17 @@ namespace dotNetTips.Utility.Standard.Common
         /// <summary>
         /// The dot
         /// </summary>
-        internal const char Dot = '.';
+        public const char Dot = '.';
 
         /// <summary>
         /// The start square bracket
         /// </summary>
-        internal const char StartSquareBracket = '[';
+        public const char StartSquareBracket = '[';
 
         /// <summary>
         /// The start square bracket
         /// </summary>
-        internal const char EndSquareBracket = ']';
+        public const char EndSquareBracket = ']';
 
     }
 }

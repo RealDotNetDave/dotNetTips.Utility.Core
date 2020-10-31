@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 namespace dotNetTips.Utility.Standard.Extensions
 {
     /// <summary>
-    /// Extention helper methods for <see cref="Task"/>.
+    /// Extension helper methods for <see cref="Task"/>.
     /// </summary>
     public static class TaskExtensions
     {

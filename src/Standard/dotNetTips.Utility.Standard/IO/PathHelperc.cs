@@ -41,7 +41,7 @@ namespace dotNetTips.Utility.Standard.IO
             {
                 paths[paramCount] = paths[paramCount].ToTrimmed();
             }
-         
+
             var pathString = Path.Combine(paths);
 
             var di = new DirectoryInfo(pathString);
@@ -50,7 +50,7 @@ namespace dotNetTips.Utility.Standard.IO
             {
                 di.Create();
             }
-        
+
             return di;
         }
 
@@ -118,12 +118,7 @@ namespace dotNetTips.Utility.Standard.IO
         {
             Encapsulation.TryValidateParam(path, nameof(path));
 
-            if (path[path.Length - 1] != Path.DirectorySeparatorChar)
-            {
-                return path + Path.DirectorySeparatorChar;
-            }
-
-            return path;
+            return path[path.Length - 1] != Path.DirectorySeparatorChar ? path + Path.DirectorySeparatorChar : path;
         }
 
         /// <summary>

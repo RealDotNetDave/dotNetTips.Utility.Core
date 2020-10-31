@@ -27,6 +27,14 @@ namespace dotNetTips.Utility.Standard.Web
     [Information("From dotNetTips.Utility", "David McCarter", "9/2/2020", "9/2/2020", Status = Status.Available, UnitTestCoverage = 100, BenchMarkStatus = 0)]
     public static class WebHelper
     {
+
+        /// <summary>
+        /// Gets the HTTP header names.
+        /// </summary>
+        /// <value>The HTTP header names.</value>
+        [Information("From dotNetTips.Utility", "David McCarter", "9/2/2020", "9/2/2020", Status = Status.Available, UnitTestCoverage = 100, BenchMarkStatus = 0)]
+        public static string[] HttpHeaderNames { get; } = Enum.GetNames(typeof(HttpRequestHeader));
+
         /// <summary>
         /// Downloads the string.
         /// </summary>
@@ -37,7 +45,8 @@ namespace dotNetTips.Utility.Standard.Web
         {
             Encapsulation.TryValidateParam(address, nameof(address));
 
-            using (WebClient client = new WebClient())
+            // TODO: CHANGE TO HTTPCLIENT
+            using (var client = new WebClient())
             {
                 if (clientId.HasValue())
                 {
@@ -60,7 +69,8 @@ namespace dotNetTips.Utility.Standard.Web
         {
             Encapsulation.TryValidateParam(address, nameof(address));
 
-            using (WebClient client = new WebClient())
+            // TODO: CHANGE TO HTTPCLIENT
+            using (var client = new WebClient())
             {
                 if (clientId.HasValue())
                 {
@@ -106,7 +116,7 @@ namespace dotNetTips.Utility.Standard.Web
 
             if (Uri.TryCreate(url, UriKind.Absolute, out var absoluteUri))
             {
-                bool validHostName = String.Equals(request.Host.ToUriComponent(),
+                var validHostName = String.Equals(request.Host.ToUriComponent(),
                                                    absoluteUri.Host,
                                                    StringComparison.OrdinalIgnoreCase);
 
@@ -114,19 +124,12 @@ namespace dotNetTips.Utility.Standard.Web
             }
             else
             {
-                bool isLocal = !url.StartsWith("http:", StringComparison.OrdinalIgnoreCase) &&
+                var isLocal = !url.StartsWith("http:", StringComparison.OrdinalIgnoreCase) &&
                     !url.StartsWith("https:", StringComparison.OrdinalIgnoreCase) &&
                     Uri.IsWellFormedUriString(url, UriKind.Relative);
 
                 return isLocal;
             }
         }
-
-        /// <summary>
-        /// Gets the HTTP header names.
-        /// </summary>
-        /// <value>The HTTP header names.</value>
-        [Information("From dotNetTips.Utility", "David McCarter", "9/2/2020", "9/2/2020", Status = Status.Available, UnitTestCoverage = 100, BenchMarkStatus = 0)]
-        public static string[] HttpHeaderNames { get; } = Enum.GetNames(typeof(HttpRequestHeader));
     }
 }

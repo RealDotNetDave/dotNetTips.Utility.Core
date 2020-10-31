@@ -23,10 +23,10 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Net
 
         private const int _defaultTimeout = 1001;
         private static readonly TimerQueue _defaultTimerQueue = CountdownTimer.GetOrCreateQueue(_defaultTimeout);
-        private dotNetTips.Utility.Standard.Net.CancelationTimer _timer;
+        private dotNetTips.Utility.Standard.Net.CancellationTimer _timer;
         private static CountdownTimer.Callback _timerCallback = new CountdownTimer.Callback(TimerCallback);
 
-        public static void TimerCallback(dotNetTips.Utility.Standard.Net.CancelationTimer timer, int timeNoticed, object context)
+        public static void TimerCallback(dotNetTips.Utility.Standard.Net.CancellationTimer timer, int timeNoticed, object context)
         {
             Assert.IsTrue(timer.HasExpired);
             Assert.IsTrue(context.ToString() == "DATA");

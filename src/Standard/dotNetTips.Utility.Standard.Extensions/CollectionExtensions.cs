@@ -41,11 +41,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="items">The items.</param>
         private static void ProcessCollectionToDispose(IEnumerable items)
         {
-            if (items.HasItems())
+            if(items.HasItems())
             {
-                foreach (var item in items)
+                foreach(var item in items)
                 {
-                    if (item != null && item is IDisposable disposeItem)
+                    if(item != null && item is IDisposable disposeItem)
                     {
                         disposeItem.TryDispose();
                     }
@@ -57,11 +57,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             get
             {
-                if (_random == null)
+                if(_random == null)
                 {
                     int seed;
 
-                    lock (globalRandom)
+                    lock(globalRandom)
                     {
                         seed = globalRandom.Next();
                     }
@@ -97,17 +97,17 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 76.92, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool AddFirst<T>(this IList<T> list, T item)
         {
-            if (list.IsNull())
+            if(list.IsNull())
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(list));
             }
 
-            if (list.IsReadOnly)
+            if(list.IsReadOnly)
             {
                 ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
             }
 
-            if (item == null)
+            if(item == null)
             {
                 return false;
             }
@@ -128,17 +128,17 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 76.92, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static T[] AddFirst<T>(this T[] array, T item)
         {
-            if (array.IsNull())
+            if(array.IsNull())
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(array));
             }
 
-            if (array.IsReadOnly)
+            if(array.IsReadOnly)
             {
                 ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(array));
             }
 
-            if (item == null)
+            if(item == null)
             {
                 return array;
             }
@@ -164,17 +164,17 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="System.ArgumentException">list - List cannot be null. or value - Value cannot be null.</exception>
         public static bool AddIfNotExists<T>(this ICollection<T> list, T item)
         {
-            if (list.IsNull())
+            if(list.IsNull())
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(list));
             }
 
-            if (list.IsReadOnly)
+            if(list.IsReadOnly)
             {
                 ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
             }
 
-            if (item == null || list.Contains(item))
+            if(item == null || list.Contains(item))
             {
                 return false;
             }
@@ -193,28 +193,28 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information(nameof(AddIfNotExists), author: "David McCarter", createdOn: "8/12/2020", modifiedOn: "8/12/2020", UnitTestCoverage = 82.61, BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available)]
         public static T[] AddIfNotExists<T>(this T[] list, params T[] items)
         {
-            if (list.IsNull())
+            if(list.IsNull())
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(list));
             }
 
-            if (list.IsReadOnly)
+            if(list.IsReadOnly)
             {
                 ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
             }
 
-            if (items.HasItems() == false)
+            if(items.HasItems() == false)
             {
                 return list;
             }
 
             var returnCollection = list.ToList();
 
-            for (int itemCount = 0; itemCount < items.Count(); itemCount++)
+            for(int itemCount = 0; itemCount < items.Count(); itemCount++)
             {
                 var item = items[itemCount];
 
-                if (list.Contains(item) == false)
+                if(list.Contains(item) == false)
                 {
                     returnCollection.Add(item);
                 }
@@ -234,28 +234,28 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">list - List cannot be read-only.</exception>
         public static bool AddIfNotExists<T>(this ICollection<T> list, params T[] items)
         {
-            if (list.IsNull())
+            if(list.IsNull())
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(list));
             }
 
-            if (list.IsReadOnly)
+            if(list.IsReadOnly)
             {
                 ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
             }
 
-            if (items.DoesNotHaveItems())
+            if(items.DoesNotHaveItems())
             {
                 return false;
             }
 
             var returnValue = false;
 
-            if (items.HasItems())
+            if(items.HasItems())
             {
-                for (int index = 0; index < items.Length; index++)
+                for(int index = 0; index < items.Length; index++)
                 {
-                    if (items[index].IsNotNull())
+                    if(items[index].IsNotNull())
                     {
                         list.AddIfNotExists(items[index]);
                         returnValue = true;
@@ -279,31 +279,30 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 31.58, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool AddIfNotExists<T>(this ICollection<T> list, T item, IEqualityComparer<T> comparer)
         {
-            if (list.IsNull())
+            if(list.IsNull())
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(list));
             }
 
-            if (list.IsReadOnly)
+            if(list.IsReadOnly)
             {
                 ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
             }
 
-            if (comparer == null)
+            if(comparer == null)
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(comparer));
             }
 
-            if (item == null)
+            if(item == null)
             {
                 return false;
             }
 
-            if (list.Contains(item, comparer))
+            if(list.Contains(item, comparer))
             {
                 return false;
-            }
-            else
+            } else
             {
                 list.Add(item);
                 return true;
@@ -321,34 +320,35 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         /// <exception cref="ArgumentNullException">key or value</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 77.27, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
-        public static bool AddIfNotExists<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue value)
+        public static bool AddIfNotExists<TKey, TValue>(this IDictionary<TKey, TValue> dictionary,
+                                                        TKey key,
+                                                        TValue value)
         {
-            if (dictionary.IsNull())
+            if(dictionary.IsNull())
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(dictionary));
             }
 
-            if (dictionary.IsReadOnly)
+            if(dictionary.IsReadOnly)
             {
                 ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(dictionary));
             }
 
-            if (key.IsNull())
+            if(key.IsNull())
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(key));
             }
 
-            if (value.IsNull())
+            if(value.IsNull())
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(value));
             }
 
-            if (!dictionary.ContainsKey(key))
+            if(!dictionary.ContainsKey(key))
             {
                 dictionary.Add(key, value);
                 return true;
-            }
-            else
+            } else
             {
                 return false;
             }
@@ -365,17 +365,17 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 57.14, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool AddLast<T>(this IList<T> list, T item)
         {
-            if (list.IsNull())
+            if(list.IsNull())
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(list));
             }
 
-            if (list.IsReadOnly)
+            if(list.IsReadOnly)
             {
                 ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
             }
 
-            if (item == null)
+            if(item == null)
             {
                 return false;
             }
@@ -396,17 +396,17 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static T[] AddLast<T>(this T[] array, T item)
         {
-            if (array.IsNull())
+            if(array.IsNull())
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(array));
             }
 
-            if (array.IsReadOnly)
+            if(array.IsReadOnly)
             {
                 ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(array));
             }
 
-            if (item == null)
+            if(item == null)
             {
                 return array;
             }
@@ -430,34 +430,33 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">items</exception>
         public static bool AddRange<T>(this ICollection<T> list, IEnumerable<T> items, bool insureUnique = false)
         {
-            if (list.IsNull())
+            if(list.IsNull())
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(list));
             }
 
-            if (list.IsReadOnly)
+            if(list.IsReadOnly)
             {
                 ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
             }
 
-            if (items.HasItems() == false)
+            if(items.HasItems() == false)
             {
                 return false;
             }
 
             var returnValue = false;
 
-            if (items.HasItems())
+            if(items.HasItems())
             {
                 items.ToList()
                     .ForEach(item =>
                     {
-                        if (insureUnique)
+                        if(insureUnique)
                         {
                             list.AddIfNotExists(item);
                             returnValue = true;
-                        }
-                        else
+                        } else
                         {
                             list.Add(item);
                             returnValue = true;
@@ -483,38 +482,42 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentException">list - Dictionary cannot be null. or key - Key cannot be null.</exception>
         /// <exception cref="System.ArgumentNullException">list - Dictionary cannot be null. or key - Key cannot be null.</exception>
         /// <remarks>Code by: Lucas</remarks>
-        public static bool AddRange<T, TKey, TValue>(this IDictionary<TKey, TValue> list, IEnumerable<T> items, Func<T, TKey> key, Func<T, TValue> value)
+        public static bool AddRange<T, TKey, TValue>(this IDictionary<TKey, TValue> list,
+                                                     IEnumerable<T> items,
+                                                     Func<T, TKey> key,
+                                                     Func<T, TValue> value)
         {
-            if (items.DoesNotHaveItems())
+            if(items.DoesNotHaveItems())
             {
                 return false;
             }
 
-            if (list.IsNull())
+            if(list.IsNull())
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(list));
             }
 
-            if (list.IsReadOnly)
+            if(list.IsReadOnly)
             {
                 ExceptionThrower.ThrowArgumentReadOnlyCollectionException(nameof(list));
             }
 
-            if (key is null)
+            if(key is null)
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(key));
             }
 
-            if (value is null)
+            if(value is null)
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(value));
             }
 
             var returnValue = false;
 
-            if (items.HasItems())
+            if(items.HasItems())
             {
-                items.ToList().ForEach(item =>
+                items.ToList()
+                    .ForEach(item =>
                     {
                         list.Add(key(item), value(item));
                         returnValue = true;
@@ -536,19 +539,19 @@ namespace dotNetTips.Utility.Standard.Extensions
         [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
         public static bool AreEqual<T>(this T[] input, T[] arrayToCheck)
         {
-            if (input == null && arrayToCheck == null)
+            if(input == null && arrayToCheck == null)
             {
                 return true;
             }
 
-            if (input == null || arrayToCheck == null || input.Length != arrayToCheck.Length)
+            if(input == null || arrayToCheck == null || input.Length != arrayToCheck.Length)
             {
                 return false;
             }
 
             var areSame = true;
 
-            for (var i = 0; i < input.Length; i++)
+            for(var i = 0; i < input.Length; i++)
             {
                 areSame &= (input[i].Equals(arrayToCheck[i]));
             }
@@ -567,19 +570,19 @@ namespace dotNetTips.Utility.Standard.Extensions
         [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
         public static bool AreEqual<T>(this IList<T> input, IList<T> listToCheck)
         {
-            if (input == null && listToCheck == null)
+            if(input == null && listToCheck == null)
             {
                 return true;
             }
 
-            if (input == null || listToCheck == null || input.Count != listToCheck.Count)
+            if(input == null || listToCheck == null || input.Count != listToCheck.Count)
             {
                 return false;
             }
 
             var areSame = true;
 
-            for (var i = 0; i < input.Count; i++)
+            for(var i = 0; i < input.Count; i++)
             {
                 areSame &= (input[i].Equals(listToCheck[i]));
             }
@@ -588,15 +591,15 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// Returns a <see cref="System.String"/> that represents this instance.
         /// </summary>
         /// <param name="bytes">The bytes.</param>
-        /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
+        /// <returns>A <see cref="System.String"/> that represents this instance.</returns>
         public static string BytesToString(this byte[] bytes)
         {
             var builder = new StringBuilder();
 
-            for (var byteCount = 0; byteCount < bytes.Length; byteCount++)
+            for(var byteCount = 0; byteCount < bytes.Length; byteCount++)
             {
                 builder.Append(bytes[byteCount].ToString("x2", CultureInfo.InvariantCulture));
             }
@@ -613,11 +616,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information(nameof(AddIfNotExists), author: "David McCarter", createdOn: "8/12/2020", modifiedOn: "8/12/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available)]
         public static bool ClearNulls<T>(this List<T> source)
         {
-            if (source.HasItems() == false)
+            if(source.HasItems() == false)
             {
                 return false;
-            }
-            else
+            } else
             {
                 return source.RemoveAll(p => p.IsNull()) > 0;
             }
@@ -632,7 +634,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 66.67, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static T[] Clone<T>(this T[] input)
         {
-            if (input == null || input.Length == 0)
+            if(input == null || input.Length == 0)
             {
                 ExceptionThrower.ThrowArgumentNullException("Input cannot be null or has a length of 0.", nameof(input));
             }
@@ -657,11 +659,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 91.67, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool ContainsAny<T>(this IEnumerable<T> source, params T[] items)
         {
-            if (items.HasItems() == false)
+            if(items.HasItems() == false)
             {
                 return false;
-            }
-            else
+            } else
             {
                 var itemsList = items.ToReadOnlyCollection();
 
@@ -679,11 +680,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 91.67, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool ContainsAny<T>(this T[] source, params T[] items)
         {
-            if (items.HasItems() == false)
+            if(items.HasItems() == false)
             {
                 return false;
-            }
-            else
+            } else
             {
                 var itemsList = items.ToReadOnlyCollection();
 
@@ -700,7 +700,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">source</exception>
         public static List<T> CopyToList<T>(this List<T> source)
         {
-            if (source.HasItems() == false)
+            if(source.HasItems() == false)
             {
                 throw new ArgumentNullException(nameof(source), $"{nameof(source)} is null.");
             }
@@ -716,7 +716,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">list</exception>
         public static int Count(this IEnumerable list)
         {
-            if (list is ICollection collection)
+            if(list is ICollection collection)
             {
                 return collection.Count;
             }
@@ -725,7 +725,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             var enumerator = list.GetEnumerator();
 
-            while (enumerator.MoveNext())
+            while(enumerator.MoveNext())
             {
                 count++;
             }
@@ -750,11 +750,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="comparer">The comparer.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
         /// <exception cref="ArgumentNullException">comparer</exception>
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        /// <remarks>Original code from efcore-master on GitHub.</remarks>
         public static IEnumerable<T> Distinct<T>(this IEnumerable<T> source, Func<T, T, bool> comparer)
             where T : class
         {
-            if (comparer == null)
+            if(comparer == null)
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(comparer));
             }
@@ -796,7 +796,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="System.ArgumentNullException">predicate</exception>
         public static bool FastAny<T>(this IEnumerable<T> source, Func<T, bool> predicate)
         {
-            if (predicate is null)
+            if(predicate is null)
             {
                 throw new ArgumentNullException(nameof(predicate), $"{nameof(predicate)} is null.");
             }
@@ -816,27 +816,26 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="Exception">predicate</exception>
         public static int FastCount<T>(this IEnumerable<T> source, Func<T, bool> predicate)
         {
-            if (predicate is null)
+            if(predicate is null)
             {
                 throw new ArgumentNullException(nameof(predicate));
             }
 
-            if (source is List<T>)
+            if(source is List<T>)
             {
                 var count = 0;
                 var list = (List<T>)source;
 
-                for (var listCount = 0; listCount < list.Count; listCount++)
+                for(var listCount = 0; listCount < list.Count; listCount++)
                 {
-                    if (predicate(list[listCount]))
+                    if(predicate(list[listCount]))
                     {
                         count++;
                     }
                 }
 
                 return count;
-            }
-            else
+            } else
             {
                 return source.Count(predicate);
             }
@@ -850,11 +849,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="alternate">The alternate.</param>
         /// <returns>T.</returns>
         /// <exception cref="ArgumentNullException">alternate</exception>
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        /// <remarks>Original code from efcore-master on GitHub.</remarks>
         public static T FirstOrDefault<T>(this IEnumerable<T> source, T alternate)
-        {
-            return source.DefaultIfEmpty(alternate).First();
-        }
+        { return source.DefaultIfEmpty(alternate).First(); }
 
         /// <summary>
         /// Returns first item in the collection or an alternate using a predicate.
@@ -868,15 +865,15 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">alternate</exception>
         /// <exception cref="ArgumentNullException">predicate</exception>
         /// <exception cref="ArgumentNullException">alternate</exception>
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        /// <remarks>Original code from efcore-master on GitHub.</remarks>
         public static T FirstOrDefault<T>(this IEnumerable<T> source, Func<T, bool> predicate, T alternate)
         {
-            if (predicate == null)
+            if(predicate == null)
             {
                 throw new ArgumentNullException(nameof(predicate), $"{nameof(predicate)} is null.");
             }
 
-            if (alternate == null)
+            if(alternate == null)
             {
                 throw new ArgumentNullException(nameof(alternate), $"{nameof(alternate)} is null.");
             }
@@ -896,23 +893,23 @@ namespace dotNetTips.Utility.Standard.Extensions
         public static T? FirstOrNull<T>(this IEnumerable<T> list, Func<T, bool> match)
             where T : struct
         {
-            if (list.HasItems() == false)
+            if(list.HasItems() == false)
             {
                 return null;
             }
 
-            if (match is null)
+            if(match is null)
             {
                 throw new ArgumentNullException(nameof(match), $"{nameof(match)} is null.");
             }
 
             var listToProcess = list.ToList();
 
-            for (int listCount = 0; listCount < listToProcess.Count; listCount++)
+            for(int listCount = 0; listCount < listToProcess.Count; listCount++)
             {
                 T local = listToProcess[listCount];
 
-                if (match?.Invoke(local) ?? default)
+                if(match?.Invoke(local) ?? default)
                 {
                     return new T?(local);
                 }
@@ -937,17 +934,17 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static TValue GetOrAdd<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
-            if (key == null)
+            if(key == null)
             {
                 throw new ArgumentNullException(nameof(key));
             }
 
-            if (value == null)
+            if(value == null)
             {
                 throw new ArgumentNullException(nameof(value));
             }
 
-            if (dictionary.TryGetValue(key, out TValue item) == false)
+            if(dictionary.TryGetValue(key, out TValue item) == false)
             {
                 dictionary.Add(key, value);
                 item = value;
@@ -1016,7 +1013,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="System.ArgumentNullException">action</exception>
         public static bool HasItems<T>(this List<T> source, Predicate<T> action)
         {
-            if (action is null)
+            if(action is null)
             {
                 throw new ArgumentNullException(nameof(action), $"{nameof(action)} is null.");
             }
@@ -1031,12 +1028,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="source">The source.</param>
         /// <param name="item">The item.</param>
         /// <returns>System.Int32.</returns>
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        /// <remarks>Original code from efcore-master on GitHub.</remarks>
         public static int IndexOf<T>(this IEnumerable<T> source, T item)
         { return IndexOf(source, item, EqualityComparer<T>.Default); }
 
         /// <summary>
-        /// Returns index of an item in the colleciton using comparer.
+        /// Returns index of an item in the collection using comparer.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="source">The source.</param>
@@ -1044,15 +1041,15 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="comparer">The comparer.</param>
         /// <returns>System.Int32.</returns>
         /// <exception cref="ArgumentNullException">item or comparer</exception>
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        /// <remarks>Original code from efcore-master on GitHub.</remarks>
         public static int IndexOf<T>(this IEnumerable<T> source, T item, IEqualityComparer<T> comparer)
         {
-            if (item == null)
+            if(item == null)
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(item));
             }
 
-            if (comparer == null)
+            if(comparer == null)
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(comparer));
             }
@@ -1066,7 +1063,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="source">The source.</param>
         /// <param name="separator">The separator.</param>
         /// <returns>System.String.</returns>
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        /// <remarks>Original code from efcore-master on GitHub.</remarks>
         public static string Join(this IEnumerable<object> source, string separator = ", ")
         { return string.Join(separator, source); }
 
@@ -1114,7 +1111,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         public static int ListHashCode<T>(this T[] list)
         {
             int hash = list.Where(t => t != null)
-                .Aggregate(6551, (accumulator, t) => accumulator ^= (accumulator << 5) ^ EqualityComparer<T>.Default.GetHashCode(t));
+                .Aggregate(6551,
+                           (accumulator, t) => accumulator ^=
+                    (accumulator << 5) ^ EqualityComparer<T>.Default.GetHashCode(t));
 
             return hash;
         }
@@ -1132,7 +1131,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <remarks>Original code by: C.F.Meijers</remarks>
         public static IEnumerable<T> OrderBy<T>(this IEnumerable<T> list, string sortExpression)
         {
-            if (sortExpression.HasValue() == false)
+            if(sortExpression.HasValue() == false)
             {
                 return null;
             }
@@ -1142,18 +1141,18 @@ namespace dotNetTips.Utility.Standard.Extensions
             var descending = false;
             var property = string.Empty;
 
-            if (parts.Length > 0 && !string.IsNullOrEmpty(parts[0]))
+            if(parts.Length > 0 && !string.IsNullOrEmpty(parts[0]))
             {
                 property = parts[0];
 
-                if (parts.Length > 1)
+                if(parts.Length > 1)
                 {
                     @descending = CultureInfo.InvariantCulture.TextInfo.ToLower(parts[1]).Contains("esc");
                 }
 
                 var prop = typeof(T).GetRuntimeProperty(property);
 
-                if (prop is null)
+                if(prop is null)
                 {
                     throw new InvalidCastException($"{(string.Format(CultureInfo.InvariantCulture, "{0}{1}", Convert.ToString("No property '", CultureInfo.InvariantCulture), property))}' in + {typeof(T).Name}'");
                 }
@@ -1167,13 +1166,13 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Orders collection by <see cref="StringComparer.Ordinal" />
+        /// Orders collection by <see cref="StringComparer.Ordinal"/>
         /// </summary>
         /// <typeparam name="TSource">The type of the t source.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="keySelector">The key selector.</param>
         /// <returns>IOrderedEnumerable&lt;TSource&gt;.</returns>
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        /// <remarks>Original code from efcore-master on GitHub.</remarks>
         public static IOrderedEnumerable<TSource> OrderByOrdinal<TSource>(this IEnumerable<TSource> source,
                                                                           Func<TSource, string> keySelector)
         { return source.OrderBy(keySelector, StringComparer.Ordinal); }
@@ -1193,13 +1192,13 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             pageSize = pageSize.EnsureMinimumValue(1);
 
-            using (var enumerator = list.GetEnumerator())
+            using(var enumerator = list.GetEnumerator())
             {
-                while (enumerator.MoveNext())
+                while(enumerator.MoveNext())
                 {
                     var currentPage = new List<T>(pageSize) { enumerator.Current };
 
-                    while (currentPage.Count < pageSize && enumerator.MoveNext())
+                    while(currentPage.Count < pageSize && enumerator.MoveNext())
                     {
                         currentPage.Add(enumerator.Current);
                     }
@@ -1237,9 +1236,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="secondKeySelector">The second key selector.</param>
         /// <param name="aggregate">The aggregate.</param>
         /// <returns>Dictionary&lt;TFirstKey, Dictionary&lt;TSecondKey, TValue&gt;&gt;.</returns>
-        /// <exception cref="ArgumentNullException">list - Source cannot be null or have a 0 value. or list - Aggregate cannot be null. or firstKeySelector -
-        /// First key selector cannot be null. or secondKeySelector - Second key selector cannot be null.</exception>
-        public static Dictionary<TFirstKey, Dictionary<TSecondKey, TValue>> Pivot<TSource, TFirstKey, TSecondKey, TValue>(this IEnumerable<TSource> list, Func<TSource, TFirstKey> firstKeySelector, Func<TSource, TSecondKey> secondKeySelector, Func<IEnumerable<TSource>, TValue> aggregate)
+        /// <exception cref="ArgumentNullException">
+        /// list - Source cannot be null or have a 0 value. or list - Aggregate cannot be null. or firstKeySelector -
+        /// First key selector cannot be null. or secondKeySelector - Second key selector cannot be null.
+        /// </exception>
+        public static Dictionary<TFirstKey, Dictionary<TSecondKey, TValue>> Pivot<TSource, TFirstKey, TSecondKey, TValue>(this IEnumerable<TSource> list,
+                                                                                                                          Func<TSource, TFirstKey> firstKeySelector,
+                                                                                                                          Func<TSource, TSecondKey> secondKeySelector,
+                                                                                                                          Func<IEnumerable<TSource>, TValue> aggregate)
         {
             var returnValue = new Dictionary<TFirstKey, Dictionary<TSecondKey, TValue>>();
 
@@ -1318,7 +1322,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information(nameof(Shuffle), "David McCarter", "8/26/2020", "8/26/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available, UnitTestCoverage = 80)]
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> list)
         {
-            if (list.DoesNotHaveItems())
+            if(list.DoesNotHaveItems())
             {
                 ExceptionThrower.ThrowArgumentNullException("List is null or does not contain items.", nameof(list));
             }
@@ -1336,7 +1340,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information(nameof(Shuffle), "David McCarter", "8/27/2020", "8/27/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available, UnitTestCoverage = 83.33)]
         public static ImmutableArray<T> Shuffle<T>(this ImmutableArray<T> list)
         {
-            if (list == null)
+            if(list == null)
             {
                 throw new ArgumentNullException(nameof(list), $"{nameof(list)} is null.");
             }
@@ -1356,12 +1360,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information(nameof(Shuffle), "David McCarter", "8/26/2020", "8/26/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available, UnitTestCoverage = 60)]
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> list, int count)
         {
-            if (list == null)
+            if(list == null)
             {
                 throw new ArgumentNullException(nameof(list), $"{nameof(list)} is null.");
             }
 
-            if (count <= 0)
+            if(count <= 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(count), "Count must be greater than 0");
             }
@@ -1370,27 +1374,27 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Determins if first collection starts with the second collection.
+        /// Determines if first collection starts with the second collection.
         /// </summary>
         /// <typeparam name="T">The type of the t source.</typeparam>
         /// <param name="first">The first.</param>
         /// <param name="second">The second.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        /// <remarks>Original code from efcore-master on GitHub.</remarks>
         public static bool StartsWith<T>(this IEnumerable<T> first, IEnumerable<T> second)
         {
-            if (ReferenceEquals(first, second))
+            if(ReferenceEquals(first, second))
             {
                 return true;
             }
 
-            using (var firstEnumerator = first.GetEnumerator())
+            using(var firstEnumerator = first.GetEnumerator())
             {
-                using (var secondEnumerator = second.GetEnumerator())
+                using(var secondEnumerator = second.GetEnumerator())
                 {
-                    while (secondEnumerator.MoveNext())
+                    while(secondEnumerator.MoveNext())
                     {
-                        if (!firstEnumerator.MoveNext() || !Equals(firstEnumerator.Current, secondEnumerator.Current))
+                        if(!firstEnumerator.MoveNext() || !Equals(firstEnumerator.Current, secondEnumerator.Current))
                         {
                             return false;
                         }
@@ -1402,33 +1406,33 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Determins if two collection sequences are equal.
+        /// Determines if two collection sequences are equal.
         /// </summary>
         /// <typeparam name="T">The type of the t source.</typeparam>
         /// <param name="first">The first.</param>
         /// <param name="second">The second.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         /// <exception cref="ArgumentNullException">second</exception>
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        /// <remarks>Original code from efcore-master on GitHub.</remarks>
         public static bool StructuralSequenceEqual<T>(this IEnumerable<T> first, IEnumerable<T> second)
         {
-            if (second == null)
+            if(second == null)
             {
                 throw new ArgumentNullException(nameof(second), $"{nameof(second)} is null.");
             }
 
-            if (ReferenceEquals(first, second))
+            if(ReferenceEquals(first, second))
             {
                 return true;
             }
 
-            using (var firstEnumerator = first.GetEnumerator())
+            using(var firstEnumerator = first.GetEnumerator())
             {
-                using (var secondEnumerator = second.GetEnumerator())
+                using(var secondEnumerator = second.GetEnumerator())
                 {
-                    while (firstEnumerator.MoveNext())
+                    while(firstEnumerator.MoveNext())
                     {
-                        if (!secondEnumerator.MoveNext() ||
+                        if(!secondEnumerator.MoveNext() ||
                             !StructuralComparisons.StructuralEqualityComparer
                                 .Equals(firstEnumerator.Current, secondEnumerator.Current))
                         {
@@ -1452,18 +1456,17 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="System.ArgumentNullException">list - Source cannot be null or have a 0 value.</exception>
         public static string ToDelimitedString<T>(this IEnumerable<T> list, char delimiter = ',')
         {
-            if (list.HasItems() == false)
+            if(list.HasItems() == false)
             {
                 return string.Empty;
-            }
-            else
+            } else
             {
                 var sb = new StringBuilder();
 
                 list.ToList()
                     .ForEach(item =>
                     {
-                        if (sb.Length > 0)
+                        if(sb.Length > 0)
                         {
                             sb.Append(delimiter.ToString(CultureInfo.CurrentCulture).ToTrimmed());
                         }
@@ -1485,9 +1488,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">list - Source cannot be null or have a 0 value.</exception>
         /// <remarks>Original code by: James Michael Hare</remarks>
         public static Dictionary<TKey, List<TValue>> ToDictionary<TKey, TValue>(this IEnumerable<IGrouping<TKey, TValue>> list)
-        {
-            return list.ToDictionary(group => group.Key, group => group.ToList());
-        }
+        { return list.ToDictionary(group => group.Key, group => group.ToList()); }
 
         /// <summary>
         /// Returns no duplicates.
@@ -1516,11 +1517,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         { return ImmutableList.CreateRange<T>(values); }
 
         /// <summary>
-        /// Converts to ImmutableHashSet<typeparamref name="T" />&gt;.
+        /// Converts to ImmutableHashSet<typeparamref name="T"/>&gt;.
         /// </summary>
         /// <typeparam name="T">The type of T.</typeparam>
         /// <param name="values">The values.</param>
-        /// <returns>ImmutableHashSet<typeparamref name="T" />&gt;.</returns>
+        /// <returns>ImmutableHashSet<typeparamref name="T"/>&gt;.</returns>
         public static ImmutableHashSet<T> ToImmutable<T>(this HashSet<T> values)
         { return ImmutableHashSet.CreateRange<T>(values); }
 
@@ -1544,7 +1545,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         { return ImmutableSortedSet.CreateRange<T>(values); }
 
         /// <summary>
-        /// Converts to linkedlist.
+        /// Converts to a LinkedList.
         /// </summary>
         /// <typeparam name="T">The type of T.</typeparam>
         /// <param name="values">The values.</param>
@@ -1566,12 +1567,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         //}
 
         /// <summary>
-        /// Converts <see cref="IEnumerable" /> collection to a <see cref="List{T}" />.
-        /// </summary>
+/// Converts <see cref="IEnumerable"/> collection to a <see cref="List{T}"/>.
+/// </summary>
         /// <typeparam name="T">The type of the t source.</typeparam>
         /// <param name="source">The source.</param>
         /// <returns>List&lt;TSource&gt;.</returns>
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        /// <remarks>Original code from efcore-master on GitHub.</remarks>
         public static List<T> ToList<T>(this IEnumerable source) { return source.OfType<T>().ToList(); }
 
         /// <summary>
@@ -1628,18 +1629,18 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static TValue Upsert<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
-            if (key == null)
+            if(key == null)
             {
                 throw new ArgumentNullException(nameof(key));
             }
 
-            if (value == null)
+            if(value == null)
             {
                 throw new ArgumentNullException(nameof(value));
             }
 
 
-            if (dictionary.TryGetValue(key, out TValue item) == false)
+            if(dictionary.TryGetValue(key, out TValue item) == false)
             {
                 dictionary.Add(key, value);
                 item = value;
@@ -1679,18 +1680,19 @@ namespace dotNetTips.Utility.Standard.Extensions
         { return condition ? list.Where(predicate) : list; }
 
         /// <summary>
-        /// Class DynamicEqualityComparer. This class cannot be inherited. Implements the <see cref="System.Collections.Generic.IEqualityComparer{T}" />
+        /// Class DynamicEqualityComparer. This class cannot be inherited. Implements the <see
+        /// cref="System.Collections.Generic.IEqualityComparer{T}"/>
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <seealso cref="System.Collections.Generic.IEqualityComparer{T}" />
-        /// <remarks>Orginal code from efcore-master on GitHub.</remarks>
+        /// <seealso cref="System.Collections.Generic.IEqualityComparer{T}"/>
+        /// <remarks>Original code from efcore-master on GitHub.</remarks>
         private sealed class DynamicEqualityComparer<T> : IEqualityComparer<T>
             where T : class
         {
             private readonly Func<T, T, bool> _func;
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="DynamicEqualityComparer{T}" /> class.
+            /// Initializes a new instance of the <see cref="DynamicEqualityComparer{T}"/> class.
             /// </summary>
             /// <param name="func">The function.</param>
             public DynamicEqualityComparer(Func<T, T, bool> func) { _func = func; }
@@ -1707,8 +1709,10 @@ namespace dotNetTips.Utility.Standard.Extensions
             /// Returns a hash code for this instance.
             /// </summary>
             /// <param name="obj">The <see cref="T:System.Object"></see> for which a hash code is to be returned.</param>
-            /// <returns>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash
-            /// table.</returns>
+            /// <returns>
+            /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash
+            /// table.
+            /// </returns>
             public int GetHashCode(T obj) => 0;
         }
     }

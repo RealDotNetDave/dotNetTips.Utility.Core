@@ -47,7 +47,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="bytes">The bytes.</param>
         /// <exception cref="ArgumentNullException">sb</exception>
         /// <exception cref="ArgumentException">bytes</exception>
-        [Information("Orginal code from efcore-master on GitHub", author: "David McCarter", createdOn: "5/26/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 80, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
+        [Information("Original code from efcore-master on GitHub", author: "David McCarter", createdOn: "5/26/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 80, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static void AppendBytes(this StringBuilder sb, byte[] bytes)
         {
             if (sb == null)
@@ -84,7 +84,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">joinAction</exception>
         /// <exception cref="ArgumentNullException">sb</exception>
         /// <exception cref="ArgumentNullException">values</exception>
-        [Information("Orginal code from efcore-master on GitHub", author: "David McCarter", createdOn: "5/26/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
+        [Information("Original code from efcore-master on GitHub", author: "David McCarter", createdOn: "5/26/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static StringBuilder AppendJoin<T>(this StringBuilder sb, IEnumerable<T> values, Action<StringBuilder, T> joinAction, string separator = ", ")
         {
             if (sb == null)
@@ -137,7 +137,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">sb</exception>
         /// <exception cref="ArgumentNullException">values</exception>
         /// <exception cref="ArgumentNullException">param</exception>
-        [Information("Orginal code from efcore-master on GitHub", author: "David McCarter", createdOn: "5/26/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
+        [Information("Original code from efcore-master on GitHub", author: "David McCarter", createdOn: "5/26/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static StringBuilder AppendJoin<T, TParam>(this StringBuilder sb, IEnumerable<T> values, TParam param, Action<StringBuilder, T, TParam> joinAction, string separator = ", ")
         {
             if (sb.IsNull())
@@ -199,7 +199,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">param1</exception>
         /// <exception cref="ArgumentNullException">param2</exception>
         /// <exception cref="ArgumentNullException">values</exception>
-        [Information("Orginal code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
+        [Information("Original code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static StringBuilder AppendJoin<T, TParam1, TParam2>(this StringBuilder sb, IEnumerable<T> values, TParam1 param1, TParam2 param2, Action<StringBuilder, T, TParam1, TParam2> joinAction, string separator = ", ")
         {
             if (sb.IsNull())
@@ -324,7 +324,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">sb</exception>
         /// <exception cref="ArgumentNullException">values</exception>
         /// <exception cref="ArgumentNullException">sb</exception>
-        [Information("Orginal code from efcore-master on GitHub.", author: "David McCarter", createdOn: "7/1/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 75, Status = Status.Available)]
+        [Information("Original code from efcore-master on GitHub.", author: "David McCarter", createdOn: "7/1/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 75, Status = Status.Available)]
         public static StringBuilder AppendValues(this StringBuilder sb, string separator, IEnumerable<string> values)
         {
             if (sb.IsNull())
@@ -351,7 +351,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>StringBuilder.</returns>
         /// <exception cref="ArgumentNullException">sb</exception>
         /// <exception cref="ArgumentException">values</exception>
-        [Information("Orginal code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
+        [Information("Original code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static StringBuilder AppendValues(this StringBuilder sb, string separator, params string[] values)
         {
             if (sb.IsNull())
@@ -383,7 +383,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">joinAction</exception>
         /// <exception cref="ArgumentNullException">sb</exception>
         /// <exception cref="ArgumentNullException">values</exception>
-        [Information("Orginal code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 82, Status = Status.Available)]
+        [Information("Original code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 82, Status = Status.Available)]
         public static StringBuilder AppendValues<T>(this StringBuilder sb, string separator, IEnumerable<T> values, Action<T> joinAction)
         {
             if (sb.IsNull())
@@ -438,7 +438,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">sb</exception>
         /// <exception cref="ArgumentNullException">values</exception>
         /// <exception cref="ArgumentNullException">param</exception>
-        [Information("Orginal code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
+        [Information("Original code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static StringBuilder AppendValues<T, TParam>(this StringBuilder sb, string separator, IEnumerable<T> values, TParam param, Action<T, TParam> joinAction)
         {
             if (sb.IsNull())
@@ -502,7 +502,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">values</exception>
         /// <exception cref="ArgumentNullException">param1</exception>
         /// <exception cref="ArgumentNullException">param2</exception>
-        [Information("Orginal code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
+        [Information("Original code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static StringBuilder AppendValues<T, TParam1, TParam2>(this StringBuilder sb, string separator, IEnumerable<T> values, TParam1 param1, TParam2 param2, Action<StringBuilder, T, TParam1, TParam2> joinAction)
         {
             if (sb.IsNull())

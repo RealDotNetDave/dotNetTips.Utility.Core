@@ -331,3 +331,4 @@ ASALocalRun/
 /appbin
 /src/Benchmarking/dotNetTips.Utility.Benchmarks/OutputBin/netcoreapp3.0
 /src/Benchmarking/dotNetTips.Utility.Benchmarks/OutputBin/netcoreapp3.1
+/Backup.gitignore

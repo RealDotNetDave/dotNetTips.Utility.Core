@@ -9,7 +9,7 @@
 // <copyright file="CollectionRandomizer.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
 // </copyright>
-// <summary>Orginal code written by David McCarter & Kristine Tran</summary>
+// <summary>Original code written by David McCarter & Kristine Tran</summary>
 // ***********************************************************************
 
 using System;
@@ -37,12 +37,13 @@ namespace dotNetTips.Utility.Standard.Collections
         private readonly object _threadLock = new object();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CollectionRandomizer{T}" /> class.
+        /// Initializes a new instance of the <see cref="CollectionRandomizer{T}"/> class.
         /// </summary>
         /// <param name="collection">The collection.</param>
-        /// <param name="repeat">If set to <c>true</c> and when using GetNext() the collection
-        /// will repeat over and over and each time re-shuffled. Becareful of getting into an
-        /// endless loop, it could cause your app to crash.</param>
+        /// <param name="repeat">
+        /// If set to <c>true</c> and when using GetNext() the collection will repeat over and over and each time re-
+        /// shuffled. Be careful of getting into an endless loop, it could cause your app to crash.
+        /// </param>
         /// <remarks>The collection cannot be changed after initialization.</remarks>
         public CollectionRandomizer(IEnumerable<T> collection, bool repeat = false)
         {
@@ -52,14 +53,15 @@ namespace dotNetTips.Utility.Standard.Collections
 
         private void Init()
         {
-            //Ignore if initalized unless repeat is true.
-            if ((_initialized == true & HasRemainingItems) || (_initialized == true & HasRemainingItems == true & _repeat == false))
+            //Ignore if initialized unless repeat is true.
+            if((_initialized == true & HasRemainingItems) ||
+                (_initialized == true & HasRemainingItems == true & _repeat == false))
             {
                 return;
             }
 
             //Validate Collection
-            if (_collection.HasItems() == false)
+            if(_collection.HasItems() == false)
             {
                 throw new NullReferenceException("Underlying collection is null.");
             }
@@ -74,7 +76,6 @@ namespace dotNetTips.Utility.Standard.Collections
             this.HasRemainingItems = this._collectionEnumerator.MoveNext();
 
             this._initialized = true;
-
         }
 
         /// <summary>
@@ -83,7 +84,7 @@ namespace dotNetTips.Utility.Standard.Collections
         /// <returns>T.</returns>
         public T GetNext()
         {
-            lock (_threadLock)
+            lock(_threadLock)
             {
                 this.Init();
 
@@ -98,9 +99,10 @@ namespace dotNetTips.Utility.Standard.Collections
         /// <summary>
         /// Gets a value indicating whether this instance has remaining items.
         /// </summary>
-        /// <value><c>true</c> if this instance has remaining items; otherwise, <c>false</c>.
-        /// This value will be <c>false</c> until the first time GetNext() is called and the shuffle is initalized.</value>
+        /// <value>
+        /// <c>true</c> if this instance has remaining items; otherwise, <c>false</c>. This value will be <c>false</c>
+        /// until the first time GetNext() is called and the shuffle is initalized.
+        /// </value>
         public bool HasRemainingItems { get; private set; }
-
     }
 }

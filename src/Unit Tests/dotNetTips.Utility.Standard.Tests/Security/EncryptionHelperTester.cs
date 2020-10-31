@@ -56,7 +56,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Security
         [TestMethod]
         public void ComputeSha256HashTest()
         {
-            var result = _testString.ComputeSha256Hash();
+            var result = _testString.ComputeSHA256Hash();
 
             Assert.IsTrue(string.IsNullOrEmpty(result) == false);
         }
@@ -87,10 +87,14 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Security
                 using var aes = new RijndaelManaged();
 
                 // Encrypt string  
+#pragma warning disable CS0618 // Type or member is obsolete
                 var encrypted = EncryptionHelper.RijndaelEncrypt(_testString, aes.Key, aes.IV);
+#pragma warning restore CS0618 // Type or member is obsolete
 
                 // Decrypt the bytes to a string.  
+#pragma warning disable CS0618 // Type or member is obsolete
                 var decrypted = EncryptionHelper.RijndaelDecrypt(encrypted, aes.Key, aes.IV);
+#pragma warning restore CS0618 // Type or member is obsolete
 
                 Assert.AreEqual(_testString, decrypted);
             }

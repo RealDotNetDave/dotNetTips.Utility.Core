@@ -60,7 +60,7 @@ namespace dotNetTips.Utility.Standard.Net
         {
             Debug.Assert(0 <= index && index < data.Length, "Index out of range: " + index + ", " + data.Length);
 
-            if (index <= 0 || data[index - 1] != ControlChars.Backslash)
+            if (index <= 0 || data[index - 1] != dotNetTips.Utility.Standard.Common.ControlChars.Backslash)
             {
                 outIndex = 0;
                 return true;
@@ -106,7 +106,7 @@ namespace dotNetTips.Utility.Standard.Net
         // Return value: The number of consecutive backslashes, including the initial one at data[index].
         private static int CountBackslashes(string data, int index)
         {
-            Debug.Assert(index >= 0 && data[index] == ControlChars.Backslash, "index was not a backslash: " + index);
+            Debug.Assert(index >= 0 && data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Backslash, "index was not a backslash: " + index);
 
             // Find all the backslashes. It's possible that there are multiple escaped/quoted backslashes.
             var backslashCount = 0;
@@ -114,10 +114,10 @@ namespace dotNetTips.Utility.Standard.Net
             {
                 backslashCount++;
                 index--;
-            } while (index >= 0 && data[index] == ControlChars.Backslash);
+            } while (index >= 0 && data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Backslash);
 
             // At this point data[index] should not be a backslash
-            Debug.Assert(index < 0 || data[index] != ControlChars.Backslash, "index was a backslash: " + index);
+            Debug.Assert(index < 0 || data[index] != dotNetTips.Utility.Standard.Common.ControlChars.Backslash, "index was a backslash: " + index);
 
             return backslashCount;
         }

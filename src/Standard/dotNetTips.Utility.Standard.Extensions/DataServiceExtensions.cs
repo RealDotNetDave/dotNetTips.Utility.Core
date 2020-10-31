@@ -13,16 +13,13 @@
 // ***********************************************************************
 using System;
 using System.Collections.Generic;
-using System.Data.Services;
-using System.Text;
-using dotNetTips.Utility.Standard.Common;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {
     /// <summary>
     /// DataServiceExtensions.
     /// </summary>
-    public static  class DataServiceExtensions
+    public static class DataServiceExtensions
     {
         /// <summary>
         /// Copies the request header values to a collection.

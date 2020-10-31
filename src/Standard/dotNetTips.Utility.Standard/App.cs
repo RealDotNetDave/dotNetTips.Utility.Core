@@ -4,7 +4,7 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-07-2020
+// Last Modified On : 10-29-2020
 // ***********************************************************************
 // <copyright file="App.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -33,22 +33,21 @@ namespace dotNetTips.Utility.Standard
     /// </summary>
     public static class App
     {
-
         /// <summary>
-        /// The temporary ASP files location
+        /// The temporary ASP files location.
         /// </summary>
         private const string _tempAspFiles = "\\Temporary ASP.NET Files\\";
 
         /// <summary>
-        /// The application information
+        /// The application information.
         /// </summary>
-        static readonly Lazy<AppInfo> _appInfo = new Lazy<AppInfo>(() => InitAppInfo());
-
+        private static readonly Lazy<AppInfo> _appInfo = new Lazy<AppInfo>(() => InitAppInfo());
 
         /// <summary>
         /// Gets the assembly information.
         /// </summary>
         /// <value>The assembly information.</value>
+        [Information(UnitTestCoverage = 100, Status = Status.Available)]
         public static AppInfo AppInfo => _appInfo.Value;
 
         /// <summary>
@@ -64,7 +63,7 @@ namespace dotNetTips.Utility.Standard
         public static CultureInfo CurrentUICulture => CultureInfo.CurrentUICulture;
 
         /// <summary>
-        /// Returns a string that indicates the name of the .NET installation on which an app is running.
+        /// Gets a string that indicates the name of the .NET installation on which an app is running.
         /// </summary>
         /// <value>The framework description.</value>
         public static string FrameworkDescription => RuntimeInformation.FrameworkDescription;
@@ -174,12 +173,13 @@ namespace dotNetTips.Utility.Standard
         }
 
         /// <summary>
-        /// Checks to see if the current application is ASP.NET
+        /// Checks to see if the current application is ASP.NET.
         /// </summary>
-        /// <returns>True if running ASP.NET</returns>
-        public static bool IsRunningFromAspNet() => !string.IsNullOrEmpty(AppDomain.CurrentDomain.DynamicDirectory)
-            ? AppDomain.CurrentDomain.DynamicDirectory.Contains(_tempAspFiles)
-            : false;
+        /// <returns>True if running ASP.NET.</returns>
+        public static bool IsRunningFromAspNet()
+        {
+            return (!string.IsNullOrEmpty(AppDomain.CurrentDomain.DynamicDirectory)) && AppDomain.CurrentDomain.DynamicDirectory.Contains(_tempAspFiles);
+        }
 
         /// <summary>
         /// Determines whether user is administrator.
@@ -204,7 +204,10 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// Kills the current process.
         /// </summary>
-        public static void Kill() => KillProcess(Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly().Location));
+        public static void Kill()
+        {
+            KillProcess(Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly().Location));
+        }
 
         /// <summary>
         /// Kills the process.
@@ -213,14 +216,15 @@ namespace dotNetTips.Utility.Standard
         /// <exception cref="ArgumentNullException">processName - Process name is nothing or empty.</exception>
         public static void KillProcess(string processName)
         {
-            Encapsulation.TryValidateParam<ArgumentNullException>(string.IsNullOrEmpty(processName), "Process name is required.");
+            Encapsulation.TryValidateParam<ArgumentNullException>(
+                string.IsNullOrEmpty(processName), "Process name is required.");
 
             var app = Process.GetProcessesByName(processName).FirstOrDefault();
 
             if (app != null)
             {
                 app.Kill();
-                app.WaitForExit(6000);
+                _ = app.WaitForExit(6000);
             }
         }
 
@@ -251,34 +255,36 @@ namespace dotNetTips.Utility.Standard
             }
 
             var processInfo = new ProcessStartInfo(Assembly.GetEntryAssembly().CodeBase)
-            {
-                UseShellExecute = true,
-                Verb = "runas"
-            };
+            { UseShellExecute = true, Verb = "runas" };
 
-            Process.Start(processInfo);
+            _ = Process.Start(processInfo);
 
             Process.GetCurrentProcess().Kill();
         }
 
+        /// <summary>
+        /// Initializes the application information.
+        /// </summary>
+        /// <returns>AppInfo.</returns>
         private static AppInfo InitAppInfo()
         {
             var assembly = Assembly.GetEntryAssembly();
 
-            var appInfo = new AppInfo()
+            var appInfo = new AppInfo
             {
                 Company = assembly.GetCustomAttributes<AssemblyCompanyAttribute>().FirstOrDefault()?.Company,
-                Configuration = assembly.GetCustomAttributes<AssemblyConfigurationAttribute>().FirstOrDefault()?.Configuration,
+                Configuration =
+                assembly.GetCustomAttributes<AssemblyConfigurationAttribute>().FirstOrDefault()?.Configuration,
                 Copyright = assembly.GetCustomAttributes<AssemblyCopyrightAttribute>().FirstOrDefault()?.Copyright,
                 Description = assembly.GetCustomAttributes<AssemblyDescriptionAttribute>().FirstOrDefault()?.Description,
                 FileVersion = assembly.GetCustomAttributes<AssemblyFileVersionAttribute>().FirstOrDefault()?.Version,
-                Version = assembly.GetCustomAttributes<AssemblyInformationalVersionAttribute>().FirstOrDefault()?.InformationalVersion,
+                Version =
+                assembly.GetCustomAttributes<AssemblyInformationalVersionAttribute>().FirstOrDefault()?.InformationalVersion,
                 Product = assembly.GetCustomAttributes<AssemblyProductAttribute>().FirstOrDefault()?.Product,
-                Title = assembly.GetCustomAttributes<AssemblyTitleAttribute>().FirstOrDefault()?.Title
+                Title = assembly.GetCustomAttributes<AssemblyTitleAttribute>().FirstOrDefault()?.Title,
             };
 
             return appInfo;
         }
-
     }
 }

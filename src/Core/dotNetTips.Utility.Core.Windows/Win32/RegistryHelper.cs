@@ -12,11 +12,11 @@
 // <summary></summary>
 // ***********************************************************************
 
-using System;
-using System.Runtime.InteropServices;
 using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.OOP;
 using Microsoft.Win32;
+using System;
+using System.Runtime.InteropServices;
 
 namespace dotNetTips.Utility.Core.Windows.Win32
 {
@@ -66,14 +66,14 @@ namespace dotNetTips.Utility.Core.Windows.Win32
         [Information(nameof(GetRegistryKey), "David McCarter", "9/10/2020", "9/10/2020", Status = Status.Available, UnitTestCoverage = 90, BenchMarkStatus = 0)]
         public static RegistryKey? GetRegistryKey(string keyName, RegistryHive registryKeyType)
         {
-            if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows) == false)
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows) == false)
             {
                 throw new PlatformNotSupportedException();
             }
 
             Encapsulation.TryValidateParam(keyName, nameof(keyName));
 
-            switch(registryKeyType)
+            switch (registryKeyType)
             {
                 case RegistryHive.ClassesRoot:
                     return Registry.ClassesRoot.OpenSubKey(keyName);

@@ -145,7 +145,7 @@ namespace dotNetTips.Utility.Standard.Net
             }
 
             // Check to see if there's a quoted-string display name
-            if (firstNonCommentIndex >= 0 && data[firstNonCommentIndex] == ControlChars.Quote)
+            if (firstNonCommentIndex >= 0 && data[firstNonCommentIndex] == dotNetTips.Utility.Standard.Common.ControlChars.Quote)
             {
                 // The preceding comment was not part of the display name.  Read just the quoted string.
                 if (!QuotedStringFormatReader.TryReadReverseQuoted(data, firstNonCommentIndex, true, out index, throwExceptionIfFail))
@@ -154,7 +154,7 @@ namespace dotNetTips.Utility.Standard.Net
                     return false;
                 }
 
-                Debug.Assert(data[index + 1] == ControlChars.Quote, "Mis-aligned index: " + index);
+                Debug.Assert(data[index + 1] == dotNetTips.Utility.Standard.Common.ControlChars.Quote, "Mis-aligned index: " + index);
 
                 // Do not include the bounding quotes on the display name
                 int leftIndex = index + 2;
@@ -168,7 +168,7 @@ namespace dotNetTips.Utility.Standard.Net
 
                 // Check for completion. We are valid if we hit the end of the data string or if the rest of the data
                 // belongs to another address.
-                if (index >= 0 && !(expectMultipleAddresses && data[index] == ControlChars.Comma))
+                if (index >= 0 && !(expectMultipleAddresses && data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Comma))
                 {
                     // If there was still data, only a comma could have been the next valid character
                     return throwExceptionIfFail ? throw new FormatException($"Invalid character: {data[index]}.") : false;
@@ -186,7 +186,7 @@ namespace dotNetTips.Utility.Standard.Net
                     return false;
                 }
 
-                Debug.Assert(index < 0 || data[index] == ControlChars.Comma, "Mis-aligned index: " + index);
+                Debug.Assert(index < 0 || data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Comma, "Mis-aligned index: " + index);
 
                 // Do not include the Comma (if any), and because there were no bounding quotes,
                 // trim extra whitespace.
@@ -228,7 +228,7 @@ namespace dotNetTips.Utility.Standard.Net
             int startingIndex = index;
 
             // Is the domain component in domain-literal format or dot-atom format?
-            if (data[index] == ControlChars.EndSquareBracket)
+            if (data[index] == dotNetTips.Utility.Standard.Common.ControlChars.EndSquareBracket)
             {
                 if (!DomainLiteralReader.TryReadReverse(data, index, out index, throwExceptionIfFail))
                 {
@@ -306,7 +306,7 @@ namespace dotNetTips.Utility.Standard.Net
             // e.g. ("display name" <user@domain>)
             bool expectAngleBracket = false;
 
-            if (data[index] == ControlChars.EndAngleBracket)
+            if (data[index] == dotNetTips.Utility.Standard.Common.ControlChars.EndAngleBracket)
             {
                 expectAngleBracket = true;
                 index--;
@@ -319,7 +319,7 @@ namespace dotNetTips.Utility.Standard.Net
             }
 
             // The next character after the domain must be the '@' symbol
-            if (data[index] != ControlChars.At)
+            if (data[index] != dotNetTips.Utility.Standard.Common.ControlChars.At)
             {
                 if (throwExceptionIfFail)
                 {
@@ -344,7 +344,7 @@ namespace dotNetTips.Utility.Standard.Net
             // Check for a matching angle bracket around the address
             if (expectAngleBracket)
             {
-                if (index >= 0 && data[index] == ControlChars.StartAngleBracket)
+                if (index >= 0 && data[index] == dotNetTips.Utility.Standard.Common.ControlChars.StartAngleBracket)
                 {
                     index--; // Skip the angle bracket
                     // Skip whitespace, but leave comments, as they may be part of the display name.
@@ -359,7 +359,7 @@ namespace dotNetTips.Utility.Standard.Net
                     // Mismatched angle brackets
                     if (throwExceptionIfFail)
                     {
-                        throw new FormatException($"Invalid character: {(index >= 0 ? data[index] : ControlChars.EndAngleBracket)}.");
+                        throw new FormatException($"Invalid character: {(index >= 0 ? data[index] : dotNetTips.Utility.Standard.Common.ControlChars.EndAngleBracket)}.");
                     }
                     else
                     {
@@ -371,7 +371,7 @@ namespace dotNetTips.Utility.Standard.Net
 
             // Is there anything left to parse?
             // There could still be a display name or another address
-            if (index >= 0 && !(expectMultipleAddresses && data[index] == ControlChars.Comma))
+            if (index >= 0 && !(expectMultipleAddresses && data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Comma))
             {
                 if (!TryParseDisplayName(data, ref index, expectMultipleAddresses, out displayName, throwExceptionIfFail))
                 {
@@ -417,7 +417,7 @@ namespace dotNetTips.Utility.Standard.Net
             var startingIndex = index;
 
             // Is the local-part component in quoted-string format or dot-atom format?
-            if (data[index] == ControlChars.Quote)
+            if (data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Quote)
             {
                 if (!QuotedStringFormatReader.TryReadReverseQuoted(data, index, true, out index, throwExceptionIfFail))
                 {
@@ -439,12 +439,12 @@ namespace dotNetTips.Utility.Standard.Net
                 if (index >= 0 &&
                         !(
                             MailBnfHelper.IsAllowedWhiteSpace(data[index]) // < local@domain >
-                            || data[index] == ControlChars.EndComment // <(comment)local@domain>
-                            || (expectAngleBracket && data[index] == ControlChars.StartAngleBracket) // <local@domain>
-                            || (expectMultipleAddresses && data[index] == ControlChars.Comma) // local@dom,local@dom
-                                                                                              // Note: The following condition is more lax than the RFC.  This is done so we could support
-                                                                                              // a common invalid formats as shown below.
-                            || data[index] == ControlChars.Quote // "display"local@domain
+                            || data[index] == dotNetTips.Utility.Standard.Common.ControlChars.EndComment // <(comment)local@domain>
+                            || (expectAngleBracket && data[index] == dotNetTips.Utility.Standard.Common.ControlChars.StartAngleBracket) // <local@domain>
+                            || (expectMultipleAddresses && data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Comma) // local@dom,local@dom
+                                                                                                                                 // Note: The following condition is more lax than the RFC.  This is done so we could support
+                                                                                                                                 // a common invalid formats as shown below.
+                            || data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Quote // "display"local@domain
                         )
                     )
                 {

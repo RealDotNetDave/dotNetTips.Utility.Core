@@ -29,10 +29,11 @@ namespace dotNetTips.Utility.Standard.Cache
 
         /// <summary>
         /// Prevents a default instance of the <see cref="InMemoryCache"/> class from being created.
+        /// Default timeout is 20 minutes.
         /// </summary>
         private InMemoryCache()
         {
-            this.Cache = CreateCache();
+            this.Cache = CreateCache(new TimeSpan(0, 20, 0));
         }
 
         /// <summary>
@@ -84,11 +85,11 @@ namespace dotNetTips.Utility.Standard.Cache
         /// Creates the cache using 20 minute expiration.
         /// </summary>
         /// <returns>MemoryCache.</returns>
-        private static MemoryCache CreateCache()
+        private static MemoryCache CreateCache(TimeSpan expariation)
         {
             var options = new MemoryCacheOptions
             {
-                ExpirationScanFrequency = new TimeSpan(0, 20, 0)
+                ExpirationScanFrequency = expariation
             };
 
             return new MemoryCache(options);

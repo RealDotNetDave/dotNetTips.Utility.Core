@@ -57,7 +57,7 @@ namespace dotNetTips.Utility.Standard.Net
         internal static bool TryReadReverse(string data, int index, out int outIndex, bool throwExceptionIfFail)
         {
             Debug.Assert(0 <= index && index < data.Length, "index was outside the bounds of the string: " + index);
-            Debug.Assert(data[index] == ControlChars.EndSquareBracket, "data did not end with a square bracket");
+            Debug.Assert(data[index] == dotNetTips.Utility.Standard.Common.ControlChars.EndSquareBracket, "data did not end with a square bracket");
 
             // Skip the end bracket
             index--;
@@ -89,7 +89,7 @@ namespace dotNetTips.Utility.Standard.Net
                     index -= quotedCharCount;
                 }
                 // Check for the terminating bracket
-                else if (data[index] == ControlChars.StartSquareBracket)
+                else if (data[index] == dotNetTips.Utility.Standard.Common.ControlChars.StartSquareBracket)
                 {
                     // We're done parsing
                     outIndex = index - 1;
@@ -119,7 +119,7 @@ namespace dotNetTips.Utility.Standard.Net
             if (throwExceptionIfFail)
             {
                 // We didn't find a matching '[', throw.
-                throw new FormatException($"Invalid character: { ControlChars.EndSquareBracket}.");
+                throw new FormatException($"Invalid character: { dotNetTips.Utility.Standard.Common.ControlChars.EndSquareBracket}.");
             }
             else
             {

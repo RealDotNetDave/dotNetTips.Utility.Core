@@ -40,14 +40,14 @@ namespace dotNetTips.Utility.Standard
         }
 
         /// <summary>
-        /// Gets or sets the name of the configuration file.
+        /// Gets the name of the configuration file.
         /// </summary>
         /// <value>The name of the configuration file.</value>
         [XmlIgnore]
         public string ConfigFileName { get; private set; }
 
         /// <summary>
-        /// Returns instance for the object.
+        /// Gets the instance for the object.
         /// </summary>
         /// <value>The instance.</value>
         [XmlIgnore]

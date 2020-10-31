@@ -11,18 +11,18 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Common;
-using dotNetTips.Utility.Standard.Extensions;
-using dotNetTips.Utility.Standard.Tester;
-using dotNetTips.Utility.Standard.Tester.Collections;
-using dotNetTips.Utility.Standard.Tester.Models;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
+using dotNetTips.Utility.Standard.Common;
+using dotNetTips.Utility.Standard.Extensions;
+using dotNetTips.Utility.Standard.Tester;
+using dotNetTips.Utility.Standard.Tester.Collections;
+using dotNetTips.Utility.Standard.Tester.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dotNetTips.Utility.Standard.Extensions.Tests
 {
@@ -45,14 +45,14 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             Assert.IsTrue(peopleList.AddFirst(person));
 
             Assert.IsTrue(peopleList.First().Equals(person));
-            peopleList.AddFirst(null);
+            _ = peopleList.AddFirst(null);
             Assert.IsTrue(peopleList.Count == peopleList.Count);
             _ = Assert.ThrowsException<ArgumentReadOnlyException>(() => peopleList.ToReadOnlyCollection()
                 .AddFirst(person));
 
             // Array Test
             var result2 = peopleArray.AddFirst(person);
-            PersonProper[] nullArray = default(PersonProper[]);
+            var nullArray = default(PersonProper[]);
             Assert.IsTrue(result2.First().Equals(person));
             _ = Assert.ThrowsException<ArgumentNullException>(() => nullArray.AddFirst(null));
             _ = Assert.ThrowsException<ArgumentReadOnlyException>(() => Array.AsReadOnly(result2).AddFirst(person));
@@ -69,13 +69,13 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             _ = Assert.ThrowsException<ArgumentNullException>(() => people.AddIfNotExists(newPerson.Id, null));
 
             // Test
-           Assert.IsTrue( people.AddIfNotExists(newPerson.Id, newPerson));
+            Assert.IsTrue(people.AddIfNotExists(newPerson.Id, newPerson));
 
             Assert.IsFalse(people.AddIfNotExists(newPerson.Id, newPerson));
 
-            var readonlyPeople = new ReadOnlyDictionary<string, PersonProper>(people);
+            var readOnlyPeople = new ReadOnlyDictionary<string, PersonProper>(people);
 
-            _ = Assert.ThrowsException<ArgumentReadOnlyException>(()=>readonlyPeople.AddIfNotExists(newPerson.Id, newPerson));
+            _ = Assert.ThrowsException<ArgumentReadOnlyException>(() => readOnlyPeople.AddIfNotExists(newPerson.Id, newPerson));
 
         }
 
@@ -92,7 +92,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             // Test Parameters
             _ = Assert.ThrowsException<ArgumentReadOnlyException>(() => people.AsReadOnly().AddIfNotExists(person));
             _ = Assert.ThrowsException<ArgumentNullException>(() => people.AddIfNotExists(person, nullComparer));
-            _ = Assert.ThrowsException<ArgumentNullException>(()=>nullList.AddIfNotExists(RandomData.GeneratePerson<PersonProper>()));
+            _ = Assert.ThrowsException<ArgumentNullException>(() => nullList.AddIfNotExists(RandomData.GeneratePerson<PersonProper>()));
 
             // TEST
             Assert.IsFalse(people.AddIfNotExists(nullPerson));
@@ -110,13 +110,13 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             var people = RandomData.GeneratePersonCollection<PersonProper>(10);
             var newPeople = RandomData.GeneratePersonCollection<PersonProper>(10);
 
-            people.AddIfNotExists(newPeople.ToArray());
+            _ = people.AddIfNotExists(newPeople.ToArray());
             Assert.IsTrue(people.Count == 20);
 
-            people.AddIfNotExists(newPeople.ToArray());
+            _ = people.AddIfNotExists(newPeople.ToArray());
             Assert.IsTrue(people.Count == 20);
 
-            people.AddIfNotExists();
+            _ = people.AddIfNotExists();
             Assert.IsTrue(people.Count == 20);
         }
 
@@ -188,10 +188,10 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             var people = RandomData.GeneratePersonCollection<PersonProper>(10).ToDictionary(p => p.Id);
             var newPeople = RandomData.GeneratePersonCollection<PersonProper>(2).ToDictionary(p => p.Id);
 
-            people.AddRange(newPeople);
+            _ = people.AddRange(newPeople);
             Assert.IsTrue(people.Count == 12);
 
-            people.AddRange(newPeople, true);
+            _ = people.AddRange(newPeople, true);
             Assert.IsTrue(people.Count == 12);
         }
 
@@ -205,7 +205,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
 
             Assert.IsTrue(people.Count == 12);
 
-            people.AddRange(newPeople, true);
+            _ = people.AddRange(newPeople, true);
 
             Assert.IsTrue(people.Count == 12);
         }
@@ -494,7 +494,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             var people = RandomData.GeneratePersonCollection<PersonProper>(10).ToImmutable();
             PersonCollection<PersonProper> nullList = null;
 
-            Assert.ThrowsException<ArgumentNullException>(nullList.Shuffle);
+            _ = Assert.ThrowsException<ArgumentNullException>(nullList.Shuffle);
 
             var shuffledPeople = people.Shuffle();
 
@@ -506,7 +506,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         {
             var people = RandomData.GeneratePersonCollection<PersonProper>(10);
             PersonCollection<PersonProper> nullList = null;
-            Assert.ThrowsException<ArgumentNullException>(nullList.Shuffle);
+            _ = Assert.ThrowsException<ArgumentNullException>(nullList.Shuffle);
 
             var shuffleCount = people.Shuffle().Count();
 
@@ -519,7 +519,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             var people = RandomData.GeneratePersonCollection<PersonProper>(10);
             PersonCollection<PersonProper> nullList = null;
 
-            Assert.ThrowsException<ArgumentNullException>(nullList.Shuffle);
+            _ = Assert.ThrowsException<ArgumentNullException>(nullList.Shuffle);
 
             Assert.IsTrue(people.Shuffle(5).Count() == 5);
         }

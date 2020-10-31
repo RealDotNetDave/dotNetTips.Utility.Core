@@ -1,13 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-
     <IsPackable>false</IsPackable>
-
-    <AssemblyVersion>2020.10.20.44</AssemblyVersion>
-
-    <FileVersion>2020.10.20.44</FileVersion>
+    <AssemblyVersion>2020.10.31.62</AssemblyVersion>
+    <FileVersion>2020.10.31.62</FileVersion>
+    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+      <Authors>David McCarter - dotNetTips.com</Authors>
+    <Company>McCarter Consulting</Company>
+    <Description>Unit Tests</Description>
+    <Copyright>David McCarter - dotNetTips.com</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

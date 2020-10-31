@@ -1,4 +1,4 @@
-// ***********************************************************************
+﻿// ***********************************************************************
 // Assembly         : dotNetTips.Tips.Utility.Standard.Tests
 // Author           : David McCarter
 // Created          : 06-10-2018
@@ -32,11 +32,11 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Cache
         /// Adds the items to cache.
         /// </summary>
         [TestMethod]
-        public void AddItemsToCachTest()
+        public void AddItemsToCacheTest()
         {
             var cache = InMemoryCache.Instance;
 
-            for (int count = 0; count < _testCount; count++)
+            for(int count = 0; count < _testCount; count++)
             {
                 cache.AddCacheItem<int>(key: RandomData.GenerateKey(), item: RandomData.GenerateInteger(count, 1000000));
             }

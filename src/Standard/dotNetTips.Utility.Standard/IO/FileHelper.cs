@@ -29,6 +29,7 @@ namespace dotNetTips.Utility.Standard.IO
     /// <summary>
     /// Class FileHelper.
     /// </summary>
+    [Information(nameof(FileHelper), "David McCarter", "2/11/2017", Status = Status.Available)]
     public static class FileHelper
     {
 
@@ -53,6 +54,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// <param name="file">The file.</param>
         /// <param name="destinationFolder">The destination folder.</param>
         /// <returns>File length as System.Int64.</returns>
+        [Information(UnitTestCoverage = 100, Status = Status.Available)]
         public static long CopyFile(FileInfo file, DirectoryInfo destinationFolder)
         {
             Encapsulation.TryValidateParam(file, nameof(file));
@@ -83,6 +85,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// <param name="file">The file.</param>
         /// <param name="destinationFolder">The destination folder.</param>
         /// <returns>Task&lt;System.Int32&gt;.</returns>
+        [Information(UnitTestCoverage = 100, Status = Status.Available, ModifiedBy = "David McCarter")]
         public static async Task<long> CopyFileAsync(FileInfo file, DirectoryInfo destinationFolder)
         {
             Encapsulation.TryValidateParam(file, nameof(file));
@@ -112,6 +115,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// </summary>
         /// <param name="files">The files.</param>
         /// <returns>IEnumerable&lt;KeyValuePair&lt;System.String, System.String&gt;&gt;.</returns>
+        [Information(UnitTestCoverage = 100, Status = Status.Available)]
         public static IEnumerable<(string FileName, string ErrorMessage)> DeleteFiles(this IEnumerable<string> files)
         {
             if (files.HasItems() == false)
@@ -148,6 +152,7 @@ namespace dotNetTips.Utility.Standard.IO
         /// <param name="remoteFileUrl">The remote file URL.</param>
         /// <param name="localFilePath">The local file path.</param>
         /// <param name="clientId">The client identifier.</param>
+        [Information(UnitTestCoverage = 100, Status = Status.Available)]
         public static void DownloadFileFromWeb(Uri remoteFileUrl, string localFilePath, string clientId = "NONE")
         {
             Encapsulation.TryValidateParam(remoteFileUrl, nameof(remoteFileUrl));

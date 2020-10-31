@@ -24,13 +24,10 @@ namespace dotNetTips.Utility.Standard.Net
         private readonly int _durationMilliseconds;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TimerQueue" /> class.
+        /// Initializes a new instance of the <see cref="TimerQueue"/> class.
         /// </summary>
         /// <param name="durationMilliseconds">The duration milliseconds.</param>
-        public TimerQueue(int durationMilliseconds)
-        {
-            this._durationMilliseconds = durationMilliseconds;
-        }
+        public TimerQueue(int durationMilliseconds) { this._durationMilliseconds = durationMilliseconds; }
 
         /// <summary>
         /// The duration in milliseconds of timers in this queue.
@@ -44,6 +41,6 @@ namespace dotNetTips.Utility.Standard.Net
         /// <param name="callback">The callback.</param>
         /// <param name="context">The context.</param>
         /// <returns>CountdownTimerTimer.</returns>
-        public abstract CancelationTimer CreateTimer(Callback callback, object context);
+        public abstract CancellationTimer CreateTimer(Callback callback, object context);
     }
 }

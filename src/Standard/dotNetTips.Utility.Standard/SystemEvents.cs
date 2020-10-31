@@ -94,7 +94,7 @@ namespace dotNetTips.Utility.Standard
             {
                 Id = adapter.Id,
                 Name = adapter.Name,
-                OperationalStatus = adapter.OperationalStatus
+                OperationalStatus = adapter.OperationalStatus,
             }));
 
             eventInfo.TrimExcess();
@@ -102,7 +102,7 @@ namespace dotNetTips.Utility.Standard
             var eventArgs = new SystemChangedEventArgs
             {
                 SystemEventType = SystemEventType.NetworkAddressChanged,
-                EventInformation = eventInfo
+                EventInformation = eventInfo,
             };
 
             OnSystemChanged(eventArgs);
@@ -117,7 +117,7 @@ namespace dotNetTips.Utility.Standard
         {
             var eventInfo = new List<NetworkAvailabilityChangedEventInformation>(1)
             {
-                new NetworkAvailabilityChangedEventInformation { NetworkAvailable = e.IsAvailable }
+                new NetworkAvailabilityChangedEventInformation { NetworkAvailable = e.IsAvailable },
             };
 
             Trace.Write($"Network available: {e.IsAvailable}");

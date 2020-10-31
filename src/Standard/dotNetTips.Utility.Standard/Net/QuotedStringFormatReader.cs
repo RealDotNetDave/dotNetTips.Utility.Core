@@ -63,7 +63,7 @@ namespace dotNetTips.Utility.Standard.Net
         {
             Debug.Assert(0 <= index && index < data.Length, "Index out of range: " + index + ", " + data.Length);
             // Check for the first bounding quote
-            Debug.Assert(data[index] == ControlChars.Quote, "Initial char at index " + index + " was not a quote.");
+            Debug.Assert(data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Quote, "Initial char at index " + index + " was not a quote.");
 
             // Skip the bounding quote
             index--;
@@ -95,7 +95,7 @@ namespace dotNetTips.Utility.Standard.Net
                     index -= quotedCharCount;
                 }
                 // Check for the terminating quote
-                else if (data[index] == ControlChars.Quote)
+                else if (data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Quote)
                 {
                     // Skip the final bounding quote
                     outIndex = index - 1;
@@ -125,7 +125,7 @@ namespace dotNetTips.Utility.Standard.Net
             if (throwExceptionIfFail)
             {
                 // We started with a quote, but did not end with one
-                throw new FormatException($"Invalid character: {ControlChars.Quote}.");
+                throw new FormatException($"Invalid character: {dotNetTips.Utility.Standard.Common.ControlChars.Quote}.");
             }
             else
             {
@@ -190,7 +190,7 @@ namespace dotNetTips.Utility.Standard.Net
                     index -= quotedCharCount;
                 }
                 // Check for the terminating char
-                else if (expectCommaDelimiter && data[index] == ControlChars.Comma)
+                else if (expectCommaDelimiter && data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Comma)
                 {
                     break;
                 }

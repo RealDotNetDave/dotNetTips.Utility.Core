@@ -21,8 +21,8 @@
 -- MAY 2020: Added more functionality to RandomData.
 -- AUG 2020: Code cleanup.</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>2020.9.20.37339</AssemblyVersion>
-    <FileVersion>2020.9.20.37339</FileVersion>
+    <AssemblyVersion>2020.10.23.37344</AssemblyVersion>
+    <FileVersion>2020.10.23.37344</FileVersion>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -41,7 +41,7 @@
   </PropertyGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="if $(ConfigurationName) == Release (dotnet pack &quot;$(ProjectPath)&quot; --no-build --include-source --include-symbols --output  &quot;c:\dotNetTips.com\NuGet&quot;)" />
+    <Exec Command="if $(ConfigurationName) == Release (dotnet pack &quot;$(ProjectPath)&quot; --include-source --include-symbols --output  &quot;c:\dotNetTips.com\NuGet&quot;)" />
   </Target>
 
   <ItemGroup>

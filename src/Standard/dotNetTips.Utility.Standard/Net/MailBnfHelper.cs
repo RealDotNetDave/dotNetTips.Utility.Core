@@ -160,7 +160,7 @@ namespace dotNetTips.Utility.Standard.Net
         internal static bool IsAllowedWhiteSpace(char c)
         {
             // all allowed whitespace characters
-            return c == ControlChars.Tab || c == ControlChars.Space || c == ControlChars.CR || c == ControlChars.LF;
+            return c == dotNetTips.Utility.Standard.Common.ControlChars.Tab || c == dotNetTips.Utility.Standard.Common.ControlChars.Space || c == dotNetTips.Utility.Standard.Common.ControlChars.CR || c == dotNetTips.Utility.Standard.Common.ControlChars.LF;
         }
 
         // Is there a FWS ("\r\n " or "\r\n\t") starting at the given index?
@@ -175,11 +175,11 @@ namespace dotNetTips.Utility.Standard.Net
             Debug.Assert(index >= 0);
             Debug.Assert(index < data.Length);
 
-            return (data[index] == ControlChars.CR
+            return (data[index] == dotNetTips.Utility.Standard.Common.ControlChars.CR
                     && index + 2 < data.Length
-                    && data[index + 1] == ControlChars.LF
-                    && (data[index + 2] == ControlChars.Space
-                        || data[index + 2] == ControlChars.Tab));
+                    && data[index + 1] == dotNetTips.Utility.Standard.Common.ControlChars.LF
+                    && (data[index + 2] == dotNetTips.Utility.Standard.Common.ControlChars.Space
+                        || data[index + 2] == dotNetTips.Utility.Standard.Common.ControlChars.Tab));
         }
 
         /// <summary>

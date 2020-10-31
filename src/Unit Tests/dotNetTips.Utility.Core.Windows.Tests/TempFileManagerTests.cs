@@ -24,53 +24,45 @@ namespace dotNetTips.Utility.Core.Windows.Tests
         [TestMethod]
         public void CreateFilesTest()
         {
-            using (var tfm = new TempFileManager())
-            {
-                var result = tfm.CreateFiles(10);
+            using var tfm = new TempFileManager();
+            var result = tfm.CreateFiles(10);
 
-                foreach (var file in result)
-                {
-                    Assert.IsTrue(File.Exists(file));
-                }
+            foreach (var file in result)
+            {
+                Assert.IsTrue(File.Exists(file));
             }
         }
 
         [TestMethod]
         public void CreateFileTest()
         {
-            using (var tfm = new TempFileManager())
-            {
-                Assert.IsTrue(File.Exists(tfm.CreateFile()));
-            }
+            using var tfm = new TempFileManager();
+            Assert.IsTrue(File.Exists(tfm.CreateFile()));
         }
 
         [TestMethod]
         public void DeleteAllFilesTest()
         {
-            using (var tfm = new TempFileManager())
+            using var tfm = new TempFileManager();
+            var result = tfm.CreateFiles(10);
+
+            tfm.DeleteAllFiles();
+
+            Assert.IsTrue(tfm.FilesList().Count() == 0);
+
+            foreach (var fileName in result)
             {
-                var result = tfm.CreateFiles(10);
-
-                tfm.DeleteAllFiles();
-
-                Assert.IsTrue(tfm.FilesList().Count() == 0);
-
-                foreach (var fileName in result)
-                {
-                    Assert.IsTrue(File.Exists(fileName) == false);
-                }
+                Assert.IsTrue(File.Exists(fileName) == false);
             }
         }
 
         [TestMethod]
         public void FilesListTest()
         {
-            using (var tfm = new TempFileManager())
-            {
-                var result = tfm.CreateFiles(10);
+            using var tfm = new TempFileManager();
+            var result = tfm.CreateFiles(10);
 
-                Assert.IsTrue(tfm.FilesList().Count() == 10);
-            }
+            Assert.IsTrue(tfm.FilesList().Count() == 10);
         }
     }
 }

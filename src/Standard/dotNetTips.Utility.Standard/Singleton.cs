@@ -36,7 +36,6 @@ namespace dotNetTips.Utility.Standard
         /// ts this instance.
         /// </summary>
         /// <param name="data">The data.</param>
-        /// <returns>LoadData.</returns>
         protected static void LoadData(T data)
         {
             if (data != null)

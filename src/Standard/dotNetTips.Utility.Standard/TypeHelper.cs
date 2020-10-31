@@ -300,9 +300,9 @@ namespace dotNetTips.Utility.Standard
 
             while (type.IsArray)
             {
-                builder.Append(ControlChars.StartSquareBracket);
-                builder.Append(ControlChars.Comma, type.GetArrayRank() - 1);
-                builder.Append(ControlChars.EndSquareBracket);
+                builder.Append(dotNetTips.Utility.Standard.Common.ControlChars.StartSquareBracket);
+                builder.Append(dotNetTips.Utility.Standard.Common.ControlChars.Comma, type.GetArrayRank() - 1);
+                builder.Append(dotNetTips.Utility.Standard.Common.ControlChars.EndSquareBracket);
                 type = type.GetElementType();
             }
         }
@@ -326,7 +326,7 @@ namespace dotNetTips.Utility.Standard
                 else if (!string.IsNullOrEmpty(type.Namespace))
                 {
                     builder.Append(type.Namespace);
-                    builder.Append(ControlChars.Dot);
+                    builder.Append(dotNetTips.Utility.Standard.Common.ControlChars.Dot);
                 }
             }
 
@@ -341,7 +341,7 @@ namespace dotNetTips.Utility.Standard
 
             if (options.IncludeGenericParameters)
             {
-                builder.Append(ControlChars.StartAngleBracket);
+                builder.Append(dotNetTips.Utility.Standard.Common.ControlChars.StartAngleBracket);
 
                 for (var i = offset; i < length; i++)
                 {
@@ -352,14 +352,14 @@ namespace dotNetTips.Utility.Standard
                         continue;
                     }
 
-                    builder.Append(ControlChars.Comma);
+                    builder.Append(dotNetTips.Utility.Standard.Common.ControlChars.Comma);
                     if (options.IncludeGenericParameterNames || !genericArguments[i + 1].IsGenericParameter)
                     {
-                        builder.Append(ControlChars.Space);
+                        builder.Append(dotNetTips.Utility.Standard.Common.ControlChars.Space);
                     }
                 }
 
-                builder.Append(ControlChars.EndAngleBracket);
+                builder.Append(dotNetTips.Utility.Standard.Common.ControlChars.EndAngleBracket);
             }
         }
 

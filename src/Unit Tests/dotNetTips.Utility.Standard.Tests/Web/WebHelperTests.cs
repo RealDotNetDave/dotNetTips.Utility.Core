@@ -11,7 +11,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Web
         [TestMethod]
         public void DownloadStringAsyncTest()
         {
-            var result = WebHelper.DownloadStringAsync(new Uri("https://dotnettips.com"), clientId: "UNITTEST1").Result;
+            var result = WebHelper.DownloadStringAsync(new Uri(@"https://dotnettips.com"), clientId: "UNITTEST1").Result;
 
             Assert.IsNotNull(result);
         }
@@ -19,7 +19,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Web
         [TestMethod]
         public void DownloadStringTest()
         {
-           var result = WebHelper.DownloadString(new Uri("https://www.google.com/"), clientId: "UNITTEST2");
+            var result = WebHelper.DownloadString(new Uri(@"https://www.google.com/"), clientId: "UNITTEST2");
 
             Assert.IsTrue(result.HasValue());
         }

@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using System;
 using BenchmarkDotNet.Attributes;
 using dotNetTips.Utility.Standard;
 using dotNetTips.Utility.Standard.Extensions;
@@ -68,7 +69,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(StringExtensions.DelimitedStringToArray))]
         public void DelimitedStringToArray()
         {
-            var result = this._commaDelimitedString.DelimitedStringToArray();
+            var result = _commaDelimitedString.DelimitedStringToArray();
 
             base.Consumer.Consume(result);
         }
@@ -132,7 +133,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(StringExtensions.IsWhitespace) + ":String")]
         public void IsWhitespaceString()
         {
-            var result = this._stringToTrim.IsWhitespace();
+            var result = _stringToTrim.IsWhitespace();
 
             base.Consumer.Consume(result);
         }
@@ -140,14 +141,14 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         public override void Setup()
         {
             base.Setup();
-            this._commaDelimitedString = RandomData.GenerateWords(10, 5, 10).ToDelimitedString();
-            this._stringToTrim = "         " + LongTestString + "                   ";
+            _commaDelimitedString = RandomData.GenerateWords(10, 5, 10).ToDelimitedString();
+            _stringToTrim = "         " + LongTestString + "                   ";
         }
 
         [Benchmark(Description = nameof(StringExtensions.Split) + ":Char Separator")]
         public void SplitCharSeparator()
         {
-            var result = this._commaDelimitedString.Split(ControlChars.Comma, System.StringSplitOptions.None);
+            var result = _commaDelimitedString.Split(ControlChars.Comma, StringSplitOptions.None);
 
             base.Consumer.Consume(result);
         }
@@ -155,7 +156,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(StringExtensions.Split) + ":Char Separator-Count")]
         public void SplitCharSeparatorCount()
         {
-            var result = this._commaDelimitedString.Split(ControlChars.Comma, 2, System.StringSplitOptions.None);
+            var result = _commaDelimitedString.Split(ControlChars.Comma, 2, StringSplitOptions.None);
 
             base.Consumer.Consume(result);
         }
@@ -163,7 +164,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(StringExtensions.Split) + ":Char Separator-RemoveEmptyEntries")]
         public void SplitCharSeparatorRemoveEmptyEntries()
         {
-            var result = this._commaDelimitedString.Split(ControlChars.Comma, System.StringSplitOptions.RemoveEmptyEntries);
+            var result = _commaDelimitedString.Split(ControlChars.Comma, StringSplitOptions.RemoveEmptyEntries);
 
             base.Consumer.Consume(result);
         }
@@ -171,7 +172,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(StringExtensions.Split) + ":Char Separator-Count-RemoveEmptyEntries")]
         public void SplitCharSeparatorRemoveEmptyEntriesCount()
         {
-            var result = this._commaDelimitedString.Split(ControlChars.Comma, 2, System.StringSplitOptions.RemoveEmptyEntries);
+            var result = _commaDelimitedString.Split(ControlChars.Comma, 2, StringSplitOptions.RemoveEmptyEntries);
 
             base.Consumer.Consume(result);
         }
@@ -180,7 +181,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(StringExtensions.Split) + ":String Separator")]
         public void SplitStringSeparator()
         {
-            var result = this._commaDelimitedString.Split(",", System.StringSplitOptions.None);
+            var result = _commaDelimitedString.Split(",", StringSplitOptions.None);
 
             base.Consumer.Consume(result);
         }
@@ -188,7 +189,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(StringExtensions.Split) + ":String Separator-Count")]
         public void SplitStringSeparatorCount()
         {
-            var result = this._commaDelimitedString.Split(",", 2, System.StringSplitOptions.None);
+            var result = _commaDelimitedString.Split(",", 2, StringSplitOptions.None);
 
             base.Consumer.Consume(result);
         }
@@ -196,7 +197,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(StringExtensions.Split) + ":String Separator-RemoveEmptyEntries")]
         public void SplitStringSeparatorRemoveEmptyEntries()
         {
-            var result = this._commaDelimitedString.Split(",", System.StringSplitOptions.RemoveEmptyEntries);
+            var result = _commaDelimitedString.Split(",", StringSplitOptions.RemoveEmptyEntries);
 
             base.Consumer.Consume(result);
         }
@@ -204,7 +205,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(StringExtensions.Split) + ":String Separator-Count-RemoveEmptyEntries")]
         public void SplitStringSeparatorRemoveEmptyEntriesCount()
         {
-            var result = this._commaDelimitedString.Split(",", 2, System.StringSplitOptions.RemoveEmptyEntries);
+            var result = _commaDelimitedString.Split(",", 2, StringSplitOptions.RemoveEmptyEntries);
 
             base.Consumer.Consume(result);
         }
@@ -236,9 +237,28 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(StringExtensions.ToTrimmed))]
         public void ToTrimmedString()
         {
-            var result = this._stringToTrim.ToTrimmed();
+            var result = _stringToTrim.ToTrimmed();
 
             base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.FromBase64) + ":" + nameof(StringExtensions.ToBase64))]
+        public void FromBase64()
+        {
+            var base64 = RandomData.GenerateWord(100).ToBase64();
+
+            var result = base64.FromBase64();
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(StringExtensions.ToTitleCase))]
+        public void ToTitleCase()
+        {
+            var words = RandomData.GenerateWords(10, 10, 10)
+                .ToDelimitedString(dotNetTips.Utility.Standard.Common.ControlChars.Space);
+
+            base.Consumer.Consume(words.ToTitleCase());
         }
 
     }

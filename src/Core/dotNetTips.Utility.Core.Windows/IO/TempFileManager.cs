@@ -11,13 +11,13 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using dotNetTips.Utility.Standard.Common;
+using dotNetTips.Utility.Standard.Extensions;
+using dotNetTips.Utility.Standard.OOP;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using dotNetTips.Utility.Standard.Common;
-using dotNetTips.Utility.Standard.Extensions;
-using dotNetTips.Utility.Standard.OOP;
 
 namespace dotNetTips.Utility.Core.Windows.IO
 {
@@ -48,7 +48,7 @@ namespace dotNetTips.Utility.Core.Windows.IO
         /// <c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged
         /// resources.
         /// </param>
-        protected virtual new void Dispose(bool disposing)
+        protected virtual void Dispose(bool disposing)
         {
             if (!(this._disposed))
             {
@@ -137,7 +137,7 @@ namespace dotNetTips.Utility.Core.Windows.IO
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
-        public new void Dispose()
+        public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);

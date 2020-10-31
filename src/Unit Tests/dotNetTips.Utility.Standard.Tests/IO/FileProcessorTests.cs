@@ -11,14 +11,15 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using dotNetTips.Tips.Utility.Standard.Common;
+using dotNetTips.Utility.Standard.IO;
+using dotNetTips.Utility.Standard.Tester;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using dotNetTips.Utility.Standard.IO;
-using dotNetTips.Utility.Standard.Tester;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dotNetTips.Tips.Utility.Standard.Tests.IO
 {
@@ -30,13 +31,13 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
         {
             var processor = new FileProcessor();
 
-            processor.Processed += this.Processor_Processed;
+            processor.Processed += Processor_Processed;
 
             var files = GenerateTempFiles(100, 5000);
 
             processor.CopyFiles(files, new DirectoryInfo(Path.GetTempPath()));
 
-            processor.Processed -= this.Processor_Processed;
+            processor.Processed -= Processor_Processed;
         }
 
         private void Processor_Processed(object sender, FileProgressEventArgs e)

@@ -33,7 +33,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">input - Input is invalid.</exception>
         public static DateTime GetLast(this DateTime input, DayOfWeek dayOfWeek)
         {
-            return input.AddDays((input.DayOfWeek > dayOfWeek ? input.DayOfWeek - dayOfWeek : 7 - (int)dayOfWeek + (int)input.DayOfWeek) * -1);
+            return input.AddDays((input.DayOfWeek > dayOfWeek
+                    ? input.DayOfWeek - dayOfWeek
+                    : 7 - (int)dayOfWeek + (int)input.DayOfWeek) *
+                -1);
         }
 
         /// <summary>
@@ -45,7 +48,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 77.78, Status = Status.Available)]
         public static DateTimeOffset GetLastDayOfWeek(this DateTimeOffset input, DayOfWeek dayOfWeek)
         {
-            return input.AddDays((input.DayOfWeek > dayOfWeek ? input.DayOfWeek - dayOfWeek : 7 - (int)dayOfWeek + (int)input.DayOfWeek) * -1);
+            return input.AddDays((input.DayOfWeek > dayOfWeek
+                    ? input.DayOfWeek - dayOfWeek
+                    : 7 - (int)dayOfWeek + (int)input.DayOfWeek) *
+                -1);
         }
 
         /// <summary>
@@ -59,7 +65,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             var daysToAdd = 0;
 
-            daysToAdd = input.DayOfWeek < dayOfWeek ? dayOfWeek - input.DayOfWeek : (7 - (int)input.DayOfWeek) + (int)dayOfWeek;
+            daysToAdd = input.DayOfWeek < dayOfWeek
+                ? dayOfWeek - input.DayOfWeek
+                : (7 - (int)input.DayOfWeek) + (int)dayOfWeek;
 
             return input.AddDays(daysToAdd);
         }
@@ -75,7 +83,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             var daysToAdd = 0;
 
-            daysToAdd = input.DayOfWeek < dayOfWeek ? dayOfWeek - input.DayOfWeek : (7 - (int)input.DayOfWeek) + (int)dayOfWeek;
+            daysToAdd = input.DayOfWeek < dayOfWeek
+                ? dayOfWeek - input.DayOfWeek
+                : (7 - (int)input.DayOfWeek) + (int)dayOfWeek;
 
             return input.AddDays(daysToAdd);
         }
@@ -88,11 +98,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="intersectingStartDate">The intersecting start date.</param>
         /// <param name="intersectingEndDate">The intersecting end date.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        public static bool Intersects(this DateTime startDate, DateTime endDate, DateTime intersectingStartDate, DateTime intersectingEndDate) => intersectingEndDate >= startDate &&
+        public static bool Intersects(this DateTime startDate,
+                                      DateTime endDate,
+                                      DateTime intersectingStartDate,
+                                      DateTime intersectingEndDate) => intersectingEndDate >= startDate &&
             intersectingStartDate <= endDate;
 
         /// <summary>
-        /// Intersectses the specified end date.
+        /// Intersects the specified end date.
         /// </summary>
         /// <param name="startDate">The start date.</param>
         /// <param name="endDate">The end date.</param>
@@ -100,8 +113,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="intersectingEndDate">The intersecting end date.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.Available)]
-        public static bool Intersects(this DateTimeOffset startDate, DateTimeOffset endDate, DateTimeOffset intersectingStartDate, DateTimeOffset intersectingEndDate) => intersectingEndDate >= startDate &&
-    intersectingStartDate <= endDate;
+        public static bool Intersects(this DateTimeOffset startDate,
+                                      DateTimeOffset endDate,
+                                      DateTimeOffset intersectingStartDate,
+                                      DateTimeOffset intersectingEndDate) => intersectingEndDate >= startDate &&
+            intersectingStartDate <= endDate;
 
         /// <summary>
         /// Determines whether value is in range of the specified beginning time and end time.
@@ -111,9 +127,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="endTime">The end date.</param>
         /// <returns><c>true</c> if [is in range] [the specified beginning date]; otherwise, <c>false</c>.</returns>
         public static bool IsInRange(this DateTime value, DateTime beginningTime, DateTime endTime)
-        {
-            return value >= beginningTime & value <= endTime;
-        }
+        { return value >= beginningTime & value <= endTime; }
 
         /// <summary>
         /// Determines whether value is in range of the specified beginning time and end time.
@@ -123,9 +137,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="endTime">The end time.</param>
         /// <returns><c>true</c> if [is in range] [the specified beginning time]; otherwise, <c>false</c>.</returns>
         public static bool IsInRange(this TimeSpan value, TimeSpan beginningTime, TimeSpan endTime)
-        {
-            return value >= beginningTime & value <= endTime;
-        }
+        { return value >= beginningTime & value <= endTime; }
 
         /// <summary>
         /// DDetermines whether value is in range of the specified beginning time and end time.
@@ -135,13 +147,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="endTime">The end time.</param>
         /// <returns><c>true</c> if [is in range] [the specified beginning time]; otherwise, <c>false</c>.</returns>
         public static bool IsInRange(this DateTimeOffset value, DateTimeOffset beginningTime, DateTimeOffset endTime)
-        {
-            return value >= beginningTime & value <= endTime;
-        }
+        { return value >= beginningTime & value <= endTime; }
 
         /// <summary>
-        /// Determines whether [is in range throws exception] [the specified beginning time].
-        /// Throws Exception if invalid.
+        /// Determines whether [is in range throws exception] [the specified beginning time]. Throws Exception if
+        /// invalid.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <param name="beginningTime">The beginning time.</param>
@@ -149,9 +159,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="paramName">Name of the parameter.</param>
         /// <returns><c>true</c> if [is in range throws exception] [the specified beginning time]; otherwise, <c>false</c>.</returns>
         [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.New)]
-        public static bool IsInRangeThrowsException(this DateTime value, DateTime beginningTime, DateTime endTime, string paramName)
+        public static bool IsInRangeThrowsException(this DateTime value,
+                                                    DateTime beginningTime,
+                                                    DateTime endTime,
+                                                    string paramName)
         {
-            if (value.IsInRange(beginningTime, endTime) == false)
+            if(value.IsInRange(beginningTime, endTime) == false)
             {
                 ExceptionThrower.ThrowArgumentOutOfRangeException(paramName);
             }
@@ -160,8 +173,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Determines whether [is in range throws exception] [the specified beginning time].
-        /// Throws Exception if invalid.
+        /// Determines whether [is in range throws exception] [the specified beginning time]. Throws Exception if
+        /// invalid.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <param name="beginningTime">The beginning time.</param>
@@ -169,9 +182,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="paramName">Name of the parameter.</param>
         /// <returns><c>true</c> if [is in range throws exception] [the specified beginning time]; otherwise, <c>false</c>.</returns>
         [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.New)]
-        public static bool IsInRangeThrowsException(this TimeSpan value, TimeSpan beginningTime, TimeSpan endTime, string paramName)
+        public static bool IsInRangeThrowsException(this TimeSpan value,
+                                                    TimeSpan beginningTime,
+                                                    TimeSpan endTime,
+                                                    string paramName)
         {
-            if (value.IsInRange(beginningTime, endTime) == false)
+            if(value.IsInRange(beginningTime, endTime) == false)
             {
                 ExceptionThrower.ThrowArgumentOutOfRangeException(paramName);
             }
@@ -180,8 +196,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Determines whether [is in range throws exception] [the specified beginning time].
-        /// Throws Exception if invalid.
+        /// Determines whether [is in range throws exception] [the specified beginning time]. Throws Exception if
+        /// invalid.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <param name="beginningTime">The beginning time.</param>
@@ -189,9 +205,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="paramName">Name of the parameter.</param>
         /// <returns><c>true</c> if [is in range throws exception] [the specified beginning time]; otherwise, <c>false</c>.</returns>
         [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.New)]
-        public static bool IsInRangeThrowsException(this DateTimeOffset value, DateTimeOffset beginningTime, DateTimeOffset endTime, string paramName)
+        public static bool IsInRangeThrowsException(this DateTimeOffset value,
+                                                    DateTimeOffset beginningTime,
+                                                    DateTimeOffset endTime,
+                                                    string paramName)
         {
-            if (value.IsInRange(beginningTime, endTime) == false)
+            if(value.IsInRange(beginningTime, endTime) == false)
             {
                 ExceptionThrower.ThrowArgumentOutOfRangeException(paramName);
             }
@@ -205,7 +224,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="date">Date to process</param>
         /// <param name="timezoneFromUtc">Hours of the timezone from UTC</param>
         /// <returns>Future date</returns>
-        public static DateTime LocalTimeFromUtc(this DateTime date, int timezoneFromUtc) => date.ToUniversalTime().AddHours(timezoneFromUtc);
+        public static DateTime LocalTimeFromUtc(this DateTime date, int timezoneFromUtc) => date.ToUniversalTime()
+            .AddHours(timezoneFromUtc);
 
         /// <summary>
         /// Determines the maximum of the two dates.
@@ -215,9 +235,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>DateTime.</returns>
         [Information(nameof(Max), author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.Available)]
         public static DateTime Max(this DateTime date, DateTime compareTo)
-        {
-            return date > compareTo ? date : compareTo;
-        }
+        { return date > compareTo ? date : compareTo; }
 
         /// <summary>
         /// Determines the maximum of the two dates.
@@ -227,9 +245,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>DateTimeOffset.</returns>
         [Information(nameof(Max), author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.Available)]
         public static DateTimeOffset Max(this DateTimeOffset date, DateTimeOffset compareTo)
-        {
-            return date > compareTo ? date : compareTo;
-        }
+        { return date > compareTo ? date : compareTo; }
 
 
         /// <summary>
@@ -240,9 +256,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>Future date</returns>
         public static DateTime NextDayOfWeek(this DateTime date, DayOfWeek day = DayOfWeek.Monday)
         {
-            while (true)
+            while(true)
             {
-                if (date.DayOfWeek == day)
+                if(date.DayOfWeek == day)
                 {
                     return date;
                 }
@@ -260,9 +276,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static DateTimeOffset NextDayOfWeek(this DateTimeOffset date, DayOfWeek day = DayOfWeek.Monday)
         {
-            while (true)
+            while(true)
             {
-                if (date.DayOfWeek == day)
+                if(date.DayOfWeek == day)
                 {
                     return date;
                 }
@@ -280,17 +296,17 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             var formattedDate = string.Empty;
 
-            if (input.Date == DateTime.Today)
+            if(input.Date == DateTime.Today)
             {
                 formattedDate = nameof(DateTime.Today);
-            }
-            else
+            } else
             {
                 formattedDate = input.Date == DateTime.Today.AddDays(-1)
                     ? Resources.Yesterday
                     : input.Date > DateTime.Today.AddDays(-6)
                         ? input.ToString("dddd", CultureInfo.CurrentCulture)
-                        : input.ToString(CultureInfo.CurrentCulture.DateTimeFormat.LongDatePattern, CultureInfo.CurrentCulture);
+                        : input.ToString(CultureInfo.CurrentCulture.DateTimeFormat.LongDatePattern,
+                                         CultureInfo.CurrentCulture);
             }
 
             formattedDate += $" @ {(input.ToString(CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern, CultureInfo.CurrentCulture).ToLower(CultureInfo.CurrentCulture))}";
@@ -299,7 +315,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Converts to friendlydatestring.
+        /// Converts to friendly date string.
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns>System.String.</returns>
@@ -308,23 +324,22 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             var formattedDate = string.Empty;
 
-            if (input.Date == DateTime.Today)
+            if(input.Date == DateTime.Today)
             {
                 formattedDate = nameof(DateTime.Today);
-            }
-            else
+            } else
             {
                 formattedDate = input.Date == DateTime.Today.AddDays(-1)
                     ? Resources.Yesterday
                     : input.Date > DateTime.Today.AddDays(-6)
                         ? input.ToString("dddd", CultureInfo.CurrentCulture)
-                        : input.ToString(CultureInfo.CurrentCulture.DateTimeFormat.LongDatePattern, CultureInfo.CurrentCulture);
+                        : input.ToString(CultureInfo.CurrentCulture.DateTimeFormat.LongDatePattern,
+                                         CultureInfo.CurrentCulture);
             }
 
             formattedDate += $" @ {(input.ToString(CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern, CultureInfo.CurrentCulture).ToLower(CultureInfo.CurrentCulture))}";
 
             return formattedDate;
         }
-
     }
 }

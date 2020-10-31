@@ -63,7 +63,7 @@ namespace dotNetTips.Utility.Standard.Net
             for (; 0 <= index; index--)
             {
                 if (data[index] <= MailBnfHelper.Ascii7bitMaxValue // Any Unicode allowed
-                 && (data[index] != ControlChars.Dot && !MailBnfHelper.Atext[data[index]])) // Invalid char
+                 && (data[index] != dotNetTips.Utility.Standard.Common.ControlChars.Dot && !MailBnfHelper.Atext[data[index]])) // Invalid char
                 {
                     break;
                 }
@@ -83,11 +83,11 @@ namespace dotNetTips.Utility.Standard.Net
                 }
             }
             // Check for leading dot
-            else if (data[index + 1] == ControlChars.Dot)
+            else if (data[index + 1] == dotNetTips.Utility.Standard.Common.ControlChars.Dot)
             {
                 if (throwExceptionIfFail)
                 {
-                    throw new FormatException($"Invalid character: {ControlChars.Dot}.");
+                    throw new FormatException($"Invalid character: {dotNetTips.Utility.Standard.Common.ControlChars.Dot}.");
                 }
                 else
                 {

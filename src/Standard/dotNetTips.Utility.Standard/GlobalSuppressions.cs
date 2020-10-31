@@ -27,7 +27,6 @@
 [assembly: SuppressMessage("Naming", "CA1720:Identifier contains type name", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)~System.String")]
 [assembly: SuppressMessage("Naming", "CA1710:Identifiers should have correct suffix", Justification = "<Pending>", Scope = "type", Target = "~T:dotNetTips.Utility.Standard.Collections.Generic.FastSortedList`1")]
 
-[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores", Justification = "<Pending>", Scope = "type", Target = "~T:dotNetTips.Tips.Utility.Standard.EnvironmentKey")]
 [assembly: SuppressMessage("Design", "CA1062:Validate arguments of public methods", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.IO.FileHelper.DownloadFileFromWebAndUnzipAsync(System.Uri,System.String)~System.Threading.Tasks.Task")]
 
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1.System#Collections#Generic#ICollection<T>#CopyTo(`0[],System.Int32)")]
@@ -51,3 +50,8 @@
 
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1724:Type names should not match namespaces", Justification = "<Pending>", Scope = "type", Target = "~T:dotNetTips.Utility.Standard.Enumeration")]
 [assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "member", Target = "~F:dotNetTips.Utility.Standard.IO.FileHelper.Retries")]
+[assembly: SuppressMessage("Usage", "CA2213:Disposable fields should be disposed", Justification = "<Pending>", Scope = "member", Target = "~F:dotNetTips.Utility.Standard.Net.Mailer._mailServer")]
+[assembly: SuppressMessage("Usage", "CA2213:Disposable fields should be disposed", Justification = "<Pending>", Scope = "member", Target = "~F:dotNetTips.Utility.Standard.Net.CountdownTimerQueue._countdownTimerNode")]
+[assembly: SuppressMessage("Usage", "PC001:API not supported on all platforms", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.App.IsUserAdministrator~System.Boolean")]
+[assembly: SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "<Pending>", Scope = "namespace", Target = "~N:dotNetTips.Utility.Standard")]
+[assembly: SuppressMessage("Usage", "DE0001:API is deprecated", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.Security.SecureString,System.String,System.String)")]

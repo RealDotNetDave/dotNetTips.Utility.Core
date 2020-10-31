@@ -80,7 +80,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="value">The return value.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         /// <exception cref="ArgumentNullException">request</exception>
-        /// <remarks>Orginal code by Jerry Nixon</remarks>
+        /// <remarks>Original code by Jerry Nixon</remarks>
         public static bool TryGetBody<T>(this HttpRequest request, out T value)
         {
             if (!request.TryGetBody(out var bytes))
@@ -111,7 +111,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">request</exception>
         /// <exception cref="ArgumentException">HttpRequest has no body.</exception>
         /// <exception cref="Exception">HttpRequest has no body.</exception>
-        /// <remarks>Orginal code by Jerry Nixon</remarks>
+        /// <remarks>Original code by Jerry Nixon</remarks>
         public static bool TryGetBody(this HttpRequest request, out byte[] value)
         {
             if (request == null)

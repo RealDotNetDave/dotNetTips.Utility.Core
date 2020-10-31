@@ -12,7 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace dotNetTips.Tips.Utility.Standard
+namespace dotNetTips.Tips.Utility.Standard.Common
 {
     /// <summary>
     /// Enum EnvironmentKeys
@@ -323,6 +323,6 @@ namespace dotNetTips.Tips.Utility.Standard
         /// <summary>
         /// The Windows directory
         /// </summary>
-        windir
+        windir,
     }
 }

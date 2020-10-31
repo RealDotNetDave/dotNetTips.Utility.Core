@@ -11,12 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
 using System.Linq;
-using dotNetTips.Utility.Standard.IO;
 using dotNetTips.Utility.Standard.Extensions;
+using dotNetTips.Utility.Standard.IO;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dotNetTips.Tips.Utility.Standard.Tests.IO
 {
@@ -46,7 +46,6 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
             var paths = $"{basePath},CombinePaths,Test1, Test2,Test3";
 
             var tempPath = PathHelper.CombinePaths(createIfNotExists: true, paths.DelimitedStringToArray());
-            
             Assert.IsNotNull(tempPath);
             Assert.IsTrue(tempPath.Exists);
 

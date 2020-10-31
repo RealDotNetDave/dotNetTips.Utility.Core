@@ -4,9 +4,9 @@
 // Created          : 07-24-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-24-2020
+// Last Modified On : 10-20-2020
 // ***********************************************************************
-// <copyright file="TimerNode.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="CountdownTimerNode.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -18,14 +18,13 @@ using static dotNetTips.Utility.Standard.Net.CountdownTimer;
 namespace dotNetTips.Utility.Standard.Net
 {
     /// <summary>
-    /// Internal representation of an individual timer.
-    /// Implements the <see cref="dotNetTips.Utility.Standard.Net.CancelationTimer" />
+    /// Class CountdownTimerNode.
+    /// Implements the <see cref="dotNetTips.Utility.Standard.Net.CancellationTimer" />
     /// </summary>
-    /// <seealso cref="dotNetTips.Utility.Standard.Net.CancelationTimer" />
-    internal class CountdownTimerNode : CancelationTimer
+    /// <seealso cref="dotNetTips.Utility.Standard.Net.CancellationTimer" />
+    internal class CountdownTimerNode : CancellationTimer
     {
-
-        private readonly object _queueLock = null;
+        private readonly object _queueLock;
         private Callback _callback;
         private object _context;
         private CountdownTimerNode _next;
@@ -33,17 +32,13 @@ namespace dotNetTips.Utility.Standard.Net
         private TimerState _timerState;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CountdownTimerNode"/> class.
-        /// A sentinel node - both the head and tail are one, which prevent 
-        /// the head and tail from ever having to be updated.
+        /// Initializes a new instance of the <see cref="CountdownTimerNode" /> class. A sentinel node - both the head
+        /// and tail are one, which prevent  the head and tail from ever having to be updated.
         /// </summary>
-        public CountdownTimerNode() : base(0)
-        {
-            _timerState = TimerState.Sentinel;
-        }
+        public CountdownTimerNode() : base(0) { _timerState = TimerState.Sentinel; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CountdownTimerNode"/> class.
+        /// Initializes a new instance of the <see cref="CountdownTimerNode" /> class.
         /// </summary>
         /// <param name="callback">The callback.</param>
         /// <param name="context">The context.</param>
@@ -77,9 +72,9 @@ namespace dotNetTips.Utility.Standard.Net
             Fired,
 
             /// <summary>
-            /// Timer is cancelled
+            /// Timer is canceled
             /// </summary>
-            Cancelled,
+            Canceled,
 
             /// <summary>
             /// Timer sentinel
@@ -97,24 +92,17 @@ namespace dotNetTips.Utility.Standard.Net
         /// Gets or sets the next.
         /// </summary>
         /// <value>The next.</value>
-        public CountdownTimerNode Next
-        {
-            get => _next;
-            set => _next = value;
-        }
+        public CountdownTimerNode Next { get => _next; set => _next = value; }
 
         /// <summary>
         /// Gets or sets the previous.
         /// </summary>
         /// <value>The previous.</value>
-        public CountdownTimerNode Prev
-        {
-            get => _prev;
-            set => _prev = value;
-        }
+        public CountdownTimerNode Prev { get => _prev; set => _prev = value; }
 
         /// <summary>
-        /// Cancels the timer.  Returns true if it hasn't and won't fire; false if it has or will, or has already been cancelled.
+        /// Cancels the timer.  Returns true if it hasn't and won't fire; false if it has or will, or has already been
+        /// canceled.
         /// </summary>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public override bool Cancel()
@@ -126,7 +114,7 @@ namespace dotNetTips.Utility.Standard.Net
                     if (_timerState == TimerState.Ready)
                     {
                         // Remove it from the list.  This keeps the list from getting too big when there are a lot of rapid creations
-                        // and cancellations.  This is done before setting it to Cancelled to try to prevent the Fire() loop from
+                        // and cancellations.  This is done before setting it to Canceled to try to prevent the Fire() loop from
                         // seeing it, or if it does, of having to take a lock to synchronize with the state of the list.
                         Next.Prev = Prev;
                         Prev.Next = Next;
@@ -137,7 +125,7 @@ namespace dotNetTips.Utility.Standard.Net
                         _callback = null;
                         _context = null;
 
-                        _timerState = TimerState.Cancelled;
+                        _timerState = TimerState.Canceled;
 
                         return true;
                     }
@@ -148,8 +136,8 @@ namespace dotNetTips.Utility.Standard.Net
         }
 
         /// <summary>
-        /// Fires the timer if it is still active and has expired.  Returns
-        /// true if it can be deleted, or false if it is still timing.
+        /// Fires the timer if it is still active and has expired.  Returns true if it can be deleted, or false if it is
+        /// still timing.
         /// </summary>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public bool Fire()
@@ -212,6 +200,5 @@ namespace dotNetTips.Utility.Standard.Net
 
             return true;
         }
-
     }
 }

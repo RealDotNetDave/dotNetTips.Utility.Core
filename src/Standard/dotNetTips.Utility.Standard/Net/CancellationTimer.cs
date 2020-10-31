@@ -4,34 +4,33 @@
 // Created          : 07-24-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-05-2020
+// Last Modified On : 10-20-2020
 // ***********************************************************************
-// <copyright file="CancelationTimer.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="CancellationTimer.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 using System;
+using dotNetTips.Utility.Standard.Extensions;
 
 namespace dotNetTips.Utility.Standard.Net
 {
     /// <summary>
-    /// Represents a timer and provides a mechanism to cancel.
-    /// Implements the <see cref="System.IDisposable" />
+    /// Represents a timer and provides a mechanism to cancel. Implements the <see cref="System.IDisposable"/>
     /// </summary>
-    /// <seealso cref="System.IDisposable" />
-    public abstract class CancelationTimer : IDisposable
+    /// <seealso cref="System.IDisposable"/>
+    public abstract class CancellationTimer : IDisposable
     {
-
         private readonly int _durationMilliseconds;
         private readonly int _startTimeMilliseconds;
         private bool disposedValue;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CancelationTimer" /> class.
+        /// Initializes a new instance of the <see cref="CancellationTimer"/> class.
         /// </summary>
         /// <param name="durationMilliseconds">The duration milliseconds.</param>
-        public CancelationTimer(int durationMilliseconds)
+        public CancellationTimer(int durationMilliseconds)
         {
             this._durationMilliseconds = durationMilliseconds;
             this._startTimeMilliseconds = Environment.TickCount;
@@ -64,7 +63,10 @@ namespace dotNetTips.Utility.Standard.Net
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources.
         /// </summary>
-        /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        /// <param name="disposing">
+        /// <c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged
+        /// resources.
+        /// </param>
         protected virtual void Dispose(bool disposing)
         {
             if (!disposedValue)
@@ -72,6 +74,7 @@ namespace dotNetTips.Utility.Standard.Net
                 if (disposing)
                 {
                     this.Cancel();
+                    this.DisposeFields();
                 }
 
                 disposedValue = true;

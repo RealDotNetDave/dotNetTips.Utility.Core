@@ -25,7 +25,7 @@ namespace dotNetTips.Utility.Standard.Extensions
     internal static class JsonSerializer
     {
         /// <summary>
-        /// Deserializes the specified Json.
+        /// De-serializes the specified Json.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="json">The json.</param>
@@ -35,7 +35,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             var obj = Activator.CreateInstance<T>();
 
-            using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
+            using(var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
             {
                 var ser = new DataContractJsonSerializer(obj.GetType());
                 obj = ser.ReadObject(ms) as T;
@@ -53,14 +53,15 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             string json;
 
-            using (var ms = new MemoryStream())
+            using(var ms = new MemoryStream())
             {
-                var ser = new DataContractJsonSerializer(obj.GetType(), new DataContractJsonSerializerSettings
-                {
-                    SerializeReadOnlyTypes = true,
-                    UseSimpleDictionaryFormat = true,
-                    EmitTypeInformation = EmitTypeInformation.AsNeeded
-                });
+                var ser = new DataContractJsonSerializer(obj.GetType(),
+                                                         new DataContractJsonSerializerSettings
+                    {
+                        SerializeReadOnlyTypes = true,
+                        UseSimpleDictionaryFormat = true,
+                        EmitTypeInformation = EmitTypeInformation.AsNeeded
+                    });
 
                 ser.WriteObject(ms, obj);
 

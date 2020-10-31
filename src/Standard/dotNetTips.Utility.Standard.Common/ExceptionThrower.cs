@@ -22,12 +22,6 @@ namespace dotNetTips.Utility.Standard.Common
     /// </summary>
     public static class ExceptionThrower
     {
-
-        private static string DefaultIfNull(this string value, string defaultValue)
-        {
-            return value ?? (defaultValue ?? string.Empty);
-        }
-
         /// <summary>
         /// Throws the ArgumentException.
         /// </summary>
@@ -89,7 +83,6 @@ namespace dotNetTips.Utility.Standard.Common
         {
             throw new ArgumentInvalidException(message.DefaultIfNull(Resources.ExMessageInvalidArgument), innerException);
         }
-
 
         /// <summary>
         /// Throws the argument null exception.
@@ -183,23 +176,21 @@ namespace dotNetTips.Utility.Standard.Common
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", Status = Status.Available)]
         public static void ThrowArgumentReadOnlyCollectionException(string paramName)
         {
-            throw new ArgumentReadOnlyException(Resources.ExMessageReadonlyCollection, paramName);
+            throw new ArgumentReadOnlyException(Resources.ExMessageReadOnlyCollection, paramName);
         }
 
         /// <summary>
         /// Throws the ArgumentInvalidException.
         /// </summary>
         /// <param name="message">The message.</param>
-        /// <param name="paramName">Name of the parameter.</param>
-        /// <exception cref="ArgumentInvalidException"></exception>
-        /// <exception cref="ArgumentException"></exception>
-        /// <exception cref="ArgumentNullException"></exception>
+        /// <param name="directory">The directory.</param>
+        /// <exception cref="DirectoryNotFoundException">Directory not found.</exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
         [Information(nameof(ThrowDirectoryNotFoundException), author: "David McCarter", createdOn: "8/13/2020", modifiedOn: "8/13/2020", Status = Status.Available)]
-        public static void ThrowDirectoryNotFoundException(string message, string paramName)
+        public static void ThrowDirectoryNotFoundException(string message, string directory)
         {
-            throw new ArgumentInvalidException(paramName, message.DefaultIfNull(Resources.ExMessageDirectoryNotFound));
+            throw new DirectoryNotFoundException(directory, message.DefaultIfNull(Resources.ExMessageDirectoryNotFound));
         }
 
         /// <summary>
@@ -243,6 +234,11 @@ namespace dotNetTips.Utility.Standard.Common
         public static void ThrowInvalidOperationException(string message, Exception innerException)
         {
             throw new InvalidOperationException(message.DefaultIfNull(Resources.ExMessageInvalidOperation), innerException);
+        }
+
+        private static string DefaultIfNull(this string value, string defaultValue)
+        {
+            return value ?? defaultValue ?? string.Empty;
         }
     }
 }

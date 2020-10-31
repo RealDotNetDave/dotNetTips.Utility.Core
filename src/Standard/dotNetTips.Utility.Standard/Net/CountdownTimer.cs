@@ -4,7 +4,7 @@
 // Created          : 07-24-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 09-19-2020
+// Last Modified On : 10-21-2020
 // ***********************************************************************
 // <copyright file="CountdownTimer.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -25,17 +25,53 @@ namespace dotNetTips.Utility.Standard.Net
     /// </summary>
     public static class CountdownTimer
     {
+        /// <summary>
+        /// The cache scan per iterations
+        /// </summary>
         private const int CacheScanPerIterations = 32;
+        /// <summary>
+        /// The default timeout
+        /// </summary>
         private const int DefaultTimeout = 30 * 1000;
+        /// <summary>
+        /// The thread idle timeout milliseconds
+        /// </summary>
         private const int ThreadIdleTimeoutMilliseconds = DefaultTimeout;
+        /// <summary>
+        /// The tick count resolution
+        /// </summary>
         private const int TickCountResolution = 15;
+        /// <summary>
+        /// The new queues
+        /// </summary>
         private static readonly LinkedList<WeakReference> _newQueues = new LinkedList<WeakReference>();
+        /// <summary>
+        /// The queues
+        /// </summary>
         private static readonly LinkedList<WeakReference> _queues = new LinkedList<WeakReference>();
+        /// <summary>
+        /// The queues cache
+        /// </summary>
         private static readonly Dictionary<object, WeakReference> _queuesCache = new Dictionary<object, WeakReference>();
+        /// <summary>
+        /// The thread events
+        /// </summary>
         private static readonly WaitHandle[] _threadEvents = { _threadShutdownEvent, _threadReadyEvent };
+        /// <summary>
+        /// The thread ready event
+        /// </summary>
         private static readonly AutoResetEvent _threadReadyEvent = new AutoResetEvent(false);
+        /// <summary>
+        /// The thread shutdown event
+        /// </summary>
         private static readonly ManualResetEvent _threadShutdownEvent = new ManualResetEvent(false);
+        /// <summary>
+        /// The cache scan iteration
+        /// </summary>
         private static int _cacheScanIteration;
+        /// <summary>
+        /// The thread state
+        /// </summary>
         private static int _threadState = (int)TimerThreadState.Idle;  // Really a TimerThreadState, but need an int for Interlocked.
 
         /// <summary>
@@ -44,7 +80,7 @@ namespace dotNetTips.Utility.Standard.Net
         /// <param name="timer">The timer.</param>
         /// <param name="timeNoticed">The time noticed.</param>
         /// <param name="context">The context.</param>
-        public delegate void Callback(CancelationTimer timer, int timeNoticed, object context);
+        public delegate void Callback(CancellationTimer timer, int timeNoticed, object context);
 
         /// <summary>
         /// Queue factory.  Always synchronized.
@@ -53,7 +89,8 @@ namespace dotNetTips.Utility.Standard.Net
         /// <returns>CountdownTimerQueue.</returns>
         public static TimerQueue GetOrCreateQueue(int durationMilliseconds)
         {
-            Encapsulation.TryValidateParam<ArgumentException>(durationMilliseconds.IsNegative() == false, nameof(durationMilliseconds));
+            Encapsulation.TryValidateParam<ArgumentException>(durationMilliseconds.IsNegative() == false,
+                                                              nameof(durationMilliseconds));
 
             if (durationMilliseconds == Timeout.Infinite)
             {
@@ -64,16 +101,16 @@ namespace dotNetTips.Utility.Standard.Net
             object key = durationMilliseconds; // Box once.
             WeakReference weakQueue = null;
 
-            if (weakQueue == null || (queue = (TimerQueue)weakQueue.Target) == null)
+            if ((weakQueue == null) || ((queue = (TimerQueue)weakQueue.Target) == null))
             {
                 lock (_newQueues)
                 {
                     if (_queuesCache.ContainsKey(key))
                     {
-                        weakQueue = (WeakReference)_queuesCache[key];
+                        weakQueue = _queuesCache[key];
                     }
 
-                    if (weakQueue == null || (queue = (TimerQueue)weakQueue.Target) == null)
+                    if ((weakQueue == null) || ((queue = (TimerQueue)weakQueue.Target) == null))
                     {
                         queue = new CountdownTimerQueue(durationMilliseconds);
                         weakQueue = new WeakReference(queue);
@@ -81,14 +118,14 @@ namespace dotNetTips.Utility.Standard.Net
                         _queuesCache[key] = weakQueue;
 
                         // Take advantage of this lock to periodically scan the table for garbage.
-                        if (++_cacheScanIteration % CacheScanPerIterations == 0)
+                        if ((++_cacheScanIteration) % CacheScanPerIterations == 0)
                         {
                             var garbage = new List<object>();
                             // Manual use of IDictionaryEnumerator instead of foreach to avoid DictionaryEntry box allocations.
                             IDictionaryEnumerator e = _queuesCache.GetEnumerator();
                             while (e.MoveNext())
                             {
-                                DictionaryEntry pair = e.Entry;
+                                var pair = e.Entry;
                                 if (((WeakReference)pair.Value).Target is null)
                                 {
                                     garbage.Add(pair.Key);
@@ -107,8 +144,8 @@ namespace dotNetTips.Utility.Standard.Net
         }
 
         /// <summary>
-        /// Helper for deciding whether a given TickCount is before or after a given expiration
-        /// tick count assuming that it can't be before a given starting TickCount.
+        /// Helper for deciding whether a given TickCount is before or after a given expiration tick count assuming that
+        /// it can't be before a given starting TickCount.
         /// </summary>
         /// <param name="start">The start.</param>
         /// <param name="end">The end.</param>
@@ -119,7 +156,7 @@ namespace dotNetTips.Utility.Standard.Net
             // Assumes that if start and end are equal, they are the same time.
             // Assumes that if the comparand and start are equal, no time has passed,
             // and that if the comparand and end are equal, end has occurred.
-            return ((start <= comparand) == (end <= comparand)) != (start <= end);
+            return start <= comparand == end <= comparand != start <= end;
         }
 
         /// <summary>
@@ -129,7 +166,9 @@ namespace dotNetTips.Utility.Standard.Net
         {
             _threadReadyEvent.Set();
 
-            var oldState = (TimerThreadState)Interlocked.CompareExchange(ref _threadState, (int)TimerThreadState.Running, (int)TimerThreadState.Idle);
+            var oldState = (TimerThreadState)Interlocked.CompareExchange(ref _threadState,
+                                                                         (int)TimerThreadState.Running,
+                                                                         (int)TimerThreadState.Idle);
 
             if (oldState == TimerThreadState.Idle)
             {
@@ -138,8 +177,8 @@ namespace dotNetTips.Utility.Standard.Net
         }
 
         /// <summary>
-        /// <para>Thread for the timer.  Ignores all exceptions.  If no activity occurs for a while,
-        /// the thread will shut down.</para>
+        /// Thread for the timer.  Ignores all exceptions.  If no activity occurs for a while, the thread will shut
+        /// down.
         /// </summary>
         private static void ThreadProc()
         {
@@ -150,7 +189,9 @@ namespace dotNetTips.Utility.Standard.Net
             lock (_queues)
             {
                 // If shutdown was recently called, abort here.
-                if (Interlocked.CompareExchange(ref _threadState, (int)TimerThreadState.Running, (int)TimerThreadState.Running) !=
+                if (Interlocked.CompareExchange(ref _threadState,
+                                               (int)TimerThreadState.Running,
+                                               (int)TimerThreadState.Running) !=
                     (int)TimerThreadState.Running)
                 {
                     return;
@@ -170,7 +211,8 @@ namespace dotNetTips.Utility.Standard.Net
                             {
                                 lock (_newQueues)
                                 {
-                                    for (LinkedListNode<WeakReference> node = _newQueues.First; node != null; node = _newQueues.First)
+                                    for (LinkedListNode<WeakReference> node = _newQueues.First; node != null; node =
+                                        _newQueues.First)
                                     {
                                         _newQueues.Remove(node);
                                         _queues.AddLast(node);
@@ -182,7 +224,7 @@ namespace dotNetTips.Utility.Standard.Net
                             var nextTick = 0;
                             var haveNextTick = false;
 
-                            for (var node = _queues.First; node != null; /* node = node.Next must be done in the body */)
+                            for (var node = _queues.First; node != null; /* node = node.Next must be done in the body */ )
                             {
                                 var queue = (CountdownTimerQueue)node.Value.Target;
                                 if (queue == null)
@@ -196,8 +238,9 @@ namespace dotNetTips.Utility.Standard.Net
                                 // Fire() will always return values that should be interpreted as later than 'now' (that is, even if 'now' is
                                 // returned, it is 0x100000000 milliseconds in the future).  There's also a chance that Fire() will return a value
                                 // intended as > 0x100000000 milliseconds from 'now'.  Either case will just cause an extra scan through the timers.
-                                int nextTickInstance;
-                                if (queue.Fire(out nextTickInstance) && (!haveNextTick || IsTickBetween(now, nextTick, nextTickInstance)))
+
+                                if (queue.Fire(out var nextTickInstance) &&
+                                    (!haveNextTick || IsTickBetween(now, nextTick, nextTickInstance)))
                                 {
                                     nextTick = nextTickInstance;
                                     haveNextTick = true;
@@ -209,11 +252,13 @@ namespace dotNetTips.Utility.Standard.Net
                             // Figure out how long to wait, taking into account how long the loop took.
                             // Add 15 ms to compensate for poor TickCount resolution (want to guarantee a firing).
                             var newNow = Environment.TickCount;
-                            var waitDuration = haveNextTick ?
-                                (int)(IsTickBetween(now, nextTick, newNow) ?
-                                    Math.Min(unchecked((uint)(nextTick - newNow)), (uint)(int.MaxValue - TickCountResolution)) + TickCountResolution :
-                                    0) :
-                                ThreadIdleTimeoutMilliseconds;
+                            var waitDuration = haveNextTick
+                                ? ((int)(IsTickBetween(now, nextTick, newNow)
+                                    ? (Math.Min(unchecked((uint)(nextTick - newNow)),
+                                                int.MaxValue - TickCountResolution) +
+                                        TickCountResolution)
+                                    : 0))
+                                : ThreadIdleTimeoutMilliseconds;
 
                             //if (NetEventSource.Log.IsEnabled()) NetEventSource.Info(null, $"Waiting for {waitDuration}ms");
 
@@ -230,13 +275,17 @@ namespace dotNetTips.Utility.Standard.Net
                             //if (NetEventSource.Log.IsEnabled()) NetEventSource.Info(null, $"Awoke, cause {(waitResult == WaitHandle.WaitTimeout ? "Timeout" : "Prod")}");
 
                             // If we timed out with nothing to do, shut down.
-                            if (waitResult == WaitHandle.WaitTimeout && !haveNextTick)
+                            if ((waitResult == WaitHandle.WaitTimeout) && !haveNextTick)
                             {
-                                Interlocked.CompareExchange(ref _threadState, (int)TimerThreadState.Idle, (int)TimerThreadState.Running);
+                                Interlocked.CompareExchange(ref _threadState,
+                                                            (int)TimerThreadState.Idle,
+                                                            (int)TimerThreadState.Running);
                                 // There could have been one more prod between the wait and the exchange.  Check, and abort if necessary.
                                 if (_threadReadyEvent.WaitOne(0, false))
                                 {
-                                    if (Interlocked.CompareExchange(ref _threadState, (int)TimerThreadState.Running, (int)TimerThreadState.Idle) ==
+                                    if (Interlocked.CompareExchange(ref _threadState,
+                                                                   (int)TimerThreadState.Running,
+                                                                   (int)TimerThreadState.Idle) ==
                                         (int)TimerThreadState.Idle)
                                     {
                                         continue;
@@ -258,6 +307,5 @@ namespace dotNetTips.Utility.Standard.Net
                 }
             }
         }
-
     }
 }

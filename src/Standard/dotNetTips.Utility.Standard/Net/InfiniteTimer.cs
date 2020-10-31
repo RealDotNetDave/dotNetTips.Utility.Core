@@ -4,7 +4,7 @@
 // Created          : 07-24-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-07-2020
+// Last Modified On : 10-21-2020
 // ***********************************************************************
 // <copyright file="InfiniteTimer.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -15,22 +15,21 @@ using System.Threading;
 
 namespace dotNetTips.Utility.Standard.Net
 {
-    /// <summary>
-    /// A dummy infinite timer.
-    /// Implements the <see cref="CancelationTimer" />
-    /// Implements the <see cref="dotNetTips.Utility.Standard.Net.CancelationTimer" />
-    /// </summary>
-    /// <seealso cref="dotNetTips.Utility.Standard.Net.CancelationTimer" />
-    /// <seealso cref="CancelationTimer" />
-    public class InfiniteTimer : CancelationTimer
-    {
 
-        private int _cancelled;
+    /// <summary>
+    /// InfiniteTimer. Implements the <see cref="dotNetTips.Utility.Standard.Net.CancellationTimer"/>
+    /// </summary>
+    /// <seealso cref="dotNetTips.Utility.Standard.Net.CancellationTimer"/>
+    public class InfiniteTimer : CancellationTimer
+    {
+        private int _canceled;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="InfiniteTimer" /> class.
+        /// Initializes a new instance of the <see cref="InfiniteTimer"/> class.
         /// </summary>
-        public InfiniteTimer() : base(Timeout.Infinite) { }
+        public InfiniteTimer() : base(Timeout.Infinite)
+        {
+        }
 
         /// <summary>
         /// Shows whether or not the timer has expired.
@@ -42,7 +41,6 @@ namespace dotNetTips.Utility.Standard.Net
         /// Cancels the timer.  Returns true the first time, false after that.
         /// </summary>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        public override bool Cancel() => Interlocked.Exchange(ref _cancelled, 1) == 0;
-
+        public override bool Cancel() => Interlocked.Exchange(ref _canceled, 1) == 0;
     }
 }

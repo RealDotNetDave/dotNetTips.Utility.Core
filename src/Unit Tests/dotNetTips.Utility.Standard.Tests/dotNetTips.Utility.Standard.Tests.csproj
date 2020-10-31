@@ -2,22 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-
     <IsPackable>false</IsPackable>
-
-    <AssemblyVersion>2020.10.20.34669</AssemblyVersion>
-
-    <FileVersion>2020.10.20.34669</FileVersion>
-
+    <AssemblyVersion>2020.10.31.34730</AssemblyVersion>
+    <FileVersion>2020.10.31.34730</FileVersion>
     <Authors>David McCarter - dotNetTips.com</Authors>
-
     <Company>McCarter Consulting</Company>
-
     <Description>Unit Tests</Description>
-
     <Copyright>David McCarter - dotNetTips.com</Copyright>
-
     <PackageLicenseUrl />
+    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
