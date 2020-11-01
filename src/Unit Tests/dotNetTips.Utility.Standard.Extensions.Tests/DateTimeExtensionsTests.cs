@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Diagnostics;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dotNetTips.Utility.Standard.Extensions.Tests
 {
@@ -13,7 +13,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         {
             var result = DateTime.Now.GetLast(DayOfWeek.Monday);
 
-            this.PrintResult(result, nameof(DateTimeGetLastTest));
+            this.PrintResult(result, nameof(this.DateTimeGetLastTest));
 
             Assert.IsTrue(result <= DateTime.Now);
         }
@@ -23,7 +23,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         {
             var result = DateTime.Now.GetNext(DayOfWeek.Monday);
 
-            this.PrintResult(result, nameof(DateTimeGetNextTest));
+            this.PrintResult(result, nameof(this.DateTimeGetNextTest));
 
             Assert.IsTrue(result >= DateTime.Now);
         }
@@ -35,7 +35,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
 
             var result = now.Intersects(endDate: now.AddDays(100), intersectingStartDate: now.AddDays(1), intersectingEndDate: now.AddDays(10));
 
-            this.PrintResult(result, nameof(DateTimeIntersectsTest));
+            this.PrintResult(result, nameof(this.DateTimeIntersectsTest));
 
             Assert.IsTrue(result);
         }
@@ -47,7 +47,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
 
             var result = now.IsInRange(beginningTime: now.Subtract(new TimeSpan(1, 0, 0, 0)), endTime: now.AddDays(10));
 
-            this.PrintResult(result, nameof(DateTimeIsInRangeTest));
+            this.PrintResult(result, nameof(this.DateTimeIsInRangeTest));
 
             Assert.IsTrue(result);
         }
@@ -60,7 +60,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
 
             var result = now.LocalTimeFromUtc(-5);
 
-            this.PrintResult(result, nameof(DateTimeLocalTimeFromUtcTest));
+            this.PrintResult(result, nameof(this.DateTimeLocalTimeFromUtcTest));
 
             Assert.IsTrue(result >= now);
         }
@@ -72,7 +72,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
 
             var result = now.Max(now.Subtract(new TimeSpan(1, 0, 0, 0)));
 
-            this.PrintResult(result, nameof(DateTimeMaxTest));
+            this.PrintResult(result, nameof(this.DateTimeMaxTest));
 
             Assert.IsTrue(result == now);
         }
@@ -84,7 +84,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
 
             var result = now.NextDayOfWeek(DayOfWeek.Sunday);
 
-            this.PrintResult(result, nameof(DateTimeNextDayOfTheWeekTest));
+            this.PrintResult(result, nameof(this.DateTimeNextDayOfTheWeekTest));
 
             Assert.IsTrue(result >= now);
         }
@@ -95,7 +95,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         {
             var result = DateTimeOffset.Now.GetLastDayOfWeek(DayOfWeek.Monday);
 
-            this.PrintResult(result, nameof(DateTimeOffsetGetLastDayOfWeekTest));
+            this.PrintResult(result, nameof(this.DateTimeOffsetGetLastDayOfWeekTest));
 
             Assert.IsTrue(result <= DateTime.Now);
         }
@@ -105,7 +105,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         {
             var result = DateTimeOffset.Now.GetNextDayOfWeek(DayOfWeek.Monday);
 
-            this.PrintResult(result, nameof(DateTimeOffsetGetNextDayOfWeekTest));
+            this.PrintResult(result, nameof(this.DateTimeOffsetGetNextDayOfWeekTest));
 
             Assert.IsTrue(result >= DateTime.Now);
         }
@@ -117,7 +117,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
 
             var result = now.Intersects(now.AddDays(100), now.AddDays(1), now.AddDays(10));
 
-            this.PrintResult(result, nameof(DateTimeOffsetIntersectsTest));
+            this.PrintResult(result, nameof(this.DateTimeOffsetIntersectsTest));
 
             Assert.IsTrue(result);
         }
@@ -129,7 +129,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
 
             var result = now.IsInRange(now.Subtract(new TimeSpan(1, 0, 0, 0)), now.AddDays(10));
 
-            this.PrintResult(result, nameof(DateTimeOffsetIsInRangeTest));
+            this.PrintResult(result, nameof(this.DateTimeOffsetIsInRangeTest));
 
             Assert.IsTrue(result);
         }
@@ -141,7 +141,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
 
             var result = now.Max(now.Subtract(new TimeSpan(1, 0, 0, 0)));
 
-            this.PrintResult(result, nameof(DateTimeOffsetMaxTest));
+            this.PrintResult(result, nameof(this.DateTimeOffsetMaxTest));
 
             Assert.IsTrue(result == now);
         }
@@ -153,7 +153,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
 
             var result = now.NextDayOfWeek(DayOfWeek.Sunday);
 
-            this.PrintResult(result, nameof(DateTimeOffsetNextDayOfTheWeekTest));
+            this.PrintResult(result, nameof(this.DateTimeOffsetNextDayOfTheWeekTest));
 
             Assert.IsTrue(result >= now);
         }
@@ -163,7 +163,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         {
             var result = DateTimeOffset.Now.ToFriendlyDateString();
 
-            this.PrintResult(result, nameof(DateTimeOffsetToFriendlyStringTest));
+            this.PrintResult(result, nameof(this.DateTimeOffsetToFriendlyStringTest));
 
             Assert.IsTrue(string.IsNullOrEmpty(result) == false);
         }
@@ -172,21 +172,9 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         {
             var result = DateTime.Now.ToFriendlyDateString();
 
-            this.PrintResult(result, nameof(DateTimeToFriendlyStringTest));
+            this.PrintResult(result, nameof(this.DateTimeToFriendlyStringTest));
 
             Assert.IsTrue(string.IsNullOrEmpty(result) == false);
-        }
-
-        [TestMethod]
-        public void TimeSpanIsInRangeTest()
-        {
-            var now = new TimeSpan(3, 0, 0, 0);
-
-            var result = now.IsInRange(now.Subtract(new TimeSpan(1, 0, 0, 0)), now.Multiply(10));
-
-            this.PrintResult(result, nameof(TimeSpanIsInRangeTest));
-
-            Assert.IsTrue(result);
         }
 
         [TestMethod]
@@ -218,11 +206,23 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         {
             var now = TimeSpan.FromDays(5);
 
-            var result1 = now.IsInRangeThrowsException(now.Subtract(new TimeSpan(1, 0, 0, 0)), TimeSpan.FromDays(2).Add(new TimeSpan(1,0,0,0)), "TEST");
+            var result1 = now.IsInRangeThrowsException(now.Subtract(new TimeSpan(1, 0, 0, 0)), now.Add(TimeSpan.FromDays(10)), "TEST");
 
             Assert.IsTrue(result1);
 
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => now.IsInRangeThrowsException(now.Add(new TimeSpan(10, 0, 0, 0)), new TimeSpan(20, 0, 0, 0), "TEST"));
+        }
+
+        [TestMethod]
+        public void TimeSpanIsInRangeTest()
+        {
+            var now = new TimeSpan(3, 0, 0, 0);
+
+            var result = now.IsInRange(now.Subtract(new TimeSpan(1, 0, 0, 0)), now.Multiply(10));
+
+            this.PrintResult(result, nameof(this.TimeSpanIsInRangeTest));
+
+            Assert.IsTrue(result);
         }
 
         private void PrintResult<T>(T input, string methodName)

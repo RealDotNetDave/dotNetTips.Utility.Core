@@ -18,7 +18,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Loggers;
-using dotNetTips.Tips.Utility.Standard;
+using dotNetTips.Tips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.IO;
 using dotNetTips.Utility.Standard.Tester;
@@ -32,42 +32,15 @@ namespace dotNetTips.Utility.Benchmarks.IO
         private readonly int _fileCount = 100;
         private readonly int _fileLength = 1024;
 
-        private IEnumerable<FileInfo> _tempFiles;
-
         private readonly DirectoryInfo _tempFolder = new DirectoryInfo(Path.Combine(Environment.GetEnvironmentVariable(EnvironmentKey.TMP.ToString()), "_dotNetTipsBenchmarkTest"));
+
+        private IEnumerable<FileInfo> _tempFiles;
 
         public override void Cleanup()
         {
             base.Cleanup();
 
             FileHelper.DeleteFiles(this._tempFiles.Select(p => p.FullName));
-        }
-
-        public override void Setup()
-        {
-            base.Setup();
-
-            this._tempFolder.Create();
-
-            ConsoleLogger.Default.WriteLine(LogKind.Info, $"Temp Folder: {this._tempFolder}.");
-
-            // Copy files for test
-            this._tempFiles = this.GenerateTempFiles();
-
-            ConsoleLogger.Default.WriteLine(LogKind.Info, $"Files Copied: {this._tempFiles.Count()}.");
-
-        }
-
-        [Benchmark(Description = nameof(FileHelper.CopyFile))]
-        public void CopyFileTest()
-        {
-            DirectoryInfo destPath = this._tempFolder;
-
-            FileInfo tempFile = this._tempFiles.PickRandom();
-
-            var result = FileHelper.CopyFile(tempFile, destPath);
-
-            base.Consumer.Consume(result);
         }
 
         [Benchmark(Description = nameof(FileHelper.CopyFileAsync))]
@@ -78,6 +51,18 @@ namespace dotNetTips.Utility.Benchmarks.IO
             FileInfo tempFile = this._tempFiles.PickRandom();
 
             var result = await FileHelper.CopyFileAsync(tempFile, destPath).ConfigureAwait(false);
+
+            base.Consumer.Consume(result);
+        }
+
+        [Benchmark(Description = nameof(FileHelper.CopyFile))]
+        public void CopyFileTest()
+        {
+            DirectoryInfo destPath = this._tempFolder;
+
+            FileInfo tempFile = this._tempFiles.PickRandom();
+
+            var result = FileHelper.CopyFile(tempFile, destPath);
 
             base.Consumer.Consume(result);
         }
@@ -93,6 +78,14 @@ namespace dotNetTips.Utility.Benchmarks.IO
 
         }
 
+        [Benchmark(Description = nameof(FileHelper.FileHasInvalidChars))]
+        public void FileHasInvalidCharsTest()
+        {
+            var destFile = RandomData.GenerateRandomFileName();
+
+            base.Consumer.Consume(FileHelper.FileHasInvalidChars(destFile));
+        }
+
         [Benchmark(Description = nameof(FileHelper.MoveFile))]
         public void MoveFileTest()
         {
@@ -102,12 +95,19 @@ namespace dotNetTips.Utility.Benchmarks.IO
             FileHelper.MoveFile(tempFile, destFile);
         }
 
-        [Benchmark(Description = nameof(FileHelper.FileHasInvalidChars))]
-        public void FileHasInvalidCharsTest()
+        public override void Setup()
         {
-            var destFile = RandomData.GenerateRandomFileName();
+            base.Setup();
 
-            base.Consumer.Consume(FileHelper.FileHasInvalidChars(destFile));
+            this._tempFolder.Create();
+
+            ConsoleLogger.Default.WriteLine(LogKind.Info, $"Temp Folder: {this._tempFolder}.");
+
+            // Copy files for test
+            this._tempFiles = this.GenerateTempFiles();
+
+            ConsoleLogger.Default.WriteLine(LogKind.Info, $"Files Copied: {this._tempFiles.Count()}.");
+
         }
 
         private IEnumerable<FileInfo> GenerateTempFiles()

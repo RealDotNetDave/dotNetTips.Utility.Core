@@ -4,7 +4,7 @@
 // Created          : 01-19-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 06-03-2020
+// Last Modified On : 11-01-2020
 // ***********************************************************************
 // <copyright file="RandomData.cs" company="dotNetTips.Utility.Standard.Tester">
 //     Copyright (c) dotNetTips.com - McCarter Consulting. All rights reserved.
@@ -538,7 +538,9 @@ namespace dotNetTips.Utility.Standard.Tester
         {
             Encapsulation.TryValidateParam(length, minimumValue: 1, paramName: nameof(length));
 
-            return GenerateWord(length, DefaultMinCharacter, DefaultMaxCharacter);
+            var returnValue = GenerateWord(length, DefaultMinCharacter, DefaultMaxCharacter);
+
+            return returnValue;
         }
 
         /// <summary>

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2020.9.20.01</Version>
+    <Version>2020.11.01.11</Version>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
     <Product>dotNetTips.Utility.Standard</Product>
@@ -13,16 +13,18 @@
     <RepositoryUrl>https://dotnettips.visualstudio.com/dotNetTips.Utility.Standard.Tester</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
-    <PackageReleaseNotes>-- SEP 2020: Updated NuGet packages.
--- AUG 14 2019: Initial release.
--- AUG 31 2019: Cleanup of models including fixes.
--- DEC 02 2019: Added new methods for creating ramdom files. Code cleanup.
--- MAR 2020: Quartertly release.
--- MAY 2020: Added more functionality to RandomData.
--- AUG 2020: Code cleanup.</PackageReleaseNotes>
+    <PackageReleaseNotes>
+      -- SEP 2020: Updated NuGet packages.
+      -- AUG 14 2019: Initial release.
+      -- AUG 31 2019: Cleanup of models including fixes.
+      -- DEC 02 2019: Added new methods for creating random files. Code cleanup.
+      -- MAR 2020: Quarterly release.
+      -- MAY 2020: Added more functionality to RandomData.
+      -- AUG 2020: Code cleanup.
+    </PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>2020.10.23.37344</AssemblyVersion>
-    <FileVersion>2020.10.23.37344</FileVersion>
+    <AssemblyVersion>2020.11.1.37363</AssemblyVersion>
+    <FileVersion>2020.11.1.37363</FileVersion>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -32,7 +34,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Tester.xml</DocumentationFile>
-   <OutputPath>..\..\..\appbin\</OutputPath>
+    <OutputPath>..\..\..\appbin\</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -53,9 +55,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="dotNetTips.Utility.Standard" Version="2020.9.20.1" />
-    <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2020.9.20.1" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.0">
+    <PackageReference Include="dotNetTips.Utility.Standard" Version="2020.11.1.10" />
+    <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2020.11.1.10" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

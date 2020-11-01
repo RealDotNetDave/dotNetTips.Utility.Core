@@ -11,9 +11,6 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Common;
-using dotNetTips.Utility.Standard.Extensions.Properties;
-using LinqToDB.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +19,9 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using dotNetTips.Utility.Standard.Common;
+using dotNetTips.Utility.Standard.Extensions.Properties;
+using LinqToDB.Common;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {
@@ -339,18 +339,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="maxLength">The maximum length.</param>
         /// <returns><c>true</c> if the specified minimum length has value; otherwise, <c>false</c>.</returns>
         /// <exception cref="ArgumentOutOfRangeException">minLength - Minimum length must be greater than 0.</exception>
-        /// <exception cref="ArgumentOutOfRangeException">maxLength - Maximum length must be greater than 0.</exception>
-        /// <exception cref="ArgumentOutOfRangeException">minLength - Minimum length must be greater than 0.</exception>
-        /// <exception cref="ArgumentOutOfRangeException">maxLength - Maximum length must be greater than 0.</exception>
-        /// <exception cref="ArgumentOutOfRangeException">minLength - Minimum length must be greater than 0.</exception>
         public static bool HasValue(this string input, int minLength, int maxLength)
         {
-            if (minLength.IsInRange(1, int.MaxValue))
+            if (minLength.IsInRange(0, int.MaxValue) == false)
             {
                 ExceptionThrower.ThrowArgumentOutOfRangeException(nameof(minLength));
             }
 
-            if (maxLength.IsInRange(minLength, int.MaxValue))
+            if (maxLength.IsInRange(0, int.MaxValue) == false)
             {
                 ExceptionThrower.ThrowArgumentOutOfRangeException(nameof(maxLength));
             }
@@ -830,7 +826,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 ExceptionThrower.ThrowArgumentNullException(nameof(input));
             }
 
-            return new CultureInfo(CultureInfo.CurrentCulture.DisplayName).TextInfo.ToTitleCase(input);
+            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(input);
         }
 
         /// <summary>

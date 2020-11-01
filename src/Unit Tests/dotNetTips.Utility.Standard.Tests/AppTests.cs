@@ -18,18 +18,6 @@ namespace dotNetTips.Tips.Utility.Standard.Tests
         }
 
         [TestMethod]
-        public void GetCultureTest()
-        {
-            var result = App.CurrentCulture;
-
-            Assert.IsNotNull(result);
-
-            result = App.CurrentUICulture;
-
-            Assert.IsNotNull(result);
-        }
-
-        [TestMethod]
         public void ChangeCultureTest()
         {
             App.ChangeCulture("aa");
@@ -42,6 +30,18 @@ namespace dotNetTips.Tips.Utility.Standard.Tests
 
             App.ChangeCulture("en-US");
             App.ChangeUICulture("en-US");
+        }
+
+        [TestMethod]
+        public void ComputerInfoTest()
+        {
+            var ci = new ComputerInfo();
+
+            Assert.IsNotNull(ci);
+
+            var json = ci.ToJson();
+
+            Debug.WriteLine(json);
         }
 
         [TestMethod]
@@ -58,6 +58,18 @@ namespace dotNetTips.Tips.Utility.Standard.Tests
             var result = App.FrameworkDescription;
 
             Assert.IsTrue(result.IsNotEmpty());
+        }
+
+        [TestMethod]
+        public void GetCultureTest()
+        {
+            var result = App.CurrentCulture;
+
+            Assert.IsNotNull(result);
+
+            result = App.CurrentUICulture;
+
+            Assert.IsNotNull(result);
         }
 
         [TestMethod]
@@ -82,19 +94,19 @@ namespace dotNetTips.Tips.Utility.Standard.Tests
         }
 
         [TestMethod]
-        public void IsRunningTest()
-        {
-            var result = App.IsRunning();
-
-            Assert.IsFalse(result);
-        }
-
-        [TestMethod]
         public void IsRunningFromAspNet()
         {
             var result = App.IsRunningFromAspNet();
 
             Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void IsRunningTest()
+        {
+            var result = App.IsRunning();
+
+            Assert.IsTrue(result);
         }
 
         [TestMethod]
@@ -119,18 +131,6 @@ namespace dotNetTips.Tips.Utility.Standard.Tests
             var result = App.WorkingSet;
 
             Assert.IsTrue(result > 0);
-        }
-
-        [TestMethod]
-        public void ComputerInfoTest()
-        {
-            var ci = new ComputerInfo();
-
-            Assert.IsNotNull(ci);
-
-            var json = ci.ToJson();
-
-            Debug.WriteLine(json);
         }
 
     }

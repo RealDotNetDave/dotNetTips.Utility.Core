@@ -4,7 +4,7 @@
 // Created          : 07-17-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 05-27-2020
+// Last Modified On : 11-01-2020
 // ***********************************************************************
 // <copyright file="PersonProper.cs" company="dotNetTips.com - David McCarter">
 //     McCarter Consulting (David McCarter)
@@ -133,7 +133,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// Gets or sets first address.
         /// </summary>
         /// <value>The address1.</value>
-        /// <exception cref="ArgumentOutOfRangeException">Address1 - Address length is limited to 100 characters.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Address1</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Address1 - Address length is limited to 100 characters.</exception>
         [DataMember(Name = "address1")]
         [XmlElement]
@@ -159,7 +159,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// Gets or sets second address.
         /// </summary>
         /// <value>The address2.</value>
-        /// <exception cref="ArgumentOutOfRangeException">Address2 - Address length is limited to 100 characters.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Address2</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Address2 - Address length is limited to 100 characters.</exception>
         [DataMember(Name = "address2")]
         [XmlElement]
@@ -192,7 +192,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// Gets or sets the born on date and time.
         /// </summary>
         /// <value>The born on.</value>
-        /// <exception cref="ArgumentOutOfRangeException">BornOn - Person BornOn cannot be in the future.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">BornOn</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">BornOn - Person BornOn cannot be in the future.</exception>
         [DataMember(Name = "bornOn")]
         [XmlElement]
@@ -218,7 +218,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// Gets or sets the cell phone number.
         /// </summary>
         /// <value>The cell phone.</value>
-        /// <exception cref="ArgumentOutOfRangeException">CellPhone - Address length is limited to 50 characters.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">CellPhone</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">CellPhone - Address length is limited to 50 characters.</exception>
         [DataMember(Name = "cellPhone")]
         [XmlElement]
@@ -244,7 +244,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// Gets or sets the city name.
         /// </summary>
         /// <value>The city.</value>
-        /// <exception cref="ArgumentOutOfRangeException">City - City length is limited to 100 characters.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">City</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">City - City length is limited to 100 characters.</exception>
         [DataMember(Name = "city")]
         [XmlElement]
@@ -270,7 +270,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// Gets or sets the country.
         /// </summary>
         /// <value>The country.</value>
-        /// <exception cref="ArgumentOutOfRangeException">Country - Country length is limited to 50 characters.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Country</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Country - Country length is limited to 50 characters.</exception>
         [DataMember(Name = "country")]
         [XmlElement]
@@ -296,7 +296,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// Gets the email.
         /// </summary>
         /// <value>The email.</value>
-        /// <exception cref="ArgumentOutOfRangeException">Email - Email length is limited to 75 characters.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Email</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Email - Email length is limited to 75 characters.</exception>
         [DataMember(Name = "email", IsRequired = true)]
         [XmlElement(IsNullable = false)]
@@ -322,7 +322,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// Gets or sets the first name.
         /// </summary>
         /// <value>The first name.</value>
-        /// <exception cref="ArgumentOutOfRangeException">Email - First name length is limited to 50 characters.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">FirstName</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Email - First name length is limited to 50 characters.</exception>
         [DataMember(Name = "firstName")]
         [XmlElement]
@@ -347,7 +347,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// Gets or sets the home phone.
         /// </summary>
         /// <value>The home phone.</value>
-        /// <exception cref="ArgumentOutOfRangeException">HomePhone - Home phone length is limited to 50 characters.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">HomePhone</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">HomePhone - Home phone length is limited to 50 characters.</exception>
         [DataMember(Name = "homePhone")]
         [XmlElement]
@@ -372,7 +372,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// Gets the identifier.
         /// </summary>
         /// <value>The identifier.</value>
-        /// <exception cref="ArgumentOutOfRangeException">Id - Id length is limited to 256 characters.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Id</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Id - Id length is limited to 256 characters.</exception>
         [DataMember(Name = "id", IsRequired = true)]
         [XmlElement(IsNullable = false)]
@@ -389,7 +389,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                     return;
                 }
 
-                this._id = value.HasValue(0, 50) == false ? throw new ArgumentOutOfRangeException(nameof(this.Id), Resources.IdLengthIsLimitedTo50Characters) : value;
+                this._id = value.HasValue(1, 50) == false ? throw new ArgumentOutOfRangeException(nameof(this.Id), Resources.IdLengthIsLimitedTo50Characters) : value;
             }
         }
 
@@ -397,7 +397,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// Gets or sets the last name.
         /// </summary>
         /// <value>The last name.</value>
-        /// <exception cref="ArgumentOutOfRangeException">LastName - Last name length is limited to 50 characters.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">LastName</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">LastName - Last name length is limited to 50 characters.</exception>
         [DataMember(Name = "lastName")]
         [XmlElement]
@@ -422,7 +422,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// Gets or sets the postal code.
         /// </summary>
         /// <value>The postal code.</value>
-        /// <exception cref="ArgumentOutOfRangeException">PostalCode - Postal code length is limited to 20 characters.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">PostalCode</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">PostalCode - Postal code length is limited to 20 characters.</exception>
         [DataMember(Name = "postalCode")]
         [XmlElement]
@@ -511,73 +511,73 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                 return 1;
             }
 
-            var result = string.Compare(_address1, other._address1, StringComparison.CurrentCultureIgnoreCase);
+            var result = string.Compare(this._address1, other._address1, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = string.Compare(_address2, other._address2, StringComparison.CurrentCultureIgnoreCase);
+            result = string.Compare(this._address2, other._address2, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = _bornOn.CompareTo(other._bornOn);
+            result = this._bornOn.CompareTo(other._bornOn);
             if (result != 0)
             {
                 return result;
             }
 
-            result = string.Compare(_cellPhone, other._cellPhone, StringComparison.CurrentCultureIgnoreCase);
+            result = string.Compare(this._cellPhone, other._cellPhone, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = string.Compare(_city, other._city, StringComparison.CurrentCultureIgnoreCase);
+            result = string.Compare(this._city, other._city, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = string.Compare(_country, other._country, StringComparison.CurrentCultureIgnoreCase);
+            result = string.Compare(this._country, other._country, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = string.Compare(_email, other._email, StringComparison.CurrentCultureIgnoreCase);
+            result = string.Compare(this._email, other._email, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = string.Compare(_firstName, other._firstName, StringComparison.CurrentCultureIgnoreCase);
+            result = string.Compare(this._firstName, other._firstName, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = string.Compare(_homePhone, other._homePhone, StringComparison.CurrentCultureIgnoreCase);
+            result = string.Compare(this._homePhone, other._homePhone, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = string.Compare(_id, other._id, StringComparison.CurrentCultureIgnoreCase);
+            result = string.Compare(this._id, other._id, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = string.Compare(_lastName, other._lastName, StringComparison.CurrentCultureIgnoreCase);
+            result = string.Compare(this._lastName, other._lastName, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = string.Compare(_postalCode, other._postalCode, StringComparison.CurrentCultureIgnoreCase);
+            result = string.Compare(this._postalCode, other._postalCode, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;

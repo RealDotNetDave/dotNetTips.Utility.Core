@@ -11,10 +11,10 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using System;
-using System.Globalization;
 using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.Extensions.Properties;
+using System;
+using System.Globalization;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {
@@ -164,7 +164,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                                                     DateTime endTime,
                                                     string paramName)
         {
-            if(value.IsInRange(beginningTime, endTime) == false)
+            if (value.IsInRange(beginningTime, endTime) == false)
             {
                 ExceptionThrower.ThrowArgumentOutOfRangeException(paramName);
             }
@@ -182,12 +182,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="paramName">Name of the parameter.</param>
         /// <returns><c>true</c> if [is in range throws exception] [the specified beginning time]; otherwise, <c>false</c>.</returns>
         [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.New)]
-        public static bool IsInRangeThrowsException(this TimeSpan value,
-                                                    TimeSpan beginningTime,
-                                                    TimeSpan endTime,
-                                                    string paramName)
+        public static bool IsInRangeThrowsException(this TimeSpan value, TimeSpan beginningTime, TimeSpan endTime, string paramName)
         {
-            if(value.IsInRange(beginningTime, endTime) == false)
+            if (value.IsInRange(beginningTime, endTime) == false)
             {
                 ExceptionThrower.ThrowArgumentOutOfRangeException(paramName);
             }
@@ -210,7 +207,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                                                     DateTimeOffset endTime,
                                                     string paramName)
         {
-            if(value.IsInRange(beginningTime, endTime) == false)
+            if (value.IsInRange(beginningTime, endTime) == false)
             {
                 ExceptionThrower.ThrowArgumentOutOfRangeException(paramName);
             }
@@ -256,9 +253,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>Future date</returns>
         public static DateTime NextDayOfWeek(this DateTime date, DayOfWeek day = DayOfWeek.Monday)
         {
-            while(true)
+            while (true)
             {
-                if(date.DayOfWeek == day)
+                if (date.DayOfWeek == day)
                 {
                     return date;
                 }
@@ -276,9 +273,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static DateTimeOffset NextDayOfWeek(this DateTimeOffset date, DayOfWeek day = DayOfWeek.Monday)
         {
-            while(true)
+            while (true)
             {
-                if(date.DayOfWeek == day)
+                if (date.DayOfWeek == day)
                 {
                     return date;
                 }
@@ -296,10 +293,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             var formattedDate = string.Empty;
 
-            if(input.Date == DateTime.Today)
+            if (input.Date == DateTime.Today)
             {
                 formattedDate = nameof(DateTime.Today);
-            } else
+            }
+            else
             {
                 formattedDate = input.Date == DateTime.Today.AddDays(-1)
                     ? Resources.Yesterday
@@ -324,10 +322,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             var formattedDate = string.Empty;
 
-            if(input.Date == DateTime.Today)
+            if (input.Date == DateTime.Today)
             {
                 formattedDate = nameof(DateTime.Today);
-            } else
+            }
+            else
             {
                 formattedDate = input.Date == DateTime.Today.AddDays(-1)
                     ? Resources.Yesterday

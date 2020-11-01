@@ -3,8 +3,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Extensions.xml</DocumentationFile>
     <OutputPath>..\..\..\appbin\</OutputPath>
-    <AssemblyVersion>2020.10.31.34723</AssemblyVersion>
-    <FileVersion>2020.10.31.34723</FileVersion>
+    <AssemblyVersion>2020.11.1.34745</AssemblyVersion>
+    <FileVersion>2020.11.1.34745</FileVersion>
     <Authors>David McCarter</Authors>
     <Company>dotNetTips.com - David McCarter</Company>
     <Description>Common .NET Standard Code Extensions</Description>
@@ -18,20 +18,22 @@
     <AssemblyOriginatorKeyFile>dotNetTips.com.pfx</AssemblyOriginatorKeyFile>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2020.11.01.03</Version>
+    <Version>2020.11.01.11</Version>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
     <AssemblyName>dotNetTips.Utility.Standard.Extensions</AssemblyName>
     <RootNamespace>dotNetTips.Utility.Standard.Extensions</RootNamespace>
     <Configurations>Debug;Release;Full Build</Configurations>
     <PackageLicenseUrl></PackageLicenseUrl>
-    <PackageReleaseNotes>-- SEP 2019: Added types HttpContextExtensions, HttpContextExtensions and LINQExtensions. Added new methods and code cleanup.
--- JUN 2019 (QUARTERLY RELEASE): Code cleanup.
--- AUG 2019 (QUARTERLY RELEASE): Code &amp; documentation cleanup. Code fixes. New code in CollectionExtensions.
--- DEC 2019 (QUARTERLY RELEASE): Code cleanup.
--- FEB 2020: Code cleanup. Added more overloads for TryValidateParam.
--- MAR 2020 (QUARTERLY RELEASE): New extension methods. Code cleanup.
--- MAY 2020: Added BytesToString. Added StringBuilderExtensions.
--- AUG 2020: New helper methods &amp; classes. Code cleanup.</PackageReleaseNotes>
+    <PackageReleaseNotes>
+      -- SEP 2019: Added types HttpContextExtensions, HttpContextExtensions and LINQExtensions. Added new methods and code cleanup.
+      -- JUN 2019 (QUARTERLY RELEASE): Code cleanup.
+      -- AUG 2019 (QUARTERLY RELEASE): Code and documentation cleanup. Code fixes. New code in CollectionExtensions.
+      -- DEC 2019 (QUARTERLY RELEASE): Code cleanup.
+      -- FEB 2020: Code cleanup. Added more overloads for TryValidateParam.
+      -- MAR 2020 (QUARTERLY RELEASE): New extension methods. Code cleanup.
+      -- MAY 2020: Added BytesToString. Added StringBuilderExtensions.
+      -- AUG 2020: New helper methods &amp; classes. Code cleanup.
+    </PackageReleaseNotes>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>

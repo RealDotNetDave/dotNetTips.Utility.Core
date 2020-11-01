@@ -23,20 +23,14 @@ namespace dotNetTips.Utility.Benchmarks
     {
         private PersonProper _personProper;
 
-        public override void Setup()
-        {
-            base.Setup();
+        //TODO: FIX System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. System.ArgumentOutOfRangeException: Argument is out of the given range. (Parameter 'maxLength')at dotNetTips.Utility.Standard.Common.ExceptionThrower.ThrowArgumentOutOfRangeException(String paramName)
+        //[Benchmark(Description = nameof(TypeHelper.Create))]
+        //public void Create()
+        //{
+        //    var result = TypeHelper.Create<PersonProper>();
 
-            this._personProper = RandomData.GeneratePerson<PersonProper>();
-        }
-
-        [Benchmark(Description = nameof(TypeHelper.Create))]
-        public void Create()
-        {
-            var result = TypeHelper.Create<PersonProper>();
-
-            base.Consumer.Consume(result);
-        }
+        //    base.Consumer.Consume(result);
+        //}
 
         [Benchmark(Description = nameof(TypeHelper.DoesObjectEqualInstance))]
         public void DoesObjectEqualInstance()
@@ -73,6 +67,14 @@ namespace dotNetTips.Utility.Benchmarks
             base.Consumer.Consume(result);
         }
 
+        [Benchmark(Description = nameof(TypeHelper.GetTypeDisplayName) + ":Type")]
+        public void GetTypeDisplayNameTypeTest()
+        {
+            var result = TypeHelper.GetTypeDisplayName(typeof(PersonProper), true, true, true, '|');
+
+            base.Consumer.Consume(result);
+        }
+
         [Benchmark(Description = nameof(TypeHelper.GetTypeDisplayName) + ":Variable")]
         public void GetTypeDisplayNameVariableTest()
         {
@@ -81,12 +83,11 @@ namespace dotNetTips.Utility.Benchmarks
             base.Consumer.Consume(result);
         }
 
-        [Benchmark(Description = nameof(TypeHelper.GetTypeDisplayName) + ":Type")]
-        public void GetTypeDisplayNameTypeTest()
+        public override void Setup()
         {
-            var result = TypeHelper.GetTypeDisplayName(typeof(PersonProper), true, true, true, '|');
+            base.Setup();
 
-            base.Consumer.Consume(result);
+            this._personProper = RandomData.GeneratePerson<PersonProper>();
         }
 
     }

@@ -11,9 +11,9 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using System;
 using dotNetTips.Utility.Standard.Tester;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace dotNetTips.Utility.Standard.Extensions.Tests
 {
@@ -28,7 +28,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
 
             Assert.ThrowsException<ArgumentNullException>(() => string.Empty.ComputeHash(HashType.MD5));
 
-            foreach(var item in Enum.GetValues(typeof(HashType)))
+            foreach (var item in Enum.GetValues(typeof(HashType)))
             {
                 var result = word.ComputeHash((HashType)item);
 
@@ -123,6 +123,14 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         }
 
         [TestMethod]
+        public void FromBase64Test()
+        {
+            var testValue = RandomData.GenerateWord(25);
+
+            Assert.IsTrue(testValue.ToBase64().FromBase64().IsNotEmpty());
+        }
+
+        [TestMethod]
         public void HasValueTest()
         {
             var testValue = RandomData.GenerateWord(10);
@@ -130,6 +138,14 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             Assert.IsTrue(testValue.HasValue());
 
             Assert.IsTrue(testValue.HasValue(10));
+
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => testValue.HasValue(-100));
+
+            Assert.IsTrue(testValue.HasValue(1, 10));
+
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => testValue.HasValue(-10, 500));
+
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => testValue.HasValue(12, -10));
 
             Assert.IsFalse(testValue.HasValue("XXXXX"));
         }
@@ -278,6 +294,14 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         }
 
         [TestMethod]
+        public void ToBase64Test()
+        {
+            var testValue = RandomData.GenerateWord(25);
+
+            Assert.IsTrue(testValue.ToBase64().IsNotEmpty());
+        }
+
+        [TestMethod]
         public void ToTitleCaseTest()
         {
             var words = RandomData.GenerateWords(10, 10, 10)
@@ -294,22 +318,6 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             var testValue = RandomData.GenerateWord(25) + "   ";
 
             Assert.IsTrue(testValue.ToTrimmed().Length == 25);
-        }
-
-        [TestMethod]
-        public void ToBase64Test()
-        {
-            var testValue = RandomData.GenerateWord(25);
-
-            Assert.IsTrue(testValue.ToBase64().IsNotEmpty());
-        }
-
-        [TestMethod]
-        public void FromBase64Test()
-        {
-            var testValue = RandomData.GenerateWord(25);
-
-            Assert.IsTrue(testValue.ToBase64().FromBase64().IsNotEmpty());
         }
 
     }
