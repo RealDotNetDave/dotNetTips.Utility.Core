@@ -33,9 +33,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">input - Input is invalid.</exception>
         public static DateTime GetLast(this DateTime input, DayOfWeek dayOfWeek)
         {
-            return input.AddDays((input.DayOfWeek > dayOfWeek
+            return input.AddDays(( input.DayOfWeek > dayOfWeek
                     ? input.DayOfWeek - dayOfWeek
-                    : 7 - (int)dayOfWeek + (int)input.DayOfWeek) *
+                    : 7 - (int)dayOfWeek + (int)input.DayOfWeek ) *
                 -1);
         }
 
@@ -48,9 +48,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 77.78, Status = Status.Available)]
         public static DateTimeOffset GetLastDayOfWeek(this DateTimeOffset input, DayOfWeek dayOfWeek)
         {
-            return input.AddDays((input.DayOfWeek > dayOfWeek
+            return input.AddDays(( input.DayOfWeek > dayOfWeek
                     ? input.DayOfWeek - dayOfWeek
-                    : 7 - (int)dayOfWeek + (int)input.DayOfWeek) *
+                    : 7 - (int)dayOfWeek + (int)input.DayOfWeek ) *
                 -1);
         }
 
@@ -67,7 +67,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             daysToAdd = input.DayOfWeek < dayOfWeek
                 ? dayOfWeek - input.DayOfWeek
-                : (7 - (int)input.DayOfWeek) + (int)dayOfWeek;
+                : ( 7 - (int)input.DayOfWeek ) + (int)dayOfWeek;
 
             return input.AddDays(daysToAdd);
         }
@@ -85,7 +85,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             daysToAdd = input.DayOfWeek < dayOfWeek
                 ? dayOfWeek - input.DayOfWeek
-                : (7 - (int)input.DayOfWeek) + (int)dayOfWeek;
+                : ( 7 - (int)input.DayOfWeek ) + (int)dayOfWeek;
 
             return input.AddDays(daysToAdd);
         }
@@ -162,7 +162,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="endTime">The end time.</param>
         /// <param name="paramName">Name of the parameter.</param>
         /// <returns><c>true</c> if [is in range throws exception] [the specified beginning time]; otherwise, <c>false</c>.</returns>
-        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.New)]
+        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static bool IsInRangeThrowsException(this DateTime value, DateTime beginningTime, DateTime endTime, string paramName)
         {
             if (value.IsInRange(beginningTime, endTime) == false)
@@ -182,7 +182,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="endTime">The end time.</param>
         /// <param name="paramName">Name of the parameter.</param>
         /// <returns><c>true</c> if [is in range throws exception] [the specified beginning time]; otherwise, <c>false</c>.</returns>
-        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.New)]
+        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static bool IsInRangeThrowsException(this TimeSpan value, TimeSpan beginningTime, TimeSpan endTime, string paramName)
         {
             if (value.IsInRange(beginningTime, endTime) == false)
@@ -202,7 +202,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="endTime">The end time.</param>
         /// <param name="paramName">Name of the parameter.</param>
         /// <returns><c>true</c> if [is in range throws exception] [the specified beginning time]; otherwise, <c>false</c>.</returns>
-        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.New)]
+        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static bool IsInRangeThrowsException(this DateTimeOffset value,
                                                     DateTimeOffset beginningTime,
                                                     DateTimeOffset endTime,
@@ -308,7 +308,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                                          CultureInfo.CurrentCulture);
             }
 
-            formattedDate += $" @ {(input.ToString(CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern, CultureInfo.CurrentCulture).ToLower(CultureInfo.CurrentCulture))}";
+            formattedDate += $" @ {( input.ToString(CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern, CultureInfo.CurrentCulture).ToLower(CultureInfo.CurrentCulture) )}";
 
             return formattedDate;
         }
@@ -337,7 +337,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                                          CultureInfo.CurrentCulture);
             }
 
-            formattedDate += $" @ {(input.ToString(CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern, CultureInfo.CurrentCulture).ToLower(CultureInfo.CurrentCulture))}";
+            formattedDate += $" @ {( input.ToString(CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern, CultureInfo.CurrentCulture).ToLower(CultureInfo.CurrentCulture) )}";
 
             return formattedDate;
         }

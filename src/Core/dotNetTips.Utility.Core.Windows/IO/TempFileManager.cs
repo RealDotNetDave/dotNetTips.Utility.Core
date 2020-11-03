@@ -25,7 +25,7 @@ namespace dotNetTips.Utility.Core.Windows.IO
     /// TempFileManager creates and maintains a list of temporary files. Implements the <see cref="System.IDisposable" />.
     /// </summary>
     /// <seealso cref="System.IDisposable" />
-    [Information(nameof(TempFileManager), "David McCarter", "10/8/2020", "10/20/2020", UnitTestCoverage = 100, Status = Status.New)]
+    [Information(nameof(TempFileManager), "David McCarter", "10/8/2020", "10/20/2020", UnitTestCoverage = 100, Status = Status.Available)]
     public class TempFileManager : IDisposable
     {
         /// <summary>

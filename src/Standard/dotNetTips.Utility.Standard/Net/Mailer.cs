@@ -28,7 +28,7 @@ namespace dotNetTips.Utility.Standard.Net
     /// Class Mailer. Implements the <see cref="System.IDisposable" />
     /// </summary>
     /// <seealso cref="System.IDisposable" />
-    [Information(nameof(Mailer), "David McCarter", "10/09/2020", "10/15/2020", UnitTestCoverage = 0, Status = Status.New)]
+    [Information(nameof(Mailer), "David McCarter", "10/09/2020", "10/15/2020", UnitTestCoverage = 0, Status = Status.Available)]
     public class Mailer : IDisposable
     {
         /// <summary>

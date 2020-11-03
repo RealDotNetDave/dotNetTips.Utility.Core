@@ -31,7 +31,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="context">The context.</param>
         /// <returns>IList&lt;Tuple&lt;T, T&gt;&gt;.</returns>
-        [Information(nameof(GetTrackedObjects), author: "David McCarter", createdOn: "10/8/2020", modifiedOn: "10/8/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information(nameof(GetTrackedObjects), author: "David McCarter", createdOn: "10/8/2020", modifiedOn: "10/8/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static IList<Tuple<T, T>> GetTrackedObjects<T>(this DataContext context)
         {
             if (context is null)

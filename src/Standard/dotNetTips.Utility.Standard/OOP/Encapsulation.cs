@@ -235,7 +235,7 @@ namespace dotNetTips.Utility.Standard.OOP
         /// <param name="paramName">Name of the parameter.</param>
         /// <param name="message">The message.</param>
         /// <exception cref="ArgumentInvalidException"></exception>
-        [Information(nameof(TryValidateParam), author: "David McCarter", createdOn: "10/19/2020", modifiedOn: "10/19/2020", Status = Status.New)]
+        [Information(nameof(TryValidateParam), author: "David McCarter", createdOn: "10/19/2020", modifiedOn: "10/19/2020", Status = Status.Available)]
         public static void TryValidateParam(SecureString value, string paramName = "", string message = "")
         {
             if (value.IsNull() || value.Length <= 0)

@@ -38,7 +38,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="hashType">Type of the hash.</param>
         /// <returns>System.String.</returns>
         /// <exception cref="ArgumentException">'input' cannot be null or empty - input</exception>
-        [Information(nameof(ComputeHash), "David McCarter", "10/8/2020", "10/8/2020", BenchMarkStatus = BenchMarkStatus.None, UnitTestCoverage = 100, Status = Status.New)]
+        [Information(nameof(ComputeHash), "David McCarter", "10/8/2020", "10/8/2020", BenchMarkStatus = BenchMarkStatus.None, UnitTestCoverage = 100, Status = Status.Available)]
         public static string ComputeHash(this string input, HashType hashType)
         {
             if (input.IsNullOrEmpty())
@@ -230,7 +230,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="start">The start.</param>
         /// <param name="end">The end.</param>
         /// <returns>System.String.</returns>
-        [Information(nameof(Extract), "David McCarter", "10/8/2020", "10/8/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information(nameof(Extract), "David McCarter", "10/8/2020", "10/8/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static string Extract(this string input, string start, string end)
         {
             if (input.IsNullOrEmpty())
@@ -251,7 +251,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="input">The value.</param>
         /// <returns>System.String.</returns>
-        [Information(nameof(FromBase64), "David McCarter", "10/8/2020", "10/8/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information(nameof(FromBase64), "David McCarter", "10/8/2020", "10/8/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static string FromBase64(this string input)
         {
             if (input.IsNullOrEmpty())
@@ -571,7 +571,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="value">The value.</param>
         /// <returns>T.</returns>
-        [Information(nameof(Parse), "David McCarter", "10/8/2020", "10/8/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information(nameof(Parse), "David McCarter", "10/8/2020", "10/8/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static T Parse<T>(this string value)
         {
             // Get default value for type so if string
@@ -823,7 +823,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>System.String.</returns>
-        [Information(nameof(ToBase64), "David McCarter", "10/8/2020", "10/8/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information(nameof(ToBase64), "David McCarter", "10/8/2020", "10/8/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static string ToBase64(this string value)
         {
             if (value.IsNullOrEmpty())
@@ -843,7 +843,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The source.</param>
         /// <returns>System.String.</returns>
         /// <exception cref="ArgumentException">'source' cannot be null or empty - source</exception>
-        [Information(nameof(Extract), "David McCarter", "10/8/2020", "10/8/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information(nameof(Extract), "David McCarter", "10/8/2020", "10/8/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static string ToTitleCase(this string input)
         {
             if (input.IsNullOrEmpty())

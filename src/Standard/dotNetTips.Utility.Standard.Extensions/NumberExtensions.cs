@@ -145,7 +145,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="upper">The upper.</param>
         /// <param name="paramName">Name of the parameter.</param>
         /// <returns>System.Boolean.</returns>
-        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool IsInRangeThrowsException(this long value, long lower, long upper, string paramName)
         {
             if (value.IsInRange(lower, upper) == false)
@@ -165,7 +165,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="upper">The upper.</param>
         /// <param name="paramName">Name of the parameter.</param>
         /// <returns>System.Boolean.</returns>
-        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.New)]
+        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static bool IsInRangeThrowsException(this double value, double lower, double upper, string paramName)
         {
             if (value.IsInRange(lower, upper) == false)
@@ -185,7 +185,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="upper">The upper.</param>
         /// <param name="paramName">Name of the parameter.</param>
         /// <returns>System.Boolean.</returns>
-        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.New)]
+        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static bool IsInRangeThrowsException(this decimal value, decimal lower, decimal upper, string paramName)
         {
             if (value.IsInRange(lower, upper) == false)
@@ -205,7 +205,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="paramName">Name of the parameter.</param>
         /// <returns>
         ///   <c>true</c> if [is in range] [the specified lower]; otherwise, <c>false</c>.</returns>
-        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.New)]
+        [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static bool IsInRangeThrowsException(this int value, int lower, int upper, string paramName)
         {
             if (value.IsInRange(lower, upper) == false)
@@ -237,7 +237,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="interval">The interval.</param>
         /// <param name="paramName">Name of the parameter.</param>
         /// <returns>System.Boolean.</returns>
-        [Information(nameof(IsIntervalThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.New)]
+        [Information(nameof(IsIntervalThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static bool IsIntervalThrowsException(this int value, int interval, string paramName)
         {
             if (value.IsInterval(interval) == false)

@@ -30,7 +30,7 @@ namespace dotNetTips.Utility.Standard.Security
         /// <param name="value1">The value.</param>
         /// <param name="value2">The compare.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        [Information(nameof(CompareSecureStrings), author: "David McCarter", createdOn: "10/7/2020", modifiedOn: "10/19/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information(nameof(CompareSecureStrings), author: "David McCarter", createdOn: "10/7/2020", modifiedOn: "10/19/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool CompareSecureStrings(SecureString value1, SecureString value2)
         {
             Encapsulation.TryValidateParam(value1, nameof(value1));
@@ -61,7 +61,7 @@ namespace dotNetTips.Utility.Standard.Security
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns>SecureString.</returns>
-        [Information(nameof(LoadSecureString), author: "David McCarter", createdOn: "10/7/2020", modifiedOn: "10/19/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information(nameof(LoadSecureString), author: "David McCarter", createdOn: "10/7/2020", modifiedOn: "10/19/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static SecureString LoadSecureString(string input)
         {
             Encapsulation.TryValidateParam(input, nameof(input));
@@ -75,7 +75,7 @@ namespace dotNetTips.Utility.Standard.Security
         /// <param name="input">The input.</param>
         /// <param name="makeReadOnly">if set to <c>true</c> [make read only].</param>
         /// <returns>SecureString.</returns>
-        [Information(nameof(LoadSecureString), author: "David McCarter", createdOn: "10/7/2020", modifiedOn: "10/19/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        [Information(nameof(LoadSecureString), author: "David McCarter", createdOn: "10/7/2020", modifiedOn: "10/19/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available)]
         public static SecureString LoadSecureString(string input, bool makeReadOnly)
         {
             Encapsulation.TryValidateParam(input, nameof(input));
@@ -106,7 +106,7 @@ namespace dotNetTips.Utility.Standard.Security
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns>System.String.</returns>
-        [Information(nameof(ReadSecureString), author: "David McCarter", createdOn: "10/7/2020", modifiedOn: "10/19/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.New)]
+        [Information(nameof(ReadSecureString), author: "David McCarter", createdOn: "10/7/2020", modifiedOn: "10/19/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static string ReadSecureString(SecureString input)
         {
             Encapsulation.TryValidateParam(input, nameof(input));

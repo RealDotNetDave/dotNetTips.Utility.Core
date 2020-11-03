@@ -11,12 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Text;
+using dotNetTips.Utility.Standard.Common;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {
@@ -32,7 +32,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="includeHeaderAsFirstRow">if set to <c>true</c> [include header as first row].</param>
         /// <param name="separator">The separator.</param>
         /// <returns>List&lt;System.String&gt;.</returns>
-        [Information(nameof(ToCsv), author: "David McCarter", createdOn: "10/8/2020", modifiedOn: "10/8/2020", UnitTestCoverage = 0, Status = Status.New)]
+        [Information(nameof(ToCsv), author: "David McCarter", createdOn: "10/8/2020", modifiedOn: "10/8/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static List<string> ToCsv(this IDataReader dataReader, bool includeHeaderAsFirstRow, string separator = ",")
         {
             if (dataReader is null)
@@ -88,7 +88,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                             // If separator are is in value, ensure it is put in double quotes.
                             if (value.IndexOf(separator, StringComparison.Ordinal) >= 0)
                             {
-                                value = (Convert.ToString("\"", CultureInfo.InvariantCulture) + value) + "\"";
+                                value = ( Convert.ToString("\"", CultureInfo.InvariantCulture) + value ) + "\"";
                             }
                         }
 

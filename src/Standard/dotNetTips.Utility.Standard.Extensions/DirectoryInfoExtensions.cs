@@ -34,7 +34,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">DirectoryInfo cannot be null.</exception>
         /// <exception cref="ArgumentNullException">Search pattern cannot be null or empty.</exception>
         /// <exception cref="ArgumentOutOfRangeException">Search option invalid.</exception>
-        [Information(nameof(GetSize), author: "David McCarter", createdOn: "10/8/2020", modifiedOn: "10/20/2020", UnitTestCoverage = 100, Status = Status.New)]
+        [Information(nameof(GetSize), author: "David McCarter", createdOn: "10/8/2020", modifiedOn: "10/20/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static long GetSize(this DirectoryInfo info, string searchPattern = "*.*", SearchOption searchOption = SearchOption.TopDirectoryOnly)
         {
             if (info.IsNull())
