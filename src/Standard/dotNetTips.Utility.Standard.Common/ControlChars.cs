@@ -20,144 +20,139 @@ namespace dotNetTips.Utility.Standard.Common
     {
 
         /// <summary>
-        /// @ Symbol
+        /// @ Symbol.
         /// </summary>
         public const char At = '@';
 
         /// <summary>
-        /// Back
+        /// Back.
         /// </summary>
         public const char Back = '\b';
 
         /// <summary>
-        /// Back Slash
+        /// Back Slash.
         /// </summary>
         public const char Backslash = '\\';
 
         /// <summary>
-        /// The colon
+        /// The colon.
         /// </summary>
         public const char Colon = ':';
 
         /// <summary>
-        /// Comma
+        /// Comma.
         /// </summary>
         public const char Comma = ',';
 
         /// <summary>
-        /// CR
+        /// CR.
         /// </summary>
         public const char Cr = '\r';
 
         /// <summary>
-        /// The cr
+        /// The cr.
         /// </summary>
         public const char CR = '\r';
 
         /// <summary>
-        /// CRLF
+        /// CRLF.
         /// </summary>
         public const string CRLF = "\r\n";
 
         /// <summary>
-        /// The double quote
-        /// </summary>
-        public const string DoubleQuote = "''";
-
-        /// <summary>
-        /// The end angle bracket
-        /// </summary>
-        public const char EndAngleBracket = '>';
-
-        /// <summary>
-        /// The end comment
-        /// </summary>
-        public const char EndComment = ')';
-
-        /// <summary>
-        /// Form feed
-        /// </summary>
-        public const char FormFeed = '\f';
-
-        /// <summary>
-        /// Forward slash
-        /// </summary>
-        public const char ForwardSlash = '/';
-
-        /// <summary>
-        /// LF
-        /// </summary>
-        public const char Lf = '\n';
-
-        /// <summary>
-        /// The lf
-        /// </summary>
-        public const char LF = '\n';
-
-        /// <summary>
-        /// New line
-        /// </summary>
-        public const string NewLine = "\r\n";
-
-        /// <summary>
-        /// Null character
-        /// </summary>
-        public const char NullChar = '\0';
-
-        /// <summary>
-        /// Quote
-        /// </summary>
-        public const char Quote = '\"';
-
-        /// <summary>
-        /// The single quote
-        /// </summary>
-        public const char SingleQuote = '\'';
-
-        /// <summary>
-        /// Space
-        /// </summary>
-        public const char Space = ' ';
-
-        /// <summary>
-        /// The start angle bracket
-        /// </summary>
-        public const char StartAngleBracket = '<';
-
-        /// <summary>
-        /// The start comment
-        /// </summary>
-        public const char StartComment = '(';
-
-        /// <summary>
-        /// Tab
-        /// </summary>
-        public const char Tab = '\t';
-
-        /// <summary>
-        /// Underscore
-        /// </summary>
-        public const char Underscore = '_';
-
-        /// <summary>
-        /// Vertical tab
-        /// </summary>
-        public const char VerticalTab = '\v';
-
-        /// <summary>
-        /// The dot
+        /// The dot (period).
         /// </summary>
         public const char Dot = '.';
 
         /// <summary>
-        /// The start square bracket
+        /// The double quote.
+        /// </summary>
+        public const string DoubleQuote = "''";
+
+        /// <summary>
+        /// The end angle bracket.
+        /// </summary>
+        public const char EndAngleBracket = '>';
+
+        /// <summary>
+        /// The end comment.
+        /// </summary>
+        public const char EndComment = ')';
+
+        /// <summary>
+        /// The start square bracket.
+        /// </summary>
+        public const char EndSquareBracket = ']';
+
+        /// <summary>
+        /// Form feed.
+        /// </summary>
+        public const char FormFeed = '\f';
+
+        /// <summary>
+        /// Forward slash.
+        /// </summary>
+        public const char ForwardSlash = '/';
+
+        /// <summary>
+        /// The Line Feed.
+        /// </summary>
+        public const char LF = '\n';
+
+        /// <summary>
+        /// New line.
+        /// </summary>
+        public const string NewLine = "\r\n";
+
+        /// <summary>
+        /// Null character.
+        /// </summary>
+        public const char NullChar = '\0';
+
+        /// <summary>
+        /// Quote.
+        /// </summary>
+        public const char Quote = '\"';
+
+        /// <summary>
+        /// The single quote.
+        /// </summary>
+        public const char SingleQuote = '\'';
+
+        /// <summary>
+        /// Space.
+        /// </summary>
+        public const char Space = ' ';
+
+        /// <summary>
+        /// The start angle bracket.
+        /// </summary>
+        public const char StartAngleBracket = '<';
+
+        /// <summary>
+        /// The start comment.
+        /// </summary>
+        public const char StartComment = '(';
+
+        /// <summary>
+        /// The start square bracket.
         /// </summary>
         public const char StartSquareBracket = '[';
 
         /// <summary>
-        /// The start square bracket
+        /// Tab.
         /// </summary>
-        public const char EndSquareBracket = ']';
+        public const char Tab = '\t';
+
+        /// <summary>
+        /// Underscore.
+        /// </summary>
+        public const char Underscore = '_';
+
+        /// <summary>
+        /// Vertical tab.
+        /// </summary>
+        public const char VerticalTab = '\v';
 
     }
 }
