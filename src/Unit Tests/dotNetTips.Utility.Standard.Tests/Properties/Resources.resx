@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="XmlTestData" xml:space="preserve">
+  <data name="XmlData" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;DevConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
   &lt;AdData&gt;
@@ -129,7 +129,7 @@
       &lt;Image&gt;https://appads.file.core.windows.net/images/Rock Your Code - Logo - small.png?sp=rl&amp;amp;st=2020-08-23T16:22:36Z&amp;amp;se=2030-08-24T16:22:00Z&amp;amp;sv=2019-12-12&amp;amp;sig=lhjoySX6adwbau2yK2PpfR%2F3sclDKQjd8UDid1M53MY%3D&amp;amp;sr=f&lt;/Image&gt;
       &lt;ISOLanguage&gt;eng&lt;/ISOLanguage&gt;
       &lt;Link&gt;http://bit.ly/dotnetdaverocks&lt;/Link&gt;
-      &lt;Message&gt;**Attend one of my conference sessions live and in person!&lt;/Message&gt;
+      &lt;Message&gt;Attend one of my conference sessions live and in person!&lt;/Message&gt;
       &lt;Title&gt;Rock The World&lt;/Title&gt;
     &lt;/Ads&gt;
     &lt;Ads&gt;

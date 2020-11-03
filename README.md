@@ -29,20 +29,23 @@ Here are the results from the current benchmark tests that takes over 3 hours to
 * [Collections.Generic.FastSortedList<T>][11]
 * [Devices.Clock][12]
 * [Extensions.CollectionExtensions][13]
-* [Extensions.EnumExtensions][14]
-* [Extensions.ObjectExtensions][15]
-* [Extensions.StringExtensions][16]
-* [IO.DirectoryHelper][17]
-* [IO.DriveHelper][18]
-* [IO.FileHelper][19]
-* [IO.FileProcessor][20]
-* [IO.PathHelper][21]
-* [Logging.LoggingHelper][22]
-* Security.EncryptionHelper
-* [Services][23]
-* Serializer.JsonSerializer
-* [TypeHelper][24]
-* Xml.XmlHelper
+* [Extensions.ExceptionExtensions][14]
+* [Extensions.EnumExtensions][15]
+* [Extensions.ObjectExtensions][16]
+* [Extensions.StringBuilderExtensions][17]
+* [Extensions.StringExtensions][18]
+* [IO.DirectoryHelper][19]
+* [IO.DriveHelper][20]
+* [IO.FileHelper][21]
+* [IO.FileProcessor][22]
+* [IO.PathHelper][23]
+* [Logging.LoggingHelper][24]
+* [Security.EncryptionHelper][25]
+* [Security.SecurityHelper][26]
+* [Serializer.JsonSerializer][27]
+* [Services][28]
+* [TypeHelper][29]
+* [Xml.XmlHelper][30]
 
 ## Your Support Is Needed
 Do you have code you would like to submit to these repositories? Submit a pull request or submit an issue. I promise to take a look and include it if I like it!
@@ -60,14 +63,20 @@ Do you have code you would like to submit to these repositories? Submit a pull r
   [11]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner-report-github.md
   [12]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Devices.ClockPerfTestRunner-report-github.md
   [13]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Extensions.CollectionExtensionsPerfTestRunner-report-github.md
-  [14]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Extensions.EnumExtensionsPerfTestRunner-report-github.md
-  [15]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-report-github.md
-  [16]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner-report-github.md
-  [17]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner-report-github.md
-  [18]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.IO.DriveHelperPerfTestRunner-report-github.md
-  [19]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner-report-github.md
-  [20]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.IO.FileProcessorPerfTestRunner-report-github.md
-  [21]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.IO.PathHelperPerfTestRunner-report-github.md
-  [22]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-report-github.md
-  [23]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.ServicesPerfTestRunner-report-github.md
-  [24]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.TypeHelperPerfTestRunner-report-github.md
+  [14]: docs/Benchmark%20Results/dotNetTips.Utility.Benchmarks.Extensions.ExceptionExtensionsPerfTestRunner-report-github.md
+  [15]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Extensions.EnumExtensionsPerfTestRunner-report-github.md
+  [16]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-report-github.md
+  [17]: docs/Benchmark%20Results/dotNetTips.Utility.Benchmarks.Extensions.StringBuilderExtensionsPerfTestRunner-report-github.md
+  [18]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner-report-github.md
+  [19]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner-report-github.md
+  [20]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.IO.DriveHelperPerfTestRunner-report-github.md
+  [21]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner-report-github.md
+  [22]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.IO.FileProcessorPerfTestRunner-report-github.md
+  [23]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.IO.PathHelperPerfTestRunner-report-github.md
+  [24]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-report-github.md
+  [25]: docs/Benchmark%20Results/dotNetTips.Utility.Benchmarks.Security.EncryptionHelperPerfTestRunner-report-github.md
+  [26]: docs/Benchmark%20Results/dotNetTips.Utility.Benchmarks.Security.SecurityHelperPerfTestRunner-report-github.md
+  [27]: docs/Benchmark%20Results/dotNetTips.Utility.Benchmarks.Serialization.JsonSerializerPerfTestRunner-report-github.md
+  [28]: docs/Benchmark%20Results/dotNetTips.Utility.Benchmarks.ServicesPerfTestRunner-report-github.md
+  [29]: docs%2FBenchmark%20Results%2FdotNetTips.Utility.Benchmarks.TypeHelperPerfTestRunner-report-github.md
+  [30]: docs/Benchmark%20Results/dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner-report-github.md

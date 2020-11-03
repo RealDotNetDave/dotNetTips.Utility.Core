@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 03-03-2019
 // ***********************************************************************
-// <copyright file="NetworkAvailabilityChangedEventInformation.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="NetworkAvailabilityChangedEventInformation.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>

@@ -6,15 +6,15 @@
 // Last Modified By : David McCarter
 // Last Modified On : 08-07-2020
 // ***********************************************************************
-// <copyright file="RegistryExtensions.cs" company="dotNetTips.com - David McCarter">
-//     dotNetTips.com - David McCarter
+// <copyright file="RegistryExtensions.cs" company="David McCarter - dotNetTips.com">
+//     David McCarter - dotNetTips.com
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.OOP;
-using Microsoft.Win32;
 using System;
 using System.Runtime.InteropServices;
+using dotNetTips.Utility.Standard.OOP;
+using Microsoft.Win32;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {
@@ -50,7 +50,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Gets the registry key value.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="key">The key.</param>
         /// <param name="name">The name.</param>
         /// <returns>T.</returns>

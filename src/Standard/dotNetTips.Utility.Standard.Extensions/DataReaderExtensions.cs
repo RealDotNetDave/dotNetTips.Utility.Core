@@ -6,17 +6,17 @@
 // Last Modified By : David McCarter
 // Last Modified On : 10-08-2020
 // ***********************************************************************
-// <copyright file="DataReaderExtensions.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="DataReaderExtensions.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using dotNetTips.Utility.Standard.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Text;
-using dotNetTips.Utility.Standard.Common;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {
@@ -33,7 +33,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="separator">The separator.</param>
         /// <returns>List&lt;System.String&gt;.</returns>
         [Information(nameof(ToCsv), author: "David McCarter", createdOn: "10/8/2020", modifiedOn: "10/8/2020", UnitTestCoverage = 0, Status = Status.New)]
-        public static List<string> ToCsv(this IDataReader dataReader, bool includeHeaderAsFirstRow, string separator= ",")
+        public static List<string> ToCsv(this IDataReader dataReader, bool includeHeaderAsFirstRow, string separator = ",")
         {
             if (dataReader is null)
             {
@@ -77,7 +77,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                     if (!dataReader.IsDBNull(index))
                     {
                         string value = dataReader.GetValue(index).ToString();
-                        if (dataReader.GetFieldType(index) == typeof(String))
+                        if (dataReader.GetFieldType(index) == typeof(string))
                         {
                             // If double quotes are used in value, ensure each are replaced but 2.
                             if (value.IndexOf("\"", StringComparison.Ordinal) >= 0)

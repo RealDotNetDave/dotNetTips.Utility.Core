@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 01-31-2020
 // ***********************************************************************
-// <copyright file="EnvironmentKey.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="EnvironmentKey.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>

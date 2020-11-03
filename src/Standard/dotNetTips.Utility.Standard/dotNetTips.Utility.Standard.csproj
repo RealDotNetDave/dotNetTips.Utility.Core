@@ -3,10 +3,10 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.xml</DocumentationFile>
     <OutputPath>..\..\..\appbin\</OutputPath>
-    <AssemblyVersion>2020.11.1.34735</AssemblyVersion>
-    <FileVersion>2020.11.1.34735</FileVersion>
+    <AssemblyVersion>2020.11.3.34748</AssemblyVersion>
+    <FileVersion>2020.11.3.34748</FileVersion>
     <Authors>David McCarter</Authors>
-    <Company>dotNetTips.com - David McCarter</Company>
+    <Company>David McCarter -  dotNetTips.com</Company>
     <Description>Common .NET Standard Code</Description>
     <Copyright>McCarter Consulting (David McCarter)</Copyright>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
@@ -18,7 +18,7 @@
     <AssemblyOriginatorKeyFile>dotNetTips.Utility.Standard.snk</AssemblyOriginatorKeyFile>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2020.11.01.11</Version>
+    <Version>2020.11.02.01</Version>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
     <Configurations>Debug;Release;Full Build</Configurations>
     <PackageLicenseUrl></PackageLicenseUrl>
@@ -26,16 +26,24 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <PackageReleaseNotes>
-      -- SEP 2019: Added CollectionRandomizer, WebHelper, XmlReaderSettings, also new methods and code cleanup.
-      -- JUN 2019 (QUARTERLY RELEASE): New methods for DirectoryHelper and FileHelper. Code cleanup.
-      -- AUG 2019 (QUARTERLY RELEASE): Code &amp; documentation cleanup. Code fixes. New code in LoggingHelper, ComputerInfo.
-      -- DEC 2019 (QUARTERLY RELEASE): Code cleanup. Moved some methods to the new dotNetTips.Utility.Core.Windows project/ NuGet.
-      -- FEB 2020: Code cleanup. Removed outdated encryption methods. Added ProgressiveRetry method and ExecutionHelper.cs.
-      -- MAR 2020 (QUARTERLY RELEASE): Code cleanup. New code for PregressiveRetry.
-      -- MAY 2020: Added new overloads for TryValidateParam.
-      -- AUG 2020: New helper methods &amp; classes. Code cleanup.
-    </PackageReleaseNotes>
+    <PackageReleaseNotes>-- SEP 2019: Added CollectionRandomizer, WebHelper, XmlReaderSettings, also new methods and code cleanup.
+
+-- JUN 2019 (QUARTERLY RELEASE): New methods for DirectoryHelper and FileHelper. Code cleanup.
+      
+-- AUG 2019 (QUARTERLY RELEASE): Code &amp; documentation cleanup. Code fixes. New code in LoggingHelper, ComputerInfo.
+      
+-- DEC 2019 (QUARTERLY RELEASE): Code cleanup. Moved some methods to the new dotNetTips.Utility.Core.Windows project/ NuGet.
+ 
+-- FEB 2020: Code cleanup. Removed outdated encryption methods. Added ProgressiveRetry method and ExecutionHelper.cs.
+ 
+-- MAR 2020 (QUARTERLY RELEASE): Code cleanup. New code for ProgressiveRetry.
+      
+-- MAY 2020: Added new overloads for TryValidateParam.
+      
+-- AUG 2020: New helper methods &amp; classes. Code cleanup.
+     
+-- NOV 2020 (QUARTERLY RELEASE): Added new classes Mailer, MailerHelper, SecurityHelper. Updated TryValidateParam methods. Code cleanup. 
+</PackageReleaseNotes>
     <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
     <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
     <PackageIcon>2020 - dotNetTips - Real World - Earth@0.1x.png</PackageIcon>
@@ -74,7 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.0">
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -82,12 +90,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.8" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.8" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="3.1.8" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.8" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.8" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.8" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.9" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.9" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="3.1.9" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.9" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.9" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.9" />
     <PackageReference Include="Microsoft.VisualBasic" Version="10.3.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>

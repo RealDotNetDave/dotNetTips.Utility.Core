@@ -6,8 +6,8 @@
 // Last Modified By : David McCarter
 // Last Modified On : 10-23-2020
 // ***********************************************************************
-// <copyright file="StringExtensions.cs" company="dotNetTips.com - David McCarter">
-//     dotNetTips.com - David McCarter
+// <copyright file="StringExtensions.cs" company="David McCarter - dotNetTips.com">
+//     David McCarter - dotNetTips.com
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -175,7 +175,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>System.String.</returns>
         [Information(nameof(DefaultIfNullOrEmpty), "David McCarter", "9/15/2017", "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static string DefaultIfNullOrEmpty(this string value, string defaultValue)
-        { return string.IsNullOrEmpty(value) ? defaultValue : value; }
+        {
+            return string.IsNullOrEmpty(value) ? defaultValue : value;
+        }
 
         /// <summary>
         /// Turns a delimited string to a string array.
@@ -217,7 +219,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         [Information(nameof(EqualsOrBothNullOrEmpty), "David McCarter", "7/15/2020", "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool EqualsOrBothNullOrEmpty(this string input, string valueToCompare)
-        { return string.Equals(input ?? string.Empty, valueToCompare ?? string.Empty, StringComparison.Ordinal); }
+        {
+            return string.Equals(input ?? string.Empty, valueToCompare ?? string.Empty, StringComparison.Ordinal);
+        }
 
         /// <summary>
         /// Extracts a string from a beginning and end value.
@@ -271,14 +275,19 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <remarks>Code by: Blake Pell</remarks>
         [Obsolete("This method to be removed. Use instead DelimitedStringToArray.", true)]
         public static IEnumerable<string> FromDelimitedString(this string delimitedInput, char delimiter = ',')
-        { return delimitedInput.DelimitedStringToArray(delimiter).AsEnumerable(); }
+        {
+            return delimitedInput.DelimitedStringToArray(delimiter).AsEnumerable();
+        }
 
         /// <summary>
         /// Determines whether the specified input has value.
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns><c>true</c> if the specified input has value; otherwise, <c>false</c>.</returns>
-        public static bool HasValue(this string input) { return (input == null) ? false : (input.Trim().Length > 0); }
+        public static bool HasValue(this string input)
+        {
+            return ( input == null ) ? false : ( input.Trim().Length > 0 );
+        }
 
         /// <summary>
         /// Determines whether the specified length has value.
@@ -294,7 +303,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 throw new ArgumentOutOfRangeException(nameof(length), "Minimum length must be greater than 0.");
             }
 
-            return (input == null) ? false : (input.Trim().Length == length);
+            return ( input == null ) ? false : ( input.Trim().Length == length );
         }
 
         /// <summary>
@@ -311,7 +320,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 ExceptionThrower.ThrowArgumentNullException(nameof(input));
             }
 
-            return (input == null) ? false : (input.Trim() == value.Trim());
+            return ( input == null ) ? false : ( input.Trim() == value.Trim() );
         }
 
         /// <summary>
@@ -351,7 +360,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 ExceptionThrower.ThrowArgumentOutOfRangeException(nameof(maxLength));
             }
 
-            return (input == null) ? false : input.Length.IsInRange(minLength, maxLength);
+            return ( input == null ) ? false : input.Length.IsInRange(minLength, maxLength);
         }
 
         /// <summary>
@@ -401,7 +410,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="character">The character.</param>
         /// <returns><c>true</c> if [is ASCII letter] [the specified character]; otherwise, <c>false</c>.</returns>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
-        public static bool IsAsciiLetter(this char character) { return ((((uint)character) - 'A') & (~0x20)) < 26; }
+        public static bool IsAsciiLetter(this char character) { return ( ( ( (uint)character ) - 'A' ) & ( ~0x20 ) ) < 26; }
 
         /// <summary>
         /// Determines whether [is ASCII letter or digit] from [the specified character].
@@ -410,7 +419,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns><c>true</c> if [is ASCII letter or digit] [the specified character]; otherwise, <c>false</c>.</returns>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool IsAsciiLetterOrDigit(this char character)
-        { return (((((uint)character) - 'A') & (~0x20)) < 26) || (((uint)character) - '0' < 10); }
+        { return ( ( ( ( (uint)character ) - 'A' ) & ( ~0x20 ) ) < 26 ) || ( ( (uint)character ) - '0' < 10 ); }
 
         /// <summary>
         /// Determines whether [is credit card] [the specified input].
@@ -418,7 +427,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The input.</param>
         /// <returns><c>true</c> if [is credit card] [the specified input]; otherwise, <c>false</c>.</returns>
         public static bool IsCreditCard(this string input)
-        { return input.HasValue(Resources.RegexCreditCard, RegexOptions.None); }
+        {
+            return input.HasValue(Resources.RegexCreditCard, RegexOptions.None);
+        }
 
         /// <summary>
         /// Determines whether [is domain address] [the specified input].
@@ -426,7 +437,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The input.</param>
         /// <returns><c>true</c> if [is domain address] [the specified input]; otherwise, <c>false</c>.</returns>
         public static bool IsDomainAddress(this string input)
-        { return input.HasValue(Resources.RegexDomain, RegexOptions.IgnoreCase); }
+        {
+            return input.HasValue(Resources.RegexDomain, RegexOptions.IgnoreCase);
+        }
 
         /// <summary>
         /// Determines whether [is email address] [the specified input].
@@ -443,7 +456,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns><c>true</c> if the specified input is empty; otherwise, <c>false</c>.</returns>
         [Information(nameof(IsEmpty), "David McCarter", "8/18/20", ModifiedBy = "David McCarter", Status = Status.Available, UnitTestCoverage = 100)]
         public static bool IsEmpty(this string input)
-        { return (input.IsNotNull() && (input.Length == 0)) ? true : false; }
+        { return ( input.IsNotNull() && ( input.Length == 0 ) ) ? true : false; }
 
         /// <summary>
         /// Determines whether [is first and last name] [the specified input].
@@ -451,14 +464,19 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The input.</param>
         /// <returns><c>true</c> if [is first last name] [the specified input]; otherwise, <c>false</c>.</returns>
         public static bool IsFirstLastName(this string input)
-        { return input.HasValue(Resources.RegexFirstLastName, RegexOptions.IgnoreCase); }
+        {
+            return input.HasValue(Resources.RegexFirstLastName, RegexOptions.IgnoreCase);
+        }
 
         /// <summary>
         /// Determines whether the specified input is an ISBN.
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns><c>true</c> if the specified input is ISBN; otherwise, <c>false</c>.</returns>
-        public static bool IsISBN(this string input) { return input.HasValue(Resources.RegexISBN, RegexOptions.None); }
+        public static bool IsISBN(this string input)
+        {
+            return input.HasValue(Resources.RegexISBN, RegexOptions.None);
+        }
 
         /// <summary>
         /// Determines whether specified input is not empty.
@@ -467,7 +485,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns><c>true</c> if [is not empty] [the specified input]; otherwise, <c>false</c>.</returns>
         [Information(nameof(IsEmpty), "David McCarter", "8/18/20", ModifiedBy = "David McCarter", Status = Status.Available, UnitTestCoverage = 100)]
         public static bool IsNotEmpty(this string input)
-        { return (input.IsNotNull() && (input.Length > 0)) ? true : false; }
+        {
+            return ( input.IsNotNull() && ( input.Length > 0 ) ) ? true : false;
+        }
 
         /// <summary>
         /// Determines whether the specified input is scientific value.
@@ -475,7 +495,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The input.</param>
         /// <returns><c>true</c> if the specified input is scientific; otherwise, <c>false</c>.</returns>
         public static bool IsScientific(this string input)
-        { return input.HasValue(Resources.RegexScientific, RegexOptions.None); }
+        {
+            return input.HasValue(Resources.RegexScientific, RegexOptions.None);
+        }
 
         /// <summary>
         /// Determines whether the specified input is a valid string value.
@@ -483,7 +505,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The input.</param>
         /// <returns><c>true</c> if the specified input is string; otherwise, <c>false</c>.</returns>
         public static bool IsString(this string input)
-        { return input.HasValue(Resources.RegexString, RegexOptions.IgnoreCase); }
+        {
+            return input.HasValue(Resources.RegexString, RegexOptions.IgnoreCase);
+        }
 
         /// <summary>
         /// Determines whether the specified input is an URL.
@@ -491,7 +515,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The input.</param>
         /// <returns><c>true</c> if the specified input is URL; otherwise, <c>false</c>.</returns>
         public static bool IsUrl(this string input)
-        { return input.HasValue(Resources.RegexUrl, RegexOptions.IgnoreCase); }
+        {
+            return input.HasValue(Resources.RegexUrl, RegexOptions.IgnoreCase);
+        }
 
         /// <summary>
         /// Determines whether [is web safe] [the specified input].
@@ -499,7 +525,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The input.</param>
         /// <returns><c>true</c> if [is web safe] [the specified input]; otherwise, <c>false</c>.</returns>
         public static bool IsWebSafe(this string input)
-        { return input.HasValue(Resources.RegexStringWebSafe, RegexOptions.IgnoreCase); }
+        {
+            return input.HasValue(Resources.RegexStringWebSafe, RegexOptions.IgnoreCase);
+        }
 
         /// <summary>
         /// Determines whether the specified input is whitespace.
@@ -534,14 +562,13 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool IsWhitespace(this char character)
         {
-            return (character <= ' ') &&
-                ((character == ' ') || (character == '\t') || (character == '\r') || (character == '\n'));
+            return ( character <= ' ' ) && ( ( character == ' ' ) || ( character == '\t' ) || ( character == '\r' ) || ( character == '\n' ) );
         }
 
         /// <summary>
         /// Parses the specified value.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="value">The value.</param>
         /// <returns>T.</returns>
         [Information(nameof(Parse), "David McCarter", "10/8/2020", "10/8/2020", UnitTestCoverage = 0, Status = Status.New)]
@@ -620,9 +647,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentException">separator</exception>
         /// <exception cref="ArgumentException">value</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
-        public static string[] Split(this string input,
-                                     string separator,
-                                     StringSplitOptions options = StringSplitOptions.None)
+        public static string[] Split(this string input, string separator, StringSplitOptions options = StringSplitOptions.None)
         {
             if (input.IsNullOrEmpty())
             {
@@ -769,19 +794,19 @@ namespace dotNetTips.Utility.Standard.Extensions
                 return string.Empty;
             }
 
-            int endIndex = (startIndex + length) - 1;
+            int endIndex = ( startIndex + length ) - 1;
 
-            while ((startIndex <= endIndex) && char.IsWhiteSpace(input[startIndex]))
+            while (( startIndex <= endIndex ) && char.IsWhiteSpace(input[startIndex]))
             {
                 startIndex++;
             }
 
-            while ((endIndex >= startIndex) && char.IsWhiteSpace(input[endIndex]))
+            while (( endIndex >= startIndex ) && char.IsWhiteSpace(input[endIndex]))
             {
                 endIndex--;
             }
 
-            int newLength = (endIndex - startIndex) + 1;
+            int newLength = ( endIndex - startIndex ) + 1;
 
             if (newLength == 0)
             {
@@ -789,7 +814,7 @@ namespace dotNetTips.Utility.Standard.Extensions
             }
             else
             {
-                return (newLength == input.Length) ? input : input.Substring(startIndex, newLength);
+                return ( newLength == input.Length ) ? input : input.Substring(startIndex, newLength);
             }
         }
 

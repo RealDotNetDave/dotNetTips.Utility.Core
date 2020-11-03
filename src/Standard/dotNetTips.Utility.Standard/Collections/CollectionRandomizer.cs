@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 09-21-2020
 // ***********************************************************************
-// <copyright file="CollectionRandomizer.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="CollectionRandomizer.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary>Original code written by David McCarter & Kristine Tran</summary>
@@ -23,18 +23,18 @@ namespace dotNetTips.Utility.Standard.Collections
     /// <summary>
     /// Class CollectionRandomizer.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <remarks>The CollectionRandomizer is designed to shuffle a collection and allow retrieving items by using GetNext().</remarks>
     [Information(nameof(CollectionRandomizer<T>), author: "David McCarter and Kristine Tran", createdOn: "8/26/2020", modifiedOn: "8/27/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available)]
     public sealed class CollectionRandomizer<T>
     {
+
+        private readonly bool _repeat;
+        private readonly object _threadLock = new object();
         private ImmutableArray<T> _collection;
         private ImmutableArray<T>.Enumerator _collectionEnumerator;
 
         private bool _initialized;
-
-        private readonly bool _repeat;
-        private readonly object _threadLock = new object();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CollectionRandomizer{T}"/> class.
@@ -51,32 +51,14 @@ namespace dotNetTips.Utility.Standard.Collections
             this._repeat = repeat;
         }
 
-        private void Init()
-        {
-            //Ignore if initialized unless repeat is true.
-            if((_initialized == true & HasRemainingItems) ||
-                (_initialized == true & HasRemainingItems == true & _repeat == false))
-            {
-                return;
-            }
-
-            //Validate Collection
-            if(_collection.HasItems() == false)
-            {
-                throw new NullReferenceException("Underlying collection is null.");
-            }
-
-            //Shuffle Collection
-            this._collection = this._collection.Shuffle();
-
-            //Setup enumerator
-            _collectionEnumerator = this._collection.GetEnumerator();
-
-            //Move to first item
-            this.HasRemainingItems = this._collectionEnumerator.MoveNext();
-
-            this._initialized = true;
-        }
+        /// <summary>
+        /// Gets a value indicating whether this instance has remaining items.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance has remaining items; otherwise, <c>false</c>. This value will be <c>false</c>
+        /// until the first time GetNext() is called and the shuffle is initalized.
+        /// </value>
+        public bool HasRemainingItems { get; private set; }
 
         /// <summary>
         /// Gets the next item in the collection.
@@ -84,7 +66,7 @@ namespace dotNetTips.Utility.Standard.Collections
         /// <returns>T.</returns>
         public T GetNext()
         {
-            lock(_threadLock)
+            lock (this._threadLock)
             {
                 this.Init();
 
@@ -96,13 +78,31 @@ namespace dotNetTips.Utility.Standard.Collections
             }
         }
 
-        /// <summary>
-        /// Gets a value indicating whether this instance has remaining items.
-        /// </summary>
-        /// <value>
-        /// <c>true</c> if this instance has remaining items; otherwise, <c>false</c>. This value will be <c>false</c>
-        /// until the first time GetNext() is called and the shuffle is initalized.
-        /// </value>
-        public bool HasRemainingItems { get; private set; }
+        private void Init()
+        {
+            //Ignore if initialized unless repeat is true.
+            if (( this._initialized == true & this.HasRemainingItems ) ||
+                ( this._initialized == true & this.HasRemainingItems == true & this._repeat == false ))
+            {
+                return;
+            }
+
+            //Validate Collection
+            if (this._collection.HasItems() == false)
+            {
+                throw new NullReferenceException("Underlying collection is null.");
+            }
+
+            //Shuffle Collection
+            this._collection = this._collection.Shuffle();
+
+            //Setup enumerator
+            this._collectionEnumerator = this._collection.GetEnumerator();
+
+            //Move to first item
+            this.HasRemainingItems = this._collectionEnumerator.MoveNext();
+
+            this._initialized = true;
+        }
     }
 }

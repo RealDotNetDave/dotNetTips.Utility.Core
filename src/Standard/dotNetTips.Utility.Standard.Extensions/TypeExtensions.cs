@@ -6,8 +6,8 @@
 // Last Modified By : David McCarter
 // Last Modified On : 08-07-2020
 // ***********************************************************************
-// <copyright file="TypeExtensions.cs" company="dotNetTips.com - David McCarter">
-//     dotNetTips.com - David McCarter
+// <copyright file="TypeExtensions.cs" company="David McCarter - dotNetTips.com">
+//     David McCarter - dotNetTips.com
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -42,12 +42,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static IEnumerable<FieldInfo> GetAllDeclaredFields(this Type type)
         {
-            if(type == null)
+            if (type == null)
             {
                 throw new ArgumentNullException(nameof(type), $"{nameof(type)} is null.");
             }
 
-            for(int i = 0; i <
+            for (int i = 0; i <
                 type.GetFields(BindingFlags.Instance |
                     BindingFlags.Static |
                     BindingFlags.Public |
@@ -71,7 +71,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("Original Code .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static IEnumerable<MethodInfo> GetAllDeclaredMethods(this Type type)
         {
-            for(int i = 0; i <
+            for (int i = 0; i <
                 type.GetMethods(BindingFlags.Instance |
                     BindingFlags.Static |
                     BindingFlags.Public |
@@ -96,9 +96,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             var typeInfo = type.GetTypeInfo();
 
-            while(typeInfo != null)
+            while (typeInfo != null)
             {
-                foreach(var fieldInfo in typeInfo.DeclaredFields)
+                foreach (var fieldInfo in typeInfo.DeclaredFields)
                 {
                     yield return fieldInfo;
                 }
@@ -126,9 +126,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             var typeInfo = type.GetTypeInfo();
 
-            while(typeInfo != null)
+            while (typeInfo != null)
             {
-                foreach(var methodInfo in typeInfo.DeclaredMethods)
+                foreach (var methodInfo in typeInfo.DeclaredMethods)
                 {
                     yield return methodInfo;
                 }
@@ -147,9 +147,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             var typeInfo = type.GetTypeInfo();
 
-            while(typeInfo != null)
+            while (typeInfo != null)
             {
-                foreach(var propertyInfo in typeInfo.DeclaredProperties)
+                foreach (var propertyInfo in typeInfo.DeclaredProperties)
                 {
                     yield return propertyInfo;
                 }
@@ -179,57 +179,65 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Resolves the attribute.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="type">The type.</param>
         /// <returns>T.</returns>
         [Information("Original Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 87.5, Status = Status.Available)]
         public static T GetAttribute<T>(this Type type)
             where T : Attribute
-        { return type?.GetTypeInfo().GetCustomAttributes(typeof(T), false).OfType<T>().FirstOrDefault(); }
+        {
+            return type?.GetTypeInfo().GetCustomAttributes(typeof(T), false).OfType<T>().FirstOrDefault();
+        }
 
         /// <summary>
         /// Resolves the attribute.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="methodInfo">The method information.</param>
         /// <returns>T.</returns>
         [Information("Original Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.Available)]
         public static T GetAttribute<T>(this MethodInfo methodInfo)
             where T : Attribute
-        { return methodInfo?.GetCustomAttributes(typeof(T), false).FirstOrDefault() as T; }
+        {
+            return methodInfo?.GetCustomAttributes(typeof(T), false).FirstOrDefault() as T;
+        }
 
         /// <summary>
         /// Resolves the attribute.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="propertyInfo">The property information.</param>
         /// <returns>T.</returns>
         [Information("Original Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.Available)]
         public static T GetAttribute<T>(this PropertyInfo propertyInfo)
             where T : Attribute
-        { return propertyInfo?.GetCustomAttributes(typeof(T), false).FirstOrDefault() as T; }
+        {
+            return propertyInfo?.GetCustomAttributes(typeof(T), false).FirstOrDefault() as T;
+        }
 
         /// <summary>
         /// Resolves the attribute.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="fieldInfo">The field information.</param>
         /// <returns>T.</returns>
         [Information("Original Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 83.33, Status = Status.Available)]
         public static T GetAttribute<T>(this FieldInfo fieldInfo)
             where T : Attribute
-        { return fieldInfo?.GetCustomAttributes(typeof(T), false).FirstOrDefault() as T; }
+        {
+            return fieldInfo?.GetCustomAttributes(typeof(T), false).FirstOrDefault() as T;
+        }
 
         /// <summary>
         /// Gets the field hash.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="callback">The callback.</param>
         /// <returns>Hash for the field as System.String.</returns>
         /// <exception cref="ArgumentNullException">callback</exception>
         public static string GetFieldHash<T>(this Func<T> callback)
         {
-            if(callback is null)
+            if (callback is null)
             {
                 throw new ArgumentNullException(nameof(callback));
             }
@@ -274,7 +282,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             var joined = allFields.Concat(allProperties).Where(member => member.Attribute != null).ToArray();
 
-            foreach(var member in joined.Where(m => m.IsPrivate))
+            foreach (var member in joined.Where(m => m.IsPrivate))
             {
                 throw new InvalidOperationException($"Member \"{member.Name}\" must be public if it has the [{typeof(TAttribute).Name}] attribute applied to it");
             }
@@ -285,7 +293,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Determines whether the specified method information has attribute.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="methodInfo">The method information.</param>
         /// <returns><c>true</c> if the specified method information has attribute; otherwise, <c>false</c>.</returns>
         [Information("Original Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
@@ -302,14 +310,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool HasBaseClass(this Type type, Type baseClass)
         {
-            if(type == baseClass)
+            if (type == baseClass)
             {
                 return false;
             }
 
-            while(type != null)
+            while (type != null)
             {
-                if(type == baseClass)
+                if (type == baseClass)
                 {
                     return true;
                 }
@@ -328,16 +336,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">type</exception>
         public static bool HasParameterlessConstructor(this Type type)
         {
-            if(type is null)
+            if (type is null)
             {
                 throw new ArgumentNullException(nameof(type));
             }
 
-            return type.GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic,
-                                       null,
-                                       Type.EmptyTypes,
-                                       null) !=
-                null;
+            return type.GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, Type.EmptyTypes, null) != null;
         }
 
         /// <summary>
@@ -357,18 +361,18 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET EF Core source.", author: "David McCarter", createdOn: "7/31/2020", modifiedOn: "7/31/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool IsStatic(this PropertyInfo property)
         {
-            if(property == null)
+            if (property == null)
             {
                 throw new ArgumentNullException(nameof(property), $"{nameof(property)} is null.");
             }
 
-            return (property.GetMethod ?? property.SetMethod).IsStatic;
+            return ( property.GetMethod ?? property.SetMethod ).IsStatic;
         }
 
         /// <summary>
         /// Return maximum type. Works with value and reference types.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="obj1">The obj1.</param>
         /// <param name="obj2">The obj2.</param>
         /// <returns>T.</returns>
@@ -382,7 +386,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         public static T Max<T>(this T obj1, T obj2)
             where T : IComparable
         {
-            if(obj2 == null)
+            if (obj2 == null)
             {
                 throw new ArgumentNullException(nameof(obj2), $"{nameof(obj1)} cannot be null.");
             }

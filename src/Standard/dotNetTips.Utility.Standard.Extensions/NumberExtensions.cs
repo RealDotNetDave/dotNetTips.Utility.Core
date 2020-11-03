@@ -6,8 +6,8 @@
 // Last Modified By : David McCarter
 // Last Modified On : 10-05-2020
 // ***********************************************************************
-// <copyright file="NumberExtensions.cs" company="dotNetTips.com - David McCarter">
-//     dotNetTips.com - David McCarter
+// <copyright file="NumberExtensions.cs" company="David McCarter - dotNetTips.com">
+//     David McCarter - dotNetTips.com
 // </copyright>
 // <summary></summary>
 // ***********************************************************************

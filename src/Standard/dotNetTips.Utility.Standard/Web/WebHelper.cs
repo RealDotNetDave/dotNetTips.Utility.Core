@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 09-21-2020
 // ***********************************************************************
-// <copyright file="WebHelper.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="WebHelper.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -78,7 +78,7 @@ namespace dotNetTips.Utility.Standard.Web
                 }
 
                 // Download the data
-                return await client.DownloadStringTaskAsync(address);
+                return await client.DownloadStringTaskAsync(address).ConfigureAwait(false);
             }
         }
 

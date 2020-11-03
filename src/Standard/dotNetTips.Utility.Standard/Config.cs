@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 05-28-2019
 // ***********************************************************************
-// <copyright file="Config.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="Config.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -20,7 +20,7 @@ namespace dotNetTips.Utility.Standard
     /// <summary>
     /// Class Config.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Generic type parameter.</typeparam>
     public class Config<T> where T : class, new()
     {
         /// <summary>

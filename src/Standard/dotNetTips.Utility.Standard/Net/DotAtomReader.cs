@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 07-23-2020
 // ***********************************************************************
-// <copyright file="DotAtomReader.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="DotAtomReader.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>

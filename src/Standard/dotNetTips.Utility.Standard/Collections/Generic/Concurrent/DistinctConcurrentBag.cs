@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 08-05-2020
 // ***********************************************************************
-// <copyright file="DistinctConcurrentBag.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="DistinctConcurrentBag.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -24,7 +24,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
     /// <summary>
     /// Class DistinctConcurrentBag.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <seealso cref="System.Collections.Concurrent.ConcurrentBag{T}" />
     [DebuggerDisplay("Count = {Count}")]
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1710:Identifiers should have correct suffix", Justification = "<Pending>")]

@@ -6,12 +6,11 @@
 // Last Modified By : David McCarter
 // Last Modified On : 10-27-2020
 // ***********************************************************************
-// <copyright file="EnumHelper.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="EnumHelper.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +18,7 @@ using System.Globalization;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
+using dotNetTips.Utility.Standard.Common;
 
 namespace dotNetTips.Utility.Standard
 {
@@ -30,7 +30,7 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// Gets the enum values.
         /// </summary>
-        /// <typeparam name="T">Type must me an Enum.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="fixNames">if set to <c>true</c> [fix names].</param>
         /// <param name="useXmlNames">if set to <c>true</c> [use XML names].</param>
         /// <returns>List&lt;EnumValue&gt;.</returns>
@@ -55,7 +55,7 @@ namespace dotNetTips.Utility.Standard
             // TODO: This does not work if enums are not defined 0,1,2, etc
             var enumNames = GetEnumNames(enumType, fixNames, useXmlNames);
 
-            for (int i = 0; i < allValues.Length; i++)
+            for (var i = 0; i < allValues.Length; i++)
             {
                 result.Add(new EnumValue(allValues[i], enumNames[i]));
             }
@@ -113,7 +113,7 @@ namespace dotNetTips.Utility.Standard
                 }
 
                 // Attempt to use the Description attribute (if present)
-                DescriptionAttribute description = (DescriptionAttribute)Attribute.GetCustomAttribute(enumValue, typeof(DescriptionAttribute));
+                var description = (DescriptionAttribute)Attribute.GetCustomAttribute(enumValue, typeof(DescriptionAttribute));
 
                 if (description != null)
                 {

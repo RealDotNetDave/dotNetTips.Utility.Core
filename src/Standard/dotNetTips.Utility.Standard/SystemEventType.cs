@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 06-03-2019
 // ***********************************************************************
-// <copyright file="SystemEventType.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="SystemEventType.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>

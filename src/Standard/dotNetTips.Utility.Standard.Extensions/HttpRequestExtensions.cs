@@ -6,8 +6,8 @@
 // Last Modified By : David McCarter
 // Last Modified On : 08-04-2020
 // ***********************************************************************
-// <copyright file="HttpRequestExtensions.cs" company="dotNetTips.com - David McCarter">
-//     dotNetTips.com - David McCarter
+// <copyright file="HttpRequestExtensions.cs" company="David McCarter - dotNetTips.com">
+//     David McCarter - dotNetTips.com
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -27,7 +27,7 @@ namespace dotNetTips.Utility.Standard.Extensions
     {
 
         /// <summary>
-        /// Retrieves the raw body as a byte array from the Request.Body stream
+        /// Retrieves the raw body as a byte array from the Request.Body stream.
         /// </summary>
         /// <param name="request">The request.</param>
         /// <returns>Task&lt;System.Byte[]&gt;.</returns>
@@ -75,7 +75,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Tries the get HttpRequest body.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="request">The HTTPRequest object.</param>
         /// <param name="value">The return value.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>

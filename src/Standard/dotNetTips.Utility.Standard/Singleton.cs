@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 03-03-2019
 // ***********************************************************************
-// <copyright file="Singleton.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="Singleton.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -17,7 +17,7 @@ namespace dotNetTips.Utility.Standard
     /// <summary>
     /// Class Singleton.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Generic type parameter.</typeparam>
     public abstract class Singleton<T>
         where T : Singleton<T>, new()
     {

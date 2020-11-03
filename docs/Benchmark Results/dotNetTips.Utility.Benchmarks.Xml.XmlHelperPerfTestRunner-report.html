@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner-20200807-193054</title>
+<title>dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner-20201103-004750</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,31 +13,37 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.388 (2004/?/20H1)
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.572 (2004/?/20H1)
 Unknown processor
-.NET Core SDK=3.1.400
-  [Host]     : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
-  Job-GUNMTB : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+.NET Core SDK=5.0.100-rc.2.20479.15
+  [Host]     : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
+  Job-TZRVGS : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
 </code></pre>
-<pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
+<pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.1  
 Categories=XmlHelper  
 </code></pre>
 
 <table>
-<thead><tr><th>Method</th><th>CollectionCount</th><th> Mean</th><th>Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+<thead><tr><th>     Method</th><th>CollectionCount</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>Deserialize</td><td>25</td><td>192.95 &mu;s</td><td>0.276 &mu;s</td><td>0.231 &mu;s</td><td>11.7188</td><td>0.7324</td><td>-</td><td>102.94 KB</td>
-</tr><tr><td>Deserialize</td><td>50</td><td>371.71 &mu;s</td><td>0.719 &mu;s</td><td>0.601 &mu;s</td><td>20.9961</td><td>1.9531</td><td>-</td><td>188.5 KB</td>
-</tr><tr><td>Deserialize</td><td>100</td><td>765.46 &mu;s</td><td>3.615 &mu;s</td><td>3.204 &mu;s</td><td>40.0391</td><td>6.8359</td><td>-</td><td>359.83 KB</td>
-</tr><tr><td>Deserialize</td><td>250</td><td>1,852.64 &mu;s</td><td>3.668 &mu;s</td><td>3.251 &mu;s</td><td>97.6563</td><td>31.2500</td><td>-</td><td>872.04 KB</td>
-</tr><tr><td>Deserialize</td><td>500</td><td>3,694.89 &mu;s</td><td>18.606 &mu;s</td><td>17.405 &mu;s</td><td>70.3125</td><td>31.2500</td><td>-</td><td>1722.14 KB</td>
-</tr><tr><td>Deserialize</td><td>1000</td><td>7,372.68 &mu;s</td><td>46.216 &mu;s</td><td>43.230 &mu;s</td><td>70.3125</td><td>31.2500</td><td>-</td><td>3422.12 KB</td>
-</tr><tr><td>Serialize</td><td>25</td><td>92.57 &mu;s</td><td>0.153 &mu;s</td><td>0.127 &mu;s</td><td>13.9160</td><td>2.0752</td><td>-</td><td>129.33 KB</td>
-</tr><tr><td>Serialize</td><td>50</td><td>242.81 &mu;s</td><td>4.938 &mu;s</td><td>14.484 &mu;s</td><td>25.3906</td><td>16.6016</td><td>12.2070</td><td>252.8 KB</td>
-</tr><tr><td>Serialize</td><td>100</td><td>725.53 &mu;s</td><td>17.354 &mu;s</td><td>51.168 &mu;s</td><td>49.8047</td><td>33.2031</td><td>25.3906</td><td>478.68 KB</td>
-</tr><tr><td>Serialize</td><td>250</td><td>1,071.51 &mu;s</td><td>21.040 &mu;s</td><td>36.849 &mu;s</td><td>85.9375</td><td>70.3125</td><td>52.7344</td><td>1172.9 KB</td>
-</tr><tr><td>Serialize</td><td>500</td><td>2,063.72 &mu;s</td><td>40.664 &mu;s</td><td>41.759 &mu;s</td><td>125.0000</td><td>117.1875</td><td>101.5625</td><td>2319.68 KB</td>
-</tr><tr><td>Serialize</td><td>1000</td><td>4,104.30 &mu;s</td><td>80.867 &mu;s</td><td>121.038 &mu;s</td><td>156.2500</td><td>132.8125</td><td>109.3750</td><td>4609.62 KB</td>
+</thead><tbody><tr><td>Deserialize</td><td>25</td><td>195.2 &mu;s</td><td>0.23 &mu;s</td><td>0.20 &mu;s</td><td>11.4746</td><td>0.2441</td><td>-</td><td>102.81 KB</td>
+</tr><tr><td>Deserialize</td><td>50</td><td>380.4 &mu;s</td><td>0.67 &mu;s</td><td>0.63 &mu;s</td><td>21.4844</td><td>2.9297</td><td>-</td><td>188.62 KB</td>
+</tr><tr><td>Deserialize</td><td>100</td><td>721.3 &mu;s</td><td>1.69 &mu;s</td><td>1.58 &mu;s</td><td>39.0625</td><td>-</td><td>-</td><td>359.49 KB</td>
+</tr><tr><td>Deserialize</td><td>250</td><td>1,824.5 &mu;s</td><td>4.42 &mu;s</td><td>4.13 &mu;s</td><td>95.7031</td><td>31.2500</td><td>-</td><td>872.5 KB</td>
+</tr><tr><td>Deserialize</td><td>500</td><td>3,946.7 &mu;s</td><td>77.30 &mu;s</td><td>92.02 &mu;s</td><td>66.4063</td><td>27.3438</td><td>-</td><td>1722.72 KB</td>
+</tr><tr><td>Deserialize</td><td>1000</td><td>7,892.9 &mu;s</td><td>83.01 &mu;s</td><td>77.65 &mu;s</td><td>78.1250</td><td>31.2500</td><td>-</td><td>3425.74 KB</td>
+</tr><tr><td>Serialize</td><td>25</td><td>100.2 &mu;s</td><td>0.15 &mu;s</td><td>0.14 &mu;s</td><td>15.7471</td><td>2.8076</td><td>-</td><td>147.4 KB</td>
+</tr><tr><td>Serialize</td><td>50</td><td>308.1 &mu;s</td><td>6.88 &mu;s</td><td>20.06 &mu;s</td><td>25.8789</td><td>17.0898</td><td>12.2070</td><td>252.61 KB</td>
+</tr><tr><td>Serialize</td><td>100</td><td>729.2 &mu;s</td><td>17.67 &mu;s</td><td>52.12 &mu;s</td><td>51.7578</td><td>34.1797</td><td>26.3672</td><td>479.08 KB</td>
+</tr><tr><td>Serialize</td><td>250</td><td>1,100.9 &mu;s</td><td>22.01 &mu;s</td><td>51.01 &mu;s</td><td>91.7969</td><td>76.1719</td><td>54.6875</td><td>1173.37 KB</td>
+</tr><tr><td>Serialize</td><td>500</td><td>2,135.3 &mu;s</td><td>34.26 &mu;s</td><td>30.37 &mu;s</td><td>148.4375</td><td>128.9063</td><td>101.5625</td><td>2320 KB</td>
+</tr><tr><td>Serialize</td><td>1000</td><td>4,275.5 &mu;s</td><td>83.31 &mu;s</td><td>141.47 &mu;s</td><td>148.4375</td><td>117.1875</td><td>93.7500</td><td>4538.24 KB</td>
+</tr><tr><td>StringToXDocument</td><td>25</td><td>109.7 &mu;s</td><td>0.27 &mu;s</td><td>0.24 &mu;s</td><td>8.3008</td><td>1.2207</td><td>-</td><td>72.95 KB</td>
+</tr><tr><td>StringToXDocument</td><td>50</td><td>106.7 &mu;s</td><td>0.13 &mu;s</td><td>0.11 &mu;s</td><td>8.1787</td><td>1.4648</td><td>-</td><td>72.95 KB</td>
+</tr><tr><td>StringToXDocument</td><td>100</td><td>107.6 &mu;s</td><td>0.20 &mu;s</td><td>0.19 &mu;s</td><td>8.1787</td><td>1.4648</td><td>-</td><td>72.95 KB</td>
+</tr><tr><td>StringToXDocument</td><td>250</td><td>106.3 &mu;s</td><td>0.24 &mu;s</td><td>0.21 &mu;s</td><td>8.1787</td><td>1.2207</td><td>-</td><td>72.95 KB</td>
+</tr><tr><td>StringToXDocument</td><td>500</td><td>116.5 &mu;s</td><td>0.57 &mu;s</td><td>0.53 &mu;s</td><td>8.1787</td><td>0.8545</td><td>-</td><td>72.95 KB</td>
+</tr><tr><td>StringToXDocument</td><td>1000</td><td>116.5 &mu;s</td><td>1.37 &mu;s</td><td>1.22 &mu;s</td><td>8.1787</td><td>1.2207</td><td>-</td><td>72.95 KB</td>
 </tr></tbody></table>
 </body>
 </html>

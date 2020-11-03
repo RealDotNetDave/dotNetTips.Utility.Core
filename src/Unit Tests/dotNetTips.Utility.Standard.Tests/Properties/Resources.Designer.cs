@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace dotNetTips.Tips.Utility.Standard.Tests.Properties {
+namespace dotNetTips.Utility.Standard.Tests.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("dotNetTips.Tips.Utility.Standard.Tests.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("dotNetTips.Utility.Standard.Tests.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -71,9 +71,9 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Properties {
         ///      &lt;Enabled&gt;true&lt;/Enabled&gt;
         ///      &lt;Image&gt;https://appads.file.core.windows.net/images/Rock Your Code - Logo - small.png?sp=rl&amp;amp;st=2020-08-23T16:22:36Z&amp;amp;se=2030-08-24T16:22:00Z&amp;amp;s [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string XmlTestData {
+        internal static string XmlData {
             get {
-                return ResourceManager.GetString("XmlTestData", resourceCulture);
+                return ResourceManager.GetString("XmlData", resourceCulture);
             }
         }
     }

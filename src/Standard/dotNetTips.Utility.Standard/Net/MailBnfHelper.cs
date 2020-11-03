@@ -6,14 +6,13 @@
 // Last Modified By : David McCarter
 // Last Modified On : 08-07-2020
 // ***********************************************************************
-// <copyright file="MailBnfHelper.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="MailBnfHelper.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 
 using System;
-using System.Diagnostics;
 using System.Text;
 
 namespace dotNetTips.Utility.Standard.Net
@@ -40,7 +39,7 @@ namespace dotNetTips.Utility.Standard.Net
         /// <returns>System.St3.1.302"ring.</returns>
         internal static string GetDateTimeString(DateTime value, StringBuilder builder)
         {
-            var localBuilder = (builder != null ? builder : new StringBuilder());
+            var localBuilder = builder != null ? builder : new StringBuilder();
             localBuilder.Append(value.Day);
             localBuilder.Append(' ');
             localBuilder.Append(s_months[value.Month]);
@@ -78,7 +77,7 @@ namespace dotNetTips.Utility.Standard.Net
             string[] offsetFields = offset.Split(':');
             localBuilder.Append(offsetFields[0]);
             localBuilder.Append(offsetFields[1]);
-            return (builder != null ? null : localBuilder.ToString());
+            return builder != null ? null : localBuilder.ToString();
         }
 
         /// <summary>
@@ -163,23 +162,21 @@ namespace dotNetTips.Utility.Standard.Net
             return c == dotNetTips.Utility.Standard.Common.ControlChars.Tab || c == dotNetTips.Utility.Standard.Common.ControlChars.Space || c == dotNetTips.Utility.Standard.Common.ControlChars.CR || c == dotNetTips.Utility.Standard.Common.ControlChars.LF;
         }
 
-        // Is there a FWS ("\r\n " or "\r\n\t") starting at the given index?
         /// <summary>
         /// Determines whether [is FWS at] [the specified data].
         /// </summary>
         /// <param name="data">The data.</param>
         /// <param name="index">The index.</param>
+        /// <remarks>Is there a FWS ("\r\n " or "\r\n\t") starting at the given index?</remarks>
         /// <returns><c>true</c> if [is FWS at] [the specified data]; otherwise, <c>false</c>.</returns>
         internal static bool IsFWSAt(string data, int index)
         {
-            Debug.Assert(index >= 0);
-            Debug.Assert(index < data.Length);
 
-            return (data[index] == dotNetTips.Utility.Standard.Common.ControlChars.CR
+            return data[index] == Common.ControlChars.CR
                     && index + 2 < data.Length
                     && data[index + 1] == dotNetTips.Utility.Standard.Common.ControlChars.LF
-                    && (data[index + 2] == dotNetTips.Utility.Standard.Common.ControlChars.Space
-                        || data[index + 2] == dotNetTips.Utility.Standard.Common.ControlChars.Tab));
+                    && ( data[index + 2] == dotNetTips.Utility.Standard.Common.ControlChars.Space
+                        || data[index + 2] == dotNetTips.Utility.Standard.Common.ControlChars.Tab );
         }
 
         /// <summary>
@@ -231,7 +228,7 @@ namespace dotNetTips.Utility.Standard.Net
                 ++offset;
             }
             var start = offset;
-            var localBuilder = (builder ?? new StringBuilder());
+            var localBuilder = builder ?? new StringBuilder();
             for (; offset < data.Length; offset++)
             {
                 if (data[offset] == '\\')
@@ -243,13 +240,13 @@ namespace dotNetTips.Utility.Standard.Net
                 {
                     localBuilder.Append(data, start, offset - start);
                     offset++;
-                    return (builder != null ? null : localBuilder.ToString());
+                    return builder != null ? null : localBuilder.ToString();
                 }
                 else if (data[offset] == '=' &&
                     data.Length > offset + 3 &&
                     data[offset + 1] == '\r' &&
                     data[offset + 2] == '\n' &&
-                    (data[offset + 3] == ' ' || data[offset + 3] == '\t'))
+                    ( data[offset + 3] == ' ' || data[offset + 3] == '\t' ))
                 {
                     //it's a soft crlf so it's ok
                     offset += 3;
@@ -270,7 +267,7 @@ namespace dotNetTips.Utility.Standard.Net
             if (doesntRequireQuotes)
             {
                 localBuilder.Append(data, start, offset - start);
-                return (builder != null ? null : localBuilder.ToString());
+                return builder != null ? null : localBuilder.ToString();
             }
             throw new FormatException("Malformed header.");
         }
@@ -390,9 +387,22 @@ namespace dotNetTips.Utility.Standard.Net
         {
             // atext = ALPHA / DIGIT / "!" / "#" / "$" / "%" / "&" / "'" / "*" / "+" / "-" / "/" / "=" / "?" / "^" / "_" / "`" / "{" / "|" / "}" / "~"
             var atext = new bool[128];
-            for (var i = '0'; i <= '9'; i++) { atext[i] = true; }
-            for (var i = 'A'; i <= 'Z'; i++) { atext[i] = true; }
-            for (var i = 'a'; i <= 'z'; i++) { atext[i] = true; }
+
+            for (var i = '0'; i <= '9'; i++)
+            {
+                atext[i] = true;
+            }
+
+            for (var i = 'A'; i <= 'Z'; i++)
+            {
+                atext[i] = true;
+            }
+
+            for (var i = 'a'; i <= 'z'; i++)
+            {
+                atext[i] = true;
+            }
+
             atext['!'] = true;
             atext['#'] = true;
             atext['$'] = true;
@@ -412,6 +422,7 @@ namespace dotNetTips.Utility.Standard.Net
             atext['|'] = true;
             atext['}'] = true;
             atext['~'] = true;
+
             return atext;
         }
 

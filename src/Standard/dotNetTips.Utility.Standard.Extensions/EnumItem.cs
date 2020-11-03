@@ -6,8 +6,8 @@
 // Last Modified By : David McCarter
 // Last Modified On : 03-03-2019
 // ***********************************************************************
-// <copyright file="EnumItem.cs" company="dotNetTips.com - David McCarter">
-//     dotNetTips.com - David McCarter
+// <copyright file="EnumItem.cs" company="David McCarter - dotNetTips.com">
+//     David McCarter - dotNetTips.com
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -17,7 +17,7 @@ namespace dotNetTips.Utility.Standard.Extensions
     /// <summary>
     /// Class EnumItem.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Generic type parameter.</typeparam>
     public class EnumItem<T>
     {
         /// <summary>

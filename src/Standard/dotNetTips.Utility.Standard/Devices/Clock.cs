@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 10-04-2019
 // ***********************************************************************
-// <copyright file="Clock.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="Clock.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>

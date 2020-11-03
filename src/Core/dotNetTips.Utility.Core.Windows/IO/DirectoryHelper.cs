@@ -6,15 +6,12 @@
 // Last Modified By : David McCarter
 // Last Modified On : 11-21-2019
 // ***********************************************************************
-// <copyright file="DirectoryHelper.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="DirectoryHelper.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary>Methods for directory operations.</summary>
 // ***********************************************************************
 
-using dotNetTips.Utility.Core.Windows.Win32;
-using dotNetTips.Utility.Standard.Extensions;
-using dotNetTips.Utility.Standard.OOP;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -22,6 +19,9 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using dotNetTips.Utility.Core.Windows.Win32;
+using dotNetTips.Utility.Standard.Extensions;
+using dotNetTips.Utility.Standard.OOP;
 
 namespace dotNetTips.Utility.Core.Windows.IO
 {
@@ -105,7 +105,7 @@ namespace dotNetTips.Utility.Core.Windows.IO
                                 folder.UserEmail = emailValue;
                             }
 
-                            // Figure out account type                           
+                            // Figure out account type
                             var name = key.GetValue<string>(DisplayNameKey);
 
                             if (name.HasValue())

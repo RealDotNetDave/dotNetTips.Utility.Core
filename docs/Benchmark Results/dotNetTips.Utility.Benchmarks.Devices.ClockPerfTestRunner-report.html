@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.Devices.ClockPerfTestRunner-20200919-134900</title>
+<title>dotNetTips.Utility.Benchmarks.Devices.ClockPerfTestRunner-20201102-221243</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,24 +13,24 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.508 (2004/?/20H1)
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.572 (2004/?/20H1)
 Unknown processor
-.NET Core SDK=5.0.100-preview.8.20417.9
-  [Host]     : .NET Core 3.1.8 (CoreCLR 4.700.20.41105, CoreFX 4.700.20.41903), X64 RyuJIT
-  Job-RATGHQ : .NET Core 3.1.8 (CoreCLR 4.700.20.41105, CoreFX 4.700.20.41903), X64 RyuJIT
+.NET Core SDK=5.0.100-rc.2.20479.15
+  [Host]     : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
+  Job-TZRVGS : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
 </code></pre>
-<pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
+<pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.1  
 Categories=Clock  
 </code></pre>
 
 <table>
 <thead><tr><th>         Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>DaysInCurrentMonth</td><td>485.537 ns</td><td>0.8886 ns</td><td>0.7420 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>DaysInCurrentUtcMonth</td><td>170.858 ns</td><td>0.2350 ns</td><td>0.2198 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>LocalTime</td><td>235.874 ns</td><td>0.3508 ns</td><td>0.3110 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>TickCount</td><td>1.569 ns</td><td>0.0042 ns</td><td>0.0037 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>UtcTime</td><td>69.292 ns</td><td>0.1362 ns</td><td>0.1274 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</thead><tbody><tr><td>DaysInCurrentMonth</td><td>455.079 ns</td><td>0.6964 ns</td><td>0.6514 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>DaysInCurrentUtcMonth</td><td>171.172 ns</td><td>0.1692 ns</td><td>0.1582 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>LocalTime</td><td>219.738 ns</td><td>0.5149 ns</td><td>0.4564 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>TickCount</td><td>1.570 ns</td><td>0.0054 ns</td><td>0.0050 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>UtcTime</td><td>69.574 ns</td><td>0.7692 ns</td><td>0.7195 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
 </tr></tbody></table>
 </body>
 </html>

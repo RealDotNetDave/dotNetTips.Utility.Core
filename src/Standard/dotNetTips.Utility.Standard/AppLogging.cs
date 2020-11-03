@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 02-04-2020
 // ***********************************************************************
-// <copyright file="AppLogging.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="AppLogging.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -40,7 +40,7 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// Creates the logger.
         /// </summary>
-        /// <typeparam name="T">Logger type.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <returns>ILogger object.</returns>
         public static ILogger CreateLogger<T>()
         {
@@ -52,7 +52,7 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// Creates the logger factory.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="loggerFactory">The logger factory.</param>
         /// <returns>Microsoft.Extensions.Logging.ILogger.</returns>
         public static ILogger CreateLogger<T>(ILoggerFactory loggerFactory)

@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 03-03-2019
 // ***********************************************************************
-// <copyright file="IValid.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="IValid.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -21,7 +21,7 @@ namespace dotNetTips.Utility.Standard
     public interface IValid
     {
         /// <summary>
-        /// Returns true if type is valid.
+        /// Gets true if type is valid.
         /// </summary>
         /// <value><c>true</c> if this instance is valid; otherwise, <c>false</c>.</value>
         IsValidResult IsValid

@@ -1,32 +1,32 @@
 ``` ini
 
-BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.508 (2004/?/20H1)
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.572 (2004/?/20H1)
 Unknown processor
-.NET Core SDK=5.0.100-preview.8.20417.9
-  [Host]     : .NET Core 3.1.8 (CoreCLR 4.700.20.41105, CoreFX 4.700.20.41903), X64 RyuJIT
-  Job-RATGHQ : .NET Core 3.1.8 (CoreCLR 4.700.20.41105, CoreFX 4.700.20.41903), X64 RyuJIT
+.NET Core SDK=5.0.100-rc.2.20479.15
+  [Host]     : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
+  Job-TZRVGS : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
 
-EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
+EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.1  
 Categories=ConcurrentHashSet,GenericCollections  
 
 ```
-|                      Method | CollectionCount |         Mean |       Error |      StdDev |       Median |   Gen 0 |  Gen 1 | Gen 2 | Allocated |
-|---------------------------- |---------------- |-------------:|------------:|------------:|-------------:|--------:|-------:|------:|----------:|
-| **&#39;Create Using Constructor.&#39;** |              **25** |   **5,129.7 ns** |    **82.14 ns** |    **76.83 ns** |   **5,124.5 ns** |  **0.3662** |      **-** |     **-** |    **3504 B** |
-| &#39;Create Using Constructor.&#39; |              50 |  10,868.5 ns |    30.76 ns |    25.69 ns |  10,863.7 ns |  0.8545 |      - |     - |    8176 B |
-| &#39;Create Using Constructor.&#39; |             100 |  22,335.1 ns |   310.88 ns |   290.79 ns |  22,137.4 ns |  1.6174 | 0.0305 |     - |   15552 B |
-| &#39;Create Using Constructor.&#39; |             250 |  59,795.3 ns |   110.20 ns |   103.08 ns |  59,801.2 ns |  6.2256 | 0.4272 |     - |   57418 B |
-| &#39;Create Using Constructor.&#39; |             500 | 121,581.5 ns |   158.30 ns |   148.08 ns | 121,548.2 ns | 11.4746 | 2.1973 |     - |  110171 B |
-| &#39;Create Using Constructor.&#39; |            1000 | 249,060.7 ns | 2,658.59 ns | 2,486.85 ns | 250,419.3 ns | 21.4844 |      - |     - |  217309 B |
-|   **&#39;Create Using ForEach().&#39;** |              **25** |   **4,749.9 ns** |    **74.71 ns** |    **66.23 ns** |   **4,748.9 ns** |  **0.1678** |      **-** |     **-** |    **1632 B** |
-|   &#39;Create Using ForEach().&#39; |              50 |  11,118.2 ns |    81.10 ns |    75.86 ns |  11,135.4 ns |  0.7782 |      - |     - |    7424 B |
-|   &#39;Create Using ForEach().&#39; |             100 |  23,345.1 ns |   130.76 ns |   122.32 ns |  23,270.0 ns |  1.7090 | 0.0305 |     - |   16281 B |
-|   &#39;Create Using ForEach().&#39; |             250 |  53,074.4 ns |   107.54 ns |    95.33 ns |  53,059.8 ns |  3.3569 | 0.1221 |     - |   32105 B |
-|   &#39;Create Using ForEach().&#39; |             500 | 122,459.3 ns |   268.50 ns |   251.16 ns | 122,443.0 ns | 10.3760 | 1.7090 |     - |   99138 B |
-|   &#39;Create Using ForEach().&#39; |            1000 | 260,589.8 ns | 1,083.48 ns |   960.48 ns | 260,495.4 ns | 21.4844 | 3.4180 |     - |  207037 B |
-|   **&#39;Looping with foreach().&#39;** |              **25** |     **478.5 ns** |     **9.33 ns** |    **10.37 ns** |     **480.0 ns** |  **0.0057** |      **-** |     **-** |      **56 B** |
-|   &#39;Looping with foreach().&#39; |              50 |   1,066.9 ns |    21.00 ns |    38.40 ns |   1,086.4 ns |  0.0057 |      - |     - |      56 B |
-|   &#39;Looping with foreach().&#39; |             100 |   3,548.3 ns |     4.12 ns |     3.66 ns |   3,547.9 ns |  0.0038 |      - |     - |      56 B |
-|   &#39;Looping with foreach().&#39; |             250 |   7,765.4 ns |    23.80 ns |    22.26 ns |   7,768.3 ns |       - |      - |     - |      56 B |
-|   &#39;Looping with foreach().&#39; |             500 |  15,779.1 ns |    54.02 ns |    50.53 ns |  15,769.2 ns |       - |      - |     - |      56 B |
-|   &#39;Looping with foreach().&#39; |            1000 |  32,853.1 ns |   115.04 ns |   107.60 ns |  32,821.5 ns |       - |      - |     - |      56 B |
+|                      Method | CollectionCount |         Mean |     Error |    StdDev |   Gen 0 |  Gen 1 | Gen 2 | Allocated |
+|---------------------------- |---------------- |-------------:|----------:|----------:|--------:|-------:|------:|----------:|
+| **&#39;Create Using Constructor.&#39;** |              **25** |   **5,061.3 ns** |  **14.05 ns** |  **13.14 ns** |  **0.3510** |      **-** |     **-** |    **3344 B** |
+| &#39;Create Using Constructor.&#39; |              50 |  10,277.0 ns |  19.56 ns |  16.33 ns |  0.7629 |      - |     - |    7336 B |
+| &#39;Create Using Constructor.&#39; |             100 |  23,229.4 ns | 334.98 ns | 313.34 ns |  1.8311 | 0.0305 |     - |   17232 B |
+| &#39;Create Using Constructor.&#39; |             250 |  58,780.3 ns | 121.97 ns | 114.10 ns |  5.7983 | 0.3662 |     - |   54577 B |
+| &#39;Create Using Constructor.&#39; |             500 | 119,854.9 ns | 296.27 ns | 277.13 ns | 10.9863 |      - |     - |  106091 B |
+| &#39;Create Using Constructor.&#39; |            1000 | 241,252.1 ns | 439.08 ns | 410.71 ns | 21.7285 | 4.8828 |     - |  209221 B |
+|   **&#39;Create Using ForEach().&#39;** |              **25** |   **5,326.6 ns** |  **11.79 ns** |  **11.03 ns** |  **0.3586** |      **-** |     **-** |    **3392 B** |
+|   &#39;Create Using ForEach().&#39; |              50 |  10,933.6 ns |  89.80 ns |  79.60 ns |  0.7629 |      - |     - |    7264 B |
+|   &#39;Create Using ForEach().&#39; |             100 |  22,843.9 ns |  83.84 ns |  74.32 ns |  1.5564 | 0.0305 |     - |   15001 B |
+|   &#39;Create Using ForEach().&#39; |             250 |  60,668.3 ns | 142.55 ns | 133.34 ns |  5.4932 |      - |     - |   51945 B |
+|   &#39;Create Using ForEach().&#39; |             500 | 126,422.0 ns | 316.98 ns | 264.69 ns | 11.4746 | 1.4648 |     - |  108339 B |
+|   &#39;Create Using ForEach().&#39; |            1000 | 246,625.3 ns | 665.00 ns | 622.04 ns | 21.9727 | 4.8828 |     - |  200997 B |
+|   **&#39;Looping with foreach().&#39;** |              **25** |     **324.0 ns** |   **1.59 ns** |   **1.24 ns** |  **0.0057** |      **-** |     **-** |      **56 B** |
+|   &#39;Looping with foreach().&#39; |              50 |   1,217.5 ns |  24.29 ns |  47.95 ns |  0.0057 |      - |     - |      56 B |
+|   &#39;Looping with foreach().&#39; |             100 |   2,344.3 ns |   3.51 ns |   2.93 ns |  0.0038 |      - |     - |      56 B |
+|   &#39;Looping with foreach().&#39; |             250 |   7,923.1 ns |  11.00 ns |  10.29 ns |       - |      - |     - |      56 B |
+|   &#39;Looping with foreach().&#39; |             500 |  16,005.6 ns |  67.28 ns |  62.93 ns |       - |      - |     - |      56 B |
+|   &#39;Looping with foreach().&#39; |            1000 |  32,591.6 ns | 432.33 ns | 404.40 ns |       - |      - |     - |      56 B |

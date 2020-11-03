@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 10-23-2020
 // ***********************************************************************
-// <copyright file="HashType.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="HashType.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>

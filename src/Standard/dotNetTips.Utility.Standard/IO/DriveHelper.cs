@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 09-21-2020
 // ***********************************************************************
-// <copyright file="DriveHelper.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="DriveHelper.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -44,7 +44,7 @@ namespace dotNetTips.Utility.Standard.IO
             driveFixed = driveFixed.Replace(@"\", string.Empty);
 
             // Perform Query
-            using (ManagementObjectSearcher querySearch = new ManagementObjectSearcher(string.Format("SELECT VolumeSerialNumber FROM Win32_LogicalDisk Where Name = '{0}'", driveFixed)))
+            using (var querySearch = new ManagementObjectSearcher(string.Format("SELECT VolumeSerialNumber FROM Win32_LogicalDisk Where Name = '{0}'", driveFixed)))
             {
                 using (ManagementObjectCollection queryCollection = querySearch.Get())
                 {

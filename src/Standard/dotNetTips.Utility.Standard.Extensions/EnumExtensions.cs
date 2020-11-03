@@ -6,8 +6,8 @@
 // Last Modified By : David McCarter
 // Last Modified On : 05-11-2020
 // ***********************************************************************
-// <copyright file="EnumExtensions.cs" company="dotNetTips.com - David McCarter">
-//     dotNetTips.com - David McCarter
+// <copyright file="EnumExtensions.cs" company="David McCarter - dotNetTips.com">
+//     David McCarter - dotNetTips.com
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -26,7 +26,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Converts enum to type.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="val">The value.</param>
         /// <returns>T.</returns>
         /// <exception cref="ArgumentNullException">val</exception>
@@ -64,7 +64,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Gets the items in an enum.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="enumeration">The enumeration.</param>
         /// <returns>IList&lt;EnumItem&lt;T&gt;&gt;.</returns>
         /// <exception cref="ArgumentNullException">enumeration</exception>
@@ -95,12 +95,13 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Parses the specified enum name.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="name">The name.</param>
         /// <returns>T.</returns>
         /// <exception cref="ArgumentException">name</exception>
         /// <exception cref="System.ArgumentException">The exception.</exception>
-        public static T Parse<T>(this string name) where T : struct
+        public static T Parse<T>(this string name)
+            where T : struct
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -113,7 +114,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Gets the description of the enum value.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="val">The value.</param>
         /// <returns>EnumItem&lt;T&gt;.</returns>
         /// <exception cref="System.ArgumentNullException">The exception.</exception>
@@ -130,7 +131,7 @@ namespace dotNetTips.Utility.Standard.Extensions
             var enumItem = new EnumItem<T>
             {
                 Description = attributes.Length > 0 ? attributes[0].Description : val.ToString(),
-                Value = (T)val
+                Value = (T)val,
             };
 
             return enumItem;

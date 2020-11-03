@@ -6,8 +6,8 @@
 // Last Modified By : David McCarter
 // Last Modified On : 06-03-2019
 // ***********************************************************************
-// <copyright file="JsonSerializer.cs" company="dotNetTips.com - David McCarter">
-//     dotNetTips.com - David McCarter
+// <copyright file="JsonSerializer.cs" company="David McCarter - dotNetTips.com">
+//     David McCarter - dotNetTips.com
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -27,7 +27,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// De-serializes the specified Json.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="json">The json.</param>
         /// <returns>T.</returns>
         internal static T Deserialize<T>(string json)
@@ -35,7 +35,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             var obj = Activator.CreateInstance<T>();
 
-            using(var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
+            using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
             {
                 var ser = new DataContractJsonSerializer(obj.GetType());
                 obj = ser.ReadObject(ms) as T;
@@ -53,15 +53,15 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             string json;
 
-            using(var ms = new MemoryStream())
+            using (var ms = new MemoryStream())
             {
                 var ser = new DataContractJsonSerializer(obj.GetType(),
                                                          new DataContractJsonSerializerSettings
-                    {
-                        SerializeReadOnlyTypes = true,
-                        UseSimpleDictionaryFormat = true,
-                        EmitTypeInformation = EmitTypeInformation.AsNeeded
-                    });
+                                                         {
+                                                             SerializeReadOnlyTypes = true,
+                                                             UseSimpleDictionaryFormat = true,
+                                                             EmitTypeInformation = EmitTypeInformation.AsNeeded
+                                                         });
 
                 ser.WriteObject(ms, obj);
 

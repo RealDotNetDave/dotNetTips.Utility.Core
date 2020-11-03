@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 09-21-2020
 // ***********************************************************************
-// <copyright file="XmlHelper.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="XmlHelper.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>

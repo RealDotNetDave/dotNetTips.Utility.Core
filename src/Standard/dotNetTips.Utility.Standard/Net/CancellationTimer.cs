@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 10-20-2020
 // ***********************************************************************
-// <copyright file="CancellationTimer.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="CancellationTimer.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -37,7 +37,7 @@ namespace dotNetTips.Utility.Standard.Net
         }
 
         /// <summary>
-        /// The time (relative to Environment.TickCount) when the timer will expire.
+        /// Gets the time (relative to Environment.TickCount) when the timer will expire.
         /// </summary>
         /// <value>The expiration.</value>
         public int Expiration => unchecked(this._startTimeMilliseconds + this._durationMilliseconds);
@@ -49,7 +49,7 @@ namespace dotNetTips.Utility.Standard.Net
         public abstract bool HasExpired { get; }
 
         /// <summary>
-        /// The time (relative to Environment.TickCount) when the timer started.
+        /// Gets the time (relative to Environment.TickCount) when the timer started.
         /// </summary>
         /// <value>The start time.</value>
         public int StartTime => this._startTimeMilliseconds;
@@ -60,6 +60,17 @@ namespace dotNetTips.Utility.Standard.Net
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public abstract bool Cancel();
 
+
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose()
+        {
+            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+            this.Dispose(disposing: true);
+            GC.SuppressFinalize(this);
+        }
+
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources.
         /// </summary>
@@ -69,7 +80,7 @@ namespace dotNetTips.Utility.Standard.Net
         /// </param>
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposedValue)
+            if (!this.disposedValue)
             {
                 if (disposing)
                 {
@@ -77,19 +88,8 @@ namespace dotNetTips.Utility.Standard.Net
                     this.DisposeFields();
                 }
 
-                disposedValue = true;
+                this.disposedValue = true;
             }
-        }
-
-
-        /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-        /// </summary>
-        public void Dispose()
-        {
-            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-            Dispose(disposing: true);
-            GC.SuppressFinalize(this);
         }
     }
 }

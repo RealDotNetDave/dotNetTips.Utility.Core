@@ -20,9 +20,24 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dotNetTips.Tips.Utility.Standard.Tests.IO
 {
-    [TestClass()]
+    [TestClass]
     public class PathHelperTests
     {
+
+        [TestMethod]
+        public void CombinePathsParamsTest()
+        {
+            var basePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+
+            string[] paths = new string[] { basePath, "Test1", "Test2", "Test3" };
+
+            var tempPath = PathHelper.CombinePaths(createIfNotExists: true, paths);
+
+            Assert.IsNotNull(tempPath);
+            Assert.IsTrue(tempPath.Exists);
+
+            Directory.Delete(tempPath.FullName);
+        }
         [TestMethod]
         public void CombinePathsTest()
         {
@@ -36,20 +51,6 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
             var tempPath1 = PathHelper.CombinePaths(true, basePath, "TESTPath1");
 
             Directory.Delete(tempPath1.FullName);
-        }
-
-        [TestMethod]
-        public void CombinePathsParamsTest()
-        {
-            var basePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-
-            var paths = $"{basePath},CombinePaths,Test1, Test2,Test3";
-
-            var tempPath = PathHelper.CombinePaths(createIfNotExists: true, paths.DelimitedStringToArray());
-            Assert.IsNotNull(tempPath);
-            Assert.IsTrue(tempPath.Exists);
-
-            Directory.Delete(tempPath.FullName);
         }
 
         [TestMethod()]

@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 09-21-2020
 // ***********************************************************************
-// <copyright file="LINQExtensions.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="LINQExtensions.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -29,7 +29,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Ifs the specified should.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="input">The query.</param>
         /// <param name="should">if set to <c>true</c> [should].</param>
         /// <param name="transforms">The transforms.</param>
@@ -43,7 +43,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Ifs the specified should.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="input">The query.</param>
         /// <param name="should">if set to <c>true</c> [should].</param>
         /// <param name="transforms">The transforms.</param>

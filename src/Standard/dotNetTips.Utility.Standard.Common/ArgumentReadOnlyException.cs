@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 08-05-2020
 // ***********************************************************************
-// <copyright file="ArgumentReadOnlyException.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="ArgumentReadOnlyException.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>

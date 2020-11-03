@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner-20200807-181352</title>
+<title>dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner-20201103-001929</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,44 +13,47 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.388 (2004/?/20H1)
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.572 (2004/?/20H1)
 Unknown processor
-.NET Core SDK=3.1.400
-  [Host]     : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
-  Job-GUNMTB : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+.NET Core SDK=5.0.100-rc.2.20479.15
+  [Host]     : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
+  Job-TZRVGS : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
 </code></pre>
-<pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
+<pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.1  
 Categories=StringExtensions  
 </code></pre>
 
 <table>
-<thead><tr><th>                                     Method</th><th>  Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+<thead><tr><th>                                     Method</th><th>   Mean</th><th>Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>ComputeSha256Hash</td><td>6,231.416 ns</td><td>11.8019 ns</td><td>10.4621 ns</td><td>6,231.897 ns</td><td>0.2899</td><td>-</td><td>-</td><td>2760 B</td>
-</tr><tr><td>Concat</td><td>559.182 ns</td><td>3.0727 ns</td><td>2.7239 ns</td><td>558.171 ns</td><td>0.6456</td><td>0.0057</td><td>-</td><td>6064 B</td>
-</tr><tr><td>ContainsAny</td><td>62.674 ns</td><td>0.1766 ns</td><td>0.1475 ns</td><td>62.714 ns</td><td>0.0169</td><td>-</td><td>-</td><td>160 B</td>
-</tr><tr><td>DefaultIfNull</td><td>1.654 ns</td><td>0.0405 ns</td><td>0.0359 ns</td><td>1.642 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>DefaultIfNullOrEmpty</td><td>2.099 ns</td><td>0.0132 ns</td><td>0.0117 ns</td><td>2.098 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>EqualsIgnoreCase</td><td>438.217 ns</td><td>0.5304 ns</td><td>0.4429 ns</td><td>438.149 ns</td><td>0.0277</td><td>-</td><td>-</td><td>264 B</td>
-</tr><tr><td>EqualsOrBothNullOrEmpty</td><td>440.832 ns</td><td>0.4365 ns</td><td>0.3408 ns</td><td>440.822 ns</td><td>0.0281</td><td>-</td><td>-</td><td>264 B</td>
-</tr><tr><td>HasValue</td><td>7.107 ns</td><td>0.0218 ns</td><td>0.0182 ns</td><td>7.111 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>Indent</td><td>432.238 ns</td><td>2.1861 ns</td><td>2.0449 ns</td><td>432.017 ns</td><td>0.4368</td><td>0.0029</td><td>-</td><td>4088 B</td>
-</tr><tr><td>IsAsciiLetter</td><td>23.337 ns</td><td>0.2396 ns</td><td>0.2241 ns</td><td>23.409 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>IsAsciiLetterOrDigit</td><td>23.551 ns</td><td>0.1269 ns</td><td>0.1060 ns</td><td>23.579 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>IsWhitespace:Char</td><td>23.123 ns</td><td>0.0326 ns</td><td>0.0254 ns</td><td>23.124 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>IsWhitespace:String</td><td>17.503 ns</td><td>0.0646 ns</td><td>0.0573 ns</td><td>17.501 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>&#39;Split:Char Separator&#39;</td><td>216.608 ns</td><td>0.6407 ns</td><td>0.5679 ns</td><td>216.512 ns</td><td>0.0522</td><td>-</td><td>-</td><td>496 B</td>
-</tr><tr><td>&#39;Split:Char Separator-Count&#39;</td><td>123.325 ns</td><td>2.4726 ns</td><td>3.4662 ns</td><td>125.310 ns</td><td>0.0260</td><td>-</td><td>-</td><td>248 B</td>
-</tr><tr><td>&#39;Split:Char Separator-Count-RemoveEmptyEntries&#39;</td><td>156.611 ns</td><td>2.9643 ns</td><td>2.6278 ns</td><td>156.472 ns</td><td>0.0269</td><td>-</td><td>-</td><td>256 B</td>
-</tr><tr><td>&#39;Split:Char Separator-RemoveEmptyEntries&#39;</td><td>234.744 ns</td><td>1.5670 ns</td><td>1.4658 ns</td><td>234.909 ns</td><td>0.0536</td><td>-</td><td>-</td><td>504 B</td>
-</tr><tr><td>&#39;Split:String Separator&#39;</td><td>302.757 ns</td><td>3.0235 ns</td><td>2.5247 ns</td><td>303.636 ns</td><td>0.0529</td><td>-</td><td>-</td><td>496 B</td>
-</tr><tr><td>&#39;Split:String Separator-Count&#39;</td><td>183.168 ns</td><td>2.2421 ns</td><td>2.0972 ns</td><td>181.865 ns</td><td>0.0272</td><td>-</td><td>-</td><td>256 B</td>
-</tr><tr><td>&#39;Split:String Separator-Count-RemoveEmptyEntries&#39;</td><td>154.332 ns</td><td>0.3627 ns</td><td>0.3029 ns</td><td>154.366 ns</td><td>0.0262</td><td>-</td><td>-</td><td>248 B</td>
-</tr><tr><td>&#39;Split:String Separator-RemoveEmptyEntries&#39;</td><td>269.162 ns</td><td>1.6933 ns</td><td>1.5011 ns</td><td>269.417 ns</td><td>0.0515</td><td>-</td><td>-</td><td>488 B</td>
-</tr><tr><td>StartsWithOrdinal</td><td>447.457 ns</td><td>0.6067 ns</td><td>0.5066 ns</td><td>447.585 ns</td><td>0.0277</td><td>-</td><td>-</td><td>264 B</td>
-</tr><tr><td>StartsWithOrdinalIgnoreCase</td><td>462.014 ns</td><td>0.6013 ns</td><td>0.5330 ns</td><td>461.916 ns</td><td>0.0277</td><td>-</td><td>-</td><td>264 B</td>
-</tr><tr><td>SubstringTrim</td><td>2,624.620 ns</td><td>4.9995 ns</td><td>4.1748 ns</td><td>2,623.400 ns</td><td>0.0572</td><td>-</td><td>-</td><td>568 B</td>
-</tr><tr><td>ToTrimmed</td><td>401.459 ns</td><td>3.7163 ns</td><td>3.4763 ns</td><td>401.930 ns</td><td>0.4172</td><td>0.0014</td><td>-</td><td>3944 B</td>
+</thead><tbody><tr><td>ComputeSHA256Hash</td><td>10,755.431 ns</td><td>155.6794 ns</td><td>129.9994 ns</td><td>0.9003</td><td>-</td><td>-</td><td>8704 B</td>
+</tr><tr><td>Concat</td><td>590.378 ns</td><td>5.1518 ns</td><td>4.8190 ns</td><td>0.6428</td><td>0.0067</td><td>-</td><td>6064 B</td>
+</tr><tr><td>ContainsAny</td><td>64.857 ns</td><td>0.3208 ns</td><td>0.2679 ns</td><td>0.0168</td><td>-</td><td>-</td><td>160 B</td>
+</tr><tr><td>DefaultIfNull</td><td>1.731 ns</td><td>0.0054 ns</td><td>0.0048 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>DefaultIfNullOrEmpty</td><td>1.572 ns</td><td>0.0018 ns</td><td>0.0017 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>DelimitedStringToArray</td><td>224.825 ns</td><td>0.7561 ns</td><td>0.6314 ns</td><td>0.0539</td><td>-</td><td>-</td><td>512 B</td>
+</tr><tr><td>EqualsIgnoreCase</td><td>435.064 ns</td><td>0.5409 ns</td><td>0.4795 ns</td><td>0.0281</td><td>-</td><td>-</td><td>264 B</td>
+</tr><tr><td>EqualsOrBothNullOrEmpty</td><td>430.822 ns</td><td>0.5143 ns</td><td>0.4295 ns</td><td>0.0277</td><td>-</td><td>-</td><td>264 B</td>
+</tr><tr><td>FromBase64:ToBase64</td><td>3,104.110 ns</td><td>6.9875 ns</td><td>6.1942 ns</td><td>0.1450</td><td>-</td><td>-</td><td>1368 B</td>
+</tr><tr><td>HasValue</td><td>6.904 ns</td><td>0.0370 ns</td><td>0.0346 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>Indent</td><td>450.630 ns</td><td>1.3025 ns</td><td>1.0876 ns</td><td>0.4306</td><td>0.0024</td><td>-</td><td>4088 B</td>
+</tr><tr><td>IsAsciiLetter</td><td>23.025 ns</td><td>0.2887 ns</td><td>0.2701 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>IsAsciiLetterOrDigit</td><td>24.008 ns</td><td>0.0272 ns</td><td>0.0255 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>IsWhitespace:Char</td><td>23.817 ns</td><td>0.0420 ns</td><td>0.0393 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>IsWhitespace:String</td><td>19.059 ns</td><td>0.3376 ns</td><td>0.2819 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Split:Char Separator&#39;</td><td>202.542 ns</td><td>0.5308 ns</td><td>0.4965 ns</td><td>0.0503</td><td>-</td><td>-</td><td>480 B</td>
+</tr><tr><td>&#39;Split:Char Separator-Count&#39;</td><td>111.104 ns</td><td>0.2310 ns</td><td>0.2048 ns</td><td>0.0253</td><td>-</td><td>-</td><td>240 B</td>
+</tr><tr><td>&#39;Split:Char Separator-Count-RemoveEmptyEntries&#39;</td><td>118.416 ns</td><td>1.0668 ns</td><td>0.9457 ns</td><td>0.0261</td><td>-</td><td>-</td><td>248 B</td>
+</tr><tr><td>&#39;Split:Char Separator-RemoveEmptyEntries&#39;</td><td>214.693 ns</td><td>2.6258 ns</td><td>2.4562 ns</td><td>0.0513</td><td>-</td><td>-</td><td>488 B</td>
+</tr><tr><td>&#39;Split:String Separator&#39;</td><td>266.684 ns</td><td>1.4973 ns</td><td>1.3273 ns</td><td>0.0486</td><td>-</td><td>-</td><td>464 B</td>
+</tr><tr><td>&#39;Split:String Separator-Count&#39;</td><td>143.810 ns</td><td>0.3360 ns</td><td>0.3143 ns</td><td>0.0243</td><td>-</td><td>-</td><td>232 B</td>
+</tr><tr><td>&#39;Split:String Separator-Count-RemoveEmptyEntries&#39;</td><td>146.357 ns</td><td>0.5451 ns</td><td>0.4832 ns</td><td>0.0253</td><td>-</td><td>-</td><td>240 B</td>
+</tr><tr><td>&#39;Split:String Separator-RemoveEmptyEntries&#39;</td><td>261.694 ns</td><td>1.6156 ns</td><td>1.5112 ns</td><td>0.0505</td><td>-</td><td>-</td><td>480 B</td>
+</tr><tr><td>StartsWithOrdinal</td><td>476.995 ns</td><td>9.5252 ns</td><td>12.7159 ns</td><td>0.0281</td><td>-</td><td>-</td><td>264 B</td>
+</tr><tr><td>StartsWithOrdinalIgnoreCase</td><td>478.454 ns</td><td>0.2733 ns</td><td>0.2423 ns</td><td>0.0277</td><td>-</td><td>-</td><td>264 B</td>
+</tr><tr><td>SubstringTrim</td><td>2,658.919 ns</td><td>3.8992 ns</td><td>3.4565 ns</td><td>0.0572</td><td>-</td><td>-</td><td>568 B</td>
+</tr><tr><td>ToTitleCase</td><td>9,693.164 ns</td><td>16.0531 ns</td><td>14.2306 ns</td><td>0.4730</td><td>-</td><td>-</td><td>4552 B</td>
+</tr><tr><td>ToTrimmed</td><td>414.095 ns</td><td>4.0882 ns</td><td>3.8241 ns</td><td>0.4168</td><td>0.0019</td><td>-</td><td>3944 B</td>
 </tr></tbody></table>
 </body>
 </html>

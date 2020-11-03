@@ -6,8 +6,8 @@
 // Last Modified By : David McCarter
 // Last Modified On : 07-22-2020
 // ***********************************************************************
-// <copyright file="ExceptionExtensions.cs" company="dotNetTips.com - David McCarter">
-//     dotNetTips.com - David McCarter
+// <copyright file="ExceptionExtensions.cs" company="David McCarter - dotNetTips.com">
+//     David McCarter - dotNetTips.com
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -55,17 +55,17 @@ namespace dotNetTips.Utility.Standard.Extensions
                                                                   Func<TSource, bool> canContinue)
             where TSource : Exception
         {
-            if(canContinue == null)
+            if (canContinue == null)
             {
                 throw new ArgumentNullException(nameof(canContinue), $"{nameof(canContinue)} is null.");
             }
 
-            if(nextItem == null)
+            if (nextItem == null)
             {
                 throw new ArgumentNullException(nameof(nextItem), $"{nameof(nextItem)} is null.");
             }
 
-            for(var current = source; canContinue(current); current = nextItem(current))
+            for (var current = source; canContinue(current); current = nextItem(current))
             {
                 yield return current;
             }
@@ -86,12 +86,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>System.String.</returns>
         public static string GetAllMessages(this Exception exception, string separator = " ")
         {
-            if(exception is null)
+            if (exception is null)
             {
                 throw new ArgumentNullException(nameof(exception));
             }
 
-            if(string.IsNullOrEmpty(separator))
+            if (string.IsNullOrEmpty(separator))
             {
                 throw new ArgumentException($"'{nameof(separator)}' cannot be null or empty", nameof(separator));
             }
@@ -110,15 +110,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">exception</exception>
         /// <exception cref="ArgumentException">'separator' cannot be null or empty - separator</exception>
         [Information(nameof(GetAllMessagesWithStackTrace), author: "David McCarter", createdOn: "10/12/2020", modifiedOn: "10/12/2020", UnitTestCoverage = 100, Status = Status.Available)]
-        public static List<(string message, string StackTrace)> GetAllMessagesWithStackTrace(this Exception exception,
-                                                                                             string separator = " ")
+        public static List<(string message, string StackTrace)> GetAllMessagesWithStackTrace(this Exception exception, string separator = " ")
         {
-            if(exception is null)
+            if (exception is null)
             {
                 throw new ArgumentNullException(nameof(exception));
             }
 
-            if(string.IsNullOrEmpty(separator))
+            if (string.IsNullOrEmpty(separator))
             {
                 throw new ArgumentException($"'{nameof(separator)}' cannot be null or empty", nameof(separator));
             }
@@ -168,25 +167,26 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns><c>true</c> if [is security or critical] [the specified ex]; otherwise, <c>false</c>.</returns>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool IsSecurityOrCritical(this Exception ex)
-        { return (ex is SecurityException) || ex.IsCritical(); }
+        {
+            return (ex is SecurityException) || ex.IsCritical();
+        }
 
         /// <summary>
         /// Traverses Exception.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="ex">The ex.</param>
         /// <returns>T.</returns>
-        /// <exception cref="ArgumentNullException">ex - Exception cannot be null.</exception>
-        /// <exception cref="System.ArgumentNullException">ex - Exception cannot be null.</exception>
+        /// <exception cref="ArgumentNullException">Exception cannot be null.</exception>
         public static T TraverseFor<T>(this Exception ex)
             where T : class
         {
-            if(ex is null)
+            if (ex is null)
             {
                 throw new ArgumentNullException(nameof(ex), Resources.ExceptionCannotBeNull);
             }
 
-            if(ReferenceEquals(ex.GetType(), typeof(T)))
+            if (ReferenceEquals(ex.GetType(), typeof(T)))
             {
                 return ex as T;
             }

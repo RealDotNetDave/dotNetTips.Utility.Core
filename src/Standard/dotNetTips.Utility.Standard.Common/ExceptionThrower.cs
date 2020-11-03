@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 09-21-2020
 // ***********************************************************************
-// <copyright file="ExceptionThrower.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="ExceptionThrower.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -43,7 +43,6 @@ namespace dotNetTips.Utility.Standard.Common
         /// <param name="message">The message.</param>
         /// <param name="innerException">The inner exception.</param>
         /// <exception cref="ArgumentException"></exception>
-        /// <exception cref="ArgumentNullException"></exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
         [ExcludeFromCodeCoverage]
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", Status = Status.Available)]

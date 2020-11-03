@@ -6,15 +6,15 @@
 // Last Modified By : David McCarter
 // Last Modified On : 10-05-2020
 // ***********************************************************************
-// <copyright file="DateTimeExtensions.cs" company="dotNetTips.com - David McCarter">
-//     dotNetTips.com - David McCarter
+// <copyright file="DateTimeExtensions.cs" company="David McCarter - dotNetTips.com">
+//     David McCarter - dotNetTips.com
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using dotNetTips.Utility.Standard.Common;
-using dotNetTips.Utility.Standard.Extensions.Properties;
 using System;
 using System.Globalization;
+using dotNetTips.Utility.Standard.Common;
+using dotNetTips.Utility.Standard.Extensions.Properties;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {
@@ -127,7 +127,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="endTime">The end date.</param>
         /// <returns><c>true</c> if [is in range] [the specified beginning date]; otherwise, <c>false</c>.</returns>
         public static bool IsInRange(this DateTime value, DateTime beginningTime, DateTime endTime)
-        { return value >= beginningTime & value <= endTime; }
+        {
+            return value >= beginningTime & value <= endTime;
+        }
 
         /// <summary>
         /// Determines whether value is in range of the specified beginning time and end time.
@@ -137,7 +139,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="endTime">The end time.</param>
         /// <returns><c>true</c> if [is in range] [the specified beginning time]; otherwise, <c>false</c>.</returns>
         public static bool IsInRange(this TimeSpan value, TimeSpan beginningTime, TimeSpan endTime)
-        { return value >= beginningTime & value <= endTime; }
+        {
+            return value >= beginningTime & value <= endTime;
+        }
 
         /// <summary>
         /// DDetermines whether value is in range of the specified beginning time and end time.
@@ -159,10 +163,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="paramName">Name of the parameter.</param>
         /// <returns><c>true</c> if [is in range throws exception] [the specified beginning time]; otherwise, <c>false</c>.</returns>
         [Information(nameof(IsInRangeThrowsException), author: "David McCarter", createdOn: "10/5/2020", modifiedOn: "10/5/2020", UnitTestCoverage = 100, Status = Status.New)]
-        public static bool IsInRangeThrowsException(this DateTime value,
-                                                    DateTime beginningTime,
-                                                    DateTime endTime,
-                                                    string paramName)
+        public static bool IsInRangeThrowsException(this DateTime value, DateTime beginningTime, DateTime endTime, string paramName)
         {
             if (value.IsInRange(beginningTime, endTime) == false)
             {

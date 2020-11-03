@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 10-21-2020
 // ***********************************************************************
-// <copyright file="CountdownTimer.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="CountdownTimer.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -101,7 +101,7 @@ namespace dotNetTips.Utility.Standard.Net
             object key = durationMilliseconds; // Box once.
             WeakReference weakQueue = null;
 
-            if ((weakQueue == null) || ((queue = (TimerQueue)weakQueue.Target) == null))
+            if (( weakQueue == null ) || ( ( queue = (TimerQueue)weakQueue.Target ) == null ))
             {
                 lock (_newQueues)
                 {
@@ -110,7 +110,7 @@ namespace dotNetTips.Utility.Standard.Net
                         weakQueue = _queuesCache[key];
                     }
 
-                    if ((weakQueue == null) || ((queue = (TimerQueue)weakQueue.Target) == null))
+                    if (( weakQueue == null ) || ( ( queue = (TimerQueue)weakQueue.Target ) == null ))
                     {
                         queue = new CountdownTimerQueue(durationMilliseconds);
                         weakQueue = new WeakReference(queue);
@@ -118,7 +118,7 @@ namespace dotNetTips.Utility.Standard.Net
                         _queuesCache[key] = weakQueue;
 
                         // Take advantage of this lock to periodically scan the table for garbage.
-                        if ((++_cacheScanIteration) % CacheScanPerIterations == 0)
+                        if (( ++_cacheScanIteration ) % CacheScanPerIterations == 0)
                         {
                             var garbage = new List<object>();
                             // Manual use of IDictionaryEnumerator instead of foreach to avoid DictionaryEntry box allocations.
@@ -126,7 +126,7 @@ namespace dotNetTips.Utility.Standard.Net
                             while (e.MoveNext())
                             {
                                 var pair = e.Entry;
-                                if (((WeakReference)pair.Value).Target is null)
+                                if (( (WeakReference)pair.Value ).Target is null)
                                 {
                                     garbage.Add(pair.Key);
                                 }
@@ -166,9 +166,7 @@ namespace dotNetTips.Utility.Standard.Net
         {
             _threadReadyEvent.Set();
 
-            var oldState = (TimerThreadState)Interlocked.CompareExchange(ref _threadState,
-                                                                         (int)TimerThreadState.Running,
-                                                                         (int)TimerThreadState.Idle);
+            var oldState = (TimerThreadState)Interlocked.CompareExchange(ref _threadState, (int)TimerThreadState.Running, (int)TimerThreadState.Idle);
 
             if (oldState == TimerThreadState.Idle)
             {
@@ -189,9 +187,7 @@ namespace dotNetTips.Utility.Standard.Net
             lock (_queues)
             {
                 // If shutdown was recently called, abort here.
-                if (Interlocked.CompareExchange(ref _threadState,
-                                               (int)TimerThreadState.Running,
-                                               (int)TimerThreadState.Running) !=
+                if (Interlocked.CompareExchange(ref _threadState, (int)TimerThreadState.Running, (int)TimerThreadState.Running) !=
                     (int)TimerThreadState.Running)
                 {
                     return;
@@ -240,7 +236,7 @@ namespace dotNetTips.Utility.Standard.Net
                                 // intended as > 0x100000000 milliseconds from 'now'.  Either case will just cause an extra scan through the timers.
 
                                 if (queue.Fire(out var nextTickInstance) &&
-                                    (!haveNextTick || IsTickBetween(now, nextTick, nextTickInstance)))
+                                    ( !haveNextTick || IsTickBetween(now, nextTick, nextTickInstance) ))
                                 {
                                     nextTick = nextTickInstance;
                                     haveNextTick = true;
@@ -253,11 +249,11 @@ namespace dotNetTips.Utility.Standard.Net
                             // Add 15 ms to compensate for poor TickCount resolution (want to guarantee a firing).
                             var newNow = Environment.TickCount;
                             var waitDuration = haveNextTick
-                                ? ((int)(IsTickBetween(now, nextTick, newNow)
-                                    ? (Math.Min(unchecked((uint)(nextTick - newNow)),
+                                ? ( (int)( IsTickBetween(now, nextTick, newNow)
+                                    ? ( Math.Min(unchecked((uint)( nextTick - newNow )),
                                                 int.MaxValue - TickCountResolution) +
-                                        TickCountResolution)
-                                    : 0))
+                                        TickCountResolution )
+                                    : 0 ) )
                                 : ThreadIdleTimeoutMilliseconds;
 
                             //if (NetEventSource.Log.IsEnabled()) NetEventSource.Info(null, $"Waiting for {waitDuration}ms");
@@ -275,17 +271,13 @@ namespace dotNetTips.Utility.Standard.Net
                             //if (NetEventSource.Log.IsEnabled()) NetEventSource.Info(null, $"Awoke, cause {(waitResult == WaitHandle.WaitTimeout ? "Timeout" : "Prod")}");
 
                             // If we timed out with nothing to do, shut down.
-                            if ((waitResult == WaitHandle.WaitTimeout) && !haveNextTick)
+                            if (( waitResult == WaitHandle.WaitTimeout ) && !haveNextTick)
                             {
-                                Interlocked.CompareExchange(ref _threadState,
-                                                            (int)TimerThreadState.Idle,
-                                                            (int)TimerThreadState.Running);
+                                Interlocked.CompareExchange(ref _threadState, (int)TimerThreadState.Idle, (int)TimerThreadState.Running);
                                 // There could have been one more prod between the wait and the exchange.  Check, and abort if necessary.
                                 if (_threadReadyEvent.WaitOne(0, false))
                                 {
-                                    if (Interlocked.CompareExchange(ref _threadState,
-                                                                   (int)TimerThreadState.Running,
-                                                                   (int)TimerThreadState.Idle) ==
+                                    if (Interlocked.CompareExchange(ref _threadState, (int)TimerThreadState.Running, (int)TimerThreadState.Idle) ==
                                         (int)TimerThreadState.Idle)
                                     {
                                         continue;

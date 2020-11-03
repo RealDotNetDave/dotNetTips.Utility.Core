@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 02-12-2020
 // ***********************************************************************
-// <copyright file="ExecutionHelper.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="ExecutionHelper.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>

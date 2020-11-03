@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 09-19-2020
 // ***********************************************************************
-// <copyright file="FileHelper.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="FileHelper.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -217,7 +217,7 @@ namespace dotNetTips.Utility.Standard.IO
                         await stream.CopyToAsync(localStream).ConfigureAwait(true);
                     }
 
-                    await localStream.FlushAsync();
+                    await localStream.FlushAsync().ConfigureAwait(false);
                 }
             }
         }
@@ -244,9 +244,7 @@ namespace dotNetTips.Utility.Standard.IO
         {
             Encapsulation.TryValidateParam(sourceFileName, nameof(sourceFileName));
             Encapsulation.TryValidateParam(destinationFileName, nameof(destinationFileName));
-            Encapsulation.TryValidateParam<ArgumentInvalidException>(File.Exists(sourceFileName),
-                                                                     nameof(sourceFileName),
-                                                                     $"File {sourceFileName} does not exist.");
+            Encapsulation.TryValidateParam<ArgumentInvalidException>(File.Exists(sourceFileName), nameof(sourceFileName), $"File {sourceFileName} does not exist.");
 
             for (var retryCount = 0; retryCount < Retries; retryCount++)
             {
@@ -263,7 +261,7 @@ namespace dotNetTips.Utility.Standard.IO
                 }
 
                 // If something has a transient lock on the file waiting may resolve the issue
-                Thread.Sleep((retryCount + 1) * 10);
+                Thread.Sleep(( retryCount + 1 ) * 10);
             }
         }
 

@@ -6,8 +6,8 @@
 // Last Modified By : David McCarter
 // Last Modified On : 08-07-2020
 // ***********************************************************************
-// <copyright file="WebClientExtensions.cs" company="dotNetTips.com - David McCarter">
-//     dotNetTips.com - David McCarter
+// <copyright file="WebClientExtensions.cs" company="David McCarter - dotNetTips.com">
+//     David McCarter - dotNetTips.com
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -26,7 +26,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Gets the json.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="client">The client.</param>
         /// <param name="url">The URL.</param>
         /// <returns>T.</returns>

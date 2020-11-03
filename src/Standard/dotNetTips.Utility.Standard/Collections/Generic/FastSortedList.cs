@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 08-04-2020
 // ***********************************************************************
-// <copyright file="FastSortedList.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="FastSortedList.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -22,7 +22,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic
     /// <summary>
     /// Class SortedList.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <seealso cref="System.Collections.Generic.List{T}" />
     [DebuggerDisplay("Count = {Count}"), Serializable]
     public class FastSortedList<T> : List<T>
@@ -82,7 +82,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic
 
 
         /// <summary>
-        /// Copies the elements of the <see cref="T:System.Collections.Generic.List`1"></see> to a new array.
+        /// Copies the elements of the <see cref="System.Collections.Generic.List"></see> to a new array.
         /// </summary>
         /// <returns>An array containing copies of the elements of the <see cref="T:System.Collections.Generic.List`1"></see>.</returns>
         public new T[] ToArray()

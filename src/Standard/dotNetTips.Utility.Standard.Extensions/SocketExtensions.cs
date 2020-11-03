@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 08-04-2020
 // ***********************************************************************
-// <copyright file="SocketExtensions.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="SocketExtensions.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -38,7 +38,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             socket.Bind(new IPEndPoint(address, 0));
 
-            return ((IPEndPoint)socket.LocalEndPoint).Port;
+            return ( (IPEndPoint)socket.LocalEndPoint ).Port;
         }
 
 
@@ -51,7 +51,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static void ForceNonBlocking(this Socket socket, bool force)
         {
-            if(force)
+            if (force)
             {
                 socket.Blocking = false;
                 socket.Blocking = true;
@@ -70,17 +70,17 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool TryConnect(this Socket socket, EndPoint remoteEndpoint, int millisecondsTimeout)
         {
-            if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                using(var mre = new ManualResetEventSlim(false))
+                using (var mre = new ManualResetEventSlim(false))
                 {
-                    using(var sea = new SocketAsyncEventArgs() { RemoteEndPoint = remoteEndpoint, UserToken = mre })
+                    using (var sea = new SocketAsyncEventArgs() { RemoteEndPoint = remoteEndpoint, UserToken = mre })
                     {
-                        sea.Completed += (s, e) => ((ManualResetEventSlim)e.UserToken).Set();
+                        sea.Completed += (s, e) => ( (ManualResetEventSlim)e.UserToken ).Set();
 
                         var pending = socket.ConnectAsync(sea);
 
-                        if(!pending || mre.Wait(millisecondsTimeout))
+                        if (!pending || mre.Wait(millisecondsTimeout))
                         {
                             return sea.SocketError == SocketError.Success;
                         }
@@ -92,7 +92,8 @@ namespace dotNetTips.Utility.Standard.Extensions
                         return false;
                     }
                 }
-            } else
+            }
+            else
             {
                 throw new PlatformNotSupportedException();
             }

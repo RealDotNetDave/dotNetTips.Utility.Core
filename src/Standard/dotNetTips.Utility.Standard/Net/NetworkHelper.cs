@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 10-22-2020
 // ***********************************************************************
-// <copyright file="NetworkHelper.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="NetworkHelper.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>

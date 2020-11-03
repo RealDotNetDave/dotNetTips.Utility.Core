@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 10-20-2020
 // ***********************************************************************
-// <copyright file="CountdownTimerNode.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="CountdownTimerNode.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>

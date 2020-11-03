@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using dotNetTips.Utility.Standard.IO;
+﻿using dotNetTips.Utility.Standard.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dotNetTips.Tips.Utility.Standard.Tests.IO
@@ -10,6 +7,9 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
     public class DriveHelperTests
     {
         [TestMethod]
-        public void GetDriveSerialNumberTest() { Assert.IsNotNull(DriveHelper.GetDriveSerialNumber(@"c:\")); }
+        public void GetDriveSerialNumberTest()
+        {
+            Assert.IsNotNull(DriveHelper.GetDriveSerialNumber(@"c:\"));
+        }
     }
 }

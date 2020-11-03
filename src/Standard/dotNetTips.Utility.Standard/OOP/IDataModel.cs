@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 03-08-2020
 // ***********************************************************************
-// <copyright file="IDataModel.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="IDataModel.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -20,7 +20,7 @@ namespace dotNetTips.Utility.Standard.OOP
     /// Implements the <see cref="System.IComparable{T}" />
     /// Implements the <see cref="System.IEquatable{T}" />
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <typeparam name="TKey">The type of the t key.</typeparam>
     /// <seealso cref="System.IComparable{T}" />
     /// <seealso cref="System.IEquatable{T}" />

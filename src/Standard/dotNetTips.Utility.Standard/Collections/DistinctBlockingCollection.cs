@@ -24,7 +24,7 @@ namespace dotNetTips.Utility.Standard.Collections
     /// <summary>
     /// Class DistinctBlockingCollection.
     /// </summary>
-    /// <typeparam name="T">The type of T.</typeparam>
+    /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <seealso cref="dotNetTips.Utility.Standard.ICloneable{T}" />
     /// <seealso cref="System.Collections.Concurrent.BlockingCollection{T}" />
     public class DistinctBlockingCollection<T> : BlockingCollection<T>, ICloneable<T>
@@ -33,7 +33,8 @@ namespace dotNetTips.Utility.Standard.Collections
         /// <summary>
         /// Initializes a new instance of the <see cref="DistinctBlockingCollection{T}" /> class.
         /// </summary>
-        public DistinctBlockingCollection() { }
+        public DistinctBlockingCollection()
+        { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DistinctBlockingCollection{T}" /> class.
@@ -107,7 +108,7 @@ namespace dotNetTips.Utility.Standard.Collections
         /// underlying collection does not accept duplicate items, then an <see cref="T:System.InvalidOperationException" /> is thrown.</returns>
         public new bool TryAdd(T item)
         {
-            return ItemNotInCollection(item) ? base.TryAdd(item) : false;
+            return this.ItemNotInCollection(item) && base.TryAdd(item);
         }
 
         /// <summary>
@@ -122,7 +123,7 @@ namespace dotNetTips.Utility.Standard.Collections
         /// <see cref="T:System.InvalidOperationException" /> is thrown.</returns>
         public new bool TryAdd(T item, int millisecondsTimeout)
         {
-            return ItemNotInCollection(item) ? base.TryAdd(item, millisecondsTimeout) : false;
+            return this.ItemNotInCollection(item) && base.TryAdd(item, millisecondsTimeout);
         }
 
         /// <summary>
@@ -134,22 +135,24 @@ namespace dotNetTips.Utility.Standard.Collections
         /// otherwise, false.</returns>
         public new bool TryAdd(T item, TimeSpan timeout)
         {
-            return ItemNotInCollection(item) ? base.TryAdd(item, timeout) : false;
+            return this.ItemNotInCollection(item) && base.TryAdd(item, timeout);
         }
 
         /// <summary>
-        /// Tries to add the specified item to the <see cref="T:System.Collections.Concurrent.BlockingCollection`1" />
+        /// Tries to add the specified item to the <see cref="T:System.Collections.Concurrent.BlockingCollection" />
         /// within the specified time period, while observing a cancellation token.
         /// </summary>
         /// <param name="item">The item to be added to the collection.</param>
-        /// <param name="millisecondsTimeout">The number of milliseconds to wait, or <see cref="F:System.Threading.Timeout.Infinite" /> (-1) to wait
+        /// <param name="millisecondsTimeout">The number of milliseconds to wait, or <see cref="System.Threading.Timeout.Infinite" /> (-1) to wait
         /// indefinitely.</param>
         /// <param name="cancellationToken">A cancellation token to observe.</param>
         /// <returns>true if the <paramref name="item" /> could be added to the collection within the specified time; otherwise,
         /// false. If the item is a duplicate, and the underlying collection does not accept duplicate items, then an
-        /// <see cref="T:System.InvalidOperationException" /> is thrown.</returns>
+        /// <see cref="System.InvalidOperationException" /> is thrown.</returns>
         public new bool TryAdd(T item, int millisecondsTimeout, CancellationToken cancellationToken)
-        { return ItemNotInCollection(item) ? base.TryAdd(item, millisecondsTimeout, cancellationToken) : false; }
+        {
+            return this.ItemNotInCollection(item) && base.TryAdd(item, millisecondsTimeout, cancellationToken);
+        }
 
         /// <summary>
         /// Item the not in collection.

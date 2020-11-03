@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 10-08-2020
 // ***********************************************************************
-// <copyright file="DataContextExtensions.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="DataContextExtensions.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -28,7 +28,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Gets the tracked objects.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="context">The context.</param>
         /// <returns>IList&lt;Tuple&lt;T, T&gt;&gt;.</returns>
         [Information(nameof(GetTrackedObjects), author: "David McCarter", createdOn: "10/8/2020", modifiedOn: "10/8/2020", UnitTestCoverage = 0, Status = Status.New)]

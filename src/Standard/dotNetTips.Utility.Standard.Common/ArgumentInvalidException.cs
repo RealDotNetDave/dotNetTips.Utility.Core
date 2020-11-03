@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 11-26-2019
 // ***********************************************************************
-// <copyright file="ArgumentInvalidException.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="ArgumentInvalidException.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>

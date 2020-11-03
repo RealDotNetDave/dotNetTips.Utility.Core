@@ -6,8 +6,8 @@
 // Last Modified By : David McCarter
 // Last Modified On : 07-20-2020
 // ***********************************************************************
-// <copyright file="ConfigurationBuilderExtensions.cs" company="dotNetTips.com - David McCarter">
-//     dotNetTips.com - David McCarter
+// <copyright file="ConfigurationBuilderExtensions.cs" company="David McCarter - dotNetTips.com">
+//     David McCarter - dotNetTips.com
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -24,11 +24,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Loads the configuration section based on the name of the type of T.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="config">The configuration.</param>
         /// <returns>T.</returns>
         /// <exception cref="System.ArgumentNullException">config</exception>
-        public static T LoadSection<T>(this IConfigurationRoot config) where T : class, new()
+        public static T LoadSection<T>(this IConfigurationRoot config)
+            where T : class, new()
         {
             if (config is null)
             {
@@ -39,7 +40,8 @@ namespace dotNetTips.Utility.Standard.Extensions
             return config.GetSection(typeof(T).Name).Get<T>();
         }
 
-        private static T Create<T>() where T : class
+        private static T Create<T>()
+            where T : class
         {
             var instance = Activator.CreateInstance<T>();
 

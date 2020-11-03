@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 08-07-2020
 // ***********************************************************************
-// <copyright file="InMemoryCache.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="InMemoryCache.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -63,7 +63,7 @@ namespace dotNetTips.Utility.Standard.Cache
         /// <summary>
         /// Adds item to the cache.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="key">The key.</param>
         /// <param name="item">The item.</param>
         public void AddCacheItem<T>(string key, T item) => this.Cache.Set(key, item);
@@ -71,7 +71,7 @@ namespace dotNetTips.Utility.Standard.Cache
         /// <summary>
         /// Gets the cache item.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="key">The key.</param>
         /// <returns>TValue.</returns>
         public T GetCacheItem<T>(string key)
@@ -89,7 +89,7 @@ namespace dotNetTips.Utility.Standard.Cache
         {
             var options = new MemoryCacheOptions
             {
-                ExpirationScanFrequency = expariation
+                ExpirationScanFrequency = expariation,
             };
 
             return new MemoryCache(options);

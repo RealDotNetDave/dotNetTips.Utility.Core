@@ -4,7 +4,7 @@
 // Created          : 10-04-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 12-05-2019
+// Last Modified On : 11-02-2020
 // ***********************************************************************
 // <copyright file="CollectionExtensionsPerfTestRunner.cs" company="dotNetTips.Utility.Benchmarks">
 //     Copyright (c) McCarter Consulting. All rights reserved.
@@ -91,7 +91,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(CollectionExtensions.AddIfNotExists) + ":Param Array")]
         public void AddIfNotExistsParamArray()
         {
-            var people = new List<PersonProper>(CollectionCount / 2);
+            var people = new List<PersonProper>(this.CollectionCount / 2);
 
             people.AddIfNotExists(base.personProperArrayHalf);
 
@@ -420,7 +420,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
             base.Consumer.Consume(result);
         }
 
-        [Benchmark(Description = nameof(CollectionExtensions.Shuffle))]
+        [Benchmark(Description = nameof(CollectionExtensions.Shuffle) + ": With Count")]
         public void ShuffleWithCount()
         {
             var result = base.personProperCollection.Shuffle(base.CollectionCount / 10);
@@ -527,7 +527,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
             base.Consumer.Consume(result);
         }
 
-        [Benchmark(Description = nameof(CollectionExtensions.Upsert) + ":New")]
+        [Benchmark(Description = nameof(CollectionExtensions.Upsert) + ":New Person")]
         public void UpsertDictionaryNew()
         {
             var people = base.personProperDictionary;

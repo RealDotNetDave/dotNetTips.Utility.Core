@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 10-28-2020
 // ***********************************************************************
-// <copyright file="DirectoryHelper.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="DirectoryHelper.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>

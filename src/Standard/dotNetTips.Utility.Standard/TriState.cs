@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 06-03-2019
 // ***********************************************************************
-// <copyright file="TriState.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="TriState.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -31,6 +31,6 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// Use default
         /// </summary>
-        UseDefault = -2
+        UseDefault = -2,
     }
 }

@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 12-03-2019
 // ***********************************************************************
-// <copyright file="FileProgressEventArgs.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="FileProgressEventArgs.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -27,7 +27,7 @@ namespace dotNetTips.Utility.Standard.IO
         public FileProgressEventArgs() => this.Message = string.Empty;
 
         /// <summary>
-        /// Gets the file progress message
+        /// Gets or sets the file progress message
         /// </summary>
         /// <value>The message.</value>
         public string Message
@@ -36,7 +36,7 @@ namespace dotNetTips.Utility.Standard.IO
         }
 
         /// <summary>
-        /// The full path and file name.
+        /// Gets or sets the full path and file name.
         /// </summary>
         /// <value>The full name.</value>
         public string Name
@@ -45,7 +45,7 @@ namespace dotNetTips.Utility.Standard.IO
         }
 
         /// <summary>
-        /// The progress state
+        /// Gets or sets the progress state.
         /// </summary>
         /// <value>The state of the progress.</value>
         public FileProgressState ProgressState
@@ -54,7 +54,7 @@ namespace dotNetTips.Utility.Standard.IO
         }
 
         /// <summary>
-        /// The size
+        /// Gets or sets the file size.
         /// </summary>
         /// <value>The size.</value>
         public long Size

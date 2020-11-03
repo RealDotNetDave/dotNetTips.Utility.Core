@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 09-19-2020
 // ***********************************************************************
-// <copyright file="JsonSerializer.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="JsonSerializer.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>

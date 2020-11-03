@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 09-21-2020
 // ***********************************************************************
-// <copyright file="CollectionExtensions.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="CollectionExtensions.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -58,7 +58,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Adds the item as the first item in array.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list.</param>
         /// <param name="item">The item.</param>
         /// <returns>T[].</returns>
@@ -89,7 +89,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Adds the first.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="array">The array.</param>
         /// <param name="item">The item.</param>
         /// <returns>T[].</returns>
@@ -123,7 +123,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Adds if not exists.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list.</param>
         /// <param name="item">The value.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
@@ -155,7 +155,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Adds items to an array if they do not exists.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list.</param>
         /// <param name="items">The items.</param>
         /// <returns>T[].</returns>
@@ -195,7 +195,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Adds and item if does not exists.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list.</param>
         /// <param name="items">The values.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
@@ -238,7 +238,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Adds item if it does not exists.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list.</param>
         /// <param name="item">The item.</param>
         /// <param name="comparer">The comparer.</param>
@@ -328,7 +328,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Adds item the last item in the array.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list.</param>
         /// <param name="item">The item.</param>
         /// <returns>T[].</returns>
@@ -359,7 +359,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Adds the last.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="array">The array.</param>
         /// <param name="item">The item.</param>
         /// <returns>T[].</returns>
@@ -392,7 +392,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Adds the items to the collection.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        //// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list.</param>
         /// <param name="items">The new items.</param>
         /// <param name="insureUnique">Set to true if items added to list are unique.</param>
@@ -442,22 +442,17 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Adds the range.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
-        /// <typeparam name="TKey">The type of the key.</typeparam>
-        /// <typeparam name="TValue">The type of the value.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <typeparam name="TKey">Generic type of the key.</typeparam>
+        /// <typeparam name="TValue">Generic type of the value.</typeparam>
         /// <param name="list">The list.</param>
         /// <param name="items">The items.</param>
         /// <param name="key">The key.</param>
         /// <param name="value">The value.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <exception cref="ArgumentNullException">list - Dictionary cannot be null. or key - Key cannot be null.</exception>
-        /// <exception cref="ArgumentException">list - Dictionary cannot be null. or key - Key cannot be null.</exception>
-        /// <exception cref="System.ArgumentNullException">list - Dictionary cannot be null. or key - Key cannot be null.</exception>
+        /// <exception cref="ArgumentNullException">Dictionary cannot be null. or key - Key cannot be null.</exception>
         /// <remarks>Code by: Lucas</remarks>
-        public static bool AddRange<T, TKey, TValue>(this IDictionary<TKey, TValue> list,
-                                                     IEnumerable<T> items,
-                                                     Func<T, TKey> key,
-                                                     Func<T, TValue> value)
+        public static bool AddRange<T, TKey, TValue>(this IDictionary<TKey, TValue> list, IEnumerable<T> items, Func<T, TKey> key, Func<T, TValue> value)
         {
             if (items.DoesNotHaveItems())
             {
@@ -503,7 +498,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Ares the equal.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="input">The input.</param>
         /// <param name="arrayToCheck">The array to check.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
@@ -525,7 +520,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             for (var i = 0; i < input.Length; i++)
             {
-                areSame &= (input[i].Equals(arrayToCheck[i]));
+                areSame &= ( input[i].Equals(arrayToCheck[i]) );
             }
 
             return areSame;
@@ -534,7 +529,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Ares the equal.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="input">The input.</param>
         /// <param name="listToCheck">The list to check.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
@@ -556,19 +551,25 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             for (var i = 0; i < input.Count; i++)
             {
-                areSame &= (input[i].Equals(listToCheck[i]));
+                areSame &= ( input[i].Equals(listToCheck[i]) );
             }
 
             return areSame;
         }
 
         /// <summary>
-        /// Returns a <see cref="System.String"/> that represents this instance.
+        /// Returns a <see cref="String" /> that represents this instance.
         /// </summary>
         /// <param name="bytes">The bytes.</param>
-        /// <returns>A <see cref="System.String"/> that represents this instance.</returns>
+        /// <returns>A <see cref="String" /> that represents this instance.</returns>
+        /// <exception cref="ArgumentNullException">Input cannot be null or be empty.</exception>
         public static string BytesToString(this byte[] bytes)
         {
+            if (bytes.DoesNotHaveItems())
+            {
+                ExceptionThrower.ThrowArgumentNullException(nameof(bytes));
+            }
+
             var builder = new StringBuilder();
 
             for (var byteCount = 0; byteCount < bytes.Length; byteCount++)
@@ -582,7 +583,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Clears the null items from the collection.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="source">The source.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         [Information(nameof(AddIfNotExists), author: "David McCarter", createdOn: "8/12/2020", modifiedOn: "8/12/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available)]
@@ -601,9 +602,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Clones the specified array.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="input">The input.</param>
         /// <returns>T[].</returns>
+        /// <exception cref="ArgumentNullException">Input cannot be null or has a length of 0.</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 66.67, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static T[] Clone<T>(this T[] input)
         {
@@ -613,11 +615,7 @@ namespace dotNetTips.Utility.Standard.Extensions
             }
 
             var copy = new T[input.Length];
-            Array.Copy(sourceArray: input,
-                       sourceIndex: 0,
-                       destinationArray: copy,
-                       destinationIndex: 0,
-                       length: input.Length);
+            Array.Copy(sourceArray: input, sourceIndex: 0, destinationArray: copy, destinationIndex: 0, length: input.Length);
 
             return copy;
         }
@@ -625,7 +623,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Determines whether the specified collection has items specified.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="items">The items.</param>
         /// <returns><c>true</c> if the specified items has items; otherwise, <c>false</c>.</returns>
@@ -647,7 +645,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Determines whether the specified collection has items specified.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="items">The items.</param>
         /// <returns><c>true</c> if the specified items has items; otherwise, <c>false</c>.</returns>
@@ -669,7 +667,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Copies the collection to a generic List.
         /// </summary>
-        /// <typeparam name="T">Type</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="source">The source.</param>
         /// <returns>List&lt;T&gt;.</returns>
         /// <exception cref="ArgumentNullException">source</exception>
@@ -720,7 +718,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Returns distinct collection using the specified comparer.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="comparer">The comparer.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
@@ -755,7 +753,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Determines whether the specified source does not have items or is null.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="source">The source.</param>
         /// <returns><c>true</c> if the specified source has items; otherwise, <c>false</c>.</returns>
         public static bool DoesNotHaveItems<T>(this ObservableCollection<T> source) => source?.Count <= 0;
@@ -763,7 +761,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Fasts any.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="predicate">The predicate.</param>
         /// <returns>System.Boolean.</returns>
@@ -782,7 +780,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Counts the the collection.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="predicate">The predicate.</param>
         /// <returns>System.Int32.</returns>
@@ -820,7 +818,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Returns first item in the collection or an alternate.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="alternate">The alternate.</param>
         /// <returns>T.</returns>
@@ -832,7 +830,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Returns first item in the collection or an alternate using a predicate.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="predicate">The predicate.</param>
         /// <param name="alternate">The alternate.</param>
@@ -860,23 +858,22 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Finds first item or returns null.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list.</param>
         /// <param name="match">The match.</param>
         /// <returns>System.Nullable&lt;T&gt;.</returns>
-        /// <exception cref="ArgumentNullException">match</exception>
-        /// <exception cref="System.ArgumentNullException">match</exception>
+        /// <exception cref="ArgumentNullException">Function cannot be null.</exception>
         public static T? FirstOrNull<T>(this IEnumerable<T> list, Func<T, bool> match)
             where T : struct
         {
-            if (list.HasItems() == false)
+            if (list.DoesNotHaveItems())
             {
                 return null;
             }
 
-            if (match is null)
+            if (match.IsNull())
             {
-                throw new ArgumentNullException(nameof(match), $"{nameof(match)} is null.");
+                ExceptionThrower.ThrowArgumentNullException(nameof(match));
             }
 
             var listToProcess = list.ToList();
@@ -903,21 +900,25 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="key">The key.</param>
         /// <param name="value">The value.</param>
         /// <returns>TValue.</returns>
-        /// <exception cref="ArgumentNullException">key</exception>
-        /// <exception cref="ArgumentNullException">value</exception>
-        /// <exception cref="ArgumentNullException">key</exception>
-        /// <exception cref="ArgumentNullException">value</exception>
+        /// <exception cref="ArgumentNullException">Dictionary cannot be null.</exception>
+        /// <exception cref="ArgumentNullException">Key cannot be null.</exception>
+        /// <exception cref="ArgumentNullException">Value cannot be null.</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static TValue GetOrAdd<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
-            if (key == null)
+            if (dictionary.IsNull())
             {
-                throw new ArgumentNullException(nameof(key));
+                ExceptionThrower.ThrowArgumentNullException(nameof(dictionary));
             }
 
-            if (value == null)
+            if (key.IsNull())
             {
-                throw new ArgumentNullException(nameof(value));
+                ExceptionThrower.ThrowArgumentNullException(nameof(key));
+            }
+
+            if (value.IsNull())
+            {
+                ExceptionThrower.ThrowArgumentNullException(nameof(value));
             }
 
             if (dictionary.TryGetValue(key, out TValue item) == false)
@@ -947,7 +948,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Determines whether the specified source has items.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="source">The source.</param>
         /// <returns><c>true</c> if the specified source has items; otherwise, <c>false</c>.</returns>
         public static bool HasItems<T>(this ObservableCollection<T> source) => source?.Count > 0;
@@ -972,7 +973,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Determines whether the specified count has items.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="count">The specific count.</param>
         /// <returns><c>true</c> if the specified count has items; otherwise, <c>false</c>.</returns>
@@ -981,7 +982,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Determines whether the specified collection has items based on the Predicate.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="action">The action.</param>
         /// <returns><c>true</c> if the specified action has items; otherwise, <c>false</c>.</returns>
@@ -1000,18 +1001,20 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Returns index of item in the collection.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="item">The item.</param>
         /// <returns>System.Int32.</returns>
         /// <remarks>Original code from efcore-master on GitHub.</remarks>
         public static int IndexOf<T>(this IEnumerable<T> source, T item)
-        { return IndexOf(source, item, EqualityComparer<T>.Default); }
+        {
+            return IndexOf(source, item, EqualityComparer<T>.Default);
+        }
 
         /// <summary>
         /// Returns index of an item in the collection using comparer.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="item">The item.</param>
         /// <param name="comparer">The comparer.</param>
@@ -1041,12 +1044,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>System.String.</returns>
         /// <remarks>Original code from efcore-master on GitHub.</remarks>
         public static string Join(this IEnumerable<object> source, string separator = ", ")
-        { return string.Join(separator, source); }
+        {
+            return string.Join(separator, source);
+        }
 
         /// <summary>
         /// Generates hash code for the collection.
         /// </summary>
-        /// <typeparam name="T">Generic type.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list to use to generate hash code.</param>
         /// <returns>Hash code as System.Int32.</returns>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
@@ -1055,7 +1060,7 @@ namespace dotNetTips.Utility.Standard.Extensions
             var comparer = EqualityComparer<T>.Default;
 
             int hash = list.Where(t => t != null)
-                .Aggregate(6551, (accumulator, t) => accumulator ^= (accumulator << 5) ^ comparer.GetHashCode(t));
+                .Aggregate(6551, (accumulator, t) => accumulator ^= ( accumulator << 5 ) ^ comparer.GetHashCode(t));
 
             return hash;
         }
@@ -1063,7 +1068,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Generates hash code for the collection.
         /// </summary>
-        /// <typeparam name="T">Generic type.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list to use to generate hash code.</param>
         /// <returns>Hash code as System.Int32.</returns>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
@@ -1072,7 +1077,7 @@ namespace dotNetTips.Utility.Standard.Extensions
             var comparer = EqualityComparer<T>.Default;
 
             int hash = list.Where(t => t != null)
-                .Aggregate(6551, (accumulator, t) => accumulator ^= (accumulator << 5) ^ comparer.GetHashCode(t));
+                .Aggregate(6551, (accumulator, t) => accumulator ^= ( accumulator << 5 ) ^ comparer.GetHashCode(t));
 
             return hash;
         }
@@ -1080,7 +1085,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Generates hash code for the collection.
         /// </summary>
-        /// <typeparam name="T">Generic type.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list to use to generate hash code.</param>
         /// <returns>Hash code as System.Int32.</returns>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
@@ -1089,7 +1094,7 @@ namespace dotNetTips.Utility.Standard.Extensions
             int hash = list.Where(t => t != null)
                 .Aggregate(6551,
                            (accumulator, t) => accumulator ^=
-                    (accumulator << 5) ^ EqualityComparer<T>.Default.GetHashCode(t));
+                    ( accumulator << 5 ) ^ EqualityComparer<T>.Default.GetHashCode(t));
 
             return hash;
         }
@@ -1099,7 +1104,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// generates a dynamic sort expression (example: "Name desc") that specifies the property of the object sort
         /// on.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list.</param>
         /// <param name="sortExpression">The sort expression.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
@@ -1130,7 +1135,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
                 if (prop is null)
                 {
-                    throw new InvalidCastException($"{(string.Format(CultureInfo.InvariantCulture, "{0}{1}", Convert.ToString("No property '", CultureInfo.InvariantCulture), property))}' in + {typeof(T).Name}'");
+                    throw new InvalidCastException($"{string.Format(CultureInfo.InvariantCulture, "{0}{1}", Convert.ToString("No property '", CultureInfo.InvariantCulture), property)}' in + {typeof(T).Name}'");
                 }
 
                 return @descending
@@ -1149,14 +1154,15 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="keySelector">The key selector.</param>
         /// <returns>IOrderedEnumerable&lt;TSource&gt;.</returns>
         /// <remarks>Original code from efcore-master on GitHub.</remarks>
-        public static IOrderedEnumerable<TSource> OrderByOrdinal<TSource>(this IEnumerable<TSource> source,
-                                                                          Func<TSource, string> keySelector)
-        { return source.OrderBy(keySelector, StringComparer.Ordinal); }
+        public static IOrderedEnumerable<TSource> OrderByOrdinal<TSource>(this IEnumerable<TSource> source, Func<TSource, string> keySelector)
+        {
+            return source.OrderBy(keySelector, StringComparer.Ordinal);
+        }
 
         /// <summary>
         /// Pages the specified list.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list.</param>
         /// <param name="pageSize">Size of the page. Minimum page size is 1.</param>
         /// <returns>IEnumerable&lt;IEnumerable&lt;T&gt;&gt;.</returns>
@@ -1187,7 +1193,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Picks a random item from a collection.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list.</param>
         /// <returns>T.</returns>
         [Information(nameof(PickRandom), "David McCarter", "8/26/2020", "9/19/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available, UnitTestCoverage = 100)]
@@ -1245,7 +1251,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Randomizes the specified list.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
         /// <exception cref="ArgumentNullException">list - Source cannot be null or have a 0 value.</exception>
@@ -1259,7 +1265,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Removes the first item in the array.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="array">The array.</param>
         /// <returns>T[].</returns>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
@@ -1276,7 +1282,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Removes the last.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="array">The array.</param>
         /// <returns>T[].</returns>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
@@ -1291,7 +1297,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Shuffles the specified items.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The items.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
         /// <exception cref="ArgumentNullException">list</exception>
@@ -1309,7 +1315,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Shuffles the specified items.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The items.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
         /// <exception cref="ArgumentNullException">list</exception>
@@ -1327,7 +1333,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Shuffles the specified count.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The items.</param>
         /// <param name="count">The count.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
@@ -1352,7 +1358,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Determines if first collection starts with the second collection.
         /// </summary>
-        /// <typeparam name="T">The type of the t source.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="first">The first.</param>
         /// <param name="second">The second.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
@@ -1384,7 +1390,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Determines if two collection sequences are equal.
         /// </summary>
-        /// <typeparam name="T">The type of the t source.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="first">The first.</param>
         /// <param name="second">The second.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
@@ -1424,7 +1430,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Convert a list to a delimited string.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list.</param>
         /// <param name="delimiter">The delimiter (default is comma if not supplied).</param>
         /// <returns>System.String.</returns>
@@ -1487,7 +1493,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// To the immutable.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="values">The values.</param>
         /// <returns>IImmutableList&lt;T&gt;.</returns>
         public static ImmutableList<T> ToImmutable<T>(this IEnumerable<T> values)
@@ -1496,7 +1502,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Converts to ImmutableHashSet<typeparamref name="T"/>&gt;.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="values">The values.</param>
         /// <returns>ImmutableHashSet<typeparamref name="T"/>&gt;.</returns>
         public static ImmutableHashSet<T> ToImmutable<T>(this HashSet<T> values)
@@ -1510,21 +1516,25 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="values">The values.</param>
         /// <returns>ImmutableSortedDictionary&lt;TKey, TValue&gt;.</returns>
         public static ImmutableSortedDictionary<TKey, TValue> ToImmutable<TKey, TValue>(this SortedDictionary<TKey, TValue> values)
-        { return ImmutableSortedDictionary.CreateRange<TKey, TValue>(values); }
+        {
+            return ImmutableSortedDictionary.CreateRange<TKey, TValue>(values);
+        }
 
         /// <summary>
         /// Converts to immutable SortedSet.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="values">The values.</param>
         /// <returns>ImmutableSortedSet&lt;T&gt;.</returns>
         public static ImmutableSortedSet<T> ToImmutable<T>(this SortedSet<T> values)
-        { return ImmutableSortedSet.CreateRange<T>(values); }
+        {
+            return ImmutableSortedSet.CreateRange<T>(values);
+        }
 
         /// <summary>
         /// Converts to a LinkedList.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="values">The values.</param>
         /// <returns>LinkedList&lt;T&gt;.</returns>
         public static LinkedList<T> ToLinkedList<T>(this IEnumerable<T> values) => new LinkedList<T>(values);
@@ -1546,7 +1556,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Converts <see cref="IEnumerable"/> collection to a <see cref="List{T}"/>.
         /// </summary>
-        /// <typeparam name="T">The type of the t source.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="source">The source.</param>
         /// <returns>List&lt;TSource&gt;.</returns>
         /// <remarks>Original code from efcore-master on GitHub.</remarks>
@@ -1555,7 +1565,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Creates a Generic List async.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list.</param>
         /// <returns>Task&lt;List&lt;T&gt;&gt;.</returns>
         /// <exception cref="ArgumentNullException">list - Source cannot be null or have a 0 value.</exception>
@@ -1564,7 +1574,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// To the enumeration to ObservableCollection.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list.</param>
         /// <returns>ObservableCollection.</returns>
         /// <exception cref="ArgumentNullException">list - Source cannot be null or have a 0 value.</exception>
@@ -1574,7 +1584,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Converts List to ObservableCollection.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list.</param>
         /// <returns>ObservableCollection.</returns>
         public static ObservableCollection<T> ToObservableCollection<T>(this IList<T> list)
@@ -1583,7 +1593,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Creates a read only list.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list.</param>
         /// <returns>ReadOnlyCollection&lt;T&gt;.</returns>
         /// <exception cref="ArgumentNullException">list - Source cannot be null or have a 0 value.</exception>
@@ -1599,19 +1609,23 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="key">The key.</param>
         /// <param name="value">The value.</param>
         /// <returns>TValue.</returns>
-        /// <exception cref="ArgumentNullException">key</exception>
-        /// <exception cref="ArgumentNullException">value</exception>
-        /// <exception cref="ArgumentNullException">key</exception>
-        /// <exception cref="ArgumentNullException">value</exception>
+        /// <exception cref="ArgumentNullException">Input cannot be null or have no items in the collection.</exception>
+        /// <exception cref="ArgumentNullException">Key cannot be null.</exception>
+        /// <exception cref="ArgumentNullException">Value cannot be null</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static TValue Upsert<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
-            if (key == null)
+            if (dictionary.DoesNotHaveItems())
+            {
+                throw new ArgumentNullException(nameof(dictionary));
+            }
+
+            if (key.IsNull())
             {
                 throw new ArgumentNullException(nameof(key));
             }
 
-            if (value == null)
+            if (value.IsNull())
             {
                 throw new ArgumentNullException(nameof(value));
             }
@@ -1636,10 +1650,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>IEnumerable&lt;TSource&gt;.</returns>
         /// <exception cref="ArgumentNullException">list - Source cannot be null or have a 0 value.</exception>
         /// <remarks>Original code by: Phil Campbell</remarks>
-        public static IEnumerable<TSource> WhereIf<TSource>(this IEnumerable<TSource> list,
-                                                            bool condition,
-                                                            Func<TSource, bool> predicate)
-        { return condition ? list.Where(predicate) : list; }
+        public static IEnumerable<TSource> WhereIf<TSource>(this IEnumerable<TSource> list, bool condition, Func<TSource, bool> predicate)
+        {
+            return condition ? list.Where(predicate) : list;
+        }
 
         /// <summary>
         /// Returns list based on function.
@@ -1651,15 +1665,15 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>IEnumerable&lt;TSource&gt;.</returns>
         /// <exception cref="ArgumentNullException">list - Source cannot be null or have a 0 value.</exception>
         /// <remarks>Original code by: Phil Campbell</remarks>
-        public static IEnumerable<TSource> WhereIf<TSource>(this IEnumerable<TSource> list,
-                                                            bool condition,
-                                                            Func<TSource, int, bool> predicate)
-        { return condition ? list.Where(predicate) : list; }
+        public static IEnumerable<TSource> WhereIf<TSource>(this IEnumerable<TSource> list, bool condition, Func<TSource, int, bool> predicate)
+        {
+            return condition ? list.Where(predicate) : list;
+        }
 
         /// <summary>
         /// Disposes the collection.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="items">The items.</param>
         internal static void DisposeCollection<T>(this IEnumerable<T> items) => ProcessCollectionToDispose(items);
 
@@ -1691,7 +1705,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// Class DynamicEqualityComparer. This class cannot be inherited. Implements the <see
         /// cref="System.Collections.Generic.IEqualityComparer{T}"/>
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <seealso cref="System.Collections.Generic.IEqualityComparer{T}"/>
         /// <remarks>Original code from efcore-master on GitHub.</remarks>
         private sealed class DynamicEqualityComparer<T> : IEqualityComparer<T>
@@ -1703,7 +1717,10 @@ namespace dotNetTips.Utility.Standard.Extensions
             /// Initializes a new instance of the <see cref="DynamicEqualityComparer{T}"/> class.
             /// </summary>
             /// <param name="func">The function.</param>
-            public DynamicEqualityComparer(Func<T, T, bool> func) { this._func = func; }
+            public DynamicEqualityComparer(Func<T, T, bool> func)
+            {
+                this._func = func;
+            }
 
             /// <summary>
             /// Determines whether the specified objects are equal.

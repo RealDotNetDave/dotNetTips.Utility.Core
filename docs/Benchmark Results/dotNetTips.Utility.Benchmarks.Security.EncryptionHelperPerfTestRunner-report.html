@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.Security.EncryptionHelperPerfTestRunner-20200807-192236</title>
+<title>dotNetTips.Utility.Benchmarks.Security.EncryptionHelperPerfTestRunner-20201103-003821</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,21 +13,21 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.388 (2004/?/20H1)
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.572 (2004/?/20H1)
 Unknown processor
-.NET Core SDK=3.1.400
-  [Host]     : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
-  Job-GUNMTB : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+.NET Core SDK=5.0.100-rc.2.20479.15
+  [Host]     : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
+  Job-TZRVGS : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
 </code></pre>
-<pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
+<pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.1  
 Categories=EncryptionHelper  
 </code></pre>
 
 <table>
 <thead><tr><th>      Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>AesEncryption</td><td>8.466 &mu;s</td><td>0.1286 &mu;s</td><td>0.1321 &mu;s</td><td>2.0294</td><td>-</td><td>-</td><td>18.84 KB</td>
-</tr><tr><td>RijndaelEncryption</td><td>7.954 &mu;s</td><td>0.1573 &mu;s</td><td>0.2256 &mu;s</td><td>2.0447</td><td>-</td><td>-</td><td>19.03 KB</td>
+</thead><tbody><tr><td>AesEncryption</td><td>8.210 &mu;s</td><td>0.0952 &mu;s</td><td>0.0890 &mu;s</td><td>2.0142</td><td>-</td><td>-</td><td>18.84 KB</td>
+</tr><tr><td>RijndaelEncryption</td><td>8.199 &mu;s</td><td>0.0328 &mu;s</td><td>0.0274 &mu;s</td><td>2.0447</td><td>0.0153</td><td>-</td><td>19.03 KB</td>
 </tr></tbody></table>
 </body>
 </html>

@@ -55,3 +55,4 @@
 [assembly: SuppressMessage("Usage", "PC001:API not supported on all platforms", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.App.IsUserAdministrator~System.Boolean")]
 [assembly: SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "<Pending>", Scope = "namespace", Target = "~N:dotNetTips.Utility.Standard")]
 [assembly: SuppressMessage("Usage", "DE0001:API is deprecated", Justification = "<Pending>", Scope = "member", Target = "~M:dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.Security.SecureString,System.String,System.String)")]
+[assembly: SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1401:Fields should be private", Justification = "<Pending>", Scope = "member", Target = "~F:dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1.Node._hashCode")]

@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 02-29-2020
 // ***********************************************************************
-// <copyright file="FileProcessor.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="FileProcessor.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -81,7 +81,7 @@ namespace dotNetTips.Utility.Standard.IO
                             Message = tempFile.Name,
                             ProgressState = FileProgressState.Copied,
                             Size = tempFile.Length,
-                            SpeedInMilliseconds = perf.TotalMilliseconds
+                            SpeedInMilliseconds = perf.TotalMilliseconds,
                         });
                     }
                     catch (Exception ex)
@@ -92,7 +92,7 @@ namespace dotNetTips.Utility.Standard.IO
                             Name = tempFile.FullName,
                             ProgressState = FileProgressState.Error,
                             Size = tempFile.Length,
-                            Message = ex.Message
+                            Message = ex.Message,
                         });
                     }
                 }
@@ -103,7 +103,7 @@ namespace dotNetTips.Utility.Standard.IO
                         Name = tempFile.FullName,
                         ProgressState = FileProgressState.Error,
                         Size = tempFile.Length,
-                        Message = Resources.FileNotFound
+                        Message = Resources.FileNotFound,
                     });
                 }
             }
@@ -146,7 +146,7 @@ namespace dotNetTips.Utility.Standard.IO
                             Message = tempFile.Name,
                             ProgressState = FileProgressState.Deleted,
                             Size = tempFile.Length,
-                            SpeedInMilliseconds = perf.TotalMilliseconds
+                            SpeedInMilliseconds = perf.TotalMilliseconds,
                         });
                     }
                     catch (Exception ex) when (ex is IOException || ex is SecurityException || ex is UnauthorizedAccessException)
@@ -156,7 +156,7 @@ namespace dotNetTips.Utility.Standard.IO
                             Name = tempFile.FullName,
                             ProgressState = FileProgressState.Error,
                             Size = tempFile.Length,
-                            Message = ex.Message
+                            Message = ex.Message,
                         });
                     }
                 }
@@ -166,7 +166,7 @@ namespace dotNetTips.Utility.Standard.IO
                     {
                         Name = tempFile.FullName,
                         ProgressState = FileProgressState.Error,
-                        Message = Resources.FileNotFound
+                        Message = Resources.FileNotFound,
                     });
                 }
             }
@@ -202,7 +202,7 @@ namespace dotNetTips.Utility.Standard.IO
                         this.OnProcessed(new FileProgressEventArgs
                         {
                             Name = tempFolder.FullName,
-                            ProgressState = FileProgressState.Deleted
+                            ProgressState = FileProgressState.Deleted,
                         });
                     }
                     catch (Exception ex) when (ex is IOException || ex is SecurityException || ex is UnauthorizedAccessException || ex is DirectoryNotFoundException)
@@ -211,7 +211,7 @@ namespace dotNetTips.Utility.Standard.IO
                         {
                             Name = tempFolder.FullName,
                             ProgressState = FileProgressState.Error,
-                            Message = ex.Message
+                            Message = ex.Message,
                         });
                     }
                 }
@@ -221,7 +221,7 @@ namespace dotNetTips.Utility.Standard.IO
                     {
                         Name = tempFolder.FullName,
                         ProgressState = FileProgressState.Error,
-                        Message = Resources.FolderNotFound
+                        Message = Resources.FolderNotFound,
                     });
                 }
             }
@@ -234,6 +234,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// Handles the <see cref="E:Processed" /> event that is thrown after each file is processed.
         /// </summary>
         /// <param name="e">The <see cref="FileProgressEventArgs" /> instance containing the event data.</param>
-        protected virtual void OnProcessed(FileProgressEventArgs e) => Processed?.Invoke(this, e);
+        protected virtual void OnProcessed(FileProgressEventArgs e) => this.Processed?.Invoke(this, e);
     }
 }

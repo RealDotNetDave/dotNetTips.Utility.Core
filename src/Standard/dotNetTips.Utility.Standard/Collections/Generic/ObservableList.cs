@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 08-07-2020
 // ***********************************************************************
-// <copyright file="ObservableList.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="ObservableList.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary>From .NET EF Core source.</summary>
@@ -30,7 +30,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic
     /// Implements the <see cref="System.ComponentModel.INotifyPropertyChanged" />
     /// Implements the <see cref="System.ComponentModel.INotifyPropertyChanging" />
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <seealso cref="System.Collections.Generic.ISet{T}" />
     /// <seealso cref="System.Collections.Generic.IReadOnlyCollection{T}" />
     /// <seealso cref="System.Collections.Specialized.INotifyCollectionChanged" />

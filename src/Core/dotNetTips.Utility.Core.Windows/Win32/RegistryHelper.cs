@@ -6,17 +6,17 @@
 // Last Modified By : David McCarter
 // Last Modified On : 09-21-2020
 // ***********************************************************************
-// <copyright file="RegistryHelper.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="RegistryHelper.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 
+using System;
+using System.Runtime.InteropServices;
 using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.OOP;
 using Microsoft.Win32;
-using System;
-using System.Runtime.InteropServices;
 
 namespace dotNetTips.Utility.Core.Windows.Win32
 {
@@ -26,17 +26,17 @@ namespace dotNetTips.Utility.Core.Windows.Win32
     public static class RegistryHelper
     {
         /// <summary>
-        /// User key for Environment
+        /// User key for Environment.
         /// </summary>
         public const string KeyCurrentUserEnvironment = @"\Environment";
 
         /// <summary>
-        /// User key for Microsoft
+        /// User key for Microsoft.
         /// </summary>
         public const string KeyCurrentUserMicrosoft = @"SOFTWARE\Microsoft";
 
         /// <summary>
-        /// User key for OneDrive
+        /// User key for OneDrive.
         /// </summary>
         public const string KeyCurrentUserOneDrive = @"Software\Microsoft\OneDrive";
 
@@ -46,9 +46,10 @@ namespace dotNetTips.Utility.Core.Windows.Win32
         /// <param name="name">The name.</param>
         /// <returns>RegistryKey.</returns>
         /// <exception cref="PlatformNotSupportedException"></exception>
-       //TODO: Causes bug. Add back when fixed [Obsolete("This method will be removed at the end of 2020. Use GetRegistryKey instead.", false)]
         public static RegistryKey GetCurrentUserRegistryKey(string name)
         {
+            // TODO: Causes bug. Add back when fixed [Obsolete("This method will be removed at the end of 2020. Use GetRegistryKey instead.", false)]
+
             Encapsulation.TryValidateParam(name, nameof(name));
 
             return RuntimeInformation.IsOSPlatform(OSPlatform.Windows)

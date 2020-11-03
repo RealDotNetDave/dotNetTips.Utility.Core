@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 10-19-2020
 // ***********************************************************************
-// <copyright file="SecurityHelper.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="SecurityHelper.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -45,8 +45,9 @@ namespace dotNetTips.Utility.Standard.Security
                 inputIntPtr = Marshal.SecureStringToBSTR(value1);
                 compareIntPtr = Marshal.SecureStringToBSTR(value2);
 
-                valid = (Marshal.PtrToStringUni(inputIntPtr) == Marshal.PtrToStringUni(compareIntPtr));
-            } finally
+                valid = ( Marshal.PtrToStringUni(inputIntPtr) == Marshal.PtrToStringUni(compareIntPtr) );
+            }
+            finally
             {
                 Marshal.ZeroFreeBSTR(inputIntPtr);
                 Marshal.ZeroFreeBSTR(compareIntPtr);
@@ -81,17 +82,17 @@ namespace dotNetTips.Utility.Standard.Security
 
             SecureString secureString = null;
 
-            if(!string.IsNullOrEmpty(input))
+            if (!string.IsNullOrEmpty(input))
             {
                 secureString = new SecureString();
                 var charArray = input.ToCharArray();
 
-                for(var i = 0; i < charArray.Length; i++)
+                for (var i = 0; i < charArray.Length; i++)
                 {
                     secureString.AppendChar(charArray[i]);
                 }
 
-                if(makeReadOnly)
+                if (makeReadOnly)
                 {
                     secureString.MakeReadOnly();
                 }
@@ -118,7 +119,8 @@ namespace dotNetTips.Utility.Standard.Security
                 inputIntPtr = Marshal.SecureStringToBSTR(input);
 
                 result = Marshal.PtrToStringUni(inputIntPtr);
-            } finally
+            }
+            finally
             {
                 Marshal.ZeroFreeBSTR(inputIntPtr);
             }

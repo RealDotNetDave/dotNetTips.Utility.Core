@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 09-10-2020
 // ***********************************************************************
-// <copyright file="StringBuilderExtensions.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="StringBuilderExtensions.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -29,16 +29,6 @@ namespace dotNetTips.Utility.Standard.Extensions
         private const string DefaultSeparator = ", ";
 
         private static readonly char[] _specialCharacters = new[] { '"', '\\' };
-
-        private static string SetSeparator(string separator)
-        {
-            if (separator.HasValue() == false)
-            {
-                separator = DefaultSeparator;
-            }
-
-            return separator;
-        }
 
         /// <summary>
         /// Appends the bytes.
@@ -73,31 +63,29 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Appends the join.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="sb">The string builder.</param>
         /// <param name="values">The values.</param>
         /// <param name="joinAction">The join action.</param>
         /// <param name="separator">The separator.</param>
         /// <returns>StringBuilder.</returns>
-        /// <exception cref="ArgumentNullException">sb</exception>
-        /// <exception cref="ArgumentNullException">values</exception>
-        /// <exception cref="ArgumentNullException">joinAction</exception>
-        /// <exception cref="ArgumentNullException">sb</exception>
-        /// <exception cref="ArgumentNullException">values</exception>
+        /// <exception cref="ArgumentNullException">StringBuilder cannot be null.</exception>
+        /// <exception cref="ArgumentNullException">Values is null or does not have items.</exception>
+        /// <exception cref="ArgumentNullException">Action cannot be null.</exception>
         [Information("Original code from efcore-master on GitHub", author: "David McCarter", createdOn: "5/26/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static StringBuilder AppendJoin<T>(this StringBuilder sb, IEnumerable<T> values, Action<StringBuilder, T> joinAction, string separator = ", ")
         {
-            if (sb == null)
+            if (sb.IsNull())
             {
                 throw new ArgumentNullException(nameof(sb), $"{nameof(sb)} is null.");
             }
 
-            if (values == null)
+            if (values.DoesNotHaveItems())
             {
                 throw new ArgumentNullException(nameof(values), $"{nameof(values)} is null.");
             }
 
-            if (joinAction == null)
+            if (joinAction.IsNull())
             {
                 throw new ArgumentNullException(nameof(joinAction), $"{nameof(joinAction)} is null.");
             }
@@ -122,7 +110,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Appends the join.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <typeparam name="TParam">The type of the t parameter.</typeparam>
         /// <param name="sb">The string builder.</param>
         /// <param name="values">The values.</param>
@@ -180,7 +168,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Appends the values.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <typeparam name="TParam1">The type of the t param1.</typeparam>
         /// <typeparam name="TParam2">The type of the t param2.</typeparam>
         /// <param name="sb">The string builder.</param>
@@ -190,41 +178,37 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="joinAction">The join action.</param>
         /// <param name="separator">The separator.</param>
         /// <returns>StringBuilder.</returns>
-        /// <exception cref="ArgumentNullException">sb</exception>
-        /// <exception cref="ArgumentNullException">param1</exception>
-        /// <exception cref="ArgumentNullException">param2</exception>
-        /// <exception cref="ArgumentNullException">values</exception>
-        /// <exception cref="ArgumentNullException">joinAction</exception>
-        /// <exception cref="ArgumentNullException">sb</exception>
-        /// <exception cref="ArgumentNullException">param1</exception>
-        /// <exception cref="ArgumentNullException">param2</exception>
-        /// <exception cref="ArgumentNullException">values</exception>
+        /// <exception cref="ArgumentNullException">StringBuilder cannot be null.</exception>
+        /// <exception cref="ArgumentNullException">Param1 cannot be null.</exception>
+        /// <exception cref="ArgumentNullException">Param2 cannot be null.</exception>
+        /// <exception cref="ArgumentNullException">Values cannot be null or does not have items.</exception>
+        /// <exception cref="ArgumentNullException">Action cannot be null.</exception>
         [Information("Original code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static StringBuilder AppendJoin<T, TParam1, TParam2>(this StringBuilder sb, IEnumerable<T> values, TParam1 param1, TParam2 param2, Action<StringBuilder, T, TParam1, TParam2> joinAction, string separator = ", ")
         {
             if (sb.IsNull())
             {
-                throw new ArgumentNullException(nameof(sb), $"{nameof(sb)} is null.");
+                ExceptionThrower.ThrowArgumentNullException(nameof(sb));
             }
 
             if (param1.IsNull())
             {
-                throw new ArgumentNullException(nameof(param1), $"{nameof(param1)} is null.");
+                ExceptionThrower.ThrowArgumentNullException(nameof(param1));
             }
 
             if (param2.IsNull())
             {
-                throw new ArgumentNullException(nameof(param2), $"{nameof(param2)} is null.");
+                ExceptionThrower.ThrowArgumentNullException(nameof(param2));
             }
 
             if (values.HasItems() == false)
             {
-                throw new ArgumentNullException(nameof(values), $"{nameof(values)} is null.");
+                ExceptionThrower.ThrowArgumentNullException(nameof(values));
             }
 
             if (joinAction.IsNull())
             {
-                throw new ArgumentNullException(nameof(joinAction), $"{nameof(joinAction)} is null.");
+                ExceptionThrower.ThrowArgumentNullException(nameof(joinAction));
             }
 
             var appended = false;
@@ -372,7 +356,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Appends the join.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="sb">The string builder.</param>
         /// <param name="separator">The separator.</param>
         /// <param name="values">The values.</param>
@@ -423,7 +407,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Appends the join.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <typeparam name="TParam">The type of the t parameter.</typeparam>
         /// <param name="sb">The string builder.</param>
         /// <param name="separator">The separator.</param>
@@ -483,7 +467,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Appends the join.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <typeparam name="TParam1">The type of the t param1.</typeparam>
         /// <typeparam name="TParam2">The type of the t param2.</typeparam>
         /// <param name="sb">The string builder.</param>
@@ -547,6 +531,16 @@ namespace dotNetTips.Utility.Standard.Extensions
             }
 
             return sb;
+        }
+
+        private static string SetSeparator(string separator)
+        {
+            if (separator.HasValue() == false)
+            {
+                separator = DefaultSeparator;
+            }
+
+            return separator;
         }
     }
 }

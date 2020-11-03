@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2020.11.01.11</Version>
+    <Version>2020.11.02.01</Version>
     <Authors>David McCarter</Authors>
-    <Company>dotNetTips.com - David McCarter</Company>
+    <Company>David McCarter - dotNetTips.com</Company>
     <Product>dotNetTips.Utility.Standard</Product>
     <Description>Common .NET Standard code for use in unit tests and benchmarking.</Description>
     <Copyright>McCarter Consulting (David McCarter)</Copyright>
@@ -14,17 +14,18 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
     <PackageReleaseNotes>
-      -- SEP 2020: Updated NuGet packages.
       -- AUG 14 2019: Initial release.
       -- AUG 31 2019: Cleanup of models including fixes.
-      -- DEC 02 2019: Added new methods for creating random files. Code cleanup.
-      -- MAR 2020: Quarterly release.
+      -- DEC 2019: Added new methods for creating random files. Code cleanup.
+      -- MAR 2020 (Quarterly Release): Code cleanup.
       -- MAY 2020: Added more functionality to RandomData.
       -- AUG 2020: Code cleanup.
+      -- SEP 2020: Updated NuGet packages.
+      -- NOV 2020 (Quarterly Release): Code cleanup. Fixed bugs.
     </PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>2020.11.1.37363</AssemblyVersion>
-    <FileVersion>2020.11.1.37363</FileVersion>
+    <AssemblyVersion>2020.11.3.37367</AssemblyVersion>
+    <FileVersion>2020.11.3.37367</FileVersion>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -55,8 +56,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="dotNetTips.Utility.Standard" Version="2020.11.1.10" />
-    <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2020.11.1.10" />
+    <PackageReference Include="dotNetTips.Utility.Standard" Version="2020.11.1.11" />
+    <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2020.11.1.11" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 09-25-2019
 // ***********************************************************************
-// <copyright file="OneDriveAccountType.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="OneDriveAccountType.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -15,7 +15,7 @@
 namespace dotNetTips.Utility.Core.Windows.IO
 {
     /// <summary>
-    /// Enum OneDriveAccountType
+    /// OneDriveAccountType.
     /// </summary>
     public enum OneDriveAccountType
     {
@@ -27,6 +27,6 @@ namespace dotNetTips.Utility.Core.Windows.IO
         /// <summary>
         /// The business
         /// </summary>
-        Business
+        Business,
     }
 }

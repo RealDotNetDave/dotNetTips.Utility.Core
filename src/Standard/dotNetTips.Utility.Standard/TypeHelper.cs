@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 08-07-2020
 // ***********************************************************************
-// <copyright file="TypeHelper.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="TypeHelper.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -54,7 +54,7 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// Creates type instance.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <returns>T.</returns>
         /// <remarks>Original code by: Jeremy Clark</remarks>
         public static T Create<T>() where T : class
@@ -67,7 +67,7 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// Creates the specified parameter array.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="paramArray">The parameter array.</param>
         /// <returns>T.</returns>
         public static T Create<T>(params object[] paramArray)
@@ -187,7 +187,7 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// Gets the default type.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <returns>T.</returns>
         public static T GetDefault<T>()
         {

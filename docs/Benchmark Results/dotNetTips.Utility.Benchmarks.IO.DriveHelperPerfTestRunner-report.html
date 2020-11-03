@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.IO.DriveHelperPerfTestRunner-20200807-191654</title>
+<title>dotNetTips.Utility.Benchmarks.IO.DriveHelperPerfTestRunner-20201103-003042</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,21 +13,21 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.388 (2004/?/20H1)
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.572 (2004/?/20H1)
 Unknown processor
-.NET Core SDK=3.1.400
-  [Host]     : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
-  Job-GUNMTB : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+.NET Core SDK=5.0.100-rc.2.20479.15
+  [Host]     : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
+  Job-TZRVGS : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
 </code></pre>
-<pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.0  
+<pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.1  
 Categories=DriveHelper  
 </code></pre>
 
 <table>
 <thead><tr><th>      Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>GetFixedDrives</td><td>20.20 &mu;s</td><td>0.091 &mu;s</td><td>0.076 &mu;s</td><td>0.0610</td><td>-</td><td>-</td><td>608 B</td>
-</tr><tr><td>GetRemovableDrives</td><td>19.49 &mu;s</td><td>0.113 &mu;s</td><td>0.100 &mu;s</td><td>0.0305</td><td>-</td><td>-</td><td>528 B</td>
+</thead><tbody><tr><td>GetFixedDrives</td><td>20.74 &mu;s</td><td>0.267 &mu;s</td><td>0.250 &mu;s</td><td>0.0610</td><td>-</td><td>-</td><td>608 B</td>
+</tr><tr><td>GetRemovableDrives</td><td>20.74 &mu;s</td><td>0.065 &mu;s</td><td>0.060 &mu;s</td><td>0.0305</td><td>-</td><td>-</td><td>528 B</td>
 </tr></tbody></table>
 </body>
 </html>

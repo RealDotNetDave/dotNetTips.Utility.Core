@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 08-07-2020
 // ***********************************************************************
-// <copyright file="ServiceProxy.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="ServiceProxy.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -20,7 +20,7 @@ namespace dotNetTips.Utility.Standard.Web
     /// <summary>
     /// Class ServiceProxy.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <seealso cref="System.IDisposable" />
     public abstract class ServiceProxy<T> where T : ICommunicationObject, IDisposable
     {

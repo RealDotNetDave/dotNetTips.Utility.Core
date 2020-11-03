@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <IsPackable>false</IsPackable>
-    <AssemblyVersion>2020.11.1.34750</AssemblyVersion>
-    <FileVersion>2020.11.1.34750</FileVersion>
+    <AssemblyVersion>2020.11.3.34770</AssemblyVersion>
+    <FileVersion>2020.11.3.34770</FileVersion>
     <Authors>David McCarter - dotNetTips.com</Authors>
     <Company>McCarter Consulting</Company>
     <Description>Unit Tests</Description>
@@ -20,7 +20,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="dotNetTips.Utility.Standard.Tester" Version="2020.9.20.1" />
+    <PackageReference Include="dotNetTips.Utility.Standard.Tester" Version="2020.11.1.11" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.1.2" />
     <PackageReference Include="MSTest.TestFramework" Version="2.1.2" />
@@ -29,6 +29,21 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Core\dotNetTips.Utility.Core.Windows\dotNetTips.Utility.Core.Windows.csproj" />
     <ProjectReference Include="..\..\Standard\dotNetTips.Utility.Standard\dotNetTips.Utility.Standard.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

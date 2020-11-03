@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 07-24-2020
 // ***********************************************************************
-// <copyright file="TimerQueue.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="TimerQueue.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -30,7 +30,7 @@ namespace dotNetTips.Utility.Standard.Net
         public TimerQueue(int durationMilliseconds) { this._durationMilliseconds = durationMilliseconds; }
 
         /// <summary>
-        /// The duration in milliseconds of timers in this queue.
+        /// Gets the duration in milliseconds of timers in this queue.
         /// </summary>
         /// <value>The duration.</value>
         public int Duration => this._durationMilliseconds;

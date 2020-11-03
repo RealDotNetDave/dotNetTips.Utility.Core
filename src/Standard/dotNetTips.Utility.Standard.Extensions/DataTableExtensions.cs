@@ -6,18 +6,13 @@
 // Last Modified By : David McCarter
 // Last Modified On : 10-08-2020
 // ***********************************************************************
-// <copyright file="DataTableExtensions.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="DataTableExtensions.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Text;
 using dotNetTips.Utility.Standard.Common;
 
 namespace dotNetTips.Utility.Standard.Extensions
@@ -35,7 +30,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information(nameof(HasRows), author: "David McCarter", createdOn: "10/8/2020", modifiedOn: "10/8/2020", UnitTestCoverage = 0, Status = Status.New)]
         public static bool HasRows(this DataTable table)
         {
-            return ((table != null) && (table.Rows != null) && (table.Rows.Count > 0));
+            return (table != null) && (table.Rows != null) && (table.Rows.Count > 0);
         }
 
         /// <summary>

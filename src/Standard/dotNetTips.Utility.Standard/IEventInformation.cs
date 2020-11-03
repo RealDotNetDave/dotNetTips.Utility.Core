@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 11-21-2019
 // ***********************************************************************
-// <copyright file="IEventInformation.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="IEventInformation.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>

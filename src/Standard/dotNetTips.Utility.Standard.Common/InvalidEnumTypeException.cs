@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 10-27-2020
 // ***********************************************************************
-// <copyright file="InvalidEnumTypeException.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="InvalidEnumTypeException.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>

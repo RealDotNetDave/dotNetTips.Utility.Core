@@ -30,6 +30,12 @@ namespace dotNetTips.Utility.Benchmarks
     public class CollectionPerfTestRunner : PerfTestRunner
     {
 
+        protected byte[] byteArray;
+
+        protected CoordinateProper[] coordinateArray;
+
+        protected string delimitedString;
+
         /// <summary>
         /// The person fixed collection
         /// </summary>
@@ -51,14 +57,14 @@ namespace dotNetTips.Utility.Benchmarks
         protected PersonCollection<PersonProper> personProperCollection;
 
         /// <summary>
-        /// The person proper collection half count
-        /// </summary>
-        protected List<PersonProper> personProperListHalf;
-
-        /// <summary>
         /// The person proper dictionary
         /// </summary>
         protected Dictionary<string, PersonProper> personProperDictionary;
+
+        /// <summary>
+        /// The person proper collection half count
+        /// </summary>
+        protected List<PersonProper> personProperListHalf;
 
         /// <summary>
         /// The sortable person proper collection
@@ -69,12 +75,6 @@ namespace dotNetTips.Utility.Benchmarks
         /// The test email
         /// </summary>
         protected string testEmail;
-
-        protected byte[] byteArray;
-
-        protected CoordinateProper[] coordinateArray;
-
-        protected string delimitedString;
 
         /// <summary>
         /// Gets or sets the collection count.
@@ -100,18 +100,18 @@ namespace dotNetTips.Utility.Benchmarks
 
             this.personProperDictionary = this.personProperCollection.ToDictionary(p => p.Id);
 
-            this.testEmail = this.personProperCollection[RandomData.GenerateInteger(0, this.CollectionCount - 1)].Email;
+            this.testEmail = this.personProperCollection.Shuffle().First().Email;
 
             this.sortablePersonProperCollection = new PersonCollection<PersonProper>(this.personProperCollection);
 
             this.personProperArrayFull = this.personProperCollection.ToArray();
-            this.personProperArrayHalf = this.personProperCollection.Take(CollectionCount / 2).ToArray();
+            this.personProperArrayHalf = this.personProperCollection.Take(this.CollectionCount / 2).ToArray();
 
-            this.personProperListHalf = this.personProperCollection.Take(CollectionCount / 2).ToList();
+            this.personProperListHalf = this.personProperCollection.Take(this.CollectionCount / 2).ToList();
 
-            this.byteArray = RandomData.GenerateByteArray(CollectionCount / 2);
+            this.byteArray = RandomData.GenerateByteArray(this.CollectionCount / 2);
 
-            this.coordinateArray = RandomData.GenerateCoordinateCollection<CoordinateProper>(CollectionCount).ToArray();
+            this.coordinateArray = RandomData.GenerateCoordinateCollection<CoordinateProper>(this.CollectionCount).ToArray();
 
             this.delimitedString = this.coordinateArray.ToDelimitedString();
         }

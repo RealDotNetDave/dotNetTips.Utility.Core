@@ -6,8 +6,8 @@
 // Last Modified By : David McCarter
 // Last Modified On : 08-04-2020
 // ***********************************************************************
-// <copyright file="ObjectExtensions.cs" company="dotNetTips.com - David McCarter">
-//     dotNetTips.com - David McCarter
+// <copyright file="ObjectExtensions.cs" company="David McCarter - dotNetTips.com">
+//     David McCarter - dotNetTips.com
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -20,6 +20,7 @@ using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 using System.Text;
+using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.Extensions.Properties;
 
 namespace dotNetTips.Utility.Standard.Extensions
@@ -33,7 +34,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Converts object to a different type.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="value">The value.</param>
         /// <returns>T.</returns>
         /// <exception cref="ArgumentNullException">value - Value cannot be null.</exception>
@@ -50,11 +51,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Clones the specified object.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="obj">The object.</param>
         /// <returns>T.</returns>
         /// <exception cref="ArgumentNullException">obj</exception>
-        public static T Clone<T>(this object obj) where T : class
+        public static T Clone<T>(this object obj)
+            where T : class
         {
             if (obj is null)
             {
@@ -158,20 +160,25 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Creates object from Json.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="input">The json.</param>
         /// <returns>T.</returns>
-        public static T FromJson<T>(this string input) where T : class => JsonSerializer.Deserialize<T>(input);
+        public static T FromJson<T>(this string input)
+            where T : class
+        {
+            return JsonSerializer.Deserialize<T>(input);
+        }
 
         /// <summary>
         /// Creates object from a Json file.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="fileName">Name of the file.</param>
         /// <returns>T.</returns>
         /// <exception cref="FileNotFoundException">The exception.</exception>
         /// <exception cref="System.IO.FileNotFoundException">The exception.</exception>
-        public static T FromJsonFile<T>(string fileName) where T : class
+        public static T FromJsonFile<T>(string fileName)
+            where T : class
         {
             if (File.Exists(fileName) == false)
             {
@@ -205,7 +212,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Ins the specified source.
         /// </summary>
-        /// <typeparam name="T">The type of T.</typeparam>
+        /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="list">The list.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
@@ -219,12 +226,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// Initializes the fields of an object.
         /// </summary>
         /// <param name="obj">The object.</param>
-        /// <exception cref="ArgumentNullException">obj</exception>
+        /// <exception cref="ArgumentNullException">Input cannot be null.</exception>
         public static void InitializeFields(this object obj)
         {
-            if (obj == null)
+            if (obj.IsNull())
             {
-                throw new ArgumentNullException(nameof(obj), $"{nameof(obj)} is null.");
+                ExceptionThrower.ThrowArgumentNullException(nameof(obj));
             }
 
             var fieldInfos = obj.GetType().GetRuntimeFields().ToList();

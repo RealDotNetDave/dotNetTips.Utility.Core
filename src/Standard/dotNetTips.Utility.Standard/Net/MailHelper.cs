@@ -6,7 +6,7 @@
 // Last Modified By : David McCarter
 // Last Modified On : 08-07-2020
 // ***********************************************************************
-// <copyright file="MailHelper.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="MailHelper.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
@@ -168,7 +168,7 @@ namespace dotNetTips.Utility.Standard.Net
 
                 // Check for completion. We are valid if we hit the end of the data string or if the rest of the data
                 // belongs to another address.
-                if (index >= 0 && !(expectMultipleAddresses && data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Comma))
+                if (index >= 0 && !( expectMultipleAddresses && data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Comma ))
                 {
                     // If there was still data, only a comma could have been the next valid character
                     return throwExceptionIfFail ? throw new FormatException($"Invalid character: {data[index]}.") : false;
@@ -359,7 +359,7 @@ namespace dotNetTips.Utility.Standard.Net
                     // Mismatched angle brackets
                     if (throwExceptionIfFail)
                     {
-                        throw new FormatException($"Invalid character: {(index >= 0 ? data[index] : dotNetTips.Utility.Standard.Common.ControlChars.EndAngleBracket)}.");
+                        throw new FormatException($"Invalid character: {( index >= 0 ? data[index] : dotNetTips.Utility.Standard.Common.ControlChars.EndAngleBracket )}.");
                     }
                     else
                     {
@@ -371,7 +371,7 @@ namespace dotNetTips.Utility.Standard.Net
 
             // Is there anything left to parse?
             // There could still be a display name or another address
-            if (index >= 0 && !(expectMultipleAddresses && data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Comma))
+            if (index >= 0 && !( expectMultipleAddresses && data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Comma ))
             {
                 if (!TryParseDisplayName(data, ref index, expectMultipleAddresses, out displayName, throwExceptionIfFail))
                 {
@@ -403,8 +403,7 @@ namespace dotNetTips.Utility.Standard.Net
         // Throws a FormatException or false is returned:
         // - For invalid un-escaped chars, including Unicode
         // - If the final value of data[index] is not a valid character to precede the local-part
-        private static bool TryParseLocalPart(string data, ref int index, bool expectAngleBracket,
-            bool expectMultipleAddresses, out string localPart, bool throwExceptionIfFail)
+        private static bool TryParseLocalPart(string data, ref int index, bool expectAngleBracket, bool expectMultipleAddresses, out string localPart, bool throwExceptionIfFail)
         {
             // Skip comments and whitespace
             if (!TryReadCfwsAndThrowIfIncomplete(data, index, out index, throwExceptionIfFail))
@@ -440,10 +439,10 @@ namespace dotNetTips.Utility.Standard.Net
                         !(
                             MailBnfHelper.IsAllowedWhiteSpace(data[index]) // < local@domain >
                             || data[index] == dotNetTips.Utility.Standard.Common.ControlChars.EndComment // <(comment)local@domain>
-                            || (expectAngleBracket && data[index] == dotNetTips.Utility.Standard.Common.ControlChars.StartAngleBracket) // <local@domain>
-                            || (expectMultipleAddresses && data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Comma) // local@dom,local@dom
-                                                                                                                                 // Note: The following condition is more lax than the RFC.  This is done so we could support
-                                                                                                                                 // a common invalid formats as shown below.
+                            || ( expectAngleBracket && data[index] == dotNetTips.Utility.Standard.Common.ControlChars.StartAngleBracket ) // <local@domain>
+                            || ( expectMultipleAddresses && data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Comma ) // local@dom,local@dom
+                                                                                                                                   // Note: The following condition is more lax than the RFC.  This is done so we could support
+                                                                                                                                   // a common invalid formats as shown below.
                             || data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Quote // "display"local@domain
                         )
                     )
