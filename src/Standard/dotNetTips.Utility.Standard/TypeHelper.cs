@@ -4,7 +4,7 @@
 // Created          : 08-09-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-07-2020
+// Last Modified On : 11-05-2020
 // ***********************************************************************
 // <copyright file="TypeHelper.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
@@ -12,7 +12,9 @@
 // <summary></summary>
 // ***********************************************************************
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -28,9 +30,14 @@ namespace dotNetTips.Utility.Standard
     /// </summary>
     public static class TypeHelper
     {
-
+        /// <summary>
+        /// The default nested type delimiter
+        /// </summary>
         private const char DefaultNestedTypeDelimiter = '+';
 
+        /// <summary>
+        /// The built in type names
+        /// </summary>
         private static readonly Dictionary<Type, string> _builtInTypeNames = new Dictionary<Type, string>
         {
             { typeof(void), "void" },
@@ -48,7 +55,7 @@ namespace dotNetTips.Utility.Standard
             { typeof(string), "string" },
             { typeof(uint), "uint" },
             { typeof(ulong), "ulong" },
-            { typeof(ushort), "ushort" }
+            { typeof(ushort), "ushort" },
         };
 
         /// <summary>
@@ -57,7 +64,8 @@ namespace dotNetTips.Utility.Standard
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <returns>T.</returns>
         /// <remarks>Original code by: Jeremy Clark</remarks>
-        public static T Create<T>() where T : class
+        public static T Create<T>()
+            where T : class
         {
             var instance = Activator.CreateInstance<T>();
 
@@ -213,6 +221,47 @@ namespace dotNetTips.Utility.Standard
         }
 
         /// <summary>
+        /// Gets the property values from a type.
+        /// </summary>
+        /// <typeparam name="T">Generic type.</typeparam>
+        /// <param name="input">The input.</param>
+        /// <returns>ImmutableDictionary&lt;System.String, System.String&gt;.</returns>
+        [Information(nameof(GetPropertyValues), author: "David McCarter", createdOn: "11/03/2020", modifiedOn: "11/03/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        public static ImmutableDictionary<string, string> GetPropertyValues<T>(T input)
+        {
+            Encapsulation.TryValidateParam<ArgumentNullException>(input.IsNotNull(), nameof(input));
+
+            var returnValue = new Dictionary<string, string>();
+
+            var properties = input.GetType().GetAllProperties().Where(p => p.CanRead == true).ToArray();
+
+            foreach (var propertyInfo in properties)
+            {
+                if (propertyInfo.PropertyType.Name == "IDictionary")
+                {
+                    var propertyValue = propertyInfo.GetValue(input) as IDictionary;
+
+                    if (propertyValue?.Count > 0)
+                    {
+                        returnValue.AddIfNotExists(new KeyValuePair<string, string>(propertyInfo.Name, propertyValue.ToDelimitedString()));
+                    }
+                }
+                else
+                {
+                    // Get property value
+                    var propertyValue = propertyInfo.GetValue(input);
+
+                    if (propertyValue.IsNotNull())
+                    {
+                        returnValue.AddIfNotExists(propertyInfo.Name, propertyValue.ToString());
+                    }
+                }
+            }
+
+            return returnValue.ToImmutableDictionary();
+        }
+
+        /// <summary>
         /// Gets the display name of the type.
         /// </summary>
         /// <param name="item">The item.</param>
@@ -288,6 +337,12 @@ namespace dotNetTips.Utility.Standard
             }
         }
 
+        /// <summary>
+        /// Processes the type of the array.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="type">The type.</param>
+        /// <param name="options">The options.</param>
         private static void ProcessArrayType(StringBuilder builder, Type type, in DisplayNameOptions options)
         {
             Type innerType = type;
@@ -307,6 +362,14 @@ namespace dotNetTips.Utility.Standard
             }
         }
 
+        /// <summary>
+        /// Processes the type of the generic.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="type">The type.</param>
+        /// <param name="genericArguments">The generic arguments.</param>
+        /// <param name="length">The length.</param>
+        /// <param name="options">The options.</param>
         private static void ProcessGenericType(StringBuilder builder, Type type, Type[] genericArguments, int length, in DisplayNameOptions options)
         {
             var offset = 0;
@@ -363,6 +426,12 @@ namespace dotNetTips.Utility.Standard
             }
         }
 
+        /// <summary>
+        /// Processes the type.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="type">The type.</param>
+        /// <param name="options">The options.</param>
         private static void ProcessType(StringBuilder builder, Type type, in DisplayNameOptions options)
         {
             if (type.IsGenericType)
@@ -398,7 +467,7 @@ namespace dotNetTips.Utility.Standard
         }
 
         /// <summary>
-        /// Struct DisplayNameOptions
+        /// Struct DisplayNameOptions.
         /// </summary>
         private readonly struct DisplayNameOptions
         {
@@ -412,10 +481,10 @@ namespace dotNetTips.Utility.Standard
             /// <param name="nestedTypeDelimiter">The nested type delimiter.</param>
             public DisplayNameOptions(bool fullName, bool includeGenericParameterNames, bool includeGenericParameters, char nestedTypeDelimiter)
             {
-                FullName = fullName;
-                IncludeGenericParameters = includeGenericParameters;
-                IncludeGenericParameterNames = includeGenericParameterNames;
-                NestedTypeDelimiter = nestedTypeDelimiter;
+                this.FullName = fullName;
+                this.IncludeGenericParameters = includeGenericParameters;
+                this.IncludeGenericParameterNames = includeGenericParameterNames;
+                this.NestedTypeDelimiter = nestedTypeDelimiter;
             }
 
             /// <summary>

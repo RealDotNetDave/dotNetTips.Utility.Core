@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
@@ -522,6 +523,21 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             _ = Assert.ThrowsException<ArgumentNullException>(nullList.Shuffle);
 
             Assert.IsTrue(people.Shuffle(5).Count() == 5);
+        }
+
+        [TestMethod]
+        public void ToDelimitedDictionaryTest()
+        {
+            var words = RandomData.GenerateWords(10, 25, 50);
+
+            var dic = new Dictionary<string, string>(10);
+
+            foreach (var item in words)
+            {
+                dic.Add(item, item);
+            }
+
+            Assert.IsNotNull(( dic as IDictionary ).ToDelimitedString(','));
         }
 
         [TestMethod]

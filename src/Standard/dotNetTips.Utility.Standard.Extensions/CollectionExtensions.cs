@@ -4,7 +4,7 @@
 // Created          : 02-14-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 09-21-2020
+// Last Modified On : 11-05-2020
 // ***********************************************************************
 // <copyright file="CollectionExtensions.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
@@ -31,10 +31,21 @@ namespace dotNetTips.Utility.Standard.Extensions
     /// </summary>
     public static class CollectionExtensions
     {
+        /// <summary>
+        /// The random
+        /// </summary>
         [ThreadStatic]
         private static Random _random;
+
+        /// <summary>
+        /// The global random
+        /// </summary>
         private static Random globalRandom = new Random();
 
+        /// <summary>
+        /// Gets the random.
+        /// </summary>
+        /// <value>The random.</value>
         private static Random random
         {
             get
@@ -392,7 +403,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Adds the items to the collection.
         /// </summary>
-        //// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <typeparam name="T"></typeparam>
         /// <param name="list">The list.</param>
         /// <param name="items">The new items.</param>
         /// <param name="insureUnique">Set to true if items added to list are unique.</param>
@@ -839,6 +850,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">alternate</exception>
         /// <exception cref="ArgumentNullException">predicate</exception>
         /// <exception cref="ArgumentNullException">alternate</exception>
+        /// <exception cref="ArgumentNullException">predicate</exception>
         /// <remarks>Original code from efcore-master on GitHub.</remarks>
         public static T FirstOrDefault<T>(this IEnumerable<T> source, Func<T, bool> predicate, T alternate)
         {
@@ -1147,7 +1159,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Orders collection by <see cref="StringComparer.Ordinal"/>
+        /// Orders collection by <see cref="StringComparer.Ordinal" />
         /// </summary>
         /// <typeparam name="TSource">The type of the t source.</typeparam>
         /// <param name="source">The source.</param>
@@ -1218,10 +1230,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="secondKeySelector">The second key selector.</param>
         /// <param name="aggregate">The aggregate.</param>
         /// <returns>Dictionary&lt;TFirstKey, Dictionary&lt;TSecondKey, TValue&gt;&gt;.</returns>
-        /// <exception cref="ArgumentNullException">
-        /// list - Source cannot be null or have a 0 value. or list - Aggregate cannot be null. or firstKeySelector -
-        /// First key selector cannot be null. or secondKeySelector - Second key selector cannot be null.
-        /// </exception>
+        /// <exception cref="ArgumentNullException">list - Source cannot be null or have a 0 value. or list - Aggregate cannot be null. or firstKeySelector -
+        /// First key selector cannot be null. or secondKeySelector - Second key selector cannot be null.</exception>
         public static Dictionary<TFirstKey, Dictionary<TSecondKey, TValue>> Pivot<TSource, TFirstKey, TSecondKey, TValue>(this IEnumerable<TSource> list,
                                                                                                                           Func<TSource, TFirstKey> firstKeySelector,
                                                                                                                           Func<TSource, TSecondKey> secondKeySelector,
@@ -1428,6 +1438,42 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
+        /// Converts IDictionary to delimited string.
+        /// </summary>
+        /// <param name="list">The list.</param>
+        /// <param name="delimiter">The delimiter.</param>
+        /// <returns>System.String.</returns>
+        [Information(nameof(ToDelimitedString), "David McCarter", "11/03/2020", "11/05/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.New, UnitTestCoverage = 0)]
+        public static string ToDelimitedString(this IDictionary list, char delimiter = ',')
+        {
+            if (delimiter.IsNull())
+            {
+                ExceptionThrower.ThrowArgumentNullException(nameof(delimiter));
+            }
+
+            if (list.HasItems() == false)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                var sb = new StringBuilder();
+
+                foreach (DictionaryEntry item in list)
+                {
+                    if (sb.Length > 0)
+                    {
+                        sb.Append(delimiter.ToString(CultureInfo.CurrentCulture));
+                    }
+
+                    sb.Append($"{item.Key}: {item.Value}");
+                }
+
+                return sb.ToString();
+            }
+        }
+
+        /// <summary>
         /// Convert a list to a delimited string.
         /// </summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
@@ -1500,11 +1546,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         { return ImmutableList.CreateRange<T>(values); }
 
         /// <summary>
-        /// Converts to ImmutableHashSet<typeparamref name="T"/>&gt;.
+        /// Converts to ImmutableHashSet<typeparamref name="T" />&gt;.
         /// </summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="values">The values.</param>
-        /// <returns>ImmutableHashSet<typeparamref name="T"/>&gt;.</returns>
+        /// <returns>ImmutableHashSet<typeparamref name="T" />&gt;.</returns>
         public static ImmutableHashSet<T> ToImmutable<T>(this HashSet<T> values)
         { return ImmutableHashSet.CreateRange<T>(values); }
 
@@ -1554,7 +1600,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         //}
 
         /// <summary>
-        /// Converts <see cref="IEnumerable"/> collection to a <see cref="List{T}"/>.
+        /// Converts <see cref="IEnumerable" /> collection to a <see cref="List{T}" />.
         /// </summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="source">The source.</param>
@@ -1609,9 +1655,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="key">The key.</param>
         /// <param name="value">The value.</param>
         /// <returns>TValue.</returns>
+        /// <exception cref="ArgumentNullException">dictionary</exception>
+        /// <exception cref="ArgumentNullException">key</exception>
+        /// <exception cref="ArgumentNullException">value</exception>
         /// <exception cref="ArgumentNullException">Input cannot be null or have no items in the collection.</exception>
         /// <exception cref="ArgumentNullException">Key cannot be null.</exception>
-        /// <exception cref="ArgumentNullException">Value cannot be null</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static TValue Upsert<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
@@ -1702,19 +1750,21 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Class DynamicEqualityComparer. This class cannot be inherited. Implements the <see
-        /// cref="System.Collections.Generic.IEqualityComparer{T}"/>
+        /// Class DynamicEqualityComparer. This class cannot be inherited. Implements the <see cref="System.Collections.Generic.IEqualityComparer{T}" />
         /// </summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <seealso cref="System.Collections.Generic.IEqualityComparer{T}"/>
+        /// <seealso cref="System.Collections.Generic.IEqualityComparer{T}" />
         /// <remarks>Original code from efcore-master on GitHub.</remarks>
         private sealed class DynamicEqualityComparer<T> : IEqualityComparer<T>
             where T : class
         {
+            /// <summary>
+            /// The function
+            /// </summary>
             private readonly Func<T, T, bool> _func;
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="DynamicEqualityComparer{T}"/> class.
+            /// Initializes a new instance of the <see cref="DynamicEqualityComparer{T}" /> class.
             /// </summary>
             /// <param name="func">The function.</param>
             public DynamicEqualityComparer(Func<T, T, bool> func)
@@ -1734,10 +1784,8 @@ namespace dotNetTips.Utility.Standard.Extensions
             /// Returns a hash code for this instance.
             /// </summary>
             /// <param name="obj">The <see cref="T:System.Object"></see> for which a hash code is to be returned.</param>
-            /// <returns>
-            /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash
-            /// table.
-            /// </returns>
+            /// <returns>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash
+            /// table.</returns>
             public int GetHashCode(T obj) => 0;
         }
     }

@@ -4,7 +4,7 @@
 // Created          : 07-11-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 09-21-2020
+// Last Modified On : 11-05-2020
 // ***********************************************************************
 // <copyright file="PathHelperc.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
@@ -25,38 +25,26 @@ namespace dotNetTips.Utility.Standard.IO
     /// </summary>
     public static class PathHelper
     {
-
         /// <summary>
         /// Gets the invalid filter chars.
         /// </summary>
         /// <value>The invalid filter chars.</value>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
-        public static char[] InvalidFilterChars
-        {
-            get;
-        } = FileHelper.InvalidFileNameChars.Where(c => c != '*' && c != '|' && c != '?').ToArray();
+        public static char[] InvalidFilterChars => FileHelper.InvalidFileNameChars.Where(c => c != '*' && c != '|' && c != '?').ToArray();
 
         /// <summary>
         /// Gets the invalid path name chars.
         /// </summary>
         /// <value>The invalid path name chars.</value>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
-        public static char[] InvalidPathNameChars
-        {
-            get;
-        } = Path.GetInvalidPathChars()
-            .Where(c => c != Path.DirectorySeparatorChar && c != Path.AltDirectorySeparatorChar)
-            .ToArray();
+        public static char[] InvalidPathNameChars => Path.GetInvalidPathChars().Where(c => c != Path.DirectorySeparatorChar && c != Path.AltDirectorySeparatorChar).ToArray();
 
         /// <summary>
         /// Gets the path separators.
         /// </summary>
         /// <value>The path separators.</value>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, Status = Status.Available)]
-        public static char[] PathSeparators
-        {
-            get;
-        } = new[] { Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar };
+        public static char[] PathSeparators => new[] { Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar };
 
         /// <summary>
         /// Combines the paths.
