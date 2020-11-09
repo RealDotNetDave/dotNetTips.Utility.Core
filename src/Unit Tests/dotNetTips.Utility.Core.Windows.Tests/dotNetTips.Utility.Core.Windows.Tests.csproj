@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <IsPackable>false</IsPackable>
-    <AssemblyVersion>2020.11.5.92</AssemblyVersion>
-    <FileVersion>2020.11.5.92</FileVersion>
+    <AssemblyVersion>2020.11.9.93</AssemblyVersion>
+    <FileVersion>2020.11.9.93</FileVersion>
     <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
       <Authors>David McCarter - dotNetTips.com</Authors>
