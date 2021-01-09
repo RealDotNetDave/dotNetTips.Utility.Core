@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-04-2020
+// Last Modified On : 11-19-2020
 // ***********************************************************************
 // <copyright file="ObjectExtensions.cs" company="David McCarter - dotNetTips.com">
 //     David McCarter - dotNetTips.com
@@ -13,11 +13,11 @@
 // ***********************************************************************
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 using System.Text;
 using dotNetTips.Utility.Standard.Common;
@@ -26,18 +26,17 @@ using dotNetTips.Utility.Standard.Extensions.Properties;
 namespace dotNetTips.Utility.Standard.Extensions
 {
     /// <summary>
-    /// Class ObjectExtensions.
+    /// Extension methods for objects.
     /// </summary>
     public static class ObjectExtensions
     {
-
         /// <summary>
         /// Converts object to a different type.
         /// </summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="value">The value.</param>
         /// <returns>T.</returns>
-        /// <exception cref="ArgumentNullException">value - Value cannot be null.</exception>
+        /// <exception cref="ArgumentNullException">value</exception>
         public static T As<T>(this object value)
         {
             if (value == null)
@@ -63,15 +62,9 @@ namespace dotNetTips.Utility.Standard.Extensions
                 throw new ArgumentNullException(nameof(obj));
             }
 
-            using (var stream = new MemoryStream())
-            {
-                var formatter = new BinaryFormatter();
+            var json = JsonSerializer.Serialize(obj);
 
-                formatter.Serialize(stream, obj);
-                stream.Seek(0, SeekOrigin.Begin);
-
-                return formatter.Deserialize(stream) as T;
-            }
+            return JsonSerializer.Deserialize<T>(json);
         }
 
         /// <summary>
@@ -175,8 +168,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="fileName">Name of the file.</param>
         /// <returns>T.</returns>
-        /// <exception cref="FileNotFoundException">The exception.</exception>
-        /// <exception cref="System.IO.FileNotFoundException">The exception.</exception>
+        /// <exception cref="FileNotFoundException"></exception>
+        /// <exception cref="System.IO.FileNotFoundException"></exception>
         public static T FromJsonFile<T>(string fileName)
             where T : class
         {
@@ -196,7 +189,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="obj">The instance.</param>
         /// <param name="propertyName">Name of the property.</param>
         /// <returns><c>true</c> if the specified property name has property; otherwise, <c>false</c>.</returns>
-        /// <exception cref="ArgumentNullException">propertyName - Source cannot be null.</exception>
+        /// <exception cref="ArgumentNullException">obj</exception>
         public static bool HasProperty(this object obj, string propertyName)
         {
             if (obj is null)
@@ -220,7 +213,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// or
         /// list - List cannot be null or have a 0 length.</exception>
         /// <remarks>Original code by: Rory Becker</remarks>
-        public static bool In<T>(this T source, params T[] list) => list.FastAny(value => value.Equals(source));
+        public static bool In<T>(this T source, params T[] list)
+        {
+            return list.FastAny(value => value.Equals(source));
+        }
 
         /// <summary>
         /// Initializes the fields of an object.
@@ -245,7 +241,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 if (runtimeField != null)
                 {
                     var t = Nullable.GetUnderlyingType(runtimeField.FieldType) ?? runtimeField.FieldType;
-                    var safeValue = (objectValue == null)
+                    var safeValue = ( objectValue == null )
                         ? null
                         : Convert.ChangeType(objectValue, t, CultureInfo.InvariantCulture);
                     runtimeField.SetValue(obj, safeValue);
@@ -268,11 +264,100 @@ namespace dotNetTips.Utility.Standard.Extensions
         public static bool IsNull(this object obj) => obj is null;
 
         /// <summary>
+        /// Generates a Dictionary that represents the property name (Key) and it's value.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="bindingFlags">The binding flags.</param>
+        /// <returns>IDictionary&lt;System.String, System.Object&gt;.</returns>
+        /// <example>Output:
+        /// [Address1, `fqrZjAqTNANUNIyJWFyNjCQx]
+        /// [Address2, bSUnkmaIIMutgJtAKYZANpSHM]
+        /// [Age, 23360.00:00:00.0086580]
+        /// [BornOn, 1/23/1957 2:45:24 PM -08:00]
+        /// [CellPhone, 704-375-5873]
+        /// [City, fDbZYFMANE\MLxD]
+        /// [Country, RbPjkyMasw`gnWR]
+        /// [Email, thmiduaodph@djpumhmaheckkmrmwkkpxs.gov]
+        /// [FirstName, ugdv\bhaHgSY^Ui]
+        /// [HomePhone, 147-205-1085]
+        /// [Id, f1bcbdbdf18a4adaa89e46383b235008]
+        /// [LastName, H^hkKhwWggIrUCYbbxiFEJGJM]
+        /// [PostalCode, 86560656].
+        /// </example>
+        [Information(nameof(PropertiesToDictionary), author: "David McCarter", createdOn: "11/18/2020", modifiedOn: "11/19/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        public static IDictionary<string, object> PropertiesToDictionary(this object input, BindingFlags bindingFlags = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance)
+        {
+            if (input == null)
+            {
+                ExceptionThrower.ThrowArgumentNullException(nameof(input));
+            }
+
+            return input.GetType()
+                 .GetProperties(bindingFlags | BindingFlags.GetProperty)
+                 .ToDictionary(prop => prop.Name, prop => prop.GetValue(input, null));
+        }
+
+        /// <summary>
+        /// Generates a string that returns the property names and values.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="ignoreNullValues">if set to <c>true</c> [ignore null values].</param>
+        /// <param name="delimiter">The delimiter.</param>
+        /// <example>Output:
+        /// Address1: xBVmMEitqQnddvMgWffRKErLB, Address2: LR[VNjF^]MRCJFApcafSqMFff,
+        /// Age: 14235.00:00:00.0043961, BornOn: 1/16/1982 3:22:54 PM -08:00,
+        /// CellPhone: 452-481-1606, City: O^caiGGiudMae[a, Country: ]LsJxMnjjL]NySI,
+        /// Email: kbgocycpscjsahxxuxjxho@nltvj.org.uk, FirstName: sHWlko\\Ws\\_GPYr,
+        /// HomePhone: 706-324-3081, Id: 5c8666c0cb60482c8359836e753b62bb, LastName: boChHREjWqxyyQ\\[`u[qoBJJj,
+        /// PostalCode: 30406403.
+        /// </example>
+        /// <returns>System.String.</returns>
+        [Information(nameof(PropertiesToString), author: "David McCarter", createdOn: "11/18/2020", modifiedOn: "11/19/2020", UnitTestCoverage = 90, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        public static string PropertiesToString(this object input, bool ignoreNullValues, char delimiter = ControlChars.Comma)
+        {
+            if (input == null)
+            {
+                ExceptionThrower.ThrowArgumentNullException(nameof(input));
+            }
+
+            // TODO: LOOK INTO MAKING THIS BETTER WITH TYPES LIKE COLLECTIONS AND GENERICS.
+            var properties = input.PropertiesToDictionary();
+
+            if (properties.Count == 0)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                var sb = new StringBuilder();
+
+                foreach (var property in properties)
+                {
+                    if (ignoreNullValues && property.Value.IsNull())
+                    {
+                        // Ignore
+                    }
+                    else
+                    {
+                        sb.Append($"{property.Key}: {property.Value}{delimiter} ");
+                    }
+                }
+
+                var returnValue = sb.ToString(0, sb.Length - 1);
+
+                return returnValue;
+            }
+        }
+
+        /// <summary>
         /// Strips the null.
         /// </summary>
         /// <param name="input">The field.</param>
         /// <returns>System.String.</returns>
-        public static string StripNull(this object input) => input == null ? string.Empty : input.ToString();
+        public static string StripNull(this object input)
+        {
+            return input == null ? string.Empty : input.ToString();
+        }
 
         /// <summary>
         /// Serializes object to Json.
@@ -284,7 +369,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             if (obj is null)
             {
-                throw new ArgumentNullException(nameof(obj));
+                ExceptionThrower.ThrowArgumentNullException(nameof(obj));
             }
 
             return JsonSerializer.Serialize(obj);
@@ -301,12 +386,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             if (obj is null)
             {
-                throw new ArgumentNullException(nameof(obj));
+                ExceptionThrower.ThrowArgumentNullException(nameof(obj));
             }
 
             if (string.IsNullOrEmpty(fileName))
             {
-                throw new ArgumentException("message", nameof(fileName));
+                ExceptionThrower.ThrowArgumentException("File name is missing.", nameof(fileName));
             }
 
             var json = JsonSerializer.Serialize(obj);
@@ -355,6 +440,5 @@ namespace dotNetTips.Utility.Standard.Extensions
                 }
             }
         }
-
     }
 }

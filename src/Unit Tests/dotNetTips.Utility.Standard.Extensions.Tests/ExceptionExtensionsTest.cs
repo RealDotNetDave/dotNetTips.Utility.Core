@@ -1,42 +1,15 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Security;
 using System.ServiceModel.Security;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dotNetTips.Utility.Standard.Extensions.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestClass]
     public class ExceptionExtensionsTest
     {
-        [TestMethod]
-        public void IsCriticalTest()
-        {
-            var exGood = new NullReferenceException();
-            var exBad = new ArgumentNullException();
-
-            Assert.IsTrue(exGood.IsCritical());
-            Assert.IsFalse(exBad.IsCritical());
-        }
-
-        [TestMethod]
-        public void IsSecurityOrCriticalTest()
-        {
-            var exGood = new SecurityException();
-            var exBad = new ArgumentNullException();
-
-            Assert.IsTrue(exGood.IsSecurityOrCritical());
-            Assert.IsFalse(exBad.IsSecurityOrCritical());
-        }
-
-        [TestMethod]
-        public void IsFatalTest()
-        {
-            var exGood = new OutOfMemoryException();
-            var exBad = new ArgumentNullException();
-
-            Assert.IsTrue(exGood.IsFatal());
-            Assert.IsFalse(exBad.IsFatal());
-        }
 
         [TestMethod]
         public void GetAllMessagesTest()
@@ -61,6 +34,35 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
             var messages = ex.GetAllMessagesWithStackTrace(",");
 
             Assert.IsTrue(messages.HasItems());
+        }
+        [TestMethod]
+        public void IsCriticalTest()
+        {
+            var exGood = new NullReferenceException();
+            var exBad = new ArgumentNullException();
+
+            Assert.IsTrue(exGood.IsCritical());
+            Assert.IsFalse(exBad.IsCritical());
+        }
+
+        [TestMethod]
+        public void IsFatalTest()
+        {
+            var exGood = new OutOfMemoryException();
+            var exBad = new ArgumentNullException();
+
+            Assert.IsTrue(exGood.IsFatal());
+            Assert.IsFalse(exBad.IsFatal());
+        }
+
+        [TestMethod]
+        public void IsSecurityOrCriticalTest()
+        {
+            var exGood = new SecurityException();
+            var exBad = new ArgumentNullException();
+
+            Assert.IsTrue(exGood.IsSecurityOrCritical());
+            Assert.IsFalse(exBad.IsSecurityOrCritical());
         }
     }
 }

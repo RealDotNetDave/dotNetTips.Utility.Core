@@ -26,6 +26,6 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// The beginning of the period
         /// </summary>
-        BeginningPeriod
+        BeginningPeriod,
     }
 }

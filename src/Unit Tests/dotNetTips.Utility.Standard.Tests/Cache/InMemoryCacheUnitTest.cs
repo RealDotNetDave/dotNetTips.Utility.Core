@@ -4,44 +4,37 @@
 // Created          : 06-10-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 03-09-2020
+// Last Modified On : 11-19-2020
 // ***********************************************************************
 // <copyright file="InMemoryCacheUnitTest.cs" company="McCarter Consulting">
 //     David McCarter - dotNetTips.com
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using System.Diagnostics.CodeAnalysis;
 using dotNetTips.Utility.Standard.Cache;
 using dotNetTips.Utility.Standard.Tester;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dotNetTips.Tips.Utility.Standard.Tests.Cache
 {
-    /// <summary>
-    /// Class InMemoryCacheUnitTest.
-    /// </summary>
+    [ExcludeFromCodeCoverage]
     [TestClass]
     public class InMemoryCacheUnitTest
     {
-        /// <summary>
-        /// The test count
-        /// </summary>
-        private const int _testCount = 100;
+        private const int TestCount = 100;
 
-        /// <summary>
-        /// Adds the items to cache.
-        /// </summary>
         [TestMethod]
         public void AddItemsToCacheTest()
         {
             var cache = InMemoryCache.Instance;
 
-            for(int count = 0; count < _testCount; count++)
+            for (var count = 0; count < TestCount; count++)
             {
                 cache.AddCacheItem<int>(key: RandomData.GenerateKey(), item: RandomData.GenerateInteger(count, 1000000));
             }
 
-            Assert.IsTrue(cache.Count == _testCount);
+            Assert.IsTrue(cache.Count == TestCount);
         }
     }
 }

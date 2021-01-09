@@ -2,7 +2,7 @@
 using dotNetTips.Utility.Standard.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace dotNetTips.Utility.Standard.Tester.Tests
+namespace dotNetTips.Utility.Standard.Common.Tests
 {
     [TestClass]
     public class EnumHelperTests

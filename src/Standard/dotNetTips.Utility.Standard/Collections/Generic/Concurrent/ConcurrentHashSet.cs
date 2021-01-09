@@ -4,7 +4,7 @@
 // Created          : 03-14-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-07-2020
+// Last Modified On : 11-19-2020
 // ***********************************************************************
 // <copyright file="ConcurrentHashSet.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
@@ -61,43 +61,48 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         private volatile Tables _tables;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}"/> class.
+        /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}" /> class.
         /// </summary>
-        public ConcurrentHashSet() : this(DefaultConcurrencyLevel, _defaultCapacity, true, null)
+        public ConcurrentHashSet()
+            : this(DefaultConcurrencyLevel, _defaultCapacity, true, null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}"/> class.
+        /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}" /> class.
         /// </summary>
-        /// <param name="collection">The collection<see cref="IEnumerable{T}"/>.</param>
-        public ConcurrentHashSet(IEnumerable<T> collection) : this(collection, null)
+        /// <param name="collection">The collection<see cref="IEnumerable{T}" />.</param>
+        public ConcurrentHashSet(IEnumerable<T> collection)
+            : this(collection, null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}"/> class.
+        /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}" /> class.
         /// </summary>
-        /// <param name="comparer">The comparer<see cref="IEqualityComparer{T}"/>.</param>
-        public ConcurrentHashSet(IEqualityComparer<T> comparer) : this(DefaultConcurrencyLevel, _defaultCapacity, true, comparer)
+        /// <param name="comparer">The comparer<see cref="IEqualityComparer{T}" />.</param>
+        public ConcurrentHashSet(IEqualityComparer<T> comparer)
+            : this(DefaultConcurrencyLevel, _defaultCapacity, true, comparer)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}"/> class.
+        /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}" /> class.
         /// </summary>
         /// <param name="concurrencyLevel">The concurrency level.</param>
         /// <param name="capacity">The initial capacity for the collection.</param>
-        public ConcurrentHashSet(int concurrencyLevel, int capacity) : this(concurrencyLevel, capacity, false, null)
+        public ConcurrentHashSet(int concurrencyLevel, int capacity)
+            : this(concurrencyLevel, capacity, false, null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}"/> class.
+        /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}" /> class.
         /// </summary>
-        /// <param name="collection">The collection to preload items.</param>
+        /// <param name="collection">The collection to pre load items.</param>
         /// <param name="comparer">The comparer.</param>
-        public ConcurrentHashSet(IEnumerable<T> collection, IEqualityComparer<T> comparer) : this(comparer)
+        public ConcurrentHashSet(IEnumerable<T> collection, IEqualityComparer<T> comparer)
+            : this(comparer)
         {
             if (collection != null)
             {
@@ -106,12 +111,13 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}"/> class.
+        /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}" /> class.
         /// </summary>
-        /// <param name="concurrencyLevel">The concurrencyLevel<see cref="int"/>.</param>
-        /// <param name="collection">The collection<see cref="IEnumerable{T}"/>.</param>
-        /// <param name="comparer">The comparer<see cref="IEqualityComparer{T}"/>.</param>
-        public ConcurrentHashSet(int concurrencyLevel, IEnumerable<T> collection, IEqualityComparer<T> comparer) : this(concurrencyLevel, _defaultCapacity, false, comparer)
+        /// <param name="concurrencyLevel">The concurrencyLevel<see cref="int" />.</param>
+        /// <param name="collection">The collection<see cref="IEnumerable{T}" />.</param>
+        /// <param name="comparer">The comparer<see cref="IEqualityComparer{T}" />.</param>
+        public ConcurrentHashSet(int concurrencyLevel, IEnumerable<T> collection, IEqualityComparer<T> comparer)
+            : this(concurrencyLevel, _defaultCapacity, false, comparer)
         {
             if (collection != null)
             {
@@ -120,17 +126,18 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}"/> class.
+        /// Initializes a new instance of the <see cref="ConcurrentHashSet{T}" /> class.
         /// </summary>
-        /// <param name="concurrencyLevel">The concurrencyLevel<see cref="int"/>.</param>
-        /// <param name="capacity">The capacity<see cref="int"/>.</param>
-        /// <param name="comparer">The comparer<see cref="IEqualityComparer{T}"/>.</param>
-        public ConcurrentHashSet(int concurrencyLevel, int capacity, IEqualityComparer<T> comparer) : this(concurrencyLevel, capacity, false, comparer)
+        /// <param name="concurrencyLevel">The concurrencyLevel<see cref="int" />.</param>
+        /// <param name="capacity">The capacity<see cref="int" />.</param>
+        /// <param name="comparer">The comparer<see cref="IEqualityComparer{T}" />.</param>
+        public ConcurrentHashSet(int concurrencyLevel, int capacity, IEqualityComparer<T> comparer)
+            : this(concurrencyLevel, capacity, false, comparer)
         {
         }
 
         /// <summary>
-        /// Prevents a default instance of the <see cref="ConcurrentHashSet{T}"/> class from being created.
+        /// Prevents a default instance of the <see cref="ConcurrentHashSet{T}" /> class from being created.
         /// </summary>
         /// <param name="concurrencyLevel">The concurrency level. Must be a value of 1 or greater.</param>
         /// <param name="capacity">The capacity. Must be a value of 0 or greater.</param>
@@ -180,6 +187,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// <summary>
         /// Gets the number of items contained in the <see cref="ConcurrentHashSet{T}" />...
         /// </summary>
+        /// <value>The count.</value>
         public int Count
         {
             get
@@ -203,6 +211,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// <summary>
         /// Gets a value indicating whether this instance is empty...
         /// </summary>
+        /// <value><c>true</c> if this instance is empty; otherwise, <c>false</c>.</value>
         public bool IsEmpty
         {
             get
@@ -233,6 +242,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// <summary>
         /// Gets the default concurrency level...
         /// </summary>
+        /// <value>The default concurrency level.</value>
         private static int DefaultConcurrencyLevel => Environment.ProcessorCount;
 
         /// <summary>
@@ -246,6 +256,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// </summary>
         /// <param name="array">The one-dimensional <see cref="T:System.Array"></see> that is the destination of the elements copied from <see cref="T:System.Collections.Generic.ICollection`1"></see>. The <see cref="T:System.Array"></see> must have zero-based indexing.</param>
         /// <param name="arrayIndex">The zero-based index in array at which copying begins.</param>
+        /// <exception cref="ArgumentException">The index is equal to or greater than the length of the array, or the number of elements in the set is greater than the available space from index to the end of the destination array.</exception>
         void ICollection<T>.CopyTo(T[] array, int arrayIndex)
         {
             Encapsulation.TryValidateParam(array, nameof(array));
@@ -298,7 +309,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
         /// Adds the specified item to the <see cref="ConcurrentHashSet{T}" />.
         /// </summary>
         /// <param name="item">The item to add.</param>
-        /// <returns>The <see cref="bool"/>.</returns>
+        /// <returns>The <see cref="bool" />.</returns>
         public bool Add(T item)
         {
             return this.AddInternal(item, this._comparer.GetHashCode(item), true);
@@ -800,7 +811,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
             internal volatile Node _next;
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="Node"/> class.
+            /// Initializes a new instance of the <see cref="Node" /> class.
             /// </summary>
             /// <param name="item">The item.</param>
             /// <param name="hashcode">The hashcode.</param>
@@ -834,7 +845,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
             internal volatile int[] _countPerLock;
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="Tables"/> class.
+            /// Initializes a new instance of the <see cref="Tables" /> class.
             /// </summary>
             /// <param name="buckets">The buckets.</param>
             /// <param name="locks">The locks.</param>

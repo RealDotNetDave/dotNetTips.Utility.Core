@@ -29,6 +29,6 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// The stop
         /// </summary>
-        Stop
+        Stop,
     }
 }

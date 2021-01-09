@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using dotNetTips.Utility.Standard.Tester;
@@ -20,6 +21,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dotNetTips.Utility.Standard.Extensions.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestClass]
     public class StringBuilderExtensionsTests
     {

@@ -4,7 +4,7 @@
 // Created          : 07-23-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-07-2020
+// Last Modified On : 11-19-2020
 // ***********************************************************************
 // <copyright file="MailBnfHelper.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
@@ -29,6 +29,9 @@ namespace dotNetTips.Utility.Standard.Net
         internal const int Ascii7bitMaxValue = 127;
 
 
+        /// <summary>
+        /// The s months
+        /// </summary>
         private static readonly string[] s_months = new string[] { null, "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
 
         /// <summary>
@@ -130,6 +133,7 @@ namespace dotNetTips.Utility.Standard.Net
             {
                 builder.Append("\"\"");
             }
+
             // Token, no quotes needed
             builder.Append(data);
         }
@@ -167,8 +171,8 @@ namespace dotNetTips.Utility.Standard.Net
         /// </summary>
         /// <param name="data">The data.</param>
         /// <param name="index">The index.</param>
-        /// <remarks>Is there a FWS ("\r\n " or "\r\n\t") starting at the given index?</remarks>
         /// <returns><c>true</c> if [is FWS at] [the specified data]; otherwise, <c>false</c>.</returns>
+        /// <remarks>Is there a FWS ("\r\n " or "\r\n\t") starting at the given index?</remarks>
         internal static bool IsFWSAt(string data, int index)
         {
 
@@ -184,14 +188,15 @@ namespace dotNetTips.Utility.Standard.Net
         /// </summary>
         /// <param name="data">The data.</param>
         /// <param name="offset">The offset.</param>
-        /// <param name="builder">The builder.</param>
         /// <returns>System.String.</returns>
-        internal static string ReadParameterAttribute(string data, ref int offset, StringBuilder builder)
+        internal static string ReadParameterAttribute(string data, ref int offset)
         {
             if (!SkipCFWS(data, ref offset))
-                return null; //
+            {
+                return null;
+            }
 
-            return ReadToken(data, ref offset, null);
+            return ReadToken(data, ref offset);
         }
 
         /// <summary>
@@ -215,11 +220,9 @@ namespace dotNetTips.Utility.Standard.Net
         /// <param name="doesntRequireQuotes">if set to <c>true</c> [doesnt require quotes].</param>
         /// <param name="permitUnicodeInDisplayName">if set to <c>true</c> [permit unicode in display name].</param>
         /// <returns>System.String.</returns>
-        /// <exception cref="FormatException">Invalid character: {data[offset]}.
-        /// or
-        /// Invalid character: {data[offset]}.
-        /// or
-        /// Malformed header.</exception>
+        /// <exception cref="FormatException">Invalid character: {data[offset]}.</exception>
+        /// <exception cref="FormatException">Invalid character: {data[offset]}.</exception>
+        /// <exception cref="FormatException">Malformed header.</exception>
         internal static string ReadQuotedString(string data, ref int offset, StringBuilder builder, bool doesntRequireQuotes, bool permitUnicodeInDisplayName)
         {
             // assume first char is the opening quote
@@ -256,8 +259,11 @@ namespace dotNetTips.Utility.Standard.Net
                     //if data contains Unicode and Unicode is permitted, then
                     //it is valid in a quoted string in a header.
                     if (data[offset] <= Ascii7bitMaxValue && !Qtext[data[offset]])
+                    {
                         throw new FormatException($"Invalid character: {data[offset]}.");
+                    }
                 }
+
                 //not permitting Unicode, in which case Unicode is a formatting error
                 else if (data[offset] > Ascii7bitMaxValue || !Qtext[data[offset]])
                 {
@@ -279,10 +285,9 @@ namespace dotNetTips.Utility.Standard.Net
         /// <param name="offset">The offset.</param>
         /// <param name="builder">The builder.</param>
         /// <returns>System.String.</returns>
-        /// <exception cref="FormatException">Invalid character: {data[offset]}.
-        /// or
-        /// Invalid character: {data[offset]}.</exception>
-        internal static string ReadToken(string data, ref int offset, StringBuilder builder)
+        /// <exception cref="FormatException">Invalid character: {data[offset]}.</exception>
+        /// <exception cref="FormatException">Invalid character: {data[offset]}.</exception>
+        internal static string ReadToken(string data, ref int offset)
         {
             var start = offset;
             for (; offset < data.Length; offset++)
@@ -311,24 +316,33 @@ namespace dotNetTips.Utility.Standard.Net
         /// <param name="data">The data.</param>
         /// <param name="offset">The offset.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <exception cref="FormatException">Invalid character: {data[offset]}.
-        /// or
-        /// Invalid character: {data[offset]}.</exception>
+        /// <exception cref="FormatException">Invalid character: {data[offset]}.</exception>
+        /// <exception cref="FormatException">Invalid character: {data[offset]}.</exception>
         internal static bool SkipCFWS(string data, ref int offset)
         {
             var comments = 0;
             for (; offset < data.Length; offset++)
             {
                 if (data[offset] > 127)
+                {
                     throw new FormatException($"Invalid character: {data[offset]}.");
+                }
                 else if (data[offset] == '\\' && comments > 0)
+                {
                     offset += 2;
+                }
                 else if (data[offset] == '(')
+                {
                     comments++;
+                }
                 else if (data[offset] == ')')
+                {
                     comments--;
+                }
                 else if (data[offset] != ' ' && data[offset] != '\t' && comments == 0)
+                {
                     return true;
+                }
 
                 if (comments < 0)
                 {
@@ -344,9 +358,8 @@ namespace dotNetTips.Utility.Standard.Net
         /// Validates the name of the header.
         /// </summary>
         /// <param name="data">The data.</param>
-        /// <exception cref="FormatException">Invalid header name.
-        /// or
-        /// Invalid header name.</exception>
+        /// <exception cref="FormatException">Invalid header name.</exception>
+        /// <exception cref="FormatException">Invalid header name.</exception>
         internal static void ValidateHeaderName(string data)
         {
             var offset = 0;
@@ -365,6 +378,13 @@ namespace dotNetTips.Utility.Standard.Net
             }
         }
 
+        /// <summary>
+        /// Checks for unicode.
+        /// </summary>
+        /// <param name="ch">The ch.</param>
+        /// <param name="allowUnicode">if set to <c>true</c> [allow unicode].</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="FormatException">Invalid character: {ch}.</exception>
         private static bool CheckForUnicode(char ch, bool allowUnicode)
         {
             if (ch < Ascii7bitMaxValue)
@@ -383,6 +403,10 @@ namespace dotNetTips.Utility.Standard.Net
         // those values which are allowed in that particular set are then set to true.  The numbers
         // annotating each definition below are the range of ASCII values which are allowed in that definition.
 
+        /// <summary>
+        /// Creates the characters allowed in atoms.
+        /// </summary>
+        /// <returns>System.Boolean[].</returns>
         private static bool[] CreateCharactersAllowedInAtoms()
         {
             // atext = ALPHA / DIGIT / "!" / "#" / "$" / "%" / "&" / "'" / "*" / "+" / "-" / "/" / "=" / "?" / "^" / "_" / "`" / "{" / "|" / "}" / "~"
@@ -426,20 +450,50 @@ namespace dotNetTips.Utility.Standard.Net
             return atext;
         }
 
+        /// <summary>
+        /// Creates the characters allowed in comments.
+        /// </summary>
+        /// <returns>System.Boolean[].</returns>
         private static bool[] CreateCharactersAllowedInComments()
         {
             // ctext- %d1-8 / %d11 / %d12 / %d14-31 / %33-39 / %42-91 / %93-127
             var ctext = new bool[128];
-            for (var i = 1; i <= 8; i++) { ctext[i] = true; }
+
+            for (var i = 1; i <= 8; i++)
+            {
+                ctext[i] = true;
+            }
+
             ctext[11] = true;
             ctext[12] = true;
-            for (var i = 14; i <= 31; i++) { ctext[i] = true; }
-            for (var i = 33; i <= 39; i++) { ctext[i] = true; }
-            for (var i = 42; i <= 91; i++) { ctext[i] = true; }
-            for (var i = 93; i <= 127; i++) { ctext[i] = true; }
+
+            for (var i = 14; i <= 31; i++)
+            {
+                ctext[i] = true;
+            }
+
+            for (var i = 33; i <= 39; i++)
+            {
+                ctext[i] = true;
+            }
+
+            for (var i = 42; i <= 91; i++)
+            {
+                ctext[i] = true;
+            }
+
+            for (var i = 93; i <= 127; i++)
+            {
+                ctext[i] = true;
+            }
+
             return ctext;
         }
 
+        /// <summary>
+        /// Creates the characters allowed in domain literals.
+        /// </summary>
+        /// <returns>System.Boolean[].</returns>
         private static bool[] CreateCharactersAllowedInDomainLiterals()
         {
             // fdtext = %d1-8 / %d11 / %d12 / %d14-31 / %d33-90 / %d94-127
@@ -453,6 +507,10 @@ namespace dotNetTips.Utility.Standard.Net
             return dtext;
         }
 
+        /// <summary>
+        /// Creates the characters allowed in header names.
+        /// </summary>
+        /// <returns>System.Boolean[].</returns>
         private static bool[] CreateCharactersAllowedInHeaderNames()
         {
             // ftext = %d33-57 / %d59-126
@@ -462,6 +520,10 @@ namespace dotNetTips.Utility.Standard.Net
             return ftext;
         }
 
+        /// <summary>
+        /// Creates the characters allowed in quoted strings.
+        /// </summary>
+        /// <returns>System.Boolean[].</returns>
         private static bool[] CreateCharactersAllowedInQuotedStrings()
         {
             // fqtext = %d1-9 / %d11 / %d12 / %d14-33 / %d35-91 / %d93-127
@@ -475,6 +537,10 @@ namespace dotNetTips.Utility.Standard.Net
             return qtext;
         }
 
+        /// <summary>
+        /// Creates the characters allowed in tokens.
+        /// </summary>
+        /// <returns>System.Boolean[].</returns>
         private static bool[] CreateCharactersAllowedInTokens()
         {
             // ttext = %d33-126 except '()<>@,;:\"/[]?='

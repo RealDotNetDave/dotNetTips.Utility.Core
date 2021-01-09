@@ -46,13 +46,12 @@ namespace dotNetTips.Utility.Standard.Extensions
             }
 
             var csvRows = new List<string>();
-            StringBuilder sb = null;
 
             if (includeHeaderAsFirstRow)
             {
-                sb = new StringBuilder();
+                var sb = new StringBuilder();
 
-                for (int index = 0; index <= dataReader.FieldCount - 1; index++)
+                for (var index = 0; index <= dataReader.FieldCount - 1; index++)
                 {
                     if (dataReader.GetName(index) != null)
                     {
@@ -70,13 +69,13 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             while (dataReader.Read())
             {
-                sb = new StringBuilder();
+                var sb = new StringBuilder();
 
-                for (int index = 0; index <= dataReader.FieldCount - 2; index++)
+                for (var index = 0; index <= dataReader.FieldCount - 2; index++)
                 {
                     if (!dataReader.IsDBNull(index))
                     {
-                        string value = dataReader.GetValue(index).ToString();
+                        var value = dataReader.GetValue(index).ToString();
                         if (dataReader.GetFieldType(index) == typeof(string))
                         {
                             // If double quotes are used in value, ensure each are replaced but 2.
@@ -88,7 +87,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                             // If separator are is in value, ensure it is put in double quotes.
                             if (value.IndexOf(separator, StringComparison.Ordinal) >= 0)
                             {
-                                value = ( Convert.ToString("\"", CultureInfo.InvariantCulture) + value ) + "\"";
+                                value = Convert.ToString("\"", CultureInfo.InvariantCulture) + value + "\"";
                             }
                         }
 

@@ -36,6 +36,6 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// The error
         /// </summary>
-        Error
+        Error,
     }
 }

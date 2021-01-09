@@ -11,12 +11,14 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using System;
+using System.Diagnostics.CodeAnalysis;
 using dotNetTips.Utility.Standard.Tester;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace dotNetTips.Utility.Standard.Extensions.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestClass]
     public class StringExtensionsTests
     {

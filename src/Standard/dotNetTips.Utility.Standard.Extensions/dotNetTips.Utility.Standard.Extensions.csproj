@@ -3,8 +3,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Extensions.xml</DocumentationFile>
     <OutputPath>..\..\..\appbin\</OutputPath>
-    <AssemblyVersion>2020.11.9.34764</AssemblyVersion>
-    <FileVersion>2020.11.9.34764</FileVersion>
+    <AssemblyVersion>2021.1.9.34819</AssemblyVersion>
+    <FileVersion>2021.1.9.34819</FileVersion>
     <Authors>David McCarter</Authors>
     <Company>David McCarter -  dotNetTips.com</Company>
     <Description>Common .NET Standard Code Extensions</Description>
@@ -18,34 +18,31 @@
     <AssemblyOriginatorKeyFile>dotNetTips.com.pfx</AssemblyOriginatorKeyFile>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2020.11.02.01</Version>
+    <Version>2021.1.4.00</Version>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
     <AssemblyName>dotNetTips.Utility.Standard.Extensions</AssemblyName>
     <RootNamespace>dotNetTips.Utility.Standard.Extensions</RootNamespace>
     <Configurations>Debug;Release;Full Build</Configurations>
     <PackageLicenseUrl></PackageLicenseUrl>
-    <PackageReleaseNotes>-- SEP 2019: Added types HttpContextExtensions, HttpContextExtensions and LINQExtensions. Added new methods and code cleanup.
-
--- JUN 2019 (QUARTERLY RELEASE): Code cleanup.
-     
--- AUG 2019 (QUARTERLY RELEASE): Code and documentation cleanup. Code fixes. New code in CollectionExtensions.
-      
--- DEC 2019 (QUARTERLY RELEASE): Code cleanup.
-      
--- FEB 2020: Code cleanup. Added more overloads for TryValidateParam.
-      
--- MAR 2020 (QUARTERLY RELEASE): New extension methods. Code cleanup.
-      
--- MAY 2020: Added BytesToString. Added StringBuilderExtensions.
-     
--- AUG 2020: New helper methods &amp; classes. Code cleanup.
-
--- NOV 2020 (QUARTERLY RELEASE):Added DataContextExtensions, DataReaderExtensions, DataTableExtensions. Added new methods in DateTimeExtensions, DirectoryInfoExtensions, NumberExtensions, StringExtennsions. Code cleanup. Added more unit tests.  </PackageReleaseNotes>
+    <PackageReleaseNotes>
+      -- SEP 2019: Added types HttpContextExtensions, HttpContextExtensions and LINQExtensions. Added new methods and code cleanup.
+      -- JUN 2019 (QUARTERLY RELEASE): Code cleanup.
+      -- AUG 2019 (QUARTERLY RELEASE): Code and documentation cleanup. Code fixes. New code in CollectionExtensions.
+      -- DEC 2019 (QUARTERLY RELEASE): Code cleanup.
+      -- FEB 2020: Code cleanup. Added more overloads for TryValidateParam.
+      -- MAR 2020 (QUARTERLY RELEASE): New extension methods. Code cleanup.
+      -- MAY 2020: Added BytesToString. Added StringBuilderExtensions.
+      -- AUG 2020: New helper methods &amp; classes. Code cleanup.
+      -- NOV 2020 (QUARTERLY RELEASE):Added DataContextExtensions, DataReaderExtensions, DataTableExtensions. Added new methods in DateTimeExtensions, DirectoryInfoExtensions, NumberExtensions, StringExtennsions. Code cleanup. Added more unit tests.
+      -- NOV 19, 2020: Minor update.
+    </PackageReleaseNotes>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
     <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
     <PackageIcon>2020 - dotNetTips - Real World - Earth@0.1x.png</PackageIcon>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -77,23 +74,23 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.9" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.9" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="3.1.9" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.9" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.9" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.9" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.9" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="System.Collections.Immutable" Version="1.7.1" />
+    <PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
     <PackageReference Include="System.Diagnostics.Process" Version="4.3.0" />
     <PackageReference Include="System.Net.Requests" Version="4.3.0" />
     <PackageReference Include="System.Runtime.Serialization.Json" Version="4.3.0" />
-    <PackageReference Include="System.ServiceProcess.ServiceController" Version="4.7.0" />
+    <PackageReference Include="System.ServiceProcess.ServiceController" Version="5.0.0" />
     <PackageReference Include="System.Threading.Tasks.Parallel" Version="4.3.0" />
   </ItemGroup>
   <ItemGroup>

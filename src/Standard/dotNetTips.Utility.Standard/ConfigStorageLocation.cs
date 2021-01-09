@@ -29,6 +29,6 @@ namespace dotNetTips.Utility.Standard
         /// public string
         /// {
         /// get; inter
-        Application
+        Application,
     }
 }

@@ -4,7 +4,7 @@
 // Created          : 02-14-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 11-05-2020
+// Last Modified On : 11-19-2020
 // ***********************************************************************
 // <copyright file="CollectionExtensions.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
@@ -31,16 +31,16 @@ namespace dotNetTips.Utility.Standard.Extensions
     /// </summary>
     public static class CollectionExtensions
     {
+
+        /// <summary>
+        /// The global random
+        /// </summary>
+        private static readonly Random globalRandom = new Random();
         /// <summary>
         /// The random
         /// </summary>
         [ThreadStatic]
         private static Random _random;
-
-        /// <summary>
-        /// The global random
-        /// </summary>
-        private static Random globalRandom = new Random();
 
         /// <summary>
         /// Gets the random.
@@ -254,8 +254,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="item">The item.</param>
         /// <param name="comparer">The comparer.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <exception cref="ArgumentException">List cannot be read-only. - list</exception>
-        /// <exception cref="ArgumentNullException">List cannot be read-only. - list</exception>
+        /// <exception cref="ArgumentException">List cannot be read-only. - list.</exception>
+        /// <exception cref="ArgumentNullException">List cannot be read-only. - list.</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 31.58, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool AddIfNotExists<T>(this ICollection<T> list, T item, IEqualityComparer<T> comparer)
         {
@@ -530,7 +530,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             for (var i = 0; i < input.Length; i++)
             {
-                areSame &= ( input[i].Equals(arrayToCheck[i]) );
+                areSame &= input[i].Equals(arrayToCheck[i]);
             }
 
             return areSame;
@@ -561,17 +561,17 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             for (var i = 0; i < input.Count; i++)
             {
-                areSame &= ( input[i].Equals(listToCheck[i]) );
+                areSame &= input[i].Equals(listToCheck[i]);
             }
 
             return areSame;
         }
 
         /// <summary>
-        /// Returns a <see cref="String" /> that represents this instance.
+        /// Returns a <see cref="string" /> that represents this instance.
         /// </summary>
         /// <param name="bytes">The bytes.</param>
-        /// <returns>A <see cref="String" /> that represents this instance.</returns>
+        /// <returns>A <see cref="string" /> that represents this instance.</returns>
         /// <exception cref="ArgumentNullException">Input cannot be null or be empty.</exception>
         public static string BytesToString(this byte[] bytes)
         {
@@ -646,7 +646,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             var itemsList = items.ToReadOnlyCollection();
 
-            return itemsList.HasItems() ? source.ToList().Any(p => itemsList.Contains(p)) : false;
+            return itemsList.HasItems() && source.ToList().Any(p => itemsList.Contains(p));
         }
 
         /// <summary>
@@ -666,8 +666,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             var itemsList = items.ToReadOnlyCollection();
 
-            return itemsList.HasItems() ? source.ToReadOnlyCollection().Any(p => itemsList.Contains(p)) : false;
-
+            return itemsList.HasItems() && source.ToReadOnlyCollection().Any(p => itemsList.Contains(p));
         }
 
         /// <summary>
@@ -695,6 +694,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">list</exception>
         public static int Count(this IEnumerable list)
         {
+            if (list == null)
+            {
+                throw new ArgumentNullException(nameof(list), $"{nameof(list)} is null.");
+            }
+
             if (list is ICollection collection)
             {
                 return collection.Count;
@@ -800,10 +804,10 @@ namespace dotNetTips.Utility.Standard.Extensions
                 throw new ArgumentNullException(nameof(predicate));
             }
 
-            if (source is List<T>)
+            if (source is List<T> list1)
             {
                 var count = 0;
-                var list = (List<T>)source;
+                var list = list1;
 
                 for (var listCount = 0; listCount < list.Count; listCount++)
                 {
@@ -845,6 +849,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">predicate</exception>
         /// <exception cref="ArgumentNullException">alternate</exception>
         /// <exception cref="ArgumentNullException">predicate</exception>
+        /// <exception cref="ArgumentNullException">alternate</exception>
         /// <remarks>Original code from efcore-master on GitHub.</remarks>
         public static T FirstOrDefault<T>(this IEnumerable<T> source, Func<T, bool> predicate, T alternate)
         {
@@ -1107,8 +1112,8 @@ namespace dotNetTips.Utility.Standard.Extensions
 
         /// <summary>
         /// Orders a list based on a sort expression. Useful in object binding scenarios where the ObjectDataSource
-        /// generates a dynamic sort expression (example: "Name desc") that specifies the property of the object sort
-        /// on.
+        /// generates a dynamic sort expression (example: "Name desc") that specifies the property of the 
+        /// object sort on.
         /// </summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The list.</param>
@@ -1437,7 +1442,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="list">The list.</param>
         /// <param name="delimiter">The delimiter.</param>
         /// <returns>System.String.</returns>
-        [Information(nameof(ToDelimitedString), "David McCarter", "11/03/2020", "11/05/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.New, UnitTestCoverage = 0)]
+        /// <example>Output:
+        /// pfCfZQFGPWYXBlUvVHNb]ZjBO_LTbQBSCYb: pfCfZQFGPWYXBlUvVHNb]ZjBO_LTbQBSCYb,
+        /// Dnadh[d`FP^SjNeChCvVuBXuEl^yVFUbKXsaacsCpJuxAscU: Dnadh[d`FP^SjNeChCvVuBXuEl^yVFUbKXsaacsCpJuxAscU.
+        /// </example>
+        /// <exception cref="ArgumentNullException">Dictionary cannot be null. </exception>
+        [Information(nameof(ToDelimitedString), "David McCarter", "11/03/2020", "11/05/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.New, UnitTestCoverage = 99)]
         public static string ToDelimitedString(this IDictionary list, char delimiter = ',')
         {
             if (delimiter.IsNull())
@@ -1525,7 +1535,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="values">The values.</param>
         /// <returns>IImmutableDictionary&lt;TKey, TValue&gt;.</returns>
         public static ImmutableDictionary<TKey, TValue> ToImmutable<TKey, TValue>(this Dictionary<TKey, TValue> values)
-        { return ImmutableDictionary.CreateRange<TKey, TValue>(values); }
+        {
+            return ImmutableDictionary.CreateRange<TKey, TValue>(values);
+        }
 
         /// <summary>
         /// To the immutable.
@@ -1534,7 +1546,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="values">The values.</param>
         /// <returns>IImmutableList&lt;T&gt;.</returns>
         public static ImmutableList<T> ToImmutable<T>(this IEnumerable<T> values)
-        { return ImmutableList.CreateRange<T>(values); }
+        {
+            return ImmutableList.CreateRange<T>(values);
+        }
 
         /// <summary>
         /// Converts to ImmutableHashSet<typeparamref name="T" />&gt;.
@@ -1543,7 +1557,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="values">The values.</param>
         /// <returns>ImmutableHashSet<typeparamref name="T" />&gt;.</returns>
         public static ImmutableHashSet<T> ToImmutable<T>(this HashSet<T> values)
-        { return ImmutableHashSet.CreateRange<T>(values); }
+        {
+            return ImmutableHashSet.CreateRange<T>(values);
+        }
 
         /// <summary>
         /// Converts to immutable Dictionary.
@@ -1577,7 +1593,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         public static LinkedList<T> ToLinkedList<T>(this IEnumerable<T> values) => new LinkedList<T>(values);
 
 
-        //TODO: NEEDS C# 8
+        // TODO: NEEDS C# 8
         //public static async Task<List<TSource>> ToListAsync<TSource>(
         //    this IAsyncEnumerable<TSource> source, CancellationToken cancellationToken = default)
         //{
@@ -1649,8 +1665,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">dictionary</exception>
         /// <exception cref="ArgumentNullException">key</exception>
         /// <exception cref="ArgumentNullException">value</exception>
+        /// <exception cref="ArgumentNullException">dictionary</exception>
+        /// <exception cref="ArgumentNullException">key</exception>
+        /// <exception cref="ArgumentNullException">value</exception>
         /// <exception cref="ArgumentNullException">Input cannot be null or have no items in the collection.</exception>
-        /// <exception cref="ArgumentNullException">Key cannot be null.</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static TValue Upsert<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {

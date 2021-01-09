@@ -1,23 +1,9 @@
-﻿// ***********************************************************************
-// Assembly         : dotNetTips.Utility.Standard.Extensions
-// Author           : David McCarter
-// Created          : 09-15-2017
-//
-// Last Modified By : David McCarter
-// Last Modified On : 10-05-2020
-// ***********************************************************************
-// <copyright file="NumberExtensions.cs" company="David McCarter - dotNetTips.com">
-//     David McCarter - dotNetTips.com
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.Extensions.Properties;
-using Microsoft.Extensions.Primitives;
 
 namespace dotNetTips.Utility.Standard.Extensions
 {
@@ -65,7 +51,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 size += 1;
             }
 
-            return $"{fileSize} {((new string[] { Resources.Bytes, Resources.KB, Resources.MB, Resources.GB })[Convert.ToInt32(size)])}";
+            return $"{fileSize} { ( new string[] { Resources.Bytes, Resources.KB, Resources.MB, Resources.GB } )[Convert.ToInt32(size)] }";
         }
 
         /// <summary>
@@ -86,7 +72,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="value">Number to process</param>
         /// <returns>True/False</returns>
-        public static bool IsEven(this int value) => (value % 2) == 0;
+        public static bool IsEven(this int value) => ( value % 2 ) == 0;
 
         /// <summary>
         /// Indicate whether the number falls in the specified range.
@@ -226,7 +212,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns><c>true</c> if the specified number is interval; otherwise, <c>false</c>.</returns>
         public static bool IsInterval(this int value, int interval)
         {
-            return value % interval == 0 ? true : false;
+            return value % interval == 0;
         }
 
         /// <summary>
@@ -353,6 +339,193 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
+        /// Converts number to a formatted string.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="format">The format.</param>
+        /// <returns>System.String.</returns>
+        /// <example>Output:
+        /// Currency: $2,103,162,670.00, Decimal: 2103162670, Exponential: 2.103163E+009
+        /// FixedPoint: 2103162670.00, General: 2103162670, Hexadecimal: 7D5BB72E
+        /// Number: 2,103,162,670.00, Percent: 210,316,267,000.00%.
+        /// </example>
+        /// <remarks>This method does not support <see cref="NumericFormat.RoundTrip" />.</remarks>
+        [Information(nameof(ToFormattedString), "David McCarter", "12/21/2020", UnitTestCoverage = 100, Status = Status.New)]
+        public static string ToFormattedString(this int input, NumericFormat format)
+        {
+            if (format == null)
+            {
+                ExceptionThrower.ThrowArgumentNullException(nameof(format));
+            }
+            else if (format == NumericFormat.RoundTrip)
+            {
+                ExceptionThrower.ThrowArgumentInvalidException("Invalid number format.", nameof(format));
+            }
+
+            return input.ToString(format.DisplayName, CultureInfo.CurrentCulture);
+        }
+
+        /// <summary>
+        /// Formats a Double to a string.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="format">The format.</param>
+        /// <returns>string.</returns>
+        /// <example>Output:
+        /// Currency: $555.55, RoundTrip: 555.555, Exponential: 5.555550E+002, FixedPoint: 555.55,
+        /// General: 555.555, Number: 555.55, Percent: 55,555.50%.
+        /// </example>
+        /// <remarks>This method does not support <see cref="NumericFormat.RoundTrip" /> or <see cref="NumericFormat.Hexadecimal" />.</remarks>
+        [Information(nameof(ToFormattedString), "David McCarter", "12/21/2020", UnitTestCoverage = 100, Status = Status.New)]
+        public static string ToFormattedString(this double input, NumericFormat format)
+        {
+            if (format == null)
+            {
+                ExceptionThrower.ThrowArgumentNullException(nameof(format));
+            }
+            else if (format == NumericFormat.Decimal || format == NumericFormat.Hexadecimal)
+            {
+                ExceptionThrower.ThrowArgumentInvalidException("Invalid number format.", nameof(format));
+            }
+
+            return input.ToString(format.DisplayName, CultureInfo.CurrentCulture);
+        }
+
+        /// <summary>
+        /// Formats a Long to a string.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="format">The format.</param>
+        /// <returns>string.</returns>
+        /// <example>Output:
+        /// Currency: $4,611,686,018,427,387.00, Decimal: 4611686018427387, Exponential: 4.611686E+015
+        /// FixedPoint: 4611686018427387.00, General: 4611686018427387, Hexadecimal: 10624DD2F1A9FB
+        /// Number: 4,611,686,018,427,387.00, Percent: 461,168,601,842,738,700.00%.
+        /// </example>
+        /// <remarks>This method does not support <see cref="NumericFormat.RoundTrip" />.</remarks>
+        [Information(nameof(ToFormattedString), "David McCarter", "12/21/2020", UnitTestCoverage = 100, Status = Status.New)]
+        public static string ToFormattedString(this long input, NumericFormat format)
+        {
+            if (format == null)
+            {
+                ExceptionThrower.ThrowArgumentNullException(nameof(format));
+            }
+            else if (format == NumericFormat.RoundTrip)
+            {
+                ExceptionThrower.ThrowArgumentInvalidException("Invalid number format.", nameof(format));
+            }
+
+            return input.ToString(format.DisplayName, CultureInfo.CurrentCulture);
+        }
+
+        /// <summary>
+        /// CFormats a Ulong to a string.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="format">The format.</param>
+        /// <returns>string.</returns>
+        /// <example>Output:
+        /// Currency: $9,223,372,036,854.00, Decimal: 9223372036854, Exponential: 9.223372E+012
+        /// FixedPoint: 9223372036854.00, General: 9223372036854, Hexadecimal: 8637BD05AF6
+        /// Number: 9,223,372,036,854.00, Percent: 922,337,203,685,400.00%.
+        /// </example>
+        /// <remarks>This method does not support <see cref="NumericFormat.RoundTrip" />.</remarks>
+        [Information(nameof(ToFormattedString), "David McCarter", "12/21/2020", UnitTestCoverage = 100, Status = Status.New)]
+        public static string ToFormattedString(this ulong input, NumericFormat format)
+        {
+            if (format == null)
+            {
+                ExceptionThrower.ThrowArgumentNullException(nameof(format));
+            }
+            else if (format == NumericFormat.RoundTrip)
+            {
+                ExceptionThrower.ThrowArgumentInvalidException("Invalid number format.", nameof(format));
+            }
+
+            return input.ToString(format.DisplayName, CultureInfo.CurrentCulture);
+        }
+
+        /// <summary>
+        /// Formats a UInt to a string.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="format">The format.</param>
+        /// <returns>string.</returns>
+        /// <example>Output:
+        /// Currency: $21,474,836.00, Decimal: 21474836, Exponential: 2.147484E+007
+        /// FixedPoint: 21474836.00, General: 21474836, Hexadecimal: 147AE14
+        /// Number: 21,474,836.00, Percent: 2,147,483,600.00%.
+        /// </example>
+        /// <remarks>This method does not support <see cref="NumericFormat.RoundTrip" />.</remarks>
+        [Information(nameof(ToFormattedString), "David McCarter", "12/21/2020", UnitTestCoverage = 100, Status = Status.New)]
+        public static string ToFormattedString(this uint input, NumericFormat format)
+        {
+            if (format == null)
+            {
+                ExceptionThrower.ThrowArgumentNullException(nameof(format));
+            }
+            else if (format == NumericFormat.RoundTrip)
+            {
+                ExceptionThrower.ThrowArgumentInvalidException("Invalid number format.", nameof(format));
+            }
+
+            return input.ToString(format.DisplayName, CultureInfo.CurrentCulture);
+        }
+
+        /// <summary>
+        /// Formats a Short to a string.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="format">The format.</param>
+        /// <returns>string.</returns>
+        /// <example>Output:
+        /// Currency: $32,767.00, Decimal: 32767, Exponential: 3.276700E+004
+        /// FixedPoint: 32767.00, General: 32767, Hexadecimal: 7FFF, Number: 32,767.00
+        /// Percent: 3,276,700.00%.
+        /// </example>
+        /// <remarks>This method does not support <see cref="NumericFormat.RoundTrip" />.</remarks>
+        [Information(nameof(ToFormattedString), "David McCarter", "12/21/2020", UnitTestCoverage = 100, Status = Status.New)]
+        public static string ToFormattedString(this short input, NumericFormat format)
+        {
+            if (format == null)
+            {
+                ExceptionThrower.ThrowArgumentNullException(nameof(format));
+            }
+            else if (format == NumericFormat.RoundTrip)
+            {
+                ExceptionThrower.ThrowArgumentInvalidException("Invalid number format.", nameof(format));
+            }
+
+            return input.ToString(format.DisplayName, CultureInfo.CurrentCulture);
+        }
+
+        /// <summary>
+        /// Formats a UShort to a string.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="format">The format.</param>
+        /// <returns>string.</returns>
+        /// <example>Output:
+        /// Currency: $65,535.00, Decimal: 65535, Exponential: 6.553500E+004, FixedPoint: 65535.00
+        /// General: 65535, Hexadecimal: FFFF, Number: 65,535.00, Percent: 6,553,500.00%.
+        /// </example>
+        /// <remarks>This method does not support <see cref="NumericFormat.RoundTrip" />.</remarks>
+        [Information(nameof(ToFormattedString), "David McCarter", "12/21/2020", UnitTestCoverage = 100, Status = Status.New)]
+        public static string ToFormattedString(this ushort input, NumericFormat format)
+        {
+            if (format == null)
+            {
+                ExceptionThrower.ThrowArgumentNullException(nameof(format));
+            }
+            else if (format == NumericFormat.RoundTrip)
+            {
+                ExceptionThrower.ThrowArgumentInvalidException("Invalid number format.", nameof(format));
+            }
+
+            return input.ToString(format.DisplayName, CultureInfo.CurrentCulture);
+        }
+
+        /// <summary>
         /// To the positive value.
         /// </summary>
         /// <param name="value">The value.</param>
@@ -403,10 +576,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Translate the number in words (English)
+        /// Translate the number in words (English).
         /// </summary>
-        /// <param name="value">Number to translate</param>
-        /// <returns>String</returns>
+        /// <param name="value">Number to translate.</param>
+        /// <returns>String.</returns>
         public static string ToWords(this int value)
         {
             if (value == 0)
@@ -421,19 +594,19 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             var words = string.Empty;
 
-            if ((value / 1000000) > 0)
+            if (( value / 1000000 ) > 0)
             {
                 words += ToWords(value / 1000000) + " million ";
                 value %= 1000000;
             }
 
-            if ((value / 1000) > 0)
+            if (( value / 1000 ) > 0)
             {
                 words += ToWords(value / 1000) + " Thousand ";
                 value %= 1000;
             }
 
-            if ((value / 100) > 0)
+            if (( value / 100 ) > 0)
             {
                 words += ToWords(value / 100) + " Hundred ";
                 value %= 100;
@@ -467,11 +640,11 @@ namespace dotNetTips.Utility.Standard.Extensions
                     "Sixteen",
                     "Seventeen",
                     "Eighteen",
-                    "Nineteen"
+                    "Nineteen",
                 };
                 var tens = new[]
                 {
-                "Zero", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"
+                    "Zero", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety",
                 };
 
                 if (value < 20)
@@ -482,7 +655,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 {
                     words += tens[value / 10];
 
-                    if ((value % 10) > 0)
+                    if (( value % 10 ) > 0)
                     {
                         words += "-" + units[value % 10];
                     }

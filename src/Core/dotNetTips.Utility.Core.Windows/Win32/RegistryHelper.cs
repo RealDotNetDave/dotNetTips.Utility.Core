@@ -4,7 +4,7 @@
 // Created          : 10-09-2019
 //
 // Last Modified By : David McCarter
-// Last Modified On : 09-21-2020
+// Last Modified On : 11-04-2020
 // ***********************************************************************
 // <copyright file="RegistryHelper.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)

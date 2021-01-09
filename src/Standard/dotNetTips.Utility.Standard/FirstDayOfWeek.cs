@@ -56,6 +56,6 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// Saturday
         /// </summary>
-        Saturday
+        Saturday,
     }
 }

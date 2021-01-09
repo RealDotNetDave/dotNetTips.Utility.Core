@@ -4,7 +4,7 @@
 // Created          : 04-02-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-07-2020
+// Last Modified On : 11-19-2020
 // ***********************************************************************
 // <copyright file="ServiceProxy.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
@@ -24,7 +24,6 @@ namespace dotNetTips.Utility.Standard.Web
     /// <seealso cref="System.IDisposable" />
     public abstract class ServiceProxy<T> where T : ICommunicationObject, IDisposable
     {
-
         /// <summary>
         /// The lock
         /// </summary>
@@ -43,9 +42,6 @@ namespace dotNetTips.Utility.Standard.Web
         /// The channel factory
         /// </summary>
         private IChannelFactory<T> _channelFactory;
-
-
-        private bool _disposed;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ServiceProxy{T}" /> class.
@@ -75,7 +71,7 @@ namespace dotNetTips.Utility.Standard.Web
         /// Gets or sets a value indicating whether <see cref="ServiceProxy{T}" /> is disposed.
         /// </summary>
         /// <value><c>true</c> if disposed; otherwise, <c>false</c>.</value>
-        protected bool Disposed { get => _disposed; set => _disposed = value; }
+        protected bool Disposed { get; set; }
 
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
@@ -106,7 +102,7 @@ namespace dotNetTips.Utility.Standard.Web
         protected virtual void Dispose(bool disposing)
         {
             // Do nothing if the object has already been disposed of.
-            if (this._disposed)
+            if (this.Disposed)
             {
                 return;
             }
@@ -126,7 +122,7 @@ namespace dotNetTips.Utility.Standard.Web
             // Release unmanaged resources here. Don't access reference type fields.
 
             // Remember that the object has been disposed of.
-            this._disposed = true;
+            this.Disposed = true;
         }
 
         /// <summary>

@@ -1,16 +1,17 @@
 ﻿// ***********************************************************************
-// Assembly         : dotNetTips.Utility.Standard
+// Assembly         : 
 // Author           : David McCarter
 // Created          : 01-21-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 02-12-2020
+// Last Modified On : 11-11-2020
 // ***********************************************************************
 // <copyright file="ExecutionHelper.cs" company="David McCarter - dotNetTips.com">
-//     McCarter Consulting (David McCarter)
+//     Copyright (c) David McCarter - dotNetTips.com. All rights reserved.
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -51,6 +52,7 @@ namespace dotNetTips.Utility.Standard
                 }
                 catch (Exception ex)
                 {
+                    // Using Exception since the actual exception is unknown beforehand.
                     if (attempts == retryCount)
                     {
                         throw;

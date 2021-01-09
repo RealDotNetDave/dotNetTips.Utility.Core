@@ -4,7 +4,7 @@
 // Created          : 09-16-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 06-03-2019
+// Last Modified On : 11-19-2020
 // ***********************************************************************
 // <copyright file="JsonSerializer.cs" company="David McCarter - dotNetTips.com">
 //     David McCarter - dotNetTips.com
@@ -55,13 +55,12 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             using (var ms = new MemoryStream())
             {
-                var ser = new DataContractJsonSerializer(obj.GetType(),
-                                                         new DataContractJsonSerializerSettings
-                                                         {
-                                                             SerializeReadOnlyTypes = true,
-                                                             UseSimpleDictionaryFormat = true,
-                                                             EmitTypeInformation = EmitTypeInformation.AsNeeded
-                                                         });
+                var ser = new DataContractJsonSerializer(obj.GetType(), new DataContractJsonSerializerSettings
+                {
+                    SerializeReadOnlyTypes = true,
+                    UseSimpleDictionaryFormat = true,
+                    EmitTypeInformation = EmitTypeInformation.AsNeeded
+                });
 
                 ser.WriteObject(ms, obj);
 

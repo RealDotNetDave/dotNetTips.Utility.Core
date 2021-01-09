@@ -84,12 +84,14 @@ namespace dotNetTips.Utility.Standard.Net
                 {
                     index -= quotedCharCount;
                 }
+
                 // Start a new comment
                 else if (data[index] == dotNetTips.Utility.Standard.Common.ControlChars.EndComment)
                 {
                     commentDepth++;
                     index--;
                 }
+
                 // Finish a comment
                 else if (data[index] == dotNetTips.Utility.Standard.Common.ControlChars.StartComment)
                 {
@@ -109,12 +111,14 @@ namespace dotNetTips.Utility.Standard.Net
                     }
                     index--;
                 }
+
                 // Check for valid characters within comments.  Allow Unicode, as we won't transmit any comments.
                 else if (commentDepth > 0
-                    && (data[index] > MailBnfHelper.Ascii7bitMaxValue || MailBnfHelper.Ctext[data[index]]))
+                    && ( data[index] > MailBnfHelper.Ascii7bitMaxValue || MailBnfHelper.Ctext[data[index]] ))
                 {
                     index--;
                 }
+
                 // If we're still in a comment, this must be an invalid char
                 else if (commentDepth > 0)
                 {
@@ -128,6 +132,7 @@ namespace dotNetTips.Utility.Standard.Net
                         return false;
                     }
                 }
+
                 // We must no longer be in a comment, and this is not a whitespace char, return
                 else
                 {
@@ -159,6 +164,7 @@ namespace dotNetTips.Utility.Standard.Net
             outIndex = index;
             return true;
         }
+
         //
         // This skips all folding and whitespace characters
         //
@@ -196,6 +202,7 @@ namespace dotNetTips.Utility.Standard.Net
                 {
                     expectCR = false; // valid pair
                 }
+
                 // LF without CR, or CR without LF, invalid
                 else if (data[index] == dotNetTips.Utility.Standard.Common.ControlChars.CR || expectCR)
                 {
@@ -209,12 +216,14 @@ namespace dotNetTips.Utility.Standard.Net
                         return false;
                     }
                 }
+
                 // LF is only valid if preceded by a CR.
                 // Skip both if they're found together.
                 else if (data[index] == dotNetTips.Utility.Standard.Common.ControlChars.LF)
                 {
                     expectCR = true;
                 }
+
                 // Skip whitespace
                 else if (data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Space || data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Tab)
                 {

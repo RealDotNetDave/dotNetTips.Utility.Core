@@ -34,6 +34,6 @@ namespace dotNetTips.Utility.Standard.OOP
         /// <summary>
         /// Validates that the string is a Url.
         /// </summary>
-        Url
+        Url,
     }
 }

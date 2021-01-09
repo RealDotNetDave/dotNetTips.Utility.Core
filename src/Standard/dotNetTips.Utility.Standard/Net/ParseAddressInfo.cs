@@ -4,7 +4,7 @@
 // Created          : 07-23-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-05-2020
+// Last Modified On : 11-19-2020
 // ***********************************************************************
 // <copyright file="ParseAddressInfo.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
@@ -17,18 +17,20 @@ using dotNetTips.Utility.Standard.Extensions;
 namespace dotNetTips.Utility.Standard.Net
 {
     /// <summary>
-    /// Struct for ParseAddressInfo
+    /// Struct for ParseAddressInfo.
     /// </summary>
     public readonly struct ParseAddressInfo
     {
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ParseAddressInfo" /> struct.
         /// </summary>
         /// <param name="displayName">The display name.</param>
         /// <param name="userName">Name of the user.</param>
         /// <param name="domain">The domain.</param>
-        public ParseAddressInfo(string displayName, string userName, string domain) => (DisplayName, User, Host) = (displayName, userName, domain);
+        public ParseAddressInfo(string displayName, string userName, string domain)
+        {
+            (this.DisplayName, this.User, this.Host) = (displayName, userName, domain);
+        }
 
         /// <summary>
         /// Gets the display name.
@@ -56,7 +58,7 @@ namespace dotNetTips.Utility.Standard.Net
         {
             var email = $"{this.User}@{this.Host}";
 
-            return DisplayName.HasValue() ? $"{this.DisplayName} <{email}>" : email;
+            return this.DisplayName.HasValue() ? $"{this.DisplayName} <{email}>" : email;
         }
 
     }

@@ -88,6 +88,7 @@ namespace dotNetTips.Utility.Standard.Net
                     // Skip quoted pairs
                     index -= quotedCharCount;
                 }
+
                 // Check for the terminating bracket
                 else if (data[index] == dotNetTips.Utility.Standard.Common.ControlChars.StartSquareBracket)
                 {
@@ -95,6 +96,7 @@ namespace dotNetTips.Utility.Standard.Net
                     outIndex = index - 1;
                     return true;
                 }
+
                 // Check for invalid characters
                 else if (data[index] > MailBnfHelper.Ascii7bitMaxValue || !MailBnfHelper.Dtext[data[index]])
                 {
@@ -108,6 +110,7 @@ namespace dotNetTips.Utility.Standard.Net
                         return false;
                     }
                 }
+
                 // Valid char
                 else
                 {

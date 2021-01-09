@@ -1,16 +1,17 @@
 ﻿// ***********************************************************************
-// Assembly         : dotNetTips.Utility.Standard
+// Assembly         : 
 // Author           : David McCarter
-// Created          : 10-15-2018
+// Created          : 09-05-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 09-05-2020
+// Last Modified On : 11-11-2020
 // ***********************************************************************
-// <copyright file="ComputerInfo.cs" company="dotNetTips.com - McCarter Consulting">
-//     dotNetTips.com - McCarter Consulting. All rights reserved.
+// <copyright file="ComputerInfo.cs" company="David McCarter - dotNetTips.com">
+//     Copyright (c) David McCarter - dotNetTips.com. All rights reserved.
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
 using System.Collections.Immutable;
 using System.Globalization;
@@ -24,7 +25,7 @@ using dotNetTips.Utility.Standard.Extensions;
 namespace dotNetTips.Utility.Standard
 {
     /// <summary>
-    /// Class ComputerInfo.
+    /// Computer Information.
     /// </summary>
     [Information(nameof(ComputerInfo), "David McCarter", "10/15/2018 ", "9/5/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available, UnitTestCoverage = 100)]
     [DataContract(Namespace = "dotNetTips.com/Info")]

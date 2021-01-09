@@ -54,6 +54,6 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// Volume
         /// </summary>
-        Volume = 8
+        Volume = 8,
     }
 }

@@ -38,6 +38,6 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// Unhandled Exception
         /// </summary>
-        UnhandledException
+        UnhandledException,
     }
 }

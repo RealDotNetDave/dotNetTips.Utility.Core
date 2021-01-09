@@ -4,7 +4,7 @@
 // Created          : 06-26-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-28-2020
+// Last Modified On : 11-03-2020
 // ***********************************************************************
 // <copyright file="Encapsulation.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
@@ -117,7 +117,7 @@ namespace dotNetTips.Utility.Standard.OOP
         /// <param name="paramName">Name of the parameter.</param>
         /// <param name="message">The message.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        /// <exception cref="Common.DirectoryNotFoundException">Directory not found.</exception>
+        /// <exception cref="Common.DirectoryNotFoundException"></exception>
         public static void TryValidateParam(DirectoryInfo directory, string paramName, string message = "")
         {
             if (directory == null)
@@ -146,8 +146,8 @@ namespace dotNetTips.Utility.Standard.OOP
         /// <param name="value">The value.</param>
         /// <param name="paramName">Name of the parameter.</param>
         /// <param name="message">The message.</param>
-        /// <exception cref="ArgumentNullException">The parameter value cannot be null.</exception>
-        /// <exception cref="ArgumentOutOfRangeException">The value is not defined in the enum type.</exception>
+        /// <exception cref="ArgumentNullException">value</exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static void TryValidateParam(Enum value, string paramName, string message = "")
         {
             if (value is null)
@@ -281,7 +281,7 @@ namespace dotNetTips.Utility.Standard.OOP
         /// <param name="match">The match.</param>
         /// <param name="paramName">Name of the parameter.</param>
         /// <param name="message">The message.</param>
-        /// <exception cref="ArgumentNullException">match.</exception>
+        /// <exception cref="ArgumentNullException">match</exception>
         /// <exception cref="ArgumentInvalidException"></exception>
         public static void TryValidateParam(string value, Regex match, string paramName, string message = "")
         {
@@ -447,6 +447,7 @@ namespace dotNetTips.Utility.Standard.OOP
         /// <param name="message">The message.</param>
         /// <exception cref="ArgumentInvalidException"></exception>
         /// <exception cref="ArgumentInvalidException"></exception>
+        /// <exception cref="ArgumentInvalidException"></exception>
         /// <exception cref="ArgumentException"></exception>
         public static void TryValidateParam(string value, int minimumLength, int maximumLength, string paramName, string message = "")
         {
@@ -482,6 +483,9 @@ namespace dotNetTips.Utility.Standard.OOP
         /// <param name="maximumLength">The maximum length.</param>
         /// <param name="paramName">Name of the parameter.</param>
         /// <param name="message">The message.</param>
+        /// <exception cref="ArgumentInvalidException"></exception>
+        /// <exception cref="ArgumentInvalidException"></exception>
+        /// <exception cref="ArgumentInvalidException"></exception>
         /// <exception cref="ArgumentInvalidException"></exception>
         /// <exception cref="ArgumentInvalidException"></exception>
         /// <exception cref="ArgumentInvalidException"></exception>

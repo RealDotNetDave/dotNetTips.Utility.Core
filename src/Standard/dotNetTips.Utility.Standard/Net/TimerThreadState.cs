@@ -32,6 +32,6 @@ namespace dotNetTips.Utility.Standard.Net
         /// <summary>
         /// Timer has stopped
         /// </summary>
-        Stopped
+        Stopped,
     }
 }

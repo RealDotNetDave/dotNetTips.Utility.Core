@@ -12,14 +12,137 @@
 // <summary></summary>
 // ***********************************************************************
 using System;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using dotNetTips.Utility.Standard.Common;
+using dotNetTips.Utility.Standard.Tester;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using dotNetTips.Utility.Standard.Extensions;
 
 namespace dotNetTips.Utility.Standard.Extensions.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestClass]
     public class NumberExtensionsTest
     {
+
+        [TestMethod]
+        public void DoubleToFormattedStringTest()
+        {
+            var testValue = double.Parse("555.555");
+
+            var result = testValue.ToFormattedString(NumericFormat.Currency);
+            PrintResult(result, nameof(NumericFormat.Currency));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.RoundTrip);
+            PrintResult(result, nameof(NumericFormat.RoundTrip));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Exponential);
+            PrintResult(result, nameof(NumericFormat.Exponential));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.FixedPoint);
+            PrintResult(result, nameof(NumericFormat.FixedPoint));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.General);
+            PrintResult(result, nameof(NumericFormat.General));
+            Assert.IsTrue(result.Length > 4);
+
+            result = testValue.ToFormattedString(NumericFormat.Number);
+            PrintResult(result, nameof(NumericFormat.Number));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Percent);
+            PrintResult(result, nameof(NumericFormat.Percent));
+            Assert.IsTrue(result.Length > 5);
+
+            Assert.ThrowsException<ArgumentInvalidException>(() => testValue.ToFormattedString(NumericFormat.Decimal));
+            Assert.ThrowsException<ArgumentInvalidException>(() => testValue.ToFormattedString(NumericFormat.Hexadecimal));
+
+        }
+
+        [TestMethod]
+        public void IntToFormattedStringTest()
+        {
+            var testValue = RandomData.GenerateInteger();
+
+            var result = testValue.ToFormattedString(NumericFormat.Currency);
+            PrintResult(result, nameof(NumericFormat.Currency));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Decimal);
+            PrintResult(result, nameof(NumericFormat.Decimal));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Exponential);
+            PrintResult(result, nameof(NumericFormat.Exponential));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.FixedPoint);
+            PrintResult(result, nameof(NumericFormat.FixedPoint));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.General);
+            PrintResult(result, nameof(NumericFormat.General));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Hexadecimal);
+            PrintResult(result, nameof(NumericFormat.Hexadecimal));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Number);
+            PrintResult(result, nameof(NumericFormat.Number));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Percent);
+            PrintResult(result, nameof(NumericFormat.Percent));
+            Assert.IsTrue(result.Length > 5);
+
+            Assert.ThrowsException<ArgumentInvalidException>(() => testValue.ToFormattedString(NumericFormat.RoundTrip));
+
+        }
+
+        [TestMethod]
+        public void IsInRangeThrowsExceptionDecimal()
+        {
+            decimal number = 10.10m;
+
+            Assert.IsTrue(number.IsInRangeThrowsException(1.10m, 20.55m, "TEST"));
+
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => number.IsInRangeThrowsException(122.10m, 22220.55m, "TEST"));
+        }
+
+        [TestMethod]
+        public void IsInRangeThrowsExceptionDouble()
+        {
+            var number = 10.10d;
+
+            Assert.IsTrue(number.IsInRangeThrowsException(1.10, 20.55, "TEST"));
+
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => number.IsInRangeThrowsException(122.10, 22220.55, "TEST"));
+        }
+
+        [TestMethod]
+        public void IsInRangeThrowsExceptionInt()
+        {
+            int number = 10;
+
+            Assert.IsTrue(number.IsInRangeThrowsException(1, 20, "TEST"));
+
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => number.IsInRangeThrowsException(122, 22220, "TEST"));
+        }
+
+        [TestMethod]
+        public void IsInRangeThrowsExceptionLong()
+        {
+            long number = 10;
+
+            Assert.IsTrue(number.IsInRangeThrowsException(1, 20, "TEST"));
+
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => number.IsInRangeThrowsException(122, 22220, "TEST"));
+        }
         [TestMethod]
         public void IsNegativeTest()
         {
@@ -55,43 +178,214 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         }
 
         [TestMethod]
-        public void IsInRangeThrowsExceptionDecimal()
+        public void LongToFormattedStringTest()
         {
-            decimal number = 10.10m;
+            var testValue = long.MaxValue / 2000;
 
-            Assert.IsTrue(number.IsInRangeThrowsException(1.10m, 20.55m, "TEST"));
+            var result = testValue.ToFormattedString(NumericFormat.Currency);
+            PrintResult(result, nameof(NumericFormat.Currency));
+            Assert.IsTrue(result.Length > 5);
 
-            Assert.ThrowsException<ArgumentOutOfRangeException>(()=>number.IsInRangeThrowsException(122.10m, 22220.55m, "TEST"));
+            result = testValue.ToFormattedString(NumericFormat.Decimal);
+            PrintResult(result, nameof(NumericFormat.Decimal));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Exponential);
+            PrintResult(result, nameof(NumericFormat.Exponential));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.FixedPoint);
+            PrintResult(result, nameof(NumericFormat.FixedPoint));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.General);
+            PrintResult(result, nameof(NumericFormat.General));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Hexadecimal);
+            PrintResult(result, nameof(NumericFormat.Hexadecimal));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Number);
+            PrintResult(result, nameof(NumericFormat.Number));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Percent);
+            PrintResult(result, nameof(NumericFormat.Percent));
+            Assert.IsTrue(result.Length > 5);
+
+            Assert.ThrowsException<ArgumentInvalidException>(() => testValue.ToFormattedString(NumericFormat.RoundTrip));
+
         }
 
         [TestMethod]
-        public void IsInRangeThrowsExceptionDouble()
+        public void ShortToFormattedStringTest()
         {
-            double number = 10.10;
+            var testValue = short.MaxValue;
 
-            Assert.IsTrue(number.IsInRangeThrowsException(1.10, 20.55, "TEST"));
+            var result = testValue.ToFormattedString(NumericFormat.Currency);
+            PrintResult(result, nameof(NumericFormat.Currency));
+            Assert.IsTrue(result.Length > 4);
 
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => number.IsInRangeThrowsException(122.10, 22220.55, "TEST"));
+            result = testValue.ToFormattedString(NumericFormat.Decimal);
+            PrintResult(result, nameof(NumericFormat.Decimal));
+            Assert.IsTrue(result.Length > 4);
+
+            result = testValue.ToFormattedString(NumericFormat.Exponential);
+            PrintResult(result, nameof(NumericFormat.Exponential));
+            Assert.IsTrue(result.Length > 4);
+
+            result = testValue.ToFormattedString(NumericFormat.FixedPoint);
+            PrintResult(result, nameof(NumericFormat.FixedPoint));
+            Assert.IsTrue(result.Length > 4);
+
+            result = testValue.ToFormattedString(NumericFormat.General);
+            PrintResult(result, nameof(NumericFormat.General));
+            Assert.IsTrue(result.Length > 4);
+
+            result = testValue.ToFormattedString(NumericFormat.Hexadecimal);
+            PrintResult(result, nameof(NumericFormat.Hexadecimal));
+            Assert.IsTrue(result.Length > 3);
+
+            result = testValue.ToFormattedString(NumericFormat.Number);
+            PrintResult(result, nameof(NumericFormat.Number));
+            Assert.IsTrue(result.Length > 4);
+
+            result = testValue.ToFormattedString(NumericFormat.Percent);
+            PrintResult(result, nameof(NumericFormat.Percent));
+            Assert.IsTrue(result.Length > 4);
+
+            Assert.ThrowsException<ArgumentInvalidException>(() => testValue.ToFormattedString(NumericFormat.RoundTrip));
         }
 
         [TestMethod]
-        public void IsInRangeThrowsExceptionInt()
+        public void UIntToFormattedStringTest()
         {
-            int number = 10;
+            var testValue = uint.MaxValue / 200;
 
-            Assert.IsTrue(number.IsInRangeThrowsException(1, 20, "TEST"));
+            var result = testValue.ToFormattedString(NumericFormat.Currency);
+            PrintResult(result, nameof(NumericFormat.Currency));
+            Assert.IsTrue(result.Length > 5);
 
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => number.IsInRangeThrowsException(122, 22220, "TEST"));
+            result = testValue.ToFormattedString(NumericFormat.Decimal);
+            PrintResult(result, nameof(NumericFormat.Decimal));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Exponential);
+            PrintResult(result, nameof(NumericFormat.Exponential));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.FixedPoint);
+            PrintResult(result, nameof(NumericFormat.FixedPoint));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.General);
+            PrintResult(result, nameof(NumericFormat.General));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Hexadecimal);
+            PrintResult(result, nameof(NumericFormat.Hexadecimal));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Number);
+            PrintResult(result, nameof(NumericFormat.Number));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Percent);
+            PrintResult(result, nameof(NumericFormat.Percent));
+            Assert.IsTrue(result.Length > 5);
+
+            Assert.ThrowsException<ArgumentInvalidException>(() => testValue.ToFormattedString(NumericFormat.RoundTrip));
+
         }
 
         [TestMethod]
-        public void IsInRangeThrowsExceptionLong()
+        public void ULongToFormattedStringTest()
         {
-            long number = 10;
+            var testValue = ulong.MaxValue / 2000000;
 
-            Assert.IsTrue(number.IsInRangeThrowsException(1, 20, "TEST"));
+            var result = testValue.ToFormattedString(NumericFormat.Currency);
+            PrintResult(result, nameof(NumericFormat.Currency));
+            Assert.IsTrue(result.Length > 5);
 
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => number.IsInRangeThrowsException(122, 22220, "TEST"));
+            result = testValue.ToFormattedString(NumericFormat.Decimal);
+            PrintResult(result, nameof(NumericFormat.Decimal));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Exponential);
+            PrintResult(result, nameof(NumericFormat.Exponential));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.FixedPoint);
+            PrintResult(result, nameof(NumericFormat.FixedPoint));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.General);
+            PrintResult(result, nameof(NumericFormat.General));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Hexadecimal);
+            PrintResult(result, nameof(NumericFormat.Hexadecimal));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Number);
+            PrintResult(result, nameof(NumericFormat.Number));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Percent);
+            PrintResult(result, nameof(NumericFormat.Percent));
+            Assert.IsTrue(result.Length > 5);
+
+            Assert.ThrowsException<ArgumentInvalidException>(() => testValue.ToFormattedString(NumericFormat.RoundTrip));
+
+        }
+
+        [TestMethod]
+        public void UShortToFormattedStringTest()
+        {
+            var testValue = ushort.MaxValue;
+
+            var result = testValue.ToFormattedString(NumericFormat.Currency);
+            PrintResult(result, nameof(NumericFormat.Currency));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Decimal);
+            PrintResult(result, nameof(NumericFormat.Decimal));
+            Assert.IsTrue(result.Length > 4);
+
+            result = testValue.ToFormattedString(NumericFormat.Exponential);
+            PrintResult(result, nameof(NumericFormat.Exponential));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.FixedPoint);
+            PrintResult(result, nameof(NumericFormat.FixedPoint));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.General);
+            PrintResult(result, nameof(NumericFormat.General));
+            Assert.IsTrue(result.Length > 4);
+
+            result = testValue.ToFormattedString(NumericFormat.Hexadecimal);
+            PrintResult(result, nameof(NumericFormat.Hexadecimal));
+            Assert.IsTrue(result.Length > 3);
+
+            result = testValue.ToFormattedString(NumericFormat.Number);
+            PrintResult(result, nameof(NumericFormat.Number));
+            Assert.IsTrue(result.Length > 5);
+
+            result = testValue.ToFormattedString(NumericFormat.Percent);
+            PrintResult(result, nameof(NumericFormat.Percent));
+            Assert.IsTrue(result.Length > 5);
+
+            Assert.ThrowsException<ArgumentInvalidException>(() => testValue.ToFormattedString(NumericFormat.RoundTrip));
+
+        }
+
+        private static void PrintResult<T>(T input, string methodName)
+        {
+            var message = $"{methodName}: {input}";
+
+            Debug.WriteLine(message);
         }
     }
 }

@@ -4,7 +4,7 @@
 // Created          : 06-06-2018
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-05-2020
+// Last Modified On : 11-19-2020
 // ***********************************************************************
 // <copyright file="LoggableException.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
@@ -53,7 +53,8 @@ namespace dotNetTips.Utility.Standard.Common
         /// Initializes a new instance of the <see cref="LoggableException" /> class.
         /// </summary>
         /// <param name="message">The message that describes the error.</param>
-        public LoggableException(string message) : base(message)
+        public LoggableException(string message)
+            : base(message)
         {
         }
 
@@ -62,7 +63,8 @@ namespace dotNetTips.Utility.Standard.Common
         /// </summary>
         /// <param name="message">The error message that explains the reason for the exception.</param>
         /// <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
-        public LoggableException(string message, Exception innerException) : base(message, innerException)
+        public LoggableException(string message, Exception innerException)
+            : base(message, innerException)
         {
         }
 
@@ -72,7 +74,8 @@ namespace dotNetTips.Utility.Standard.Common
         /// <param name="message">The message.</param>
         /// <param name="ex">The ex.</param>
         /// <param name="userMessage">The user message.</param>
-        public LoggableException(string message, Exception ex, string userMessage) : base(message, ex)
+        public LoggableException(string message, Exception ex, string userMessage)
+            : base(message, ex)
         {
             this.UserMessage = userMessage;
         }
@@ -82,7 +85,6 @@ namespace dotNetTips.Utility.Standard.Common
         /// </summary>
         /// <param name="serializationInfo">The serialization information.</param>
         /// <param name="streamingContext">The streaming context.</param>
-        /// <exception cref="NotImplementedException">The exception.</exception>
         /// <exception cref="NotImplementedException">The exception.</exception>
         protected LoggableException(SerializationInfo serializationInfo, StreamingContext streamingContext)
          : base(serializationInfo, streamingContext)
@@ -137,7 +139,7 @@ namespace dotNetTips.Utility.Standard.Common
             var exceptions = LoggingHelper.RetrieveAllExceptions(this);
             var errorMessages = new List<string>();
 
-            for (int i = 0; i < exceptions.Length; i++)
+            for (var i = 0; i < exceptions.Length; i++)
             {
                 var current = exceptions[i];
                 errorMessages.Add(current.GetType().FullName);
@@ -176,7 +178,7 @@ namespace dotNetTips.Utility.Standard.Common
                     Trace.WriteLine(securityEx);
                 }
 
-                if ((objectValue != null) && (objectValue.ToString() != objectValue.GetType().FullName))
+                if (( objectValue != null ) && ( objectValue.ToString() != objectValue.GetType().FullName ))
                 {
                     sb.AppendLine(string.Format(CultureInfo.CurrentCulture, "{0}: {1}", new object[] { current.Name, RuntimeHelpers.GetObjectValue(current) }));
                 }

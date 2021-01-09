@@ -45,7 +45,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 throw new ArgumentNullException(nameof(sb), $"{nameof(sb)} is null.");
             }
 
-            if ((bytes == null) || (bytes.Length == 0))
+            if (( bytes == null ) || ( bytes.Length == 0 ))
             {
                 throw new ArgumentException($"{nameof(bytes)} is null or empty.", nameof(bytes));
             }
@@ -118,13 +118,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="joinAction">The join action.</param>
         /// <param name="separator">The separator.</param>
         /// <returns>StringBuilder.</returns>
-        /// <exception cref="ArgumentNullException">sb</exception>
-        /// <exception cref="ArgumentNullException">values</exception>
-        /// <exception cref="ArgumentNullException">param</exception>
-        /// <exception cref="ArgumentNullException">joinAction</exception>
-        /// <exception cref="ArgumentNullException">sb</exception>
-        /// <exception cref="ArgumentNullException">values</exception>
-        /// <exception cref="ArgumentNullException">param</exception>
+        /// <exception cref="ArgumentNullException">StringBuilder cannot be null.</exception>
+        /// <exception cref="ArgumentNullException">Values cannot be null.</exception>
+        /// <exception cref="ArgumentNullException">Param cannot be null.</exception>
+        /// <exception cref="ArgumentNullException">JoinAction cannot be null.</exception>
         [Information("Original code from efcore-master on GitHub", author: "David McCarter", createdOn: "5/26/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static StringBuilder AppendJoin<T, TParam>(this StringBuilder sb, IEnumerable<T> values, TParam param, Action<StringBuilder, T, TParam> joinAction, string separator = ", ")
         {
@@ -305,9 +302,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="separator">The separator.</param>
         /// <param name="values">The values.</param>
         /// <returns>StringBuilder.</returns>
-        /// <exception cref="ArgumentNullException">sb</exception>
-        /// <exception cref="ArgumentNullException">values</exception>
-        /// <exception cref="ArgumentNullException">sb</exception>
+        /// <exception cref="ArgumentNullException">StringBuilder cannot be null.</exception>
+        /// <exception cref="ArgumentNullException">Values cannot be null.</exception>
         [Information("Original code from efcore-master on GitHub.", author: "David McCarter", createdOn: "7/1/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 75, Status = Status.Available)]
         public static StringBuilder AppendValues(this StringBuilder sb, string separator, IEnumerable<string> values)
         {

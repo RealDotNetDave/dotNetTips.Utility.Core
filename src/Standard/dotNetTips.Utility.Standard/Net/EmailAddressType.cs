@@ -39,6 +39,6 @@ namespace dotNetTips.Utility.Standard.Net
         /// <summary>
         /// The send BCC address
         /// </summary>
-        SendBcc
+        SendBcc,
     }
 }

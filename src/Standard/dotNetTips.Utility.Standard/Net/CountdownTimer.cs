@@ -121,6 +121,7 @@ namespace dotNetTips.Utility.Standard.Net
                         if (( ++_cacheScanIteration ) % CacheScanPerIterations == 0)
                         {
                             var garbage = new List<object>();
+
                             // Manual use of IDictionaryEnumerator instead of foreach to avoid DictionaryEntry box allocations.
                             IDictionaryEnumerator e = _queuesCache.GetEnumerator();
                             while (e.MoveNext())
@@ -274,6 +275,7 @@ namespace dotNetTips.Utility.Standard.Net
                             if (( waitResult == WaitHandle.WaitTimeout ) && !haveNextTick)
                             {
                                 Interlocked.CompareExchange(ref _threadState, (int)TimerThreadState.Idle, (int)TimerThreadState.Running);
+
                                 // There could have been one more prod between the wait and the exchange.  Check, and abort if necessary.
                                 if (_threadReadyEvent.WaitOne(0, false))
                                 {

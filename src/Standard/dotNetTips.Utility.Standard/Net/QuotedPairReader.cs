@@ -90,6 +90,7 @@ namespace dotNetTips.Utility.Standard.Net
                         return false;
                     }
                 }
+
                 // Skip the quoted char, and the odd number of backslashes preceding it
                 outIndex = backslashCount + 1;
                 return true;

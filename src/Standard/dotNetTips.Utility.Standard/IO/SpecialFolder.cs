@@ -4,7 +4,7 @@
 // Created          : 01-22-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 06-03-2019
+// Last Modified On : 11-19-2020
 // ***********************************************************************
 // <copyright file="SpecialFolder.cs" company="dotNetTips.Utility.Standard">
 //     Copyright (c) dotNetTips.com - McCarter Consulting. All rights reserved.
@@ -20,374 +20,279 @@ namespace dotNetTips.Utility.Standard.IO
     /// </summary>
     public enum SpecialFolder
     {
-        // Summary: The logical Desktop rather than the physical file system location.
         /// <summary>
-        /// The desktop
+        /// The logical Desktop rather than the physical file system location.
         /// </summary>
         Desktop = 0,
-        //
-        // Summary:
-        //     The directory that contains the user's program groups.
+
         /// <summary>
-        /// The programs
+        /// The directory that contains the user's program groups.
         /// </summary>
         Programs = 2,
-        //
-        // Summary:
-        //     The directory that serves as a common repository for documents.
+
         /// <summary>
-        /// The personal
+        /// The directory that serves as a common repository for documents.
         /// </summary>
         Personal = 5,
-        //
-        // Summary:
-        //     The My Documents folder.
+
         /// <summary>
-        /// The user documents
+        /// The My Documents folder.
         /// </summary>
         UserDocuments = 60,
-        //
-        // Summary:
-        //     The directory that serves as a common repository for the user's favorite items.
+
         /// <summary>
-        /// The favorites
+        /// The directory that serves as a common repository for the user's favorite items.
         /// </summary>
         Favorites = 6,
-        //
-        // Summary:
-        //     The directory that corresponds to the user's Startup program group.
+
         /// <summary>
-        /// The startup
+        /// The directory that corresponds to the user's Startup program group.
         /// </summary>
         Startup = 7,
-        //
-        // Summary:
-        //     The directory that contains the user's most recently used documents.
+
         /// <summary>
-        /// The recent
+        /// The directory that contains the user's most recently used documents.
         /// </summary>
         Recent = 8,
-        //
-        // Summary:
-        //     The directory that contains the Send To menu items.
+
         /// <summary>
-        /// The send to
+        /// The directory that contains the Send To menu items.
         /// </summary>
         SendTo = 9,
-        //
-        // Summary:
-        //     The directory that contains the Start menu items.
+
         /// <summary>
-        /// The start menu
+        /// The directory that contains the Start menu items.
         /// </summary>
         StartMenu = 11,
-        //
-        // Summary:
-        //     The My Music folder.
+
         /// <summary>
-        /// My music
+        /// The My Music folder.
         /// </summary>
         MyMusic = 13,
-        //
-        // Summary:
-        //     The file system directory that serves as a repository for videos that belong
-        //     to a user. Added in the .NET Framework 4.
+
         /// <summary>
-        /// My videos
+        /// The file system directory that serves as a repository for videos that belong
+        /// to a user. Added in the .NET Framework 4.
         /// </summary>
         MyVideos = 14,
-        //
-        // Summary:
-        //     The directory used to physically store file objects on the desktop.
+
         /// <summary>
-        /// The desktop directory
+        /// The directory used to physically store file objects on the desktop.
         /// </summary>
         DesktopDirectory = 16,
-        //
-        // Summary:
-        //     The My Computer folder.
+
         /// <summary>
-        /// My computer
+        /// The My Computer folder.
         /// </summary>
         MyComputer = 17,
-        //
-        // Summary:
-        //     A file system directory that contains the link objects that may exist in the
-        //     My Network Places virtual folder. Added in the .NET Framework 4.
+
         /// <summary>
-        /// The network shortcuts
+        /// A file system directory that contains the link objects that may exist in the
+        /// My Network Places virtual folder. Added in the .NET Framework 4.
         /// </summary>
         NetworkShortcuts = 19,
-        //
-        // Summary:
-        //     A virtual folder that contains fonts. Added in the .NET Framework 4.
+
         /// <summary>
-        /// The fonts
+        /// A virtual folder that contains fonts. Added in the .NET Framework 4.
         /// </summary>
         Fonts = 20,
-        //
-        // Summary:
-        //     The directory that serves as a common repository for document templates.
+
         /// <summary>
-        /// The templates
+        /// The directory that serves as a common repository for document templates.
         /// </summary>
         Templates = 21,
-        //
-        // Summary:
-        //     The file system directory that contains the programs and folders that appear
-        //     on the Start menu for all users. This special folder is valid only for Windows
-        //     NT systems. Added in the .NET Framework 4.
+
         /// <summary>
-        /// The common start menu
+        /// The file system directory that contains the programs and folders that appear
+        /// on the Start menu for all users. This special folder is valid only for Windows
+        /// NT systems. Added in the .NET Framework 4.
         /// </summary>
         CommonStartMenu = 22,
-        //
-        // Summary:
-        //     A folder for components that are shared across applications. This special folder
-        //     is valid only for Windows NT, Windows 2000, and Windows XP systems. Added in
-        //     the .NET Framework 4.
+
         /// <summary>
-        /// The common programs
+        /// A folder for components that are shared across applications. This special folder
+        /// is valid only for Windows NT, Windows 2000, and Windows XP systems. Added in
+        /// the .NET Framework 4.
         /// </summary>
         CommonPrograms = 23,
-        //
-        // Summary:
-        //     The file system directory that contains the programs that appear in the Startup
-        //     folder for all users. This special folder is valid only for Windows NT systems.
-        //     Added in the .NET Framework 4.
+
         /// <summary>
-        /// The common startup
+        /// The file system directory that contains the programs that appear in the Startup
+        /// folder for all users. This special folder is valid only for Windows NT systems.
+        /// Added in the .NET Framework 4.
         /// </summary>
         CommonStartup = 24,
-        //
-        // Summary:
-        //     The file system directory that contains files and folders that appear on the
-        //     desktop for all users. This special folder is valid only for Windows NT systems.
-        //     Added in the .NET Framework 4.
+
         /// <summary>
-        /// The common desktop directory
+        /// The file system directory that contains files and folders that appear on the
+        /// desktop for all users. This special folder is valid only for Windows NT systems.
+        /// Added in the .NET Framework 4.
         /// </summary>
         CommonDesktopDirectory = 25,
-        //
-        // Summary:
-        //     The directory that serves as a common repository for application-specific data
-        //     for the current roaming user.
+
         /// <summary>
-        /// The application data
+        /// The directory that serves as a common repository for application-specific data
+        /// for the current roaming user.
         /// </summary>
         ApplicationData = 26,
-        //
-        // Summary:
-        //     The file system directory that contains the link objects that can exist in the
-        //     Printers virtual folder. Added in the .NET Framework 4.
+
         /// <summary>
-        /// The printer shortcuts
+        /// The file system directory that contains the link objects that can exist in the
+        /// Printers virtual folder. Added in the .NET Framework 4.
         /// </summary>
         PrinterShortcuts = 27,
-        //
-        // Summary:
-        //     The directory that serves as a common repository for application-specific data
-        //     that is used by the current, non-roaming user.
+
         /// <summary>
-        /// The local application data
+        /// The directory that serves as a common repository for application-specific data
+        /// that is used by the current, non-roaming user.
         /// </summary>
         LocalApplicationData = 28,
-        //
-        // Summary:
-        //     The directory that serves as a common repository for temporary Internet files.
+
         /// <summary>
-        /// The internet cache
+        /// The directory that serves as a common repository for temporary Internet files.
         /// </summary>
         InternetCache = 32,
-        //
-        // Summary:
-        //     The directory that serves as a common repository for Internet cookies.
+
         /// <summary>
-        /// The cookies
+        /// The directory that serves as a common repository for Internet cookies.
         /// </summary>
         Cookies = 33,
-        //
-        // Summary:
-        //     The directory that serves as a common repository for Internet history items.
+
         /// <summary>
-        /// The history
+        /// The directory that serves as a common repository for Internet history items.
         /// </summary>
         History = 34,
-        //
-        // Summary:
-        //     The directory that serves as a common repository for application-specific data
-        //     that is used by all users.
+
         /// <summary>
-        /// The common application data
+        /// The directory that serves as a common repository for application-specific data
+        /// that is used by all users.
         /// </summary>
         CommonApplicationData = 35,
-        //
-        // Summary:
-        //     The Windows directory or SYSROOT. This corresponds to the %windir% or %SYSTEMROOT%
-        //     environment variables. Added in the .NET Framework 4.
+
         /// <summary>
-        /// The windows
+        /// The Windows directory or SYSROOT. This corresponds to the %windir% or %SYSTEMROOT%
+        /// environment variables. Added in the .NET Framework 4.
         /// </summary>
         Windows = 36,
-        //
-        // Summary:
-        //     The System directory.
+
         /// <summary>
-        /// The system
+        /// The System directory.
         /// </summary>
         System = 37,
-        //
-        // Summary:
-        //     The program files directory.On a non-x86 system, passing System.Environment.SpecialFolder.ProgramFiles
-        //     to the System.Environment.GetFolderPath(System.Environment.SpecialFolder) method
-        //     returns the path for non-x86 programs. To get the x86 program files directory
-        //     on a non-x86 system, use the System.Environment.SpecialFolder.ProgramFilesX86
-        //     member.
+
         /// <summary>
-        /// The program files
+        /// The program files directory.On a non-x86 system, passing System.Environment.SpecialFolder.ProgramFiles
+        /// to the System.Environment.GetFolderPath(System.Environment.SpecialFolder) method
+        /// returns the path for non-x86 programs. To get the x86 program files directory
+        /// on a non-x86 system, use the System.Environment.SpecialFolder.ProgramFilesX86 member.
         /// </summary>
         ProgramFiles = 38,
-        //
-        // Summary:
-        //     The My Pictures folder.
+
         /// <summary>
-        /// My pictures
+        /// The My Pictures folder.
         /// </summary>
         MyPictures = 39,
-        //
-        // Summary:
-        //     The user's profile folder. Applications should not create files or folders at
-        //     this level; they should put their data under the locations referred to by System.Environment.SpecialFolder.ApplicationData.
-        //     Added in the .NET Framework 4.
+
         /// <summary>
-        /// The user profile
+        /// The user's profile folder. Applications should not create files or folders at
+        /// this level; they should put their data under the locations referred to by
+        /// System.Environment.SpecialFolder.ApplicationData. Added in the .NET Framework 4.
         /// </summary>
         UserProfile = 40,
-        //
-        // Summary:
-        //     The Windows System folder. Added in the .NET Framework 4.
+
         /// <summary>
-        /// The system X86
+        /// The Windows System folder. Added in the .NET Framework 4.
         /// </summary>
         SystemX86 = 41,
-        //
-        // Summary:
-        //     The x86 Program Files folder. Added in the .NET Framework 4.
+
         /// <summary>
-        /// The program files X86
+        /// The x86 Program Files folder. Added in the .NET Framework 4.
         /// </summary>
         ProgramFilesX86 = 42,
-        //
-        // Summary:
-        //     The directory for components that are shared across applications.To get the x86
-        //     common program files directory on a non-x86 system, use the System.Environment.SpecialFolder.ProgramFilesX86
-        //     member.
+
         /// <summary>
-        /// The common program files
+        /// The directory for components that are shared across applications.To get the x86
+        /// common program files directory on a non-x86 system, use the
+        /// System.Environment.SpecialFolder.ProgramFilesX86 member.
         /// </summary>
         CommonProgramFiles = 43,
-        //
-        // Summary:
-        //     The Program Files folder. Added in the .NET Framework 4.
+
         /// <summary>
-        /// The common program files X86
+        /// The Program Files folder. Added in the .NET Framework 4.
         /// </summary>
         CommonProgramFilesX86 = 44,
-        //
-        // Summary:
-        //     The file system directory that contains the templates that are available to all
-        //     users. This special folder is valid only for Windows NT systems. Added in the
-        //     .NET Framework 4.
+
         /// <summary>
-        /// The common templates
+        /// The file system directory that contains the templates that are available to all
+        /// users. This special folder is valid only for Windows NT systems. Added in the
+        /// .NET Framework 4.
         /// </summary>
         CommonTemplates = 45,
-        //
-        // Summary:
-        //     The file system directory that contains documents that are common to all users.
-        //     This special folder is valid for Windows NT systems, Windows 95, and Windows
-        //     98 systems with Shfolder.dll installed. Added in the .NET Framework 4.
+
         /// <summary>
-        /// The common documents
+        /// The file system directory that contains documents that are common to all users.
+        /// This special folder is valid for Windows NT systems, Windows 95, and Windows
+        /// 98 systems with Shfolder.dll installed. Added in the .NET Framework 4.
         /// </summary>
         CommonDocuments = 46,
-        //
-        // Summary:
-        //     The file system directory that contains administrative tools for all users of
-        //     the computer. Added in the .NET Framework 4.
+
         /// <summary>
-        /// The common admin tools
+        /// The file system directory that contains administrative tools for all users of
+        /// the computer. Added in the .NET Framework 4.
         /// </summary>
         CommonAdminTools = 47,
-        //
-        // Summary:
-        //     The file system directory that is used to store administrative tools for an individual
-        //     user. The Microsoft Management Console (MMC) will save customized consoles to
-        //     this directory, and it will roam with the user. Added in the .NET Framework 4.
+
         /// <summary>
-        /// The admin tools
+        /// The file system directory that is used to store administrative tools for an individual
+        /// user. The Microsoft Management Console (MMC) will save customized consoles to
+        /// this directory, and it will roam with the user. Added in the .NET Framework 4.
         /// </summary>
         AdminTools = 48,
-        //
-        // Summary:
-        //     The file system directory that serves as a repository for music files common
-        //     to all users. Added in the .NET Framework 4.
+
         /// <summary>
-        /// The common music
+        /// The file system directory that serves as a repository for music files common
+        /// to all users. Added in the .NET Framework 4.
         /// </summary>
         CommonMusic = 53,
-        //
-        // Summary:
-        //     The file system directory that serves as a repository for image files common
-        //     to all users. Added in the .NET Framework 4.
+
         /// <summary>
-        /// The common pictures
+        /// The file system directory that serves as a repository for image files common
+        /// to all users. Added in the .NET Framework 4.
         /// </summary>
         CommonPictures = 54,
-        //
-        // Summary:
-        //     The file system directory that serves as a repository for video files common
-        //     to all users. Added in the .NET Framework 4.
+
         /// <summary>
-        /// The common videos
+        /// The file system directory that serves as a repository for video files common
+        /// to all users. Added in the .NET Framework 4.
         /// </summary>
         CommonVideos = 55,
-        //
-        // Summary:
-        //     The file system directory that contains resource data. Added in the .NET Framework
-        //     4.
+
         /// <summary>
-        /// The resources
+        /// The file system directory that contains resource data. Added in the .NET Framework 4.
         /// </summary>
         Resources = 56,
-        //
-        // Summary:
-        //     The file system directory that contains localized resource data. Added in the
-        //     .NET Framework 4.
+
         /// <summary>
-        /// The localized resources
+        /// The file system directory that contains localized resource data. Added in the
+        /// .NET Framework 4.
         /// </summary>
         LocalizedResources = 57,
-        //
-        // Summary:
-        //     This value is recognized in Windows Vista for backward compatibility, but the
-        //     special folder itself is no longer used. Added in the .NET Framework 4.
+
         /// <summary>
-        /// The common oem links
+        /// This value is recognized in Windows Vista for backward compatibility, but the
+        /// special folder itself is no longer used. Added in the .NET Framework 4.
         /// </summary>
         CommonOemLinks = 58,
-        //
-        // Summary:
-        //     The file system directory that acts as a staging area for files waiting to be
-        //     written to a CD. Added in the .NET Framework 4.
+
         /// <summary>
-        /// The cd burning
+        /// The file system directory that acts as a staging area for files waiting to be
+        /// written to a CD. Added in the .NET Framework 4.
         /// </summary>
         CDBurning = 59,
 
         /// <summary>
-        /// The Microsoft .NET foler.
+        /// The Microsoft .NET folder.
         /// </summary>
-        MicrosoftNet = 500
+        MicrosoftNet = 500,
     }
 }

@@ -13,6 +13,7 @@
 // ***********************************************************************
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,9 +23,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dotNetTips.Tips.Utility.Standard.Tests.IO
 {
-    /// <summary>
-    /// Class DirectoryHelperUnitTest.
-    /// </summary>
+    [ExcludeFromCodeCoverage]
     [TestClass]
     public class FileHelperTests
     {
@@ -96,21 +95,6 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
         }
 
         [TestMethod]
-        public void DownloadFileFromWebTest()
-        {
-            try
-            {
-                const string fileToDownload = @"https://dotnettips.files.wordpress.com/2018/03/cropped-rtw-dotnettips-com-logo05x1.png";
-
-                FileHelper.DownloadFileFromWeb(new Uri(fileToDownload), Path.Combine(this._tempPath.FullName, "dotNetTips.Com.logo.png"));
-            }
-            catch (Exception ex)
-            {
-                Assert.Fail(ex.Message);
-            }
-        }
-
-        [TestMethod]
         public async Task DownloadFileFromWebAsyncTest()
         {
             try
@@ -126,9 +110,18 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
         }
 
         [TestMethod]
-        public void InvalidFileNameCharsTest()
+        public void DownloadFileFromWebTest()
         {
-            Assert.IsTrue(FileHelper.InvalidFileNameChars.HasItems());
+            try
+            {
+                const string fileToDownload = @"https://dotnettips.files.wordpress.com/2018/03/cropped-rtw-dotnettips-com-logo05x1.png";
+
+                FileHelper.DownloadFileFromWeb(new Uri(fileToDownload), Path.Combine(this._tempPath.FullName, "dotNetTips.Com.logo.png"));
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
         }
 
 
@@ -173,6 +166,12 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
                     FileHelper.DeleteFiles(filesToDelete);
                 }
             }
+        }
+
+        [TestMethod]
+        public void InvalidFileNameCharsTest()
+        {
+            Assert.IsTrue(FileHelper.InvalidFileNameChars.HasItems());
         }
 
     }

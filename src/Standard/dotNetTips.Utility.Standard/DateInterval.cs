@@ -66,6 +66,6 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// Second
         /// </summary>
-        Second
+        Second,
     }
 }

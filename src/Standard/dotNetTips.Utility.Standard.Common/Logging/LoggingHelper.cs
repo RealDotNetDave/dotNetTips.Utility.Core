@@ -39,7 +39,7 @@ namespace dotNetTips.Utility.Standard.Common.Logging
 
             var messages = new string[exceptions.Length];
 
-            for (int i = 0; i < exceptions.Length; i++)
+            for (var i = 0; i < exceptions.Length; i++)
             {
                 messages[i] = exceptions[i].Message;
             }

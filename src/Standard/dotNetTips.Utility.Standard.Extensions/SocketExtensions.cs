@@ -4,7 +4,7 @@
 // Created          : 07-22-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-04-2020
+// Last Modified On : 11-19-2020
 // ***********************************************************************
 // <copyright file="SocketExtensions.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
@@ -66,10 +66,22 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="remoteEndpoint">The remote endpoint.</param>
         /// <param name="millisecondsTimeout">The milliseconds timeout.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="ArgumentNullException">remoteEndpoint</exception>
+        /// <exception cref="ArgumentNullException">socket</exception>
         /// <exception cref="PlatformNotSupportedException"></exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool TryConnect(this Socket socket, EndPoint remoteEndpoint, int millisecondsTimeout)
         {
+            if (remoteEndpoint == null)
+            {
+                throw new ArgumentNullException(nameof(remoteEndpoint), $"{nameof(remoteEndpoint)} is null.");
+            }
+
+            if (socket == null)
+            {
+                throw new ArgumentNullException(nameof(socket), $"{nameof(socket)} is null.");
+            }
+
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 using (var mre = new ManualResetEventSlim(false))

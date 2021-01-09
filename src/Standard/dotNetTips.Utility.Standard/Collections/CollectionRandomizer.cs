@@ -4,7 +4,7 @@
 // Created          : 08-26-2020
 //
 // Last Modified By : David McCarter
-// Last Modified On : 09-21-2020
+// Last Modified On : 11-04-2020
 // ***********************************************************************
 // <copyright file="CollectionRandomizer.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
@@ -29,21 +29,34 @@ namespace dotNetTips.Utility.Standard.Collections
     public sealed class CollectionRandomizer<T>
     {
 
+        /// <summary>
+        /// The repeat
+        /// </summary>
         private readonly bool _repeat;
+        /// <summary>
+        /// The thread lock
+        /// </summary>
         private readonly object _threadLock = new object();
+        /// <summary>
+        /// The collection
+        /// </summary>
         private ImmutableArray<T> _collection;
+        /// <summary>
+        /// The collection enumerator
+        /// </summary>
         private ImmutableArray<T>.Enumerator _collectionEnumerator;
 
+        /// <summary>
+        /// The initialized
+        /// </summary>
         private bool _initialized;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CollectionRandomizer{T}"/> class.
+        /// Initializes a new instance of the <see cref="CollectionRandomizer{T}" /> class.
         /// </summary>
         /// <param name="collection">The collection.</param>
-        /// <param name="repeat">
-        /// If set to <c>true</c> and when using GetNext() the collection will repeat over and over and each time re-
-        /// shuffled. Be careful of getting into an endless loop, it could cause your app to crash.
-        /// </param>
+        /// <param name="repeat">If set to <c>true</c> and when using GetNext() the collection will repeat over and over and each time re-
+        /// shuffled. Be careful of getting into an endless loop, it could cause your app to crash.</param>
         /// <remarks>The collection cannot be changed after initialization.</remarks>
         public CollectionRandomizer(IEnumerable<T> collection, bool repeat = false)
         {
@@ -54,10 +67,8 @@ namespace dotNetTips.Utility.Standard.Collections
         /// <summary>
         /// Gets a value indicating whether this instance has remaining items.
         /// </summary>
-        /// <value>
-        /// <c>true</c> if this instance has remaining items; otherwise, <c>false</c>. This value will be <c>false</c>
-        /// until the first time GetNext() is called and the shuffle is initalized.
-        /// </value>
+        /// <value><c>true</c> if this instance has remaining items; otherwise, <c>false</c>. This value will be <c>false</c>
+        /// until the first time GetNext() is called and the shuffle is initalized.</value>
         public bool HasRemainingItems { get; private set; }
 
         /// <summary>
@@ -78,6 +89,10 @@ namespace dotNetTips.Utility.Standard.Collections
             }
         }
 
+        /// <summary>
+        /// Initializes this instance.
+        /// </summary>
+        /// <exception cref="NullReferenceException">Underlying collection is null.</exception>
         private void Init()
         {
             //Ignore if initialized unless repeat is true.

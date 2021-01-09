@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 08-07-2020
+// Last Modified On : 11-19-2020
 // ***********************************************************************
 // <copyright file="TypeExtensions.cs" company="David McCarter - dotNetTips.com">
 //     David McCarter - dotNetTips.com
@@ -68,10 +68,16 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns>IEnumerable&lt;MethodInfo&gt;.</returns>
+        /// <exception cref="ArgumentNullException">type</exception>
         [Information("Original Code .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static IEnumerable<MethodInfo> GetAllDeclaredMethods(this Type type)
         {
-            for (int i = 0; i <
+            if (type == null)
+            {
+                throw new ArgumentNullException(nameof(type), $"{nameof(type)} is null.");
+            }
+
+            for (var i = 0; i <
                 type.GetMethods(BindingFlags.Instance |
                     BindingFlags.Static |
                     BindingFlags.Public |
@@ -259,11 +265,17 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="TAttribute">The type of the t attribute.</typeparam>
         /// <param name="type">The type.</param>
         /// <returns>System.ValueTuple&lt;System.String, TAttribute, System.Boolean, System.Boolean, Type&gt;[].</returns>
-        /// <exception cref="InvalidOperationException">Member must be public if it has the attribute applied to it</exception>
+        /// <exception cref="ArgumentNullException">type</exception>
+        /// <exception cref="InvalidOperationException">Member \"{member.Name}\" must be public if it has the [{typeof(TAttribute).Name}] attribute applied to it</exception>
         [Information("https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 81.82, Status = Status.Available)]
         public static (string Name, TAttribute Attribute, bool IsPrivate, bool IsStatic, Type ParameterType)[] GetTypeMembersWithAttribute<TAttribute>(this Type type)
             where TAttribute : Attribute
         {
+            if (type == null)
+            {
+                throw new ArgumentNullException(nameof(type), $"{nameof(type)} is null.");
+            }
+
             IEnumerable<(string Name, TAttribute Attribute, bool IsPrivate, bool IsStatic, Type ParameterType)> allFields = type.GetFields()
                 .Select(f => (
                                     Name: f.Name,
@@ -376,12 +388,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="obj1">The obj1.</param>
         /// <param name="obj2">The obj2.</param>
         /// <returns>T.</returns>
-        /// <exception cref="ArgumentNullException">
-        /// obj1 - Object 1 cannot be null. or obj2 - Object 1 cannot be null.
-        /// </exception>
-        /// <exception cref="System.ArgumentNullException">
-        /// obj1 - Object 1 cannot be null. or obj2 - Object 1 cannot be null.
-        /// </exception>
+        /// <exception cref="ArgumentNullException">obj2</exception>
+        /// <exception cref="System.ArgumentNullException">obj1 - Object 1 cannot be null. or obj2 - Object 1 cannot be null.</exception>
         /// <remarks>Original code by: Jeremy Clark</remarks>
         public static T Max<T>(this T obj1, T obj2)
             where T : IComparable

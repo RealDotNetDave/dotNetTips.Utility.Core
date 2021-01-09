@@ -62,6 +62,7 @@ namespace dotNetTips.Utility.Standard.Net
         internal static bool TryReadReverseQuoted(string data, int index, bool permitUnicode, out int outIndex, bool throwExceptionIfFail)
         {
             Debug.Assert(0 <= index && index < data.Length, "Index out of range: " + index + ", " + data.Length);
+
             // Check for the first bounding quote
             Debug.Assert(data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Quote, "Initial char at index " + index + " was not a quote.");
 
@@ -94,6 +95,7 @@ namespace dotNetTips.Utility.Standard.Net
                     // Skip quoted pairs
                     index -= quotedCharCount;
                 }
+
                 // Check for the terminating quote
                 else if (data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Quote)
                 {
@@ -101,6 +103,7 @@ namespace dotNetTips.Utility.Standard.Net
                     outIndex = index - 1;
                     return true;
                 }
+
                 // Check invalid characters
                 else if (!IsValidQtext(permitUnicode, data[index]))
                 {
@@ -114,6 +117,7 @@ namespace dotNetTips.Utility.Standard.Net
                         return false;
                     }
                 }
+
                 // Valid char
                 else
                 {
@@ -178,6 +182,7 @@ namespace dotNetTips.Utility.Standard.Net
                 {
                     break;
                 }
+
                 // Check for escaped characters
                 if (!QuotedPairReader.TryCountQuotedChars(data, index, permitUnicode, out var quotedCharCount, throwExceptionIfFail))
                 {
@@ -189,11 +194,13 @@ namespace dotNetTips.Utility.Standard.Net
                 {
                     index -= quotedCharCount;
                 }
+
                 // Check for the terminating char
                 else if (expectCommaDelimiter && data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Comma)
                 {
                     break;
                 }
+
                 // Check invalid characters
                 else if (!IsValidQtext(permitUnicode, data[index]))
                 {
@@ -207,6 +214,7 @@ namespace dotNetTips.Utility.Standard.Net
                         return false;
                     }
                 }
+
                 // Valid char
                 else
                 {

@@ -1,18 +1,18 @@
 ﻿// ***********************************************************************
 // Assembly         : dotNetTips.Utility.Standard.Tester
 // Author           : David McCarter
-// Created          : 07-17-2019
+// Created          : 11-22-2020
 //
 // Last Modified By : David McCarter
 // Last Modified On : 11-22-2020
 // ***********************************************************************
-// <copyright file="PersonProper.cs" company="dotNetTips.com - David McCarter">
+// <copyright file="PersonPlus.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
@@ -33,9 +33,8 @@ namespace dotNetTips.Utility.Standard.Tester.Models
     /// <seealso cref="System.IComparable" />
     [DebuggerDisplay("{Email}")]
     [Serializable]
-    [XmlRoot(ElementName = "PersonProper", Namespace = "http://dotNetTips.Utility.Standard.Tester.Models")]
-    [DataContract(Name = "personProper", Namespace = "http://dotNetTips.Utility.Standard.Tester.Models")]
-    public sealed class PersonProper : IPerson, IDataModel<PersonProper, string>, IPersonPlus
+    [DataContract(Name = "personPlus", Namespace = "http://dotNetTips.Utility.Standard.Tester.Models")]
+    public sealed class PersonPlus : IPersonPlus, IDataModel<PersonPlus, string>, IComparable<PersonPlus>, IEquatable<PersonPlus>
     {
 
         /// <summary>
@@ -114,7 +113,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// Initializes a new instance of <see cref="PersonFixed" />.
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public PersonProper()
+        public PersonPlus()
         {
         }
 
@@ -123,7 +122,8 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// </summary>
         /// <param name="id">The unique identifier.</param>
         /// <param name="email">The email address.</param>
-        public PersonProper(string id, string email)
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        public PersonPlus(string id, string email)
         {
             this.Id = id;
             this.Email = email;
@@ -180,13 +180,6 @@ namespace dotNetTips.Utility.Standard.Tester.Models
                 this._address2 = value.HasValue(0, 100) == false ? throw new ArgumentOutOfRangeException(nameof(this.Address2), Resources.AddressLengthIsLimitedTo100Characters) : value;
             }
         }
-
-        /// <summary>
-        /// Gets the person's current age.
-        /// </summary>
-        /// <value>The age.</value>
-        [IgnoreDataMember]
-        public TimeSpan Age => this.CalculateAge();
 
         /// <summary>
         /// Gets or sets the born on date and time.
@@ -449,7 +442,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// <param name="left">The left.</param>
         /// <param name="right">The right.</param>
         /// <returns>The result of the operator.</returns>
-        public static bool operator >=(PersonProper left, PersonProper right) => left is null ? right is null : left.CompareTo(right) >= 0;
+        public static bool operator >=(PersonPlus left, PersonPlus right) => left is null ? right is null : left.CompareTo(right) >= 0;
 
         /// <summary>
         /// Implements the &gt; operator.
@@ -457,7 +450,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// <param name="left">The left.</param>
         /// <param name="right">The right.</param>
         /// <returns>The result of the operator.</returns>
-        public static bool operator >(PersonProper left, PersonProper right) => left is object && left.CompareTo(right) > 0;
+        public static bool operator >(PersonPlus left, PersonPlus right) => left is object && left.CompareTo(right) > 0;
 
         /// <summary>
         /// Implements the == operator.
@@ -465,7 +458,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// <param name="left">The left.</param>
         /// <param name="right">The right.</param>
         /// <returns>The result of the operator.</returns>
-        public static bool operator ==(PersonProper left, PersonProper right)
+        public static bool operator ==(PersonPlus left, PersonPlus right)
         {
             if (left is null)
             {
@@ -481,7 +474,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// <param name="left">The left.</param>
         /// <param name="right">The right.</param>
         /// <returns>The result of the operator.</returns>
-        public static bool operator <=(PersonProper left, PersonProper right) => left is null || left.CompareTo(right) <= 0;
+        public static bool operator <=(PersonPlus left, PersonPlus right) => left is null || left.CompareTo(right) <= 0;
 
         /// <summary>
         /// Implements the &lt; operator.
@@ -489,7 +482,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// <param name="left">The left.</param>
         /// <param name="right">The right.</param>
         /// <returns>The result of the operator.</returns>
-        public static bool operator <(PersonProper left, PersonProper right) => left is null ? right is object : left.CompareTo(right) < 0;
+        public static bool operator <(PersonPlus left, PersonPlus right) => left is null ? right is object : left.CompareTo(right) < 0;
 
         /// <summary>
         /// Implements the != operator.
@@ -497,87 +490,87 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// <param name="left">The left.</param>
         /// <param name="right">The right.</param>
         /// <returns>The result of the operator.</returns>
-        public static bool operator !=(PersonProper left, PersonProper right) => !( left == right );
+        public static bool operator !=(PersonPlus left, PersonPlus right) => !( left == right );
 
         /// <summary>
         /// Compares to.
         /// </summary>
         /// <param name="other">The other.</param>
         /// <returns>System.Int32.</returns>
-        public int CompareTo(PersonProper other)
+        public int CompareTo(PersonPlus other)
         {
             if (other == null)
             {
                 return 1;
             }
 
-            var result = string.Compare(this._address1, other._address1, StringComparison.OrdinalIgnoreCase);
+            var result = string.Compare(this.Address1, other.Address1, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = string.Compare(this._address2, other._address2, StringComparison.OrdinalIgnoreCase);
+            result = string.Compare(this.Address2, other.Address2, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = this._bornOn.CompareTo(other._bornOn);
+            result = this.BornOn.CompareTo(other.BornOn);
             if (result != 0)
             {
                 return result;
             }
 
-            result = string.Compare(this._cellPhone, other._cellPhone, StringComparison.OrdinalIgnoreCase);
+            result = string.Compare(this.CellPhone, other.CellPhone, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = string.Compare(this._city, other._city, StringComparison.OrdinalIgnoreCase);
+            result = string.Compare(this.City, other.City, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = string.Compare(this._country, other._country, StringComparison.OrdinalIgnoreCase);
+            result = string.Compare(this.Country, other.Country, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = string.Compare(this._email, other._email, StringComparison.OrdinalIgnoreCase);
+            result = string.Compare(this.Email, other.Email, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = string.Compare(this._firstName, other._firstName, StringComparison.OrdinalIgnoreCase);
+            result = string.Compare(this.FirstName, other.FirstName, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = string.Compare(this._homePhone, other._homePhone, StringComparison.OrdinalIgnoreCase);
+            result = string.Compare(this.HomePhone, other.HomePhone, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = string.Compare(this._id, other._id, StringComparison.OrdinalIgnoreCase);
+            result = string.Compare(this.Id, other.Id, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = string.Compare(this._lastName, other._lastName, StringComparison.OrdinalIgnoreCase);
+            result = string.Compare(this.LastName, other.LastName, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
             }
 
-            result = string.Compare(this._postalCode, other._postalCode, StringComparison.OrdinalIgnoreCase);
+            result = string.Compare(this.PostalCode, other.PostalCode, StringComparison.OrdinalIgnoreCase);
             if (result != 0)
             {
                 return result;
@@ -586,11 +579,12 @@ namespace dotNetTips.Utility.Standard.Tester.Models
             return result;
         }
 
+
         /// <summary>
-        /// Determines whether the specified <see cref="object" /> is equal to this instance.
+        /// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
         /// </summary>
         /// <param name="obj">The object to compare with the current object.</param>
-        /// <returns><c>true</c> if the specified <see cref="object" /> is equal to this instance; otherwise, <c>false</c>.</returns>
+        /// <returns><c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.</returns>
         /// <exception cref="NotImplementedException"></exception>
         public override bool Equals(object obj)
         {
@@ -608,7 +602,7 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// <param name="other">The other.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         /// <exception cref="NotImplementedException"></exception>
-        public bool Equals(PersonProper other)
+        public bool Equals(PersonPlus other)
         {
             if (other == null)
             {
@@ -625,23 +619,14 @@ namespace dotNetTips.Utility.Standard.Tester.Models
         /// <returns>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</returns>
         public override int GetHashCode()
         {
-            //TODO: CHANGE TO HashCode.Combine(Email, Id)
-            var hashCode = -1058553241;
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Id);
-            return hashCode;
+            return HashCode.Combine(this.Email, this.Id);
         }
 
         /// <summary>
-        /// Returns a <see cref="string" /> of the users id.
+        /// Returns a <see cref="System.String" /> of the users id.
         /// </summary>
-        /// <returns>A <see cref="string" /> of the users id.</returns>
+        /// <returns>A <see cref="System.String" /> of the users id.</returns>
         public override string ToString() => this.Id.ToString(CultureInfo.CurrentCulture);
-
-        /// <summary>
-        /// Calculates the person's current age.
-        /// </summary>
-        /// <returns>TimeSpan.</returns>
-        private TimeSpan CalculateAge() => DateTimeOffset.UtcNow.Subtract(this.BornOn);
 
     }
 }

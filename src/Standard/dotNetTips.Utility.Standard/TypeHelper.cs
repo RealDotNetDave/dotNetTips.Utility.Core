@@ -85,6 +85,8 @@ namespace dotNetTips.Utility.Standard
             return instance;
         }
 
+
+
         /// <summary>
         /// Does the object equal instance.
         /// </summary>
@@ -226,7 +228,23 @@ namespace dotNetTips.Utility.Standard
         /// <typeparam name="T">Generic type.</typeparam>
         /// <param name="input">The input.</param>
         /// <returns>ImmutableDictionary&lt;System.String, System.String&gt;.</returns>
-        [Information(nameof(GetPropertyValues), author: "David McCarter", createdOn: "11/03/2020", modifiedOn: "11/03/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        /// <example>Output:
+        /// [Address1, `fqrZjAqTNANUNIyJWFyNjCQx]
+        /// [Address2, bSUnkmaIIMutgJtAKYZANpSHM]
+        /// [Age, 23360.00:00:00.0086580]
+        /// [BornOn, 1/23/1957 2:45:24 PM -08:00]
+        /// [CellPhone, 704-375-5873]
+        /// [City, fDbZYFMANE\MLxD]
+        /// [Country, RbPjkyMasw`gnWR]
+        /// [Email, thmiduaodph@djpumhmaheckkmrmwkkpxs.gov]
+        /// [FirstName, ugdv\bhaHgSY^Ui]
+        /// [HomePhone, 147-205-1085]
+        /// [Id, f1bcbdbdf18a4adaa89e46383b235008]
+        /// [LastName, H^hkKhwWggIrUCYbbxiFEJGJM]
+        /// [PostalCode, 86560656].
+        /// </example>
+        /// <exception cref="ArgumentNullException">Input cannot be null. </exception>
+        [Information(nameof(GetPropertyValues), author: "David McCarter", createdOn: "11/03/2020", modifiedOn: "11/03/2020", UnitTestCoverage = 99, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
         public static ImmutableDictionary<string, string> GetPropertyValues<T>(T input)
         {
             Encapsulation.TryValidateParam<ArgumentNullException>(input.IsNotNull(), nameof(input));
@@ -235,7 +253,7 @@ namespace dotNetTips.Utility.Standard
 
             var properties = input.GetType().GetAllProperties().Where(p => p.CanRead == true).ToArray();
 
-            foreach (var propertyInfo in properties)
+            foreach (var propertyInfo in properties.OrderBy(p => p.Name))
             {
                 if (propertyInfo.PropertyType.Name == "IDictionary")
                 {

@@ -135,7 +135,7 @@ namespace dotNetTips.Utility.Standard
         /// <returns>The result of the operator.</returns>
         public static bool operator !=(Enumeration left, Enumeration right)
         {
-            return !(left == right);
+            return !( left == right );
         }
 
         /// <summary>
@@ -174,7 +174,7 @@ namespace dotNetTips.Utility.Standard
                 throw new ArgumentNullException(nameof(obj));
             }
 
-            return this.Value.CompareTo(((Enumeration)obj).Value);
+            return this.Value.CompareTo(( (Enumeration)obj ).Value);
         }
 
         /// <summary>
@@ -186,7 +186,7 @@ namespace dotNetTips.Utility.Standard
         {
             Encapsulation.TryValidateParam<ArgumentNullException>(obj != null, nameof(obj));
 
-            if (!(obj is Enumeration otherValue))
+            if (!( obj is Enumeration otherValue ))
             {
                 return false;
             }
@@ -204,9 +204,9 @@ namespace dotNetTips.Utility.Standard
         public override int GetHashCode() => this._value.GetHashCode();
 
         /// <summary>
-        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// Returns a <see cref="string" /> that represents this instance.
         /// </summary>
-        /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
+        /// <returns>A <see cref="string" /> that represents this instance.</returns>
         public override string ToString() => this.DisplayName;
 
     }

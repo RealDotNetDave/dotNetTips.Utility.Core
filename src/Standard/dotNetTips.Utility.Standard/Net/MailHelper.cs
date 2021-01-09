@@ -347,6 +347,7 @@ namespace dotNetTips.Utility.Standard.Net
                 if (index >= 0 && data[index] == dotNetTips.Utility.Standard.Common.ControlChars.StartAngleBracket)
                 {
                     index--; // Skip the angle bracket
+
                     // Skip whitespace, but leave comments, as they may be part of the display name.
                     if (!WhitespaceReader.TryReadFwsReverse(data, index, out index, throwExceptionIfFail))
                     {
@@ -441,8 +442,9 @@ namespace dotNetTips.Utility.Standard.Net
                             || data[index] == dotNetTips.Utility.Standard.Common.ControlChars.EndComment // <(comment)local@domain>
                             || ( expectAngleBracket && data[index] == dotNetTips.Utility.Standard.Common.ControlChars.StartAngleBracket ) // <local@domain>
                             || ( expectMultipleAddresses && data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Comma ) // local@dom,local@dom
-                                                                                                                                   // Note: The following condition is more lax than the RFC.  This is done so we could support
-                                                                                                                                   // a common invalid formats as shown below.
+
+                            // Note: The following condition is more lax than the RFC.  This is done so we could support
+                            // a common invalid formats as shown below.
                             || data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Quote // "display"local@domain
                         )
                     )

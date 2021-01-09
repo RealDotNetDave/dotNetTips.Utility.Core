@@ -11,19 +11,20 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using System.Linq;
 using dotNetTips.Tips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.IO;
 using dotNetTips.Utility.Standard.Tester;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 
 namespace dotNetTips.Tips.Utility.Standard.Tests.IO
 {
-
+    [ExcludeFromCodeCoverage]
     [TestClass]
     public class DirectoryHelperTests
     {
@@ -40,7 +41,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
         [TestMethod]
         public void CopyAndDeleteDirectoryTest()
         {
-            var destinationPath = Path.Combine(_tempPath.FullName, nameof(CopyAndDeleteDirectoryTest));
+            var destinationPath = Path.Combine(this._tempPath.FullName, nameof(this.CopyAndDeleteDirectoryTest));
 
             var sourcePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
                                           "dotNetTips.com-" + DateTime.Now.Ticks);
@@ -66,7 +67,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
         [TestMethod]
         public void CopyAndMoveDirectoryTest()
         {
-            var destinationPath = Path.Combine(_tempPath.FullName, nameof(CopyAndMoveDirectoryTest));
+            var destinationPath = Path.Combine(this._tempPath.FullName, nameof(this.CopyAndMoveDirectoryTest));
             var folderToCopy = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).GetDirectories()
                 .Where(p => p.GetFiles().Count() > 0)
                 .Shuffle()
@@ -74,7 +75,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
 
             try
             {
-                DirectoryHelper.CopyDirectory(folderToCopy.FullName, _tempPath.FullName, false);
+                DirectoryHelper.CopyDirectory(folderToCopy.FullName, this._tempPath.FullName, false);
                 DirectoryHelper.MoveDirectory(folderToCopy.FullName, destinationPath, 5);
             }
             catch (Exception ex)
@@ -90,22 +91,22 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.IO
         [TestInitialize]
         public void Initialize()
         {
-            _tempPath = new DirectoryInfo(Path.Combine(Path.GetTempPath(), "_DOTNETTIPS-DIRECTORYHELPER-TEST"));
+            this._tempPath = new DirectoryInfo(Path.Combine(Path.GetTempPath(), "_DOTNETTIPS-DIRECTORYHELPER-TEST"));
 
-            if (_tempPath.Exists == false)
+            if (this._tempPath.Exists == false)
             {
-                _tempPath.Create();
+                this._tempPath.Create();
             }
             else
             {
-                var array = _tempPath.EnumerateDirectories().ToArray();
+                var array = this._tempPath.EnumerateDirectories().ToArray();
 
                 foreach (var directory in array)
                 {
                     DirectoryHelper.DeleteDirectory(directory.FullName);
                 }
 
-                FileHelper.DeleteFiles(_tempPath.EnumerateFiles().Select(p => p.FullName));
+                FileHelper.DeleteFiles(this._tempPath.EnumerateFiles().Select(p => p.FullName));
             }
         }
 

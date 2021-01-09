@@ -52,23 +52,6 @@ namespace dotNetTips.Utility.Standard.Net
         }
 
         /// <summary>
-        /// Releases unmanaged and - optionally - managed resources.
-        /// </summary>
-        /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!_disposed)
-            {
-                if (disposing)
-                {
-                    this.DisposeFields();
-                }
-
-                _disposed = true;
-            }
-        }
-
-        /// <summary>
         /// Creates new timers. This method is thread-safe.
         /// </summary>
         /// <param name="callback">The callback.</param>
@@ -76,7 +59,7 @@ namespace dotNetTips.Utility.Standard.Net
         /// <returns><see cref="CancellationTimer" />Timer.</returns>
         public override CancellationTimer CreateTimer(Callback callback, object context)
         {
-            var timer = new CountdownTimerNode(callback, context, Duration, this._countdownTimerNode);
+            var timer = new CountdownTimerNode(callback, context, this.Duration, this._countdownTimerNode);
 
             // Add this on the tail.  (Actually, one before the tail - _timers is the sentinel tail.)
             var needProd = false;
@@ -86,9 +69,9 @@ namespace dotNetTips.Utility.Standard.Net
                 // If this is the first timer in the list, we need to create a queue handle and prod the timer thread.
                 if (this._countdownTimerNode.Next == this._countdownTimerNode)
                 {
-                    if (_thisHandle == IntPtr.Zero)
+                    if (this._thisHandle == IntPtr.Zero)
                     {
-                        _thisHandle = (IntPtr)GCHandle.Alloc(this);
+                        this._thisHandle = (IntPtr)GCHandle.Alloc(this);
                     }
 
                     needProd = true;
@@ -116,7 +99,7 @@ namespace dotNetTips.Utility.Standard.Net
         public void Dispose()
         {
             // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-            Dispose(disposing: true);
+            this.Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }
 
@@ -131,18 +114,18 @@ namespace dotNetTips.Utility.Standard.Net
             while (true)
             {
                 // Check if we got to the end.  If so, free the handle.
-                var timer = _countdownTimerNode.Next;
+                var timer = this._countdownTimerNode.Next;
                 if (timer == this._countdownTimerNode)
                 {
                     lock (this._countdownTimerNode)
                     {
                         timer = this._countdownTimerNode.Next;
-                        if (timer == _countdownTimerNode)
+                        if (timer == this._countdownTimerNode)
                         {
-                            if (_thisHandle != IntPtr.Zero)
+                            if (this._thisHandle != IntPtr.Zero)
                             {
-                                ((GCHandle)_thisHandle).Free();
-                                _thisHandle = IntPtr.Zero;
+                                ( (GCHandle)this._thisHandle ).Free();
+                                this._thisHandle = IntPtr.Zero;
                             }
 
                             nextExpiration = 0;
@@ -156,6 +139,23 @@ namespace dotNetTips.Utility.Standard.Net
                     nextExpiration = timer.Expiration;
                     return true;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Releases unmanaged and - optionally - managed resources.
+        /// </summary>
+        /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this._disposed)
+            {
+                if (disposing)
+                {
+                    this.DisposeFields();
+                }
+
+                this._disposed = true;
             }
         }
     }

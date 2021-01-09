@@ -27,19 +27,19 @@ namespace dotNetTips.Utility.Standard.Security
 
             string text = null;
 
-            // Create AesManaged    
+            // Create AesManaged.
             using (var aes = new AesManaged())
             {
-                // Create a decryptor    
+                // Create a decryptor.
                 using (var decryptor = aes.CreateDecryptor(key, iv))
                 {
-                    // Create the streams used for decryption.    
+                    // Create the streams used for decryption.
                     using (var ms = new MemoryStream(cipherText))
                     {
-                        // Create crypto stream    
+                        // Create crypto stream.
                         using (var cs = new CryptoStream(ms, decryptor, CryptoStreamMode.Read))
                         {
-                            // Read crypto stream    
+                            // Read crypto stream.
                             using (var reader = new StreamReader(cs))
                             {
                                 text = reader.ReadToEnd();
@@ -167,7 +167,6 @@ namespace dotNetTips.Utility.Standard.Security
 
             return text;
         }
-
 
         /// <summary>
         /// Encrypts a string using Rijndael security.

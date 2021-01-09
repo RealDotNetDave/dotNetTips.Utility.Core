@@ -41,6 +41,6 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// The short time
         /// </summary>
-        ShortTime
+        ShortTime,
     }
 }

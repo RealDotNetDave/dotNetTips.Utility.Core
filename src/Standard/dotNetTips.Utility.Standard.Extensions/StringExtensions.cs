@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 10-23-2020
+// Last Modified On : 11-19-2020
 // ***********************************************************************
 // <copyright file="StringExtensions.cs" company="David McCarter - dotNetTips.com">
 //     David McCarter - dotNetTips.com
@@ -30,7 +30,6 @@ namespace dotNetTips.Utility.Standard.Extensions
     /// </summary>
     public static class StringExtensions
     {
-
         /// <summary>
         /// Computes a hash from the string.
         /// </summary>
@@ -239,8 +238,8 @@ namespace dotNetTips.Utility.Standard.Extensions
             }
             else
             {
-                int i = input.IndexOf(start, StringComparison.CurrentCulture);
-                int j = input.IndexOf(end, StringComparison.CurrentCulture);
+                var i = input.IndexOf(start, StringComparison.Ordinal);
+                var j = input.IndexOf(end, StringComparison.Ordinal);
 
                 return input.Substring(i, j - i);
             }
@@ -576,7 +575,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             // Get default value for type so if string
             // is empty then we can return default value.
-            T result = default(T);
+            var result = default(T);
 
             if (!string.IsNullOrEmpty(value))
             {
@@ -764,8 +763,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="startIndex">The start index.</param>
         /// <param name="length">The length.</param>
         /// <returns>System.String.</returns>
-        /// <exception cref="ArgumentOutOfRangeException">startIndex - startIndex + length must be
-        /// less than or equal to the value.Length</exception>
+        /// <exception cref="ArgumentOutOfRangeException">startIndex - startIndex + length must be <= value.Length</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 81.08, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static string SubstringTrim(this string input, int startIndex, int length)
         {
@@ -794,7 +792,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 return string.Empty;
             }
 
-            int endIndex = ( startIndex + length ) - 1;
+            int endIndex = startIndex + length - 1;
 
             while (( startIndex <= endIndex ) && char.IsWhiteSpace(input[startIndex]))
             {
@@ -806,7 +804,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 endIndex--;
             }
 
-            int newLength = ( endIndex - startIndex ) + 1;
+            var newLength = endIndex - startIndex + 1;
 
             if (newLength == 0)
             {
@@ -862,6 +860,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentException">input</exception>
         public static string ToTrimmed(this string input)
         {
+            // TODO: ADD OVERLOADED METHOD TO TRIM CHARS TO RIGHT.
             if (input.IsNullOrEmpty())
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(input));

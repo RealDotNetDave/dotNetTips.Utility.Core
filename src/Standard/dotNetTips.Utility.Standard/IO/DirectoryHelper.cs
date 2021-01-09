@@ -122,7 +122,7 @@ namespace dotNetTips.Utility.Standard.IO
                 if (tries > 1)
                 {
                     // If something has a transient lock on the file waiting may resolve the issue
-                    Thread.Sleep((retries + 1) * 10);
+                    Thread.Sleep(( retries + 1 ) * 10);
                 }
 
                 try
@@ -268,7 +268,7 @@ namespace dotNetTips.Utility.Standard.IO
                 if (tries > 1)
                 {
                     // If something has a transient lock on the file waiting may resolve the issue
-                    Thread.Sleep((retries + 1) * 10);
+                    Thread.Sleep(( retries + 1 ) * 10);
                 }
 
                 try

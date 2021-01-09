@@ -11,10 +11,13 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using System.Diagnostics.CodeAnalysis;
 using dotNetTips.Utility.Standard.Net;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 namespace dotNetTips.Tips.Utility.Standard.Tests.Net
 {
+    [ExcludeFromCodeCoverage]
     [TestClass]
     public class SocketsHelperTests
     {

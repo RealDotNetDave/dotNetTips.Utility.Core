@@ -2,26 +2,28 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyVersion>2020.11.9.34775</AssemblyVersion>
-    <FileVersion>2020.11.9.34775</FileVersion>
-    <Version>2020.11.02.01</Version>
+    <AssemblyVersion>2021.1.9.34815</AssemblyVersion>
+    <FileVersion>2021.1.9.34815</FileVersion>
+    <Version>2021.1.4.00</Version>
     <Authors>David McCarter</Authors>
     <Company>David McCarter -  dotNetTips.com</Company>
     <Description>Common .NET Standard Code</Description>
     <RepositoryUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Copyright>McCarter Consulting (David McCarter)</Copyright>
-    <PackageReleaseNotes>-- AUG 2020: First release.
-    
--- SEP 2020: Added Date class. New methods and code cleanup.
-      
--- NOV 2020 (QUARTERLY RELEASE): Code cleanup. Bug fixes.
-</PackageReleaseNotes>
+    <PackageReleaseNotes>
+      -- AUG 2020: First release.
+      -- SEP 2020: Added Date class. New methods and code cleanup.
+      -- NOV 2020 (QUARTERLY RELEASE): Code cleanup. Bug fixes.
+      -- NOV 19, 2020: Minor update.
+    </PackageReleaseNotes>
     <AssemblyName>dotNetTips.Utility.Standard.Common</AssemblyName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageIcon>2020 - dotNetTips - Real World - Earth@0.1x.png</PackageIcon>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

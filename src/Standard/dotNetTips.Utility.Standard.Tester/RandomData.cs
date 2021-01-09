@@ -66,7 +66,7 @@ namespace dotNetTips.Utility.Standard.Tester
         /// <summary>
         /// The object used for retrieving a random number.
         /// </summary>
-        private static readonly Random _random = new Random();
+        private static readonly Random _random = new Random(Seed: (int)DateTime.Now.Ticks);
 
         /// <summary>
         /// Gets the long test string.
@@ -280,6 +280,14 @@ namespace dotNetTips.Utility.Standard.Tester
         /// <param name="max">The maximum int.</param>
         /// <returns>System.Int32.</returns>
         public static int GenerateInteger(int min = int.MinValue, int max = int.MaxValue)
+        {
+            lock (_lock)
+            {
+                return _random.Next(min, max);
+            }
+        }
+
+        public static double GenerateInteger(double min = double.MinValue, double max = double.MaxValue)
         {
             lock (_lock)
             {

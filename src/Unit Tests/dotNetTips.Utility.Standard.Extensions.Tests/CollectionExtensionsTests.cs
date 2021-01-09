@@ -537,7 +537,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
                 dic.Add(item, item);
             }
 
-            Assert.IsNotNull(( dic as IDictionary ).ToDelimitedString(','));
+            Assert.IsNotNull(( dic as IDictionary ).ToDelimitedString(',').Length > 5);
         }
 
         [TestMethod]

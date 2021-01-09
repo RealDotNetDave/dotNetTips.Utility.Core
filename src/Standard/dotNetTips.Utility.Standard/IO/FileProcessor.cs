@@ -4,7 +4,7 @@
 // Created          : 08-06-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 02-29-2020
+// Last Modified On : 11-19-2020
 // ***********************************************************************
 // <copyright file="FileProcessor.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
@@ -133,7 +133,8 @@ namespace dotNetTips.Utility.Standard.IO
                     try
                     {
                         var psw = PerformanceStopwatch.StartNew();
-                        //TODO: ADD ASYNC - await Task.Run(()=> method);
+
+                        // TODO: ADD ASYNC - await Task.Run(()=> method);
                         tempFile.Delete();
 
                         var perf = psw.StopReset();

@@ -24,7 +24,7 @@ namespace dotNetTips.Utility.Standard
     public class Config<T> where T : class, new()
     {
         /// <summary>
-        /// The instance
+        /// The instance.
         /// </summary>
         private static T _instance = new T();
 

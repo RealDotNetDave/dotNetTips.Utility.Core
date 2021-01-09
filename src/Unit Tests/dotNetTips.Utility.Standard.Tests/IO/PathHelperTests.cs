@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using dotNetTips.Utility.Standard.Extensions;
@@ -20,6 +21,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dotNetTips.Tips.Utility.Standard.Tests.IO
 {
+    [ExcludeFromCodeCoverage]
     [TestClass]
     public class PathHelperTests
     {

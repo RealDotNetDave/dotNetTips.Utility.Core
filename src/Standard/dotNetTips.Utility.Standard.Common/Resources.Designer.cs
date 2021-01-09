@@ -131,5 +131,14 @@ namespace dotNetTips.Utility.Standard.Common {
                 return ResourceManager.GetString("GoToDotNetTipsComForHelp", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UNKOWN.
+        /// </summary>
+        internal static string UserUnkown {
+            get {
+                return ResourceManager.GetString("UserUnkown", resourceCulture);
+            }
+        }
     }
 }

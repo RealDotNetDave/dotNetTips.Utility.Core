@@ -4,7 +4,7 @@
 // Created          : 08-07-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 05-31-2019
+// Last Modified On : 11-19-2020
 // ***********************************************************************
 // <copyright file="FileProgressState.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
@@ -36,6 +36,6 @@ namespace dotNetTips.Utility.Standard.IO
         /// <summary>
         /// The copied
         /// </summary>
-        Copied = 3
+        Copied = 3,
     }
 }

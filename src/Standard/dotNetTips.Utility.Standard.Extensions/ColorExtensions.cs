@@ -23,7 +23,6 @@ namespace dotNetTips.Utility.Standard.Extensions
     /// </summary>
     public static class ColorExtensions
     {
-
         /// <summary>
         /// Averages the specified colors in the collection.
         /// </summary>
@@ -34,7 +33,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">colors - colors</exception>
         public static Color Average(this IEnumerable<Color> colors)
         {
-            if (colors.HasItems()==false)
+            if (colors.HasItems() == false)
             {
                 throw new ArgumentOutOfRangeException(nameof(colors), $"{nameof(colors)} does not contain items.");
             }

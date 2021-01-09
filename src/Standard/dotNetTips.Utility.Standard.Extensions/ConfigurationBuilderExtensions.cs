@@ -36,8 +36,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 throw new System.ArgumentNullException(nameof(config));
             }
 
-            config.Bind(Create<T>());
-            return config.GetSection(typeof(T).Name).Get<T>();
+            return config.GetSection(typeof(T).Name) as T;
         }
 
         private static T Create<T>()

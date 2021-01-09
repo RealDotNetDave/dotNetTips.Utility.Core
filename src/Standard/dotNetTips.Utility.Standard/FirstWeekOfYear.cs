@@ -36,6 +36,6 @@ namespace dotNetTips.Utility.Standard
         /// <summary>
         /// The first full week
         /// </summary>
-        FirstFullWeek
+        FirstFullWeek,
     }
 }
