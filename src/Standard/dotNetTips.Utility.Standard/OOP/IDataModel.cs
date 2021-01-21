@@ -18,7 +18,7 @@ namespace dotNetTips.Utility.Standard.OOP
     /// <summary>
     /// Interface IDataModel
     /// Implements the <see cref="System.IComparable{T}" />
-    /// Implements the <see cref="System.IEquatable{T}" />
+    /// Implements the <see cref="System.IEquatable{T}" />.
     /// </summary>
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <typeparam name="TKey">The type of the t key.</typeparam>

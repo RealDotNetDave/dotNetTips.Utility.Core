@@ -24,13 +24,12 @@ namespace dotNetTips.Utility.Standard.Net
     {
 
         /// <summary>
-        /// The ascii7bit maximum value
+        /// The ascii7bit maximum value.
         /// </summary>
         internal const int Ascii7bitMaxValue = 127;
 
-
         /// <summary>
-        /// The s months
+        /// The s months.
         /// </summary>
         private static readonly string[] s_months = new string[] { null, "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
 
@@ -53,18 +52,21 @@ namespace dotNetTips.Utility.Standard.Net
             {
                 localBuilder.Append('0');
             }
+
             localBuilder.Append(value.Hour);
             localBuilder.Append(':');
             if (value.Minute <= 9)
             {
                 localBuilder.Append('0');
             }
+
             localBuilder.Append(value.Minute);
             localBuilder.Append(':');
             if (value.Second <= 9)
             {
                 localBuilder.Append('0');
             }
+
             localBuilder.Append(value.Second);
 
             string offset = TimeZoneInfo.Local.GetUtcOffset(value).ToString();
@@ -122,13 +124,14 @@ namespace dotNetTips.Utility.Standard.Net
                             start = offset;
                         }
                     }
+
                     builder.Append(data, start, offset - start);
                     builder.Append('"');
                     return;
                 }
             }
 
-            //always a quoted string if it was empty.
+            // always a quoted string if it was empty.
             if (data.Length == 0)
             {
                 builder.Append("\"\"");
@@ -152,6 +155,7 @@ namespace dotNetTips.Utility.Standard.Net
                     return true;
                 }
             }
+
             return false;
         }
 
@@ -172,7 +176,7 @@ namespace dotNetTips.Utility.Standard.Net
         /// <param name="data">The data.</param>
         /// <param name="index">The index.</param>
         /// <returns><c>true</c> if [is FWS at] [the specified data]; otherwise, <c>false</c>.</returns>
-        /// <remarks>Is there a FWS ("\r\n " or "\r\n\t") starting at the given index?</remarks>
+        /// <remarks>Is there a FWS ("\r\n " or "\r\n\t") starting at the given index?.</remarks>
         internal static bool IsFWSAt(string data, int index)
         {
 
@@ -230,6 +234,7 @@ namespace dotNetTips.Utility.Standard.Net
             {
                 ++offset;
             }
+
             var start = offset;
             var localBuilder = builder ?? new StringBuilder();
             for (; offset < data.Length; offset++)
@@ -251,30 +256,32 @@ namespace dotNetTips.Utility.Standard.Net
                     data[offset + 2] == '\n' &&
                     ( data[offset + 3] == ' ' || data[offset + 3] == '\t' ))
                 {
-                    //it's a soft crlf so it's ok
+                    // it's a soft crlf so it's ok
                     offset += 3;
                 }
                 else if (permitUnicodeInDisplayName)
                 {
-                    //if data contains Unicode and Unicode is permitted, then
-                    //it is valid in a quoted string in a header.
+                    // if data contains Unicode and Unicode is permitted, then
+                    // it is valid in a quoted string in a header.
                     if (data[offset] <= Ascii7bitMaxValue && !Qtext[data[offset]])
                     {
                         throw new FormatException($"Invalid character: {data[offset]}.");
                     }
                 }
 
-                //not permitting Unicode, in which case Unicode is a formatting error
+                // not permitting Unicode, in which case Unicode is a formatting error
                 else if (data[offset] > Ascii7bitMaxValue || !Qtext[data[offset]])
                 {
                     throw new FormatException($"Invalid character: {data[offset]}.");
                 }
             }
+
             if (doesntRequireQuotes)
             {
                 localBuilder.Append(data, start, offset - start);
                 return builder != null ? null : localBuilder.ToString();
             }
+
             throw new FormatException("Malformed header.");
         }
 
@@ -350,7 +357,7 @@ namespace dotNetTips.Utility.Standard.Net
                 }
             }
 
-            //returns false if end of string
+            // returns false if end of string
             return false;
         }
 
@@ -396,6 +403,7 @@ namespace dotNetTips.Utility.Standard.Net
             {
                 throw new FormatException($"Invalid character: {ch}.");
             }
+
             return true;
         }
 
@@ -565,38 +573,44 @@ namespace dotNetTips.Utility.Standard.Net
         }
 
         // characters allowed in atoms
+
         /// <summary>
-        /// The atext
+        /// The atext.
         /// </summary>
         internal static readonly bool[] Atext = CreateCharactersAllowedInAtoms();
 
         // characters allowed in quoted strings (not including Unicode)
+
         /// <summary>
-        /// The qtext
+        /// The qtext.
         /// </summary>
         internal static readonly bool[] Qtext = CreateCharactersAllowedInQuotedStrings();
 
         // characters allowed in domain literals
+
         /// <summary>
-        /// The dtext
+        /// The dtext.
         /// </summary>
         internal static readonly bool[] Dtext = CreateCharactersAllowedInDomainLiterals();
 
         // characters allowed in header names
+
         /// <summary>
-        /// The ftext
+        /// The ftext.
         /// </summary>
         internal static readonly bool[] Ftext = CreateCharactersAllowedInHeaderNames();
 
         // characters allowed in tokens
+
         /// <summary>
-        /// The ttext
+        /// The ttext.
         /// </summary>
         internal static readonly bool[] Ttext = CreateCharactersAllowedInTokens();
 
         // characters allowed inside of comments
+
         /// <summary>
-        /// The ctext
+        /// The ctext.
         /// </summary>
         internal static readonly bool[] Ctext = CreateCharactersAllowedInComments();
 

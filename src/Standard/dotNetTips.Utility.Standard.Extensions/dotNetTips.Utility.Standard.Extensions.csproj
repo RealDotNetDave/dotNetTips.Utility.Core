@@ -1,29 +1,39 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Extensions.xml</DocumentationFile>
-    <OutputPath>..\..\..\appbin\</OutputPath>
-    <AssemblyVersion>2021.1.9.34819</AssemblyVersion>
-    <FileVersion>2021.1.9.34819</FileVersion>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <AssemblyName>dotNetTips.Utility.Standard.Extensions</AssemblyName>
+    <AssemblyOriginatorKeyFile>dotNetTips.com.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyVersion>2021.1.21.34833</AssemblyVersion>
     <Authors>David McCarter</Authors>
     <Company>David McCarter -  dotNetTips.com</Company>
-    <Description>Common .NET Standard Code Extensions</Description>
-    <Copyright>McCarter Consulting (David McCarter)</Copyright>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <PackageProjectUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</RepositoryUrl>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <SignAssembly>false</SignAssembly>
-    <DelaySign>False</DelaySign>
-    <AssemblyOriginatorKeyFile>dotNetTips.com.pfx</AssemblyOriginatorKeyFile>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2021.1.4.00</Version>
-    <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
-    <AssemblyName>dotNetTips.Utility.Standard.Extensions</AssemblyName>
-    <RootNamespace>dotNetTips.Utility.Standard.Extensions</RootNamespace>
     <Configurations>Debug;Release;Full Build</Configurations>
-    <PackageLicenseUrl></PackageLicenseUrl>
+    <Copyright>McCarter Consulting (David McCarter)</Copyright>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <DelaySign>False</DelaySign>
+    <Description>Common .NET Standard Code Extensions</Description>
+    <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Extensions.xml</DocumentationFile>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <FileVersion>2021.1.21.34833</FileVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable> 
+    <OutputPath>..\..\..\appbin\</OutputPath>
+    <PackageIcon>2020 - dotNetTips - Real World - Earth@0.1x.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
+    <RepositoryType>git</RepositoryType>   
+    <RepositoryUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</RepositoryUrl>
+    <RootNamespace>dotNetTips.Utility.Standard.Extensions</RootNamespace>
+    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <SignAssembly>false</SignAssembly>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Version>2021.1.4.00</Version>
     <PackageReleaseNotes>
       -- SEP 2019: Added types HttpContextExtensions, HttpContextExtensions and LINQExtensions. Added new methods and code cleanup.
       -- JUN 2019 (QUARTERLY RELEASE): Code cleanup.
@@ -35,14 +45,8 @@
       -- AUG 2020: New helper methods &amp; classes. Code cleanup.
       -- NOV 2020 (QUARTERLY RELEASE):Added DataContextExtensions, DataReaderExtensions, DataTableExtensions. Added new methods in DateTimeExtensions, DirectoryInfoExtensions, NumberExtensions, StringExtennsions. Code cleanup. Added more unit tests.
       -- NOV 19, 2020: Minor update.
+      -- FEB 2021 (QUARTERLY RELEASE): 12 new methods. Code cleanup.
     </PackageReleaseNotes>
-    <DebugType>pdbonly</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
-    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
-    <PackageIcon>2020 - dotNetTips - Real World - Earth@0.1x.png</PackageIcon>
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>

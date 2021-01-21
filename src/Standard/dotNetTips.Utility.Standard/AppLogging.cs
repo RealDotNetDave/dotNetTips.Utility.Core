@@ -36,7 +36,6 @@ namespace dotNetTips.Utility.Standard
         /// <value>The logger factory.</value>
         public static ILoggerFactory LoggerFactory { get; private set; } = new LoggerFactory();
 
-
         /// <summary>
         /// Creates the logger.
         /// </summary>

@@ -31,12 +31,12 @@ namespace dotNetTips.Utility.Standard
     public static class TypeHelper
     {
         /// <summary>
-        /// The default nested type delimiter
+        /// The default nested type delimiter.
         /// </summary>
         private const char DefaultNestedTypeDelimiter = '+';
 
         /// <summary>
-        /// The built in type names
+        /// The built in type names.
         /// </summary>
         private static readonly Dictionary<Type, string> _builtInTypeNames = new Dictionary<Type, string>
         {
@@ -63,7 +63,7 @@ namespace dotNetTips.Utility.Standard
         /// </summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <returns>T.</returns>
-        /// <remarks>Original code by: Jeremy Clark</remarks>
+        /// <remarks>Original code by: Jeremy Clark.</remarks>
         public static T Create<T>()
             where T : class
         {
@@ -84,8 +84,6 @@ namespace dotNetTips.Utility.Standard
 
             return instance;
         }
-
-
 
         /// <summary>
         /// Does the object equal instance.
@@ -112,7 +110,6 @@ namespace dotNetTips.Utility.Standard
 
             return FindDerivedTypes(path, SearchOption.TopDirectoryOnly, baseType, classOnly);
         }
-
 
         /// <summary>
         /// Finds the derived types.
@@ -298,9 +295,9 @@ namespace dotNetTips.Utility.Standard
         /// <param name="fullName"><c>true</c> to print a fully qualified name.</param>
         /// <param name="includeGenericParameterNames"><c>true</c> to include generic parameter names.</param>
         /// <param name="includeGenericParameters"><c>true</c> to include generic parameters.</param>
-        /// <param name="nestedTypeDelimiter">Character to use as a delimiter in nested type names</param>
+        /// <param name="nestedTypeDelimiter">Character to use as a delimiter in nested type names.</param>
         /// <returns>The pretty printed type name.</returns>
-        /// <exception cref="ArgumentNullException">type</exception>
+        /// <exception cref="ArgumentNullException">type.</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/31/2020", modifiedOn: "7/31/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static string GetTypeDisplayName(Type type, bool fullName = true, bool includeGenericParameterNames = false, bool includeGenericParameters = true, char nestedTypeDelimiter = DefaultNestedTypeDelimiter)
         {

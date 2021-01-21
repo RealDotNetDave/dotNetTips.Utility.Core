@@ -16,7 +16,7 @@ namespace dotNetTips.Utility.Standard
     using System;
 
     /// <summary>
-    /// Enum FileAttributes
+    /// Enum FileAttributes.
     /// </summary>
     [Flags]
     public enum FileAttributes

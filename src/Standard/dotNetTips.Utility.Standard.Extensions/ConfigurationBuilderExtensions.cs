@@ -27,13 +27,13 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="config">The configuration.</param>
         /// <returns>T.</returns>
-        /// <exception cref="System.ArgumentNullException">config</exception>
+        /// <exception cref="System.ArgumentNullException">config.</exception>
         public static T LoadSection<T>(this IConfigurationRoot config)
             where T : class, new()
         {
             if (config is null)
             {
-                throw new System.ArgumentNullException(nameof(config));
+                throw new ArgumentNullException(nameof(config));
             }
 
             return config.GetSection(typeof(T).Name) as T;

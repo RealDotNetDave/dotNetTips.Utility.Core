@@ -172,7 +172,6 @@ namespace dotNetTips.Utility.Standard.IO
             return ( path?.IndexOf('*') != -1 ) || ( path?.IndexOf('?') != -1 );
         }
 
-
         /// <summary>
         /// Pathes the has invalid chars.
         /// </summary>

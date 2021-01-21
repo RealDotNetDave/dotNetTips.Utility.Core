@@ -295,6 +295,15 @@ namespace dotNetTips.Utility.Standard.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to String is not in the range of the min and max range..
+        /// </summary>
+        internal static string StringIsNotInTheRangeOfTheMinAndMaxRange {
+            get {
+                return ResourceManager.GetString("StringIsNotInTheRangeOfTheMinAndMaxRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to String is not valid..
         /// </summary>
         internal static string StringIsNotValid {

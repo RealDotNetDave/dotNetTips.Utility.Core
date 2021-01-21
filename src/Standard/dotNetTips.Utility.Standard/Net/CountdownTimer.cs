@@ -26,51 +26,62 @@ namespace dotNetTips.Utility.Standard.Net
     public static class CountdownTimer
     {
         /// <summary>
-        /// The cache scan per iterations
+        /// The cache scan per iterations.
         /// </summary>
         private const int CacheScanPerIterations = 32;
+
         /// <summary>
-        /// The default timeout
+        /// The default timeout.
         /// </summary>
         private const int DefaultTimeout = 30 * 1000;
+
         /// <summary>
-        /// The thread idle timeout milliseconds
+        /// The thread idle timeout milliseconds.
         /// </summary>
         private const int ThreadIdleTimeoutMilliseconds = DefaultTimeout;
+
         /// <summary>
-        /// The tick count resolution
+        /// The tick count resolution.
         /// </summary>
         private const int TickCountResolution = 15;
+
         /// <summary>
-        /// The new queues
+        /// The new queues.
         /// </summary>
         private static readonly LinkedList<WeakReference> _newQueues = new LinkedList<WeakReference>();
+
         /// <summary>
-        /// The queues
+        /// The queues.
         /// </summary>
         private static readonly LinkedList<WeakReference> _queues = new LinkedList<WeakReference>();
+
         /// <summary>
-        /// The queues cache
+        /// The queues cache.
         /// </summary>
         private static readonly Dictionary<object, WeakReference> _queuesCache = new Dictionary<object, WeakReference>();
+
         /// <summary>
-        /// The thread events
+        /// The thread events.
         /// </summary>
         private static readonly WaitHandle[] _threadEvents = { _threadShutdownEvent, _threadReadyEvent };
+
         /// <summary>
-        /// The thread ready event
+        /// The thread ready event.
         /// </summary>
         private static readonly AutoResetEvent _threadReadyEvent = new AutoResetEvent(false);
+
         /// <summary>
-        /// The thread shutdown event
+        /// The thread shutdown event.
         /// </summary>
         private static readonly ManualResetEvent _threadShutdownEvent = new ManualResetEvent(false);
+
         /// <summary>
-        /// The cache scan iteration
+        /// The cache scan iteration.
         /// </summary>
         private static int _cacheScanIteration;
+
         /// <summary>
-        /// The thread state
+        /// The thread state.
         /// </summary>
         private static int _threadState = (int)TimerThreadState.Idle;  // Really a TimerThreadState, but need an int for Interlocked.
 
@@ -132,6 +143,7 @@ namespace dotNetTips.Utility.Standard.Net
                                     garbage.Add(pair.Key);
                                 }
                             }
+
                             for (var i = 0; i < garbage.Count; i++)
                             {
                                 _queuesCache.Remove(garbage[i]);
@@ -257,19 +269,19 @@ namespace dotNetTips.Utility.Standard.Net
                                     : 0 ) )
                                 : ThreadIdleTimeoutMilliseconds;
 
-                            //if (NetEventSource.Log.IsEnabled()) NetEventSource.Info(null, $"Waiting for {waitDuration}ms");
+                            // if (NetEventSource.Log.IsEnabled()) NetEventSource.Info(null, $"Waiting for {waitDuration}ms");
 
                             var waitResult = WaitHandle.WaitAny(_threadEvents, waitDuration, false);
 
                             // 0 is s_ThreadShutdownEvent - die.
                             if (waitResult == 0)
                             {
-                                //if (NetEventSource.Log.IsEnabled()) NetEventSource.Info(null, "Awoke, cause: Shutdown");
+                                // if (NetEventSource.Log.IsEnabled()) NetEventSource.Info(null, "Awoke, cause: Shutdown");
                                 running = false;
                                 break;
                             }
 
-                            //if (NetEventSource.Log.IsEnabled()) NetEventSource.Info(null, $"Awoke, cause {(waitResult == WaitHandle.WaitTimeout ? "Timeout" : "Prod")}");
+                            // if (NetEventSource.Log.IsEnabled()) NetEventSource.Info(null, $"Awoke, cause {(waitResult == WaitHandle.WaitTimeout ? "Timeout" : "Prod")}");
 
                             // If we timed out with nothing to do, shut down.
                             if (( waitResult == WaitHandle.WaitTimeout ) && !haveNextTick)

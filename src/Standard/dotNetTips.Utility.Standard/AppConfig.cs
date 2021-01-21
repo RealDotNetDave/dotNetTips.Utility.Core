@@ -22,7 +22,7 @@ namespace dotNetTips.Utility.Standard
     public static class AppConfig
     {
         /// <summary>
-        /// The file name
+        /// The file name.
         /// </summary>
         private const string _fileName = "appsettings.json";
 
@@ -30,7 +30,7 @@ namespace dotNetTips.Utility.Standard
         /// Creates a new IConfigurationRoot object for the application that can include environment variables.
         /// </summary>
         /// <param name="addEnvironmentVariables">if set to <c>true</c> [add environment variables].</param>
-        /// <returns>IConfigurationRoot</returns>
+        /// <returns>IConfigurationRoot.</returns>
         public static IConfigurationRoot LoadConfiguration(bool addEnvironmentVariables)
         {
             var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory());

@@ -38,7 +38,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns>IEnumerable&lt;FieldInfo&gt;.</returns>
-        /// <exception cref="ArgumentNullException">type</exception>
+        /// <exception cref="ArgumentNullException">type.</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static IEnumerable<FieldInfo> GetAllDeclaredFields(this Type type)
         {
@@ -68,7 +68,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns>IEnumerable&lt;MethodInfo&gt;.</returns>
-        /// <exception cref="ArgumentNullException">type</exception>
+        /// <exception cref="ArgumentNullException">type.</exception>
         [Information("Original Code .NET Core source.", author: "David McCarter", createdOn: "7/30/2020", modifiedOn: "7/30/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static IEnumerable<MethodInfo> GetAllDeclaredMethods(this Type type)
         {
@@ -240,7 +240,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="callback">The callback.</param>
         /// <returns>Hash for the field as System.String.</returns>
-        /// <exception cref="ArgumentNullException">callback</exception>
+        /// <exception cref="ArgumentNullException">callback.</exception>
         public static string GetFieldHash<T>(this Func<T> callback)
         {
             if (callback is null)
@@ -265,8 +265,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="TAttribute">The type of the t attribute.</typeparam>
         /// <param name="type">The type.</param>
         /// <returns>System.ValueTuple&lt;System.String, TAttribute, System.Boolean, System.Boolean, Type&gt;[].</returns>
-        /// <exception cref="ArgumentNullException">type</exception>
-        /// <exception cref="InvalidOperationException">Member \"{member.Name}\" must be public if it has the [{typeof(TAttribute).Name}] attribute applied to it</exception>
+        /// <exception cref="ArgumentNullException">type.</exception>
+        /// <exception cref="InvalidOperationException">Member \"{member.Name}\" must be public if it has the [{typeof(TAttribute).Name}] attribute applied to it.</exception>
         [Information("https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 81.82, Status = Status.Available)]
         public static (string Name, TAttribute Attribute, bool IsPrivate, bool IsStatic, Type ParameterType)[] GetTypeMembersWithAttribute<TAttribute>(this Type type)
             where TAttribute : Attribute
@@ -345,7 +345,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns><c>true</c> if [has parameterless constructor] [the specified type]; otherwise, <c>false</c>.</returns>
-        /// <exception cref="ArgumentNullException">type</exception>
+        /// <exception cref="ArgumentNullException">type.</exception>
         public static bool HasParameterlessConstructor(this Type type)
         {
             if (type is null)
@@ -369,7 +369,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="property">The property.</param>
         /// <returns><c>true</c> if the specified property is static; otherwise, <c>false</c>.</returns>
-        /// <exception cref="ArgumentNullException">property</exception>
+        /// <exception cref="ArgumentNullException">property.</exception>
         [Information("From .NET EF Core source.", author: "David McCarter", createdOn: "7/31/2020", modifiedOn: "7/31/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool IsStatic(this PropertyInfo property)
         {
@@ -388,9 +388,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="obj1">The obj1.</param>
         /// <param name="obj2">The obj2.</param>
         /// <returns>T.</returns>
-        /// <exception cref="ArgumentNullException">obj2</exception>
+        /// <exception cref="ArgumentNullException">obj2.</exception>
         /// <exception cref="System.ArgumentNullException">obj1 - Object 1 cannot be null. or obj2 - Object 1 cannot be null.</exception>
-        /// <remarks>Original code by: Jeremy Clark</remarks>
+        /// <remarks>Original code by: Jeremy Clark.</remarks>
         public static T Max<T>(this T obj1, T obj2)
             where T : IComparable
         {

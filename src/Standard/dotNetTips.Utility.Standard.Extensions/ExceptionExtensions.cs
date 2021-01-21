@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
+using System.Threading;
 using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.Extensions.Properties;
 
@@ -45,10 +46,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="canContinue">The can continue.</param>
         /// <returns>IEnumerable&lt;TSource&gt;.</returns>
         /// <exception cref="ArgumentNullException">
-        /// canContinue or nextItem
+        /// canContinue or nextItem.
         /// </exception>
         /// <exception cref="System.ArgumentNullException">
-        /// canContinue or nextItem
+        /// canContinue or nextItem.
         /// </exception>
         public static IEnumerable<TSource> FromHierarchy<TSource>(this TSource source,
                                                                   Func<TSource, TSource> nextItem,
@@ -107,8 +108,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="exception">The exception.</param>
         /// <param name="separator">The separator.</param>
         /// <returns>System.String.</returns>
-        /// <exception cref="ArgumentNullException">exception</exception>
-        /// <exception cref="ArgumentException">'separator' cannot be null or empty - separator</exception>
+        /// <exception cref="ArgumentNullException">exception.</exception>
+        /// <exception cref="ArgumentException">'separator' cannot be null or empty - separator.</exception>
         [Information(nameof(GetAllMessagesWithStackTrace), author: "David McCarter", createdOn: "10/12/2020", modifiedOn: "10/12/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static List<(string message, string StackTrace)> GetAllMessagesWithStackTrace(this Exception exception, string separator = " ")
         {
@@ -147,7 +148,7 @@ namespace dotNetTips.Utility.Standard.Extensions
             return ex is NullReferenceException ||
                 ex is StackOverflowException ||
                 ex is OutOfMemoryException ||
-                ex is System.Threading.ThreadAbortException ||
+                ex is ThreadAbortException ||
                 ex is IndexOutOfRangeException ||
                 ex is AccessViolationException;
         }
@@ -168,7 +169,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool IsSecurityOrCritical(this Exception ex)
         {
-            return (ex is SecurityException) || ex.IsCritical();
+            return ( ex is SecurityException ) || ex.IsCritical();
         }
 
         /// <summary>

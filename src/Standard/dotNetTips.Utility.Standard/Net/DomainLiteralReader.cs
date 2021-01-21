@@ -17,32 +17,28 @@ using System.Diagnostics;
 
 namespace dotNetTips.Utility.Standard.Net
 {
-    //
     // RFC 2822 Section 3.4.1 - Addr-Spec, Domain-Literals
     // A domain literal is a domain identifier that does not conform to the dot-atom format (Section 3.2.4) and must be
     // enclosed in brackets '[' ']'.  Domain literals may contain quoted-pairs.
-    //
+
     /// <summary>
     /// Class DomainLiteralReader.
     /// </summary>
     internal static class DomainLiteralReader
     {
 
-        //
         // Reads a domain literal in reverse
-        //
         // Preconditions:
         //  - Index must be within the bounds of the data string.
         //  - The char at the given index is the initial bracket. (data[index] == EndSquareBracket)
-        //
         // Return value:
         // - The next index past the terminating bracket (data[index + 1] == StartSquareBracket).
         //   e.g. In (user@[domain]), starting at index=12 (]) returns index=4 (@).
-        //
         // A FormatException will be thrown or false is returned if:
         // - A non-escaped character is encountered that is not valid in a domain literal, including Unicode.
         // - The final bracket is not found.
         //
+
         /// <summary>
         /// Tries the read reverse.
         /// </summary>

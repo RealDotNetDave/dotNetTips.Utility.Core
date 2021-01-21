@@ -30,24 +30,27 @@ namespace dotNetTips.Utility.Standard.Collections
     {
 
         /// <summary>
-        /// The repeat
+        /// The repeat.
         /// </summary>
         private readonly bool _repeat;
+
         /// <summary>
-        /// The thread lock
+        /// The thread lock.
         /// </summary>
         private readonly object _threadLock = new object();
+
         /// <summary>
-        /// The collection
+        /// The collection.
         /// </summary>
         private ImmutableArray<T> _collection;
+
         /// <summary>
-        /// The collection enumerator
+        /// The collection enumerator.
         /// </summary>
         private ImmutableArray<T>.Enumerator _collectionEnumerator;
 
         /// <summary>
-        /// The initialized
+        /// The initialized.
         /// </summary>
         private bool _initialized;
 
@@ -95,26 +98,26 @@ namespace dotNetTips.Utility.Standard.Collections
         /// <exception cref="NullReferenceException">Underlying collection is null.</exception>
         private void Init()
         {
-            //Ignore if initialized unless repeat is true.
+            // Ignore if initialized unless repeat is true.
             if (( this._initialized == true & this.HasRemainingItems ) ||
                 ( this._initialized == true & this.HasRemainingItems == true & this._repeat == false ))
             {
                 return;
             }
 
-            //Validate Collection
+            // Validate Collection
             if (this._collection.HasItems() == false)
             {
                 throw new NullReferenceException("Underlying collection is null.");
             }
 
-            //Shuffle Collection
+            // Shuffle Collection
             this._collection = this._collection.Shuffle();
 
-            //Setup enumerator
+            // Setup enumerator
             this._collectionEnumerator = this._collection.GetEnumerator();
 
-            //Move to first item
+            // Move to first item
             this.HasRemainingItems = this._collectionEnumerator.MoveNext();
 
             this._initialized = true;

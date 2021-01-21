@@ -14,7 +14,7 @@
 namespace dotNetTips.Utility.Standard
 {
     /// <summary>
-    /// Enum FirstWeekOfYear
+    /// Enum FirstWeekOfYear.
     /// </summary>
     public enum FirstWeekOfYear
     {

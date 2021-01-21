@@ -32,12 +32,12 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
     {
 
         /// <summary>
-        /// The hash codes
+        /// The hash codes.
         /// </summary>
         private readonly HashSet<int> _hashCodes = new HashSet<int>();
 
         /// <summary>
-        /// The lock
+        /// The lock.
         /// </summary>
         private readonly object _lock = new object();
 

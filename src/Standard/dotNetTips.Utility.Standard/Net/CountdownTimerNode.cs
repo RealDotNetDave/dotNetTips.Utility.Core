@@ -19,33 +19,38 @@ namespace dotNetTips.Utility.Standard.Net
 {
     /// <summary>
     /// Class CountdownTimerNode.
-    /// Implements the <see cref="dotNetTips.Utility.Standard.Net.CancellationTimer" />
+    /// Implements the <see cref="dotNetTips.Utility.Standard.Net.CancellationTimer" />.
     /// </summary>
     /// <seealso cref="dotNetTips.Utility.Standard.Net.CancellationTimer" />
     internal class CountdownTimerNode : CancellationTimer
     {
         /// <summary>
-        /// The queue lock
+        /// The queue lock.
         /// </summary>
         private readonly object _queueLock;
+
         /// <summary>
-        /// The callback
+        /// The callback.
         /// </summary>
         private Callback _callback;
+
         /// <summary>
-        /// The context
+        /// The context.
         /// </summary>
         private object _context;
+
         /// <summary>
-        /// The next
+        /// The next.
         /// </summary>
         private CountdownTimerNode _next;
+
         /// <summary>
-        /// The previous
+        /// The previous.
         /// </summary>
         private CountdownTimerNode _prev;
+
         /// <summary>
-        /// The timer state
+        /// The timer state.
         /// </summary>
         private TimerState _timerState;
 
@@ -160,10 +165,10 @@ namespace dotNetTips.Utility.Standard.Net
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public bool Fire()
         {
-            //if (_timerState == TimerState.Sentinel)
-            //{
+            // if (_timerState == TimerState.Sentinel)
+            // {
             //    if (NetEventSource.Log.IsEnabled()) NetEventSource.Info(this, "TimerQueue tried to Fire a Sentinel.");
-            //}
+            // }
 
             if (this._timerState != TimerState.Ready)
             {
@@ -175,7 +180,7 @@ namespace dotNetTips.Utility.Standard.Net
             var nowMilliseconds = Environment.TickCount;
             if (IsTickBetween(this.StartTime, this.Expiration, nowMilliseconds))
             {
-                //if (NetEventSource.Log.IsEnabled()) NetEventSource.Info(this, $"TimerThreadTimer#{StartTime}::Fire() Not firing ({StartTime} <= {nowMilliseconds} < {Expiration})");
+                // if (NetEventSource.Log.IsEnabled()) NetEventSource.Info(this, $"TimerThreadTimer#{StartTime}::Fire() Not firing ({StartTime} <= {nowMilliseconds} < {Expiration})");
                 return false;
             }
 
@@ -184,7 +189,7 @@ namespace dotNetTips.Utility.Standard.Net
             {
                 if (this._timerState == TimerState.Ready)
                 {
-                    //if (NetEventSource.Log.IsEnabled()) NetEventSource.Info(this, $"TimerThreadTimer#{StartTime}::Fire() Firing ({StartTime} <= {nowMilliseconds} >= " + Expiration + ")");
+                    // if (NetEventSource.Log.IsEnabled()) NetEventSource.Info(this, $"TimerThreadTimer#{StartTime}::Fire() Firing ({StartTime} <= {nowMilliseconds} >= " + Expiration + ")");
                     this._timerState = TimerState.Fired;
 
                     // Remove it from the list.

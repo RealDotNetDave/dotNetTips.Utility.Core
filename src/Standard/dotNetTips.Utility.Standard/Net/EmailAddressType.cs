@@ -16,7 +16,7 @@ using dotNetTips.Utility.Standard.Common;
 namespace dotNetTips.Utility.Standard.Net
 {
     /// <summary>
-    /// Enum EmailAddressType
+    /// Enum EmailAddressType.
     /// </summary>
     [Information(nameof(EmailAddress), "David McCarter", "10/15/2020")]
     public enum EmailAddressType

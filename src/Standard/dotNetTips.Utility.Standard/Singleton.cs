@@ -22,7 +22,7 @@ namespace dotNetTips.Utility.Standard
         where T : Singleton<T>, new()
     {
         /// <summary>
-        /// The instance
+        /// The instance.
         /// </summary>
         private static T _instance = new T();
 

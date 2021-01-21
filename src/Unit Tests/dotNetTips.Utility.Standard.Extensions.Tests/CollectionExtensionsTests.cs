@@ -528,7 +528,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         [TestMethod]
         public void ToDelimitedDictionaryTest()
         {
-            var words = RandomData.GenerateWords(10, 25, 50);
+            var words = RandomData.GenerateWords(count: 10, minLength: 25, maxLength: 50);
 
             var dic = new Dictionary<string, string>(10);
 

@@ -15,6 +15,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text;
 using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.OOP;
@@ -50,7 +51,7 @@ namespace dotNetTips.Utility.Standard.Net
         /// <param name="throwExceptionIfFail">if set to <c>true</c> [throw exception if fail].</param>
         /// <param name="separator">The separator.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <exception cref="ArgumentException">email</exception>
+        /// <exception cref="ArgumentException">email.</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool TryParseEmailAddresses(string email, out ParseAddressInfo[] info, bool throwExceptionIfFail, char separator = ',')
         {
@@ -98,7 +99,7 @@ namespace dotNetTips.Utility.Standard.Net
         {
             try
             {
-                normalizedString = input.Normalize(System.Text.NormalizationForm.FormC);
+                normalizedString = input.Normalize(NormalizationForm.FormC);
                 return true;
             }
             catch (ArgumentException e)
@@ -274,6 +275,7 @@ namespace dotNetTips.Utility.Standard.Net
         // - For a list data[index] is the comma separator or -1 if the end of the data string was reached.
         //
         // Throws a FormatException or false is returned if any part of the MailAddress is invalid.
+
         /// <summary>
         /// Tries the parse address.
         /// </summary>

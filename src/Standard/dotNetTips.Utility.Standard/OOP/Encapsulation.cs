@@ -146,7 +146,7 @@ namespace dotNetTips.Utility.Standard.OOP
         /// <param name="value">The value.</param>
         /// <param name="paramName">Name of the parameter.</param>
         /// <param name="message">The message.</param>
-        /// <exception cref="ArgumentNullException">value</exception>
+        /// <exception cref="ArgumentNullException">value.</exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static void TryValidateParam(Enum value, string paramName, string message = "")
         {
@@ -281,7 +281,7 @@ namespace dotNetTips.Utility.Standard.OOP
         /// <param name="match">The match.</param>
         /// <param name="paramName">Name of the parameter.</param>
         /// <param name="message">The message.</param>
-        /// <exception cref="ArgumentNullException">match</exception>
+        /// <exception cref="ArgumentNullException">match.</exception>
         /// <exception cref="ArgumentInvalidException"></exception>
         public static void TryValidateParam(string value, Regex match, string paramName, string message = "")
         {
@@ -445,32 +445,20 @@ namespace dotNetTips.Utility.Standard.OOP
         /// <param name="maximumLength">The maximum length.</param>
         /// <param name="paramName">Name of the parameter.</param>
         /// <param name="message">The message.</param>
-        /// <exception cref="ArgumentInvalidException"></exception>
-        /// <exception cref="ArgumentInvalidException"></exception>
-        /// <exception cref="ArgumentInvalidException"></exception>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentInvalidException">Value cannot be null or empty.</exception>
+        /// <exception cref="ArgumentInvalidException">Value is not in the range of the min and max range.</exception>
         public static void TryValidateParam(string value, int minimumLength, int maximumLength, string paramName, string message = "")
         {
             TryValidateParam(value, paramName, message);
 
-            if (value.Length < minimumLength)
+            if (value.Length.IsInRange(minimumLength, maximumLength) == false)
             {
                 if (message.IsNull())
                 {
-                    message = Resources.StringDoesNotMatchMinimumLength;
+                    message = Resources.StringIsNotInTheRangeOfTheMinAndMaxRange;
                 }
 
-                throw new ArgumentInvalidException(message, paramName);
-            }
-
-            if (value.Length > maximumLength)
-            {
-                if (message.IsNull())
-                {
-                    message = Resources.StringDoesNotMatchMaximumLength;
-                }
-
-                throw new ArgumentInvalidException(message, paramName);
+                ExceptionThrower.ThrowArgumentInvalidException(message, paramName);
             }
         }
 
@@ -483,33 +471,19 @@ namespace dotNetTips.Utility.Standard.OOP
         /// <param name="maximumLength">The maximum length.</param>
         /// <param name="paramName">Name of the parameter.</param>
         /// <param name="message">The message.</param>
-        /// <exception cref="ArgumentInvalidException"></exception>
-        /// <exception cref="ArgumentInvalidException"></exception>
-        /// <exception cref="ArgumentInvalidException"></exception>
-        /// <exception cref="ArgumentInvalidException"></exception>
-        /// <exception cref="ArgumentInvalidException"></exception>
-        /// <exception cref="ArgumentInvalidException"></exception>
-        /// <exception cref="ArgumentInvalidException"></exception>
+        /// <exception cref="ArgumentInvalidException">Value cannot be null or empty.</exception>
+        /// <exception cref="ArgumentInvalidException">Value is not in the range of the min and max range.</exception>k
+        /// <exception cref="ArgumentOutOfRangeException">StringType is invalid.</exception>
         public static void TryValidateParam(string value, StringType stringType, int minimumLength, int maximumLength, string paramName, string message = "")
         {
             TryValidateParam(value, paramName, message);
             TryValidateParam(stringType, nameof(stringType), Resources.InvalidStringType);
 
-            if (value.Length < minimumLength)
+            if (value.Length.IsInRange(minimumLength, maximumLength) == false)
             {
                 if (message.IsNull())
                 {
-                    message = Resources.StringDoesNotMatchMinimumLength;
-                }
-
-                throw new ArgumentInvalidException(message, paramName);
-            }
-
-            if (value.Length > maximumLength)
-            {
-                if (message.IsNull())
-                {
-                    message = Resources.StringDoesNotMatchMaximumLength;
+                    message = Resources.StringIsNotInTheRangeOfTheMinAndMaxRange;
                 }
 
                 throw new ArgumentInvalidException(message, paramName);

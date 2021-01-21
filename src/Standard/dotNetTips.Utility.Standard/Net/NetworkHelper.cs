@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using System.Diagnostics;
 using System.Net.NetworkInformation;
 using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.OOP;
@@ -36,6 +37,7 @@ namespace dotNetTips.Utility.Standard.Net
 
             return IsHostAvailable(hostNameOrAddress, 300);
         }
+
         /// <summary>
         /// Determines whether [is host available] [the specified host name or address].
         /// </summary>
@@ -46,16 +48,21 @@ namespace dotNetTips.Utility.Standard.Net
         public static bool IsHostAvailable(string hostNameOrAddress, int timeout)
         {
             Encapsulation.TryValidateParam(hostNameOrAddress, nameof(hostNameOrAddress));
-            Encapsulation.TryValidateParam(timeout,
-                                           minimumValue: 10,
-                                           maximumValue: int.MaxValue,
-                                           paramName: nameof(timeout));
+            Encapsulation.TryValidateParam(timeout, minimumValue: 10, maximumValue: int.MaxValue, paramName: nameof(timeout));
 
-            using (var pinger = new Ping())
+            try
             {
-                var result = pinger.Send(hostNameOrAddress, timeout);
+                using (var pinger = new Ping())
+                {
+                    var result = pinger.Send(hostNameOrAddress, timeout);
 
-                return result.Status == IPStatus.Success;
+                    return result.Status == IPStatus.Success;
+                }
+            }
+            catch (PingException pingEx)
+            {
+                Trace.WriteLine(pingEx.Message);
+                return false;
             }
         }
     }

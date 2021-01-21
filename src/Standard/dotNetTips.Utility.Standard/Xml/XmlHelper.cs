@@ -15,6 +15,7 @@ using System;
 using System.IO;
 using System.Xml;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.OOP;
 
@@ -28,17 +29,17 @@ namespace dotNetTips.Utility.Standard.Xml
         /// <summary>
         /// Deserialize the specified XML.
         /// </summary>
-        /// <typeparam name="TResult">Type</typeparam>
+        /// <typeparam name="TResult">Type.</typeparam>
         /// <param name="xml">The XML.</param>
         /// <returns>T.</returns>
-        /// <exception cref="ArgumentNullException">xml</exception>
+        /// <exception cref="ArgumentNullException">xml.</exception>
         public static TResult Deserialize<TResult>(string xml)
         {
             Encapsulation.TryValidateParam(xml, nameof(xml));
 
             using (var sr = new StringReader(xml))
             {
-                var xs = new System.Xml.Serialization.XmlSerializer(typeof(TResult));
+                var xs = new XmlSerializer(typeof(TResult));
                 return (TResult)xs.Deserialize(sr);
             }
         }
@@ -46,7 +47,7 @@ namespace dotNetTips.Utility.Standard.Xml
         /// <summary>
         /// De-serializes from XML file.
         /// </summary>
-        /// <typeparam name="TResult">Type</typeparam>
+        /// <typeparam name="TResult">Type.</typeparam>
         /// <param name="fileName">Name of the file.</param>
         /// <returns>T.</returns>
         /// <exception cref="FileNotFoundException">File not found. Cannot deserialize from XML.</exception>
@@ -67,16 +68,16 @@ namespace dotNetTips.Utility.Standard.Xml
         /// </summary>
         /// <param name="obj">The obj.</param>
         /// <returns>System.String.</returns>
-        /// <exception cref="ArgumentNullException">obj</exception>
+        /// <exception cref="ArgumentNullException">obj.</exception>
         public static string Serialize(object obj)
         {
             Encapsulation.TryValidateParam<ArgumentNullException>(obj != null, nameof(obj));
 
             using (var writer = new StringWriter())
             {
-                using (var xmlWriter = System.Xml.XmlWriter.Create(writer))
+                using (var xmlWriter = XmlWriter.Create(writer))
                 {
-                    var serializer = new System.Xml.Serialization.XmlSerializer(obj.GetType());
+                    var serializer = new XmlSerializer(obj.GetType());
                     serializer.Serialize(xmlWriter, obj);
 
                     return writer.ToString();
@@ -119,14 +120,14 @@ namespace dotNetTips.Utility.Standard.Xml
         /// <param name="input">The input.</param>
         /// <param name="resolver">The resolver.</param>
         /// <returns>XDocument.</returns>
-        /// <remarks>Uses DtdProcessing.Prohibit</remarks>
+        /// <remarks>Uses DtdProcessing.Prohibit.</remarks>
         [Information(nameof(StringToXDocument), "David McCarter", "9/9/2020", "9/9/2020", Status = Status.Available, UnitTestCoverage = 100, BenchMarkStatus = 0)]
         public static XDocument StringToXDocument(string input, XmlResolver resolver)
         {
             Encapsulation.TryValidateParam(input, nameof(input));
 
-            var options = new System.Xml.XmlReaderSettings { DtdProcessing = DtdProcessing.Prohibit, XmlResolver = resolver  };
-        
+            var options = new XmlReaderSettings { DtdProcessing = DtdProcessing.Prohibit, XmlResolver = resolver };
+
             using (var reader = XmlReader.Create(new StringReader(input), options))
             {
                 return XDocument.Load(reader);

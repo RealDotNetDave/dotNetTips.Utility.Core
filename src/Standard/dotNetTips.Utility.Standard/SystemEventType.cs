@@ -15,7 +15,7 @@
 namespace dotNetTips.Utility.Standard
 {
     /// <summary>
-    /// Enum SystemEventType
+    /// Enum SystemEventType.
     /// </summary>
     public enum SystemEventType
     {

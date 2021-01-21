@@ -419,7 +419,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
                     Node previous = null;
                     for (var current = tables._buckets[bucketNo]; current != null; current = current._next)
                     {
-                        Debug.Assert(( previous == null && current == tables._buckets[bucketNo] ) || previous._next == current);
+                        Debug.Assert((previous == null && current == tables._buckets[bucketNo]) || previous._next == current);
 
                         if (hashcode == current._hashCode && this._comparer.Equals(current._item, item))
                         {
@@ -672,7 +672,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
                     checked
                     {
                         // Double the size of the buckets table and add one, so that we have an odd integer.
-                        newLength = tables._buckets.Length * 2 + 1;
+                        newLength = (tables._buckets.Length * 2) + 1;
 
                         // Now, we only need to check odd integers, and find the first that is not divisible
                         // by 3, 5 or 7.
@@ -701,7 +701,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic.Concurrent
                     // We want to make sure that GrowTable will not be called again, since table is at the maximum size.
                     // To achieve that, we set the budget to int.MaxValue.
                     //
-                    // (There is one special case that would allow GrowTable() to be called in the future: 
+                    // (There is one special case that would allow GrowTable() to be called in the future:
                     // calling Clear() on the ConcurrentHashSet will shrink the table and lower the budget.)
                     this._budget = int.MaxValue;
                 }

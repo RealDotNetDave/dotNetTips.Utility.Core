@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using dotNetTips.Utility.Standard.Diagnostics;
 using dotNetTips.Utility.Standard.Net;
+using dotNetTips.Utility.Standard.Tester;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dotNetTips.Tips.Utility.Standard.Tests.Net
@@ -21,7 +22,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Net
 
             Assert.IsTrue(result);
 
-            result = NetworkHelper.IsHostAvailable("xxxxxxx.xxxxxxxx.com", 500);
+            result = NetworkHelper.IsHostAvailable(RandomData.GenerateUrl(), 500);
 
             Assert.IsFalse(result);
 

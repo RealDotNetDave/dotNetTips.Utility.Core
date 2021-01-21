@@ -33,11 +33,12 @@ namespace dotNetTips.Utility.Standard.Extensions
     {
 
         /// <summary>
-        /// The global random
+        /// The global random.
         /// </summary>
         private static readonly Random globalRandom = new Random();
+
         /// <summary>
-        /// The random
+        /// The random.
         /// </summary>
         [ThreadStatic]
         private static Random _random;
@@ -73,7 +74,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="list">The list.</param>
         /// <param name="item">The item.</param>
         /// <returns>T[].</returns>
-        /// <exception cref="ArgumentNullException">list or item</exception>
+        /// <exception cref="ArgumentNullException">list or item.</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 76.92, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool AddFirst<T>(this IList<T> list, T item)
         {
@@ -104,7 +105,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="array">The array.</param>
         /// <param name="item">The item.</param>
         /// <returns>T[].</returns>
-        /// <exception cref="ArgumentNullException">array or item</exception>
+        /// <exception cref="ArgumentNullException">array or item.</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 76.92, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static T[] AddFirst<T>(this T[] array, T item)
         {
@@ -299,7 +300,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="key">The key.</param>
         /// <param name="value">The value.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <exception cref="ArgumentNullException">key or value</exception>
+        /// <exception cref="ArgumentNullException">key or value.</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 77.27, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool AddIfNotExists<TKey, TValue>(this IDictionary<TKey, TValue> dictionary,
                                                         TKey key,
@@ -332,7 +333,6 @@ namespace dotNetTips.Utility.Standard.Extensions
             }
 
             return false;
-
         }
 
         /// <summary>
@@ -342,7 +342,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="list">The list.</param>
         /// <param name="item">The item.</param>
         /// <returns>T[].</returns>
-        /// <exception cref="ArgumentNullException">list or item</exception>
+        /// <exception cref="ArgumentNullException">list or item.</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 57.14, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool AddLast<T>(this IList<T> list, T item)
         {
@@ -407,8 +407,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="items">The new items.</param>
         /// <param name="insureUnique">Set to true if items added to list are unique.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <exception cref="ArgumentException">items</exception>
-        /// <exception cref="ArgumentNullException">items</exception>
+        /// <exception cref="ArgumentException">items.</exception>
+        /// <exception cref="ArgumentNullException">items.</exception>
         public static bool AddRange<T>(this ICollection<T> list, IEnumerable<T> items, bool insureUnique = false)
         {
             if (list.IsNull())
@@ -461,7 +461,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="value">The value.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         /// <exception cref="ArgumentNullException">Dictionary cannot be null. or key - Key cannot be null.</exception>
-        /// <remarks>Code by: Lucas</remarks>
+        /// <remarks>Code by: Lucas.</remarks>
         public static bool AddRange<T, TKey, TValue>(this IDictionary<TKey, TValue> list, IEnumerable<T> items, Func<T, TKey> key, Func<T, TValue> value)
         {
             if (items.DoesNotHaveItems())
@@ -675,7 +675,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="source">The source.</param>
         /// <returns>List&lt;T&gt;.</returns>
-        /// <exception cref="ArgumentNullException">source</exception>
+        /// <exception cref="ArgumentNullException">source.</exception>
         public static List<T> CopyToList<T>(this List<T> source)
         {
             if (source.HasItems() == false)
@@ -691,7 +691,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="list">The list.</param>
         /// <returns>System.Int32.</returns>
-        /// <exception cref="ArgumentNullException">list</exception>
+        /// <exception cref="ArgumentNullException">list.</exception>
         public static int Count(this IEnumerable list)
         {
             if (list == null)
@@ -723,7 +723,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="TValue">The type of the t value.</typeparam>
         /// <param name="items">The items.</param>
         public static void DisposeCollection<TKey, TValue>(this IDictionary<TKey, TValue> items)
-        { ProcessCollectionToDispose(items.Select(p => p.Value)); }
+        {
+            ProcessCollectionToDispose(items.Select(p => p.Value));
+        }
 
         /// <summary>
         /// Returns distinct collection using the specified comparer.
@@ -732,7 +734,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="source">The source.</param>
         /// <param name="comparer">The comparer.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
-        /// <exception cref="ArgumentNullException">comparer</exception>
+        /// <exception cref="ArgumentNullException">comparer.</exception>
         /// <remarks>Original code from efcore-master on GitHub.</remarks>
         public static IEnumerable<T> Distinct<T>(this IEnumerable<T> source, Func<T, T, bool> comparer)
             where T : class
@@ -775,8 +777,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="source">The source.</param>
         /// <param name="predicate">The predicate.</param>
         /// <returns>System.Boolean.</returns>
-        /// <exception cref="ArgumentNullException">predicate</exception>
-        /// <exception cref="System.ArgumentNullException">predicate</exception>
+        /// <exception cref="ArgumentNullException">predicate.</exception>
+        /// <exception cref="System.ArgumentNullException">predicate.</exception>
         public static bool FastAny<T>(this IEnumerable<T> source, Func<T, bool> predicate)
         {
             if (predicate is null)
@@ -794,9 +796,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="source">The source.</param>
         /// <param name="predicate">The predicate.</param>
         /// <returns>System.Int32.</returns>
-        /// <exception cref="ArgumentNullException">predicate</exception>
-        /// <exception cref="System.ArgumentNullException">predicate</exception>
-        /// <exception cref="Exception">predicate</exception>
+        /// <exception cref="ArgumentNullException">predicate.</exception>
+        /// <exception cref="System.ArgumentNullException">predicate.</exception>
+        /// <exception cref="Exception">predicate.</exception>
         public static int FastCount<T>(this IEnumerable<T> source, Func<T, bool> predicate)
         {
             if (predicate is null)
@@ -831,10 +833,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="source">The source.</param>
         /// <param name="alternate">The alternate.</param>
         /// <returns>T.</returns>
-        /// <exception cref="ArgumentNullException">alternate</exception>
+        /// <exception cref="ArgumentNullException">alternate.</exception>
         /// <remarks>Original code from efcore-master on GitHub.</remarks>
         public static T FirstOrDefault<T>(this IEnumerable<T> source, T alternate)
-        { return source.DefaultIfEmpty(alternate).First(); }
+        {
+            return source.DefaultIfEmpty(alternate).First();
+        }
 
         /// <summary>
         /// Returns first item in the collection or an alternate using a predicate.
@@ -844,12 +848,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="predicate">The predicate.</param>
         /// <param name="alternate">The alternate.</param>
         /// <returns>T.</returns>
-        /// <exception cref="ArgumentNullException">predicate</exception>
-        /// <exception cref="ArgumentNullException">alternate</exception>
-        /// <exception cref="ArgumentNullException">predicate</exception>
-        /// <exception cref="ArgumentNullException">alternate</exception>
-        /// <exception cref="ArgumentNullException">predicate</exception>
-        /// <exception cref="ArgumentNullException">alternate</exception>
+        /// <exception cref="ArgumentNullException">predicate.</exception>
+        /// <exception cref="ArgumentNullException">alternate.</exception>
+        /// <exception cref="ArgumentNullException">predicate.</exception>
+        /// <exception cref="ArgumentNullException">alternate.</exception>
+        /// <exception cref="ArgumentNullException">predicate.</exception>
+        /// <exception cref="ArgumentNullException">alternate.</exception>
         /// <remarks>Original code from efcore-master on GitHub.</remarks>
         public static T FirstOrDefault<T>(this IEnumerable<T> source, Func<T, bool> predicate, T alternate)
         {
@@ -997,8 +1001,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="source">The source.</param>
         /// <param name="action">The action.</param>
         /// <returns><c>true</c> if the specified action has items; otherwise, <c>false</c>.</returns>
-        /// <exception cref="ArgumentNullException">action</exception>
-        /// <exception cref="System.ArgumentNullException">action</exception>
+        /// <exception cref="ArgumentNullException">action.</exception>
+        /// <exception cref="System.ArgumentNullException">action.</exception>
         public static bool HasItems<T>(this List<T> source, Predicate<T> action)
         {
             if (action is null)
@@ -1030,7 +1034,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="item">The item.</param>
         /// <param name="comparer">The comparer.</param>
         /// <returns>System.Int32.</returns>
-        /// <exception cref="ArgumentNullException">item or comparer</exception>
+        /// <exception cref="ArgumentNullException">item or comparer.</exception>
         /// <remarks>Original code from efcore-master on GitHub.</remarks>
         public static int IndexOf<T>(this IEnumerable<T> source, T item, IEqualityComparer<T> comparer)
         {
@@ -1112,7 +1116,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
         /// <summary>
         /// Orders a list based on a sort expression. Useful in object binding scenarios where the ObjectDataSource
-        /// generates a dynamic sort expression (example: "Name desc") that specifies the property of the 
+        /// generates a dynamic sort expression (example: "Name desc") that specifies the property of the
         /// object sort on.
         /// </summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
@@ -1120,7 +1124,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="sortExpression">The sort expression.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
         /// <exception cref="InvalidCastException"></exception>
-        /// <remarks>Original code by: C.F.Meijers</remarks>
+        /// <remarks>Original code by: C.F.Meijers.</remarks>
         public static IEnumerable<T> OrderBy<T>(this IEnumerable<T> list, string sortExpression)
         {
             if (sortExpression.HasValue() == false)
@@ -1158,7 +1162,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Orders collection by <see cref="StringComparer.Ordinal" />
+        /// Orders collection by <see cref="StringComparer.Ordinal" />.
         /// </summary>
         /// <typeparam name="TSource">The type of the t source.</typeparam>
         /// <param name="source">The source.</param>
@@ -1177,10 +1181,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="list">The list.</param>
         /// <param name="pageSize">Size of the page. Minimum page size is 1.</param>
         /// <returns>IEnumerable&lt;IEnumerable&lt;T&gt;&gt;.</returns>
-        /// <exception cref="ArgumentOutOfRangeException">pageSize</exception>
-        /// <exception cref="ArgumentNullException">pageSize</exception>
-        /// <exception cref="System.ArgumentNullException">pageSize</exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">pageSize</exception>
+        /// <exception cref="ArgumentOutOfRangeException">pageSize.</exception>
+        /// <exception cref="ArgumentNullException">pageSize.</exception>
+        /// <exception cref="System.ArgumentNullException">pageSize.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">pageSize.</exception>
         public static IEnumerable<IEnumerable<T>> Page<T>(this IEnumerable<T> list, int pageSize)
         {
             pageSize = pageSize.EnsureMinimumValue(1);
@@ -1309,7 +1313,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The items.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
-        /// <exception cref="ArgumentNullException">list</exception>
+        /// <exception cref="ArgumentNullException">list.</exception>
         [Information(nameof(Shuffle), "David McCarter", "8/26/2020", "8/26/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available, UnitTestCoverage = 80)]
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> list)
         {
@@ -1327,7 +1331,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="list">The items.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
-        /// <exception cref="ArgumentNullException">list</exception>
+        /// <exception cref="ArgumentNullException">list.</exception>
         [Information(nameof(Shuffle), "David McCarter", "8/27/2020", "8/27/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available, UnitTestCoverage = 83.33)]
         public static ImmutableArray<T> Shuffle<T>(this ImmutableArray<T> list)
         {
@@ -1346,8 +1350,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="list">The items.</param>
         /// <param name="count">The count.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
-        /// <exception cref="ArgumentNullException">list</exception>
-        /// <exception cref="ArgumentOutOfRangeException">count - Count must be greater than 0</exception>
+        /// <exception cref="ArgumentNullException">list.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">count - Count must be greater than 0.</exception>
         [Information(nameof(Shuffle), "David McCarter", "8/26/2020", "8/26/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available, UnitTestCoverage = 60)]
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> list, int count)
         {
@@ -1403,7 +1407,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="first">The first.</param>
         /// <param name="second">The second.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <exception cref="ArgumentNullException">second</exception>
+        /// <exception cref="ArgumentNullException">second.</exception>
         /// <remarks>Original code from efcore-master on GitHub.</remarks>
         public static bool StructuralSequenceEqual<T>(this IEnumerable<T> first, IEnumerable<T> second)
         {
@@ -1516,9 +1520,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="list">The list.</param>
         /// <returns>A list of groupings such that the key of the list is TKey type and the value is List of TValue type.</returns>
         /// <exception cref="ArgumentNullException">list - Source cannot be null or have a 0 value.</exception>
-        /// <remarks>Original code by: James Michael Hare</remarks>
+        /// <remarks>Original code by: James Michael Hare.</remarks>
         public static Dictionary<TKey, List<TValue>> ToDictionary<TKey, TValue>(this IEnumerable<IGrouping<TKey, TValue>> list)
-        { return list.ToDictionary(group => group.Key, group => group.ToList()); }
+        {
+            return list.ToDictionary(group => group.Key, group => group.ToList());
+        }
 
         /// <summary>
         /// Returns no duplicates.
@@ -1594,17 +1600,17 @@ namespace dotNetTips.Utility.Standard.Extensions
 
 
         // TODO: NEEDS C# 8
-        //public static async Task<List<TSource>> ToListAsync<TSource>(
+        // public static async Task<List<TSource>> ToListAsync<TSource>(
         //    this IAsyncEnumerable<TSource> source, CancellationToken cancellationToken = default)
-        //{
+        // {
         //    var list = new List<TSource>();
         //    await foreach (var element in source.WithCancellation(cancellationToken))
         //    {
         //        list.Add(element);
         //    }
 
-        //    return list;
-        //}
+        // return list;
+        // }
 
         /// <summary>
         /// Converts <see cref="IEnumerable" /> collection to a <see cref="List{T}" />.
@@ -1613,7 +1619,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="source">The source.</param>
         /// <returns>List&lt;TSource&gt;.</returns>
         /// <remarks>Original code from efcore-master on GitHub.</remarks>
-        public static List<T> ToList<T>(this IEnumerable source) { return source.OfType<T>().ToList(); }
+        public static List<T> ToList<T>(this IEnumerable source)
+        {
+            return source.OfType<T>().ToList();
+        }
 
         /// <summary>
         /// Creates a Generic List async.
@@ -1622,7 +1631,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="list">The list.</param>
         /// <returns>Task&lt;List&lt;T&gt;&gt;.</returns>
         /// <exception cref="ArgumentNullException">list - Source cannot be null or have a 0 value.</exception>
-        public static Task<List<T>> ToListAsync<T>(this IEnumerable<T> list) { return Task.Run(() => list.ToList()); }
+        public static Task<List<T>> ToListAsync<T>(this IEnumerable<T> list)
+        {
+            return Task.Run(() => list.ToList());
+        }
 
         /// <summary>
         /// To the enumeration to ObservableCollection.
@@ -1632,7 +1644,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>ObservableCollection.</returns>
         /// <exception cref="ArgumentNullException">list - Source cannot be null or have a 0 value.</exception>
         public static ObservableCollection<T> ToObservableCollection<T>(this IEnumerable<T> list)
-        { return new ObservableCollection<T>(list); }
+        {
+            return new ObservableCollection<T>(list);
+        }
 
         /// <summary>
         /// Converts List to ObservableCollection.
@@ -1641,7 +1655,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="list">The list.</param>
         /// <returns>ObservableCollection.</returns>
         public static ObservableCollection<T> ToObservableCollection<T>(this IList<T> list)
-        { return new ObservableCollection<T>(list); }
+        {
+            return new ObservableCollection<T>(list);
+        }
 
         /// <summary>
         /// Creates a read only list.
@@ -1651,7 +1667,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>ReadOnlyCollection&lt;T&gt;.</returns>
         /// <exception cref="ArgumentNullException">list - Source cannot be null or have a 0 value.</exception>
         public static ReadOnlyCollection<T> ToReadOnlyCollection<T>(this IList<T> list)
-        { return new ReadOnlyCollection<T>(list); }
+        {
+            return new ReadOnlyCollection<T>(list);
+        }
 
         /// <summary>
         /// Adds the or update.
@@ -1662,12 +1680,12 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="key">The key.</param>
         /// <param name="value">The value.</param>
         /// <returns>TValue.</returns>
-        /// <exception cref="ArgumentNullException">dictionary</exception>
-        /// <exception cref="ArgumentNullException">key</exception>
-        /// <exception cref="ArgumentNullException">value</exception>
-        /// <exception cref="ArgumentNullException">dictionary</exception>
-        /// <exception cref="ArgumentNullException">key</exception>
-        /// <exception cref="ArgumentNullException">value</exception>
+        /// <exception cref="ArgumentNullException">dictionary.</exception>
+        /// <exception cref="ArgumentNullException">key.</exception>
+        /// <exception cref="ArgumentNullException">value.</exception>
+        /// <exception cref="ArgumentNullException">dictionary.</exception>
+        /// <exception cref="ArgumentNullException">key.</exception>
+        /// <exception cref="ArgumentNullException">value.</exception>
         /// <exception cref="ArgumentNullException">Input cannot be null or have no items in the collection.</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static TValue Upsert<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
@@ -1706,7 +1724,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="predicate">The predicate.</param>
         /// <returns>IEnumerable&lt;TSource&gt;.</returns>
         /// <exception cref="ArgumentNullException">list - Source cannot be null or have a 0 value.</exception>
-        /// <remarks>Original code by: Phil Campbell</remarks>
+        /// <remarks>Original code by: Phil Campbell.</remarks>
         public static IEnumerable<TSource> WhereIf<TSource>(this IEnumerable<TSource> list, bool condition, Func<TSource, bool> predicate)
         {
             return condition ? list.Where(predicate) : list;
@@ -1721,7 +1739,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="predicate">The predicate.</param>
         /// <returns>IEnumerable&lt;TSource&gt;.</returns>
         /// <exception cref="ArgumentNullException">list - Source cannot be null or have a 0 value.</exception>
-        /// <remarks>Original code by: Phil Campbell</remarks>
+        /// <remarks>Original code by: Phil Campbell.</remarks>
         public static IEnumerable<TSource> WhereIf<TSource>(this IEnumerable<TSource> list, bool condition, Func<TSource, int, bool> predicate)
         {
             return condition ? list.Where(predicate) : list;
@@ -1759,7 +1777,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Class DynamicEqualityComparer. This class cannot be inherited. Implements the <see cref="System.Collections.Generic.IEqualityComparer{T}" />
+        /// Class DynamicEqualityComparer. This class cannot be inherited. Implements the <see cref="System.Collections.Generic.IEqualityComparer{T}" />.
         /// </summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <seealso cref="System.Collections.Generic.IEqualityComparer{T}" />
@@ -1768,7 +1786,7 @@ namespace dotNetTips.Utility.Standard.Extensions
             where T : class
         {
             /// <summary>
-            /// The function
+            /// The function.
             /// </summary>
             private readonly Func<T, T, bool> _func;
 

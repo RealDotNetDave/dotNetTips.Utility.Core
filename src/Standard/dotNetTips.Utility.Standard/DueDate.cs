@@ -14,7 +14,7 @@
 namespace dotNetTips.Utility.Standard
 {
     /// <summary>
-    /// Enum DueDate
+    /// Enum DueDate.
     /// </summary>
     public enum DueDate
     {

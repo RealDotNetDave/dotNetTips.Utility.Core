@@ -12,11 +12,10 @@
 // <summary></summary>
 // ***********************************************************************
 
-
 namespace dotNetTips.Utility.Standard.IO
 {
     /// <summary>
-    /// Enum SpecialFolder
+    /// Enum SpecialFolder.
     /// </summary>
     public enum SpecialFolder
     {

@@ -1,21 +1,35 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <AssemblyVersion>2021.1.21.34802</AssemblyVersion>
+    <Authors>David McCarter</Authors>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Company>David McCarter - dotNetTips.com</Company>
+    <Copyright>McCarter Consulting (David McCarter)</Copyright>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Description>Common .NET Core Code for Windows</Description>
+    <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Core.Windows.xml</DocumentationFile>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <FileVersion>2021.1.21.34802</FileVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
-    <AssemblyVersion>2021.1.9.34787</AssemblyVersion>
-    <FileVersion>2021.1.9.34787</FileVersion>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2021.1.4.00</Version>
-    <Authors>David McCarter</Authors>
-    <Company>David McCarter - dotNetTips.com</Company>
-    <Description>Common .NET Core Code for Windows</Description>
-    <Copyright>McCarter Consulting (David McCarter)</Copyright>
+    <OutputPath>..\..\..\appbin\</OutputPath>
+    <PackageIcon>2020 - dotNetTips - Real World - Earth@0.1x.png</PackageIcon>
     <PackageProjectUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</RepositoryUrl>
+    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Version>2021.1.4.00</Version>
     <PackageReleaseNotes>
       -- OCT 2019: Initial Release
       -- DEC 2019 (QUARTERLY RELEASE): Code cleanup.
@@ -24,13 +38,8 @@
       -- AUG 2020: Code cleanup.
       -- NOV 2020 (QUARTERLY RELEASE): Added TempFileManager.
       -- NOV 19, 2020: Minor update.
+      -- FEB 2021 (QUARTERLY RELEASE): Code Cleanup.
     </PackageReleaseNotes>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
-    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
-    <PackageIcon>2020 - dotNetTips - Real World - Earth@0.1x.png</PackageIcon>
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

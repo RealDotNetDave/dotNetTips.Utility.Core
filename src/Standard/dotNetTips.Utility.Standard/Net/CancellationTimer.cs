@@ -17,7 +17,7 @@ using dotNetTips.Utility.Standard.Extensions;
 namespace dotNetTips.Utility.Standard.Net
 {
     /// <summary>
-    /// Represents a timer and provides a mechanism to cancel. Implements the <see cref="System.IDisposable"/>
+    /// Represents a timer and provides a mechanism to cancel. Implements the <see cref="System.IDisposable"/>.
     /// </summary>
     /// <seealso cref="System.IDisposable"/>
     public abstract class CancellationTimer : IDisposable
@@ -59,7 +59,6 @@ namespace dotNetTips.Utility.Standard.Net
         /// </summary>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public abstract bool Cancel();
-
 
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.

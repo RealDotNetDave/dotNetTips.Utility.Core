@@ -17,7 +17,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 {
     /// <summary>
     /// Class NumericFormat.
-    /// Implements the <see cref="dotNetTips.Utility.Standard.Enumeration" />
+    /// Implements the <see cref="dotNetTips.Utility.Standard.Enumeration" />.
     /// </summary>
     /// <seealso cref="dotNetTips.Utility.Standard.Enumeration" />
     public class NumericFormat : Enumeration

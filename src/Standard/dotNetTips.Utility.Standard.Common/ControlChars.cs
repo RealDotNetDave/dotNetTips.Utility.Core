@@ -153,6 +153,5 @@ namespace dotNetTips.Utility.Standard.Common
         /// Vertical tab.
         /// </summary>
         public const char VerticalTab = '\v';
-
     }
 }

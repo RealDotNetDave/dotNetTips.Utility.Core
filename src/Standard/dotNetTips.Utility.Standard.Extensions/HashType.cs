@@ -15,7 +15,7 @@
 namespace dotNetTips.Utility.Standard.Extensions
 {
     /// <summary>
-    /// Enum for HashType
+    /// Enum for HashType.
     /// </summary>
     public enum HashType
     {

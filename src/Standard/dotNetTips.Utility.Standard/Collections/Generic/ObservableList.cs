@@ -28,7 +28,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic
     /// Implements the <see cref="System.Collections.Generic.IReadOnlyCollection{T}" />
     /// Implements the <see cref="System.Collections.Specialized.INotifyCollectionChanged" />
     /// Implements the <see cref="System.ComponentModel.INotifyPropertyChanged" />
-    /// Implements the <see cref="System.ComponentModel.INotifyPropertyChanging" />
+    /// Implements the <see cref="System.ComponentModel.INotifyPropertyChanging" />.
     /// </summary>
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <seealso cref="System.Collections.Generic.ISet{T}" />
@@ -41,7 +41,7 @@ namespace dotNetTips.Utility.Standard.Collections.Generic
     {
 
         /// <summary>
-        /// The set
+        /// The set.
         /// </summary>
         private HashSet<T> _set;
 
@@ -487,13 +487,13 @@ namespace dotNetTips.Utility.Standard.Collections.Generic
     internal static class ObservableHashSetSingletons
     {
         /// <summary>
-        /// The count property changed
+        /// The count property changed.
         /// </summary>
         internal static readonly PropertyChangedEventArgs _countPropertyChanged
             = new PropertyChangedEventArgs("Count");
 
         /// <summary>
-        /// The count property changing
+        /// The count property changing.
         /// </summary>
         internal static readonly PropertyChangingEventArgs _countPropertyChanging
             = new PropertyChangingEventArgs("Count");

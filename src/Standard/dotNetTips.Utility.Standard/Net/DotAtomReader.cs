@@ -42,6 +42,7 @@ namespace dotNetTips.Utility.Standard.Net
         // - The leading character is a dot.
         //   e.g. "a@.b.com", starting at index 7 (m), throws because the leading char (index 2) is a dot.
         //
+
         /// <summary>
         /// Tries the read reverse.
         /// </summary>

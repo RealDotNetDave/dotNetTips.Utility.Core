@@ -80,7 +80,6 @@ namespace dotNetTips.Utility.Standard.Collections.Generic
             return base.GetEnumerator();
         }
 
-
         /// <summary>
         /// Copies the elements of the <see cref="System.Collections.Generic.List"></see> to a new array.
         /// </summary>

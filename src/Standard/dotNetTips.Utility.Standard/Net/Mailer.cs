@@ -25,14 +25,14 @@ using dotNetTips.Utility.Standard.OOP;
 namespace dotNetTips.Utility.Standard.Net
 {
     /// <summary>
-    /// Class Mailer. Implements the <see cref="System.IDisposable" />
+    /// Class Mailer. Implements the <see cref="System.IDisposable" />.
     /// </summary>
     /// <seealso cref="System.IDisposable" />
     [Information(nameof(Mailer), "David McCarter", "10/09/2020", "10/15/2020", UnitTestCoverage = 0, Status = Status.Available)]
     public class Mailer : IDisposable
     {
         /// <summary>
-        /// The disposed
+        /// The disposed.
         /// </summary>
         private bool _disposed;
 
@@ -40,7 +40,6 @@ namespace dotNetTips.Utility.Standard.Net
         /// The mail server.
         /// </summary>
         private SmtpClient _mailServer;
-
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Mailer"/> class.
@@ -50,7 +49,6 @@ namespace dotNetTips.Utility.Standard.Net
         {
             this._mailServer = new SmtpClient(host);
         }
-
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Mailer"/> class.
@@ -94,10 +92,10 @@ namespace dotNetTips.Utility.Standard.Net
         /// Sends email with the users default email application.
         /// </summary>
         /// <param name="subject">Subject of the email.</param>
-        /// <param name="message">Email message</param>
+        /// <param name="message">Email message.</param>
         /// <param name="sendToAddress">Email address to send to.</param>
-        /// <exception cref="ArgumentException">sendToAddress</exception>
-        /// <exception cref="System.ArgumentException">sendToAddress</exception>
+        /// <exception cref="ArgumentException">sendToAddress.</exception>
+        /// <exception cref="System.ArgumentException">sendToAddress.</exception>
         public static void SendMailWithDefaultProgram(string subject, string message, EmailAddress sendToAddress)
         {
             Encapsulation.TryValidateParam(subject, nameof(subject));
@@ -296,7 +294,6 @@ namespace dotNetTips.Utility.Standard.Net
                         }
                 }
             }
-
 
             mailMessage.From = new MailAddress(fromAddress.Address, fromAddress.Name);
             mailMessage.Subject = subject;

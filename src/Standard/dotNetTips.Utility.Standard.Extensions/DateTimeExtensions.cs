@@ -207,9 +207,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Given a date, it returns the next (specified) day of week.
         /// </summary>
-        /// <param name="date">Date to process</param>
-        /// <param name="timezoneFromUtc">Hours of the timezone from UTC</param>
-        /// <returns>Future date</returns>
+        /// <param name="date">Date to process.</param>
+        /// <param name="timezoneFromUtc">Hours of the timezone from UTC.</param>
+        /// <returns>Future date.</returns>
         public static DateTime LocalTimeFromUtc(this DateTime date, int timezoneFromUtc) => date.ToUniversalTime()
             .AddHours(timezoneFromUtc);
 
@@ -235,11 +235,11 @@ namespace dotNetTips.Utility.Standard.Extensions
 
 
         /// <summary>
-        /// Given a date, it returns the next (specified) day of week
+        /// Given a date, it returns the next (specified) day of week.
         /// </summary>
-        /// <param name="date">Date to process</param>
-        /// <param name="day">Day of week to find on calendar</param>
-        /// <returns>Future date</returns>
+        /// <param name="date">Date to process.</param>
+        /// <param name="day">Day of week to find on calendar.</param>
+        /// <returns>Future date.</returns>
         public static DateTime NextDayOfWeek(this DateTime date, DayOfWeek day = DayOfWeek.Monday)
         {
             while (true)
@@ -254,7 +254,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Given a date, it returns the next (specified) day of week
+        /// Given a date, it returns the next (specified) day of week.
         /// </summary>
         /// <param name="date">The date.</param>
         /// <param name="day">The day.</param>
@@ -395,7 +395,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                         : input.ToString(CultureInfo.CurrentCulture.DateTimeFormat.LongDatePattern, CultureInfo.CurrentCulture);
             }
 
-            formattedDate += $" @ { input.ToString(CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern, CultureInfo.CurrentCulture).ToLower(CultureInfo.CurrentCulture) }";
+            formattedDate += $" @ { input.ToString(CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern, CultureInfo.CurrentCulture).ToLower(CultureInfo.CurrentCulture)}";
 
             return formattedDate;
         }

@@ -29,7 +29,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="val">The value.</param>
         /// <returns>T.</returns>
-        /// <exception cref="ArgumentNullException">val</exception>
+        /// <exception cref="ArgumentNullException">val.</exception>
         /// <exception cref="System.ArgumentNullException">The exception.</exception>
         public static T As<T>(this Enum val)
         {
@@ -48,7 +48,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="val">The value.</param>
         /// <returns>System.String.</returns>
-        /// <exception cref="ArgumentNullException">val</exception>
+        /// <exception cref="ArgumentNullException">val.</exception>
         public static string GetDescription(this Enum val)
         {
             if (val == null)
@@ -67,7 +67,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="enumeration">The enumeration.</param>
         /// <returns>IList&lt;EnumItem&lt;T&gt;&gt;.</returns>
-        /// <exception cref="ArgumentNullException">enumeration</exception>
+        /// <exception cref="ArgumentNullException">enumeration.</exception>
         /// <exception cref="System.ArgumentNullException">The exception.</exception>
         public static IList<EnumItem<T>> GetItems<T>(this Enum enumeration)
         {
@@ -98,7 +98,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="name">The name.</param>
         /// <returns>T.</returns>
-        /// <exception cref="ArgumentException">name</exception>
+        /// <exception cref="ArgumentException">name.</exception>
         /// <exception cref="System.ArgumentException">The exception.</exception>
         public static T Parse<T>(this string name)
             where T : struct

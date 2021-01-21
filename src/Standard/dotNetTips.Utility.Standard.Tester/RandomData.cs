@@ -72,7 +72,7 @@ namespace dotNetTips.Utility.Standard.Tester
         /// Gets the long test string.
         /// </summary>
         /// <value>The long test string.</value>
-        public static string LongTestString => Properties.Resources.LongTestString;
+        public static string LongTestString => Resources.LongTestString;
 
         /// <summary>
         /// Generates the byte array.
@@ -83,7 +83,7 @@ namespace dotNetTips.Utility.Standard.Tester
         {
             var size = Convert.ToInt32(sizeInKb * 1024);
 
-            var bytes = new Byte[size];
+            var bytes = new byte[size];
             _random.NextBytes(bytes);
 
             return bytes;
@@ -155,9 +155,9 @@ namespace dotNetTips.Utility.Standard.Tester
         {
             Encapsulation.TryValidateParam(decimalPlaces, 0, int.MaxValue, nameof(decimalPlaces));
 
-            var multiplier = ((decimal)decimalPlaces) * 10;
+            var multiplier = ( (decimal)decimalPlaces ) * 10;
 
-            var result = GenerateInteger((int)(minValue * multiplier), (int)(maxValue * multiplier)) / multiplier;
+            var result = GenerateInteger((int)( minValue * multiplier ), (int)( maxValue * multiplier )) / multiplier;
 
             return result;
         }
@@ -280,14 +280,6 @@ namespace dotNetTips.Utility.Standard.Tester
         /// <param name="max">The maximum int.</param>
         /// <returns>System.Int32.</returns>
         public static int GenerateInteger(int min = int.MinValue, int max = int.MaxValue)
-        {
-            lock (_lock)
-            {
-                return _random.Next(min, max);
-            }
-        }
-
-        public static double GenerateInteger(double min = double.MinValue, double max = double.MaxValue)
         {
             lock (_lock)
             {

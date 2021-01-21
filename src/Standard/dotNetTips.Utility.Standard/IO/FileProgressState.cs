@@ -14,7 +14,7 @@
 namespace dotNetTips.Utility.Standard.IO
 {
     /// <summary>
-    /// Enum ProgressState
+    /// Enum ProgressState.
     /// </summary>
     public enum FileProgressState
     {

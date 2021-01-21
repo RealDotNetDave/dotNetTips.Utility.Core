@@ -14,7 +14,7 @@
 namespace dotNetTips.Utility.Standard
 {
     /// <summary>
-    /// Enum FirstDayOfWeek
+    /// Enum FirstDayOfWeek.
     /// </summary>
     public enum FirstDayOfWeek
     {

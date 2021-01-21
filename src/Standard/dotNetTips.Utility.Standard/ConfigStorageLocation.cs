@@ -14,7 +14,7 @@
 namespace dotNetTips.Utility.Standard
 {
     /// <summary>
-    /// Enum StorageLocation
+    /// Enum StorageLocation.
     /// </summary>
     public enum ConfigStorageLocation
     {

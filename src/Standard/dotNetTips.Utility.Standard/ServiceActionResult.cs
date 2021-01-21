@@ -14,7 +14,7 @@
 namespace dotNetTips.Utility.Standard
 {
     /// <summary>
-    /// Enum ServiceActionResult
+    /// Enum ServiceActionResult.
     /// </summary>
     public enum ServiceActionResult
     {

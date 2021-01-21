@@ -15,7 +15,7 @@
 namespace dotNetTips.Utility.Standard
 {
     /// <summary>
-    /// Interface IEventInformation
+    /// Interface IEventInformation.
     /// </summary>
     public interface IEventInformation
     {

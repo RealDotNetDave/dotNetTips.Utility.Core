@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <IsPackable>false</IsPackable>
-    <AssemblyVersion>2021.1.9.34807</AssemblyVersion>
-    <FileVersion>2021.1.9.34807</FileVersion>
+    <AssemblyVersion>2021.1.21.34825</AssemblyVersion>
+    <FileVersion>2021.1.21.34825</FileVersion>
     <Authors>David McCarter - dotNetTips.com</Authors>
     <Company>McCarter Consulting</Company>
     <Description>Unit Tests</Description>

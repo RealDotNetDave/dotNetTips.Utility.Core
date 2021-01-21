@@ -27,7 +27,7 @@ namespace dotNetTips.Utility.Standard.IO
         public FileProgressEventArgs() => this.Message = string.Empty;
 
         /// <summary>
-        /// Gets or sets the file progress message
+        /// Gets or sets the file progress message.
         /// </summary>
         /// <value>The message.</value>
         public string Message

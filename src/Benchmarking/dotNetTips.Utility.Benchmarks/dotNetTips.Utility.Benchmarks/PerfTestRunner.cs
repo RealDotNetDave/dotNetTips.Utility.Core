@@ -11,10 +11,11 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using System;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Engines;
+using BenchmarkDotNet.Loggers;
 using BenchmarkDotNet.Order;
-using System;
 using static BenchmarkDotNet.Attributes.MarkdownExporterAttribute;
 
 namespace dotNetTips.Utility.Benchmarks
@@ -116,21 +117,20 @@ namespace dotNetTips.Utility.Benchmarks
         {
             get
             {
-                return _testTimeSpan;
+                return this._testTimeSpan;
             }
             set
             {
-                _testTimeSpan = value;
+                this._testTimeSpan = value;
             }
         }
 
         /// <summary>
         /// Cleanups this instance.
         /// </summary>
-        /// TODO Edit XML Comment Template for Cleanup
         public virtual void Cleanup()
         {
-            BenchmarkDotNet.Loggers.ConsoleLogger.Default.WriteLine(BenchmarkDotNet.Loggers.LogKind.Info, $"Init() - {this.GetType().FullName}.");
+            //ConsoleLogger.Default.WriteLine(LogKind.Info, $"Cleanup() - {this.GetType().FullName}.");
         }
 
         /// <summary>
@@ -160,7 +160,7 @@ namespace dotNetTips.Utility.Benchmarks
         public virtual void Setup()
         {
             // BenchmarkDotNet.Loggers.ConsoleLogger.Default.WriteLine(BenchmarkDotNet.Loggers.LogKind.Info, $"TEST {HostEnvironmentInfo.GetInformation()}.");
-            BenchmarkDotNet.Loggers.ConsoleLogger.Default.WriteLine(BenchmarkDotNet.Loggers.LogKind.Info, $"Init() - {this.GetType().FullName}.");
+            ConsoleLogger.Default.WriteLine(LogKind.Info, $"Init() - {this.GetType().FullName}.");
         }
 
     }

@@ -16,7 +16,7 @@ using dotNetTips.Utility.Standard.Validation;
 namespace dotNetTips.Utility.Standard
 {
     /// <summary>
-    /// Interface IValid
+    /// Interface IValid.
     /// </summary>
     public interface IValid
     {

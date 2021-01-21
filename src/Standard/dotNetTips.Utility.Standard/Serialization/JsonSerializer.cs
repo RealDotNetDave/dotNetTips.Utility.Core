@@ -139,6 +139,7 @@ namespace dotNetTips.Utility.Standard.Serialization
                             return !actualEnumerator.MoveNext();
                         }
                     }
+
                 case JsonValueKind.String:
                     return expected.GetString() == actual.GetString();
                 case JsonValueKind.Number:

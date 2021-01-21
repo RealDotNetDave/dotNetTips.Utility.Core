@@ -18,7 +18,7 @@ using dotNetTips.Utility.Standard.Extensions;
 namespace dotNetTips.Utility.Standard.Net
 {
     /// <summary>
-    /// EmailAddress
+    /// EmailAddress.
     /// </summary>
     [Information(nameof(EmailAddress), "David McCarter", "10/15/2020", "10/15/2020", UnitTestCoverage = 0, Status = Status.Available)]
     public struct EmailAddress

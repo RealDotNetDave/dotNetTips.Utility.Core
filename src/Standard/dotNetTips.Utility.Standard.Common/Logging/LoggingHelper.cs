@@ -74,6 +74,5 @@ namespace dotNetTips.Utility.Standard.Common.Logging
 
             return collection.ToArray();
         }
-
     }
 }

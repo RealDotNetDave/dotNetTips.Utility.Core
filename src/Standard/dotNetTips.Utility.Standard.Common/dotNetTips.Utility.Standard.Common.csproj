@@ -1,29 +1,42 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyVersion>2021.1.9.34815</AssemblyVersion>
-    <FileVersion>2021.1.9.34815</FileVersion>
-    <Version>2021.1.4.00</Version>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <AssemblyName>dotNetTips.Utility.Standard.Common</AssemblyName>
+    <AssemblyVersion>2021.1.21.34829</AssemblyVersion>
     <Authors>David McCarter</Authors>
-    <Company>David McCarter -  dotNetTips.com</Company>
-    <Description>Common .NET Standard Code</Description>
-    <RepositoryUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
+    <Company>David McCarter - dotNetTips.com</Company>
     <Copyright>McCarter Consulting (David McCarter)</Copyright>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <DelaySign>False</DelaySign> 
+    <Description>Common .NET Standard Code</Description>
+    <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Common.xml</DocumentationFile>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers> 
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <FileVersion>2021.1.21.34829</FileVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <OutputPath>..\..\..\appbin\</OutputPath> 
+    <PackageIcon>2020 - dotNetTips - Real World - Earth@0.1x.png</PackageIcon>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</RepositoryUrl>
+    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Version>2021.1.4.00</Version>
     <PackageReleaseNotes>
       -- AUG 2020: First release.
       -- SEP 2020: Added Date class. New methods and code cleanup.
       -- NOV 2020 (QUARTERLY RELEASE): Code cleanup. Bug fixes.
       -- NOV 19, 2020: Minor update.
+      -- FEB 2021 (QUARTERLY RELEASE): 11 new methods. Code cleanup.
     </PackageReleaseNotes>
-    <AssemblyName>dotNetTips.Utility.Standard.Common</AssemblyName>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageIcon>2020 - dotNetTips - Real World - Earth@0.1x.png</PackageIcon>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

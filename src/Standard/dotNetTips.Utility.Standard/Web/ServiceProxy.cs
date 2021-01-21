@@ -25,21 +25,22 @@ namespace dotNetTips.Utility.Standard.Web
     public abstract class ServiceProxy<T> where T : ICommunicationObject, IDisposable
     {
         /// <summary>
-        /// The lock
+        /// The lock.
         /// </summary>
         private readonly object _lock = new object();
 
         /// <summary>
-        /// The service endpoint
+        /// The service endpoint.
         /// </summary>
         private readonly string _serviceEndpoint;
+
         /// <summary>
-        /// The channel
+        /// The channel.
         /// </summary>
         private T _channel;
 
         /// <summary>
-        /// The channel factory
+        /// The channel factory.
         /// </summary>
         private IChannelFactory<T> _channelFactory;
 

@@ -12,11 +12,10 @@
 // <summary></summary>
 // ***********************************************************************
 
-
 namespace dotNetTips.Utility.Standard.OOP
 {
     /// <summary>
-    /// Enum for StringType
+    /// Enum for StringType.
     /// </summary>
 
     public enum StringType

@@ -35,8 +35,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="sb">The builder.</param>
         /// <param name="bytes">The bytes.</param>
-        /// <exception cref="ArgumentNullException">sb</exception>
-        /// <exception cref="ArgumentException">bytes</exception>
+        /// <exception cref="ArgumentNullException">sb.</exception>
+        /// <exception cref="ArgumentException">bytes.</exception>
         [Information("Original code from efcore-master on GitHub", author: "David McCarter", createdOn: "5/26/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 80, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static void AppendBytes(this StringBuilder sb, byte[] bytes)
         {
@@ -233,10 +233,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="value">The value.</param>
         /// <param name="includeQuotes">if set to <c>true</c> [include quotes].</param>
         /// <param name="includeComma">if set to <c>true</c> [include comma].</param>
-        /// <exception cref="ArgumentNullException">sb</exception>
-        /// <exception cref="ArgumentException">key</exception>
-        /// <exception cref="ArgumentException">value</exception>
-        /// <exception cref="ArgumentException">sb</exception>
+        /// <exception cref="ArgumentNullException">sb.</exception>
+        /// <exception cref="ArgumentException">key.</exception>
+        /// <exception cref="ArgumentException">value.</exception>
+        /// <exception cref="ArgumentException">sb.</exception>
         [Information("FROM .NET CORE SOURCE", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 65, Status = Status.Available)]
         public static void AppendKeyValue(this StringBuilder sb, string key, string value, bool includeQuotes = true, bool includeComma = true)
         {
@@ -329,8 +329,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="separator">The separator.</param>
         /// <param name="values">The values.</param>
         /// <returns>StringBuilder.</returns>
-        /// <exception cref="ArgumentNullException">sb</exception>
-        /// <exception cref="ArgumentException">values</exception>
+        /// <exception cref="ArgumentNullException">sb.</exception>
+        /// <exception cref="ArgumentException">values.</exception>
         [Information("Original code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static StringBuilder AppendValues(this StringBuilder sb, string separator, params string[] values)
         {
@@ -358,11 +358,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="values">The values.</param>
         /// <param name="joinAction">The join action.</param>
         /// <returns>StringBuilder.</returns>
-        /// <exception cref="ArgumentNullException">sb</exception>
-        /// <exception cref="ArgumentNullException">values</exception>
-        /// <exception cref="ArgumentNullException">joinAction</exception>
-        /// <exception cref="ArgumentNullException">sb</exception>
-        /// <exception cref="ArgumentNullException">values</exception>
+        /// <exception cref="ArgumentNullException">sb.</exception>
+        /// <exception cref="ArgumentNullException">values.</exception>
+        /// <exception cref="ArgumentNullException">joinAction.</exception>
+        /// <exception cref="ArgumentNullException">sb.</exception>
+        /// <exception cref="ArgumentNullException">values.</exception>
         [Information("Original code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 82, Status = Status.Available)]
         public static StringBuilder AppendValues<T>(this StringBuilder sb, string separator, IEnumerable<T> values, Action<T> joinAction)
         {
@@ -411,13 +411,13 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="param">The parameter.</param>
         /// <param name="joinAction">The join action.</param>
         /// <returns>StringBuilder.</returns>
-        /// <exception cref="ArgumentNullException">sb</exception>
-        /// <exception cref="ArgumentNullException">values</exception>
-        /// <exception cref="ArgumentNullException">param</exception>
-        /// <exception cref="ArgumentNullException">joinAction</exception>
-        /// <exception cref="ArgumentNullException">sb</exception>
-        /// <exception cref="ArgumentNullException">values</exception>
-        /// <exception cref="ArgumentNullException">param</exception>
+        /// <exception cref="ArgumentNullException">sb.</exception>
+        /// <exception cref="ArgumentNullException">values.</exception>
+        /// <exception cref="ArgumentNullException">param.</exception>
+        /// <exception cref="ArgumentNullException">joinAction.</exception>
+        /// <exception cref="ArgumentNullException">sb.</exception>
+        /// <exception cref="ArgumentNullException">values.</exception>
+        /// <exception cref="ArgumentNullException">param.</exception>
         [Information("Original code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static StringBuilder AppendValues<T, TParam>(this StringBuilder sb, string separator, IEnumerable<T> values, TParam param, Action<T, TParam> joinAction)
         {
@@ -473,15 +473,15 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="param2">The param2.</param>
         /// <param name="joinAction">The join action.</param>
         /// <returns>StringBuilder.</returns>
-        /// <exception cref="ArgumentNullException">sb</exception>
-        /// <exception cref="ArgumentNullException">values</exception>
-        /// <exception cref="ArgumentNullException">param1</exception>
-        /// <exception cref="ArgumentNullException">param2</exception>
-        /// <exception cref="ArgumentNullException">joinAction</exception>
-        /// <exception cref="ArgumentNullException">sb</exception>
-        /// <exception cref="ArgumentNullException">values</exception>
-        /// <exception cref="ArgumentNullException">param1</exception>
-        /// <exception cref="ArgumentNullException">param2</exception>
+        /// <exception cref="ArgumentNullException">sb.</exception>
+        /// <exception cref="ArgumentNullException">values.</exception>
+        /// <exception cref="ArgumentNullException">param1.</exception>
+        /// <exception cref="ArgumentNullException">param2.</exception>
+        /// <exception cref="ArgumentNullException">joinAction.</exception>
+        /// <exception cref="ArgumentNullException">sb.</exception>
+        /// <exception cref="ArgumentNullException">values.</exception>
+        /// <exception cref="ArgumentNullException">param1.</exception>
+        /// <exception cref="ArgumentNullException">param2.</exception>
         [Information("Original code from efcore-master on GitHub", "David McCarter", "5/26/2020", "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static StringBuilder AppendValues<T, TParam1, TParam2>(this StringBuilder sb, string separator, IEnumerable<T> values, TParam1 param1, TParam2 param2, Action<StringBuilder, T, TParam1, TParam2> joinAction)
         {

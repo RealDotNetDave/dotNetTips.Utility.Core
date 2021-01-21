@@ -4,7 +4,7 @@
 // Created          : 09-15-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 11-19-2020
+// Last Modified On : 01-19-2021
 // ***********************************************************************
 // <copyright file="ObjectExtensions.cs" company="David McCarter - dotNetTips.com">
 //     David McCarter - dotNetTips.com
@@ -36,7 +36,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="value">The value.</param>
         /// <returns>T.</returns>
-        /// <exception cref="ArgumentNullException">value</exception>
+        /// <exception cref="ArgumentNullException">value.</exception>
         public static T As<T>(this object value)
         {
             if (value == null)
@@ -53,7 +53,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="obj">The object.</param>
         /// <returns>T.</returns>
-        /// <exception cref="ArgumentNullException">obj</exception>
+        /// <exception cref="ArgumentNullException">obj.</exception>
         public static T Clone<T>(this object obj)
             where T : class
         {
@@ -75,16 +75,16 @@ namespace dotNetTips.Utility.Standard.Extensions
         [Obsolete("Use SHA256 hash instead. This method will be removed at the end of 2020.")]
         public static string ComputeMD5Hash(this object data)
         {
-            // Create a MD5   
+            // Create a MD5
             using (var md5Hash = MD5.Create())
             {
-                // ComputeHash - returns byte array  
+                // ComputeHash - returns byte array
                 var bytes = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(data.ToJson()));
 
-                // Convert byte array to a string   
+                // Convert byte array to a string
                 var builder = new StringBuilder();
 
-                for (int i = 0; i < bytes.Length; i++)
+                for (var i = 0; i < bytes.Length; i++)
                 {
                     builder.Append(bytes[i].ToString("x2", CultureInfo.InvariantCulture));
                 }
@@ -100,16 +100,16 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>System.String.</returns>
         public static string ComputeSha256Hash(this object data)
         {
-            // Create a SHA256   
+            // Create a SHA256
             using (var sha256Hash = SHA256.Create())
             {
-                // ComputeHash - returns byte array  
+                // ComputeHash - returns byte array
                 var bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(data.ToJson()));
 
-                // Convert byte array to a string   
+                // Convert byte array to a string
                 var builder = new StringBuilder();
 
-                for (int i = 0; i < bytes.Length; i++)
+                for (var i = 0; i < bytes.Length; i++)
                 {
                     builder.Append(bytes[i].ToString("x2", CultureInfo.InvariantCulture));
                 }
@@ -122,7 +122,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// Disposes the fields.
         /// </summary>
         /// <param name="obj">The object.</param>
-        /// <exception cref="ArgumentNullException">obj</exception>
+        /// <exception cref="ArgumentNullException">obj.</exception>
         public static void DisposeFields(this IDisposable obj)
         {
             if (obj == null)
@@ -132,7 +132,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             var list = obj.GetType().GetRuntimeFields().Where(p => p.IsStatic == false).ToList();
 
-            for (int fieldCount = 0; fieldCount < list.Count; fieldCount++)
+            for (var fieldCount = 0; fieldCount < list.Count; fieldCount++)
             {
                 var value = list[fieldCount].GetValue(obj);
 
@@ -189,7 +189,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="obj">The instance.</param>
         /// <param name="propertyName">Name of the property.</param>
         /// <returns><c>true</c> if the specified property name has property; otherwise, <c>false</c>.</returns>
-        /// <exception cref="ArgumentNullException">obj</exception>
+        /// <exception cref="ArgumentNullException">obj.</exception>
         public static bool HasProperty(this object obj, string propertyName)
         {
             if (obj is null)
@@ -212,7 +212,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <exception cref="ArgumentNullException">source - Source cannot be null.
         /// or
         /// list - List cannot be null or have a 0 length.</exception>
-        /// <remarks>Original code by: Rory Becker</remarks>
+        /// <remarks>Original code by: Rory Becker.</remarks>
         public static bool In<T>(this T source, params T[] list)
         {
             return list.FastAny(value => value.Equals(source));
@@ -232,7 +232,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             var fieldInfos = obj.GetType().GetRuntimeFields().ToList();
 
-            for (int fieldCount = 0; fieldCount < fieldInfos.Count; fieldCount++)
+            for (var fieldCount = 0; fieldCount < fieldInfos.Count; fieldCount++)
             {
                 var fieldInfo = fieldInfos[fieldCount];
                 var objectValue = fieldInfo.GetValue(obj);
@@ -266,7 +266,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Generates a Dictionary that represents the property name (Key) and it's value.
         /// </summary>
-        /// <param name="input">The input.</param>
+        /// <param name="obj">The input.</param>
         /// <param name="bindingFlags">The binding flags.</param>
         /// <returns>IDictionary&lt;System.String, System.Object&gt;.</returns>
         /// <example>Output:
@@ -284,25 +284,30 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// [LastName, H^hkKhwWggIrUCYbbxiFEJGJM]
         /// [PostalCode, 86560656].
         /// </example>
-        [Information(nameof(PropertiesToDictionary), author: "David McCarter", createdOn: "11/18/2020", modifiedOn: "11/19/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
-        public static IDictionary<string, object> PropertiesToDictionary(this object input, BindingFlags bindingFlags = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance)
+        [Information(nameof(PropertiesToDictionary), author: "David McCarter", createdOn: "11/18/2020", modifiedOn: "1/15/2021", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        public static IDictionary<string, object> PropertiesToDictionary(this object obj, BindingFlags bindingFlags = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance)
         {
-            if (input == null)
+            if (obj is null)
             {
-                ExceptionThrower.ThrowArgumentNullException(nameof(input));
+                ExceptionThrower.ThrowArgumentNullException(nameof(obj));
             }
 
-            return input.GetType()
+            return obj.GetType()
                  .GetProperties(bindingFlags | BindingFlags.GetProperty)
-                 .ToDictionary(prop => prop.Name, prop => prop.GetValue(input, null));
+                 .ToDictionary(prop => prop.Name, prop => prop.GetValue(obj));
         }
 
         /// <summary>
         /// Generates a string that returns the property names and values.
+        /// The input cannot be a collection type.
+        /// Supports nested types.
         /// </summary>
-        /// <param name="input">The input.</param>
+        /// <param name="obj">The input.</param>
         /// <param name="ignoreNullValues">if set to <c>true</c> [ignore null values].</param>
         /// <param name="delimiter">The delimiter.</param>
+        /// <returns>System.String.</returns>
+        /// <exception cref="ArgumentNullException">Object cannot be null.</exception>
+        /// <exception cref="ArgumentInvalidException">Object cannot be a collection type.</exception>
         /// <example>Output:
         /// Address1: xBVmMEitqQnddvMgWffRKErLB, Address2: LR[VNjF^]MRCJFApcafSqMFff,
         /// Age: 14235.00:00:00.0043961, BornOn: 1/16/1982 3:22:54 PM -08:00,
@@ -311,39 +316,54 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// HomePhone: 706-324-3081, Id: 5c8666c0cb60482c8359836e753b62bb, LastName: boChHREjWqxyyQ\\[`u[qoBJJj,
         /// PostalCode: 30406403.
         /// </example>
-        /// <returns>System.String.</returns>
-        [Information(nameof(PropertiesToString), author: "David McCarter", createdOn: "11/18/2020", modifiedOn: "11/19/2020", UnitTestCoverage = 90, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
-        public static string PropertiesToString(this object input, bool ignoreNullValues, char delimiter = ControlChars.Comma)
+        [Information(nameof(PropertiesToString), author: "David McCarter", createdOn: "11/18/2020", modifiedOn: "1/15/2021", UnitTestCoverage = 90, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        public static string PropertiesToString(this object obj, bool ignoreNullValues = true, char delimiter = ControlChars.Comma)
         {
-            if (input == null)
+            if (obj is null)
             {
-                ExceptionThrower.ThrowArgumentNullException(nameof(input));
+                ExceptionThrower.ThrowArgumentNullException(nameof(obj));
             }
 
-            // TODO: LOOK INTO MAKING THIS BETTER WITH TYPES LIKE COLLECTIONS AND GENERICS.
-            var properties = input.PropertiesToDictionary();
+            if (obj.GetType().Name == typeof(List<>).Name)
+            {
+                ExceptionThrower.ThrowArgumentInvalidException("Input cannot be a collection.", nameof(obj));
+            }
 
-            if (properties.Count == 0)
+            var properties = obj.PropertiesToDictionary();
+
+            if (properties.Count is 0)
             {
                 return string.Empty;
             }
             else
             {
-                var sb = new StringBuilder();
+                var propertiesSb = new StringBuilder();
 
-                foreach (var property in properties)
+                foreach (var property in properties.OrderBy(p => p.Key))
                 {
-                    if (ignoreNullValues && property.Value.IsNull())
+                    if (property.Value.IsNull() && ignoreNullValues)
                     {
                         // Ignore
                     }
+                    else if (property.Value.GetType().UnderlyingSystemType.Name == typeof(List<>).Name)
+                    {
+                        var collectionSb = new StringBuilder();
+
+                        foreach (var item in (IEnumerable)property.Value)
+                        {
+                            collectionSb.Append(item.PropertiesToString(true));
+                        }
+
+                        // Process collection
+                        propertiesSb.Append($"{property.Key}: {collectionSb.ToString()}{ControlChars.Space}");
+                    }
                     else
                     {
-                        sb.Append($"{property.Key}: {property.Value}{delimiter} ");
+                        propertiesSb.Append($"{property.Key}: {property.Value}{delimiter}{ControlChars.Space}");
                     }
                 }
 
-                var returnValue = sb.ToString(0, sb.Length - 1);
+                var returnValue = propertiesSb.ToString(0, propertiesSb.Length - 1);
 
                 return returnValue;
             }
@@ -352,11 +372,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Strips the null.
         /// </summary>
-        /// <param name="input">The field.</param>
+        /// <param name="obj">The field.</param>
         /// <returns>System.String.</returns>
-        public static string StripNull(this object input)
+        public static string StripNull(this object obj)
         {
-            return input == null ? string.Empty : input.ToString();
+            return obj == null ? string.Empty : obj.ToString();
         }
 
         /// <summary>
@@ -364,7 +384,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="obj">The instance.</param>
         /// <returns>System.String.</returns>
-        /// <exception cref="ArgumentNullException">obj</exception>
+        /// <exception cref="ArgumentNullException">obj.</exception>
         public static string ToJson(this object obj)
         {
             if (obj is null)
@@ -380,8 +400,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="obj">The instance.</param>
         /// <param name="fileName">The file.</param>
-        /// <exception cref="ArgumentNullException">obj</exception>
-        /// <exception cref="ArgumentException">message - fileName</exception>
+        /// <exception cref="ArgumentNullException">obj.</exception>
+        /// <exception cref="ArgumentException">message - fileName.</exception>
         public static void ToJsonFile(this object obj, string fileName)
         {
             if (obj is null)
@@ -410,7 +430,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="obj">The obj.</param>
         /// <param name="throwException">if set to <count>true</count> [throw exception].</param>
-        /// <exception cref="ArgumentNullException">obj</exception>
+        /// <exception cref="ArgumentNullException">obj.</exception>
         public static void TryDispose(this IDisposable obj, bool throwException)
         {
             if (obj.IsNull())

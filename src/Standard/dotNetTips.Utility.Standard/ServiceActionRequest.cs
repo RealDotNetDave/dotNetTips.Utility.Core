@@ -14,7 +14,7 @@
 namespace dotNetTips.Utility.Standard
 {
     /// <summary>
-    /// Enum ServiceActionRequest
+    /// Enum ServiceActionRequest.
     /// </summary>
     public enum ServiceActionRequest
     {
@@ -22,10 +22,12 @@ namespace dotNetTips.Utility.Standard
         /// The unknown
         /// </summary>
         Unknown,
+
         /// <summary>
         /// The start
         /// </summary>
         Start,
+
         /// <summary>
         /// The stop
         /// </summary>

@@ -31,7 +31,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="request">The request.</param>
         /// <returns>Task&lt;System.Byte[]&gt;.</returns>
-        /// <exception cref="ArgumentNullException">request</exception>
+        /// <exception cref="ArgumentNullException">request.</exception>
         public static async Task<byte[]> GetRawBodyBytesAsync(this HttpRequest request)
         {
             if (request.IsNull())
@@ -52,8 +52,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="request">Request instance to apply to.</param>
         /// <param name="encoding">Optional - Encoding, defaults to UTF8.</param>
         /// <returns>Task&lt;System.String&gt;.</returns>
-        /// <exception cref="ArgumentNullException">request</exception>
-        /// <exception cref="System.ArgumentNullException">request</exception>
+        /// <exception cref="ArgumentNullException">Request cannot be null.</exception>
         public static async Task<string> GetRawBodyStringAsync(this HttpRequest request, Encoding encoding)
         {
             if (request == null)
@@ -79,8 +78,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="request">The HTTPRequest object.</param>
         /// <param name="value">The return value.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <exception cref="ArgumentNullException">request</exception>
-        /// <remarks>Original code by Jerry Nixon</remarks>
+        /// <exception cref="ArgumentNullException">request.</exception>
+        /// <remarks>Original code by Jerry Nixon.</remarks>
         public static bool TryGetBody<T>(this HttpRequest request, out T value)
         {
             if (!request.TryGetBody(out var bytes))
@@ -108,10 +107,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="request">The HTTPRequest object.</param>
         /// <param name="value">The return value.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <exception cref="ArgumentNullException">request</exception>
+        /// <exception cref="ArgumentNullException">request.</exception>
         /// <exception cref="ArgumentException">HttpRequest has no body.</exception>
         /// <exception cref="Exception">HttpRequest has no body.</exception>
-        /// <remarks>Original code by Jerry Nixon</remarks>
+        /// <remarks>Original code by Jerry Nixon.</remarks>
         public static bool TryGetBody(this HttpRequest request, out byte[] value)
         {
             if (request == null)
@@ -121,7 +120,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             try
             {
-                if ((request.Body?.Length ?? 0) == 0)
+                if (( request.Body?.Length ?? 0 ) == 0)
                 {
                     throw new ArgumentException("HttpRequest has no body.");
                 }

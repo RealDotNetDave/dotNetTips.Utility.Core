@@ -23,7 +23,7 @@ namespace dotNetTips.Utility.Standard.Cache
     public sealed class InMemoryCache
     {
         /// <summary>
-        /// The instance
+        /// The instance.
         /// </summary>
         private static readonly InMemoryCache _instance = new InMemoryCache();
 

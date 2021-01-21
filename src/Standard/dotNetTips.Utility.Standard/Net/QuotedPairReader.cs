@@ -28,6 +28,7 @@ namespace dotNetTips.Utility.Standard.Net
     // Because backslashes themselves can be quoted-pairs (\\), this class's primary function is to verify what
     // character is being quoted. In "hi\\\\a", 'a' is not quoted because all of the backslashes are paired together.
     // In "hi\\\a", 'a' is quoted.
+
     /// <summary>
     /// Class QuotedPairReader.
     /// </summary>
@@ -46,6 +47,7 @@ namespace dotNetTips.Utility.Standard.Net
         //   e.g. (a\\\b) given index=4 returns 4, as 'b' is quoted, and so are the previous backslashes
         //
         // Throws a FormatException or false is returned if the an escaped Unicode character is found but was not permitted.
+
         /// <summary>
         /// Tries the count quoted chars.
         /// </summary>

@@ -23,7 +23,7 @@ namespace dotNetTips.Utility.Standard.Net
     public class InfiniteTimer : CancellationTimer
     {
         /// <summary>
-        /// The canceled
+        /// The canceled.
         /// </summary>
         private int _canceled;
 

@@ -28,9 +28,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="colors">The colors.</param>
         /// <returns>Color.</returns>
-        /// <exception cref="ArgumentOutOfRangeException">colors - colors</exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">colors - colors</exception>
-        /// <exception cref="ArgumentNullException">colors - colors</exception>
+        /// <exception cref="ArgumentOutOfRangeException">colors - colors.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">colors - colors.</exception>
+        /// <exception cref="ArgumentNullException">colors - colors.</exception>
         public static Color Average(this IEnumerable<Color> colors)
         {
             if (colors.HasItems() == false)

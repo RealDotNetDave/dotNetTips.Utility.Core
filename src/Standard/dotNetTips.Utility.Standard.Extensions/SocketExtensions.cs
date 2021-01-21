@@ -60,14 +60,14 @@ namespace dotNetTips.Utility.Standard.Extensions
 
         /// <summary>
         /// Tries to connect within the provided timeout interval Useful to speed up "can not connect" assertions on
-        /// Windows
+        /// Windows.
         /// </summary>
         /// <param name="socket">The socket.</param>
         /// <param name="remoteEndpoint">The remote endpoint.</param>
         /// <param name="millisecondsTimeout">The milliseconds timeout.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <exception cref="ArgumentNullException">remoteEndpoint</exception>
-        /// <exception cref="ArgumentNullException">socket</exception>
+        /// <exception cref="ArgumentNullException">remoteEndpoint.</exception>
+        /// <exception cref="ArgumentNullException">socket.</exception>
         /// <exception cref="PlatformNotSupportedException"></exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool TryConnect(this Socket socket, EndPoint remoteEndpoint, int millisecondsTimeout)

@@ -26,6 +26,7 @@ namespace dotNetTips.Utility.Standard.Net
     //
     // Quoted strings are allowed as MailAddress components local-part and display-name.
     // e.g. "display name" <"user name"@domain>
+
     /// <summary>
     /// Class QuotedStringFormatReader.
     /// </summary>
@@ -47,6 +48,7 @@ namespace dotNetTips.Utility.Standard.Net
         // - A Unicode character is encountered and Unicode has not been allowed.
         // - The final double quote is not found.
         //
+
         /// <summary>
         /// Tries the read reverse quoted.
         /// </summary>
@@ -61,7 +63,7 @@ namespace dotNetTips.Utility.Standard.Net
         /// Invalid character: {ControlChars.Quote}.</exception>
         internal static bool TryReadReverseQuoted(string data, int index, bool permitUnicode, out int outIndex, bool throwExceptionIfFail)
         {
-            Debug.Assert(0 <= index && index < data.Length, "Index out of range: " + index + ", " + data.Length);
+            Debug.Assert(index >= 0 && index < data.Length, "Index out of range: " + index + ", " + data.Length);
 
             // Check for the first bounding quote
             Debug.Assert(data[index] == dotNetTips.Utility.Standard.Common.ControlChars.Quote, "Initial char at index " + index + " was not a quote.");
@@ -154,6 +156,7 @@ namespace dotNetTips.Utility.Standard.Net
         // - A non-escaped character is encountered that is not valid in a quoted string.  This includes double quotes.
         // - A Unicode character is encountered and Unicode has not been allowed.
         //
+
         /// <summary>
         /// Tries the read reverse un quoted.
         /// </summary>
@@ -167,7 +170,7 @@ namespace dotNetTips.Utility.Standard.Net
         /// <exception cref="FormatException">Invalid character: {data[index]}.</exception>
         internal static bool TryReadReverseUnQuoted(string data, int index, bool permitUnicode, bool expectCommaDelimiter, out int outIndex, bool throwExceptionIfFail)
         {
-            Debug.Assert(0 <= index && index < data.Length, "Index out of range: " + index + ", " + data.Length);
+            Debug.Assert(index >= 0 && index < data.Length, "Index out of range: " + index + ", " + data.Length);
 
             do
             {

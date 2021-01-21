@@ -23,19 +23,19 @@ namespace dotNetTips.Utility.Standard
     /// public class EmployeeType : Enumeration { public static read only EmployeeType Manager = new EmployeeType(0,
     /// "Manager"); public static read only EmployeeType Servant = new EmployeeType(1, "Servant"); public static read
     /// only EmployeeType AssistantToTheRegionalManager = new EmployeeType(2, "Assistant to the Regional Manager");
-    /// private EmployeeType() { } private EmployeeType(int value, string displayName) : base(value, displayName) { } }
+    /// private EmployeeType() { } private EmployeeType(int value, string displayName) : base(value, displayName) { } }.
     /// </example>
     /// <seealso cref="System.IComparable" />
     public abstract class Enumeration : IComparable
     {
 
         /// <summary>
-        /// The display name
+        /// The display name.
         /// </summary>
         private readonly string _displayName;
 
         /// <summary>
-        /// The value
+        /// The value.
         /// </summary>
         private readonly int _value;
 
@@ -144,7 +144,7 @@ namespace dotNetTips.Utility.Standard
         /// <param name="firstValue">The first value.</param>
         /// <param name="secondValue">The second value.</param>
         /// <returns>System.Int32.</returns>
-        /// <exception cref="ArgumentNullException">firstValue or secondValue</exception>
+        /// <exception cref="ArgumentNullException">firstValue or secondValue.</exception>
         public static int AbsoluteDifference(Enumeration firstValue, Enumeration secondValue)
         {
             if (firstValue is null)
@@ -208,6 +208,5 @@ namespace dotNetTips.Utility.Standard
         /// </summary>
         /// <returns>A <see cref="string" /> that represents this instance.</returns>
         public override string ToString() => this.DisplayName;
-
     }
 }

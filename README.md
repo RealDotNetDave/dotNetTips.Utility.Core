@@ -47,8 +47,8 @@ Here are the results from the current benchmark tests that takes over 3 hours to
 * [TypeHelper][29]
 * [Xml.XmlHelper][30]
 
-## Your Support Is Needed
-Do you have code you would like to submit to these repositories? Submit a pull request or submit an issue. I promise to take a look and include it if I like it!
+# Your Support Is Needed
+Do you have code you would like to submit to these repositories? Submit a pull request or submit an issue. I promise to take a look and include it if I like it! You can also support this via GitHub Sponsors: <a href="https://github.com/sponsors/RealDotNetDave" target="_blank">https://github.com/sponsors/RealDotNetDave</a>
 
   [1]: https://github.com/RealDotNetDave/dotNetTips.Utility.Core/tree/master/src/Core/dotNetTips.Utility.Core.EntityFramework
   [2]: https://github.com/RealDotNetDave/dotNetTips.Utility.Core/tree/master/src/Core/dotNetTips.Utility.Core.Windows

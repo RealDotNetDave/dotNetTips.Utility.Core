@@ -14,7 +14,7 @@
 namespace dotNetTips.Utility.Standard
 {
     /// <summary>
-    /// Enum TriState
+    /// Enum TriState.
     /// </summary>
     public enum Tristate
     {

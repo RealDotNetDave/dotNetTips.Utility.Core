@@ -82,23 +82,23 @@ namespace dotNetTips.Utility.Standard.Web
             }
         }
 
-        //public static async Task<TResult> PostAsync<TResult>(Uri address, HttpContent content)
-        //{
+        // public static async Task<TResult> PostAsync<TResult>(Uri address, HttpContent content)
+        // {
         //    Encapsulation.TryValidateParam(address, nameof(address));
         //    Encapsulation.TryValidateParam<ArgumentNullException>(content!= null, nameof(content));
 
-        //    using (var client = new HttpClient())
+        // using (var client = new HttpClient())
         //    {
         //        var result = await client.PostAsync(address, content).ConfigureAwait(true);
 
-        //        if (result.IsSuccessStatusCode)
+        // if (result.IsSuccessStatusCode)
         //        {
         //            var resultResponse = await result.Content.ReadAsStringAsync().ConfigureAwait(true);
 
-        //            return JsonSerializer.Deserialize<TResult>(resultResponse);
+        // return JsonSerializer.Deserialize<TResult>(resultResponse);
         //        }
         //    }
-        //}
+        // }
 
         /// <summary>
         /// Determines whether the url is from the local server.

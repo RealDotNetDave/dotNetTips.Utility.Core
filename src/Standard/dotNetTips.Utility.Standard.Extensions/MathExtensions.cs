@@ -65,6 +65,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         {
             return ( second - first ) / Math.Abs(first) * 100;
         }
+
         /// <summary>
         /// Rounds the specified value.
         /// </summary>

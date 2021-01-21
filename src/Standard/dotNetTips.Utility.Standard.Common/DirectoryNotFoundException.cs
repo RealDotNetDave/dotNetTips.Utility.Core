@@ -33,7 +33,6 @@ namespace dotNetTips.Utility.Standard.Common
         /// </summary>
         public DirectoryNotFoundException()
         {
-
         }
 
         /// <summary>
@@ -99,7 +98,6 @@ namespace dotNetTips.Utility.Standard.Common
         protected DirectoryNotFoundException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
-
         }
 
         /// <summary>
@@ -107,6 +105,5 @@ namespace dotNetTips.Utility.Standard.Common
         /// </summary>
         /// <value>The directory.</value>
         public string Directory { get; private set; }
-
     }
 }

@@ -15,10 +15,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Decrement a number ensuring it never passes a given lower-bound.
         /// </summary>
-        /// <param name="value">Number to process</param>
-        /// <param name="lowerBound">Lower bound</param>
-        /// <param name="step">Step of the decrement</param>
-        /// <returns>Integer</returns>
+        /// <param name="value">Number to process.</param>
+        /// <param name="lowerBound">Lower bound.</param>
+        /// <param name="step">Step of the decrement.</param>
+        /// <returns>Integer.</returns>
         public static int Decrement(this int value, int lowerBound = 0, int step = 1)
         {
             var n = value - step;
@@ -57,10 +57,10 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Increment a number ensuring it never passes a given upper-bound.
         /// </summary>
-        /// <param name="value">Number to process</param>
-        /// <param name="upperBound">Upper bound</param>
-        /// <param name="step">Step of the increment</param>
-        /// <returns>Integer</returns>
+        /// <param name="value">Number to process.</param>
+        /// <param name="upperBound">Upper bound.</param>
+        /// <param name="step">Step of the increment.</param>
+        /// <returns>Integer.</returns>
         public static int Increment(this int value, int upperBound = 100, int step = 1)
         {
             var number = value + step;
@@ -70,17 +70,17 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Indicate whether the number is even.
         /// </summary>
-        /// <param name="value">Number to process</param>
-        /// <returns>True/False</returns>
+        /// <param name="value">Number to process.</param>
+        /// <returns>True/False.</returns>
         public static bool IsEven(this int value) => ( value % 2 ) == 0;
 
         /// <summary>
         /// Indicate whether the number falls in the specified range.
         /// </summary>
-        /// <param name="value">Number to process</param>
-        /// <param name="lower">Lower bound</param>
-        /// <param name="upper">Upper bound</param>
-        /// <returns>True/False</returns>
+        /// <param name="value">Number to process.</param>
+        /// <param name="lower">Lower bound.</param>
+        /// <param name="upper">Upper bound.</param>
+        /// <returns>True/False.</returns>
         public static bool IsInRange(this int value, int lower, int upper)
         {
             return value >= lower && value <= upper;
@@ -205,7 +205,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Determines if the Integer is of the specified interval. E.g. if the interval is 100 and
         /// the integer is 400, it would return true. This function uses the Mod operator, for the
-        /// above example: (300 Mod 100 = 0)
+        /// above example: (300 Mod 100 = 0).
         /// </summary>
         /// <param name="value">The number.</param>
         /// <param name="interval">The interval.</param>
@@ -317,14 +317,14 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="values">The values.</param>
         /// <returns>System.Int32().</returns>
-        /// <remarks>Code by: Kevin S Gallagher</remarks>
+        /// <remarks>Code by: Kevin S Gallagher.</remarks>
         public static IEnumerable<int> RemoveDuplicates(this int[] values) => values.Distinct().AsEnumerable();
 
         /// <summary>
         /// Returns the nearest power of 2 that is bigger than the number.
         /// </summary>
-        /// <param name="value">Number to process</param>
-        /// <returns>Integer</returns>
+        /// <param name="value">Number to process.</param>
+        /// <returns>Integer.</returns>
         public static int RoundToPowerOf2(this int value)
         {
             var exponent = 1;
@@ -558,11 +558,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <summary>
         /// Parse the number to a string or a default string if outside given range.
         /// </summary>
-        /// <param name="value">Number to process</param>
-        /// <param name="lowerLimit">Lower bound</param>
-        /// <param name="upperLimit">Upper bound</param>
-        /// <param name="defaultText">Default text</param>
-        /// <returns>String</returns>
+        /// <param name="value">Number to process.</param>
+        /// <param name="lowerLimit">Lower bound.</param>
+        /// <param name="upperLimit">Upper bound.</param>
+        /// <param name="defaultText">Default text.</param>
+        /// <returns>String.</returns>
         public static string ToStringOrEmpty(this int value, int lowerLimit = 0, int upperLimit = 9000, string defaultText = "")
         {
             if (value <= lowerLimit || value > upperLimit)

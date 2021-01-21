@@ -25,8 +25,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         ///// </summary>
         ///// <param name="task">The task.</param>
         ///// <remarks>From: https://www.meziantou.net/fire-and-forget-a-task-in-dotnet.htm </remarks>
-        //public static void Forget(this Task task)
-        //{
+        // public static void Forget(this Task task)
+        // {
         //    // note: this code is inspired by a tweet from Ben Adams. If someone find the link to the tweet I'll be pleased to add it here.
         //    // Only care about tasks that may fault (not completed) or are faulted,
         //    // so fast-path for SuccessfullyCompleted and Canceled tasks.
@@ -37,7 +37,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         //        _ = ForgetAwaited(task);
         //    }
 
-        //    // Allocate the async/await state machine only when needed for performance reason.
+        // // Allocate the async/await state machine only when needed for performance reason.
         //    // More info about the state machine: https://blogs.msdn.microsoft.com/seteplia/2017/11/30/dissecting-the-async-methods-in-c/
         //    async static Task ForgetAwaited(Task task)
         //    {
@@ -51,6 +51,6 @@ namespace dotNetTips.Utility.Standard.Extensions
         //            // Nothing to do here
         //        }
         //    }
-        //}
+        // }
     }
 }

@@ -1,5 +1,5 @@
 ﻿// ***********************************************************************
-// Assembly         : 
+// Assembly         :
 // Author           : David McCarter
 // Created          : 09-05-2020
 //
@@ -17,6 +17,7 @@ using System.Collections.Immutable;
 using System.Globalization;
 using System.Linq;
 using System.Net;
+using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
 using dotNetTips.Utility.Standard.Common;
@@ -45,6 +46,7 @@ namespace dotNetTips.Utility.Standard
         /// <value>The computer UI culture.</value>
         [DataMember]
         public string ComputerUICulture { get; internal set; } = CultureInfo.CurrentUICulture.ThreeLetterISOLanguageName;
+
         /// <summary>
         /// Gets the current managed tread identifier.
         /// </summary>
@@ -99,7 +101,7 @@ namespace dotNetTips.Utility.Standard
         /// </summary>
         /// <value>The ip address.</value>
         [DataMember]
-        public string IPAddress { get; internal set; } = Dns.GetHostAddresses(Dns.GetHostName()).Where(p => p.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork).ToList().ToDelimitedString(char.Parse(","));
+        public string IPAddress { get; internal set; } = Dns.GetHostAddresses(Dns.GetHostName()).Where(p => p.AddressFamily == AddressFamily.InterNetwork).ToList().ToDelimitedString(char.Parse(","));
 
         /// <summary>
         /// Gets a value indicating whether [is64 bit operating system].
@@ -149,7 +151,6 @@ namespace dotNetTips.Utility.Standard
         /// <value>The os version.</value>
         [DataMember]
         public string OSDescription { get; internal set; } = RuntimeInformation.OSDescription;
-
 
         /// <summary>
         /// Gets the size of the os memory page.

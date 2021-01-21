@@ -32,7 +32,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="process">The process.</param>
         /// <param name="logger">The logger.</param>
-        /// <exception cref="ArgumentNullException">process</exception>
+        /// <exception cref="ArgumentNullException">process.</exception>
         [Information("Original Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static void EnsureHighPriority(this Process process, ILogger logger)
         {
@@ -56,7 +56,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="process">The process.</param>
         /// <param name="logger">The logger.</param>
-        /// <exception cref="ArgumentNullException">process</exception>
+        /// <exception cref="ArgumentNullException">process.</exception>
         [Information("Original Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static void EnsureLowPriority(this Process process, ILogger logger)
         {
@@ -82,7 +82,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="arguments">The arguments.</param>
         /// <param name="timeout">The timeout.</param>
         /// <returns>System.Int32.</returns>
-        /// <exception cref="ArgumentException">fileName</exception>
+        /// <exception cref="ArgumentException">fileName.</exception>
         [Information("Original Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static int RunProcessAndIgnoreOutput(string fileName, string arguments, TimeSpan timeout)
         {
@@ -120,7 +120,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="arguments">The arguments.</param>
         /// <param name="timeout">The timeout.</param>
         /// <returns>System.ValueTuple&lt;System.Int32, System.String&gt;.</returns>
-        /// <exception cref="ArgumentException">fileName</exception>
+        /// <exception cref="ArgumentException">fileName.</exception>
         [Information("Original Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static (int exitCode, string output) RunProcessAndReadOutput(string fileName, string arguments, TimeSpan timeout)
         {
@@ -159,8 +159,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="priority">The priority.</param>
         /// <param name="logger">The logger.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <exception cref="ArgumentNullException">process or logger error</exception>
-        /// <exception cref="ArgumentOutOfRangeException">priority</exception>
+        /// <exception cref="ArgumentNullException">process or logger error.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">priority.</exception>
         [Information("Original Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool TrySetPriority(this Process process, ProcessPriorityClass priority, ILogger logger)
         {

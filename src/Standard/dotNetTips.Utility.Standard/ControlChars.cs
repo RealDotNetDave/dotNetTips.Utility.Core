@@ -23,144 +23,144 @@ namespace dotNetTips.Utility.Standard
     {
 
         /// <summary>
-        /// @ Symbol
+        /// @ Symbol.
         /// </summary>
         public const char At = '@';
 
         /// <summary>
-        /// Back
+        /// Back.
         /// </summary>
         public const char Back = '\b';
 
         /// <summary>
-        /// Back Slash
+        /// Back Slash.
         /// </summary>
         public const char Backslash = '\\';
 
         /// <summary>
-        /// The colon
+        /// The colon.
         /// </summary>
         public const char Colon = ':';
 
         /// <summary>
-        /// Comma
+        /// Comma.
         /// </summary>
         public const char Comma = ',';
 
         /// <summary>
-        /// CR
+        /// CR.
         /// </summary>
         public const char Cr = '\r';
 
         /// <summary>
-        /// The cr
+        /// The cr.
         /// </summary>
         public const char CR = '\r';
 
         /// <summary>
-        /// CRLF
+        /// CRLF.
         /// </summary>
         public const string CRLF = "\r\n";
 
         /// <summary>
-        /// The double quote
+        /// The double quote.
         /// </summary>
         public const string DoubleQuote = "''";
 
         /// <summary>
-        /// The end angle bracket
+        /// The end angle bracket.
         /// </summary>
         public const char EndAngleBracket = '>';
 
         /// <summary>
-        /// The end comment
+        /// The end comment.
         /// </summary>
         public const char EndComment = ')';
 
         /// <summary>
-        /// Form feed
+        /// Form feed.
         /// </summary>
         public const char FormFeed = '\f';
 
         /// <summary>
-        /// Forward slash
+        /// Forward slash.
         /// </summary>
         public const char ForwardSlash = '/';
 
         /// <summary>
-        /// LF
+        /// LF.
         /// </summary>
         public const char Lf = '\n';
 
         /// <summary>
-        /// The lf
+        /// The lf.
         /// </summary>
         public const char LF = '\n';
 
         /// <summary>
-        /// New line
+        /// New line.
         /// </summary>
         public const string NewLine = "\r\n";
 
         /// <summary>
-        /// Null character
+        /// Null character.
         /// </summary>
         public const char NullChar = '\0';
 
         /// <summary>
-        /// Quote
+        /// Quote.
         /// </summary>
         public const char Quote = '\"';
 
         /// <summary>
-        /// The single quote
+        /// The single quote.
         /// </summary>
         public const char SingleQuote = '\'';
 
         /// <summary>
-        /// Space
+        /// Space.
         /// </summary>
         public const char Space = ' ';
 
         /// <summary>
-        /// The start angle bracket
+        /// The start angle bracket.
         /// </summary>
         public const char StartAngleBracket = '<';
 
         /// <summary>
-        /// The start comment
+        /// The start comment.
         /// </summary>
         public const char StartComment = '(';
 
         /// <summary>
-        /// Tab
+        /// Tab.
         /// </summary>
         public const char Tab = '\t';
 
         /// <summary>
-        /// Underscore
+        /// Underscore.
         /// </summary>
         public const char Underscore = '_';
 
         /// <summary>
-        /// Vertical tab
+        /// Vertical tab.
         /// </summary>
         public const char VerticalTab = '\v';
 
         /// <summary>
-        /// The dot
+        /// The dot.
         /// </summary>
         internal const char Dot = '.';
 
         /// <summary>
-        /// The start square bracket
-        /// </summary>
-        internal const char StartSquareBracket = '[';
-
-        /// <summary>
-        /// The start square bracket
+        /// The start square bracket.
         /// </summary>
         internal const char EndSquareBracket = ']';
+
+        /// <summary>
+        /// The start square bracket.
+        /// </summary>
+        internal const char StartSquareBracket = '[';
 
     }
 }

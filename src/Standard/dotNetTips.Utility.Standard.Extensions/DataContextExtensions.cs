@@ -43,18 +43,18 @@ namespace dotNetTips.Utility.Standard.Extensions
             var dcType = typeof(DataContext);
 
             // Use reflection to get to the underlying items being tracked in the DataContext
-            const BindingFlags bindings = BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.GetField;
+            const BindingFlags Bindings = BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.GetField;
 
-            var services = dcType.GetField("services", bindings).GetValue(context);
+            var services = dcType.GetField("services", Bindings).GetValue(context);
 
-            var tracker = services.GetType().GetField("tracker", bindings).GetValue(services);
+            var tracker = services.GetType().GetField("tracker", Bindings).GetValue(services);
 
-            var trackerItems = (IDictionary)tracker.GetType().GetField("items", bindings).GetValue(tracker);
+            var trackerItems = (IDictionary)tracker.GetType().GetField("items", Bindings).GetValue(tracker);
 
             // iterate through each update in context, adding only those that are of type T to the method's result variable
             foreach (DictionaryEntry entry in trackerItems)
             {
-                dynamic original = entry.Value.GetType().GetField(nameof(original), bindings).GetValue(entry.Value);
+                dynamic original = entry.Value.GetType().GetField(nameof(original), Bindings).GetValue(entry.Value);
 
                 if (entry.Key is T && original is T)
                 {

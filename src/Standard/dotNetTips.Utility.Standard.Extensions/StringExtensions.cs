@@ -36,7 +36,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The input.</param>
         /// <param name="hashType">Type of the hash.</param>
         /// <returns>System.String.</returns>
-        /// <exception cref="ArgumentException">'input' cannot be null or empty - input</exception>
+        /// <exception cref="ArgumentException">'input' cannot be null or empty - input.</exception>
         [Information(nameof(ComputeHash), "David McCarter", "10/8/2020", "10/8/2020", BenchMarkStatus = BenchMarkStatus.None, UnitTestCoverage = 100, Status = Status.Available)]
         public static string ComputeHash(this string input, HashType hashType)
         {
@@ -69,13 +69,13 @@ namespace dotNetTips.Utility.Standard.Extensions
                 ExceptionThrower.ThrowArgumentNullException(nameof(input));
             }
 
-            // Create a SHA256   
+            // Create a SHA256
             using (var sha256Hash = SHA256.Create())
             {
-                // ComputeHash - returns byte array  
+                // ComputeHash - returns byte array
                 var bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
 
-                // Convert byte array to a string   
+                // Convert byte array to a string
                 return bytes.BytesToString();
             }
         }
@@ -89,7 +89,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="addLineFeed">The add line feed. If set to true, delimiter will not be used.</param>
         /// <param name="args">The arguments.</param>
         /// <returns>System.String.</returns>
-        /// <exception cref="ArgumentException">firstMessage</exception>
+        /// <exception cref="ArgumentException">firstMessage.</exception>
         [Information(nameof(Concat), "David McCarter", "9/15/2017", "7/29/2020", UnitTestCoverage = 78, Status = Status.Available)]
         public static string Concat(this string input, string delimiter, bool addLineFeed, params string[] args)
         {
@@ -130,9 +130,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The string.</param>
         /// <param name="characters">The characters.</param>
         /// <returns><c>true</c> if the specified characters contains any; otherwise, <c>false</c>.</returns>
-        /// <exception cref="ArgumentException">input</exception>
-        /// <exception cref="ArgumentNullException">input</exception>
-        /// <exception cref="System.ArgumentNullException">input</exception>
+        /// <exception cref="ArgumentException">input.</exception>
+        /// <exception cref="ArgumentNullException">input.</exception>
+        /// <exception cref="System.ArgumentNullException">input.</exception>
         [Information(nameof(ContainsAny), "David McCarter", "9/15/2017", "7/29/2020", UnitTestCoverage = 75, Status = Status.Available)]
         public static bool ContainsAny(this string input, params string[] characters)
         {
@@ -270,8 +270,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="delimitedInput">The string buffer.</param>
         /// <param name="delimiter">The delimiter.</param>
         /// <returns>IEnumerable&lt;System.String&gt;.</returns>
-        /// <exception cref="ArgumentException">delimitedInput</exception>
-        /// <remarks>Code by: Blake Pell</remarks>
+        /// <exception cref="ArgumentException">delimitedInput.</exception>
+        /// <remarks>Code by: Blake Pell.</remarks>
         [Obsolete("This method to be removed. Use instead DelimitedStringToArray.", true)]
         public static IEnumerable<string> FromDelimitedString(this string delimitedInput, char delimiter = ',')
         {
@@ -311,7 +311,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="input">The input.</param>
         /// <param name="value">Checks for a specific value.</param>
         /// <returns><c>true</c> if the specified value has value; otherwise, <c>false</c>.</returns>
-        /// <exception cref="ArgumentException">value</exception>
+        /// <exception cref="ArgumentException">value.</exception>
         public static bool HasValue(this string input, string value)
         {
             if (input.IsNullOrEmpty())
@@ -369,8 +369,8 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="length">The length.</param>
         /// <param name="indentationCharacter">The indentation character.</param>
         /// <returns>System.String.</returns>
-        /// <exception cref="ArgumentException">input</exception>
-        /// <exception cref="ArgumentNullException">length</exception>
+        /// <exception cref="ArgumentException">input.</exception>
+        /// <exception cref="ArgumentNullException">length.</exception>
         public static string Indent(this string input, int length, char indentationCharacter)
         {
             if (input.IsNullOrEmpty())
@@ -594,7 +594,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns>System.String.</returns>
-        /// <exception cref="ArgumentException">input</exception>
+        /// <exception cref="ArgumentException">input.</exception>
         public static string ReplaceEllipsisWithPeriod(this string input)
         {
             if (input.IsNullOrEmpty())
@@ -619,7 +619,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="separator">The separator.</param>
         /// <param name="options">The options.</param>
         /// <returns>System.String[].</returns>
-        /// <exception cref="ArgumentException">value</exception>
+        /// <exception cref="ArgumentException">value.</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static string[] Split(this string input,
                                      char separator,
@@ -640,11 +640,11 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="separator">The separator.</param>
         /// <param name="options">The options.</param>
         /// <returns>System.String[].</returns>
-        /// <exception cref="ArgumentException">value</exception>
-        /// <exception cref="ArgumentException">separator</exception>
-        /// <exception cref="ArgumentException">value</exception>
-        /// <exception cref="ArgumentException">separator</exception>
-        /// <exception cref="ArgumentException">value</exception>
+        /// <exception cref="ArgumentException">value.</exception>
+        /// <exception cref="ArgumentException">separator.</exception>
+        /// <exception cref="ArgumentException">value.</exception>
+        /// <exception cref="ArgumentException">separator.</exception>
+        /// <exception cref="ArgumentException">value.</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static string[] Split(this string input, string separator, StringSplitOptions options = StringSplitOptions.None)
         {
@@ -710,7 +710,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns>IEnumerable&lt;System.String&gt;.</returns>
-        /// <exception cref="ArgumentException">input</exception>
+        /// <exception cref="ArgumentException">input.</exception>
         public static IEnumerable<string> SplitRemoveEmpty(this string input)
         {
             if (input.IsNullOrEmpty())
@@ -763,7 +763,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="startIndex">The start index.</param>
         /// <param name="length">The length.</param>
         /// <returns>System.String.</returns>
-        /// <exception cref="ArgumentOutOfRangeException">startIndex - startIndex + length must be <= value.Length</exception>
+        /// <exception cref="ArgumentOutOfRangeException">startIndex - startIndex + length must be. <= value.Length</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 81.08, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static string SubstringTrim(this string input, int startIndex, int length)
         {
@@ -840,7 +840,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="input">The source.</param>
         /// <returns>System.String.</returns>
-        /// <exception cref="ArgumentException">'source' cannot be null or empty - source</exception>
+        /// <exception cref="ArgumentException">'source' cannot be null or empty - source.</exception>
         [Information(nameof(Extract), "David McCarter", "10/8/2020", "10/8/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static string ToTitleCase(this string input)
         {
@@ -857,7 +857,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns>Trimmed System.String.</returns>
-        /// <exception cref="ArgumentException">input</exception>
+        /// <exception cref="ArgumentException">input.</exception>
         public static string ToTrimmed(this string input)
         {
             // TODO: ADD OVERLOADED METHOD TO TRIM CHARS TO RIGHT.

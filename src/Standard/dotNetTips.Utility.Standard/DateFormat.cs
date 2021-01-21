@@ -14,7 +14,7 @@
 namespace dotNetTips.Utility.Standard
 {
     /// <summary>
-    /// Enum DateFormat
+    /// Enum DateFormat.
     /// </summary>
     public enum DateFormat
     {

@@ -230,7 +230,6 @@ namespace dotNetTips.Utility.Standard.IO
             return successCount;
         }
 
-
         /// <summary>
         /// Handles the <see cref="E:Processed" /> event that is thrown after each file is processed.
         /// </summary>

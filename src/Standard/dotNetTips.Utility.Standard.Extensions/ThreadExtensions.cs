@@ -30,9 +30,9 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="priority">The priority.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         /// <exception cref="ArgumentNullException">
-        /// thread or logger
+        /// thread or logger.
         /// </exception>
-        /// <exception cref="ArgumentOutOfRangeException">priority</exception>
+        /// <exception cref="ArgumentOutOfRangeException">priority.</exception>
         [Information("Original Code from: https://github.com/dotnet/BenchmarkDotNet.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 0, Status = Status.Available)]
         public static bool TrySetPriority(this Thread thread, ThreadPriority priority)
         {
@@ -56,6 +56,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 throw;
             }
         }
+
         /// <summary>
         /// Waits for a certain amount of time. Does not use timer (no need to call Dispose).
         /// </summary>
@@ -69,7 +70,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="thread">The thread.</param>
         /// <param name="interval">The wait interval.</param>
         /// <param name="waitIterations">The wait iterations.</param>
-        /// <exception cref="ArgumentNullException">thread</exception>
+        /// <exception cref="ArgumentNullException">thread.</exception>
         public static void WaitUntil(this Thread thread, TimeSpan interval, int waitIterations)
         {
             if (thread is null)

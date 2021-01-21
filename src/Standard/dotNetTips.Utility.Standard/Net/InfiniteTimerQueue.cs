@@ -18,7 +18,7 @@ namespace dotNetTips.Utility.Standard.Net
 {
     /// <summary>
     /// A special dummy implementation for a queue of timers of infinite duration. Implements the <see
-    /// cref="dotNetTips.Utility.Standard.Net.CountdownTimerQueue"/>
+    /// cref="dotNetTips.Utility.Standard.Net.CountdownTimerQueue"/>.
     /// </summary>
     /// <seealso cref="dotNetTips.Utility.Standard.Net.CountdownTimerQueue"/>
     public class InfiniteTimerQueue : CountdownTimerQueue
@@ -35,7 +35,7 @@ namespace dotNetTips.Utility.Standard.Net
         /// </summary>
         /// <param name="callback">The callback.</param>
         /// <param name="context">The context.</param>
-        /// <returns><see cref="CancellationTimer"/>Timer</returns>
+        /// <returns><see cref="CancellationTimer"/>Timer.</returns>
         public override CancellationTimer CreateTimer(Callback callback, object context) => new InfiniteTimer();
     }
 }

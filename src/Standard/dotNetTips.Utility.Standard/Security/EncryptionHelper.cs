@@ -18,7 +18,7 @@ namespace dotNetTips.Utility.Standard.Security
         /// <param name="key">The secret key.</param>
         /// <param name="iv">The initialization vector.</param>
         /// <returns>System.String.</returns>
-        /// <remarks>Original code by: Mahesh Chand</remarks>
+        /// <remarks>Original code by: Mahesh Chand.</remarks>
         public static string AesDecrypt(byte[] cipherText, byte[] key, byte[] iv)
         {
             Encapsulation.TryValidateParam(cipherText, nameof(cipherText));
@@ -59,7 +59,7 @@ namespace dotNetTips.Utility.Standard.Security
         /// <param name="key">The secret key.</param>
         /// <param name="iv">The initialization vector.</param>
         /// <returns>System.Byte[].</returns>
-        /// <remarks>Original code by: Mahesh Chand</remarks>
+        /// <remarks>Original code by: Mahesh Chand.</remarks>
         public static byte[] AesEncrypt(string plainText, byte[] key, byte[] iv)
         {
             Encapsulation.TryValidateParam(plainText, nameof(plainText));
@@ -68,21 +68,21 @@ namespace dotNetTips.Utility.Standard.Security
 
             byte[] encrypted;
 
-            // Create a new AesManaged.    
+            // Create a new AesManaged.
             using (var aes = new AesManaged())
             {
-                // Create encryptor    
+                // Create encryptor
                 using (var encryptor = aes.CreateEncryptor(key, iv))
                 {
-                    // Create MemoryStream    
+                    // Create MemoryStream
                     using (var ms = new MemoryStream())
                     {
-                        // Create crypto stream using the CryptoStream class. This class is the key to encryption    
-                        // and encrypts and decrypts data from any given stream. In this case, we will pass a memory stream    
-                        // to encrypt    
+                        // Create crypto stream using the CryptoStream class. This class is the key to encryption
+                        // and encrypts and decrypts data from any given stream. In this case, we will pass a memory stream
+                        // to encrypt
                         using (var cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
                         {
-                            // Create StreamWriter and write data to a stream    
+                            // Create StreamWriter and write data to a stream
                             using (var sw = new StreamWriter(cs))
                             {
                                 sw.Write(plainText);
@@ -94,11 +94,8 @@ namespace dotNetTips.Utility.Standard.Security
                 }
             }
 
-
             return encrypted;
         }
-
-
 
         /// <summary>
         /// Generates the AES IV.
@@ -112,7 +109,6 @@ namespace dotNetTips.Utility.Standard.Security
                 return aes.IV;
             }
         }
-
 
         /// <summary>
         /// Generates the AES key.
@@ -143,19 +139,19 @@ namespace dotNetTips.Utility.Standard.Security
 
             string text = null;
 
-            // Create RijndaelManaged    
+            // Create RijndaelManaged
             using (var aes = new RijndaelManaged())
             {
-                // Create a decryptor    
+                // Create a decryptor
                 using (var decryptor = aes.CreateDecryptor(key, iv))
                 {
-                    // Create the streams used for decryption.    
+                    // Create the streams used for decryption.
                     using (var ms = new MemoryStream(cipherText))
                     {
-                        // Create crypto stream    
+                        // Create crypto stream
                         using (var cs = new CryptoStream(ms, decryptor, CryptoStreamMode.Read))
                         {
-                            // Read crypto stream    
+                            // Read crypto stream
                             using (var reader = new StreamReader(cs))
                             {
                                 text = reader.ReadToEnd();
@@ -184,21 +180,21 @@ namespace dotNetTips.Utility.Standard.Security
 
             byte[] encrypted;
 
-            // Create a new RijndaelManaged.    
+            // Create a new RijndaelManaged.
             using (var aes = new RijndaelManaged())
             {
-                // Create encryptor    
+                // Create encryptor
                 using (var encryptor = aes.CreateEncryptor(key, iv))
                 {
-                    // Create MemoryStream    
+                    // Create MemoryStream
                     using (var ms = new MemoryStream())
                     {
-                        // Create crypto stream using the CryptoStream class. This class is the key to encryption    
-                        // and encrypts and decrypts data from any given stream. In this case, we will pass a memory stream    
-                        // to encrypt    
+                        // Create crypto stream using the CryptoStream class. This class is the key to encryption
+                        // and encrypts and decrypts data from any given stream. In this case, we will pass a memory stream
+                        // to encrypt
                         using (var cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
                         {
-                            // Create StreamWriter and write data to a stream    
+                            // Create StreamWriter and write data to a stream
                             using (var sw = new StreamWriter(cs))
                             {
                                 sw.Write(plainText);

@@ -16,12 +16,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Runtime.ExceptionServices;
 using dotNetTips.Utility.Standard.Common;
 
 namespace dotNetTips.Utility.Standard
 {
     /// <summary>
-    /// Common System Events
+    /// Common System Events.
     /// </summary>
     public static class SystemEvents
     {
@@ -48,7 +49,7 @@ namespace dotNetTips.Utility.Standard
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs" /> instance containing the event data.</param>
-        private static void CurrentDomain_FirstChanceException(object sender, System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs e)
+        private static void CurrentDomain_FirstChanceException(object sender, FirstChanceExceptionEventArgs e)
         {
 
         }

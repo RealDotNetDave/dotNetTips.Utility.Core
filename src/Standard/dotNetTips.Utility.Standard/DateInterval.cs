@@ -14,7 +14,7 @@
 namespace dotNetTips.Utility.Standard
 {
     /// <summary>
-    /// Enum DateInterval
+    /// Enum DateInterval.
     /// </summary>
     public enum DateInterval
     {

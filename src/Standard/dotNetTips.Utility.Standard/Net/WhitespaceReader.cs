@@ -23,7 +23,6 @@ namespace dotNetTips.Utility.Standard.Net
     internal static class WhitespaceReader
     {
 
-
         // This method functions similarly to ReadFwsReverse but will also skip any comments.
         //
         // Comments are text within '(' and ')' and may be nested. There may also be consecutive comments.  Unicode is
@@ -44,6 +43,7 @@ namespace dotNetTips.Utility.Standard.Net
         //   e.g. " (comment) " returns -1
         //
         // Throws a FormatException or false is returned for mismatched '(' and ')', or for unescaped characters not allowed in comments.
+
         /// <summary>
         /// Tries the read CFWS reverse.
         /// </summary>
@@ -109,6 +109,7 @@ namespace dotNetTips.Utility.Standard.Net
                             return false;
                         }
                     }
+
                     index--;
                 }
 
@@ -177,6 +178,7 @@ namespace dotNetTips.Utility.Standard.Net
         // - -1 if the beginning of the data string is reached.
         //
         // A FormatException will be thrown or false is returned if a CR or LF is found NOT in the sequence CRLF.
+
         /// <summary>
         /// Tries the read FWS reverse.
         /// </summary>
