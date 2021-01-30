@@ -39,7 +39,7 @@ namespace dotNetTips.Utility.Standard.Logging
         /// AppInfo:Title - dotNetTips.Spargine.
         /// </example>
         /// <exception cref="ArgumentNullException">Logger cannot be null. </exception>
-        [Information(nameof(LogApplicationInformation), author: "David McCarter", createdOn: "11/03/2020", modifiedOn: "1/03/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        [Information(nameof(LogApplicationInformation), author: "David McCarter", createdOn: "11/03/2020", modifiedOn: "1/03/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available)]
         public static void LogApplicationInformation(ILogger logger)
         {
             Encapsulation.TryValidateParam<ArgumentNullException>(logger.IsNotNull(), nameof(logger));
@@ -87,7 +87,7 @@ namespace dotNetTips.Utility.Standard.Logging
         /// AppInfo:HasShutdownStarted - False.
         /// </example>
         /// <exception cref="ArgumentNullException">Logger cannot be null. </exception>
-        [Information(nameof(LogComputerInformation), author: "David McCarter", createdOn: "11/04/2020", modifiedOn: "1/04/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        [Information(nameof(LogComputerInformation), author: "David McCarter", createdOn: "11/04/2020", modifiedOn: "1/04/2020", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available)]
         public static void LogComputerInformation(ILogger logger)
         {
             Encapsulation.TryValidateParam<ArgumentNullException>(logger.IsNotNull(), nameof(logger));

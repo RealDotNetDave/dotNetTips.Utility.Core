@@ -56,7 +56,15 @@ namespace dotNetTips.Utility.Standard
             { typeof(uint), "uint" },
             { typeof(ulong), "ulong" },
             { typeof(ushort), "ushort" },
+            { typeof(DateTime), "datetime" },
+            { typeof(DateTimeOffset), "datetimeoffset" },
         };
+
+        /// <summary>
+        /// Gets the built in type names.
+        /// </summary>
+        /// <value>The built in type names.</value>
+        public static Dictionary<Type, string> BuiltInTypeNames => _builtInTypeNames;
 
         /// <summary>
         /// Creates type instance.
@@ -241,7 +249,7 @@ namespace dotNetTips.Utility.Standard
         /// [PostalCode, 86560656].
         /// </example>
         /// <exception cref="ArgumentNullException">Input cannot be null. </exception>
-        [Information(nameof(GetPropertyValues), author: "David McCarter", createdOn: "11/03/2020", modifiedOn: "11/03/2020", UnitTestCoverage = 99, BenchMarkStatus = BenchMarkStatus.None, Status = Status.New)]
+        [Information(nameof(GetPropertyValues), author: "David McCarter", createdOn: "11/03/2020", modifiedOn: "11/03/2020", UnitTestCoverage = 99, BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available)]
         public static ImmutableDictionary<string, string> GetPropertyValues<T>(T input)
         {
             Encapsulation.TryValidateParam<ArgumentNullException>(input.IsNotNull(), nameof(input));

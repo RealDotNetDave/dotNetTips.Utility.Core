@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <AssemblyName>dotNetTips.Utility.Standard.Common</AssemblyName>
-    <AssemblyVersion>2021.1.21.34829</AssemblyVersion>
+    <AssemblyVersion>2021.1.26.34838</AssemblyVersion>
     <Authors>David McCarter</Authors>
     <Company>David McCarter - dotNetTips.com</Company>
     <Copyright>McCarter Consulting (David McCarter)</Copyright>
@@ -14,7 +14,7 @@
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Common.xml</DocumentationFile>
     <EnableNETAnalyzers>true</EnableNETAnalyzers> 
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <FileVersion>2021.1.21.34829</FileVersion>
+    <FileVersion>2021.1.26.34838</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
@@ -29,7 +29,7 @@
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <TargetFramework>netstandard2.0</TargetFramework>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <Version>2021.1.4.00</Version>
+    <Version>2021.1.26.1</Version>
     <PackageReleaseNotes>
       -- AUG 2020: First release.
       -- SEP 2020: Added Date class. New methods and code cleanup.

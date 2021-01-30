@@ -42,7 +42,7 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         {
             var personProper = RandomData.GeneratePerson<PersonProper>();
 
-            var result = personProper.PropertiesToString(false);
+            var result = personProper.PropertiesToString(ignoreNulls: false);
 
             Assert.IsTrue(result.Length > 300);
         }

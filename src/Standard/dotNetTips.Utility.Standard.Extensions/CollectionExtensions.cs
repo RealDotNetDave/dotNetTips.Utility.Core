@@ -255,7 +255,6 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="item">The item.</param>
         /// <param name="comparer">The comparer.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        /// <exception cref="ArgumentException">List cannot be read-only. - list.</exception>
         /// <exception cref="ArgumentNullException">List cannot be read-only. - list.</exception>
         [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 31.58, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
         public static bool AddIfNotExists<T>(this ICollection<T> list, T item, IEqualityComparer<T> comparer)
@@ -285,10 +284,8 @@ namespace dotNetTips.Utility.Standard.Extensions
                 return false;
             }
 
-
             list.Add(item);
             return true;
-
         }
 
         /// <summary>
@@ -1183,8 +1180,6 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>IEnumerable&lt;IEnumerable&lt;T&gt;&gt;.</returns>
         /// <exception cref="ArgumentOutOfRangeException">pageSize.</exception>
         /// <exception cref="ArgumentNullException">pageSize.</exception>
-        /// <exception cref="System.ArgumentNullException">pageSize.</exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">pageSize.</exception>
         public static IEnumerable<IEnumerable<T>> Page<T>(this IEnumerable<T> list, int pageSize)
         {
             pageSize = pageSize.EnsureMinimumValue(1);
@@ -1451,7 +1446,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// Dnadh[d`FP^SjNeChCvVuBXuEl^yVFUbKXsaacsCpJuxAscU: Dnadh[d`FP^SjNeChCvVuBXuEl^yVFUbKXsaacsCpJuxAscU.
         /// </example>
         /// <exception cref="ArgumentNullException">Dictionary cannot be null. </exception>
-        [Information(nameof(ToDelimitedString), "David McCarter", "11/03/2020", "11/05/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.New, UnitTestCoverage = 99)]
+        [Information(nameof(ToDelimitedString), "David McCarter", "11/03/2020", "11/05/2020", BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available, UnitTestCoverage = 99)]
         public static string ToDelimitedString(this IDictionary list, char delimiter = ',')
         {
             if (delimiter.IsNull())

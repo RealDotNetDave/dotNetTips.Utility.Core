@@ -4,7 +4,7 @@
 // Created          : 02-11-2017
 //
 // Last Modified By : David McCarter
-// Last Modified On : 07-22-2020
+// Last Modified On : 01-26-2021
 // ***********************************************************************
 // <copyright file="ControlChars.cs" company="David McCarter - dotNetTips.com">
 //     McCarter Consulting (David McCarter)
@@ -60,6 +60,11 @@ namespace dotNetTips.Utility.Standard.Common
         public const string CRLF = "\r\n";
 
         /// <summary>
+        /// The default separator
+        /// </summary>
+        public const string DefaultSeparator = ", ";
+
+        /// <summary>
         /// The dot (period).
         /// </summary>
         public const char Dot = '.';
@@ -68,6 +73,11 @@ namespace dotNetTips.Utility.Standard.Common
         /// The double quote.
         /// </summary>
         public const string DoubleQuote = "''";
+
+        /// <summary>
+        /// Empty String
+        /// </summary>
+        public const string EmptyString = "";
 
         /// <summary>
         /// The end angle bracket.

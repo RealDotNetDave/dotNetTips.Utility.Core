@@ -50,7 +50,7 @@ namespace dotNetTips.Utility.Standard
         /// </summary>
         /// <param name="value">The value.</param>
         /// <param name="displayName">The display name.</param>
-        [Information(nameof(Enumeration), UnitTestCoverage = 100, Status = Status.New)]
+        [Information(nameof(Enumeration), UnitTestCoverage = 100, Status = Status.Available)]
         protected Enumeration(int value, string displayName)
         {
             this._value = value;
@@ -61,7 +61,7 @@ namespace dotNetTips.Utility.Standard
         /// Gets the display name.
         /// </summary>
         /// <value>The display name.</value>
-        [Information(nameof(DisplayName), UnitTestCoverage = 100, Status = Status.New)]
+        [Information(nameof(DisplayName), UnitTestCoverage = 100, Status = Status.Available)]
         public string DisplayName
         {
             get { return this._displayName; }
@@ -71,7 +71,7 @@ namespace dotNetTips.Utility.Standard
         /// Gets the value.
         /// </summary>
         /// <value>The value.</value>
-        [Information(nameof(Value), UnitTestCoverage = 0, Status = Status.New)]
+        [Information(nameof(Value), UnitTestCoverage = 0, Status = Status.Available)]
         public int Value
         {
             get { return this._value; }
@@ -83,15 +83,15 @@ namespace dotNetTips.Utility.Standard
         /// <param name="firstValue">The first value.</param>
         /// <param name="secondValue">The second value.</param>
         /// <returns>System.Int32.</returns>
-        [Information(nameof(AbsoluteDifference), UnitTestCoverage = 0, Status = Status.New)]
+        [Information(nameof(AbsoluteDifference), UnitTestCoverage = 0, Status = Status.Available)]
         public static int AbsoluteDifference(Enumeration firstValue, Enumeration secondValue)
         {
-            if (firstValue == null)
+            if (firstValue is null)
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(firstValue));
             }
 
-            if (secondValue == null)
+            if (secondValue is null)
             {
                 ExceptionThrower.ThrowArgumentNullException(nameof(secondValue));
             }
@@ -107,7 +107,7 @@ namespace dotNetTips.Utility.Standard
         /// <typeparam name="T"></typeparam>
         /// <param name="displayName">The display name.</param>
         /// <returns>T.</returns>
-        [Information(nameof(FromDisplayName), UnitTestCoverage = 0, Status = Status.New)]
+        [Information(nameof(FromDisplayName), UnitTestCoverage = 0, Status = Status.Available)]
         public static T FromDisplayName<T>(string displayName)
             where T : Enumeration, new()
         {
@@ -122,7 +122,7 @@ namespace dotNetTips.Utility.Standard
         /// <typeparam name="T"></typeparam>
         /// <param name="value">The value.</param>
         /// <returns>T.</returns>
-        [Information(nameof(FromValue), UnitTestCoverage = 0, Status = Status.New)]
+        [Information(nameof(FromValue), UnitTestCoverage = 0, Status = Status.Available)]
         public static T FromValue<T>(int value)
             where T : Enumeration, new()
         {
@@ -136,12 +136,11 @@ namespace dotNetTips.Utility.Standard
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
-        [Information(nameof(GetAll), UnitTestCoverage = 0, Status = Status.New)]
+        [Information(nameof(GetAll), UnitTestCoverage = 0, Status = Status.Available)]
         public static IEnumerable<T> GetAll<T>()
             where T : Enumeration, new()
         {
-            var type = typeof(T);
-            var fields = type.GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly);
+            var fields = typeof(T).GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly);
 
             foreach (var info in fields)
             {
@@ -159,7 +158,7 @@ namespace dotNetTips.Utility.Standard
         /// </summary>
         /// <param name="other">The other.</param>
         /// <returns>System.Int32.</returns>
-        [Information(nameof(CompareTo), UnitTestCoverage = 100, Status = Status.New)]
+        [Information(nameof(CompareTo), UnitTestCoverage = 100, Status = Status.Available)]
         public int CompareTo(object other)
         {
             return this.Value.CompareTo(( (Enumeration)other ).Value);
@@ -170,7 +169,7 @@ namespace dotNetTips.Utility.Standard
         /// </summary>
         /// <param name="obj">The object to compare with the current object.</param>
         /// <returns><c>true</c> if the specified <see cref="object" /> is equal to this instance; otherwise, <c>false</c>.</returns>
-        [Information(nameof(Equals), UnitTestCoverage = 99, Status = Status.New)]
+        [Information(nameof(Equals), UnitTestCoverage = 99, Status = Status.Available)]
         public override bool Equals(object obj)
         {
             if (!( obj is Enumeration otherValue ))
@@ -188,7 +187,7 @@ namespace dotNetTips.Utility.Standard
         /// Returns a hash code for this instance.
         /// </summary>
         /// <returns>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</returns>
-        [Information(nameof(GetHashCode), UnitTestCoverage = 100, Status = Status.New)]
+        [Information(nameof(GetHashCode), UnitTestCoverage = 100, Status = Status.Available)]
         public override int GetHashCode()
         {
             return this.Value.GetHashCode() + this.DisplayName.GetHashCode();
@@ -198,7 +197,7 @@ namespace dotNetTips.Utility.Standard
         /// Returns a <see cref="string" /> that represents this instance.
         /// </summary>
         /// <returns>A <see cref="string" /> that represents this instance.</returns>
-        [Information(nameof(ToString), UnitTestCoverage = 100, Status = Status.New)]
+        [Information(nameof(ToString), UnitTestCoverage = 100, Status = Status.Available)]
         public override string ToString()
         {
             return this.DisplayName;

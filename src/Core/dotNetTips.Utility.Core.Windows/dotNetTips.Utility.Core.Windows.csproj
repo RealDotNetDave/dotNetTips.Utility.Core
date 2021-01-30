@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-    <AssemblyVersion>2021.1.21.34802</AssemblyVersion>
+    <AssemblyVersion>2021.1.26.34810</AssemblyVersion>
     <Authors>David McCarter</Authors>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Company>David McCarter - dotNetTips.com</Company>
@@ -13,7 +13,7 @@
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Core.Windows.xml</DocumentationFile>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <FileVersion>2021.1.21.34802</FileVersion>
+    <FileVersion>2021.1.26.34810</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
@@ -29,7 +29,7 @@
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <Version>2021.1.4.00</Version>
+    <Version>2021.1.26.1</Version>
     <PackageReleaseNotes>
       -- OCT 2019: Initial Release
       -- DEC 2019 (QUARTERLY RELEASE): Code cleanup.

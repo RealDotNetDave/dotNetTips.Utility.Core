@@ -3,7 +3,7 @@
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <AssemblyName>dotNetTips.Utility.Standard.Extensions</AssemblyName>
     <AssemblyOriginatorKeyFile>dotNetTips.com.pfx</AssemblyOriginatorKeyFile>
-    <AssemblyVersion>2021.1.21.34833</AssemblyVersion>
+    <AssemblyVersion>2021.1.26.34842</AssemblyVersion>
     <Authors>David McCarter</Authors>
     <Company>David McCarter -  dotNetTips.com</Company>
     <Configurations>Debug;Release;Full Build</Configurations>
@@ -15,7 +15,7 @@
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Extensions.xml</DocumentationFile>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <FileVersion>2021.1.21.34833</FileVersion>
+    <FileVersion>2021.1.26.34842</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable> 
@@ -33,7 +33,7 @@
     <SignAssembly>false</SignAssembly>
     <TargetFramework>netstandard2.0</TargetFramework>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <Version>2021.1.4.00</Version>
+    <Version>2021.1.26.1</Version>
     <PackageReleaseNotes>
       -- SEP 2019: Added types HttpContextExtensions, HttpContextExtensions and LINQExtensions. Added new methods and code cleanup.
       -- JUN 2019 (QUARTERLY RELEASE): Code cleanup.

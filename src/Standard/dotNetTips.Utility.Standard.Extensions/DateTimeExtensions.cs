@@ -298,7 +298,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// UniversalFullDateTime: Thursday, January 7, 2021 11:36:39 PM.
         /// </example>
         /// <returns>System.String.</returns>
-        [Information(nameof(ToFormattedString), "David McCarter", "12/21/2020", UnitTestCoverage = 100, Status = Status.New)]
+        [Information(nameof(ToFormattedString), "David McCarter", "12/21/2020", UnitTestCoverage = 100, Status = Status.Available)]
         public static string ToFormattedString(this DateTime input, DateTimeFormat format)
         {
             if (format == null)
@@ -334,7 +334,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// UniversalFullDateTime: Thursday, January 7, 2021 11:36:39 PM.
         /// </example>
         /// <returns>System.String.</returns>
-        [Information(nameof(ToFormattedString), "David McCarter", "1/9/2021", UnitTestCoverage = 0, Status = Status.New)]
+        [Information(nameof(ToFormattedString), "David McCarter", "1/9/2021", UnitTestCoverage = 0, Status = Status.Available)]
         public static string ToFormattedString(this DateTimeOffset input, DateTimeFormat format)
         {
             if (format == null)
