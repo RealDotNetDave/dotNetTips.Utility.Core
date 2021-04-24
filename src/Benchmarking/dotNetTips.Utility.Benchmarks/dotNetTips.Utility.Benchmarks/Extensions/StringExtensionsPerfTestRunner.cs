@@ -14,6 +14,7 @@
 using System;
 using BenchmarkDotNet.Attributes;
 using dotNetTips.Utility.Standard;
+using dotNetTips.Utility.Standard.Common;
 using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.Tester;
 
@@ -248,7 +249,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         public void ToTitleCase()
         {
             var words = RandomData.GenerateWords(10, 10, 10)
-                .ToDelimitedString(dotNetTips.Utility.Standard.Common.ControlChars.Space);
+                .ToDelimitedString(ControlChars.Space);
 
             base.Consumer.Consume(words.ToTitleCase());
         }

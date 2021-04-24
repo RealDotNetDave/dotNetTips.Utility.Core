@@ -12,38 +12,16 @@
 // <summary></summary>
 // ***********************************************************************
 
+using System.Security.Cryptography;
 using BenchmarkDotNet.Attributes;
 using dotNetTips.Utility.Standard.Security;
 using dotNetTips.Utility.Standard.Tester;
-using System.Security.Cryptography;
 
 namespace dotNetTips.Utility.Benchmarks.Security
 {
     [BenchmarkCategory(nameof(EncryptionHelper))]
     public class EncryptionHelperPerfTestRunner : PerfTestRunner
     {
-        public override void Cleanup()
-        {
-            base.Cleanup();
-        }
-
-        public override void Setup()
-        {
-            base.Setup();
-
-        }
-
-        [Benchmark(Description = "RijndaelEncryption")]
-        public void RijndaelEncryption()
-        {
-            using var keys = new RijndaelManaged();
-
-            var encryptResult = EncryptionHelper.RijndaelEncrypt(RandomData.LongTestString, keys.Key, keys.IV);
-
-            var decryptResult = EncryptionHelper.RijndaelDecrypt(encryptResult, keys.Key, keys.IV);
-
-            base.Consumer.Consume(decryptResult);
-        }
 
         [Benchmark(Description = "AesEncryption")]
         public void AesEncrypt()
@@ -55,6 +33,16 @@ namespace dotNetTips.Utility.Benchmarks.Security
             var decryptResult = EncryptionHelper.AesDecrypt(encryptResult, keys.Key, keys.IV);
 
             base.Consumer.Consume(decryptResult);
+        }
+        public override void Cleanup()
+        {
+            base.Cleanup();
+        }
+
+        public override void Setup()
+        {
+            base.Setup();
+
         }
     }
 }

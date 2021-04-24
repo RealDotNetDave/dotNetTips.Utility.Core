@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>DisassemblyDiagnoser Output dotNetTips.Utility.Benchmarks.IO.PathHelperPerfTestRunner-20210228-170453</title>
+
+<style type="text/css">
+    table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+    td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: left; }
+    tr { background-color: #fff; border-top: 1px solid #ccc; }
+    tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<table>
+<thead>
+<tr><th colspan="4">dotNetTips.Utility.Benchmarks.IO.PathHelperPerfTestRunner-20210228-170453</th></tr>
+<tr>
+<th>EnsureTrailingSlashTest .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>HasInvalidFilterChars .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>PathContainsWildcardTest .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>PathHasInvalidCharsTest .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.IO.PathHelperPerfTestRunner.EnsureTrailingSlashTest()
+            var result = PathHelper.EnsureTrailingSlash(Environment.CurrentDirectory);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.Consumer.Consume(result);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rsi
+sub       rsp,20
+mov       rsi,rcx
+call      System.Environment.get_CurrentDirectoryCore()
+mov       rcx,rax
+call      dotNetTips.Utility.Standard.IO.PathHelper.EnsureTrailingSlash(System.String)
+mov       rcx,[rsi+8]
+mov       edx,[rcx]
+add       rcx,8
+mov       rdx,rax
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,20
+pop       rsi
+ret
+
+System.Environment.get_CurrentDirectoryCore()
+push      rbp
+push      rsi
+sub       rsp,48
+lea       rbp,[rsp+20]
+xor       eax,eax
+mov       [rbp+8],rax
+mov       [rbp+18],rax
+mov       rax,8D068969647C
+mov       [rbp],rax
+add       rsp,20
+test      esp,[rsp]
+sub       rsp,210
+sub       rsp,20
+lea       rcx,[rsp+20]
+xor       edx,edx
+mov       [rbp+8],rdx
+lea       rdx,[rbp+18]
+mov       [rdx],rcx
+mov       dword ptr [rdx+8],104
+xor       ecx,ecx
+mov       [rbp+10],ecx
+jmp       short 00007FFF60BE9FC6
+cmp       edx,[rbp+20]
+jle       short 00007FFF60BE9FC6
+sub       edx,[rbp+10]
+lea       rcx,[rbp+8]
+call      System.Text.ValueStringBuilder.Grow(Int32)
+mov       ecx,[rbp+20]
+lea       rdx,[rbp+18]
+mov       rdx,[rdx]
+call      Interop+Kernel32.GetCurrentDirectory(UInt32, Char ByRef)
+mov       edx,eax
+mov       ecx,edx
+mov       eax,[rbp+20]
+movsxd    rax,eax
+cmp       rcx,rax
+jg        short 00007FFF60BE9FB5
+test      edx,edx
+je        short 00007FFF60BEA05E
+mov       [rbp+10],edx
+mov       r8d,[rbp+10]
+mov       ecx,r8d
+mov       edx,[rbp+20]
+cmp       rcx,rdx
+ja        near ptr 00007FFF60BEA08B
+mov       rcx,[rbp+18]
+mov       edx,7E
+call      System.SpanHelpers.Contains(Char ByRef, Char, Int32)
+test      eax,eax
+jne       short 00007FFF60BEA036
+lea       rcx,[rbp+8]
+call      System.Text.ValueStringBuilder.ToString()
+mov       rcx,8D068969647C
+cmp       [rbp],rcx
+je        short 00007FFF60BEA02E
+call      CORINFO_HELP_FAIL_FAST
+nop
+lea       rsp,[rbp+28]
+pop       rsi
+pop       rbp
+ret
+lea       rcx,[rbp+8]
+xor       edx,edx
+call      System.IO.PathHelper.TryExpandShortFileName(System.Text.ValueStringBuilder ByRef, System.String)
+mov       rcx,8D068969647C
+cmp       [rbp],rcx
+je        short 00007FFF60BEA056
+call      CORINFO_HELP_FAIL_FAST
+nop
+lea       rsp,[rbp+28]
+pop       rsi
+pop       rbp
+ret
+call      00007FFFC042D830
+mov       esi,eax
+mov       ecx,2EB
+mov       rdx,7FFF607F4020
+call      CORINFO_HELP_STRCNS
+mov       rdx,rax
+mov       ecx,esi
+call      System.IO.Win32Marshal.GetExceptionForWin32Error(Int32, System.String)
+mov       rcx,rax
+call      CORINFO_HELP_THROW
+call      System.ThrowHelper.ThrowArgumentOutOfRangeException()
+int       3
+
+dotNetTips.Utility.Standard.IO.PathHelper.EnsureTrailingSlash(System.String)
+            Encapsulation.TryValidateParam(path, nameof(path));
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            return path[path.Length - 1] != Path.DirectorySeparatorChar ? path + Path.DirectorySeparatorChar : path;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rsi
+sub       rsp,20
+mov       rsi,rcx
+mov       r8,2EE5D0F3060
+mov       r8,[r8]
+mov       rdx,2EE5D0F3BD8
+mov       rdx,[rdx]
+mov       rcx,rsi
+call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
+mov       eax,[rsi+8]
+lea       ecx,[rax+0FFFF]
+cmp       ecx,eax
+jae       short 00007FFF60BEA11A
+movsxd    rax,ecx
+cmp       word ptr [rsi+rax*2+0C],5C
+jne       short 00007FFF60BEA0F8
+mov       rax,rsi
+add       rsp,20
+pop       rsi
+ret
+mov       ecx,1
+call      System.String.FastAllocateString(Int32)
+mov       rdx,rax
+mov       word ptr [rdx+0C],5C
+mov       rcx,rsi
+call      System.String.Concat(System.String, System.String)
+nop
+add       rsp,20
+pop       rsi
+ret
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.IO.PathHelperPerfTestRunner.HasInvalidFilterChars()
+            var result = PathHelper.HasInvalidFilterChars(RandomData.GenerateWord(15));
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.Consumer.Consume(result);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rsi
+sub       rsp,20
+mov       rsi,rcx
+mov       ecx,0F
+call      dotNetTips.Utility.Standard.Tester.RandomData.GenerateWord(Int32)
+mov       rcx,rax
+call      dotNetTips.Utility.Standard.IO.PathHelper.HasInvalidFilterChars(System.String)
+mov       rdx,[rsi+8]
+mov       [rdx+44],al
+add       rsp,20
+pop       rsi
+ret
+
+dotNetTips.Utility.Standard.Tester.RandomData.GenerateWord(Int32)
+            Encapsulation.TryValidateParam(length, minimumValue: 1, paramName: nameof(length));
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            var returnValue = GenerateWord(length, DefaultMinCharacter, DefaultMaxCharacter);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            return returnValue;
+            ^^^^^^^^^^^^^^^^^^^
+push      rdi
+push      rsi
+sub       rsp,28
+mov       rdx,1950E473060
+mov       rsi,[rdx]
+test      ecx,ecx
+jle       short 00007FFF60BEEA3F
+cmp       ecx,7FFFFFFF
+setle     dl
+movzx     edx,dl
+test      edx,edx
+je        short 00007FFF60BEEA3F
+mov       edx,41
+mov       r8d,7A
+call      dotNetTips.Utility.Standard.Tester.RandomData.GenerateWord(Int32, Char, Char)
+nop
+add       rsp,28
+pop       rsi
+pop       rdi
+ret
+test      rsi,rsi
+jne       short 00007FFF60BEEA4C
+call      dotNetTips.Utility.Standard.Properties.Resources.get_NumberNotInRange()
+mov       rsi,rax
+mov       rcx,offset MT_System.ArgumentOutOfRangeException
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       ecx,6B
+mov       rdx,7FFF60BDF440
+call      CORINFO_HELP_STRCNS
+mov       r8,rax
+mov       rdx,rsi
+mov       rcx,rdi
+call      System.ArgumentOutOfRangeException..ctor(System.String, System.String)
+mov       rcx,rdi
+call      CORINFO_HELP_THROW
+int       3
+
+dotNetTips.Utility.Standard.IO.PathHelper.HasInvalidFilterChars(System.String)
+            Encapsulation.TryValidateParam(filter, nameof(filter));
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            return filter.IndexOfAny(InvalidFilterChars) != -1;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rsi
+sub       rsp,20
+mov       rsi,rcx
+mov       r8,1950E473060
+mov       r8,[r8]
+mov       rdx,1951E47F7E8
+mov       rdx,[rdx]
+mov       rcx,rsi
+call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
+call      dotNetTips.Utility.Standard.IO.PathHelper.get_InvalidFilterChars()
+mov       rdx,rax
+mov       r9d,[rsi]
+mov       r9d,[rsi+8]
+mov       rcx,rsi
+xor       r8d,r8d
+call      System.String.IndexOfAny(Char[], Int32, Int32)
+cmp       eax,0FFFFFFFF
+setne     al
+movzx     eax,al
+add       rsp,20
+pop       rsi
+ret
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.IO.PathHelperPerfTestRunner.PathContainsWildcardTest()
+            var result = PathHelper.PathContainsWildcard(Environment.CurrentDirectory);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.Consumer.Consume(result);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rsi
+sub       rsp,20
+mov       rsi,rcx
+call      System.Environment.get_CurrentDirectoryCore()
+mov       rcx,rax
+call      dotNetTips.Utility.Standard.IO.PathHelper.PathContainsWildcard(System.String)
+mov       rdx,[rsi+8]
+mov       [rdx+44],al
+add       rsp,20
+pop       rsi
+ret
+
+System.Environment.get_CurrentDirectoryCore()
+push      rbp
+push      rsi
+sub       rsp,48
+lea       rbp,[rsp+20]
+xor       eax,eax
+mov       [rbp+8],rax
+mov       [rbp+18],rax
+mov       rax,0D9E59C79C0C6
+mov       [rbp],rax
+add       rsp,20
+test      esp,[rsp]
+sub       rsp,210
+sub       rsp,20
+lea       rcx,[rsp+20]
+xor       edx,edx
+mov       [rbp+8],rdx
+lea       rdx,[rbp+18]
+mov       [rdx],rcx
+mov       dword ptr [rdx+8],104
+xor       ecx,ecx
+mov       [rbp+10],ecx
+jmp       short 00007FFF60BE9E46
+cmp       edx,[rbp+20]
+jle       short 00007FFF60BE9E46
+sub       edx,[rbp+10]
+lea       rcx,[rbp+8]
+call      System.Text.ValueStringBuilder.Grow(Int32)
+mov       ecx,[rbp+20]
+lea       rdx,[rbp+18]
+mov       rdx,[rdx]
+call      Interop+Kernel32.GetCurrentDirectory(UInt32, Char ByRef)
+mov       edx,eax
+mov       ecx,edx
+mov       eax,[rbp+20]
+movsxd    rax,eax
+cmp       rcx,rax
+jg        short 00007FFF60BE9E35
+test      edx,edx
+je        short 00007FFF60BE9EDE
+mov       [rbp+10],edx
+mov       r8d,[rbp+10]
+mov       ecx,r8d
+mov       edx,[rbp+20]
+cmp       rcx,rdx
+ja        near ptr 00007FFF60BE9F0B
+mov       rcx,[rbp+18]
+mov       edx,7E
+call      System.SpanHelpers.Contains(Char ByRef, Char, Int32)
+test      eax,eax
+jne       short 00007FFF60BE9EB6
+lea       rcx,[rbp+8]
+call      System.Text.ValueStringBuilder.ToString()
+mov       rcx,0D9E59C79C0C6
+cmp       [rbp],rcx
+je        short 00007FFF60BE9EAE
+call      CORINFO_HELP_FAIL_FAST
+nop
+lea       rsp,[rbp+28]
+pop       rsi
+pop       rbp
+ret
+lea       rcx,[rbp+8]
+xor       edx,edx
+call      System.IO.PathHelper.TryExpandShortFileName(System.Text.ValueStringBuilder ByRef, System.String)
+mov       rcx,0D9E59C79C0C6
+cmp       [rbp],rcx
+je        short 00007FFF60BE9ED6
+call      CORINFO_HELP_FAIL_FAST
+nop
+lea       rsp,[rbp+28]
+pop       rsi
+pop       rbp
+ret
+call      00007FFFC042D830
+mov       esi,eax
+mov       ecx,2EB
+mov       rdx,7FFF607F4020
+call      CORINFO_HELP_STRCNS
+mov       rdx,rax
+mov       ecx,esi
+call      System.IO.Win32Marshal.GetExceptionForWin32Error(Int32, System.String)
+mov       rcx,rax
+call      CORINFO_HELP_THROW
+call      System.ThrowHelper.ThrowArgumentOutOfRangeException()
+int       3
+
+dotNetTips.Utility.Standard.IO.PathHelper.PathContainsWildcard(System.String)
+            Encapsulation.TryValidateParam(path, nameof(path));
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            return ( path?.IndexOf('*') != -1 ) || ( path?.IndexOf('?') != -1 );
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rsi
+sub       rsp,20
+mov       rsi,rcx
+mov       r8,1F85B4F3060
+mov       r8,[r8]
+mov       rdx,1F86B4FD738
+mov       rdx,[rdx]
+mov       rcx,rsi
+call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
+test      rsi,rsi
+je        short 00007FFF60BE987F
+lea       rcx,[rsi+0C]
+mov       r8d,[rsi+8]
+mov       edx,2A
+call      System.SpanHelpers.IndexOf(Char ByRef, Char, Int32)
+cmp       eax,0FFFFFFFF
+setne     cl
+movzx     ecx,cl
+test      ecx,ecx
+jne       short 00007FFF60BE987F
+lea       rcx,[rsi+0C]
+mov       r8d,[rsi+8]
+mov       edx,3F
+call      System.SpanHelpers.IndexOf(Char ByRef, Char, Int32)
+cmp       eax,0FFFFFFFF
+setne     al
+movzx     eax,al
+add       rsp,20
+pop       rsi
+ret
+mov       eax,1
+add       rsp,20
+pop       rsi
+ret
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.IO.PathHelperPerfTestRunner.PathHasInvalidCharsTest()
+            var result = PathHelper.PathHasInvalidChars(Environment.CurrentDirectory);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.Consumer.Consume(result);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rsi
+sub       rsp,20
+mov       rsi,rcx
+call      System.Environment.get_CurrentDirectoryCore()
+mov       rcx,rax
+call      dotNetTips.Utility.Standard.IO.PathHelper.PathHasInvalidChars(System.String)
+mov       rdx,[rsi+8]
+mov       [rdx+44],al
+add       rsp,20
+pop       rsi
+ret
+
+System.Environment.get_CurrentDirectoryCore()
+push      rbp
+push      rsi
+sub       rsp,48
+lea       rbp,[rsp+20]
+xor       eax,eax
+mov       [rbp+8],rax
+mov       [rbp+18],rax
+mov       rax,0BB7976CD2DB4
+mov       [rbp],rax
+add       rsp,20
+test      esp,[rsp]
+sub       rsp,210
+sub       rsp,20
+lea       rcx,[rsp+20]
+xor       edx,edx
+mov       [rbp+8],rdx
+lea       rdx,[rbp+18]
+mov       [rdx],rcx
+mov       dword ptr [rdx+8],104
+xor       ecx,ecx
+mov       [rbp+10],ecx
+jmp       short 00007FFF60BEE476
+cmp       edx,[rbp+20]
+jle       short 00007FFF60BEE476
+sub       edx,[rbp+10]
+lea       rcx,[rbp+8]
+call      System.Text.ValueStringBuilder.Grow(Int32)
+mov       ecx,[rbp+20]
+lea       rdx,[rbp+18]
+mov       rdx,[rdx]
+call      Interop+Kernel32.GetCurrentDirectory(UInt32, Char ByRef)
+mov       edx,eax
+mov       ecx,edx
+mov       eax,[rbp+20]
+movsxd    rax,eax
+cmp       rcx,rax
+jg        short 00007FFF60BEE465
+test      edx,edx
+je        short 00007FFF60BEE50E
+mov       [rbp+10],edx
+mov       r8d,[rbp+10]
+mov       ecx,r8d
+mov       edx,[rbp+20]
+cmp       rcx,rdx
+ja        near ptr 00007FFF60BEE53B
+mov       rcx,[rbp+18]
+mov       edx,7E
+call      System.SpanHelpers.Contains(Char ByRef, Char, Int32)
+test      eax,eax
+jne       short 00007FFF60BEE4E6
+lea       rcx,[rbp+8]
+call      System.Text.ValueStringBuilder.ToString()
+mov       rcx,0BB7976CD2DB4
+cmp       [rbp],rcx
+je        short 00007FFF60BEE4DE
+call      CORINFO_HELP_FAIL_FAST
+nop
+lea       rsp,[rbp+28]
+pop       rsi
+pop       rbp
+ret
+lea       rcx,[rbp+8]
+xor       edx,edx
+call      System.IO.PathHelper.TryExpandShortFileName(System.Text.ValueStringBuilder ByRef, System.String)
+mov       rcx,0BB7976CD2DB4
+cmp       [rbp],rcx
+je        short 00007FFF60BEE506
+call      CORINFO_HELP_FAIL_FAST
+nop
+lea       rsp,[rbp+28]
+pop       rsi
+pop       rbp
+ret
+call      00007FFFC042D830
+mov       esi,eax
+mov       ecx,2EB
+mov       rdx,7FFF607F4020
+call      CORINFO_HELP_STRCNS
+mov       rdx,rax
+mov       ecx,esi
+call      System.IO.Win32Marshal.GetExceptionForWin32Error(Int32, System.String)
+mov       rcx,rax
+call      CORINFO_HELP_THROW
+call      System.ThrowHelper.ThrowArgumentOutOfRangeException()
+int       3
+
+dotNetTips.Utility.Standard.IO.PathHelper.PathHasInvalidChars(System.String)
+            Encapsulation.TryValidateParam(path, nameof(path));
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            return path.IndexOfAny(InvalidPathNameChars) != -1;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rsi
+sub       rsp,20
+mov       rsi,rcx
+mov       r8,1C19F8D3060
+mov       r8,[r8]
+mov       rdx,1C19F8D3BD8
+mov       rdx,[rdx]
+mov       rcx,rsi
+call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
+call      dotNetTips.Utility.Standard.IO.PathHelper.get_InvalidPathNameChars()
+mov       rdx,rax
+mov       r9d,[rsi]
+mov       r9d,[rsi+8]
+mov       rcx,rsi
+xor       r8d,r8d
+call      System.String.IndexOfAny(Char[], Int32, Int32)
+cmp       eax,0FFFFFFFF
+setne     al
+movzx     eax,al
+add       rsp,20
+pop       rsi
+ret
+
+</code></pre></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

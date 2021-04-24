@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <AssemblyName>dotNetTips.Utility.Standard.Common</AssemblyName>
-    <AssemblyVersion>2021.1.26.34838</AssemblyVersion>
+    <AssemblyVersion>2021.2.24.34846</AssemblyVersion>
     <Authors>David McCarter</Authors>
     <Company>David McCarter - dotNetTips.com</Company>
     <Copyright>McCarter Consulting (David McCarter)</Copyright>
@@ -14,7 +14,7 @@
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Common.xml</DocumentationFile>
     <EnableNETAnalyzers>true</EnableNETAnalyzers> 
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <FileVersion>2021.1.26.34838</FileVersion>
+    <FileVersion>2021.2.24.34846</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
@@ -29,13 +29,14 @@
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <TargetFramework>netstandard2.0</TargetFramework>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <Version>2021.1.26.1</Version>
+    <Version>2021.3.1.1</Version>
     <PackageReleaseNotes>
       -- AUG 2020: First release.
       -- SEP 2020: Added Date class. New methods and code cleanup.
       -- NOV 2020 (QUARTERLY RELEASE): Code cleanup. Bug fixes.
       -- NOV 19, 2020: Minor update.
       -- FEB 2021 (QUARTERLY RELEASE): 11 new methods. Code cleanup.
+      -- FEB 5, 2021: Minor fixes.
     </PackageReleaseNotes>
   </PropertyGroup>
 
@@ -56,7 +57,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.1">
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Version>2021.1.26.1</Version>
+    <Version>2021.2.5.0</Version>
     <Authors>David McCarter</Authors>
     <Company>David McCarter - dotNetTips.com</Company>
     <Product>dotNetTips.Utility.Standard</Product>
@@ -24,10 +24,11 @@
       -- NOV 2020 (Quarterly Release): Code cleanup. Fixed bugs.
       -- NOV 19 2020: Minor update.
       -- FEB 2021 (QUARTERLY RELEASE): Code Cleanup.
+      - FEB 5, 2021: Minor fixes.-
     </PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>2021.1.26.37379</AssemblyVersion>
-    <FileVersion>2021.1.26.37379</FileVersion>
+    <AssemblyVersion>2021.2.5.37381</AssemblyVersion>
+    <FileVersion>2021.2.5.37381</FileVersion>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -58,8 +59,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="dotNetTips.Utility.Standard" Version="2021.1.26.1" />
-    <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2021.1.26.1" />
+    <PackageReference Include="dotNetTips.Utility.Standard" Version="2021.2.5" />
+    <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2021.2.5" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

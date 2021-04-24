@@ -93,32 +93,6 @@ namespace dotNetTips.Utility.Standard.Extensions
         }
 
         /// <summary>
-        /// Computes the m d5 hash.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        /// <returns>System.String.</returns>
-        [Obsolete("Use SHA256 hash instead. This method will be removed at the end of 2020.")]
-        public static string ComputeMD5Hash(this object data)
-        {
-            // Create a MD5
-            using (var md5Hash = MD5.Create())
-            {
-                // ComputeHash - returns byte array
-                var bytes = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(data.ToJson()));
-
-                // Convert byte array to a string
-                var builder = new StringBuilder();
-
-                for (var i = 0; i < bytes.Length; i++)
-                {
-                    builder.Append(bytes[i].ToString("x2", CultureInfo.InvariantCulture));
-                }
-
-                return builder.ToString();
-            }
-        }
-
-        /// <summary>
         /// Computes the sha256 hash.
         /// </summary>
         /// <param name="data">The data.</param>
@@ -374,7 +348,7 @@ namespace dotNetTips.Utility.Standard.Extensions
 
             // Otherwise go deeper in the object tree.
             // And foreach object public property collect each value
-            var propertyCollection = objectType.GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
+            var propertyCollection = objectType.GetProperties();
 
             var newMemberName = string.Empty;
 
@@ -393,6 +367,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 }
 
                 var innerMember = string.Format(CultureInfo.CurrentCulture, "{0}{1}", newMemberName, property.Name);
+
                 result = result.Concat(innerObject.PropertiesToDictionary(innerMember)).ToDictionary(e => e.Key, e => e.Value);
             }
 
@@ -409,6 +384,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <param name="keyValueSeparator">The key value separator.</param>
         /// <param name="sequenceSeparator">The delimiter.</param>
         /// <param name="ignoreNulls">if set to <c>true</c> [ignore null values].</param>
+        /// <param name="includeMemeberName">if set to <c>true</c> [include memeber name].</param>
         /// <returns>System.String.</returns>
         /// <exception cref="ArgumentNullException">Object cannot be null.</exception>
         /// <exception cref="ArgumentInvalidException">Object cannot be a collection type.</exception>
@@ -433,7 +409,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// PersonRecord.Addresses[1].PostalCode:33385672.
         /// </example>
         [Information(nameof(PropertiesToString), author: "David McCarter", createdOn: "11/19/2020", modifiedOn: "1/26/2021", UnitTestCoverage = 0, BenchMarkStatus = BenchMarkStatus.None, Status = Status.Available)]
-        public static string PropertiesToString(this object obj, string header = ControlChars.EmptyString, char keyValueSeparator = ControlChars.Colon, string sequenceSeparator = ControlChars.DefaultSeparator, bool ignoreNulls = true)
+        public static string PropertiesToString(this object obj, string header = ControlChars.EmptyString, char keyValueSeparator = ControlChars.Colon, string sequenceSeparator = ControlChars.DefaultSeparator, bool ignoreNulls = true, bool includeMemeberName = true)
         {
             if (obj is null)
             {
@@ -455,6 +431,10 @@ namespace dotNetTips.Utility.Standard.Extensions
             if (typeName == typeof(List<>).Name)
             {
                 typeName = "Item";
+            }
+            else if (includeMemeberName == false)
+            {
+                typeName = string.Empty;
             }
 
             var properties = obj.PropertiesToDictionary(memberName: typeName, ignoreNulls: ignoreNulls);

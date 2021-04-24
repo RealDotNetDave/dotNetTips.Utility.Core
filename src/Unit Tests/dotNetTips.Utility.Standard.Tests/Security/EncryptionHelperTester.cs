@@ -11,11 +11,11 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using System;
+using System.Security.Cryptography;
 using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.Security;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Security.Cryptography;
 
 namespace dotNetTips.Tips.Utility.Standard.Tests.Security
 {
@@ -27,6 +27,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Security
     {
 
         private const string _testString = "12345678901234567890";
+
         /// <summary>
         /// Encrypts the decrypt string test.
         /// </summary>
@@ -62,14 +63,6 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Security
         }
 
         [TestMethod]
-        public void GenerateAesKeyTest()
-        {
-            var result = EncryptionHelper.GenerateAesKey();
-
-            Assert.IsTrue(result.HasItems());
-        }
-
-        [TestMethod]
         public void GenerateAesIVTest()
         {
             var result = EncryptionHelper.GenerateAesIV();
@@ -78,30 +71,11 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Security
         }
 
         [TestMethod]
-        public void RijndaelEncryptDecryptStringTest()
+        public void GenerateAesKeyTest()
         {
-            try
-            {
-                // Create Rijndael that generates a new key and initialization vector (IV).  
-                // Same key must be used in encryption and decryption  
-                using var aes = new RijndaelManaged();
+            var result = EncryptionHelper.GenerateAesKey();
 
-                // Encrypt string  
-#pragma warning disable CS0618 // Type or member is obsolete
-                var encrypted = EncryptionHelper.RijndaelEncrypt(_testString, aes.Key, aes.IV);
-#pragma warning restore CS0618 // Type or member is obsolete
-
-                // Decrypt the bytes to a string.  
-#pragma warning disable CS0618 // Type or member is obsolete
-                var decrypted = EncryptionHelper.RijndaelDecrypt(encrypted, aes.Key, aes.IV);
-#pragma warning restore CS0618 // Type or member is obsolete
-
-                Assert.AreEqual(_testString, decrypted);
-            }
-            catch (Exception ex)
-            {
-                Assert.Fail($"Encryption/ Description test failed. {ex.Message}");
-            }
+            Assert.IsTrue(result.HasItems());
         }
     }
 }

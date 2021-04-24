@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.IO.PathHelperPerfTestRunner-20201103-003635</title>
+<title>dotNetTips.Utility.Benchmarks.IO.PathHelperPerfTestRunner-20210228-170453</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,23 +13,23 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.572 (2004/?/20H1)
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
 Unknown processor
-.NET Core SDK=5.0.100-rc.2.20479.15
-  [Host]     : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
-  Job-TZRVGS : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
+.NET Core SDK=5.0.200-preview.21079.7
+  [Host]     : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+  Job-HTSMCU : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
 </code></pre>
 <pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.1  
-Categories=PathHelper  
+Namespace=dotNetTips.Utility.Benchmarks.IO  Categories=PathHelper  
 </code></pre>
 
 <table>
-<thead><tr><th>         Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+<thead><tr><th>         Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>StdErr</th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th><th> Op/s</th><th>CI99.9% Margin</th><th>Iterations</th><th>Kurtosis</th><th>MValue</th><th>Skewness</th><th>Rank</th><th>LogicalGroup</th><th>Baseline</th><th>Code Size</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>EnsureTrailingSlash</td><td>167.1 ns</td><td>0.91 ns</td><td>0.85 ns</td><td>0.0801</td><td>-</td><td>-</td><td>760 B</td>
-</tr><tr><td>HasInvalidFilterChars</td><td>490.4 ns</td><td>4.26 ns</td><td>3.98 ns</td><td>0.0162</td><td>-</td><td>-</td><td>160 B</td>
-</tr><tr><td>PathContainsWildcard</td><td>142.6 ns</td><td>2.70 ns</td><td>2.52 ns</td><td>0.0386</td><td>-</td><td>-</td><td>368 B</td>
-</tr><tr><td>PathHasInvalidChars</td><td>307.4 ns</td><td>1.36 ns</td><td>1.14 ns</td><td>0.0391</td><td>-</td><td>-</td><td>368 B</td>
+</thead><tbody><tr><td>EnsureTrailingSlash</td><td>173.0 ns</td><td>1.31 ns</td><td>1.16 ns</td><td>0.31 ns</td><td>170.7 ns</td><td>172.3 ns</td><td>173.0 ns</td><td>173.9 ns</td><td>174.7 ns</td><td>5,781,711.8</td><td>1.314 ns</td><td>14.00</td><td>2.062</td><td>2.000</td><td>-0.2285</td><td>2</td><td>*</td><td>No</td><td>463 B</td><td>0.0806</td><td>-</td><td>-</td><td>760 B</td>
+</tr><tr><td>HasInvalidFilterChars</td><td>847.9 ns</td><td>8.10 ns</td><td>7.58 ns</td><td>1.96 ns</td><td>834.4 ns</td><td>844.0 ns</td><td>845.9 ns</td><td>854.3 ns</td><td>861.7 ns</td><td>1,179,329.3</td><td>8.104 ns</td><td>15.00</td><td>2.002</td><td>2.000</td><td>0.2386</td><td>4</td><td>*</td><td>No</td><td>259 B</td><td>0.0610</td><td>-</td><td>-</td><td>568 B</td>
+</tr><tr><td>PathContainsWildcard</td><td>144.2 ns</td><td>2.07 ns</td><td>1.93 ns</td><td>0.50 ns</td><td>140.4 ns</td><td>143.6 ns</td><td>144.0 ns</td><td>146.1 ns</td><td>146.9 ns</td><td>6,932,861.4</td><td>2.067 ns</td><td>15.00</td><td>2.032</td><td>2.000</td><td>-0.3268</td><td>1</td><td>*</td><td>No</td><td>461 B</td><td>0.0391</td><td>-</td><td>-</td><td>368 B</td>
+</tr><tr><td>PathHasInvalidChars</td><td>672.7 ns</td><td>9.33 ns</td><td>13.07 ns</td><td>2.52 ns</td><td>663.7 ns</td><td>665.8 ns</td><td>667.0 ns</td><td>672.7 ns</td><td>718.9 ns</td><td>1,486,586.7</td><td>9.327 ns</td><td>27.00</td><td>7.053</td><td>2.000</td><td>2.1481</td><td>3</td><td>*</td><td>No</td><td>422 B</td><td>0.0916</td><td>-</td><td>-</td><td>864 B</td>
 </tr></tbody></table>
 </body>
 </html>

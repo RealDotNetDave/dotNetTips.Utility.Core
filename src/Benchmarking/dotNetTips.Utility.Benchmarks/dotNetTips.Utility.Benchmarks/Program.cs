@@ -11,11 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using System;
 using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Running;
 using BenchmarkDotNet.Toolchains.CsProj;
-using System;
+using dotNetTips.Utility.Benchmarks.Extensions;
 
 namespace dotNetTips.Utility.Benchmarks
 {
@@ -26,7 +27,8 @@ namespace dotNetTips.Utility.Benchmarks
         /// </summary>
         private static void Main()
         {
-            var config = DefaultConfig.Instance.With(Job.Default.With(CsProjCoreToolchain.NetCoreApp31));
+            var config = DefaultConfig.Instance.AddJob(Job.Default.WithToolchain(CsProjCoreToolchain.NetCoreApp31));
+            config.WithOptions(ConfigOptions.DisableOptimizationsValidator);
 
 
             BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).RunAll(config);

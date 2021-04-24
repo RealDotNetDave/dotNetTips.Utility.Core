@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner-20201102-213943</title>
+<title>dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner-20210228-134125</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,37 +13,40 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.572 (2004/?/20H1)
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
 Unknown processor
-.NET Core SDK=5.0.100-rc.2.20479.15
-  [Host]     : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
-  Job-TZRVGS : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
+.NET Core SDK=5.0.200-preview.21079.7
+  [Host]     : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+  Job-HTSMCU : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
 </code></pre>
 <pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.1  
-Categories=DistinctConcurrentBag,GenericCollections  
+Namespace=dotNetTips.Utility.Benchmarks.Collections.Concurrent  Categories=DistinctConcurrentBag,GenericCollections  
 </code></pre>
 
 <table>
-<thead><tr><th>                 Method</th><th>CollectionCount</th><th>  Mean</th><th>Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+<thead><tr><th>                 Method</th><th>CollectionCount</th><th>  Mean</th><th>Error</th><th>StdDev</th><th>StdErr</th><th>   Min</th><th>    Q1</th><th>Median</th><th>    Q3</th><th>   Max</th><th> Op/s</th><th>CI99.9% Margin</th><th>Iterations</th><th>Kurtosis</th><th>MValue</th><th>Skewness</th><th>Rank</th><th>LogicalGroup</th><th>Baseline</th><th>Code Size</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>&#39;Creating Using Constructor.&#39;</td><td>25</td><td>6,156.4 ns</td><td>55.79 ns</td><td>52.18 ns</td><td>0.0076</td><td>-</td><td>-</td><td>2192 B</td>
-</tr><tr><td>&#39;Creating Using Constructor.&#39;</td><td>50</td><td>12,588.6 ns</td><td>246.38 ns</td><td>456.68 ns</td><td>0.0153</td><td>-</td><td>-</td><td>4408 B</td>
-</tr><tr><td>&#39;Creating Using Constructor.&#39;</td><td>100</td><td>22,570.2 ns</td><td>70.86 ns</td><td>62.81 ns</td><td>0.0305</td><td>-</td><td>-</td><td>9064 B</td>
-</tr><tr><td>&#39;Creating Using Constructor.&#39;</td><td>250</td><td>56,508.0 ns</td><td>621.98 ns</td><td>581.80 ns</td><td>0.0610</td><td>-</td><td>-</td><td>19288 B</td>
-</tr><tr><td>&#39;Creating Using Constructor.&#39;</td><td>500</td><td>114,811.0 ns</td><td>888.68 ns</td><td>831.27 ns</td><td>0.1221</td><td>-</td><td>-</td><td>40168 B</td>
-</tr><tr><td>&#39;Creating Using Constructor.&#39;</td><td>1000</td><td>230,199.1 ns</td><td>2,635.83 ns</td><td>2,465.56 ns</td><td>0.2441</td><td>-</td><td>-</td><td>83337 B</td>
-</tr><tr><td>&#39;Creating Using ForEach().&#39;</td><td>25</td><td>6,016.8 ns</td><td>45.24 ns</td><td>42.32 ns</td><td>-</td><td>-</td><td>-</td><td>1978 B</td>
-</tr><tr><td>&#39;Creating Using ForEach().&#39;</td><td>50</td><td>12,159.9 ns</td><td>71.17 ns</td><td>66.57 ns</td><td>-</td><td>-</td><td>-</td><td>3994 B</td>
-</tr><tr><td>&#39;Creating Using ForEach().&#39;</td><td>100</td><td>22,574.5 ns</td><td>368.84 ns</td><td>345.01 ns</td><td>0.0305</td><td>-</td><td>-</td><td>8232 B</td>
-</tr><tr><td>&#39;Creating Using ForEach().&#39;</td><td>250</td><td>53,812.0 ns</td><td>199.41 ns</td><td>186.53 ns</td><td>0.0610</td><td>-</td><td>-</td><td>17256 B</td>
-</tr><tr><td>&#39;Creating Using ForEach().&#39;</td><td>500</td><td>108,972.1 ns</td><td>452.57 ns</td><td>401.19 ns</td><td>0.1221</td><td>-</td><td>-</td><td>36137 B</td>
-</tr><tr><td>&#39;Creating Using ForEach().&#39;</td><td>1000</td><td>223,943.7 ns</td><td>1,206.15 ns</td><td>1,128.23 ns</td><td>0.2441</td><td>-</td><td>-</td><td>75304 B</td>
-</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>25</td><td>283.6 ns</td><td>0.49 ns</td><td>0.38 ns</td><td>0.0277</td><td>-</td><td>-</td><td>264 B</td>
-</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>50</td><td>512.4 ns</td><td>1.23 ns</td><td>1.15 ns</td><td>0.0486</td><td>-</td><td>-</td><td>464 B</td>
-</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>100</td><td>888.3 ns</td><td>0.74 ns</td><td>0.58 ns</td><td>0.0906</td><td>-</td><td>-</td><td>864 B</td>
-</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>250</td><td>2,127.3 ns</td><td>3.72 ns</td><td>3.30 ns</td><td>0.2174</td><td>-</td><td>-</td><td>2064 B</td>
-</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>500</td><td>4,240.9 ns</td><td>6.90 ns</td><td>6.12 ns</td><td>0.4272</td><td>-</td><td>-</td><td>4064 B</td>
-</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>1000</td><td>8,924.1 ns</td><td>11.30 ns</td><td>10.02 ns</td><td>0.8545</td><td>-</td><td>-</td><td>8064 B</td>
+</thead><tbody><tr><td>&#39;Creating Using Constructor.&#39;</td><td>10</td><td>2,918.7 ns</td><td>13.23 ns</td><td>11.73 ns</td><td>3.13 ns</td><td>2,901.5 ns</td><td>2,912.2 ns</td><td>2,915.9 ns</td><td>2,923.6 ns</td><td>2,944.7 ns</td><td>342,623.0</td><td>13.2292 ns</td><td>14.00</td><td>2.579</td><td>2.000</td><td>0.6584</td><td>7</td><td>*</td><td>No</td><td>333 B</td><td>0.0038</td><td>-</td><td>-</td><td>1424 B</td>
+</tr><tr><td>&#39;Creating Using Constructor.&#39;</td><td>25</td><td>5,838.1 ns</td><td>60.46 ns</td><td>56.56 ns</td><td>14.60 ns</td><td>5,753.0 ns</td><td>5,774.8 ns</td><td>5,858.8 ns</td><td>5,884.0 ns</td><td>5,913.2 ns</td><td>171,288.1</td><td>60.4637 ns</td><td>15.00</td><td>1.354</td><td>2.000</td><td>-0.3102</td><td>9</td><td>*</td><td>No</td><td>333 B</td><td>0.0076</td><td>-</td><td>-</td><td>2192 B</td>
+</tr><tr><td>&#39;Creating Using Constructor.&#39;</td><td>50</td><td>11,710.4 ns</td><td>53.20 ns</td><td>49.76 ns</td><td>12.85 ns</td><td>11,635.7 ns</td><td>11,667.9 ns</td><td>11,699.2 ns</td><td>11,750.9 ns</td><td>11,782.3 ns</td><td>85,394.1</td><td>53.1979 ns</td><td>15.00</td><td>1.273</td><td>2.000</td><td>-0.0488</td><td>12</td><td>*</td><td>No</td><td>333 B</td><td>0.0153</td><td>-</td><td>-</td><td>4408 B</td>
+</tr><tr><td>&#39;Creating Using Constructor.&#39;</td><td>100</td><td>22,778.1 ns</td><td>81.33 ns</td><td>67.91 ns</td><td>18.84 ns</td><td>22,650.1 ns</td><td>22,743.2 ns</td><td>22,785.1 ns</td><td>22,828.7 ns</td><td>22,878.4 ns</td><td>43,901.9</td><td>81.3260 ns</td><td>13.00</td><td>1.894</td><td>2.000</td><td>-0.1720</td><td>14</td><td>*</td><td>No</td><td>333 B</td><td>0.0305</td><td>-</td><td>-</td><td>9064 B</td>
+</tr><tr><td>&#39;Creating Using Constructor.&#39;</td><td>250</td><td>54,269.3 ns</td><td>270.39 ns</td><td>252.92 ns</td><td>65.30 ns</td><td>53,665.8 ns</td><td>54,152.8 ns</td><td>54,313.0 ns</td><td>54,401.1 ns</td><td>54,723.8 ns</td><td>18,426.6</td><td>270.3919 ns</td><td>15.00</td><td>3.146</td><td>2.000</td><td>-0.5553</td><td>16</td><td>*</td><td>No</td><td>333 B</td><td>0.0610</td><td>-</td><td>-</td><td>19288 B</td>
+</tr><tr><td>&#39;Creating Using Constructor.&#39;</td><td>500</td><td>109,562.7 ns</td><td>576.92 ns</td><td>539.65 ns</td><td>139.34 ns</td><td>108,596.1 ns</td><td>109,154.6 ns</td><td>109,635.0 ns</td><td>110,004.7 ns</td><td>110,220.4 ns</td><td>9,127.2</td><td>576.9176 ns</td><td>15.00</td><td>1.590</td><td>2.000</td><td>-0.4082</td><td>17</td><td>*</td><td>No</td><td>333 B</td><td>0.1221</td><td>-</td><td>-</td><td>40168 B</td>
+</tr><tr><td>&#39;Creating Using Constructor.&#39;</td><td>1000</td><td>220,008.5 ns</td><td>1,248.07 ns</td><td>1,167.45 ns</td><td>301.43 ns</td><td>217,986.0 ns</td><td>219,092.7 ns</td><td>220,299.6 ns</td><td>220,943.6 ns</td><td>221,454.8 ns</td><td>4,545.3</td><td>1,248.0704 ns</td><td>15.00</td><td>1.751</td><td>2.000</td><td>-0.4133</td><td>19</td><td>*</td><td>No</td><td>333 B</td><td>0.2441</td><td>-</td><td>-</td><td>83336 B</td>
+</tr><tr><td>&#39;Creating Using ForEach().&#39;</td><td>10</td><td>2,754.6 ns</td><td>20.89 ns</td><td>19.54 ns</td><td>5.04 ns</td><td>2,733.3 ns</td><td>2,737.4 ns</td><td>2,750.1 ns</td><td>2,770.6 ns</td><td>2,789.2 ns</td><td>363,026.1</td><td>20.8883 ns</td><td>15.00</td><td>1.623</td><td>2.000</td><td>0.5331</td><td>6</td><td>*</td><td>No</td><td>406 B</td><td>0.0038</td><td>-</td><td>-</td><td>1312 B</td>
+</tr><tr><td>&#39;Creating Using ForEach().&#39;</td><td>25</td><td>5,910.7 ns</td><td>55.41 ns</td><td>49.12 ns</td><td>13.13 ns</td><td>5,859.7 ns</td><td>5,879.2 ns</td><td>5,886.7 ns</td><td>5,932.6 ns</td><td>6,031.9 ns</td><td>169,184.5</td><td>55.4143 ns</td><td>14.00</td><td>3.159</td><td>2.000</td><td>1.1094</td><td>9</td><td>*</td><td>No</td><td>406 B</td><td>-</td><td>-</td><td>-</td><td>1978 B</td>
+</tr><tr><td>&#39;Creating Using ForEach().&#39;</td><td>50</td><td>11,268.4 ns</td><td>129.50 ns</td><td>121.13 ns</td><td>31.28 ns</td><td>11,139.6 ns</td><td>11,195.0 ns</td><td>11,217.4 ns</td><td>11,348.9 ns</td><td>11,551.9 ns</td><td>88,743.5</td><td>129.4984 ns</td><td>15.00</td><td>2.596</td><td>2.000</td><td>0.9355</td><td>11</td><td>*</td><td>No</td><td>406 B</td><td>0.0153</td><td>-</td><td>-</td><td>3976 B</td>
+</tr><tr><td>&#39;Creating Using ForEach().&#39;</td><td>100</td><td>21,692.6 ns</td><td>188.47 ns</td><td>157.38 ns</td><td>43.65 ns</td><td>21,458.3 ns</td><td>21,602.4 ns</td><td>21,646.7 ns</td><td>21,773.9 ns</td><td>22,017.9 ns</td><td>46,098.6</td><td>188.4723 ns</td><td>13.00</td><td>2.210</td><td>2.000</td><td>0.5490</td><td>13</td><td>*</td><td>No</td><td>406 B</td><td>0.0305</td><td>-</td><td>-</td><td>8232 B</td>
+</tr><tr><td>&#39;Creating Using ForEach().&#39;</td><td>250</td><td>53,283.2 ns</td><td>341.29 ns</td><td>266.46 ns</td><td>76.92 ns</td><td>52,804.3 ns</td><td>53,136.5 ns</td><td>53,282.3 ns</td><td>53,472.7 ns</td><td>53,638.3 ns</td><td>18,767.6</td><td>341.2940 ns</td><td>12.00</td><td>1.836</td><td>2.000</td><td>-0.2874</td><td>15</td><td>*</td><td>No</td><td>406 B</td><td>0.0610</td><td>-</td><td>-</td><td>17256 B</td>
+</tr><tr><td>&#39;Creating Using ForEach().&#39;</td><td>500</td><td>109,732.7 ns</td><td>1,305.18 ns</td><td>1,220.87 ns</td><td>315.23 ns</td><td>107,280.1 ns</td><td>109,269.9 ns</td><td>110,074.3 ns</td><td>110,525.0 ns</td><td>111,251.5 ns</td><td>9,113.1</td><td>1,305.1793 ns</td><td>15.00</td><td>2.410</td><td>2.000</td><td>-0.8025</td><td>17</td><td>*</td><td>No</td><td>406 B</td><td>0.1221</td><td>-</td><td>-</td><td>36136 B</td>
+</tr><tr><td>&#39;Creating Using ForEach().&#39;</td><td>1000</td><td>214,984.6 ns</td><td>1,188.11 ns</td><td>992.12 ns</td><td>275.17 ns</td><td>213,156.8 ns</td><td>214,179.0 ns</td><td>214,939.7 ns</td><td>215,323.4 ns</td><td>216,862.5 ns</td><td>4,651.5</td><td>1,188.1055 ns</td><td>13.00</td><td>2.383</td><td>2.000</td><td>0.1657</td><td>18</td><td>*</td><td>No</td><td>406 B</td><td>0.2441</td><td>-</td><td>-</td><td>75306 B</td>
+</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>10</td><td>154.0 ns</td><td>0.27 ns</td><td>0.25 ns</td><td>0.07 ns</td><td>153.7 ns</td><td>153.8 ns</td><td>153.9 ns</td><td>154.2 ns</td><td>154.5 ns</td><td>6,494,874.8</td><td>0.2696 ns</td><td>15.00</td><td>2.079</td><td>2.000</td><td>0.6694</td><td>1</td><td>*</td><td>No</td><td>729 B</td><td>0.0153</td><td>-</td><td>-</td><td>144 B</td>
+</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>25</td><td>294.3 ns</td><td>0.44 ns</td><td>0.42 ns</td><td>0.11 ns</td><td>293.5 ns</td><td>294.0 ns</td><td>294.3 ns</td><td>294.5 ns</td><td>294.9 ns</td><td>3,398,140.0</td><td>0.4437 ns</td><td>15.00</td><td>1.902</td><td>2.000</td><td>-0.2179</td><td>2</td><td>*</td><td>No</td><td>729 B</td><td>0.0281</td><td>-</td><td>-</td><td>264 B</td>
+</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>50</td><td>518.6 ns</td><td>0.48 ns</td><td>0.37 ns</td><td>0.11 ns</td><td>518.0 ns</td><td>518.3 ns</td><td>518.7 ns</td><td>518.8 ns</td><td>519.2 ns</td><td>1,928,247.3</td><td>0.4754 ns</td><td>12.00</td><td>1.796</td><td>2.000</td><td>0.0534</td><td>3</td><td>*</td><td>No</td><td>729 B</td><td>0.0486</td><td>-</td><td>-</td><td>464 B</td>
+</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>100</td><td>980.2 ns</td><td>1.50 ns</td><td>1.40 ns</td><td>0.36 ns</td><td>977.9 ns</td><td>979.1 ns</td><td>979.8 ns</td><td>981.2 ns</td><td>982.2 ns</td><td>1,020,247.6</td><td>1.4990 ns</td><td>15.00</td><td>1.482</td><td>2.000</td><td>-0.0240</td><td>4</td><td>*</td><td>No</td><td>729 B</td><td>0.0896</td><td>-</td><td>-</td><td>864 B</td>
+</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>250</td><td>2,366.7 ns</td><td>4.21 ns</td><td>3.94 ns</td><td>1.02 ns</td><td>2,360.5 ns</td><td>2,363.2 ns</td><td>2,367.7 ns</td><td>2,369.8 ns</td><td>2,372.4 ns</td><td>422,529.2</td><td>4.2072 ns</td><td>15.00</td><td>1.533</td><td>2.000</td><td>-0.2245</td><td>5</td><td>*</td><td>No</td><td>729 B</td><td>0.2213</td><td>-</td><td>-</td><td>2064 B</td>
+</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>500</td><td>4,564.4 ns</td><td>18.61 ns</td><td>15.54 ns</td><td>4.31 ns</td><td>4,542.5 ns</td><td>4,554.1 ns</td><td>4,561.8 ns</td><td>4,574.4 ns</td><td>4,593.4 ns</td><td>219,085.2</td><td>18.6061 ns</td><td>13.00</td><td>1.833</td><td>2.000</td><td>0.4085</td><td>8</td><td>*</td><td>No</td><td>729 B</td><td>0.4272</td><td>-</td><td>-</td><td>4064 B</td>
+</tr><tr><td>&#39;Looping with foreach().&#39;</td><td>1000</td><td>9,022.5 ns</td><td>19.53 ns</td><td>17.31 ns</td><td>4.63 ns</td><td>8,999.6 ns</td><td>9,011.5 ns</td><td>9,018.1 ns</td><td>9,026.3 ns</td><td>9,059.7 ns</td><td>110,833.8</td><td>19.5277 ns</td><td>14.00</td><td>2.454</td><td>2.000</td><td>0.7925</td><td>10</td><td>*</td><td>No</td><td>729 B</td><td>0.8545</td><td>-</td><td>-</td><td>8064 B</td>
 </tr></tbody></table>
 </body>
 </html>

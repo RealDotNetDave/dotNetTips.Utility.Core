@@ -13,6 +13,7 @@
 // ***********************************************************************
 
 using BenchmarkDotNet.Attributes;
+using dotNetTips.Utility.Benchmarks.Properties;
 using dotNetTips.Utility.Standard.Tester.Collections;
 using dotNetTips.Utility.Standard.Tester.Models;
 using dotNetTips.Utility.Standard.Xml;
@@ -28,7 +29,7 @@ namespace dotNetTips.Utility.Benchmarks.Xml
         [Benchmark(Description = nameof(XmlHelper.Deserialize))]
         public void Deserialize()
         {
-            var result = XmlHelper.Deserialize<PersonCollection<PersonProper>>(_xml);
+            var result = XmlHelper.Deserialize<PersonCollection<PersonProper>>(this._xml);
 
             base.Consumer.Consume(result);
         }
@@ -45,13 +46,13 @@ namespace dotNetTips.Utility.Benchmarks.Xml
         {
             base.Setup();
 
-            _xml = XmlHelper.Serialize(base.personProperCollection);
+            this._xml = XmlHelper.Serialize(base.personProperCollection);
         }
 
         [Benchmark(Description = nameof(XmlHelper.StringToXDocument))]
         public void StringToXDocument()
         {
-            var result = XmlHelper.StringToXDocument(Properties.Resources.XmlTestData);
+            var result = XmlHelper.StringToXDocument(Resources.XmlPersonTestData);
 
             base.Consumer.Consume(result);
         }

@@ -48,7 +48,7 @@ namespace dotNetTips.Utility.Standard.Extensions
             var hash = GetHash(input, hashType);
             var sb = new StringBuilder();
 
-            for (int i = 0; i <= hash.Length - 1; i++)
+            for (var i = 0; i <= hash.Length - 1; i++)
             {
                 sb.Append(hash[i].ToString("x2", CultureInfo.InvariantCulture));
             }
@@ -262,20 +262,6 @@ namespace dotNetTips.Utility.Standard.Extensions
                 var encoding = new ASCIIEncoding();
                 return encoding.GetString(Convert.FromBase64String(input));
             }
-        }
-
-        /// <summary>
-        /// Converts delimited string to list.
-        /// </summary>
-        /// <param name="delimitedInput">The string buffer.</param>
-        /// <param name="delimiter">The delimiter.</param>
-        /// <returns>IEnumerable&lt;System.String&gt;.</returns>
-        /// <exception cref="ArgumentException">delimitedInput.</exception>
-        /// <remarks>Code by: Blake Pell.</remarks>
-        [Obsolete("This method to be removed. Use instead DelimitedStringToArray.", true)]
-        public static IEnumerable<string> FromDelimitedString(this string delimitedInput, char delimiter = ',')
-        {
-            return delimitedInput.DelimitedStringToArray(delimiter).AsEnumerable();
         }
 
         /// <summary>
@@ -542,7 +528,7 @@ namespace dotNetTips.Utility.Standard.Extensions
             }
 
 
-            for (int i = 0; i < input.Length; i++)
+            for (var i = 0; i < input.Length; i++)
             {
                 if (!IsWhitespace(input[i]))
                 {
@@ -587,6 +573,23 @@ namespace dotNetTips.Utility.Standard.Extensions
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Removes the CR/LF from the end of a <see cref="string"/>.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="replacement">The replacement.</param>
+        /// <returns>System.String.</returns>
+        [Information(nameof(RemoveCRLF), "Kristine Tran", "2/1/2021", UnitTestCoverage = 0, Status = Status.New)]
+        public static string RemoveCRLF(this string input, string replacement = "")
+        {
+            if (input.IsNullOrEmpty())
+            {
+                return input;
+            }
+
+            return Regex.Replace(input, @"[\r\n]+", replacement, RegexOptions.IgnoreCase | RegexOptions.Compiled);
         }
 
         /// <summary>
@@ -792,7 +795,7 @@ namespace dotNetTips.Utility.Standard.Extensions
                 return string.Empty;
             }
 
-            int endIndex = startIndex + length - 1;
+            var endIndex = startIndex + length - 1;
 
             while (( startIndex <= endIndex ) && char.IsWhiteSpace(input[startIndex]))
             {
@@ -877,7 +880,7 @@ namespace dotNetTips.Utility.Standard.Extensions
         /// <returns>System.Byte[].</returns>
         private static byte[] GetHash(string input, HashType hash)
         {
-            byte[] inputBytes = Encoding.ASCII.GetBytes(input);
+            var inputBytes = Encoding.ASCII.GetBytes(input);
 
             switch (hash)
             {

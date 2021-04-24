@@ -1,0 +1,21 @@
+....
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
+Unknown processor
+.NET Core SDK=5.0.200-preview.21079.7
+  [Host]     : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+  Job-HTSMCU : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+
+EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.1  
+Namespace=dotNetTips.Utility.Benchmarks  Categories=App  
+....
+[options="header"]
+|===
+|                   Method|            Mean|           Error|          StdDev|         StdErr|             Min|              Q1|          Median|              Q3|             Max|           Op/s|  CI99.9% Margin|  Iterations|  Kurtosis|  MValue|  Skewness|  Rank|  LogicalGroup|  Baseline|  Code Size|    Gen 0|   Gen 1|  Gen 2|  Allocated
+|  GetEnvironmentVariables|   21,091.122 ns|     217.0872 ns|     192.4421 ns|     51.4323 ns|   20,936.536 ns|   20,962.249 ns|   21,012.613 ns|   21,095.699 ns|   21,483.514 ns|       47,413.3|     217.0872 ns|       14.00|     2.640|   2.000|    1.1428|     3|             *|        No|      614 B|   1.4038|  0.0305|      -|    13216 B
+|         IsProcessRunning|  269,610.976 ns|   3,201.3650 ns|   2,837.9267 ns|    758.4678 ns|  265,899.170 ns|  266,748.572 ns|  269,555.908 ns|  271,934.888 ns|  274,064.111 ns|        3,709.0|   3,201.3650 ns|       14.00|     1.490|   2.000|    0.0016|     6|             *|        No|      155 B|  10.7422|  0.9766|      -|   105915 B
+|                IsRunning|  511,332.753 ns|  10,085.4656 ns|  17,125.8860 ns|  2,815.4783 ns|  459,036.865 ns|  501,542.432 ns|  511,919.482 ns|  527,811.377 ns|  534,778.369 ns|        1,955.7|  10,085.4656 ns|       37.00|     3.373|   2.000|   -0.6963|     7|             *|        No|       98 B|  11.7188|  0.9766|      -|   111075 B
+|      IsRunningFromAspNet|        1.306 ns|       0.0044 ns|       0.0039 ns|      0.0010 ns|        1.299 ns|        1.302 ns|        1.306 ns|        1.308 ns|        1.312 ns|  765,863,308.1|       0.0044 ns|       14.00|     1.678|   2.000|   -0.0882|     1|             *|        No|       44 B|        -|       -|      -|          -
+|     ReferencedAssemblies|   78,851.163 ns|     111.6589 ns|      93.2402 ns|     25.8602 ns|   78,735.297 ns|   78,776.007 ns|   78,826.385 ns|   78,885.028 ns|   79,007.562 ns|       12,682.1|     111.6589 ns|       13.00|     1.746|   2.000|    0.4794|     5|             *|        No|      323 B|   3.4180|       -|      -|    32424 B
+|               StackTrace|   69,614.257 ns|     226.5368 ns|     200.8189 ns|     53.6711 ns|   69,370.776 ns|   69,460.794 ns|   69,580.939 ns|   69,697.778 ns|   70,039.783 ns|       14,364.9|     226.5368 ns|       14.00|     2.211|   2.000|    0.6605|     4|             *|        No|       97 B|   2.1973|       -|      -|    21151 B
+|               WorkingSet|      171.374 ns|       2.2142 ns|       2.0712 ns|      0.5348 ns|      168.935 ns|      169.516 ns|      170.489 ns|      173.291 ns|      174.339 ns|    5,835,184.4|       2.2142 ns|       15.00|     1.068|   2.000|    0.0698|     2|             *|        No|      272 B|        -|       -|      -|          -
+|===

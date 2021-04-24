@@ -39,16 +39,6 @@ namespace dotNetTips.Utility.Standard.Extensions.Tests
         }
 
         [TestMethod]
-        public void ComputeMD5HashTest()
-        {
-            var testValue = RandomData.GenerateWord(10);
-
-#pragma warning disable CS0618 // Type or member is obsolete
-            Assert.IsTrue(string.IsNullOrEmpty(testValue.ComputeMD5Hash()) == false);
-#pragma warning restore CS0618 // Type or member is obsolete
-        }
-
-        [TestMethod]
         public void ComputeSha256HashTest()
         {
             var testValue = RandomData.GenerateWord(10);

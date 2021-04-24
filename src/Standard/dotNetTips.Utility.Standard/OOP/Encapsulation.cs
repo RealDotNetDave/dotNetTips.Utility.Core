@@ -357,7 +357,7 @@ namespace dotNetTips.Utility.Standard.OOP
         /// <param name="maximumValue">The maximum value.</param>
         /// <param name="paramName">Name of the parameter.</param>
         /// <param name="message">The error message.</param>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException">Value is out of range.</exception>
         public static void TryValidateParam(int value, int minimumValue = int.MinValue, int maximumValue = int.MaxValue, string paramName = "", string message = "")
         {
             if (value.IsInRange(minimumValue, maximumValue) == false)

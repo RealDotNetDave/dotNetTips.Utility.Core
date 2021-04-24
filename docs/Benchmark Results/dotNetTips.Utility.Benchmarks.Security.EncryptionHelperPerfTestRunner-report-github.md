@@ -1,16 +1,15 @@
 ``` ini
 
-BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.572 (2004/?/20H1)
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
 Unknown processor
-.NET Core SDK=5.0.100-rc.2.20479.15
-  [Host]     : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
-  Job-TZRVGS : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
+.NET Core SDK=5.0.200-preview.21079.7
+  [Host]     : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+  Job-HTSMCU : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
 
 EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.1  
-Categories=EncryptionHelper  
+Namespace=dotNetTips.Utility.Benchmarks.Security  Categories=EncryptionHelper  
 
 ```
-|             Method |     Mean |     Error |    StdDev |  Gen 0 |  Gen 1 | Gen 2 | Allocated |
-|------------------- |---------:|----------:|----------:|-------:|-------:|------:|----------:|
-|      **AesEncryption** | **8.210 μs** | **0.0952 μs** | **0.0890 μs** | **2.0142** |      **-** |     **-** |  **18.84 KB** |
-| **RijndaelEncryption** | **8.199 μs** | **0.0328 μs** | **0.0274 μs** | **2.0447** | **0.0153** |     **-** |  **19.03 KB** |
+|        Method |     Mean |     Error |    StdDev |    StdErr |      Min |       Q1 |   Median |       Q3 |      Max |      Op/s | CI99.9% Margin | Iterations | Kurtosis | MValue | Skewness | Rank | LogicalGroup | Baseline | Code Size |  Gen 0 |  Gen 1 | Gen 2 | Allocated |
+|-------------- |---------:|----------:|----------:|----------:|---------:|---------:|---------:|---------:|---------:|----------:|---------------:|-----------:|---------:|-------:|---------:|-----:|------------- |--------- |----------:|-------:|-------:|------:|----------:|
+| AesEncryption | 8.341 μs | 0.0556 μs | 0.0434 μs | 0.0125 μs | 8.274 μs | 8.306 μs | 8.358 μs | 8.372 μs | 8.404 μs | 119,896.4 |      0.0556 μs |      12.00 |    1.493 |  2.000 |  -0.2487 |    1 |            * |       No |   2.62 KB | 2.0294 | 0.0153 |     - |  18.84 KB |

@@ -3,7 +3,7 @@
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <AssemblyName>dotNetTips.Utility.Standard.Extensions</AssemblyName>
     <AssemblyOriginatorKeyFile>dotNetTips.com.pfx</AssemblyOriginatorKeyFile>
-    <AssemblyVersion>2021.1.26.34842</AssemblyVersion>
+    <AssemblyVersion>2021.2.24.34850</AssemblyVersion>
     <Authors>David McCarter</Authors>
     <Company>David McCarter -  dotNetTips.com</Company>
     <Configurations>Debug;Release;Full Build</Configurations>
@@ -15,7 +15,7 @@
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Extensions.xml</DocumentationFile>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <FileVersion>2021.1.26.34842</FileVersion>
+    <FileVersion>2021.2.24.34850</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable> 
@@ -33,7 +33,7 @@
     <SignAssembly>false</SignAssembly>
     <TargetFramework>netstandard2.0</TargetFramework>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <Version>2021.1.26.1</Version>
+    <Version>2021.3.1.1</Version>
     <PackageReleaseNotes>
       -- SEP 2019: Added types HttpContextExtensions, HttpContextExtensions and LINQExtensions. Added new methods and code cleanup.
       -- JUN 2019 (QUARTERLY RELEASE): Code cleanup.
@@ -46,6 +46,7 @@
       -- NOV 2020 (QUARTERLY RELEASE):Added DataContextExtensions, DataReaderExtensions, DataTableExtensions. Added new methods in DateTimeExtensions, DirectoryInfoExtensions, NumberExtensions, StringExtennsions. Code cleanup. Added more unit tests.
       -- NOV 19, 2020: Minor update.
       -- FEB 2021 (QUARTERLY RELEASE): 12 new methods. Code cleanup.
+      -- FEB 5, 2021: Minor fixes.
     </PackageReleaseNotes>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -68,9 +69,9 @@
     <Compile Remove="DataServiceExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="linq2db" Version="3.1.6" />
+    <PackageReference Include="linq2db" Version="3.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.1">
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -85,7 +86,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

@@ -12,30 +12,54 @@
 // <summary></summary>
 // ***********************************************************************
 using System;
+using System.Diagnostics;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Engines;
 using BenchmarkDotNet.Loggers;
 using BenchmarkDotNet.Order;
+using static BenchmarkDotNet.Attributes.JsonExporterAttribute;
 using static BenchmarkDotNet.Attributes.MarkdownExporterAttribute;
 
 namespace dotNetTips.Utility.Benchmarks
 {
     /// <summary>
     /// Class PerfTest.
-    /// Implements the <see cref="Object" />
+    /// Implements the <see cref="object" />
     /// </summary>
-    /// <seealso cref="Object" />
+    /// <seealso cref="object" />
+	[AllStatisticsColumn]
+    [AsciiDocExporter]
+    [Atlassian]
+    [BaselineColumn]
     [CategoriesColumn]
+    [ConfidenceIntervalErrorColumn]
     [CsvExporter]
+    [CsvMeasurementsExporter]
+    [Default]
+    [DisassemblyDiagnoser(printSource: true, exportGithubMarkdown: true, exportCombinedDisassemblyReport: true, exportDiff: true)]
     [EvaluateOverhead]
+    [Full]
     [GcServer(true)]
     [GitHub]
     [HtmlExporter]
-    //[JsonExporter("Core.Utility.Benchmark")]
+    //[InProcessAttribute()]
+    [IterationsColumn]
+    [JsonExporter(indentJson: true)]
+    [KurtosisColumn]
+    [LogicalGroupColumn]
     [MarkdownExporter]
+    [MaxColumn]
     [MemoryDiagnoser]
+    [MinColumn]
+    [MValueColumn]
+    [NamespaceColumn]
     [Orderer(SummaryOrderPolicy.Method)]
-    [StopOnFirstError]
+    [PlainExporter]
+    [RankColumn]
+    [RPlotExporter]
+    [SkewnessColumn]
+    [StackOverflow]
+    [StatisticalTestColumn(Perfolizer.Mathematics.SignificanceTesting.StatisticalTestKind.Welch, showPValues: true)]
     public abstract class PerfTestRunner
     {
 
@@ -156,10 +180,10 @@ namespace dotNetTips.Utility.Benchmarks
         /// <summary>
         /// Setups this instance.
         /// </summary>
-        /// TODO Edit XML Comment Template for Setup
         public virtual void Setup()
         {
-            // BenchmarkDotNet.Loggers.ConsoleLogger.Default.WriteLine(BenchmarkDotNet.Loggers.LogKind.Info, $"TEST {HostEnvironmentInfo.GetInformation()}.");
+            // TURN ON/OFF DEGUGGER
+            //Debugger.Launch();
             ConsoleLogger.Default.WriteLine(LogKind.Info, $"Init() - {this.GetType().FullName}.");
         }
 

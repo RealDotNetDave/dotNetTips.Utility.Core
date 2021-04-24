@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using System.Data;
 using BenchmarkDotNet.Attributes;
 using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.Tester;
@@ -24,14 +25,6 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         private string _peopleJson;
 
         private PersonProper _person;
-
-        public override void Setup()
-        {
-            base.Setup();
-
-            this._person = RandomData.GeneratePerson<PersonProper>();
-            this._peopleJson = this._person.ToJson();
-        }
 
         [Benchmark(Description = nameof(ObjectExtensions.As))]
         public void As()
@@ -49,14 +42,6 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
             base.Consumer.Consume(result);
         }
 
-        [Benchmark(Description = nameof(ObjectExtensions.ComputeMD5Hash))]
-        public void ComputeMD5Hash()
-        {
-            var result = this._person.ComputeMD5Hash();
-
-            base.Consumer.Consume(result);
-        }
-
         [Benchmark(Description = nameof(ObjectExtensions.ComputeSha256Hash))]
         public void ComputeSha256Hash()
         {
@@ -68,7 +53,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(ObjectExtensions.DisposeFields))]
         public void DisposeFields()
         {
-            System.Data.DataTable disposableType = new System.Data.DataTable("TEST");
+            DataTable disposableType = new DataTable("TEST");
 
             disposableType.DisposeFields();
         }
@@ -105,6 +90,14 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
             base.Consumer.Consume(result);
         }
 
+        public override void Setup()
+        {
+            base.Setup();
+
+            this._person = RandomData.GeneratePerson<PersonProper>();
+            this._peopleJson = this._person.ToJson();
+        }
+
         [Benchmark(Description = nameof(ObjectExtensions.StripNull))]
         public void StripNull()
         {
@@ -124,7 +117,7 @@ namespace dotNetTips.Utility.Benchmarks.Extensions
         [Benchmark(Description = nameof(ObjectExtensions.TryDispose))]
         public void TryDispose()
         {
-            System.Data.DataTable disposableType = new System.Data.DataTable("TEST");
+            DataTable disposableType = new DataTable("TEST");
 
             disposableType.TryDispose();
         }

@@ -1,16 +1,16 @@
 
-BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.572 (2004/?/20H1)
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
 Unknown processor
-.NET Core SDK=5.0.100-rc.2.20479.15
-  [Host]     : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
-  Job-TZRVGS : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
+.NET Core SDK=5.0.200-preview.21079.7
+  [Host]     : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+  Job-HTSMCU : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
 
 EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.1  
-Categories=SecurityHelper,String,Security  
+Namespace=dotNetTips.Utility.Benchmarks.Security  Categories=SecurityHelper,String,Security  
 
-                   Method |         Mean |     Error |    StdDev |  Ratio | RatioSD |  Gen 0 | Gen 1 | Gen 2 | Allocated |
-------------------------- |-------------:|----------:|----------:|-------:|--------:|-------:|------:|------:|----------:|
-     **CompareSecureStrings** | **138,186.5 ns** | **306.98 ns** | **256.34 ns** | **289.86** |    **4.17** |      **-** |     **-** |     **-** |     **656 B** |
-         **LoadSecureString** |  **65,829.1 ns** | **237.97 ns** | **222.60 ns** | **137.76** |    **2.08** |      **-** |     **-** |     **-** |     **256 B** |
- **'Read String Characters'** |     **478.0 ns** |   **7.77 ns** |   **7.27 ns** |   **1.00** |    **0.00** | **0.1717** |     **-** |     **-** |    **1632 B** |
-         **ReadSecureString** |  **70,652.3 ns** | **400.67 ns** | **355.18 ns** | **148.01** |    **2.17** |      **-** |     **-** |     **-** |     **328 B** |
+                   Method |         Mean |       Error |      StdDev |    StdErr |       Median |          Min |           Q1 |           Q3 |          Max |        Op/s | CI99.9% Margin | Iterations | Kurtosis | MValue | Skewness |  Ratio | RatioSD |   Welch(10%)/p-values | Rank |                                                            LogicalGroup | Baseline | Code Size |  Gen 0 | Gen 1 | Gen 2 | Allocated |
+------------------------- |-------------:|------------:|------------:|----------:|-------------:|-------------:|-------------:|-------------:|-------------:|------------:|---------------:|-----------:|---------:|-------:|---------:|-------:|--------:|---------------------- |-----:|------------------------------------------------------------------------ |--------- |----------:|-------:|------:|------:|----------:|
+     **CompareSecureStrings** | **138,496.4 ns** | **2,675.28 ns** | **4,165.09 ns** | **736.29 ns** | **135,966.0 ns** | **135,552.2 ns** | **135,864.6 ns** | **139,568.2 ns** | **147,095.9 ns** |     **7,220.4** |   **2,675.282 ns** |      **32.00** |    **2.564** |  **2.000** |   **1.1531** | **270.85** |    **8.37** | **Slower: 0.0000|1.0000** |    **4** | **Job-HTSMCU(EvaluateOverhead=True, Server=True, Toolchain=.NET Core 3.1)** |       **No** |     **371 B** |      **-** |     **-** |     **-** |     **656 B** |
+         **LoadSecureString** |  **65,345.3 ns** |   **205.87 ns** |   **171.91 ns** |  **47.68 ns** |  **65,288.4 ns** |  **65,131.1 ns** |  **65,220.3 ns** |  **65,495.0 ns** |  **65,643.9 ns** |    **15,303.3** |     **205.869 ns** |      **13.00** |    **1.611** |  **2.000** |   **0.4792** | **124.40** |    **0.48** | **Slower: 0.0000|1.0000** |    **2** | **Job-HTSMCU(EvaluateOverhead=True, Server=True, Toolchain=.NET Core 3.1)** |       **No** |     **116 B** |      **-** |     **-** |     **-** |     **256 B** |
+ **'Read String Characters'** |     **525.3 ns** |     **1.37 ns** |     **1.15 ns** |   **0.32 ns** |     **525.2 ns** |     **523.4 ns** |     **524.5 ns** |     **525.9 ns** |     **527.3 ns** | **1,903,755.1** |       **1.372 ns** |      **13.00** |    **1.834** |  **2.000** |   **0.1314** |   **1.00** |    **0.00** |             **Base: ?|?** |    **1** | **Job-HTSMCU(EvaluateOverhead=True, Server=True, Toolchain=.NET Core 3.1)** |      **Yes** |     **428 B** | **0.1726** |     **-** |     **-** |    **1632 B** |
+         **ReadSecureString** |  **68,349.4 ns** |   **224.75 ns** |   **210.23 ns** |  **54.28 ns** |  **68,369.0 ns** |  **67,974.5 ns** |  **68,213.2 ns** |  **68,429.0 ns** |  **68,733.4 ns** |    **14,630.7** |     **224.748 ns** |      **15.00** |    **2.150** |  **2.000** |   **0.1747** | **130.17** |    **0.39** | **Slower: 0.0000|1.0000** |    **3** | **Job-HTSMCU(EvaluateOverhead=True, Server=True, Toolchain=.NET Core 3.1)** |       **No** |     **261 B** |      **-** |     **-** |     **-** |     **328 B** |

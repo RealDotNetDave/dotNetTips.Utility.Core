@@ -1,0 +1,4551 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>DisassemblyDiagnoser Output dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner-20210228-140528</title>
+
+<style type="text/css">
+    table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+    td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: left; }
+    tr { background-color: #fff; border-top: 1px solid #ccc; }
+    tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<table>
+<thead>
+<tr><th colspan="7">FastSortedListPerfTestRunner.'Creating Using Constructor'</th></tr>
+<tr>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Creating01()
+            var people = new FastSortedList<PersonProper>(base.personProperCollection);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.Consumer.Consume(people);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rdi
+push      rsi
+sub       rsp,28
+mov       rsi,rcx
+mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.FastSortedList`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rdx,[rsi+58]
+mov       rcx,rdi
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
+mov       rcx,[rsi+8]
+mov       edx,[rcx]
+add       rcx,10
+mov       rdx,rdi
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,28
+pop       rsi
+pop       rdi
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
+push      rbp
+push      r15
+push      r14
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,38
+lea       rbp,[rsp+60]
+mov       [rbp+0FFC0],rsp
+mov       [rbp+0FFD0],rcx
+mov       [rbp+10],rcx
+mov       rsi,rdx
+test      rsi,rsi
+je        near ptr 00007FFF60C06509
+mov       rcx,[rbp+10]
+mov       rdi,[rcx]
+mov       rcx,rdi
+mov       rdx,[rcx+30]
+mov       rbx,[rdx]
+mov       rax,[rbx+8]
+test      rax,rax
+jne       short 00007FFF60C062E2
+mov       rdx,7FFF60CAE758
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+mov       rdx,rsi
+call      CORINFO_HELP_ISINSTANCEOFINTERFACE
+mov       r14,rax
+test      r14,r14
+je        near ptr 00007FFF60C063E4
+mov       rcx,rdi
+mov       r11,[rbx+28]
+test      r11,r11
+jne       short 00007FFF60C06317
+mov       rdx,7FFF60CAE7A8
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,r14
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       esi,eax
+test      esi,esi
+jne       short 00007FFF60C06366
+mov       rcx,rdi
+mov       rax,[rbx+10]
+test      rax,rax
+jne       short 00007FFF60C06340
+mov       rdx,7FFF60CAE768
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+call      CORINFO_HELP_GETGENERICS_GCSTATIC_BASE
+mov       rdx,[rax]
+mov       rcx,[rbp+10]
+lea       rcx,[rcx+8]
+call      CORINFO_HELP_ASSIGN_REF
+nop
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       rcx,rdi
+mov       rax,[rbx+30]
+test      rax,rax
+jne       short 00007FFF60C06381
+mov       rdx,7FFF60CAE7C0
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+movsxd    rdx,esi
+mov       rcx,rax
+call      CORINFO_HELP_NEWARR_1_OBJ
+mov       rdx,[rbp+10]
+lea       rcx,[rdx+8]
+mov       rdx,rax
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,[rbp+10]
+mov       r15,[rcx+8]
+mov       rcx,rdi
+mov       r11,[rbx+38]
+test      r11,r11
+jne       short 00007FFF60C063C2
+mov       rdx,7FFF60CAE7D0
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,r14
+mov       rdx,r15
+xor       r8d,r8d
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       rcx,[rbp+10]
+mov       [rcx+10],esi
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       rcx,[rbp+10]
+xor       edx,edx
+mov       [rcx+10],edx
+mov       rcx,rdi
+mov       rax,[rbx+10]
+test      rax,rax
+jne       short 00007FFF60C06408
+mov       rdx,7FFF60CAE768
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+call      CORINFO_HELP_GETGENERICS_GCSTATIC_BASE
+mov       rdx,[rax]
+mov       rcx,[rbp+10]
+lea       rcx,[rcx+8]
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,rdi
+mov       r11,[rbx+18]
+test      r11,r11
+jne       short 00007FFF60C0643E
+mov       rdx,7FFF60CAE778
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,rsi
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       [rbp+0FFC8],rax
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800590
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C10590]
+test      eax,eax
+je        near ptr 00007FFF60C064E5
+mov       rcx,rdi
+mov       r11,[rbx+20]
+test      r11,r11
+jne       short 00007FFF60C06486
+mov       rdx,7FFF60CAE790
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,[rbp+0FFC8]
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       r8,rax
+mov       rcx,[rbp+10]
+inc       dword ptr [rcx+14]
+mov       rcx,[rbp+10]
+mov       rcx,[rcx+8]
+mov       rdx,[rbp+10]
+mov       edx,[rdx+10]
+cmp       [rcx+8],edx
+jbe       short 00007FFF60C064BF
+lea       eax,[rdx+1]
+mov       r9,[rbp+10]
+mov       [r9+10],eax
+call      CORINFO_HELP_ARRADDR_ST
+jmp       short 00007FFF60C064CB
+mov       rcx,[rbp+10]
+mov       rdx,r8
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800590
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C10590]
+test      eax,eax
+jne       short 00007FFF60C06468
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800598
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C10598]
+nop
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       ecx,17
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+push      rbp
+push      r15
+push      r14
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,28
+mov       rbp,[rcx+20]
+mov       [rsp+20],rbp
+lea       rbp,[rbp+60]
+cmp       qword ptr [rbp+0FFC8],0
+je        short 00007FFF60C0654A
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800598
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C10598]
+nop
+add       rsp,28
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Creating01()
+            var people = new FastSortedList<PersonProper>(base.personProperCollection);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.Consumer.Consume(people);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rdi
+push      rsi
+sub       rsp,28
+mov       rsi,rcx
+mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.FastSortedList`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rdx,[rsi+58]
+mov       rcx,rdi
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
+mov       rcx,[rsi+8]
+mov       edx,[rcx]
+add       rcx,10
+mov       rdx,rdi
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,28
+pop       rsi
+pop       rdi
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
+push      rbp
+push      r15
+push      r14
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,38
+lea       rbp,[rsp+60]
+mov       [rbp+0FFC0],rsp
+mov       [rbp+0FFD0],rcx
+mov       [rbp+10],rcx
+mov       rsi,rdx
+test      rsi,rsi
+je        near ptr 00007FFF60C26519
+mov       rcx,[rbp+10]
+mov       rdi,[rcx]
+mov       rcx,rdi
+mov       rdx,[rcx+30]
+mov       rbx,[rdx]
+mov       rax,[rbx+8]
+test      rax,rax
+jne       short 00007FFF60C262F2
+mov       rdx,7FFF60CCE800
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+mov       rdx,rsi
+call      CORINFO_HELP_ISINSTANCEOFINTERFACE
+mov       r14,rax
+test      r14,r14
+je        near ptr 00007FFF60C263F4
+mov       rcx,rdi
+mov       r11,[rbx+28]
+test      r11,r11
+jne       short 00007FFF60C26327
+mov       rdx,7FFF60CCE850
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,r14
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       esi,eax
+test      esi,esi
+jne       short 00007FFF60C26376
+mov       rcx,rdi
+mov       rax,[rbx+10]
+test      rax,rax
+jne       short 00007FFF60C26350
+mov       rdx,7FFF60CCE810
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+call      CORINFO_HELP_GETGENERICS_GCSTATIC_BASE
+mov       rdx,[rax]
+mov       rcx,[rbp+10]
+lea       rcx,[rcx+8]
+call      CORINFO_HELP_ASSIGN_REF
+nop
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       rcx,rdi
+mov       rax,[rbx+30]
+test      rax,rax
+jne       short 00007FFF60C26391
+mov       rdx,7FFF60CCE868
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+movsxd    rdx,esi
+mov       rcx,rax
+call      CORINFO_HELP_NEWARR_1_OBJ
+mov       rdx,[rbp+10]
+lea       rcx,[rdx+8]
+mov       rdx,rax
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,[rbp+10]
+mov       r15,[rcx+8]
+mov       rcx,rdi
+mov       r11,[rbx+38]
+test      r11,r11
+jne       short 00007FFF60C263D2
+mov       rdx,7FFF60CCE878
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,r14
+mov       rdx,r15
+xor       r8d,r8d
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       rcx,[rbp+10]
+mov       [rcx+10],esi
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       rcx,[rbp+10]
+xor       edx,edx
+mov       [rcx+10],edx
+mov       rcx,rdi
+mov       rax,[rbx+10]
+test      rax,rax
+jne       short 00007FFF60C26418
+mov       rdx,7FFF60CCE810
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+call      CORINFO_HELP_GETGENERICS_GCSTATIC_BASE
+mov       rdx,[rax]
+mov       rcx,[rbp+10]
+lea       rcx,[rcx+8]
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,rdi
+mov       r11,[rbx+18]
+test      r11,r11
+jne       short 00007FFF60C2644E
+mov       rdx,7FFF60CCE820
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,rsi
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       [rbp+0FFC8],rax
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60820590
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C30590]
+test      eax,eax
+je        near ptr 00007FFF60C264F5
+mov       rcx,rdi
+mov       r11,[rbx+20]
+test      r11,r11
+jne       short 00007FFF60C26496
+mov       rdx,7FFF60CCE838
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,[rbp+0FFC8]
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       r8,rax
+mov       rcx,[rbp+10]
+inc       dword ptr [rcx+14]
+mov       rcx,[rbp+10]
+mov       rcx,[rcx+8]
+mov       rdx,[rbp+10]
+mov       edx,[rdx+10]
+cmp       [rcx+8],edx
+jbe       short 00007FFF60C264CF
+lea       eax,[rdx+1]
+mov       r9,[rbp+10]
+mov       [r9+10],eax
+call      CORINFO_HELP_ARRADDR_ST
+jmp       short 00007FFF60C264DB
+mov       rcx,[rbp+10]
+mov       rdx,r8
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60820590
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C30590]
+test      eax,eax
+jne       short 00007FFF60C26478
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60820598
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C30598]
+nop
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       ecx,17
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+push      rbp
+push      r15
+push      r14
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,28
+mov       rbp,[rcx+20]
+mov       [rsp+20],rbp
+lea       rbp,[rbp+60]
+cmp       qword ptr [rbp+0FFC8],0
+je        short 00007FFF60C2655A
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60820598
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C30598]
+nop
+add       rsp,28
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Creating01()
+            var people = new FastSortedList<PersonProper>(base.personProperCollection);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.Consumer.Consume(people);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rdi
+push      rsi
+sub       rsp,28
+mov       rsi,rcx
+mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.FastSortedList`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rdx,[rsi+58]
+mov       rcx,rdi
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
+mov       rcx,[rsi+8]
+mov       edx,[rcx]
+add       rcx,10
+mov       rdx,rdi
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,28
+pop       rsi
+pop       rdi
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
+push      rbp
+push      r15
+push      r14
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,38
+lea       rbp,[rsp+60]
+mov       [rbp+0FFC0],rsp
+mov       [rbp+0FFD0],rcx
+mov       [rbp+10],rcx
+mov       rsi,rdx
+test      rsi,rsi
+je        near ptr 00007FFF60C066A9
+mov       rcx,[rbp+10]
+mov       rdi,[rcx]
+mov       rcx,rdi
+mov       rdx,[rcx+30]
+mov       rbx,[rdx]
+mov       rax,[rbx+8]
+test      rax,rax
+jne       short 00007FFF60C06482
+mov       rdx,7FFF60CAEA90
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+mov       rdx,rsi
+call      CORINFO_HELP_ISINSTANCEOFINTERFACE
+mov       r14,rax
+test      r14,r14
+je        near ptr 00007FFF60C06584
+mov       rcx,rdi
+mov       r11,[rbx+28]
+test      r11,r11
+jne       short 00007FFF60C064B7
+mov       rdx,7FFF60CAEAE0
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,r14
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       esi,eax
+test      esi,esi
+jne       short 00007FFF60C06506
+mov       rcx,rdi
+mov       rax,[rbx+10]
+test      rax,rax
+jne       short 00007FFF60C064E0
+mov       rdx,7FFF60CAEAA0
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+call      CORINFO_HELP_GETGENERICS_GCSTATIC_BASE
+mov       rdx,[rax]
+mov       rcx,[rbp+10]
+lea       rcx,[rcx+8]
+call      CORINFO_HELP_ASSIGN_REF
+nop
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       rcx,rdi
+mov       rax,[rbx+30]
+test      rax,rax
+jne       short 00007FFF60C06521
+mov       rdx,7FFF60CAEAF8
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+movsxd    rdx,esi
+mov       rcx,rax
+call      CORINFO_HELP_NEWARR_1_OBJ
+mov       rdx,[rbp+10]
+lea       rcx,[rdx+8]
+mov       rdx,rax
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,[rbp+10]
+mov       r15,[rcx+8]
+mov       rcx,rdi
+mov       r11,[rbx+38]
+test      r11,r11
+jne       short 00007FFF60C06562
+mov       rdx,7FFF60CAEB08
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,r14
+mov       rdx,r15
+xor       r8d,r8d
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       rcx,[rbp+10]
+mov       [rcx+10],esi
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       rcx,[rbp+10]
+xor       edx,edx
+mov       [rcx+10],edx
+mov       rcx,rdi
+mov       rax,[rbx+10]
+test      rax,rax
+jne       short 00007FFF60C065A8
+mov       rdx,7FFF60CAEAA0
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+call      CORINFO_HELP_GETGENERICS_GCSTATIC_BASE
+mov       rdx,[rax]
+mov       rcx,[rbp+10]
+lea       rcx,[rcx+8]
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,rdi
+mov       r11,[rbx+18]
+test      r11,r11
+jne       short 00007FFF60C065DE
+mov       rdx,7FFF60CAEAB0
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,rsi
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       [rbp+0FFC8],rax
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800590
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C10590]
+test      eax,eax
+je        near ptr 00007FFF60C06685
+mov       rcx,rdi
+mov       r11,[rbx+20]
+test      r11,r11
+jne       short 00007FFF60C06626
+mov       rdx,7FFF60CAEAC8
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,[rbp+0FFC8]
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       r8,rax
+mov       rcx,[rbp+10]
+inc       dword ptr [rcx+14]
+mov       rcx,[rbp+10]
+mov       rcx,[rcx+8]
+mov       rdx,[rbp+10]
+mov       edx,[rdx+10]
+cmp       [rcx+8],edx
+jbe       short 00007FFF60C0665F
+lea       eax,[rdx+1]
+mov       r9,[rbp+10]
+mov       [r9+10],eax
+call      CORINFO_HELP_ARRADDR_ST
+jmp       short 00007FFF60C0666B
+mov       rcx,[rbp+10]
+mov       rdx,r8
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800590
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C10590]
+test      eax,eax
+jne       short 00007FFF60C06608
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800598
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C10598]
+nop
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       ecx,17
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+push      rbp
+push      r15
+push      r14
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,28
+mov       rbp,[rcx+20]
+mov       [rsp+20],rbp
+lea       rbp,[rbp+60]
+cmp       qword ptr [rbp+0FFC8],0
+je        short 00007FFF60C066EA
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800598
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C10598]
+nop
+add       rsp,28
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Creating01()
+            var people = new FastSortedList<PersonProper>(base.personProperCollection);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.Consumer.Consume(people);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rdi
+push      rsi
+sub       rsp,28
+mov       rsi,rcx
+mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.FastSortedList`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rdx,[rsi+58]
+mov       rcx,rdi
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
+mov       rcx,[rsi+8]
+mov       edx,[rcx]
+add       rcx,10
+mov       rdx,rdi
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,28
+pop       rsi
+pop       rdi
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
+push      rbp
+push      r15
+push      r14
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,38
+lea       rbp,[rsp+60]
+mov       [rbp+0FFC0],rsp
+mov       [rbp+0FFD0],rcx
+mov       [rbp+10],rcx
+mov       rsi,rdx
+test      rsi,rsi
+je        near ptr 00007FFF60C16699
+mov       rcx,[rbp+10]
+mov       rdi,[rcx]
+mov       rcx,rdi
+mov       rdx,[rcx+30]
+mov       rbx,[rdx]
+mov       rax,[rbx+8]
+test      rax,rax
+jne       short 00007FFF60C16472
+mov       rdx,7FFF60CBEA90
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+mov       rdx,rsi
+call      CORINFO_HELP_ISINSTANCEOFINTERFACE
+mov       r14,rax
+test      r14,r14
+je        near ptr 00007FFF60C16574
+mov       rcx,rdi
+mov       r11,[rbx+28]
+test      r11,r11
+jne       short 00007FFF60C164A7
+mov       rdx,7FFF60CBEAE0
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,r14
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       esi,eax
+test      esi,esi
+jne       short 00007FFF60C164F6
+mov       rcx,rdi
+mov       rax,[rbx+10]
+test      rax,rax
+jne       short 00007FFF60C164D0
+mov       rdx,7FFF60CBEAA0
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+call      CORINFO_HELP_GETGENERICS_GCSTATIC_BASE
+mov       rdx,[rax]
+mov       rcx,[rbp+10]
+lea       rcx,[rcx+8]
+call      CORINFO_HELP_ASSIGN_REF
+nop
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       rcx,rdi
+mov       rax,[rbx+30]
+test      rax,rax
+jne       short 00007FFF60C16511
+mov       rdx,7FFF60CBEAF8
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+movsxd    rdx,esi
+mov       rcx,rax
+call      CORINFO_HELP_NEWARR_1_OBJ
+mov       rdx,[rbp+10]
+lea       rcx,[rdx+8]
+mov       rdx,rax
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,[rbp+10]
+mov       r15,[rcx+8]
+mov       rcx,rdi
+mov       r11,[rbx+38]
+test      r11,r11
+jne       short 00007FFF60C16552
+mov       rdx,7FFF60CBEB08
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,r14
+mov       rdx,r15
+xor       r8d,r8d
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       rcx,[rbp+10]
+mov       [rcx+10],esi
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       rcx,[rbp+10]
+xor       edx,edx
+mov       [rcx+10],edx
+mov       rcx,rdi
+mov       rax,[rbx+10]
+test      rax,rax
+jne       short 00007FFF60C16598
+mov       rdx,7FFF60CBEAA0
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+call      CORINFO_HELP_GETGENERICS_GCSTATIC_BASE
+mov       rdx,[rax]
+mov       rcx,[rbp+10]
+lea       rcx,[rcx+8]
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,rdi
+mov       r11,[rbx+18]
+test      r11,r11
+jne       short 00007FFF60C165CE
+mov       rdx,7FFF60CBEAB0
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,rsi
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       [rbp+0FFC8],rax
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60810590
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C20590]
+test      eax,eax
+je        near ptr 00007FFF60C16675
+mov       rcx,rdi
+mov       r11,[rbx+20]
+test      r11,r11
+jne       short 00007FFF60C16616
+mov       rdx,7FFF60CBEAC8
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,[rbp+0FFC8]
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       r8,rax
+mov       rcx,[rbp+10]
+inc       dword ptr [rcx+14]
+mov       rcx,[rbp+10]
+mov       rcx,[rcx+8]
+mov       rdx,[rbp+10]
+mov       edx,[rdx+10]
+cmp       [rcx+8],edx
+jbe       short 00007FFF60C1664F
+lea       eax,[rdx+1]
+mov       r9,[rbp+10]
+mov       [r9+10],eax
+call      CORINFO_HELP_ARRADDR_ST
+jmp       short 00007FFF60C1665B
+mov       rcx,[rbp+10]
+mov       rdx,r8
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60810590
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C20590]
+test      eax,eax
+jne       short 00007FFF60C165F8
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60810598
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C20598]
+nop
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       ecx,17
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+push      rbp
+push      r15
+push      r14
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,28
+mov       rbp,[rcx+20]
+mov       [rsp+20],rbp
+lea       rbp,[rbp+60]
+cmp       qword ptr [rbp+0FFC8],0
+je        short 00007FFF60C166DA
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60810598
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C20598]
+nop
+add       rsp,28
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Creating01()
+            var people = new FastSortedList<PersonProper>(base.personProperCollection);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.Consumer.Consume(people);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rdi
+push      rsi
+sub       rsp,28
+mov       rsi,rcx
+mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.FastSortedList`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rdx,[rsi+58]
+mov       rcx,rdi
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
+mov       rcx,[rsi+8]
+mov       edx,[rcx]
+add       rcx,10
+mov       rdx,rdi
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,28
+pop       rsi
+pop       rdi
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
+push      rbp
+push      r15
+push      r14
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,38
+lea       rbp,[rsp+60]
+mov       [rbp+0FFC0],rsp
+mov       [rbp+0FFD0],rcx
+mov       [rbp+10],rcx
+mov       rsi,rdx
+test      rsi,rsi
+je        near ptr 00007FFF60C06749
+mov       rcx,[rbp+10]
+mov       rdi,[rcx]
+mov       rcx,rdi
+mov       rdx,[rcx+30]
+mov       rbx,[rdx]
+mov       rax,[rbx+8]
+test      rax,rax
+jne       short 00007FFF60C06522
+mov       rdx,7FFF60CAEC58
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+mov       rdx,rsi
+call      CORINFO_HELP_ISINSTANCEOFINTERFACE
+mov       r14,rax
+test      r14,r14
+je        near ptr 00007FFF60C06624
+mov       rcx,rdi
+mov       r11,[rbx+28]
+test      r11,r11
+jne       short 00007FFF60C06557
+mov       rdx,7FFF60CAECA8
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,r14
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       esi,eax
+test      esi,esi
+jne       short 00007FFF60C065A6
+mov       rcx,rdi
+mov       rax,[rbx+10]
+test      rax,rax
+jne       short 00007FFF60C06580
+mov       rdx,7FFF60CAEC68
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+call      CORINFO_HELP_GETGENERICS_GCSTATIC_BASE
+mov       rdx,[rax]
+mov       rcx,[rbp+10]
+lea       rcx,[rcx+8]
+call      CORINFO_HELP_ASSIGN_REF
+nop
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       rcx,rdi
+mov       rax,[rbx+30]
+test      rax,rax
+jne       short 00007FFF60C065C1
+mov       rdx,7FFF60CAECC0
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+movsxd    rdx,esi
+mov       rcx,rax
+call      CORINFO_HELP_NEWARR_1_OBJ
+mov       rdx,[rbp+10]
+lea       rcx,[rdx+8]
+mov       rdx,rax
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,[rbp+10]
+mov       r15,[rcx+8]
+mov       rcx,rdi
+mov       r11,[rbx+38]
+test      r11,r11
+jne       short 00007FFF60C06602
+mov       rdx,7FFF60CAECD0
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,r14
+mov       rdx,r15
+xor       r8d,r8d
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       rcx,[rbp+10]
+mov       [rcx+10],esi
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       rcx,[rbp+10]
+xor       edx,edx
+mov       [rcx+10],edx
+mov       rcx,rdi
+mov       rax,[rbx+10]
+test      rax,rax
+jne       short 00007FFF60C06648
+mov       rdx,7FFF60CAEC68
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+call      CORINFO_HELP_GETGENERICS_GCSTATIC_BASE
+mov       rdx,[rax]
+mov       rcx,[rbp+10]
+lea       rcx,[rcx+8]
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,rdi
+mov       r11,[rbx+18]
+test      r11,r11
+jne       short 00007FFF60C0667E
+mov       rdx,7FFF60CAEC78
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,rsi
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       [rbp+0FFC8],rax
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800590
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C10590]
+test      eax,eax
+je        near ptr 00007FFF60C06725
+mov       rcx,rdi
+mov       r11,[rbx+20]
+test      r11,r11
+jne       short 00007FFF60C066C6
+mov       rdx,7FFF60CAEC90
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,[rbp+0FFC8]
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       r8,rax
+mov       rcx,[rbp+10]
+inc       dword ptr [rcx+14]
+mov       rcx,[rbp+10]
+mov       rcx,[rcx+8]
+mov       rdx,[rbp+10]
+mov       edx,[rdx+10]
+cmp       [rcx+8],edx
+jbe       short 00007FFF60C066FF
+lea       eax,[rdx+1]
+mov       r9,[rbp+10]
+mov       [r9+10],eax
+call      CORINFO_HELP_ARRADDR_ST
+jmp       short 00007FFF60C0670B
+mov       rcx,[rbp+10]
+mov       rdx,r8
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800590
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C10590]
+test      eax,eax
+jne       short 00007FFF60C066A8
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800598
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C10598]
+nop
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       ecx,17
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+push      rbp
+push      r15
+push      r14
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,28
+mov       rbp,[rcx+20]
+mov       [rsp+20],rbp
+lea       rbp,[rbp+60]
+cmp       qword ptr [rbp+0FFC8],0
+je        short 00007FFF60C0678A
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800598
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C10598]
+nop
+add       rsp,28
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Creating01()
+            var people = new FastSortedList<PersonProper>(base.personProperCollection);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.Consumer.Consume(people);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rdi
+push      rsi
+sub       rsp,28
+mov       rsi,rcx
+mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.FastSortedList`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rdx,[rsi+58]
+mov       rcx,rdi
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
+mov       rcx,[rsi+8]
+mov       edx,[rcx]
+add       rcx,10
+mov       rdx,rdi
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,28
+pop       rsi
+pop       rdi
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
+push      rbp
+push      r15
+push      r14
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,38
+lea       rbp,[rsp+60]
+mov       [rbp+0FFC0],rsp
+mov       [rbp+0FFD0],rcx
+mov       [rbp+10],rcx
+mov       rsi,rdx
+test      rsi,rsi
+je        near ptr 00007FFF60C063E9
+mov       rcx,[rbp+10]
+mov       rdi,[rcx]
+mov       rcx,rdi
+mov       rdx,[rcx+30]
+mov       rbx,[rdx]
+mov       rax,[rbx+8]
+test      rax,rax
+jne       short 00007FFF60C061C2
+mov       rdx,7FFF60CAE728
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+mov       rdx,rsi
+call      CORINFO_HELP_ISINSTANCEOFINTERFACE
+mov       r14,rax
+test      r14,r14
+je        near ptr 00007FFF60C062C4
+mov       rcx,rdi
+mov       r11,[rbx+28]
+test      r11,r11
+jne       short 00007FFF60C061F7
+mov       rdx,7FFF60CAE778
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,r14
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       esi,eax
+test      esi,esi
+jne       short 00007FFF60C06246
+mov       rcx,rdi
+mov       rax,[rbx+10]
+test      rax,rax
+jne       short 00007FFF60C06220
+mov       rdx,7FFF60CAE738
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+call      CORINFO_HELP_GETGENERICS_GCSTATIC_BASE
+mov       rdx,[rax]
+mov       rcx,[rbp+10]
+lea       rcx,[rcx+8]
+call      CORINFO_HELP_ASSIGN_REF
+nop
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       rcx,rdi
+mov       rax,[rbx+30]
+test      rax,rax
+jne       short 00007FFF60C06261
+mov       rdx,7FFF60CAE790
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+movsxd    rdx,esi
+mov       rcx,rax
+call      CORINFO_HELP_NEWARR_1_OBJ
+mov       rdx,[rbp+10]
+lea       rcx,[rdx+8]
+mov       rdx,rax
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,[rbp+10]
+mov       r15,[rcx+8]
+mov       rcx,rdi
+mov       r11,[rbx+38]
+test      r11,r11
+jne       short 00007FFF60C062A2
+mov       rdx,7FFF60CAE7A0
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,r14
+mov       rdx,r15
+xor       r8d,r8d
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       rcx,[rbp+10]
+mov       [rcx+10],esi
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       rcx,[rbp+10]
+xor       edx,edx
+mov       [rcx+10],edx
+mov       rcx,rdi
+mov       rax,[rbx+10]
+test      rax,rax
+jne       short 00007FFF60C062E8
+mov       rdx,7FFF60CAE738
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+call      CORINFO_HELP_GETGENERICS_GCSTATIC_BASE
+mov       rdx,[rax]
+mov       rcx,[rbp+10]
+lea       rcx,[rcx+8]
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,rdi
+mov       r11,[rbx+18]
+test      r11,r11
+jne       short 00007FFF60C0631E
+mov       rdx,7FFF60CAE748
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,rsi
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       [rbp+0FFC8],rax
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800590
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C10590]
+test      eax,eax
+je        near ptr 00007FFF60C063C5
+mov       rcx,rdi
+mov       r11,[rbx+20]
+test      r11,r11
+jne       short 00007FFF60C06366
+mov       rdx,7FFF60CAE760
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,[rbp+0FFC8]
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       r8,rax
+mov       rcx,[rbp+10]
+inc       dword ptr [rcx+14]
+mov       rcx,[rbp+10]
+mov       rcx,[rcx+8]
+mov       rdx,[rbp+10]
+mov       edx,[rdx+10]
+cmp       [rcx+8],edx
+jbe       short 00007FFF60C0639F
+lea       eax,[rdx+1]
+mov       r9,[rbp+10]
+mov       [r9+10],eax
+call      CORINFO_HELP_ARRADDR_ST
+jmp       short 00007FFF60C063AB
+mov       rcx,[rbp+10]
+mov       rdx,r8
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800590
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C10590]
+test      eax,eax
+jne       short 00007FFF60C06348
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800598
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C10598]
+nop
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       ecx,17
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+push      rbp
+push      r15
+push      r14
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,28
+mov       rbp,[rcx+20]
+mov       [rsp+20],rbp
+lea       rbp,[rbp+60]
+cmp       qword ptr [rbp+0FFC8],0
+je        short 00007FFF60C0642A
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800598
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C10598]
+nop
+add       rsp,28
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Creating01()
+            var people = new FastSortedList<PersonProper>(base.personProperCollection);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.Consumer.Consume(people);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rdi
+push      rsi
+sub       rsp,28
+mov       rsi,rcx
+mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.FastSortedList`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rdx,[rsi+58]
+mov       rcx,rdi
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
+mov       rcx,[rsi+8]
+mov       edx,[rcx]
+add       rcx,10
+mov       rdx,rdi
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,28
+pop       rsi
+pop       rdi
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
+push      rbp
+push      r15
+push      r14
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,38
+lea       rbp,[rsp+60]
+mov       [rbp+0FFC0],rsp
+mov       [rbp+0FFD0],rcx
+mov       [rbp+10],rcx
+mov       rsi,rdx
+test      rsi,rsi
+je        near ptr 00007FFF60BF6649
+mov       rcx,[rbp+10]
+mov       rdi,[rcx]
+mov       rcx,rdi
+mov       rdx,[rcx+30]
+mov       rbx,[rdx]
+mov       rax,[rbx+8]
+test      rax,rax
+jne       short 00007FFF60BF6422
+mov       rdx,7FFF60C9EA90
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+mov       rdx,rsi
+call      CORINFO_HELP_ISINSTANCEOFINTERFACE
+mov       r14,rax
+test      r14,r14
+je        near ptr 00007FFF60BF6524
+mov       rcx,rdi
+mov       r11,[rbx+28]
+test      r11,r11
+jne       short 00007FFF60BF6457
+mov       rdx,7FFF60C9EAE0
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,r14
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       esi,eax
+test      esi,esi
+jne       short 00007FFF60BF64A6
+mov       rcx,rdi
+mov       rax,[rbx+10]
+test      rax,rax
+jne       short 00007FFF60BF6480
+mov       rdx,7FFF60C9EAA0
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+call      CORINFO_HELP_GETGENERICS_GCSTATIC_BASE
+mov       rdx,[rax]
+mov       rcx,[rbp+10]
+lea       rcx,[rcx+8]
+call      CORINFO_HELP_ASSIGN_REF
+nop
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       rcx,rdi
+mov       rax,[rbx+30]
+test      rax,rax
+jne       short 00007FFF60BF64C1
+mov       rdx,7FFF60C9EAF8
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+movsxd    rdx,esi
+mov       rcx,rax
+call      CORINFO_HELP_NEWARR_1_OBJ
+mov       rdx,[rbp+10]
+lea       rcx,[rdx+8]
+mov       rdx,rax
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,[rbp+10]
+mov       r15,[rcx+8]
+mov       rcx,rdi
+mov       r11,[rbx+38]
+test      r11,r11
+jne       short 00007FFF60BF6502
+mov       rdx,7FFF60C9EB08
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,r14
+mov       rdx,r15
+xor       r8d,r8d
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       rcx,[rbp+10]
+mov       [rcx+10],esi
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       rcx,[rbp+10]
+xor       edx,edx
+mov       [rcx+10],edx
+mov       rcx,rdi
+mov       rax,[rbx+10]
+test      rax,rax
+jne       short 00007FFF60BF6548
+mov       rdx,7FFF60C9EAA0
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       rcx,rax
+call      CORINFO_HELP_GETGENERICS_GCSTATIC_BASE
+mov       rdx,[rax]
+mov       rcx,[rbp+10]
+lea       rcx,[rcx+8]
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,rdi
+mov       r11,[rbx+18]
+test      r11,r11
+jne       short 00007FFF60BF657E
+mov       rdx,7FFF60C9EAB0
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,rsi
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       [rbp+0FFC8],rax
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF607F0590
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C00590]
+test      eax,eax
+je        near ptr 00007FFF60BF6625
+mov       rcx,rdi
+mov       r11,[rbx+20]
+test      r11,r11
+jne       short 00007FFF60BF65C6
+mov       rdx,7FFF60C9EAC8
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       r11,rax
+mov       rcx,[rbp+0FFC8]
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       r8,rax
+mov       rcx,[rbp+10]
+inc       dword ptr [rcx+14]
+mov       rcx,[rbp+10]
+mov       rcx,[rcx+8]
+mov       rdx,[rbp+10]
+mov       edx,[rdx+10]
+cmp       [rcx+8],edx
+jbe       short 00007FFF60BF65FF
+lea       eax,[rdx+1]
+mov       r9,[rbp+10]
+mov       [r9+10],eax
+call      CORINFO_HELP_ARRADDR_ST
+jmp       short 00007FFF60BF660B
+mov       rcx,[rbp+10]
+mov       rdx,r8
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF607F0590
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C00590]
+test      eax,eax
+jne       short 00007FFF60BF65A8
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF607F0598
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C00598]
+nop
+lea       rsp,[rbp+0FFD8]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+mov       ecx,17
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+push      rbp
+push      r15
+push      r14
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,28
+mov       rbp,[rcx+20]
+mov       [rsp+20],rbp
+lea       rbp,[rbp+60]
+cmp       qword ptr [rbp+0FFC8],0
+je        short 00007FFF60BF668A
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF607F0598
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C00598]
+nop
+add       rsp,28
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+pop       rbp
+ret
+
+</code></pre></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th colspan="7">FastSortedListPerfTestRunner.'Creating Using for()'</th></tr>
+<tr>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Creating02()
+            var fakePeople = new FastSortedList<PersonProper>();
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.personProperCollection.ForEach(p =>
+            ^^^
+            {
+            ^^^
+                fakePeople.Add(p);
+            ^^^
+            });
+            ^^^
+            base.Consumer.Consume(fakePeople);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rcx,offset MT_dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.FastSortedList`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rbx,rax
+mov       rdx,239D21B8D50
+mov       rdx,[rdx]
+lea       rcx,[rbx+8]
+call      CORINFO_HELP_ASSIGN_REF
+lea       rcx,[rdi+8]
+mov       rdx,rbx
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset MT_System.Action`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rbx,rax
+mov       rbp,[rsi+58]
+lea       rcx,[rbx+8]
+mov       rdx,rdi
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rbx+18],rcx
+mov       rcx,rbp
+mov       rdx,rbx
+cmp       [rcx],ecx
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+mov       rcx,[rsi+8]
+mov       rdx,[rdi+8]
+mov       eax,[rcx]
+add       rcx,10
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                fakePeople.Add(p);
+                ^^^^^^^^^^^^^^^^^^
+push      rsi
+sub       rsp,20
+mov       [rsp+38],rdx
+mov       rsi,[rcx+8]
+mov       ecx,[rsi]
+inc       dword ptr [rsi+14]
+mov       rcx,[rsi+8]
+mov       r8d,[rsi+10]
+cmp       [rcx+8],r8d
+jbe       short 00007FFF60C065A7
+lea       eax,[r8+1]
+mov       [rsi+10],eax
+mov       edx,r8d
+mov       r8,[rsp+38]
+call      CORINFO_HELP_ARRADDR_ST
+jmp       short 00007FFF60C065B4
+mov       rcx,rsi
+mov       rdx,[rsp+38]
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+mov       byte ptr [rsi+18],0
+add       rsp,20
+pop       rsi
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60C06818
+mov       ebx,[rsi+14]
+xor       ebp,ebp
+cmp       dword ptr [rsi+10],0
+jle       short 00007FFF60C067F5
+cmp       ebx,[rsi+14]
+jne       short 00007FFF60C067F5
+mov       rcx,[rsi+8]
+cmp       ebp,[rcx+8]
+jae       short 00007FFF60C06823
+movsxd    rdx,ebp
+mov       rdx,[rcx+rdx*8+10]
+mov       rax,rdi
+mov       rcx,[rax+8]
+call      qword ptr [rax+18]
+inc       ebp
+cmp       ebp,[rsi+10]
+jl        short 00007FFF60C067CE
+cmp       ebx,[rsi+14]
+je        short 00007FFF60C0680F
+mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+jmp       rax
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1C
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Creating02()
+            var fakePeople = new FastSortedList<PersonProper>();
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.personProperCollection.ForEach(p =>
+            ^^^
+            {
+            ^^^
+                fakePeople.Add(p);
+            ^^^
+            });
+            ^^^
+            base.Consumer.Consume(fakePeople);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rcx,offset MT_dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.FastSortedList`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rbx,rax
+mov       rdx,1BEBB208D50
+mov       rdx,[rdx]
+lea       rcx,[rbx+8]
+call      CORINFO_HELP_ASSIGN_REF
+lea       rcx,[rdi+8]
+mov       rdx,rbx
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset MT_System.Action`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rbx,rax
+mov       rbp,[rsi+58]
+lea       rcx,[rbx+8]
+mov       rdx,rdi
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rbx+18],rcx
+mov       rcx,rbp
+mov       rdx,rbx
+cmp       [rcx],ecx
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+mov       rcx,[rsi+8]
+mov       rdx,[rdi+8]
+mov       eax,[rcx]
+add       rcx,10
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                fakePeople.Add(p);
+                ^^^^^^^^^^^^^^^^^^
+push      rsi
+sub       rsp,20
+mov       [rsp+38],rdx
+mov       rsi,[rcx+8]
+mov       ecx,[rsi]
+inc       dword ptr [rsi+14]
+mov       rcx,[rsi+8]
+mov       r8d,[rsi+10]
+cmp       [rcx+8],r8d
+jbe       short 00007FFF60C366D7
+lea       eax,[r8+1]
+mov       [rsi+10],eax
+mov       edx,r8d
+mov       r8,[rsp+38]
+call      CORINFO_HELP_ARRADDR_ST
+jmp       short 00007FFF60C366E4
+mov       rcx,rsi
+mov       rdx,[rsp+38]
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+mov       byte ptr [rsi+18],0
+add       rsp,20
+pop       rsi
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60C36948
+mov       ebx,[rsi+14]
+xor       ebp,ebp
+cmp       dword ptr [rsi+10],0
+jle       short 00007FFF60C36925
+cmp       ebx,[rsi+14]
+jne       short 00007FFF60C36925
+mov       rcx,[rsi+8]
+cmp       ebp,[rcx+8]
+jae       short 00007FFF60C36953
+movsxd    rdx,ebp
+mov       rdx,[rcx+rdx*8+10]
+mov       rax,rdi
+mov       rcx,[rax+8]
+call      qword ptr [rax+18]
+inc       ebp
+cmp       ebp,[rsi+10]
+jl        short 00007FFF60C368FE
+cmp       ebx,[rsi+14]
+je        short 00007FFF60C3693F
+mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+jmp       rax
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1C
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Creating02()
+            var fakePeople = new FastSortedList<PersonProper>();
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.personProperCollection.ForEach(p =>
+            ^^^
+            {
+            ^^^
+                fakePeople.Add(p);
+            ^^^
+            });
+            ^^^
+            base.Consumer.Consume(fakePeople);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rcx,offset MT_dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.FastSortedList`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rbx,rax
+mov       rdx,1EDDA2B48E8
+mov       rdx,[rdx]
+lea       rcx,[rbx+8]
+call      CORINFO_HELP_ASSIGN_REF
+lea       rcx,[rdi+8]
+mov       rdx,rbx
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset MT_System.Action`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rbx,rax
+mov       rbp,[rsi+58]
+lea       rcx,[rbx+8]
+mov       rdx,rdi
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rbx+18],rcx
+mov       rcx,rbp
+mov       rdx,rbx
+cmp       [rcx],ecx
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+mov       rcx,[rsi+8]
+mov       rdx,[rdi+8]
+mov       eax,[rcx]
+add       rcx,10
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                fakePeople.Add(p);
+                ^^^^^^^^^^^^^^^^^^
+push      rsi
+sub       rsp,20
+mov       [rsp+38],rdx
+mov       rsi,[rcx+8]
+mov       ecx,[rsi]
+inc       dword ptr [rsi+14]
+mov       rcx,[rsi+8]
+mov       r8d,[rsi+10]
+cmp       [rcx+8],r8d
+jbe       short 00007FFF60C266E7
+lea       eax,[r8+1]
+mov       [rsi+10],eax
+mov       edx,r8d
+mov       r8,[rsp+38]
+call      CORINFO_HELP_ARRADDR_ST
+jmp       short 00007FFF60C266F4
+mov       rcx,rsi
+mov       rdx,[rsp+38]
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+mov       byte ptr [rsi+18],0
+add       rsp,20
+pop       rsi
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60C26958
+mov       ebx,[rsi+14]
+xor       ebp,ebp
+cmp       dword ptr [rsi+10],0
+jle       short 00007FFF60C26935
+cmp       ebx,[rsi+14]
+jne       short 00007FFF60C26935
+mov       rcx,[rsi+8]
+cmp       ebp,[rcx+8]
+jae       short 00007FFF60C26963
+movsxd    rdx,ebp
+mov       rdx,[rcx+rdx*8+10]
+mov       rax,rdi
+mov       rcx,[rax+8]
+call      qword ptr [rax+18]
+inc       ebp
+cmp       ebp,[rsi+10]
+jl        short 00007FFF60C2690E
+cmp       ebx,[rsi+14]
+je        short 00007FFF60C2694F
+mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+jmp       rax
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1C
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Creating02()
+            var fakePeople = new FastSortedList<PersonProper>();
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.personProperCollection.ForEach(p =>
+            ^^^
+            {
+            ^^^
+                fakePeople.Add(p);
+            ^^^
+            });
+            ^^^
+            base.Consumer.Consume(fakePeople);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rcx,offset MT_dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.FastSortedList`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rbx,rax
+mov       rdx,20FF4478D50
+mov       rdx,[rdx]
+lea       rcx,[rbx+8]
+call      CORINFO_HELP_ASSIGN_REF
+lea       rcx,[rdi+8]
+mov       rdx,rbx
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset MT_System.Action`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rbx,rax
+mov       rbp,[rsi+58]
+lea       rcx,[rbx+8]
+mov       rdx,rdi
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rbx+18],rcx
+mov       rcx,rbp
+mov       rdx,rbx
+cmp       [rcx],ecx
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+mov       rcx,[rsi+8]
+mov       rdx,[rdi+8]
+mov       eax,[rcx]
+add       rcx,10
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                fakePeople.Add(p);
+                ^^^^^^^^^^^^^^^^^^
+push      rsi
+sub       rsp,20
+mov       [rsp+38],rdx
+mov       rsi,[rcx+8]
+mov       ecx,[rsi]
+inc       dword ptr [rsi+14]
+mov       rcx,[rsi+8]
+mov       r8d,[rsi+10]
+cmp       [rcx+8],r8d
+jbe       short 00007FFF60C06697
+lea       eax,[r8+1]
+mov       [rsi+10],eax
+mov       edx,r8d
+mov       r8,[rsp+38]
+call      CORINFO_HELP_ARRADDR_ST
+jmp       short 00007FFF60C066A4
+mov       rcx,rsi
+mov       rdx,[rsp+38]
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+mov       byte ptr [rsi+18],0
+add       rsp,20
+pop       rsi
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60C06B88
+mov       ebx,[rsi+14]
+xor       ebp,ebp
+cmp       dword ptr [rsi+10],0
+jle       short 00007FFF60C06B65
+cmp       ebx,[rsi+14]
+jne       short 00007FFF60C06B65
+mov       rcx,[rsi+8]
+cmp       ebp,[rcx+8]
+jae       short 00007FFF60C06B93
+movsxd    rdx,ebp
+mov       rdx,[rcx+rdx*8+10]
+mov       rax,rdi
+mov       rcx,[rax+8]
+call      qword ptr [rax+18]
+inc       ebp
+cmp       ebp,[rsi+10]
+jl        short 00007FFF60C06B3E
+cmp       ebx,[rsi+14]
+je        short 00007FFF60C06B7F
+mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+jmp       rax
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1C
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Creating02()
+            var fakePeople = new FastSortedList<PersonProper>();
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.personProperCollection.ForEach(p =>
+            ^^^
+            {
+            ^^^
+                fakePeople.Add(p);
+            ^^^
+            });
+            ^^^
+            base.Consumer.Consume(fakePeople);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rcx,offset MT_dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.FastSortedList`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rbx,rax
+mov       rdx,14CC4CC48E8
+mov       rdx,[rdx]
+lea       rcx,[rbx+8]
+call      CORINFO_HELP_ASSIGN_REF
+lea       rcx,[rdi+8]
+mov       rdx,rbx
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset MT_System.Action`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rbx,rax
+mov       rbp,[rsi+58]
+lea       rcx,[rbx+8]
+mov       rdx,rdi
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rbx+18],rcx
+mov       rcx,rbp
+mov       rdx,rbx
+cmp       [rcx],ecx
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+mov       rcx,[rsi+8]
+mov       rdx,[rdi+8]
+mov       eax,[rcx]
+add       rcx,10
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                fakePeople.Add(p);
+                ^^^^^^^^^^^^^^^^^^
+push      rsi
+sub       rsp,20
+mov       [rsp+38],rdx
+mov       rsi,[rcx+8]
+mov       ecx,[rsi]
+inc       dword ptr [rsi+14]
+mov       rcx,[rsi+8]
+mov       r8d,[rsi+10]
+cmp       [rcx+8],r8d
+jbe       short 00007FFF60BF6827
+lea       eax,[r8+1]
+mov       [rsi+10],eax
+mov       edx,r8d
+mov       r8,[rsp+38]
+call      CORINFO_HELP_ARRADDR_ST
+jmp       short 00007FFF60BF6834
+mov       rcx,rsi
+mov       rdx,[rsp+38]
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+mov       byte ptr [rsi+18],0
+add       rsp,20
+pop       rsi
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60BF6A98
+mov       ebx,[rsi+14]
+xor       ebp,ebp
+cmp       dword ptr [rsi+10],0
+jle       short 00007FFF60BF6A75
+cmp       ebx,[rsi+14]
+jne       short 00007FFF60BF6A75
+mov       rcx,[rsi+8]
+cmp       ebp,[rcx+8]
+jae       short 00007FFF60BF6AA3
+movsxd    rdx,ebp
+mov       rdx,[rcx+rdx*8+10]
+mov       rax,rdi
+mov       rcx,[rax+8]
+call      qword ptr [rax+18]
+inc       ebp
+cmp       ebp,[rsi+10]
+jl        short 00007FFF60BF6A4E
+cmp       ebx,[rsi+14]
+je        short 00007FFF60BF6A8F
+mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+jmp       rax
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1C
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Creating02()
+            var fakePeople = new FastSortedList<PersonProper>();
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.personProperCollection.ForEach(p =>
+            ^^^
+            {
+            ^^^
+                fakePeople.Add(p);
+            ^^^
+            });
+            ^^^
+            base.Consumer.Consume(fakePeople);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rcx,offset MT_dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.FastSortedList`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rbx,rax
+mov       rdx,1F01AEB8D50
+mov       rdx,[rdx]
+lea       rcx,[rbx+8]
+call      CORINFO_HELP_ASSIGN_REF
+lea       rcx,[rdi+8]
+mov       rdx,rbx
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset MT_System.Action`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rbx,rax
+mov       rbp,[rsi+58]
+lea       rcx,[rbx+8]
+mov       rdx,rdi
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rbx+18],rcx
+mov       rcx,rbp
+mov       rdx,rbx
+cmp       [rcx],ecx
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+mov       rcx,[rsi+8]
+mov       rdx,[rdi+8]
+mov       eax,[rcx]
+add       rcx,10
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                fakePeople.Add(p);
+                ^^^^^^^^^^^^^^^^^^
+push      rsi
+sub       rsp,20
+mov       [rsp+38],rdx
+mov       rsi,[rcx+8]
+mov       ecx,[rsi]
+inc       dword ptr [rsi+14]
+mov       rcx,[rsi+8]
+mov       r8d,[rsi+10]
+cmp       [rcx+8],r8d
+jbe       short 00007FFF60C06987
+lea       eax,[r8+1]
+mov       [rsi+10],eax
+mov       edx,r8d
+mov       r8,[rsp+38]
+call      CORINFO_HELP_ARRADDR_ST
+jmp       short 00007FFF60C06994
+mov       rcx,rsi
+mov       rdx,[rsp+38]
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+mov       byte ptr [rsi+18],0
+add       rsp,20
+pop       rsi
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60C06CC8
+mov       ebx,[rsi+14]
+xor       ebp,ebp
+cmp       dword ptr [rsi+10],0
+jle       short 00007FFF60C06CA5
+cmp       ebx,[rsi+14]
+jne       short 00007FFF60C06CA5
+mov       rcx,[rsi+8]
+cmp       ebp,[rcx+8]
+jae       short 00007FFF60C06CD3
+movsxd    rdx,ebp
+mov       rdx,[rcx+rdx*8+10]
+mov       rax,rdi
+mov       rcx,[rax+8]
+call      qword ptr [rax+18]
+inc       ebp
+cmp       ebp,[rsi+10]
+jl        short 00007FFF60C06C7E
+cmp       ebx,[rsi+14]
+je        short 00007FFF60C06CBF
+mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+jmp       rax
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1C
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Creating02()
+            var fakePeople = new FastSortedList<PersonProper>();
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.personProperCollection.ForEach(p =>
+            ^^^
+            {
+            ^^^
+                fakePeople.Add(p);
+            ^^^
+            });
+            ^^^
+            base.Consumer.Consume(fakePeople);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rcx,offset MT_dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.FastSortedList`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rbx,rax
+mov       rdx,25E40AF8D50
+mov       rdx,[rdx]
+lea       rcx,[rbx+8]
+call      CORINFO_HELP_ASSIGN_REF
+lea       rcx,[rdi+8]
+mov       rdx,rbx
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset MT_System.Action`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rbx,rax
+mov       rbp,[rsi+58]
+lea       rcx,[rbx+8]
+mov       rdx,rdi
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rbx+18],rcx
+mov       rcx,rbp
+mov       rdx,rbx
+cmp       [rcx],ecx
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+mov       rcx,[rsi+8]
+mov       rdx,[rdi+8]
+mov       eax,[rcx]
+add       rcx,10
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                fakePeople.Add(p);
+                ^^^^^^^^^^^^^^^^^^
+push      rsi
+sub       rsp,20
+mov       [rsp+38],rdx
+mov       rsi,[rcx+8]
+mov       ecx,[rsi]
+inc       dword ptr [rsi+14]
+mov       rcx,[rsi+8]
+mov       r8d,[rsi+10]
+cmp       [rcx+8],r8d
+jbe       short 00007FFF60C16907
+lea       eax,[r8+1]
+mov       [rsi+10],eax
+mov       edx,r8d
+mov       r8,[rsp+38]
+call      CORINFO_HELP_ARRADDR_ST
+jmp       short 00007FFF60C16914
+mov       rcx,rsi
+mov       rdx,[rsp+38]
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+mov       byte ptr [rsi+18],0
+add       rsp,20
+pop       rsi
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60C16C48
+mov       ebx,[rsi+14]
+xor       ebp,ebp
+cmp       dword ptr [rsi+10],0
+jle       short 00007FFF60C16C25
+cmp       ebx,[rsi+14]
+jne       short 00007FFF60C16C25
+mov       rcx,[rsi+8]
+cmp       ebp,[rcx+8]
+jae       short 00007FFF60C16C53
+movsxd    rdx,ebp
+mov       rdx,[rcx+rdx*8+10]
+mov       rax,rdi
+mov       rcx,[rax+8]
+call      qword ptr [rax+18]
+inc       ebp
+cmp       ebp,[rsi+10]
+jl        short 00007FFF60C16BFE
+cmp       ebx,[rsi+14]
+je        short 00007FFF60C16C3F
+mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+jmp       rax
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1C
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th colspan="7">FastSortedListPerfTestRunner.'Looping with ForEach()'</th></tr>
+<tr>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.LoopingForEach01()
+            this._peopleFastSortedList.ForEach(p =>
+            ^^^
+            {
+            ^^^
+                base.Consumer.Consume(p);
+            ^^^
+            });
+            ^^^
+        }
+        ^
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,20
+mov       rsi,rcx
+mov       rcx,offset MT_System.Action`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rbx,[rsi+88]
+lea       rcx,[rdi+8]
+mov       rdx,rsi
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.<LoopingForEach01>b__4_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rdi+18],rcx
+mov       rcx,rbx
+mov       rdx,rdi
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+cmp       [rcx],ecx
+add       rsp,20
+pop       rbx
+pop       rsi
+pop       rdi
+jmp       rax
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.<LoopingForEach01>b__4_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                base.Consumer.Consume(p);
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rcx+8]
+mov       eax,[rcx]
+add       rcx,10
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60C26458
+mov       ebx,[rsi+14]
+xor       ebp,ebp
+cmp       dword ptr [rsi+10],0
+jle       short 00007FFF60C26435
+cmp       ebx,[rsi+14]
+jne       short 00007FFF60C26435
+mov       rcx,[rsi+8]
+cmp       ebp,[rcx+8]
+jae       short 00007FFF60C26463
+movsxd    rdx,ebp
+mov       rdx,[rcx+rdx*8+10]
+mov       rax,rdi
+mov       rcx,[rax+8]
+call      qword ptr [rax+18]
+inc       ebp
+cmp       ebp,[rsi+10]
+jl        short 00007FFF60C2640E
+cmp       ebx,[rsi+14]
+je        short 00007FFF60C2644F
+mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+jmp       rax
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1C
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.LoopingForEach01()
+            this._peopleFastSortedList.ForEach(p =>
+            ^^^
+            {
+            ^^^
+                base.Consumer.Consume(p);
+            ^^^
+            });
+            ^^^
+        }
+        ^
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,20
+mov       rsi,rcx
+mov       rcx,offset MT_System.Action`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rbx,[rsi+88]
+lea       rcx,[rdi+8]
+mov       rdx,rsi
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.<LoopingForEach01>b__4_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rdi+18],rcx
+mov       rcx,rbx
+mov       rdx,rdi
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+cmp       [rcx],ecx
+add       rsp,20
+pop       rbx
+pop       rsi
+pop       rdi
+jmp       rax
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.<LoopingForEach01>b__4_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                base.Consumer.Consume(p);
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rcx+8]
+mov       eax,[rcx]
+add       rcx,10
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60C265D8
+mov       ebx,[rsi+14]
+xor       ebp,ebp
+cmp       dword ptr [rsi+10],0
+jle       short 00007FFF60C265B5
+cmp       ebx,[rsi+14]
+jne       short 00007FFF60C265B5
+mov       rcx,[rsi+8]
+cmp       ebp,[rcx+8]
+jae       short 00007FFF60C265E3
+movsxd    rdx,ebp
+mov       rdx,[rcx+rdx*8+10]
+mov       rax,rdi
+mov       rcx,[rax+8]
+call      qword ptr [rax+18]
+inc       ebp
+cmp       ebp,[rsi+10]
+jl        short 00007FFF60C2658E
+cmp       ebx,[rsi+14]
+je        short 00007FFF60C265CF
+mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+jmp       rax
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1C
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.LoopingForEach01()
+            this._peopleFastSortedList.ForEach(p =>
+            ^^^
+            {
+            ^^^
+                base.Consumer.Consume(p);
+            ^^^
+            });
+            ^^^
+        }
+        ^
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,20
+mov       rsi,rcx
+mov       rcx,offset MT_System.Action`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rbx,[rsi+88]
+lea       rcx,[rdi+8]
+mov       rdx,rsi
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.<LoopingForEach01>b__4_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rdi+18],rcx
+mov       rcx,rbx
+mov       rdx,rdi
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+cmp       [rcx],ecx
+add       rsp,20
+pop       rbx
+pop       rsi
+pop       rdi
+jmp       rax
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.<LoopingForEach01>b__4_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                base.Consumer.Consume(p);
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rcx+8]
+mov       eax,[rcx]
+add       rcx,10
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60C06458
+mov       ebx,[rsi+14]
+xor       ebp,ebp
+cmp       dword ptr [rsi+10],0
+jle       short 00007FFF60C06435
+cmp       ebx,[rsi+14]
+jne       short 00007FFF60C06435
+mov       rcx,[rsi+8]
+cmp       ebp,[rcx+8]
+jae       short 00007FFF60C06463
+movsxd    rdx,ebp
+mov       rdx,[rcx+rdx*8+10]
+mov       rax,rdi
+mov       rcx,[rax+8]
+call      qword ptr [rax+18]
+inc       ebp
+cmp       ebp,[rsi+10]
+jl        short 00007FFF60C0640E
+cmp       ebx,[rsi+14]
+je        short 00007FFF60C0644F
+mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+jmp       rax
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1C
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.LoopingForEach01()
+            this._peopleFastSortedList.ForEach(p =>
+            ^^^
+            {
+            ^^^
+                base.Consumer.Consume(p);
+            ^^^
+            });
+            ^^^
+        }
+        ^
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,20
+mov       rsi,rcx
+mov       rcx,offset MT_System.Action`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rbx,[rsi+88]
+lea       rcx,[rdi+8]
+mov       rdx,rsi
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.<LoopingForEach01>b__4_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rdi+18],rcx
+mov       rcx,rbx
+mov       rdx,rdi
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+cmp       [rcx],ecx
+add       rsp,20
+pop       rbx
+pop       rsi
+pop       rdi
+jmp       rax
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.<LoopingForEach01>b__4_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                base.Consumer.Consume(p);
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rcx+8]
+mov       eax,[rcx]
+add       rcx,10
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60C16698
+mov       ebx,[rsi+14]
+xor       ebp,ebp
+cmp       dword ptr [rsi+10],0
+jle       short 00007FFF60C16675
+cmp       ebx,[rsi+14]
+jne       short 00007FFF60C16675
+mov       rcx,[rsi+8]
+cmp       ebp,[rcx+8]
+jae       short 00007FFF60C166A3
+movsxd    rdx,ebp
+mov       rdx,[rcx+rdx*8+10]
+mov       rax,rdi
+mov       rcx,[rax+8]
+call      qword ptr [rax+18]
+inc       ebp
+cmp       ebp,[rsi+10]
+jl        short 00007FFF60C1664E
+cmp       ebx,[rsi+14]
+je        short 00007FFF60C1668F
+mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+jmp       rax
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1C
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.LoopingForEach01()
+            this._peopleFastSortedList.ForEach(p =>
+            ^^^
+            {
+            ^^^
+                base.Consumer.Consume(p);
+            ^^^
+            });
+            ^^^
+        }
+        ^
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,20
+mov       rsi,rcx
+mov       rcx,offset MT_System.Action`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rbx,[rsi+88]
+lea       rcx,[rdi+8]
+mov       rdx,rsi
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.<LoopingForEach01>b__4_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rdi+18],rcx
+mov       rcx,rbx
+mov       rdx,rdi
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+cmp       [rcx],ecx
+add       rsp,20
+pop       rbx
+pop       rsi
+pop       rdi
+jmp       rax
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.<LoopingForEach01>b__4_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                base.Consumer.Consume(p);
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rcx+8]
+mov       eax,[rcx]
+add       rcx,10
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60C36688
+mov       ebx,[rsi+14]
+xor       ebp,ebp
+cmp       dword ptr [rsi+10],0
+jle       short 00007FFF60C36665
+cmp       ebx,[rsi+14]
+jne       short 00007FFF60C36665
+mov       rcx,[rsi+8]
+cmp       ebp,[rcx+8]
+jae       short 00007FFF60C36693
+movsxd    rdx,ebp
+mov       rdx,[rcx+rdx*8+10]
+mov       rax,rdi
+mov       rcx,[rax+8]
+call      qword ptr [rax+18]
+inc       ebp
+cmp       ebp,[rsi+10]
+jl        short 00007FFF60C3663E
+cmp       ebx,[rsi+14]
+je        short 00007FFF60C3667F
+mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+jmp       rax
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1C
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.LoopingForEach01()
+            this._peopleFastSortedList.ForEach(p =>
+            ^^^
+            {
+            ^^^
+                base.Consumer.Consume(p);
+            ^^^
+            });
+            ^^^
+        }
+        ^
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,20
+mov       rsi,rcx
+mov       rcx,offset MT_System.Action`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rbx,[rsi+88]
+lea       rcx,[rdi+8]
+mov       rdx,rsi
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.<LoopingForEach01>b__4_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rdi+18],rcx
+mov       rcx,rbx
+mov       rdx,rdi
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+cmp       [rcx],ecx
+add       rsp,20
+pop       rbx
+pop       rsi
+pop       rdi
+jmp       rax
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.<LoopingForEach01>b__4_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                base.Consumer.Consume(p);
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rcx+8]
+mov       eax,[rcx]
+add       rcx,10
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60C067C8
+mov       ebx,[rsi+14]
+xor       ebp,ebp
+cmp       dword ptr [rsi+10],0
+jle       short 00007FFF60C067A5
+cmp       ebx,[rsi+14]
+jne       short 00007FFF60C067A5
+mov       rcx,[rsi+8]
+cmp       ebp,[rcx+8]
+jae       short 00007FFF60C067D3
+movsxd    rdx,ebp
+mov       rdx,[rcx+rdx*8+10]
+mov       rax,rdi
+mov       rcx,[rax+8]
+call      qword ptr [rax+18]
+inc       ebp
+cmp       ebp,[rsi+10]
+jl        short 00007FFF60C0677E
+cmp       ebx,[rsi+14]
+je        short 00007FFF60C067BF
+mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+jmp       rax
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1C
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.LoopingForEach01()
+            this._peopleFastSortedList.ForEach(p =>
+            ^^^
+            {
+            ^^^
+                base.Consumer.Consume(p);
+            ^^^
+            });
+            ^^^
+        }
+        ^
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,20
+mov       rsi,rcx
+mov       rcx,offset MT_System.Action`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rbx,[rsi+88]
+lea       rcx,[rdi+8]
+mov       rdx,rsi
+call      CORINFO_HELP_ASSIGN_REF
+mov       rcx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.<LoopingForEach01>b__4_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rdi+18],rcx
+mov       rcx,rbx
+mov       rdx,rdi
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+cmp       [rcx],ecx
+add       rsp,20
+pop       rbx
+pop       rsi
+pop       rdi
+jmp       rax
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.<LoopingForEach01>b__4_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                base.Consumer.Consume(p);
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rcx+8]
+mov       eax,[rcx]
+add       rcx,10
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+ret
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60C067C8
+mov       ebx,[rsi+14]
+xor       ebp,ebp
+cmp       dword ptr [rsi+10],0
+jle       short 00007FFF60C067A5
+cmp       ebx,[rsi+14]
+jne       short 00007FFF60C067A5
+mov       rcx,[rsi+8]
+cmp       ebp,[rcx+8]
+jae       short 00007FFF60C067D3
+movsxd    rdx,ebp
+mov       rdx,[rcx+rdx*8+10]
+mov       rax,rdi
+mov       rcx,[rax+8]
+call      qword ptr [rax+18]
+inc       ebp
+cmp       ebp,[rsi+10]
+jl        short 00007FFF60C0677E
+cmp       ebx,[rsi+14]
+je        short 00007FFF60C067BF
+mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+jmp       rax
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1C
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th colspan="7">FastSortedListPerfTestRunner.Sort()</th></tr>
+<tr>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Sort01()
+            this._peopleFastSortedList.Sort();
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rcx+88]
+mov       r8d,[rcx]
+mov       r8d,[rcx+10]
+xor       edx,edx
+xor       r9d,r9d
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+jmp       rax
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+push      r14
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,30
+mov       [rsp+28],rcx
+mov       rsi,rcx
+mov       ebx,edx
+mov       edi,r8d
+mov       rbp,r9
+test      ebx,ebx
+jl        short 00007FFF60C2938A
+test      edi,edi
+jl        short 00007FFF60C29390
+mov       ecx,[rsi+10]
+sub       ecx,ebx
+cmp       ecx,edi
+jl        short 00007FFF60C293A0
+cmp       edi,1
+jle       short 00007FFF60C2937C
+mov       r14,[rsi+8]
+mov       rcx,[rsi]
+mov       rdx,[rcx+30]
+mov       rdx,[rdx]
+mov       rax,[rdx+8]
+test      rax,rax
+jne       short 00007FFF60C29366
+mov       rdx,7FFF60CCEEF8
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       [rsp+20],rbp
+mov       rcx,rax
+mov       rdx,r14
+mov       r8d,ebx
+mov       r9d,edi
+call      System.Array.Sort[[System.__Canon, System.Private.CoreLib]](System.__Canon[], Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+inc       dword ptr [rsi+14]
+add       rsp,30
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+pop       r14
+ret
+call      System.ThrowHelper.ThrowIndexArgumentOutOfRange_NeedNonNegNumException()
+int       3
+mov       ecx,1B
+mov       edx,9
+call      System.ThrowHelper.ThrowArgumentOutOfRangeException(System.ExceptionArgument, System.ExceptionResource)
+int       3
+mov       ecx,0B
+call      System.ThrowHelper.ThrowArgumentException(System.ExceptionResource)
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Sort01()
+            this._peopleFastSortedList.Sort();
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rcx+88]
+mov       r8d,[rcx]
+mov       r8d,[rcx+10]
+xor       edx,edx
+xor       r9d,r9d
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+jmp       rax
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+push      r14
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,30
+mov       [rsp+28],rcx
+mov       rsi,rcx
+mov       ebx,edx
+mov       edi,r8d
+mov       rbp,r9
+test      ebx,ebx
+jl        short 00007FFF60C196CA
+test      edi,edi
+jl        short 00007FFF60C196D0
+mov       ecx,[rsi+10]
+sub       ecx,ebx
+cmp       ecx,edi
+jl        short 00007FFF60C196E0
+cmp       edi,1
+jle       short 00007FFF60C196BC
+mov       r14,[rsi+8]
+mov       rcx,[rsi]
+mov       rdx,[rcx+30]
+mov       rdx,[rdx]
+mov       rax,[rdx+8]
+test      rax,rax
+jne       short 00007FFF60C196A6
+mov       rdx,7FFF60CBF428
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       [rsp+20],rbp
+mov       rcx,rax
+mov       rdx,r14
+mov       r8d,ebx
+mov       r9d,edi
+call      System.Array.Sort[[System.__Canon, System.Private.CoreLib]](System.__Canon[], Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+inc       dword ptr [rsi+14]
+add       rsp,30
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+pop       r14
+ret
+call      System.ThrowHelper.ThrowIndexArgumentOutOfRange_NeedNonNegNumException()
+int       3
+mov       ecx,1B
+mov       edx,9
+call      System.ThrowHelper.ThrowArgumentOutOfRangeException(System.ExceptionArgument, System.ExceptionResource)
+int       3
+mov       ecx,0B
+call      System.ThrowHelper.ThrowArgumentException(System.ExceptionResource)
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Sort01()
+            this._peopleFastSortedList.Sort();
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rcx+88]
+mov       r8d,[rcx]
+mov       r8d,[rcx+10]
+xor       edx,edx
+xor       r9d,r9d
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+jmp       rax
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+push      r14
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,30
+mov       [rsp+28],rcx
+mov       rsi,rcx
+mov       ebx,edx
+mov       edi,r8d
+mov       rbp,r9
+test      ebx,ebx
+jl        short 00007FFF60C399BA
+test      edi,edi
+jl        short 00007FFF60C399C0
+mov       ecx,[rsi+10]
+sub       ecx,ebx
+cmp       ecx,edi
+jl        short 00007FFF60C399D0
+cmp       edi,1
+jle       short 00007FFF60C399AC
+mov       r14,[rsi+8]
+mov       rcx,[rsi]
+mov       rdx,[rcx+30]
+mov       rdx,[rdx]
+mov       rax,[rdx+8]
+test      rax,rax
+jne       short 00007FFF60C39996
+mov       rdx,7FFF60CDF6C0
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       [rsp+20],rbp
+mov       rcx,rax
+mov       rdx,r14
+mov       r8d,ebx
+mov       r9d,edi
+call      System.Array.Sort[[System.__Canon, System.Private.CoreLib]](System.__Canon[], Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+inc       dword ptr [rsi+14]
+add       rsp,30
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+pop       r14
+ret
+call      System.ThrowHelper.ThrowIndexArgumentOutOfRange_NeedNonNegNumException()
+int       3
+mov       ecx,1B
+mov       edx,9
+call      System.ThrowHelper.ThrowArgumentOutOfRangeException(System.ExceptionArgument, System.ExceptionResource)
+int       3
+mov       ecx,0B
+call      System.ThrowHelper.ThrowArgumentException(System.ExceptionResource)
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Sort01()
+            this._peopleFastSortedList.Sort();
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rcx+88]
+mov       r8d,[rcx]
+mov       r8d,[rcx+10]
+xor       edx,edx
+xor       r9d,r9d
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+jmp       rax
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+push      r14
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,30
+mov       [rsp+28],rcx
+mov       rsi,rcx
+mov       ebx,edx
+mov       edi,r8d
+mov       rbp,r9
+test      ebx,ebx
+jl        short 00007FFF60C099CA
+test      edi,edi
+jl        short 00007FFF60C099D0
+mov       ecx,[rsi+10]
+sub       ecx,ebx
+cmp       ecx,edi
+jl        short 00007FFF60C099E0
+cmp       edi,1
+jle       short 00007FFF60C099BC
+mov       r14,[rsi+8]
+mov       rcx,[rsi]
+mov       rdx,[rcx+30]
+mov       rdx,[rdx]
+mov       rax,[rdx+8]
+test      rax,rax
+jne       short 00007FFF60C099A6
+mov       rdx,7FFF60CAF388
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       [rsp+20],rbp
+mov       rcx,rax
+mov       rdx,r14
+mov       r8d,ebx
+mov       r9d,edi
+call      System.Array.Sort[[System.__Canon, System.Private.CoreLib]](System.__Canon[], Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+inc       dword ptr [rsi+14]
+add       rsp,30
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+pop       r14
+ret
+call      System.ThrowHelper.ThrowIndexArgumentOutOfRange_NeedNonNegNumException()
+int       3
+mov       ecx,1B
+mov       edx,9
+call      System.ThrowHelper.ThrowArgumentOutOfRangeException(System.ExceptionArgument, System.ExceptionResource)
+int       3
+mov       ecx,0B
+call      System.ThrowHelper.ThrowArgumentException(System.ExceptionResource)
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Sort01()
+            this._peopleFastSortedList.Sort();
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rcx+88]
+mov       r8d,[rcx]
+mov       r8d,[rcx+10]
+xor       edx,edx
+xor       r9d,r9d
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+jmp       rax
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+push      r14
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,30
+mov       [rsp+28],rcx
+mov       rsi,rcx
+mov       ebx,edx
+mov       edi,r8d
+mov       rbp,r9
+test      ebx,ebx
+jl        short 00007FFF60C399EA
+test      edi,edi
+jl        short 00007FFF60C399F0
+mov       ecx,[rsi+10]
+sub       ecx,ebx
+cmp       ecx,edi
+jl        short 00007FFF60C39A00
+cmp       edi,1
+jle       short 00007FFF60C399DC
+mov       r14,[rsi+8]
+mov       rcx,[rsi]
+mov       rdx,[rcx+30]
+mov       rdx,[rdx]
+mov       rax,[rdx+8]
+test      rax,rax
+jne       short 00007FFF60C399C6
+mov       rdx,7FFF60CDF888
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       [rsp+20],rbp
+mov       rcx,rax
+mov       rdx,r14
+mov       r8d,ebx
+mov       r9d,edi
+call      System.Array.Sort[[System.__Canon, System.Private.CoreLib]](System.__Canon[], Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+inc       dword ptr [rsi+14]
+add       rsp,30
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+pop       r14
+ret
+call      System.ThrowHelper.ThrowIndexArgumentOutOfRange_NeedNonNegNumException()
+int       3
+mov       ecx,1B
+mov       edx,9
+call      System.ThrowHelper.ThrowArgumentOutOfRangeException(System.ExceptionArgument, System.ExceptionResource)
+int       3
+mov       ecx,0B
+call      System.ThrowHelper.ThrowArgumentException(System.ExceptionResource)
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Sort01()
+            this._peopleFastSortedList.Sort();
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rcx+88]
+mov       r8d,[rcx]
+mov       r8d,[rcx+10]
+xor       edx,edx
+xor       r9d,r9d
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+jmp       rax
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+push      r14
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,30
+mov       [rsp+28],rcx
+mov       rsi,rcx
+mov       ebx,edx
+mov       edi,r8d
+mov       rbp,r9
+test      ebx,ebx
+jl        short 00007FFF60C39A3A
+test      edi,edi
+jl        short 00007FFF60C39A40
+mov       ecx,[rsi+10]
+sub       ecx,ebx
+cmp       ecx,edi
+jl        short 00007FFF60C39A50
+cmp       edi,1
+jle       short 00007FFF60C39A2C
+mov       r14,[rsi+8]
+mov       rcx,[rsi]
+mov       rdx,[rcx+30]
+mov       rdx,[rdx]
+mov       rax,[rdx+8]
+test      rax,rax
+jne       short 00007FFF60C39A16
+mov       rdx,7FFF60CDF830
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       [rsp+20],rbp
+mov       rcx,rax
+mov       rdx,r14
+mov       r8d,ebx
+mov       r9d,edi
+call      System.Array.Sort[[System.__Canon, System.Private.CoreLib]](System.__Canon[], Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+inc       dword ptr [rsi+14]
+add       rsp,30
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+pop       r14
+ret
+call      System.ThrowHelper.ThrowIndexArgumentOutOfRange_NeedNonNegNumException()
+int       3
+mov       ecx,1B
+mov       edx,9
+call      System.ThrowHelper.ThrowArgumentOutOfRangeException(System.ExceptionArgument, System.ExceptionResource)
+int       3
+mov       ecx,0B
+call      System.ThrowHelper.ThrowArgumentException(System.ExceptionResource)
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Sort01()
+            this._peopleFastSortedList.Sort();
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rcx+88]
+mov       r8d,[rcx]
+mov       r8d,[rcx+10]
+xor       edx,edx
+xor       r9d,r9d
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+jmp       rax
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+push      r14
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,30
+mov       [rsp+28],rcx
+mov       rsi,rcx
+mov       ebx,edx
+mov       edi,r8d
+mov       rbp,r9
+test      ebx,ebx
+jl        short 00007FFF60C39A1A
+test      edi,edi
+jl        short 00007FFF60C39A20
+mov       ecx,[rsi+10]
+sub       ecx,ebx
+cmp       ecx,edi
+jl        short 00007FFF60C39A30
+cmp       edi,1
+jle       short 00007FFF60C39A0C
+mov       r14,[rsi+8]
+mov       rcx,[rsi]
+mov       rdx,[rcx+30]
+mov       rdx,[rdx]
+mov       rax,[rdx+8]
+test      rax,rax
+jne       short 00007FFF60C399F6
+mov       rdx,7FFF60CDF830
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       [rsp+20],rbp
+mov       rcx,rax
+mov       rdx,r14
+mov       r8d,ebx
+mov       r9d,edi
+call      System.Array.Sort[[System.__Canon, System.Private.CoreLib]](System.__Canon[], Int32, Int32, System.Collections.Generic.IComparer`1<System.__Canon>)
+inc       dword ptr [rsi+14]
+add       rsp,30
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+pop       r14
+ret
+call      System.ThrowHelper.ThrowIndexArgumentOutOfRange_NeedNonNegNumException()
+int       3
+mov       ecx,1B
+mov       edx,9
+call      System.ThrowHelper.ThrowArgumentOutOfRangeException(System.ExceptionArgument, System.ExceptionResource)
+int       3
+mov       ecx,0B
+call      System.ThrowHelper.ThrowArgumentException(System.ExceptionResource)
+int       3
+
+</code></pre></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th colspan="7">FastSortedListPerfTestRunner.'Sort(delegate) on Country'</th></tr>
+<tr>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Sort02()
+            this._peopleFastSortedList.Sort(delegate (PersonProper p1, PersonProper p2)
+            ^^^
+            {
+            ^^^
+                return p1.Country.CompareTo(p2.Country);
+            ^^^
+            });
+            ^^^
+        }
+        ^
+push      rdi
+push      rsi
+sub       rsp,28
+mov       rsi,[rcx+88]
+mov       rcx,1D0C5CE6FC0
+mov       rdx,[rcx]
+test      rdx,rdx
+jne       short 00007FFF60C291BF
+mov       rcx,offset MT_System.Comparison`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rdx,1D0C5CE6FB8
+mov       rdx,[rdx]
+test      rdx,rdx
+je        short 00007FFF60C291D7
+lea       rcx,[rdi+8]
+call      CORINFO_HELP_ASSIGN_REF
+mov       rdx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c.<Sort02>b__6_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rdi+18],rdx
+mov       rcx,1D0C5CE6FC0
+mov       rdx,rdi
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+mov       rdx,rdi
+mov       rcx,rsi
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(System.Comparison`1<System.__Canon>)
+cmp       [rcx],ecx
+add       rsp,28
+pop       rsi
+pop       rdi
+jmp       rax
+mov       rcx,rdi
+call      System.MulticastDelegate.ThrowNullThisInDelegateToInstance()
+int       3
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c.<Sort02>b__6_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                return p1.Country.CompareTo(p2.Country);
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rdx+28]
+mov       rdx,[r8+28]
+mov       r8d,[rcx]
+xor       r8d,r8d
+mov       rax,offset System.String.Compare(System.String, System.String, System.StringComparison)
+jmp       rax
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(System.Comparison`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,38
+mov       [rsp+30],rcx
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60C29669
+cmp       dword ptr [rsi+10],1
+jle       short 00007FFF60C2965D
+mov       rbx,[rsi+8]
+mov       ebp,[rsi+10]
+mov       rcx,[rsi]
+mov       rdx,[rcx+30]
+mov       rdx,[rdx]
+mov       rax,[rdx+8]
+test      rax,rax
+jne       short 00007FFF60C29647
+mov       rdx,7FFF60CCFC58
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       [rsp+20],rdi
+mov       rcx,rax
+mov       rdx,rbx
+mov       r9d,ebp
+xor       r8d,r8d
+call      System.Collections.Generic.ArraySortHelper`1[[System.__Canon, System.Private.CoreLib]].Sort(System.__Canon[], Int32, Int32, System.Comparison`1<System.__Canon>)
+inc       dword ptr [rsi+14]
+add       rsp,38
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1D
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+
+Method was not JITted yet.
+System.MulticastDelegate.ThrowNullThisInDelegateToInstance()
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Sort02()
+            this._peopleFastSortedList.Sort(delegate (PersonProper p1, PersonProper p2)
+            ^^^
+            {
+            ^^^
+                return p1.Country.CompareTo(p2.Country);
+            ^^^
+            });
+            ^^^
+        }
+        ^
+push      rdi
+push      rsi
+sub       rsp,28
+mov       rsi,[rcx+88]
+mov       rcx,18ED33DB428
+mov       rdx,[rcx]
+test      rdx,rdx
+jne       short 00007FFF60C394EF
+mov       rcx,offset MT_System.Comparison`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rdx,18ED33DB420
+mov       rdx,[rdx]
+test      rdx,rdx
+je        short 00007FFF60C39507
+lea       rcx,[rdi+8]
+call      CORINFO_HELP_ASSIGN_REF
+mov       rdx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c.<Sort02>b__6_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rdi+18],rdx
+mov       rcx,18ED33DB428
+mov       rdx,rdi
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+mov       rdx,rdi
+mov       rcx,rsi
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(System.Comparison`1<System.__Canon>)
+cmp       [rcx],ecx
+add       rsp,28
+pop       rsi
+pop       rdi
+jmp       rax
+mov       rcx,rdi
+call      System.MulticastDelegate.ThrowNullThisInDelegateToInstance()
+int       3
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c.<Sort02>b__6_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                return p1.Country.CompareTo(p2.Country);
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rdx+28]
+mov       rdx,[r8+28]
+mov       r8d,[rcx]
+xor       r8d,r8d
+mov       rax,offset System.String.Compare(System.String, System.String, System.StringComparison)
+jmp       rax
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(System.Comparison`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,38
+mov       [rsp+30],rcx
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60C39599
+cmp       dword ptr [rsi+10],1
+jle       short 00007FFF60C3958D
+mov       rbx,[rsi+8]
+mov       ebp,[rsi+10]
+mov       rcx,[rsi]
+mov       rdx,[rcx+30]
+mov       rdx,[rdx]
+mov       rax,[rdx+8]
+test      rax,rax
+jne       short 00007FFF60C39577
+mov       rdx,7FFF60CDFD80
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       [rsp+20],rdi
+mov       rcx,rax
+mov       rdx,rbx
+mov       r9d,ebp
+xor       r8d,r8d
+call      System.Collections.Generic.ArraySortHelper`1[[System.__Canon, System.Private.CoreLib]].Sort(System.__Canon[], Int32, Int32, System.Comparison`1<System.__Canon>)
+inc       dword ptr [rsi+14]
+add       rsp,38
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1D
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+
+Method was not JITted yet.
+System.MulticastDelegate.ThrowNullThisInDelegateToInstance()
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Sort02()
+            this._peopleFastSortedList.Sort(delegate (PersonProper p1, PersonProper p2)
+            ^^^
+            {
+            ^^^
+                return p1.Country.CompareTo(p2.Country);
+            ^^^
+            });
+            ^^^
+        }
+        ^
+push      rdi
+push      rsi
+sub       rsp,28
+mov       rsi,[rcx+88]
+mov       rcx,20418196FC0
+mov       rdx,[rcx]
+test      rdx,rdx
+jne       short 00007FFF60C198EF
+mov       rcx,offset MT_System.Comparison`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rdx,20418196FB8
+mov       rdx,[rdx]
+test      rdx,rdx
+je        short 00007FFF60C19907
+lea       rcx,[rdi+8]
+call      CORINFO_HELP_ASSIGN_REF
+mov       rdx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c.<Sort02>b__6_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rdi+18],rdx
+mov       rcx,20418196FC0
+mov       rdx,rdi
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+mov       rdx,rdi
+mov       rcx,rsi
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(System.Comparison`1<System.__Canon>)
+cmp       [rcx],ecx
+add       rsp,28
+pop       rsi
+pop       rdi
+jmp       rax
+mov       rcx,rdi
+call      System.MulticastDelegate.ThrowNullThisInDelegateToInstance()
+int       3
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c.<Sort02>b__6_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                return p1.Country.CompareTo(p2.Country);
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rdx+28]
+mov       rdx,[r8+28]
+mov       r8d,[rcx]
+xor       r8d,r8d
+mov       rax,offset System.String.Compare(System.String, System.String, System.StringComparison)
+jmp       rax
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(System.Comparison`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,38
+mov       [rsp+30],rcx
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60C19999
+cmp       dword ptr [rsi+10],1
+jle       short 00007FFF60C1998D
+mov       rbx,[rsi+8]
+mov       ebp,[rsi+10]
+mov       rcx,[rsi]
+mov       rdx,[rcx+30]
+mov       rdx,[rdx]
+mov       rax,[rdx+8]
+test      rax,rax
+jne       short 00007FFF60C19977
+mov       rdx,7FFF60CD02E8
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       [rsp+20],rdi
+mov       rcx,rax
+mov       rdx,rbx
+mov       r9d,ebp
+xor       r8d,r8d
+call      System.Collections.Generic.ArraySortHelper`1[[System.__Canon, System.Private.CoreLib]].Sort(System.__Canon[], Int32, Int32, System.Comparison`1<System.__Canon>)
+inc       dword ptr [rsi+14]
+add       rsp,38
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1D
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+
+Method was not JITted yet.
+System.MulticastDelegate.ThrowNullThisInDelegateToInstance()
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Sort02()
+            this._peopleFastSortedList.Sort(delegate (PersonProper p1, PersonProper p2)
+            ^^^
+            {
+            ^^^
+                return p1.Country.CompareTo(p2.Country);
+            ^^^
+            });
+            ^^^
+        }
+        ^
+push      rdi
+push      rsi
+sub       rsp,28
+mov       rsi,[rcx+88]
+mov       rcx,14BFA79B428
+mov       rdx,[rcx]
+test      rdx,rdx
+jne       short 00007FFF60C295BF
+mov       rcx,offset MT_System.Comparison`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rdx,14BFA79B420
+mov       rdx,[rdx]
+test      rdx,rdx
+je        short 00007FFF60C295D7
+lea       rcx,[rdi+8]
+call      CORINFO_HELP_ASSIGN_REF
+mov       rdx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c.<Sort02>b__6_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rdi+18],rdx
+mov       rcx,14BFA79B428
+mov       rdx,rdi
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+mov       rdx,rdi
+mov       rcx,rsi
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(System.Comparison`1<System.__Canon>)
+cmp       [rcx],ecx
+add       rsp,28
+pop       rsi
+pop       rdi
+jmp       rax
+mov       rcx,rdi
+call      System.MulticastDelegate.ThrowNullThisInDelegateToInstance()
+int       3
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c.<Sort02>b__6_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                return p1.Country.CompareTo(p2.Country);
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rdx+28]
+mov       rdx,[r8+28]
+mov       r8d,[rcx]
+xor       r8d,r8d
+mov       rax,offset System.String.Compare(System.String, System.String, System.StringComparison)
+jmp       rax
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(System.Comparison`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,38
+mov       [rsp+30],rcx
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60C29669
+cmp       dword ptr [rsi+10],1
+jle       short 00007FFF60C2965D
+mov       rbx,[rsi+8]
+mov       ebp,[rsi+10]
+mov       rcx,[rsi]
+mov       rdx,[rcx+30]
+mov       rdx,[rdx]
+mov       rax,[rdx+8]
+test      rax,rax
+jne       short 00007FFF60C29647
+mov       rdx,7FFF60CCFF30
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       [rsp+20],rdi
+mov       rcx,rax
+mov       rdx,rbx
+mov       r9d,ebp
+xor       r8d,r8d
+call      System.Collections.Generic.ArraySortHelper`1[[System.__Canon, System.Private.CoreLib]].Sort(System.__Canon[], Int32, Int32, System.Comparison`1<System.__Canon>)
+inc       dword ptr [rsi+14]
+add       rsp,38
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1D
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+
+Method was not JITted yet.
+System.MulticastDelegate.ThrowNullThisInDelegateToInstance()
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Sort02()
+            this._peopleFastSortedList.Sort(delegate (PersonProper p1, PersonProper p2)
+            ^^^
+            {
+            ^^^
+                return p1.Country.CompareTo(p2.Country);
+            ^^^
+            });
+            ^^^
+        }
+        ^
+push      rdi
+push      rsi
+sub       rsp,28
+mov       rsi,[rcx+88]
+mov       rcx,1A2FA122FC8
+mov       rdx,[rcx]
+test      rdx,rdx
+jne       short 00007FFF60C1976F
+mov       rcx,offset MT_System.Comparison`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rdx,1A2FA122FC0
+mov       rdx,[rdx]
+test      rdx,rdx
+je        short 00007FFF60C19787
+lea       rcx,[rdi+8]
+call      CORINFO_HELP_ASSIGN_REF
+mov       rdx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c.<Sort02>b__6_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rdi+18],rdx
+mov       rcx,1A2FA122FC8
+mov       rdx,rdi
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+mov       rdx,rdi
+mov       rcx,rsi
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(System.Comparison`1<System.__Canon>)
+cmp       [rcx],ecx
+add       rsp,28
+pop       rsi
+pop       rdi
+jmp       rax
+mov       rcx,rdi
+call      System.MulticastDelegate.ThrowNullThisInDelegateToInstance()
+int       3
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c.<Sort02>b__6_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                return p1.Country.CompareTo(p2.Country);
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rdx+28]
+mov       rdx,[r8+28]
+mov       r8d,[rcx]
+xor       r8d,r8d
+mov       rax,offset System.String.Compare(System.String, System.String, System.StringComparison)
+jmp       rax
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(System.Comparison`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,38
+mov       [rsp+30],rcx
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60C19819
+cmp       dword ptr [rsi+10],1
+jle       short 00007FFF60C1980D
+mov       rbx,[rsi+8]
+mov       ebp,[rsi+10]
+mov       rcx,[rsi]
+mov       rdx,[rcx+30]
+mov       rdx,[rdx]
+mov       rax,[rdx+8]
+test      rax,rax
+jne       short 00007FFF60C197F7
+mov       rdx,7FFF60CBFF88
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       [rsp+20],rdi
+mov       rcx,rax
+mov       rdx,rbx
+mov       r9d,ebp
+xor       r8d,r8d
+call      System.Collections.Generic.ArraySortHelper`1[[System.__Canon, System.Private.CoreLib]].Sort(System.__Canon[], Int32, Int32, System.Comparison`1<System.__Canon>)
+inc       dword ptr [rsi+14]
+add       rsp,38
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1D
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+
+Method was not JITted yet.
+System.MulticastDelegate.ThrowNullThisInDelegateToInstance()
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Sort02()
+            this._peopleFastSortedList.Sort(delegate (PersonProper p1, PersonProper p2)
+            ^^^
+            {
+            ^^^
+                return p1.Country.CompareTo(p2.Country);
+            ^^^
+            });
+            ^^^
+        }
+        ^
+push      rdi
+push      rsi
+sub       rsp,28
+mov       rsi,[rcx+88]
+mov       rcx,2C5D4CA6FC0
+mov       rdx,[rcx]
+test      rdx,rdx
+jne       short 00007FFF60C3984F
+mov       rcx,offset MT_System.Comparison`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rdx,2C5D4CA6FB8
+mov       rdx,[rdx]
+test      rdx,rdx
+je        short 00007FFF60C39867
+lea       rcx,[rdi+8]
+call      CORINFO_HELP_ASSIGN_REF
+mov       rdx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c.<Sort02>b__6_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rdi+18],rdx
+mov       rcx,2C5D4CA6FC0
+mov       rdx,rdi
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+mov       rdx,rdi
+mov       rcx,rsi
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(System.Comparison`1<System.__Canon>)
+cmp       [rcx],ecx
+add       rsp,28
+pop       rsi
+pop       rdi
+jmp       rax
+mov       rcx,rdi
+call      System.MulticastDelegate.ThrowNullThisInDelegateToInstance()
+int       3
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c.<Sort02>b__6_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                return p1.Country.CompareTo(p2.Country);
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rdx+28]
+mov       rdx,[r8+28]
+mov       r8d,[rcx]
+xor       r8d,r8d
+mov       rax,offset System.String.Compare(System.String, System.String, System.StringComparison)
+jmp       rax
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(System.Comparison`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,38
+mov       [rsp+30],rcx
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60C398F9
+cmp       dword ptr [rsi+10],1
+jle       short 00007FFF60C398ED
+mov       rbx,[rsi+8]
+mov       ebp,[rsi+10]
+mov       rcx,[rsi]
+mov       rdx,[rcx+30]
+mov       rdx,[rdx]
+mov       rax,[rdx+8]
+test      rax,rax
+jne       short 00007FFF60C398D7
+mov       rdx,7FFF60CF00B0
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       [rsp+20],rdi
+mov       rcx,rax
+mov       rdx,rbx
+mov       r9d,ebp
+xor       r8d,r8d
+call      System.Collections.Generic.ArraySortHelper`1[[System.__Canon, System.Private.CoreLib]].Sort(System.__Canon[], Int32, Int32, System.Comparison`1<System.__Canon>)
+inc       dword ptr [rsi+14]
+add       rsp,38
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1D
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+
+Method was not JITted yet.
+System.MulticastDelegate.ThrowNullThisInDelegateToInstance()
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner.Sort02()
+            this._peopleFastSortedList.Sort(delegate (PersonProper p1, PersonProper p2)
+            ^^^
+            {
+            ^^^
+                return p1.Country.CompareTo(p2.Country);
+            ^^^
+            });
+            ^^^
+        }
+        ^
+push      rdi
+push      rsi
+sub       rsp,28
+mov       rsi,[rcx+88]
+mov       rcx,16E6B156FC0
+mov       rdx,[rcx]
+test      rdx,rdx
+jne       short 00007FFF60C3984F
+mov       rcx,offset MT_System.Comparison`1[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rdx,16E6B156FB8
+mov       rdx,[rdx]
+test      rdx,rdx
+je        short 00007FFF60C39867
+lea       rcx,[rdi+8]
+call      CORINFO_HELP_ASSIGN_REF
+mov       rdx,offset dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c.<Sort02>b__6_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+mov       [rdi+18],rdx
+mov       rcx,16E6B156FC0
+mov       rdx,rdi
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+mov       rdx,rdi
+mov       rcx,rsi
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(System.Comparison`1<System.__Canon>)
+cmp       [rcx],ecx
+add       rsp,28
+pop       rsi
+pop       rdi
+jmp       rax
+mov       rcx,rdi
+call      System.MulticastDelegate.ThrowNullThisInDelegateToInstance()
+int       3
+
+dotNetTips.Utility.Benchmarks.Collections.Concurrent.FastSortedListPerfTestRunner+<>c.<Sort02>b__6_0(dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester.Models.PersonProper)
+                return p1.Country.CompareTo(p2.Country);
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,[rdx+28]
+mov       rdx,[r8+28]
+mov       r8d,[rcx]
+xor       r8d,r8d
+mov       rax,offset System.String.Compare(System.String, System.String, System.StringComparison)
+jmp       rax
+
+System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].Sort(System.Comparison`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,38
+mov       [rsp+30],rcx
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        short 00007FFF60C398F9
+cmp       dword ptr [rsi+10],1
+jle       short 00007FFF60C398ED
+mov       rbx,[rsi+8]
+mov       ebp,[rsi+10]
+mov       rcx,[rsi]
+mov       rdx,[rcx+30]
+mov       rdx,[rdx]
+mov       rax,[rdx+8]
+test      rax,rax
+jne       short 00007FFF60C398D7
+mov       rdx,7FFF60CF0278
+call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
+mov       [rsp+20],rdi
+mov       rcx,rax
+mov       rdx,rbx
+mov       r9d,ebp
+xor       r8d,r8d
+call      System.Collections.Generic.ArraySortHelper`1[[System.__Canon, System.Private.CoreLib]].Sort(System.__Canon[], Int32, Int32, System.Comparison`1<System.__Canon>)
+inc       dword ptr [rsi+14]
+add       rsp,38
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+mov       ecx,1D
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+
+Method was not JITted yet.
+System.MulticastDelegate.ThrowNullThisInDelegateToInstance()
+
+</code></pre></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

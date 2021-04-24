@@ -11,10 +11,10 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using System.Linq;
 using BenchmarkDotNet.Attributes;
 using dotNetTips.Utility.Standard;
 using dotNetTips.Utility.Standard.Extensions;
-using System.Linq;
 
 namespace dotNetTips.Utility.Benchmarks
 {
@@ -23,13 +23,6 @@ namespace dotNetTips.Utility.Benchmarks
     {
 
         string _service;
-
-        public override void Setup()
-        {
-            base.Setup();
-
-            _service = Services.AllServices().Randomize().FirstOrDefault();
-        }
 
         [Benchmark(Description = nameof(Services.AllServices))]
         public void AllServices()
@@ -42,7 +35,7 @@ namespace dotNetTips.Utility.Benchmarks
         [Benchmark(Description = nameof(Services.ServiceExists))]
         public void ServiceExists()
         {
-            var result = Services.ServiceExists(_service);
+            var result = Services.ServiceExists(this._service);
 
             base.Consumer.Consume(result);
         }
@@ -50,9 +43,16 @@ namespace dotNetTips.Utility.Benchmarks
         [Benchmark(Description = nameof(Services.ServiceStatus))]
         public void ServiceStatus()
         {
-            var result = Services.ServiceStatus(_service);
+            var result = Services.ServiceStatus(this._service);
 
             base.Consumer.Consume(result);
+        }
+
+        public override void Setup()
+        {
+            base.Setup();
+
+            this._service = Services.AllServices().Shuffle().FirstOrDefault();
         }
 
     }

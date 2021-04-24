@@ -62,7 +62,7 @@ namespace dotNetTips.Utility.Standard.IO
 
             var directory = new DirectoryInfo(sourceDirectory);
 
-            var directiories = directory.GetDirectories();
+            var directories = directory.GetDirectories();
 
             if (Directory.Exists(destinationDirectory) == false)
             {
@@ -78,9 +78,9 @@ namespace dotNetTips.Utility.Standard.IO
                 _ = file.CopyTo(Path.Combine(destinationDirectory, file.Name), overwrite);
             }
 
-            for (int i = 0; i < directiories.Length; i++)
+            for (int i = 0; i < directories.Length; i++)
             {
-                var subDirectory = directiories[i];
+                var subDirectory = directories[i];
 
                 CopyDirectory(subDirectory.FullName, Path.Combine(destinationDirectory, subDirectory.Name), overwrite);
             }

@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.AppPerfTestRunner-20201102-213408</title>
+<title>dotNetTips.Utility.Benchmarks.AppPerfTestRunner-20210228-133602</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,26 +13,26 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.572 (2004/?/20H1)
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
 Unknown processor
-.NET Core SDK=5.0.100-rc.2.20479.15
-  [Host]     : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
-  Job-TZRVGS : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
+.NET Core SDK=5.0.200-preview.21079.7
+  [Host]     : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+  Job-HTSMCU : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
 </code></pre>
 <pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.1  
-Categories=App  
+Namespace=dotNetTips.Utility.Benchmarks  Categories=App  
 </code></pre>
 
 <table>
-<thead><tr><th>           Method</th><th>    Mean</th><th>  Error</th><th>  StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+<thead><tr><th>           Method</th><th>    Mean</th><th>   Error</th><th>  StdDev</th><th> StdErr</th><th>     Min</th><th>      Q1</th><th>  Median</th><th>      Q3</th><th>     Max</th><th>   Op/s</th><th>CI99.9% Margin</th><th>Iterations</th><th>Kurtosis</th><th>MValue</th><th>Skewness</th><th>Rank</th><th>LogicalGroup</th><th>Baseline</th><th>Code Size</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>GetEnvironmentVariables</td><td>20,366.240 ns</td><td>105.5947 ns</td><td>93.6070 ns</td><td>1.3733</td><td>-</td><td>-</td><td>13160 B</td>
-</tr><tr><td>IsProcessRunning</td><td>282,692.178 ns</td><td>5,587.5769 ns</td><td>12,146.9324 ns</td><td>11.2305</td><td>0.9766</td><td>-</td><td>107649 B</td>
-</tr><tr><td>IsRunning</td><td>523,427.708 ns</td><td>2,857.5637 ns</td><td>2,672.9668 ns</td><td>11.7188</td><td>0.9766</td><td>-</td><td>111945 B</td>
-</tr><tr><td>IsRunningFromAspNet</td><td>1.282 ns</td><td>0.0358 ns</td><td>0.0335 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>ReferencedAssemblies</td><td>79,533.802 ns</td><td>106.1595 ns</td><td>94.1076 ns</td><td>3.4180</td><td>-</td><td>-</td><td>32424 B</td>
-</tr><tr><td>StackTrace</td><td>70,646.756 ns</td><td>568.1312 ns</td><td>503.6335 ns</td><td>2.1973</td><td>-</td><td>-</td><td>21095 B</td>
-</tr><tr><td>WorkingSet</td><td>173.784 ns</td><td>0.3632 ns</td><td>0.3220 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</thead><tbody><tr><td>GetEnvironmentVariables</td><td>21,091.122 ns</td><td>217.0872 ns</td><td>192.4421 ns</td><td>51.4323 ns</td><td>20,936.536 ns</td><td>20,962.249 ns</td><td>21,012.613 ns</td><td>21,095.699 ns</td><td>21,483.514 ns</td><td>47,413.3</td><td>217.0872 ns</td><td>14.00</td><td>2.640</td><td>2.000</td><td>1.1428</td><td>3</td><td>*</td><td>No</td><td>614 B</td><td>1.4038</td><td>0.0305</td><td>-</td><td>13216 B</td>
+</tr><tr><td>IsProcessRunning</td><td>269,610.976 ns</td><td>3,201.3650 ns</td><td>2,837.9267 ns</td><td>758.4678 ns</td><td>265,899.170 ns</td><td>266,748.572 ns</td><td>269,555.908 ns</td><td>271,934.888 ns</td><td>274,064.111 ns</td><td>3,709.0</td><td>3,201.3650 ns</td><td>14.00</td><td>1.490</td><td>2.000</td><td>0.0016</td><td>6</td><td>*</td><td>No</td><td>155 B</td><td>10.7422</td><td>0.9766</td><td>-</td><td>105915 B</td>
+</tr><tr><td>IsRunning</td><td>511,332.753 ns</td><td>10,085.4656 ns</td><td>17,125.8860 ns</td><td>2,815.4783 ns</td><td>459,036.865 ns</td><td>501,542.432 ns</td><td>511,919.482 ns</td><td>527,811.377 ns</td><td>534,778.369 ns</td><td>1,955.7</td><td>10,085.4656 ns</td><td>37.00</td><td>3.373</td><td>2.000</td><td>-0.6963</td><td>7</td><td>*</td><td>No</td><td>98 B</td><td>11.7188</td><td>0.9766</td><td>-</td><td>111075 B</td>
+</tr><tr><td>IsRunningFromAspNet</td><td>1.306 ns</td><td>0.0044 ns</td><td>0.0039 ns</td><td>0.0010 ns</td><td>1.299 ns</td><td>1.302 ns</td><td>1.306 ns</td><td>1.308 ns</td><td>1.312 ns</td><td>765,863,308.1</td><td>0.0044 ns</td><td>14.00</td><td>1.678</td><td>2.000</td><td>-0.0882</td><td>1</td><td>*</td><td>No</td><td>44 B</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ReferencedAssemblies</td><td>78,851.163 ns</td><td>111.6589 ns</td><td>93.2402 ns</td><td>25.8602 ns</td><td>78,735.297 ns</td><td>78,776.007 ns</td><td>78,826.385 ns</td><td>78,885.028 ns</td><td>79,007.562 ns</td><td>12,682.1</td><td>111.6589 ns</td><td>13.00</td><td>1.746</td><td>2.000</td><td>0.4794</td><td>5</td><td>*</td><td>No</td><td>323 B</td><td>3.4180</td><td>-</td><td>-</td><td>32424 B</td>
+</tr><tr><td>StackTrace</td><td>69,614.257 ns</td><td>226.5368 ns</td><td>200.8189 ns</td><td>53.6711 ns</td><td>69,370.776 ns</td><td>69,460.794 ns</td><td>69,580.939 ns</td><td>69,697.778 ns</td><td>70,039.783 ns</td><td>14,364.9</td><td>226.5368 ns</td><td>14.00</td><td>2.211</td><td>2.000</td><td>0.6605</td><td>4</td><td>*</td><td>No</td><td>97 B</td><td>2.1973</td><td>-</td><td>-</td><td>21151 B</td>
+</tr><tr><td>WorkingSet</td><td>171.374 ns</td><td>2.2142 ns</td><td>2.0712 ns</td><td>0.5348 ns</td><td>168.935 ns</td><td>169.516 ns</td><td>170.489 ns</td><td>173.291 ns</td><td>174.339 ns</td><td>5,835,184.4</td><td>2.2142 ns</td><td>15.00</td><td>1.068</td><td>2.000</td><td>0.0698</td><td>2</td><td>*</td><td>No</td><td>272 B</td><td>-</td><td>-</td><td>-</td><td>-</td>
 </tr></tbody></table>
 </body>
 </html>

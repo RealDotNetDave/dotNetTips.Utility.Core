@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>DisassemblyDiagnoser Output dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-20210228-170631</title>
+
+<style type="text/css">
+    table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+    td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: left; }
+    tr { background-color: #fff; border-top: 1px solid #ccc; }
+    tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<table>
+<thead>
+<tr><th colspan="2">dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-20210228-170631</th></tr>
+<tr>
+<th>RetrieveAllExceptionMessages .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>RetrieveAllExceptions .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner.RetrieveAllExceptionMessages()
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+mov       rcx,[rsi+28]
+call      dotNetTips.Utility.Standard.Common.Logging.LoggingHelper.RetrieveAllExceptionMessages(System.Exception)
+mov       rdx,rax
+mov       rcx,offset MD_System.Linq.Enumerable.ToArray(System.Collections.Generic.IEnumerable`1<!!0>)
+call      System.Linq.Enumerable.ToArray[[System.__Canon, System.Private.CoreLib]](System.Collections.Generic.IEnumerable`1<System.__Canon>)
+mov       rdi,rax
+            for (var exceptionCount = 0; exceptionCount < exceptions.Length; exceptionCount++)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+xor       ebx,ebx
+mov       ebp,[rdi+8]
+test      ebp,ebp
+jle       short 00007FFF60BED6AF
+                var message = exceptions[exceptionCount];
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+movsxd    rdx,ebx
+mov       rdx,[rdi+rdx*8+10]
+mov       rcx,[rsi+8]
+mov       eax,[rcx]
+add       rcx,8
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+inc       ebx
+cmp       ebp,ebx
+jg        short 00007FFF60BED692
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+
+dotNetTips.Utility.Standard.Common.Logging.LoggingHelper.RetrieveAllExceptionMessages(System.Exception)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       rsi,rcx
+            if (ex == null)
+            ^^^^^^^^^^^^^^^
+test      rsi,rsi
+jne       short 00007FFF60BEDB0A
+call      dotNetTips.Utility.Standard.Common.Resources.get_ExMessageNullException()
+mov       rcx,rax
+mov       rdx,1D2EE565C58
+mov       rdx,[rdx]
+call      dotNetTips.Utility.Standard.Common.ExceptionThrower.ThrowArgumentNullException(System.String, System.String)
+mov       rcx,rsi
+call      dotNetTips.Utility.Standard.Common.Logging.LoggingHelper.RetrieveAllExceptions(System.Exception)
+mov       rsi,rax
+            var messages = new string[exceptions.Length];
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       edi,[rsi+8]
+movsxd    rdx,edi
+mov       rcx,offset MT_System.String[]
+call      CORINFO_HELP_NEWARR_1_OBJ
+mov       rbx,rax
+            for (var i = 0; i < exceptions.Length; i++)
+                 ^^^^^^^^^
+xor       ebp,ebp
+test      edi,edi
+jle       short 00007FFF60BEDB58
+                messages[i] = exceptions[i].Message;
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+movsxd    rcx,ebp
+mov       rcx,[rsi+rcx*8+10]
+mov       rax,[rcx]
+mov       rax,[rax+40]
+call      qword ptr [rax+28]
+mov       r8,rax
+mov       edx,ebp
+mov       rcx,rbx
+call      CORINFO_HELP_ARRADDR_ST
+inc       ebp
+cmp       edi,ebp
+jg        short 00007FFF60BEDB33
+            return messages;
+            ^^^^^^^^^^^^^^^^
+mov       rax,rbx
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+
+System.Linq.Enumerable.ToArray[[System.__Canon, System.Private.CoreLib]](System.Collections.Generic.IEnumerable`1<System.__Canon>)
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,28
+mov       [rsp+20],rcx
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        near ptr 00007FFF60BF1505
+mov       rbx,[rsi+10]
+mov       rcx,[rbx+8]
+test      rcx,rcx
+jne       short 00007FFF60BF148E
+mov       rcx,rsi
+mov       rdx,7FFF60C7B820
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       rcx,rax
+mov       rdx,rdi
+call      CORINFO_HELP_ISINSTANCEOFINTERFACE
+mov       rbp,rax
+test      rbp,rbp
+jne       short 00007FFF60BF14D4
+mov       rcx,[rbx+18]
+test      rcx,rcx
+jne       short 00007FFF60BF14BC
+mov       rcx,rsi
+mov       rdx,7FFF60C7B860
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       rcx,rax
+mov       rdx,rdi
+mov       rax,offset System.Collections.Generic.EnumerableHelpers.ToArray[[System.__Canon, System.Private.CoreLib]](System.Collections.Generic.IEnumerable`1<System.__Canon>)
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+jmp       rax
+mov       r11,[rbx+10]
+test      r11,r11
+jne       short 00007FFF60BF14F2
+mov       rcx,rsi
+mov       rdx,7FFF60C7B830
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       r11,rax
+mov       rcx,rbp
+mov       rax,[r11]
+cmp       [rcx],ecx
+add       rsp,28
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+jmp       rax
+mov       ecx,10
+call      System.Linq.ThrowHelper.ThrowArgumentNullException(System.Linq.ExceptionArgument)
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner.RetrieveAllExceptions()
+            var result = LoggingHelper.RetrieveAllExceptions(this._testException).Select(ex => ex).Count();
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.Consumer.Consume(result);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,20
+mov       rsi,rcx
+mov       rcx,[rsi+28]
+call      dotNetTips.Utility.Standard.Common.Logging.LoggingHelper.RetrieveAllExceptions(System.Exception)
+mov       rdi,rax
+mov       rcx,26ED01E6F48
+mov       r8,[rcx]
+test      r8,r8
+jne       short 00007FFF60C011B8
+mov       rcx,offset MT_System.Func`2[[System.Exception, System.Private.CoreLib],[System.Exception, System.Private.CoreLib]]
+call      CORINFO_HELP_NEWSFAST
+mov       rbx,rax
+mov       rdx,26ED01E6F40
+mov       rdx,[rdx]
+test      rdx,rdx
+je        short 00007FFF60C011EB
+lea       rcx,[rbx+8]
+call      CORINFO_HELP_ASSIGN_REF
+mov       rdx,offset dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner+<>c.<RetrieveAllExceptions>b__3_0(System.Exception)
+mov       [rbx+18],rdx
+mov       rcx,26ED01E6F48
+mov       rdx,rbx
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+mov       r8,rbx
+mov       rdx,rdi
+mov       rcx,offset MD_System.Linq.Enumerable.Select(System.Collections.Generic.IEnumerable`1<!!0>, System.Func`2<!!0,!!1>)
+call      System.Linq.Enumerable.Select[[System.__Canon, System.Private.CoreLib],[System.__Canon, System.Private.CoreLib]](System.Collections.Generic.IEnumerable`1<System.__Canon>, System.Func`2<System.__Canon,System.__Canon>)
+mov       rdx,rax
+mov       rcx,offset MD_System.Linq.Enumerable.Count(System.Collections.Generic.IEnumerable`1<!!0>)
+call      System.Linq.Enumerable.Count[[System.__Canon, System.Private.CoreLib]](System.Collections.Generic.IEnumerable`1<System.__Canon>)
+mov       rcx,[rsi+8]
+mov       [rcx+30],eax
+add       rsp,20
+pop       rbx
+pop       rsi
+pop       rdi
+ret
+mov       rcx,rbx
+call      System.MulticastDelegate.ThrowNullThisInDelegateToInstance()
+int       3
+
+dotNetTips.Utility.Standard.Common.Logging.LoggingHelper.RetrieveAllExceptions(System.Exception)
+            if (ex == null)
+            ^^^^^^^^^^^^^^^
+                ExceptionThrower.ThrowArgumentNullException(Resources.ExMessageNullException, nameof(ex));
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            var collection = new List<Exception>();
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            if (ex != null)
+            ^^^^^^^^^^^^^^^
+                collection = new List<Exception> { ex };
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                if (ex.InnerException is null == false)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                    collection.AddRange(RetrieveAllExceptions(ex.InnerException));
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            return collection.ToArray();
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rdi
+push      rsi
+sub       rsp,28
+mov       rsi,rcx
+test      rsi,rsi
+jne       short 00007FFF60BFF9D8
+call      dotNetTips.Utility.Standard.Common.Resources.get_ExMessageNullException()
+mov       rcx,rax
+mov       rdx,26EC01E17F0
+mov       rdx,[rdx]
+call      dotNetTips.Utility.Standard.Common.ExceptionThrower.ThrowArgumentNullException(System.String, System.String)
+mov       rcx,offset MT_System.Collections.Generic.List`1[[System.Exception, System.Private.CoreLib]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rdx,26ED01E48D8
+mov       rdx,[rdx]
+lea       rcx,[rdi+8]
+call      CORINFO_HELP_ASSIGN_REF
+test      rsi,rsi
+je        short 00007FFF60BFFA75
+mov       rcx,offset MT_System.Collections.Generic.List`1[[System.Exception, System.Private.CoreLib]]
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rdx,26ED01E48D8
+mov       rdx,[rdx]
+lea       rcx,[rdi+8]
+call      CORINFO_HELP_ASSIGN_REF
+inc       dword ptr [rdi+14]
+mov       rcx,[rdi+8]
+mov       edx,[rdi+10]
+cmp       [rcx+8],edx
+jbe       short 00007FFF60BFFA4E
+lea       r8d,[rdx+1]
+mov       [rdi+10],r8d
+mov       r8,rsi
+call      CORINFO_HELP_ARRADDR_ST
+jmp       short 00007FFF60BFFA59
+mov       rcx,rdi
+mov       rdx,rsi
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+mov       rcx,[rsi+20]
+test      rcx,rcx
+je        short 00007FFF60BFFA75
+call      dotNetTips.Utility.Standard.Common.Logging.LoggingHelper.RetrieveAllExceptions(System.Exception)
+mov       r8,rax
+mov       edx,[rdi+10]
+mov       rcx,rdi
+call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].InsertRange(Int32, System.Collections.Generic.IEnumerable`1<System.__Canon>)
+mov       rcx,rdi
+mov       rax,offset System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ToArray()
+cmp       [rcx],ecx
+add       rsp,28
+pop       rsi
+pop       rdi
+jmp       rax
+
+dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner+<>c.<RetrieveAllExceptions>b__3_0(System.Exception)
+            var result = LoggingHelper.RetrieveAllExceptions(this._testException).Select(ex => ex).Count();
+                                                                                               ^^
+mov       rax,rdx
+ret
+
+System.Linq.Enumerable.Select[[System.__Canon, System.Private.CoreLib],[System.__Canon, System.Private.CoreLib]](System.Collections.Generic.IEnumerable`1<System.__Canon>, System.Func`2<System.__Canon,System.__Canon>)
+push      r15
+push      r14
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,38
+xor       eax,eax
+mov       [rsp+28],rax
+mov       [rsp+30],rcx
+mov       rsi,rcx
+mov       rdi,rdx
+mov       rbx,r8
+test      rdi,rdi
+je        near ptr 00007FFF60C00E1E
+test      rbx,rbx
+je        near ptr 00007FFF60C00E29
+mov       rbp,[rsi+10]
+mov       r14,[rbp+10]
+mov       rcx,r14
+test      rcx,rcx
+jne       short 00007FFF60C00AF8
+mov       rcx,rsi
+mov       rdx,7FFF60C8AFB8
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       rcx,rax
+mov       rdx,rdi
+call      CORINFO_HELP_ISINSTANCEOFCLASS
+mov       r15,rax
+test      r15,r15
+je        short 00007FFF60C00B4F
+test      r14,r14
+jne       short 00007FFF60C00B22
+mov       rcx,rsi
+mov       rdx,7FFF60C8AFB8
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       r14,rax
+mov       rcx,rsi
+mov       rdx,7FFF60C8D168
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       r8,rax
+mov       rdx,r14
+mov       rcx,r15
+call      CORINFO_HELP_VIRTUAL_FUNC_PTR
+mov       rcx,r15
+mov       rdx,rbx
+call      rax
+jmp       near ptr 00007FFF60C00E11
+mov       rcx,[rbp+18]
+test      rcx,rcx
+jne       short 00007FFF60C00B6D
+mov       rcx,rsi
+mov       rdx,7FFF60C8B1F8
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       rcx,rax
+mov       rdx,rdi
+call      CORINFO_HELP_ISINSTANCEOFINTERFACE
+mov       r14,rax
+test      r14,r14
+je        near ptr 00007FFF60C00D38
+mov       rcx,rsi
+mov       rdx,7FFF60C8BE08
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       rcx,rax
+mov       rdx,rdi
+call      CORINFO_HELP_ISINSTANCEOFARRAY
+mov       rbp,rax
+test      rbp,rbp
+je        near ptr 00007FFF60C00C3B
+cmp       dword ptr [rbp+8],0
+je        short 00007FFF60C00C1C
+mov       rcx,rsi
+mov       rdx,7FFF60C8D120
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       rcx,rax
+call      CORINFO_HELP_NEWSFAST
+mov       rsi,rax
+mov       rcx,7FFF60900020
+mov       edx,1E2
+call      CORINFO_HELP_GETSHARED_GCTHREADSTATIC_BASE
+mov       rcx,[rax+8]
+test      rcx,rcx
+jne       short 00007FFF60C00BF2
+call      System.Threading.Thread.InitializeCurrentThread()
+mov       rcx,rax
+cmp       [rcx],ecx
+call      00007FFFC0423560
+mov       [rsi+10],eax
+lea       rcx,[rsi+18]
+mov       rdx,rbp
+call      CORINFO_HELP_ASSIGN_REF
+lea       rcx,[rsi+20]
+mov       rdx,rbx
+call      CORINFO_HELP_ASSIGN_REF
+mov       rax,rsi
+jmp       near ptr 00007FFF60C00E11
+mov       rcx,rsi
+mov       rdx,7FFF60C8D050
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       rcx,rax
+call      System.Linq.Enumerable.Empty[[System.__Canon, System.Private.CoreLib]]()
+jmp       near ptr 00007FFF60C00E11
+mov       rcx,rsi
+mov       rdx,7FFF60C8BE58
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       rcx,rax
+mov       rdx,rdi
+call      CORINFO_HELP_ISINSTANCEOFCLASS
+mov       rdi,rax
+test      rdi,rdi
+je        short 00007FFF60C00CCC
+mov       rcx,rsi
+mov       rdx,7FFF60C8C9E0
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       rcx,rax
+call      CORINFO_HELP_NEWSFAST
+mov       rsi,rax
+mov       rcx,7FFF60900020
+mov       edx,1E2
+call      CORINFO_HELP_GETSHARED_GCTHREADSTATIC_BASE
+mov       rcx,[rax+8]
+test      rcx,rcx
+jne       short 00007FFF60C00CA2
+call      System.Threading.Thread.InitializeCurrentThread()
+mov       rcx,rax
+cmp       [rcx],ecx
+call      00007FFFC0423560
+mov       [rsi+10],eax
+lea       rcx,[rsi+18]
+mov       rdx,rdi
+call      CORINFO_HELP_ASSIGN_REF
+lea       rcx,[rsi+20]
+mov       rdx,rbx
+call      CORINFO_HELP_ASSIGN_REF
+mov       rax,rsi
+jmp       near ptr 00007FFF60C00E11
+mov       rcx,rsi
+mov       rdx,7FFF60C8C828
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       rcx,rax
+call      CORINFO_HELP_NEWSFAST
+mov       rsi,rax
+mov       rcx,7FFF60900020
+mov       edx,1E2
+call      CORINFO_HELP_GETSHARED_GCTHREADSTATIC_BASE
+mov       rcx,[rax+8]
+test      rcx,rcx
+jne       short 00007FFF60C00D0E
+call      System.Threading.Thread.InitializeCurrentThread()
+mov       rcx,rax
+cmp       [rcx],ecx
+call      00007FFFC0423560
+mov       [rsi+10],eax
+lea       rcx,[rsi+18]
+mov       rdx,r14
+call      CORINFO_HELP_ASSIGN_REF
+lea       rcx,[rsi+20]
+mov       rdx,rbx
+call      CORINFO_HELP_ASSIGN_REF
+mov       rax,rsi
+jmp       near ptr 00007FFF60C00E11
+mov       rcx,[rbp+20]
+test      rcx,rcx
+jne       short 00007FFF60C00D56
+mov       rcx,rsi
+mov       rdx,7FFF60C8B358
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       rcx,rax
+mov       rdx,rdi
+call      CORINFO_HELP_ISINSTANCEOFINTERFACE
+mov       r14,rax
+test      r14,r14
+je        short 00007FFF60C00DA1
+xor       ecx,ecx
+mov       [rsp+28],rcx
+mov       rcx,rsi
+mov       rdx,7FFF60C8BDE8
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       rcx,rax
+lea       r9,[rsp+28]
+mov       rdx,rbx
+mov       r8,r14
+call      System.Linq.Enumerable.CreateSelectIPartitionIterator[[System.__Canon, System.Private.CoreLib],[System.__Canon, System.Private.CoreLib]](System.Func`2<System.__Canon,System.__Canon>, System.Linq.IPartition`1<System.__Canon>, System.Collections.Generic.IEnumerable`1<System.__Canon> ByRef)
+cmp       qword ptr [rsp+28],0
+je        short 00007FFF60C00DA1
+mov       rax,[rsp+28]
+jmp       short 00007FFF60C00E11
+mov       rcx,[rbp+28]
+test      rcx,rcx
+jne       short 00007FFF60C00DBF
+mov       rcx,rsi
+mov       rdx,7FFF60C8BD50
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       rcx,rax
+call      CORINFO_HELP_NEWSFAST
+mov       rsi,rax
+mov       rcx,7FFF60900020
+mov       edx,1E2
+call      CORINFO_HELP_GETSHARED_GCTHREADSTATIC_BASE
+mov       rcx,[rax+8]
+test      rcx,rcx
+jne       short 00007FFF60C00DEC
+call      System.Threading.Thread.InitializeCurrentThread()
+mov       rcx,rax
+cmp       [rcx],ecx
+call      00007FFFC0423560
+mov       [rsi+10],eax
+lea       rcx,[rsi+18]
+mov       rdx,rdi
+call      CORINFO_HELP_ASSIGN_REF
+lea       rcx,[rsi+20]
+mov       rdx,rbx
+call      CORINFO_HELP_ASSIGN_REF
+mov       rax,rsi
+add       rsp,38
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+pop       r14
+pop       r15
+ret
+mov       ecx,10
+call      System.Linq.ThrowHelper.ThrowArgumentNullException(System.Linq.ExceptionArgument)
+int       3
+mov       ecx,0F
+call      System.Linq.ThrowHelper.ThrowArgumentNullException(System.Linq.ExceptionArgument)
+int       3
+
+System.Linq.Enumerable.Count[[System.__Canon, System.Private.CoreLib]](System.Collections.Generic.IEnumerable`1<System.__Canon>)
+push      rbp
+push      r14
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,40
+lea       rbp,[rsp+60]
+mov       [rbp+0FFC0],rsp
+mov       [rbp+0FFD8],rcx
+mov       rsi,rcx
+mov       rdi,rdx
+test      rdi,rdi
+je        near ptr 00007FFF60C01012
+mov       rbx,[rsi+10]
+mov       rcx,[rbx+8]
+test      rcx,rcx
+jne       short 00007FFF60C00EA8
+mov       rcx,rsi
+mov       rdx,7FFF60C8D678
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       rcx,rax
+mov       rdx,rdi
+call      CORINFO_HELP_ISINSTANCEOFINTERFACE
+mov       r14,rax
+test      r14,r14
+je        short 00007FFF60C00EE2
+mov       rcx,rsi
+mov       rdx,7FFF60C8D910
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       rcx,r14
+mov       r11,rax
+mov       rax,[rax]
+cmp       [rcx],ecx
+lea       rsp,[rbp+0FFE0]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       rbp
+jmp       rax
+mov       rcx,[rbx+10]
+test      rcx,rcx
+jne       short 00007FFF60C00F00
+mov       rcx,rsi
+mov       rdx,7FFF60C8D7D8
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       rcx,rax
+mov       rdx,rdi
+call      CORINFO_HELP_ISINSTANCEOFINTERFACE
+mov       r14,rax
+test      r14,r14
+je        short 00007FFF60C00F45
+mov       r11,[rbx+20]
+test      r11,r11
+jne       short 00007FFF60C00F2E
+mov       rcx,rsi
+mov       rdx,7FFF60C8D8A8
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       r11,rax
+mov       rcx,r14
+xor       edx,edx
+mov       rax,[r11]
+cmp       [rcx],ecx
+lea       rsp,[rbp+0FFE0]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       rbp
+jmp       rax
+mov       rdx,rdi
+mov       rcx,offset MT_System.Collections.ICollection
+call      CORINFO_HELP_ISINSTANCEOFINTERFACE
+test      rax,rax
+je        short 00007FFF60C00F7F
+mov       rcx,rax
+mov       r11,7FFF608104A8
+mov       rax,[7FFF60C104A8]
+cmp       [rcx],ecx
+lea       rsp,[rbp+0FFE0]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       rbp
+jmp       rax
+xor       r14d,r14d
+mov       r11,[rbx+18]
+test      r11,r11
+jne       short 00007FFF60C00FA0
+mov       rcx,rsi
+mov       rdx,7FFF60C8D878
+call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
+mov       r11,rax
+mov       rcx,rdi
+cmp       [rcx],ecx
+call      qword ptr [r11]
+mov       [rbp+0FFD0],rax
+mov       rcx,[rbp+0FFD0]
+mov       r11,7FFF60810498
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C10498]
+test      eax,eax
+je        short 00007FFF60C00FEE
+add       r14d,1
+jo        short 00007FFF60C00FE8
+mov       rcx,[rbp+0FFD0]
+mov       r11,7FFF60810498
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C10498]
+test      eax,eax
+jne       short 00007FFF60C00FC6
+jmp       short 00007FFF60C00FEE
+call      CORINFO_HELP_OVERFLOW
+int       3
+mov       rcx,[rbp+0FFD0]
+mov       r11,7FFF608104A0
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C104A0]
+mov       eax,r14d
+lea       rsp,[rbp+0FFE0]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       rbp
+ret
+mov       ecx,10
+call      System.Linq.ThrowHelper.ThrowArgumentNullException(System.Linq.ExceptionArgument)
+int       3
+push      rbp
+push      r14
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,30
+mov       rbp,[rcx+20]
+mov       [rsp+20],rbp
+lea       rbp,[rbp+60]
+cmp       qword ptr [rbp+0FFD0],0
+je        short 00007FFF60C01051
+mov       rcx,[rbp+0FFD0]
+mov       r11,7FFF608104A0
+cmp       [rcx],ecx
+call      qword ptr [7FFF60C104A0]
+nop
+add       rsp,30
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       rbp
+ret
+
+Method was not JITted yet.
+System.MulticastDelegate.ThrowNullThisInDelegateToInstance()
+
+</code></pre></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

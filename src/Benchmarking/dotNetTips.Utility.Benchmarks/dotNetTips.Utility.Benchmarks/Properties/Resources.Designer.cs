@@ -62,18 +62,20 @@ namespace dotNetTips.Utility.Benchmarks.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;
-        ///&lt;DevConfig xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
-        ///  &lt;AdData&gt;
-        ///    &lt;LastDownloaded&gt;2020-09-07T15:32:40.4922787-07:00&lt;/LastDownloaded&gt;
-        ///    &lt;Ads&gt;
-        ///      &lt;Id&gt;4baca6f3-8446-4729-b587-5e015f8cf12d&lt;/Id&gt;
-        ///      &lt;App&gt;All&lt;/App&gt;
-        ///      &lt;Enabled&gt;true&lt;/Enabled&gt;
-        ///      &lt;Image&gt;https://appads.file.core.windows.net/images/Rock Your Code - Logo - small.png?sp=rl&amp;amp;st=2020-08-23T16:22:36Z&amp;amp;se=2030-08-24T16:22:00Z&amp;amp;s [rest of string was truncated]&quot;;.
+        ///&lt;PersonProper xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;http://dotNetTips.Spargine.Tester.Models&quot;&gt;
+        ///  &lt;Address1&gt;WVOhUwjXagnGsDTPCe`_puypg&lt;/Address1&gt;
+        ///  &lt;Address2&gt;]su]qeCVrsHb_Y\WVVQZEC]Gl&lt;/Address2&gt;
+        ///  &lt;BornOn /&gt;
+        ///  &lt;CellPhone&gt;123-243-3070&lt;/CellPhone&gt;
+        ///  &lt;City&gt;ntiCkjBJLg^MDIZ&lt;/City&gt;
+        ///  &lt;Country&gt;_iWbZVnkDZmybXj&lt;/Country&gt;
+        ///  &lt;Email&gt;mokolqgr@aiwcgyfguxra.es&lt;/Email&gt;
+        ///  &lt;FirstName&gt;XhyJfbxjYk\]Aff&lt;/FirstName&gt;
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string XmlTestData {
+        internal static string XmlPersonTestData {
             get {
-                return ResourceManager.GetString("XmlTestData", resourceCulture);
+                return ResourceManager.GetString("XmlPersonTestData", resourceCulture);
             }
         }
     }

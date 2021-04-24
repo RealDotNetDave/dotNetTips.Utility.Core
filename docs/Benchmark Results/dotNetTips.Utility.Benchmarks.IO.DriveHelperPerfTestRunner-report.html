@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.IO.DriveHelperPerfTestRunner-20201103-003042</title>
+<title>dotNetTips.Utility.Benchmarks.IO.DriveHelperPerfTestRunner-20210228-165951</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,21 +13,21 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.572 (2004/?/20H1)
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
 Unknown processor
-.NET Core SDK=5.0.100-rc.2.20479.15
-  [Host]     : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
-  Job-TZRVGS : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
+.NET Core SDK=5.0.200-preview.21079.7
+  [Host]     : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+  Job-HTSMCU : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
 </code></pre>
 <pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.1  
-Categories=DriveHelper  
+Namespace=dotNetTips.Utility.Benchmarks.IO  Categories=DriveHelper  
 </code></pre>
 
 <table>
-<thead><tr><th>      Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+<thead><tr><th>      Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>StdErr</th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th><th>Op/s</th><th>CI99.9% Margin</th><th>Iterations</th><th>Kurtosis</th><th>MValue</th><th>Skewness</th><th>Rank</th><th>LogicalGroup</th><th>Baseline</th><th>Code Size</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>GetFixedDrives</td><td>20.74 &mu;s</td><td>0.267 &mu;s</td><td>0.250 &mu;s</td><td>0.0610</td><td>-</td><td>-</td><td>608 B</td>
-</tr><tr><td>GetRemovableDrives</td><td>20.74 &mu;s</td><td>0.065 &mu;s</td><td>0.060 &mu;s</td><td>0.0305</td><td>-</td><td>-</td><td>528 B</td>
+</thead><tbody><tr><td>GetFixedDrives</td><td>31.20 &mu;s</td><td>0.225 &mu;s</td><td>0.211 &mu;s</td><td>0.054 &mu;s</td><td>30.47 &mu;s</td><td>31.20 &mu;s</td><td>31.23 &mu;s</td><td>31.29 &mu;s</td><td>31.36 &mu;s</td><td>32,056.2</td><td>0.2253 &mu;s</td><td>15.00</td><td>9.500</td><td>2.000</td><td>-2.6677</td><td>2</td><td>*</td><td>No</td><td>230 B</td><td>0.0610</td><td>-</td><td>-</td><td>680 B</td>
+</tr><tr><td>GetRemovableDrives</td><td>30.48 &mu;s</td><td>0.055 &mu;s</td><td>0.048 &mu;s</td><td>0.013 &mu;s</td><td>30.38 &mu;s</td><td>30.44 &mu;s</td><td>30.47 &mu;s</td><td>30.51 &mu;s</td><td>30.56 &mu;s</td><td>32,813.1</td><td>0.0546 &mu;s</td><td>14.00</td><td>2.030</td><td>2.000</td><td>0.0204</td><td>1</td><td>*</td><td>No</td><td>230 B</td><td>0.0610</td><td>-</td><td>-</td><td>680 B</td>
 </tr></tbody></table>
 </body>
 </html>

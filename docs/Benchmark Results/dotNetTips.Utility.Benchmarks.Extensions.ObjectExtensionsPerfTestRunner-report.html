@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-20201103-001336</title>
+<title>dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-20210228-164351</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,31 +13,30 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.572 (2004/?/20H1)
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
 Unknown processor
-.NET Core SDK=5.0.100-rc.2.20479.15
-  [Host]     : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
-  Job-TZRVGS : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
+.NET Core SDK=5.0.200-preview.21079.7
+  [Host]     : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+  Job-HTSMCU : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
 </code></pre>
 <pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.1  
-Categories=ObjectExtensions  
+Namespace=dotNetTips.Utility.Benchmarks.Extensions  Categories=ObjectExtensions  
 </code></pre>
 
 <table>
-<thead><tr><th>     Method</th><th>    Mean</th><th>Error</th><th>StdDev</th><th>  Median</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+<thead><tr><th>     Method</th><th>    Mean</th><th>Error</th><th>StdDev</th><th>StdErr</th><th>     Min</th><th>      Q1</th><th>  Median</th><th>      Q3</th><th>     Max</th><th>      Op/s</th><th>CI99.9% Margin</th><th>Iterations</th><th>Kurtosis</th><th>MValue</th><th>Skewness</th><th>Rank</th><th>LogicalGroup</th><th>Baseline</th><th>Code Size</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>As</td><td>7.7109 ns</td><td>0.0529 ns</td><td>0.0495 ns</td><td>7.7235 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>Clone</td><td>4,383.5569 ns</td><td>11.1346 ns</td><td>9.2979 ns</td><td>4,384.3086 ns</td><td>0.8316</td><td>-</td><td>-</td><td>7792 B</td>
-</tr><tr><td>ComputeMD5Hash</td><td>5,662.9329 ns</td><td>6.4779 ns</td><td>6.0594 ns</td><td>5,662.3535 ns</td><td>0.4730</td><td>-</td><td>-</td><td>4640 B</td>
-</tr><tr><td>ComputeSha256Hash</td><td>7,244.7768 ns</td><td>7.2962 ns</td><td>6.4679 ns</td><td>7,244.8357 ns</td><td>0.5722</td><td>-</td><td>-</td><td>5392 B</td>
-</tr><tr><td>DisposeFields</td><td>6,737.2000 ns</td><td>10.8313 ns</td><td>10.1316 ns</td><td>6,733.6708 ns</td><td>0.6943</td><td>-</td><td>-</td><td>6616 B</td>
-</tr><tr><td>FromJson</td><td>12,274.2712 ns</td><td>144.1003 ns</td><td>134.7915 ns</td><td>12,360.0441 ns</td><td>1.6479</td><td>0.0153</td><td>-</td><td>15648 B</td>
-</tr><tr><td>HasProperty</td><td>285.8774 ns</td><td>5.7053 ns</td><td>10.7159 ns</td><td>292.0667 ns</td><td>0.0262</td><td>-</td><td>-</td><td>248 B</td>
-</tr><tr><td>IsNotNull</td><td>0.0000 ns</td><td>0.0000 ns</td><td>0.0000 ns</td><td>0.0000 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>IsNull</td><td>0.0000 ns</td><td>0.0000 ns</td><td>0.0000 ns</td><td>0.0000 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>StripNull</td><td>8.0959 ns</td><td>0.0269 ns</td><td>0.0251 ns</td><td>8.0972 ns</td><td>-</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>ToJson</td><td>3,372.4414 ns</td><td>25.8874 ns</td><td>21.6171 ns</td><td>3,365.3503 ns</td><td>0.3510</td><td>-</td><td>-</td><td>3296 B</td>
-</tr><tr><td>TryDispose</td><td>484.0991 ns</td><td>1.0584 ns</td><td>0.9900 ns</td><td>484.2373 ns</td><td>0.3061</td><td>0.0010</td><td>-</td><td>2912 B</td>
+</thead><tbody><tr><td>As</td><td>7.7572 ns</td><td>0.1170 ns</td><td>0.1094 ns</td><td>0.0282 ns</td><td>7.6195 ns</td><td>7.6697 ns</td><td>7.7261 ns</td><td>7.8398 ns</td><td>7.9894 ns</td><td>128,912,378.6</td><td>0.1170 ns</td><td>15.00</td><td>2.039</td><td>2.000</td><td>0.5439</td><td>3</td><td>*</td><td>No</td><td>144 B</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>Clone</td><td>16,430.7918 ns</td><td>188.6648 ns</td><td>176.4772 ns</td><td>45.5662 ns</td><td>16,090.6952 ns</td><td>16,474.2004 ns</td><td>16,504.6783 ns</td><td>16,529.1397 ns</td><td>16,569.5679 ns</td><td>60,861.3</td><td>188.6648 ns</td><td>15.00</td><td>2.741</td><td>2.000</td><td>-1.2808</td><td>11</td><td>*</td><td>No</td><td>196 B</td><td>1.8921</td><td>-</td><td>-</td><td>17944 B</td>
+</tr><tr><td>ComputeSha256Hash</td><td>8,339.4959 ns</td><td>79.6412 ns</td><td>74.4964 ns</td><td>19.2349 ns</td><td>8,108.8158 ns</td><td>8,338.5971 ns</td><td>8,365.5159 ns</td><td>8,374.8779 ns</td><td>8,396.8239 ns</td><td>119,911.3</td><td>79.6412 ns</td><td>15.00</td><td>6.326</td><td>2.000</td><td>-1.9745</td><td>9</td><td>*</td><td>No</td><td>412 B</td><td>0.5493</td><td>-</td><td>-</td><td>5360 B</td>
+</tr><tr><td>DisposeFields</td><td>7,274.9040 ns</td><td>48.8572 ns</td><td>45.7011 ns</td><td>11.8000 ns</td><td>7,215.7074 ns</td><td>7,233.9733 ns</td><td>7,284.6672 ns</td><td>7,315.8958 ns</td><td>7,342.0738 ns</td><td>137,458.9</td><td>48.8572 ns</td><td>15.00</td><td>1.151</td><td>2.000</td><td>0.0454</td><td>8</td><td>*</td><td>No</td><td>569 B</td><td>0.6943</td><td>-</td><td>-</td><td>6616 B</td>
+</tr><tr><td>FromJson</td><td>12,360.0451 ns</td><td>100.2073 ns</td><td>88.8312 ns</td><td>23.7411 ns</td><td>12,193.6249 ns</td><td>12,328.8124 ns</td><td>12,353.1418 ns</td><td>12,446.0495 ns</td><td>12,477.9678 ns</td><td>80,905.9</td><td>100.2073 ns</td><td>14.00</td><td>1.843</td><td>2.000</td><td>-0.3598</td><td>10</td><td>*</td><td>No</td><td>443 B</td><td>1.5717</td><td>0.0153</td><td>-</td><td>14952 B</td>
+</tr><tr><td>HasProperty</td><td>290.2385 ns</td><td>1.2091 ns</td><td>1.0097 ns</td><td>0.2800 ns</td><td>288.5048 ns</td><td>289.5607 ns</td><td>289.9808 ns</td><td>291.0786 ns</td><td>291.8786 ns</td><td>3,445,442.5</td><td>1.2091 ns</td><td>13.00</td><td>1.662</td><td>2.000</td><td>-0.0469</td><td>5</td><td>*</td><td>No</td><td>275 B</td><td>0.0262</td><td>-</td><td>-</td><td>248 B</td>
+</tr><tr><td>IsNotNull</td><td>0.0122 ns</td><td>0.0015 ns</td><td>0.0014 ns</td><td>0.0004 ns</td><td>0.0096 ns</td><td>0.0114 ns</td><td>0.0121 ns</td><td>0.0132 ns</td><td>0.0144 ns</td><td>81,647,906,756.0</td><td>0.0015 ns</td><td>15.00</td><td>1.950</td><td>2.000</td><td>-0.1403</td><td>1</td><td>*</td><td>No</td><td>21 B</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>IsNull</td><td>0.0140 ns</td><td>0.0022 ns</td><td>0.0018 ns</td><td>0.0005 ns</td><td>0.0102 ns</td><td>0.0131 ns</td><td>0.0140 ns</td><td>0.0149 ns</td><td>0.0175 ns</td><td>71,628,851,127.9</td><td>0.0022 ns</td><td>13.00</td><td>2.792</td><td>2.000</td><td>-0.1299</td><td>2</td><td>*</td><td>No</td><td>21 B</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>StripNull</td><td>8.7614 ns</td><td>0.0238 ns</td><td>0.0223 ns</td><td>0.0058 ns</td><td>8.7204 ns</td><td>8.7537 ns</td><td>8.7645 ns</td><td>8.7762 ns</td><td>8.7896 ns</td><td>114,137,261.3</td><td>0.0238 ns</td><td>15.00</td><td>2.022</td><td>2.000</td><td>-0.6513</td><td>4</td><td>*</td><td>No</td><td>88 B</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ToJson</td><td>3,487.8172 ns</td><td>6.6899 ns</td><td>5.9304 ns</td><td>1.5850 ns</td><td>3,478.5709 ns</td><td>3,484.5295 ns</td><td>3,486.9625 ns</td><td>3,488.8194 ns</td><td>3,498.6668 ns</td><td>286,712.3</td><td>6.6899 ns</td><td>14.00</td><td>2.138</td><td>2.000</td><td>0.4834</td><td>7</td><td>*</td><td>No</td><td>94 B</td><td>0.3319</td><td>-</td><td>-</td><td>3144 B</td>
+</tr><tr><td>TryDispose</td><td>494.2689 ns</td><td>1.3018 ns</td><td>1.1540 ns</td><td>0.3084 ns</td><td>492.4405 ns</td><td>493.5584 ns</td><td>494.5008 ns</td><td>495.0033 ns</td><td>495.9885 ns</td><td>2,023,190.4</td><td>1.3018 ns</td><td>14.00</td><td>1.737</td><td>2.000</td><td>-0.2437</td><td>6</td><td>*</td><td>No</td><td>344 B</td><td>0.3080</td><td>0.0010</td><td>-</td><td>2912 B</td>
 </tr></tbody></table>
 </body>
 </html>

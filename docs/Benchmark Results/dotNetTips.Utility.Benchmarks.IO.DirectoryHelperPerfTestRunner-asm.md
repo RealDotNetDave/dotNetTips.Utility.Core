@@ -1,0 +1,1777 @@
+## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+```assembly
+; dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner.LoadDirectoryFiles()
+       push      rbp
+       push      r14
+       push      rdi
+       push      rsi
+       push      rbx
+       sub       rsp,40
+       lea       rbp,[rsp+60]
+       mov       [rbp+0FFC8],rsp
+       mov       rsi,rcx
+;             var searchFolders = new List<DirectoryInfo>
+;             ^^
+;             {
+;             ^^
+;                 new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFiles)),
+;             ^^
+;                 new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFilesX86)),
+;             ^^
+;                 new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.Desktop))
+;             ^^
+;             };
+;             ^^
+       mov       rcx,offset MT_System.Collections.Generic.List`1[[System.IO.DirectoryInfo, System.IO.FileSystem]]
+       call      CORINFO_HELP_NEWSFAST
+       mov       rdi,rax
+       mov       rcx,7FFF608F0020
+       mov       edx,27
+       call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
+       mov       rdx,258A9998D48
+       mov       rdx,[rdx]
+       lea       rcx,[rdi+8]
+       call      CORINFO_HELP_ASSIGN_REF
+       mov       rcx,offset MT_System.IO.DirectoryInfo
+       call      CORINFO_HELP_NEWSFAST
+       mov       rbx,rax
+       mov       ecx,2B
+       xor       edx,edx
+       call      System.Environment.GetFolderPath(SpecialFolder, SpecialFolderOption)
+       mov       r14,rax
+       mov       dword ptr [rbx+20],0FFFFFFFF
+       mov       rcx,r14
+       call      System.IO.Path.GetFullPath(System.String)
+       mov       r8,rax
+       mov       dword ptr [rsp+20],1
+       mov       rdx,r14
+       mov       rcx,rbx
+       xor       r9d,r9d
+       call      System.IO.DirectoryInfo.Init(System.String, System.String, System.String, Boolean)
+       inc       dword ptr [rdi+14]
+       mov       rcx,[rdi+8]
+       mov       edx,[rdi+10]
+       cmp       [rcx+8],edx
+       jbe       short M00_L00
+       lea       r8d,[rdx+1]
+       mov       [rdi+10],r8d
+       mov       r8,rbx
+       call      CORINFO_HELP_ARRADDR_ST
+       jmp       short M00_L01
+M00_L00:
+       mov       rcx,rdi
+       mov       rdx,rbx
+       call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+M00_L01:
+       mov       rcx,offset MT_System.IO.DirectoryInfo
+       call      CORINFO_HELP_NEWSFAST
+       mov       rbx,rax
+       mov       ecx,2C
+       xor       edx,edx
+       call      System.Environment.GetFolderPath(SpecialFolder, SpecialFolderOption)
+       mov       r14,rax
+       mov       dword ptr [rbx+20],0FFFFFFFF
+       mov       rcx,r14
+       call      System.IO.Path.GetFullPath(System.String)
+       mov       r8,rax
+       mov       dword ptr [rsp+20],1
+       mov       rdx,r14
+       mov       rcx,rbx
+       xor       r9d,r9d
+       call      System.IO.DirectoryInfo.Init(System.String, System.String, System.String, Boolean)
+;             foreach (var file in DirectoryHelper.LoadFiles(searchFolders, "*.*", SearchOption.AllDirectories))
+;                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       inc       dword ptr [rdi+14]
+       mov       rcx,[rdi+8]
+       mov       edx,[rdi+10]
+       cmp       [rcx+8],edx
+       jbe       short M00_L02
+       lea       r8d,[rdx+1]
+       mov       [rdi+10],r8d
+       mov       r8,rbx
+       call      CORINFO_HELP_ARRADDR_ST
+       jmp       short M00_L03
+M00_L02:
+       mov       rcx,rdi
+       mov       rdx,rbx
+       call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+M00_L03:
+       mov       rcx,offset MT_System.IO.DirectoryInfo
+       call      CORINFO_HELP_NEWSFAST
+       mov       rbx,rax
+       xor       ecx,ecx
+       xor       edx,edx
+       call      System.Environment.GetFolderPath(SpecialFolder, SpecialFolderOption)
+       mov       r14,rax
+       mov       dword ptr [rbx+20],0FFFFFFFF
+       mov       rcx,r14
+       call      System.IO.Path.GetFullPath(System.String)
+       mov       r8,rax
+       mov       dword ptr [rsp+20],1
+       mov       rdx,r14
+       mov       rcx,rbx
+       xor       r9d,r9d
+       call      System.IO.DirectoryInfo.Init(System.String, System.String, System.String, Boolean)
+       inc       dword ptr [rdi+14]
+       mov       rcx,[rdi+8]
+       mov       edx,[rdi+10]
+       cmp       [rcx+8],edx
+       jbe       short M00_L04
+       lea       r8d,[rdx+1]
+       mov       [rdi+10],r8d
+       mov       r8,rbx
+       call      CORINFO_HELP_ARRADDR_ST
+       jmp       short M00_L05
+M00_L04:
+       mov       rcx,rdi
+       mov       rdx,rbx
+       call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+M00_L05:
+       mov       rdx,258B9991070
+       mov       rdx,[rdx]
+       mov       rcx,rdi
+       mov       r8d,1
+       call      dotNetTips.Utility.Standard.IO.DirectoryHelper.LoadFiles(System.Collections.Generic.IEnumerable`1<System.IO.DirectoryInfo>, System.String, System.IO.SearchOption)
+       mov       rcx,rax
+       mov       r11,7FFF60800440
+       cmp       [rcx],ecx
+       call      qword ptr [7FFF60C20440]
+       mov       [rbp+0FFD8],rax
+       mov       rcx,[rbp+0FFD8]
+       mov       r11,7FFF60800448
+       cmp       [rcx],ecx
+       call      qword ptr [7FFF60C20448]
+       test      eax,eax
+       je        short M00_L07
+M00_L06:
+       mov       rcx,[rbp+0FFD8]
+       mov       r11,7FFF60800450
+       cmp       [rcx],ecx
+       call      qword ptr [7FFF60C20450]
+       mov       rcx,[rsi+8]
+       mov       edx,[rcx]
+       add       rcx,10
+       mov       rdx,rax
+       call      CORINFO_HELP_CHECKED_ASSIGN_REF
+       mov       rcx,[rbp+0FFD8]
+       mov       r11,7FFF60800448
+       cmp       [rcx],ecx
+       call      qword ptr [7FFF60C20448]
+       test      eax,eax
+       jne       short M00_L06
+M00_L07:
+       mov       rcx,[rbp+0FFD8]
+       mov       r11,7FFF60800458
+       cmp       [rcx],ecx
+       call      qword ptr [7FFF60C20458]
+       nop
+       lea       rsp,[rbp+0FFE0]
+       pop       rbx
+       pop       rsi
+       pop       rdi
+       pop       r14
+       pop       rbp
+       ret
+       push      rbp
+       push      r14
+       push      rdi
+       push      rsi
+       push      rbx
+       sub       rsp,30
+       mov       rbp,[rcx+28]
+       mov       [rsp+28],rbp
+       lea       rbp,[rbp+60]
+       cmp       qword ptr [rbp+0FFD8],0
+       je        short M00_L08
+       mov       rcx,[rbp+0FFD8]
+       mov       r11,7FFF60800458
+       cmp       [rcx],ecx
+       call      qword ptr [7FFF60C20458]
+M00_L08:
+       nop
+       add       rsp,30
+       pop       rbx
+       pop       rsi
+       pop       rdi
+       pop       r14
+       pop       rbp
+       ret
+; Total bytes of code 672
+```
+```assembly
+; System.Environment.GetFolderPath(SpecialFolder, SpecialFolderOption)
+       push      r14
+       push      rdi
+       push      rsi
+       push      rbp
+       push      rbx
+       sub       rsp,20
+       mov       edi,ecx
+       mov       esi,edx
+       mov       rcx,offset MT_System.Environment+SpecialFolder
+       call      CORINFO_HELP_NEWSFAST
+       mov       rbx,rax
+       mov       rcx,offset MT_System.Environment+SpecialFolder
+       call      CORINFO_HELP_TYPEHANDLE_TO_RUNTIMETYPE
+       mov       rcx,rax
+       mov       [rbx+8],edi
+       mov       rdx,rbx
+       call      System.Enum.IsDefined(System.Type, System.Object)
+       test      eax,eax
+       je        short M01_L01
+       test      esi,esi
+       je        short M01_L00
+       mov       rcx,offset MT_System.Environment+SpecialFolderOption
+       call      CORINFO_HELP_NEWSFAST
+       mov       rbx,rax
+       mov       rcx,offset MT_System.Environment+SpecialFolderOption
+       call      CORINFO_HELP_TYPEHANDLE_TO_RUNTIMETYPE
+       mov       rcx,rax
+       mov       [rbx+8],esi
+       mov       rdx,rbx
+       call      System.Enum.IsDefined(System.Type, System.Object)
+       test      eax,eax
+       je        near ptr M01_L02
+M01_L00:
+       mov       ecx,edi
+       mov       edx,esi
+       mov       rax,offset System.Environment.GetFolderPathCore(SpecialFolder, SpecialFolderOption)
+       add       rsp,20
+       pop       rbx
+       pop       rbp
+       pop       rsi
+       pop       rdi
+       pop       r14
+       jmp       rax
+M01_L01:
+       mov       rcx,offset MT_System.Environment+SpecialFolder
+       call      CORINFO_HELP_NEWSFAST
+       mov       rsi,rax
+       mov       [rsi+8],edi
+       mov       rcx,offset MT_System.Environment+SpecialFolder
+       call      CORINFO_HELP_NEWSFAST
+       mov       rbx,rax
+       mov       ecx,2C54
+       mov       rdx,7FFF607F4020
+       call      CORINFO_HELP_STRCNS
+       mov       rcx,rax
+       mov       rdx,258A9993060
+       mov       rdx,[rdx]
+       call      System.SR.GetResourceString(System.String, System.String)
+       mov       rbp,rax
+       mov       [rbx+8],edi
+       mov       rcx,offset MT_System.ArgumentOutOfRangeException
+       call      CORINFO_HELP_NEWSFAST
+       mov       rdi,rax
+       mov       ecx,2A1
+       mov       rdx,7FFF607F4020
+       call      CORINFO_HELP_STRCNS
+       mov       r14,rax
+       mov       rdx,rbx
+       mov       rcx,rbp
+       call      System.SR.Format(System.String, System.Object)
+       mov       r9,rax
+       mov       rdx,r14
+       mov       r8,rsi
+       mov       rcx,rdi
+       call      System.ArgumentOutOfRangeException..ctor(System.String, System.Object, System.String)
+       mov       rcx,rdi
+       call      CORINFO_HELP_THROW
+M01_L02:
+       mov       rcx,offset MT_System.Environment+SpecialFolderOption
+       call      CORINFO_HELP_NEWSFAST
+       mov       rdi,rax
+       mov       [rdi+8],esi
+       mov       rcx,offset MT_System.Environment+SpecialFolderOption
+       call      CORINFO_HELP_NEWSFAST
+       mov       rbx,rax
+       mov       ecx,2C54
+       mov       rdx,7FFF607F4020
+       call      CORINFO_HELP_STRCNS
+       mov       rcx,rax
+       mov       rdx,258A9993060
+       mov       rdx,[rdx]
+       call      System.SR.GetResourceString(System.String, System.String)
+       mov       rbp,rax
+       mov       [rbx+8],esi
+       mov       rcx,offset MT_System.ArgumentOutOfRangeException
+       call      CORINFO_HELP_NEWSFAST
+       mov       rsi,rax
+       mov       ecx,2AF
+       mov       rdx,7FFF607F4020
+       call      CORINFO_HELP_STRCNS
+       mov       r14,rax
+       mov       rdx,rbx
+       mov       rcx,rbp
+       call      System.SR.Format(System.String, System.Object)
+       mov       r9,rax
+       mov       rdx,r14
+       mov       r8,rdi
+       mov       rcx,rsi
+       call      System.ArgumentOutOfRangeException..ctor(System.String, System.Object, System.String)
+       mov       rcx,rsi
+       call      CORINFO_HELP_THROW
+       int       3
+; Total bytes of code 478
+```
+```assembly
+; System.IO.Path.GetFullPath(System.String)
+       push      rdi
+       push      rsi
+       sub       rsp,38
+       xor       eax,eax
+       mov       [rsp+28],rax
+       mov       rsi,rcx
+       test      rsi,rsi
+       je        short M02_L01
+       lea       rcx,[rsi+0C]
+       mov       eax,[rsi+8]
+       lea       rdx,[rsp+28]
+       mov       [rdx],rcx
+       mov       [rdx+8],eax
+       lea       rcx,[rsp+28]
+       call      System.IO.PathInternal.IsEffectivelyEmpty(System.ReadOnlySpan`1<Char>)
+       test      eax,eax
+       jne       near ptr M02_L02
+       lea       rcx,[rsi+0C]
+       mov       r8d,[rsi+8]
+       xor       edx,edx
+       call      System.SpanHelpers.Contains(Char ByRef, Char, Int32)
+       test      eax,eax
+       jne       near ptr M02_L03
+       lea       rcx,[rsi+0C]
+       mov       eax,[rsi+8]
+       lea       rdx,[rsp+28]
+       mov       [rdx],rcx
+       mov       [rdx+8],eax
+       lea       rcx,[rsp+28]
+       call      System.IO.PathInternal.IsExtended(System.ReadOnlySpan`1<Char>)
+       test      eax,eax
+       je        short M02_L00
+       mov       rax,rsi
+       add       rsp,38
+       pop       rsi
+       pop       rdi
+       ret
+M02_L00:
+       mov       rcx,rsi
+       call      System.IO.PathHelper.Normalize(System.String)
+       nop
+       add       rsp,38
+       pop       rsi
+       pop       rdi
+       ret
+M02_L01:
+       mov       rcx,offset MT_System.ArgumentNullException
+       call      CORINFO_HELP_NEWSFAST
+       mov       rsi,rax
+       mov       ecx,15517
+       mov       rdx,7FFF607F4020
+       call      CORINFO_HELP_STRCNS
+       mov       rdx,rax
+       mov       rcx,rsi
+       call      System.ArgumentNullException..ctor(System.String)
+       mov       rcx,rsi
+       call      CORINFO_HELP_THROW
+M02_L02:
+       mov       rcx,offset MT_System.ArgumentException
+       call      CORINFO_HELP_NEWSFAST
+       mov       rsi,rax
+       mov       ecx,3F26
+       mov       rdx,7FFF607F4020
+       call      CORINFO_HELP_STRCNS
+       mov       rcx,rax
+       mov       rdx,258A9993060
+       mov       rdx,[rdx]
+       call      System.SR.GetResourceString(System.String, System.String)
+       mov       rdi,rax
+       mov       ecx,15517
+       mov       rdx,7FFF607F4020
+       call      CORINFO_HELP_STRCNS
+       mov       r8,rax
+       mov       rdx,rdi
+       mov       rcx,rsi
+       call      System.ArgumentException..ctor(System.String, System.String)
+       mov       rcx,rsi
+       call      CORINFO_HELP_THROW
+M02_L03:
+       mov       rcx,offset MT_System.ArgumentException
+       call      CORINFO_HELP_NEWSFAST
+       mov       rsi,rax
+       mov       ecx,6726
+       mov       rdx,7FFF607F4020
+       call      CORINFO_HELP_STRCNS
+       mov       rcx,rax
+       mov       rdx,258A9993060
+       mov       rdx,[rdx]
+       call      System.SR.GetResourceString(System.String, System.String)
+       mov       rdi,rax
+       mov       ecx,15517
+       mov       rdx,7FFF607F4020
+       call      CORINFO_HELP_STRCNS
+       mov       r8,rax
+       mov       rdx,rdi
+       mov       rcx,rsi
+       call      System.ArgumentException..ctor(System.String, System.String)
+       mov       rcx,rsi
+       call      CORINFO_HELP_THROW
+       int       3
+; Total bytes of code 404
+```
+```assembly
+; System.IO.DirectoryInfo.Init(System.String, System.String, System.String, Boolean)
+       push      r14
+       push      rdi
+       push      rsi
+       push      rbp
+       push      rbx
+       sub       rsp,60
+       mov       rsi,rcx
+       lea       rdi,[rsp+20]
+       mov       ecx,10
+       xor       eax,eax
+       rep stosd
+       mov       rcx,rsi
+       mov       rdi,rcx
+       mov       rbx,rdx
+       mov       rsi,r8
+       mov       rbp,r9
+       mov       r14d,[rsp+0B0]
+       mov       rdx,rbx
+       test      rdx,rdx
+       je        near ptr M03_L12
+       lea       rcx,[rdi+10]
+       mov       rdx,rbx
+       call      CORINFO_HELP_ASSIGN_REF
+       test      rsi,rsi
+       jne       short M03_L00
+       mov       rsi,rbx
+M03_L00:
+       test      r14b,r14b
+       jne       short M03_L01
+       mov       rcx,rsi
+       call      System.IO.Path.GetFullPath(System.String)
+       jmp       short M03_L02
+M03_L01:
+       mov       rax,rsi
+M03_L02:
+       mov       rsi,rax
+       mov       rdx,rbp
+       test      rdx,rdx
+       jne       near ptr M03_L11
+       test      rsi,rsi
+       jne       short M03_L03
+       xor       ecx,ecx
+       xor       ebx,ebx
+       jmp       short M03_L04
+M03_L03:
+       lea       rcx,[rsi+0C]
+       mov       ebx,[rsi+8]
+M03_L04:
+       mov       eax,ebx
+       lea       rdx,[rsp+20]
+       mov       [rdx],rcx
+       mov       [rdx+8],eax
+       lea       rcx,[rsp+20]
+       call      System.IO.PathInternal.GetRootLength(System.ReadOnlySpan`1<Char>)
+       cmp       eax,ebx
+       je        short M03_L07
+       test      rsi,rsi
+       jne       short M03_L05
+       xor       ecx,ecx
+       xor       edx,edx
+       jmp       short M03_L06
+M03_L05:
+       lea       rcx,[rsi+0C]
+       mov       edx,[rsi+8]
+M03_L06:
+       lea       rax,[rsp+30]
+       lea       r8,[rsp+20]
+       mov       [r8],rcx
+       mov       [r8+8],edx
+       mov       rcx,rax
+       lea       rdx,[rsp+20]
+       call      System.IO.Path.TrimEndingDirectorySeparator(System.ReadOnlySpan`1<Char>)
+       lea       rcx,[rsp+40]
+       lea       rdx,[rsp+20]
+       mov       rax,[rsp+30]
+       mov       [rdx],rax
+       mov       eax,[rsp+38]
+       mov       [rdx+8],eax
+       lea       rdx,[rsp+20]
+       call      System.IO.Path.GetFileName(System.ReadOnlySpan`1<Char>)
+       jmp       short M03_L10
+M03_L07:
+       test      rsi,rsi
+       jne       short M03_L08
+       xor       ecx,ecx
+       xor       eax,eax
+       jmp       short M03_L09
+M03_L08:
+       lea       rcx,[rsi+0C]
+       mov       eax,[rsi+8]
+M03_L09:
+       mov       [rsp+40],rcx
+       mov       [rsp+48],eax
+M03_L10:
+       mov       rcx,[rsp+40]
+       mov       [rsp+50],rcx
+       mov       ecx,[rsp+48]
+       mov       [rsp+58],ecx
+       lea       rcx,[rsp+50]
+       call      System.ReadOnlySpan`1[[System.Char, System.Private.CoreLib]].ToString()
+       mov       rdx,rax
+M03_L11:
+       lea       rcx,[rdi+18]
+       call      CORINFO_HELP_ASSIGN_REF
+       lea       rcx,[rdi+8]
+       mov       rdx,rsi
+       call      CORINFO_HELP_ASSIGN_REF
+       mov       [rdi+50],r14b
+       add       rsp,60
+       pop       rbx
+       pop       rbp
+       pop       rsi
+       pop       rdi
+       pop       r14
+       ret
+M03_L12:
+       mov       rcx,offset MT_System.ArgumentNullException
+       call      CORINFO_HELP_NEWSFAST
+       mov       rsi,rax
+       mov       ecx,615
+       mov       rdx,7FFF60B52450
+       call      CORINFO_HELP_STRCNS
+       mov       rdx,rax
+       mov       rcx,rsi
+       call      System.ArgumentNullException..ctor(System.String)
+       mov       rcx,rsi
+       call      CORINFO_HELP_THROW
+       int       3
+; Total bytes of code 397
+```
+```assembly
+; System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+       push      rdi
+       push      rsi
+       push      rbp
+       push      rbx
+       sub       rsp,28
+       mov       rsi,rcx
+       mov       rdi,rdx
+       mov       ebx,[rsi+10]
+       lea       ebp,[rbx+1]
+       mov       edx,ebp
+       mov       rcx,rsi
+       call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].EnsureCapacity(Int32)
+       mov       [rsi+10],ebp
+       mov       rcx,[rsi+8]
+       mov       edx,ebx
+       mov       r8,rdi
+       call      CORINFO_HELP_ARRADDR_ST
+       nop
+       add       rsp,28
+       pop       rbx
+       pop       rbp
+       pop       rsi
+       pop       rdi
+       ret
+; Total bytes of code 57
+```
+```assembly
+; dotNetTips.Utility.Standard.IO.DirectoryHelper.LoadFiles(System.Collections.Generic.IEnumerable`1<System.IO.DirectoryInfo>, System.String, System.IO.SearchOption)
+;             Encapsulation.TryValidateParam(directories, nameof(directories));
+;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;             Encapsulation.TryValidateParam(searchPattern, nameof(searchPattern));
+;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;             Encapsulation.TryValidateParam(searchOption, nameof(searchOption));
+;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;             var files = new List<FileInfo>();
+;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;             var validDirectories = directories.Where(directory => directory.Exists).Select(directory => directory).ToList();
+;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;             validDirectories.ForEach(directory =>
+;             ^^^
+;             {
+;             ^^^
+;                 try
+;             ^^^
+;                 {
+;             ^^^
+;                     var directoryFiles = directory.EnumerateFiles(searchPattern, searchOption).ToArray();
+;             ^^^
+; 
+;             ^^^
+;                     if (directoryFiles.HasItems())
+;             ^^^
+;                     {
+;             ^^^
+;                         _ = files.AddIfNotExists(directoryFiles);
+;             ^^^
+;                     }
+;             ^^^
+;                 }
+;             ^^^
+;                 catch (Exception ex) when (ex is System.IO.DirectoryNotFoundException || ex is SecurityException)
+;             ^^^
+;                 {
+;             ^^^
+;                     Trace.WriteLine(ex.Message);
+;             ^^^
+;                 }
+;             ^^^
+;             });
+;             ^^^
+;             return files.AsEnumerable();
+;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       push      rdi
+       push      rsi
+       push      rbp
+       push      rbx
+       sub       rsp,28
+       mov       rsi,rcx
+       mov       rdi,rdx
+       mov       ebx,r8d
+       mov       rcx,offset MT_dotNetTips.Utility.Standard.IO.DirectoryHelper+<>c__DisplayClass7_0
+       call      CORINFO_HELP_NEWSFAST
+       mov       rbp,rax
+       lea       rcx,[rbp+8]
+       mov       rdx,rdi
+       call      CORINFO_HELP_ASSIGN_REF
+       mov       [rbp+18],ebx
+       mov       r8,258A9993060
+       mov       r8,[r8]
+       mov       rdx,258B9991200
+       mov       rdx,[rdx]
+       mov       rcx,rsi
+       call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.Collections.IEnumerable, System.String, System.String)
+       mov       rcx,[rbp+8]
+       mov       rdx,258B9991208
+       mov       rdx,[rdx]
+       mov       r8,258A9993060
+       mov       r8,[r8]
+       call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
+       mov       rcx,offset MT_System.IO.SearchOption
+       call      CORINFO_HELP_NEWSFAST
+       mov       ecx,[rbp+18]
+       mov       [rax+8],ecx
+       mov       rcx,rax
+       mov       rdx,258B9991210
+       mov       rdx,[rdx]
+       mov       r8,258A9993060
+       mov       r8,[r8]
+       call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.Enum, System.String, System.String)
+       mov       rcx,offset MT_System.Collections.Generic.List`1[[System.IO.FileInfo, System.IO.FileSystem]]
+       call      CORINFO_HELP_NEWSFAST
+       mov       rdi,rax
+       mov       rdx,258A9998D50
+       mov       rdx,[rdx]
+       lea       rcx,[rdi+8]
+       call      CORINFO_HELP_ASSIGN_REF
+       lea       rcx,[rbp+10]
+       mov       rdx,rdi
+       call      CORINFO_HELP_ASSIGN_REF
+       mov       rcx,258A999BBA8
+       mov       r8,[rcx]
+       test      r8,r8
+       jne       short M05_L00
+       mov       rcx,offset MT_System.Func`2[[System.IO.DirectoryInfo, System.IO.FileSystem],[System.Boolean, System.Private.CoreLib]]
+       call      CORINFO_HELP_NEWSFAST
+       mov       rdi,rax
+       mov       rdx,258A999BBA0
+       mov       rdx,[rdx]
+       test      rdx,rdx
+       je        near ptr M05_L02
+       lea       rcx,[rdi+8]
+       call      CORINFO_HELP_ASSIGN_REF
+       mov       rdx,offset dotNetTips.Utility.Standard.IO.DirectoryHelper+<>c.<LoadFiles>b__7_0(System.IO.DirectoryInfo)
+       mov       [rdi+18],rdx
+       mov       rcx,258A999BBA8
+       mov       rdx,rdi
+       call      CORINFO_HELP_CHECKED_ASSIGN_REF
+       mov       r8,rdi
+M05_L00:
+       mov       rdx,rsi
+       mov       rcx,offset MD_System.Linq.Enumerable.Where(System.Collections.Generic.IEnumerable`1<!!0>, System.Func`2<!!0,Boolean>)
+       call      System.Linq.Enumerable.Where[[System.__Canon, System.Private.CoreLib]](System.Collections.Generic.IEnumerable`1<System.__Canon>, System.Func`2<System.__Canon,Boolean>)
+       mov       rdi,rax
+       mov       rcx,258A999BBB0
+       mov       r8,[rcx]
+       test      r8,r8
+       jne       short M05_L01
+       mov       rcx,offset MT_System.Func`2[[System.IO.DirectoryInfo, System.IO.FileSystem],[System.IO.DirectoryInfo, System.IO.FileSystem]]
+       call      CORINFO_HELP_NEWSFAST
+       mov       rsi,rax
+       mov       rdx,258A999BBA0
+       mov       rdx,[rdx]
+       test      rdx,rdx
+       je        near ptr M05_L03
+       lea       rcx,[rsi+8]
+       call      CORINFO_HELP_ASSIGN_REF
+       mov       rdx,offset dotNetTips.Utility.Standard.IO.DirectoryHelper+<>c.<LoadFiles>b__7_1(System.IO.DirectoryInfo)
+       mov       [rsi+18],rdx
+       mov       rcx,258A999BBB0
+       mov       rdx,rsi
+       call      CORINFO_HELP_CHECKED_ASSIGN_REF
+       mov       r8,rsi
+M05_L01:
+       mov       rdx,rdi
+       mov       rcx,offset MD_System.Linq.Enumerable.Select(System.Collections.Generic.IEnumerable`1<!!0>, System.Func`2<!!0,!!1>)
+       call      System.Linq.Enumerable.Select[[System.__Canon, System.Private.CoreLib],[System.__Canon, System.Private.CoreLib]](System.Collections.Generic.IEnumerable`1<System.__Canon>, System.Func`2<System.__Canon,System.__Canon>)
+       mov       rdx,rax
+       mov       rcx,offset MD_System.Linq.Enumerable.ToList(System.Collections.Generic.IEnumerable`1<!!0>)
+       call      System.Linq.Enumerable.ToList[[System.__Canon, System.Private.CoreLib]](System.Collections.Generic.IEnumerable`1<System.__Canon>)
+       mov       rsi,rax
+       mov       rcx,offset MT_System.Action`1[[System.IO.DirectoryInfo, System.IO.FileSystem]]
+       call      CORINFO_HELP_NEWSFAST
+       mov       rdi,rax
+       lea       rcx,[rdi+8]
+       mov       rdx,rbp
+       call      CORINFO_HELP_ASSIGN_REF
+       mov       rcx,offset dotNetTips.Utility.Standard.IO.DirectoryHelper+<>c__DisplayClass7_0.<LoadFiles>b__2(System.IO.DirectoryInfo)
+       mov       [rdi+18],rcx
+       mov       rcx,rsi
+       mov       rdx,rdi
+       cmp       [rcx],ecx
+       call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
+       mov       rax,[rbp+10]
+       add       rsp,28
+       pop       rbx
+       pop       rbp
+       pop       rsi
+       pop       rdi
+       ret
+M05_L02:
+       mov       rcx,rdi
+       call      System.MulticastDelegate.ThrowNullThisInDelegateToInstance()
+       int       3
+M05_L03:
+       mov       rcx,rsi
+       call      System.MulticastDelegate.ThrowNullThisInDelegateToInstance()
+       int       3
+; Total bytes of code 578
+```
+
+## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+```assembly
+; dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner.TestLoadDirectoryFilesAsync()
+       push      rdi
+       push      rsi
+       sub       rsp,68
+       mov       rsi,rcx
+       lea       rdi,[rsp+20]
+       mov       ecx,12
+       xor       eax,eax
+       rep stosd
+       mov       rcx,rsi
+       xor       eax,eax
+       mov       [rsp+40],rax
+       mov       [rsp+20],rcx
+       mov       dword ptr [rsp+38],0FFFFFFFF
+       lea       rcx,[rsp+20]
+       call      System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[[dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner+<TestLoadDirectoryFilesAsync>d__6, dotNetTips.Utility.Benchmarks]](<TestLoadDirectoryFilesAsync>d__6 ByRef)
+       mov       rax,[rsp+40]
+       test      rax,rax
+       jne       short M00_L00
+       lea       rcx,[rsp+40]
+       call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1[[System.Threading.Tasks.VoidTaskResult, System.Private.CoreLib]].InitializeTaskAsPromise()
+M00_L00:
+       nop
+       add       rsp,68
+       pop       rsi
+       pop       rdi
+       ret
+; Total bytes of code 84
+```
+```assembly
+; System.Threading.Tasks.Task.GetAwaiter()
+       nop       dword ptr [rax+rax]
+       mov       rax,rcx
+       ret
+; Total bytes of code 9
+```
+```assembly
+; System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+       sub       rsp,28
+       nop
+       mov       rcx,[rcx]
+       mov       eax,[rcx+34]
+       and       eax,11000000
+       cmp       eax,1000000
+       je        short M02_L00
+       call      qword ptr [7FFFBFDE1100]
+M02_L00:
+       nop
+       add       rsp,28
+       ret
+; Total bytes of code 35
+```
+```assembly
+; System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[[dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner+<TestLoadDirectoryFilesAsync>d__6, dotNetTips.Utility.Benchmarks]](<TestLoadDirectoryFilesAsync>d__6 ByRef)
+       push      rbp
+       push      rsi
+       sub       rsp,48
+       lea       rbp,[rsp+50]
+       mov       [rbp+0FFD0],rsp
+       mov       rsi,rcx
+       movsx     rcx,byte ptr [rsi]
+       mov       rcx,7FFF60910020
+       mov       edx,1E2
+       call      CORINFO_HELP_GETSHARED_GCTHREADSTATIC_BASE
+       mov       rax,[rax+8]
+       test      rax,rax
+       jne       short M03_L00
+       call      System.Threading.Thread.InitializeCurrentThread()
+M03_L00:
+       mov       [rbp+0FFF0],rax
+       mov       rcx,[rax+8]
+       mov       [rbp+0FFE8],rcx
+       mov       rcx,[rax+10]
+       mov       [rbp+0FFE0],rcx
+       mov       rcx,rsi
+       call      dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner+<TestLoadDirectoryFilesAsync>d__6.MoveNext()
+       nop
+       mov       rdx,[rbp+0FFE0]
+       mov       rsi,[rbp+0FFF0]
+       mov       rcx,[rbp+0FFE0]
+       mov       rax,[rbp+0FFF0]
+       cmp       rcx,[rax+10]
+       je        short M03_L01
+       lea       rcx,[rsi+10]
+       call      CORINFO_HELP_ASSIGN_REF
+M03_L01:
+       mov       rdx,[rbp+0FFE8]
+       mov       r8,[rsi+8]
+       cmp       [rbp+0FFE8],r8
+       je        short M03_L02
+       mov       rcx,rsi
+       call      System.Threading.ExecutionContext.RestoreChangedContextToThread(System.Threading.Thread, System.Threading.ExecutionContext, System.Threading.ExecutionContext)
+M03_L02:
+       nop
+       lea       rsp,[rbp+0FFF8]
+       pop       rsi
+       pop       rbp
+       ret
+       push      rbp
+       push      rsi
+       sub       rsp,28
+       mov       rbp,[rcx+20]
+       mov       [rsp+20],rbp
+       lea       rbp,[rbp+50]
+       mov       rdx,[rbp+0FFE0]
+       mov       rsi,[rbp+0FFF0]
+       mov       rcx,[rbp+0FFE0]
+       mov       rax,[rbp+0FFF0]
+       cmp       rcx,[rax+10]
+       je        short M03_L03
+       lea       rcx,[rsi+10]
+       call      CORINFO_HELP_ASSIGN_REF
+M03_L03:
+       mov       rdx,[rbp+0FFE8]
+       mov       r8,[rsi+8]
+       cmp       [rbp+0FFE8],r8
+       je        short M03_L04
+       mov       rcx,rsi
+       call      System.Threading.ExecutionContext.RestoreChangedContextToThread(System.Threading.Thread, System.Threading.ExecutionContext, System.Threading.ExecutionContext)
+M03_L04:
+       nop
+       add       rsp,28
+       pop       rsi
+       pop       rbp
+       ret
+; Total bytes of code 226
+```
+```assembly
+; System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(System.Threading.Tasks.Task)
+       push      rsi
+       sub       rsp,20
+       mov       rsi,rcx
+       mov       ecx,[rsi+34]
+       test      ecx,1600000
+       jne       short M04_L00
+       mov       rcx,rsi
+       xor       r8d,r8d
+       mov       edx,0FFFFFFFF
+       call      System.Threading.Tasks.Task.InternalWaitCore(Int32, System.Threading.CancellationToken)
+M04_L00:
+       mov       rcx,rsi
+       call      System.Threading.Tasks.Task.NotifyDebuggerOfWaitCompletionIfNecessary()
+       mov       ecx,[rsi+34]
+       and       ecx,1600000
+       cmp       ecx,1000000
+       je        short M04_L01
+       mov       rcx,rsi
+       call      System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(System.Threading.Tasks.Task)
+M04_L01:
+       nop
+       add       rsp,20
+       pop       rsi
+       ret
+; Total bytes of code 75
+```
+**Method was not JITted yet.**
+System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1[[System.Threading.Tasks.VoidTaskResult, System.Private.CoreLib]].InitializeTaskAsPromise()
+
+## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+```assembly
+; dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner.SafeDirectorySearch()
+;             var result = DirectoryHelper.SafeDirectorySearch(new DirectoryInfo(_tempFilePath), "*." + FileExtension);
+;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;             base.Consumer.Consume(result);
+;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       push      rdi
+       push      rsi
+       push      rbx
+       sub       rsp,30
+       mov       rsi,rcx
+       mov       rcx,offset MT_System.IO.DirectoryInfo
+       call      CORINFO_HELP_NEWSFAST
+       mov       rdi,rax
+       mov       rbx,[rsi+28]
+       mov       dword ptr [rdi+20],0FFFFFFFF
+       mov       rcx,rbx
+       call      System.IO.Path.GetFullPath(System.String)
+       mov       r8,rax
+       mov       dword ptr [rsp+20],1
+       mov       rdx,rbx
+       mov       rcx,rdi
+       xor       r9d,r9d
+       call      System.IO.DirectoryInfo.Init(System.String, System.String, System.String, Boolean)
+       mov       rdx,1F2B1B41070
+       mov       rdx,[rdx]
+       mov       rcx,rdi
+       xor       r8d,r8d
+       call      dotNetTips.Utility.Standard.IO.DirectoryHelper.SafeDirectorySearch(System.IO.DirectoryInfo, System.String, System.IO.SearchOption)
+       mov       rcx,[rsi+8]
+       mov       edx,[rcx]
+       add       rcx,10
+       mov       rdx,rax
+       call      CORINFO_HELP_CHECKED_ASSIGN_REF
+       nop
+       add       rsp,30
+       pop       rbx
+       pop       rsi
+       pop       rdi
+       ret
+; Total bytes of code 123
+```
+```assembly
+; System.IO.Path.GetFullPath(System.String)
+       push      rdi
+       push      rsi
+       sub       rsp,38
+       xor       eax,eax
+       mov       [rsp+28],rax
+       mov       rsi,rcx
+       test      rsi,rsi
+       je        short M01_L01
+       lea       rcx,[rsi+0C]
+       mov       eax,[rsi+8]
+       lea       rdx,[rsp+28]
+       mov       [rdx],rcx
+       mov       [rdx+8],eax
+       lea       rcx,[rsp+28]
+       call      System.IO.PathInternal.IsEffectivelyEmpty(System.ReadOnlySpan`1<Char>)
+       test      eax,eax
+       jne       near ptr M01_L02
+       lea       rcx,[rsi+0C]
+       mov       r8d,[rsi+8]
+       xor       edx,edx
+       call      System.SpanHelpers.Contains(Char ByRef, Char, Int32)
+       test      eax,eax
+       jne       near ptr M01_L03
+       lea       rcx,[rsi+0C]
+       mov       eax,[rsi+8]
+       lea       rdx,[rsp+28]
+       mov       [rdx],rcx
+       mov       [rdx+8],eax
+       lea       rcx,[rsp+28]
+       call      System.IO.PathInternal.IsExtended(System.ReadOnlySpan`1<Char>)
+       test      eax,eax
+       je        short M01_L00
+       mov       rax,rsi
+       add       rsp,38
+       pop       rsi
+       pop       rdi
+       ret
+M01_L00:
+       mov       rcx,rsi
+       call      System.IO.PathHelper.Normalize(System.String)
+       nop
+       add       rsp,38
+       pop       rsi
+       pop       rdi
+       ret
+M01_L01:
+       mov       rcx,offset MT_System.ArgumentNullException
+       call      CORINFO_HELP_NEWSFAST
+       mov       rsi,rax
+       mov       ecx,15517
+       mov       rdx,7FFF60804020
+       call      CORINFO_HELP_STRCNS
+       mov       rdx,rax
+       mov       rcx,rsi
+       call      System.ArgumentNullException..ctor(System.String)
+       mov       rcx,rsi
+       call      CORINFO_HELP_THROW
+M01_L02:
+       mov       rcx,offset MT_System.ArgumentException
+       call      CORINFO_HELP_NEWSFAST
+       mov       rsi,rax
+       mov       ecx,3F26
+       mov       rdx,7FFF60804020
+       call      CORINFO_HELP_STRCNS
+       mov       rcx,rax
+       mov       rdx,1F291B43060
+       mov       rdx,[rdx]
+       call      System.SR.GetResourceString(System.String, System.String)
+       mov       rdi,rax
+       mov       ecx,15517
+       mov       rdx,7FFF60804020
+       call      CORINFO_HELP_STRCNS
+       mov       r8,rax
+       mov       rdx,rdi
+       mov       rcx,rsi
+       call      System.ArgumentException..ctor(System.String, System.String)
+       mov       rcx,rsi
+       call      CORINFO_HELP_THROW
+M01_L03:
+       mov       rcx,offset MT_System.ArgumentException
+       call      CORINFO_HELP_NEWSFAST
+       mov       rsi,rax
+       mov       ecx,6726
+       mov       rdx,7FFF60804020
+       call      CORINFO_HELP_STRCNS
+       mov       rcx,rax
+       mov       rdx,1F291B43060
+       mov       rdx,[rdx]
+       call      System.SR.GetResourceString(System.String, System.String)
+       mov       rdi,rax
+       mov       ecx,15517
+       mov       rdx,7FFF60804020
+       call      CORINFO_HELP_STRCNS
+       mov       r8,rax
+       mov       rdx,rdi
+       mov       rcx,rsi
+       call      System.ArgumentException..ctor(System.String, System.String)
+       mov       rcx,rsi
+       call      CORINFO_HELP_THROW
+       int       3
+; Total bytes of code 404
+```
+```assembly
+; System.IO.DirectoryInfo.Init(System.String, System.String, System.String, Boolean)
+       push      r14
+       push      rdi
+       push      rsi
+       push      rbp
+       push      rbx
+       sub       rsp,60
+       mov       rsi,rcx
+       lea       rdi,[rsp+20]
+       mov       ecx,10
+       xor       eax,eax
+       rep stosd
+       mov       rcx,rsi
+       mov       rdi,rcx
+       mov       rbx,rdx
+       mov       rsi,r8
+       mov       rbp,r9
+       mov       r14d,[rsp+0B0]
+       mov       rdx,rbx
+       test      rdx,rdx
+       je        near ptr M02_L12
+       lea       rcx,[rdi+10]
+       mov       rdx,rbx
+       call      CORINFO_HELP_ASSIGN_REF
+       test      rsi,rsi
+       jne       short M02_L00
+       mov       rsi,rbx
+M02_L00:
+       test      r14b,r14b
+       jne       short M02_L01
+       mov       rcx,rsi
+       call      System.IO.Path.GetFullPath(System.String)
+       jmp       short M02_L02
+M02_L01:
+       mov       rax,rsi
+M02_L02:
+       mov       rsi,rax
+       mov       rdx,rbp
+       test      rdx,rdx
+       jne       near ptr M02_L11
+       test      rsi,rsi
+       jne       short M02_L03
+       xor       ecx,ecx
+       xor       ebx,ebx
+       jmp       short M02_L04
+M02_L03:
+       lea       rcx,[rsi+0C]
+       mov       ebx,[rsi+8]
+M02_L04:
+       mov       eax,ebx
+       lea       rdx,[rsp+20]
+       mov       [rdx],rcx
+       mov       [rdx+8],eax
+       lea       rcx,[rsp+20]
+       call      System.IO.PathInternal.GetRootLength(System.ReadOnlySpan`1<Char>)
+       cmp       eax,ebx
+       je        short M02_L07
+       test      rsi,rsi
+       jne       short M02_L05
+       xor       ecx,ecx
+       xor       edx,edx
+       jmp       short M02_L06
+M02_L05:
+       lea       rcx,[rsi+0C]
+       mov       edx,[rsi+8]
+M02_L06:
+       lea       rax,[rsp+30]
+       lea       r8,[rsp+20]
+       mov       [r8],rcx
+       mov       [r8+8],edx
+       mov       rcx,rax
+       lea       rdx,[rsp+20]
+       call      System.IO.Path.TrimEndingDirectorySeparator(System.ReadOnlySpan`1<Char>)
+       lea       rcx,[rsp+40]
+       lea       rdx,[rsp+20]
+       mov       rax,[rsp+30]
+       mov       [rdx],rax
+       mov       eax,[rsp+38]
+       mov       [rdx+8],eax
+       lea       rdx,[rsp+20]
+       call      System.IO.Path.GetFileName(System.ReadOnlySpan`1<Char>)
+       jmp       short M02_L10
+M02_L07:
+       test      rsi,rsi
+       jne       short M02_L08
+       xor       ecx,ecx
+       xor       eax,eax
+       jmp       short M02_L09
+M02_L08:
+       lea       rcx,[rsi+0C]
+       mov       eax,[rsi+8]
+M02_L09:
+       mov       [rsp+40],rcx
+       mov       [rsp+48],eax
+M02_L10:
+       mov       rcx,[rsp+40]
+       mov       [rsp+50],rcx
+       mov       ecx,[rsp+48]
+       mov       [rsp+58],ecx
+       lea       rcx,[rsp+50]
+       call      System.ReadOnlySpan`1[[System.Char, System.Private.CoreLib]].ToString()
+       mov       rdx,rax
+M02_L11:
+       lea       rcx,[rdi+18]
+       call      CORINFO_HELP_ASSIGN_REF
+       lea       rcx,[rdi+8]
+       mov       rdx,rsi
+       call      CORINFO_HELP_ASSIGN_REF
+       mov       [rdi+50],r14b
+       add       rsp,60
+       pop       rbx
+       pop       rbp
+       pop       rsi
+       pop       rdi
+       pop       r14
+       ret
+M02_L12:
+       mov       rcx,offset MT_System.ArgumentNullException
+       call      CORINFO_HELP_NEWSFAST
+       mov       rsi,rax
+       mov       ecx,615
+       mov       rdx,7FFF60B62450
+       call      CORINFO_HELP_STRCNS
+       mov       rdx,rax
+       mov       rcx,rsi
+       call      System.ArgumentNullException..ctor(System.String)
+       mov       rcx,rsi
+       call      CORINFO_HELP_THROW
+       int       3
+; Total bytes of code 397
+```
+```assembly
+; dotNetTips.Utility.Standard.IO.DirectoryHelper.SafeDirectorySearch(System.IO.DirectoryInfo, System.String, System.IO.SearchOption)
+       push      rbp
+       push      rdi
+       push      rsi
+       sub       rsp,50
+       lea       rbp,[rsp+60]
+       xor       eax,eax
+       mov       [rbp+0FFD8],rax
+       mov       [rbp+0FFC8],rsp
+       mov       [rbp+10],rcx
+       mov       [rbp+18],rdx
+       mov       [rbp+20],r8d
+;             Encapsulation.TryValidateParam(rootDirectory, nameof(rootDirectory));
+;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       mov       r8,1F291B43060
+       mov       r8,[r8]
+       mov       rdx,1F2B1B41078
+       mov       rdx,[rdx]
+       mov       rcx,[rbp+10]
+       call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.IO.DirectoryInfo, System.String, System.String)
+;             Encapsulation.TryValidateParam(searchPattern, nameof(searchPattern));
+;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       mov       rcx,1F291B43060
+       mov       rsi,[rcx]
+       cmp       qword ptr [rbp+18],0
+       je        near ptr M03_L08
+;             var folders = new List<DirectoryInfo>
+;             ^^
+;             {
+;             ^^
+;                 rootDirectory,
+;             ^^
+;             };
+;             ^^
+       mov       rcx,offset MT_System.Collections.Generic.List`1[[System.IO.DirectoryInfo, System.IO.FileSystem]]
+       call      CORINFO_HELP_NEWSFAST
+       mov       rsi,rax
+       mov       rcx,7FFF60900020
+       mov       edx,27
+       call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
+       mov       rdx,1F291B48D48
+       mov       rdx,[rdx]
+       lea       rcx,[rsi+8]
+       call      CORINFO_HELP_ASSIGN_REF
+       inc       dword ptr [rsi+14]
+       mov       rcx,[rsi+8]
+       mov       edx,[rsi+10]
+       cmp       [rcx+8],edx
+       jbe       short M03_L00
+       lea       r8d,[rdx+1]
+       mov       [rsi+10],r8d
+       mov       r8,[rbp+10]
+       call      CORINFO_HELP_ARRADDR_ST
+       jmp       short M03_L01
+M03_L00:
+       mov       rcx,rsi
+       mov       rdx,[rbp+10]
+       call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+;             for (var directoryCount = 0; directoryCount < rootDirectory.GetDirectories(searchPattern, searchOption).Length; directoryCount++)
+;                  ^^^^^^^^^^^^^^^^^^^^^^
+M03_L01:
+       mov       [rbp+0FFE0],rsi
+       xor       ecx,ecx
+       mov       [rbp+0FFEC],ecx
+       jmp       near ptr M03_L07
+;                     var searchResult = SafeDirectorySearch(rootDirectory.GetDirectories(searchPattern, searchOption)[directoryCount], searchPattern);
+;                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+M03_L02:
+       mov       ecx,[rbp+20]
+       call      System.IO.EnumerationOptions.FromSearchOption(System.IO.SearchOption)
+       mov       [rsp+20],rax
+       mov       rdx,[rbp+10]
+       mov       rdx,[rdx+8]
+       mov       rcx,[rbp+10]
+       mov       r8,[rbp+18]
+       mov       r9d,2
+       call      System.IO.DirectoryInfo.InternalEnumerateInfos(System.String, System.String, System.IO.SearchTarget, System.IO.EnumerationOptions)
+       mov       rdx,rax
+       mov       rcx,offset MT_System.Collections.Generic.IEnumerable`1[[System.IO.DirectoryInfo, System.IO.FileSystem]]
+       call      CORINFO_HELP_CHKCASTANY
+       mov       rdx,rax
+       mov       rcx,offset MD_System.Linq.Enumerable.ToArray(System.Collections.Generic.IEnumerable`1<!!0>)
+       call      System.Linq.Enumerable.ToArray[[System.__Canon, System.Private.CoreLib]](System.Collections.Generic.IEnumerable`1<System.__Canon>)
+       mov       ecx,[rax+8]
+       cmp       [rbp+0FFEC],ecx
+       jae       short M03_L03
+       mov       ecx,[rbp+0FFEC]
+       movsxd    rcx,ecx
+       mov       rcx,[rax+rcx*8+10]
+       mov       rdx,[rbp+18]
+       xor       r8d,r8d
+       call      dotNetTips.Utility.Standard.IO.DirectoryHelper.SafeDirectorySearch(System.IO.DirectoryInfo, System.String, System.IO.SearchOption)
+       mov       rsi,rax
+;                     if (searchResult.HasItems())
+;                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       test      rsi,rsi
+       jne       short M03_L04
+       xor       edi,edi
+       jmp       short M03_L05
+M03_L03:
+       call      CORINFO_HELP_RNGCHKFAIL
+M03_L04:
+       mov       rcx,rsi
+       call      dotNetTips.Utility.Standard.Extensions.CollectionExtensions.Count(System.Collections.IEnumerable)
+       test      eax,eax
+       setg      dil
+       movzx     edi,dil
+M03_L05:
+       test      edi,edi
+       je        short M03_L06
+;                         _ = folders.AddRange(searchResult, insureUnique: true);
+;                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       mov       r8,rsi
+       mov       rdx,[rbp+0FFE0]
+       mov       rcx,offset MD_dotNetTips.Utility.Standard.Extensions.CollectionExtensions.AddRange(System.Collections.Generic.ICollection`1<!!0>, System.Collections.Generic.IEnumerable`1<!!0>, Boolean)
+       mov       r9d,1
+       call      dotNetTips.Utility.Standard.Extensions.CollectionExtensions.AddRange[[System.__Canon, System.Private.CoreLib]](System.Collections.Generic.ICollection`1<System.__Canon>, System.Collections.Generic.IEnumerable`1<System.__Canon>, Boolean)
+       nop
+M03_L06:
+       mov       eax,[rbp+0FFEC]
+       inc       eax
+       mov       [rbp+0FFEC],eax
+M03_L07:
+       mov       rcx,[rbp+10]
+       mov       ecx,[rcx]
+       mov       ecx,[rbp+20]
+       call      System.IO.EnumerationOptions.FromSearchOption(System.IO.SearchOption)
+       mov       [rsp+20],rax
+       mov       rdx,[rbp+10]
+       mov       rdx,[rdx+8]
+       mov       rcx,[rbp+10]
+       mov       r8,[rbp+18]
+       mov       r9d,2
+       call      System.IO.DirectoryInfo.InternalEnumerateInfos(System.String, System.String, System.IO.SearchTarget, System.IO.EnumerationOptions)
+       mov       rdx,rax
+       mov       rcx,offset MT_System.Collections.Generic.IEnumerable`1[[System.IO.DirectoryInfo, System.IO.FileSystem]]
+       call      CORINFO_HELP_CHKCASTANY
+       mov       rdx,rax
+       mov       rcx,offset MD_System.Linq.Enumerable.ToArray(System.Collections.Generic.IEnumerable`1<!!0>)
+       call      System.Linq.Enumerable.ToArray[[System.__Canon, System.Private.CoreLib]](System.Collections.Generic.IEnumerable`1<System.__Canon>)
+       mov       ecx,[rax+8]
+       cmp       ecx,[rbp+0FFEC]
+       jg        near ptr M03_L02
+;             return folders;
+;             ^^^^^^^^^^^^^^^
+       mov       rax,[rbp+0FFE0]
+       lea       rsp,[rbp+0FFF0]
+       pop       rsi
+       pop       rdi
+       pop       rbp
+       ret
+M03_L08:
+       test      rsi,rsi
+       jne       short M03_L09
+       call      dotNetTips.Utility.Standard.Properties.Resources.get_StringIsEmpty()
+       mov       rsi,rax
+M03_L09:
+       mov       rcx,offset MT_dotNetTips.Utility.Standard.Common.ArgumentInvalidException
+       call      CORINFO_HELP_NEWSFAST
+       mov       rdi,rax
+       mov       dword ptr [rdi+70],0E0434352
+       mov       dword ptr [rdi+74],80131500
+       lea       rcx,[rdi+10]
+       mov       rdx,rsi
+       call      CORINFO_HELP_ASSIGN_REF
+       mov       dword ptr [rdi+74],80131501
+       mov       ecx,0E5D
+       mov       rdx,7FFF60BE3048
+       call      CORINFO_HELP_STRCNS
+       lea       rcx,[rdi+78]
+       mov       rdx,rax
+       call      CORINFO_HELP_ASSIGN_REF
+       mov       dword ptr [rdi+74],80070057
+       mov       rcx,rdi
+       call      CORINFO_HELP_THROW
+       int       3
+       push      rbp
+       push      rdi
+       push      rsi
+       sub       rsp,30
+       mov       rbp,[rcx+28]
+       mov       [rsp+28],rbp
+       lea       rbp,[rbp+60]
+       mov       rcx,offset MT_System.Exception
+       call      CORINFO_HELP_ISINSTANCEOFCLASS
+       mov       rdx,rax
+       test      rdx,rdx
+       jne       short M03_L10
+;                 catch (Exception ex) when (ex is ArgumentException || ex is ArgumentNullException || ex is ArgumentOutOfRangeException || ex is System.IO.DirectoryNotFoundException || ex is UnauthorizedAccessException)
+;                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       xor       eax,eax
+       jmp       near ptr M03_L13
+M03_L10:
+       mov       [rbp+0FFD8],rdx
+       mov       rcx,offset MT_System.ArgumentException
+       call      CORINFO_HELP_ISINSTANCEOFCLASS
+       test      rax,rax
+       jne       short M03_L11
+       mov       rdx,[rbp+0FFD8]
+       mov       rcx,offset MT_System.ArgumentNullException
+       call      CORINFO_HELP_ISINSTANCEOFCLASS
+       test      rax,rax
+       jne       short M03_L11
+       mov       rdx,[rbp+0FFD8]
+       mov       rcx,offset MT_System.ArgumentOutOfRangeException
+       call      CORINFO_HELP_ISINSTANCEOFCLASS
+       test      rax,rax
+       jne       short M03_L11
+       mov       rdx,[rbp+0FFD8]
+       mov       rcx,offset MT_System.IO.DirectoryNotFoundException
+       call      CORINFO_HELP_ISINSTANCEOFCLASS
+       test      rax,rax
+       jne       short M03_L11
+       mov       rdx,[rbp+0FFD8]
+       mov       rcx,offset MT_System.UnauthorizedAccessException
+       call      CORINFO_HELP_ISINSTANCEOFCLASS
+       test      rax,rax
+       setne     al
+       movzx     eax,al
+       jmp       short M03_L12
+M03_L11:
+       mov       eax,1
+M03_L12:
+       test      eax,eax
+       setne     al
+       movzx     eax,al
+M03_L13:
+       add       rsp,30
+       pop       rsi
+       pop       rdi
+       pop       rbp
+       ret
+       push      rbp
+       push      rdi
+       push      rsi
+       sub       rsp,30
+       mov       rbp,[rcx+28]
+       mov       [rsp+28],rbp
+       lea       rbp,[rbp+60]
+;                     Trace.WriteLine(ex.Message);
+;                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       mov       rcx,[rbp+0FFD8]
+       mov       rax,[rbp+0FFD8]
+       mov       rax,[rax]
+       mov       rax,[rax+40]
+       call      qword ptr [rax+28]
+       mov       rcx,rax
+       call      System.Diagnostics.Trace.WriteLine(System.String)
+       lea       rax,[7FFF60C35374]
+       add       rsp,30
+       pop       rsi
+       pop       rdi
+       pop       rbp
+       ret
+; Total bytes of code 872
+```
+
+## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+```assembly
+; dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner.SafeFileSearch()
+;             var result = DirectoryHelper.SafeFileSearch(new DirectoryInfo(_tempFilePath), "*.*", SearchOption.AllDirectories);
+;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;             base.Consumer.Consume(result);
+;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       push      rdi
+       push      rsi
+       push      rbx
+       sub       rsp,30
+       mov       rsi,rcx
+       mov       rcx,offset MT_System.IO.DirectoryInfo
+       call      CORINFO_HELP_NEWSFAST
+       mov       rdi,rax
+       mov       rbx,[rsi+28]
+       mov       dword ptr [rdi+20],0FFFFFFFF
+       mov       rcx,rbx
+       call      System.IO.Path.GetFullPath(System.String)
+       mov       r8,rax
+       mov       dword ptr [rsp+20],1
+       mov       rdx,rbx
+       mov       rcx,rdi
+       xor       r9d,r9d
+       call      System.IO.DirectoryInfo.Init(System.String, System.String, System.String, Boolean)
+       mov       rdx,28297C518A8
+       mov       rdx,[rdx]
+       mov       rcx,rdi
+       mov       r8d,1
+       call      dotNetTips.Utility.Standard.IO.DirectoryHelper.SafeFileSearch(System.IO.DirectoryInfo, System.String, System.IO.SearchOption)
+       mov       rcx,[rsi+8]
+       mov       edx,[rcx]
+       add       rcx,10
+       mov       rdx,rax
+       call      CORINFO_HELP_CHECKED_ASSIGN_REF
+       nop
+       add       rsp,30
+       pop       rbx
+       pop       rsi
+       pop       rdi
+       ret
+; Total bytes of code 126
+```
+```assembly
+; System.IO.Path.GetFullPath(System.String)
+       push      rdi
+       push      rsi
+       sub       rsp,38
+       xor       eax,eax
+       mov       [rsp+28],rax
+       mov       rsi,rcx
+       test      rsi,rsi
+       je        short M01_L01
+       lea       rcx,[rsi+0C]
+       mov       eax,[rsi+8]
+       lea       rdx,[rsp+28]
+       mov       [rdx],rcx
+       mov       [rdx+8],eax
+       lea       rcx,[rsp+28]
+       call      System.IO.PathInternal.IsEffectivelyEmpty(System.ReadOnlySpan`1<Char>)
+       test      eax,eax
+       jne       near ptr M01_L02
+       lea       rcx,[rsi+0C]
+       mov       r8d,[rsi+8]
+       xor       edx,edx
+       call      System.SpanHelpers.Contains(Char ByRef, Char, Int32)
+       test      eax,eax
+       jne       near ptr M01_L03
+       lea       rcx,[rsi+0C]
+       mov       eax,[rsi+8]
+       lea       rdx,[rsp+28]
+       mov       [rdx],rcx
+       mov       [rdx+8],eax
+       lea       rcx,[rsp+28]
+       call      System.IO.PathInternal.IsExtended(System.ReadOnlySpan`1<Char>)
+       test      eax,eax
+       je        short M01_L00
+       mov       rax,rsi
+       add       rsp,38
+       pop       rsi
+       pop       rdi
+       ret
+M01_L00:
+       mov       rcx,rsi
+       call      System.IO.PathHelper.Normalize(System.String)
+       nop
+       add       rsp,38
+       pop       rsi
+       pop       rdi
+       ret
+M01_L01:
+       mov       rcx,offset MT_System.ArgumentNullException
+       call      CORINFO_HELP_NEWSFAST
+       mov       rsi,rax
+       mov       ecx,15517
+       mov       rdx,7FFF60804020
+       call      CORINFO_HELP_STRCNS
+       mov       rdx,rax
+       mov       rcx,rsi
+       call      System.ArgumentNullException..ctor(System.String)
+       mov       rcx,rsi
+       call      CORINFO_HELP_THROW
+M01_L02:
+       mov       rcx,offset MT_System.ArgumentException
+       call      CORINFO_HELP_NEWSFAST
+       mov       rsi,rax
+       mov       ecx,3F26
+       mov       rdx,7FFF60804020
+       call      CORINFO_HELP_STRCNS
+       mov       rcx,rax
+       mov       rdx,282B7C53060
+       mov       rdx,[rdx]
+       call      System.SR.GetResourceString(System.String, System.String)
+       mov       rdi,rax
+       mov       ecx,15517
+       mov       rdx,7FFF60804020
+       call      CORINFO_HELP_STRCNS
+       mov       r8,rax
+       mov       rdx,rdi
+       mov       rcx,rsi
+       call      System.ArgumentException..ctor(System.String, System.String)
+       mov       rcx,rsi
+       call      CORINFO_HELP_THROW
+M01_L03:
+       mov       rcx,offset MT_System.ArgumentException
+       call      CORINFO_HELP_NEWSFAST
+       mov       rsi,rax
+       mov       ecx,6726
+       mov       rdx,7FFF60804020
+       call      CORINFO_HELP_STRCNS
+       mov       rcx,rax
+       mov       rdx,282B7C53060
+       mov       rdx,[rdx]
+       call      System.SR.GetResourceString(System.String, System.String)
+       mov       rdi,rax
+       mov       ecx,15517
+       mov       rdx,7FFF60804020
+       call      CORINFO_HELP_STRCNS
+       mov       r8,rax
+       mov       rdx,rdi
+       mov       rcx,rsi
+       call      System.ArgumentException..ctor(System.String, System.String)
+       mov       rcx,rsi
+       call      CORINFO_HELP_THROW
+       int       3
+; Total bytes of code 404
+```
+```assembly
+; System.IO.DirectoryInfo.Init(System.String, System.String, System.String, Boolean)
+       push      r14
+       push      rdi
+       push      rsi
+       push      rbp
+       push      rbx
+       sub       rsp,60
+       mov       rsi,rcx
+       lea       rdi,[rsp+20]
+       mov       ecx,10
+       xor       eax,eax
+       rep stosd
+       mov       rcx,rsi
+       mov       rdi,rcx
+       mov       rbx,rdx
+       mov       rsi,r8
+       mov       rbp,r9
+       mov       r14d,[rsp+0B0]
+       mov       rdx,rbx
+       test      rdx,rdx
+       je        near ptr M02_L12
+       lea       rcx,[rdi+10]
+       mov       rdx,rbx
+       call      CORINFO_HELP_ASSIGN_REF
+       test      rsi,rsi
+       jne       short M02_L00
+       mov       rsi,rbx
+M02_L00:
+       test      r14b,r14b
+       jne       short M02_L01
+       mov       rcx,rsi
+       call      System.IO.Path.GetFullPath(System.String)
+       jmp       short M02_L02
+M02_L01:
+       mov       rax,rsi
+M02_L02:
+       mov       rsi,rax
+       mov       rdx,rbp
+       test      rdx,rdx
+       jne       near ptr M02_L11
+       test      rsi,rsi
+       jne       short M02_L03
+       xor       ecx,ecx
+       xor       ebx,ebx
+       jmp       short M02_L04
+M02_L03:
+       lea       rcx,[rsi+0C]
+       mov       ebx,[rsi+8]
+M02_L04:
+       mov       eax,ebx
+       lea       rdx,[rsp+20]
+       mov       [rdx],rcx
+       mov       [rdx+8],eax
+       lea       rcx,[rsp+20]
+       call      System.IO.PathInternal.GetRootLength(System.ReadOnlySpan`1<Char>)
+       cmp       eax,ebx
+       je        short M02_L07
+       test      rsi,rsi
+       jne       short M02_L05
+       xor       ecx,ecx
+       xor       edx,edx
+       jmp       short M02_L06
+M02_L05:
+       lea       rcx,[rsi+0C]
+       mov       edx,[rsi+8]
+M02_L06:
+       lea       rax,[rsp+30]
+       lea       r8,[rsp+20]
+       mov       [r8],rcx
+       mov       [r8+8],edx
+       mov       rcx,rax
+       lea       rdx,[rsp+20]
+       call      System.IO.Path.TrimEndingDirectorySeparator(System.ReadOnlySpan`1<Char>)
+       lea       rcx,[rsp+40]
+       lea       rdx,[rsp+20]
+       mov       rax,[rsp+30]
+       mov       [rdx],rax
+       mov       eax,[rsp+38]
+       mov       [rdx+8],eax
+       lea       rdx,[rsp+20]
+       call      System.IO.Path.GetFileName(System.ReadOnlySpan`1<Char>)
+       jmp       short M02_L10
+M02_L07:
+       test      rsi,rsi
+       jne       short M02_L08
+       xor       ecx,ecx
+       xor       eax,eax
+       jmp       short M02_L09
+M02_L08:
+       lea       rcx,[rsi+0C]
+       mov       eax,[rsi+8]
+M02_L09:
+       mov       [rsp+40],rcx
+       mov       [rsp+48],eax
+M02_L10:
+       mov       rcx,[rsp+40]
+       mov       [rsp+50],rcx
+       mov       ecx,[rsp+48]
+       mov       [rsp+58],ecx
+       lea       rcx,[rsp+50]
+       call      System.ReadOnlySpan`1[[System.Char, System.Private.CoreLib]].ToString()
+       mov       rdx,rax
+M02_L11:
+       lea       rcx,[rdi+18]
+       call      CORINFO_HELP_ASSIGN_REF
+       lea       rcx,[rdi+8]
+       mov       rdx,rsi
+       call      CORINFO_HELP_ASSIGN_REF
+       mov       [rdi+50],r14b
+       add       rsp,60
+       pop       rbx
+       pop       rbp
+       pop       rsi
+       pop       rdi
+       pop       r14
+       ret
+M02_L12:
+       mov       rcx,offset MT_System.ArgumentNullException
+       call      CORINFO_HELP_NEWSFAST
+       mov       rsi,rax
+       mov       ecx,615
+       mov       rdx,7FFF60B62450
+       call      CORINFO_HELP_STRCNS
+       mov       rdx,rax
+       mov       rcx,rsi
+       call      System.ArgumentNullException..ctor(System.String)
+       mov       rcx,rsi
+       call      CORINFO_HELP_THROW
+       int       3
+; Total bytes of code 397
+```
+```assembly
+; dotNetTips.Utility.Standard.IO.DirectoryHelper.SafeFileSearch(System.IO.DirectoryInfo, System.String, System.IO.SearchOption)
+;             return SafeFileSearch(new List<DirectoryInfo> { directory }, searchPattern, searchOption);
+;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       push      rdi
+       push      rsi
+       push      rbp
+       push      rbx
+       sub       rsp,28
+       mov       rsi,rcx
+       mov       rdi,rdx
+       mov       ebx,r8d
+       mov       rcx,offset MT_System.Collections.Generic.List`1[[System.IO.DirectoryInfo, System.IO.FileSystem]]
+       call      CORINFO_HELP_NEWSFAST
+       mov       rbp,rax
+       mov       rdx,282B7C58D48
+       mov       rdx,[rdx]
+       lea       rcx,[rbp+8]
+       call      CORINFO_HELP_ASSIGN_REF
+       inc       dword ptr [rbp+14]
+       mov       rcx,[rbp+8]
+       mov       edx,[rbp+10]
+       cmp       [rcx+8],edx
+       jbe       short M03_L00
+       lea       r8d,[rdx+1]
+       mov       [rbp+10],r8d
+       mov       r8,rsi
+       call      CORINFO_HELP_ARRADDR_ST
+       jmp       short M03_L01
+M03_L00:
+       mov       rcx,rbp
+       mov       rdx,rsi
+       call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
+M03_L01:
+       mov       rcx,rbp
+       mov       rdx,rdi
+       mov       r8d,ebx
+       mov       rax,offset dotNetTips.Utility.Standard.IO.DirectoryHelper.SafeFileSearch(System.Collections.Generic.IEnumerable`1<System.IO.DirectoryInfo>, System.String, System.IO.SearchOption)
+       add       rsp,28
+       pop       rbx
+       pop       rbp
+       pop       rsi
+       pop       rdi
+       jmp       rax
+; Total bytes of code 131
+```
+

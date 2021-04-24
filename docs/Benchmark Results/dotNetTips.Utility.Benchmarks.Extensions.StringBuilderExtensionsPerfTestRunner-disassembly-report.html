@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>DisassemblyDiagnoser Output dotNetTips.Utility.Benchmarks.Extensions.StringBuilderExtensionsPerfTestRunner-20210228-164747</title>
+
+<style type="text/css">
+    table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+    td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: left; }
+    tr { background-color: #fff; border-top: 1px solid #ccc; }
+    tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<table>
+<thead>
+<tr><th colspan="3">dotNetTips.Utility.Benchmarks.Extensions.StringBuilderExtensionsPerfTestRunner-20210228-164747</th></tr>
+<tr>
+<th>AppendBytes .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>AppendJoin .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>AppendJoinParams .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Extensions.StringBuilderExtensionsPerfTestRunner.AppendBytes()
+            var sb = new StringBuilder();
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            sb.AppendBytes(RandomData.GenerateByteArray(1));
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.Consumer.Consume(sb.ToString());
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rdi
+push      rsi
+sub       rsp,28
+vzeroupper
+mov       rsi,rcx
+mov       rcx,offset MT_System.Text.StringBuilder
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       dword ptr [rdi+20],7FFFFFFF
+mov       rcx,offset MT_System.Char[]
+mov       edx,10
+call      CORINFO_HELP_NEWARR_1_VC
+lea       rcx,[rdi+8]
+mov       rdx,rax
+call      CORINFO_HELP_ASSIGN_REF
+vmovsd    xmm0,qword ptr [7FFF60BDD0D8]
+call      dotNetTips.Utility.Standard.Tester.RandomData.GenerateByteArray(Double)
+mov       rdx,rax
+mov       rcx,rdi
+call      dotNetTips.Utility.Standard.Extensions.StringBuilderExtensions.AppendBytes(System.Text.StringBuilder, Byte[])
+mov       rsi,[rsi+8]
+mov       rcx,rdi
+call      qword ptr [7FFF60BE7010]
+mov       edx,[rsi]
+lea       rcx,[rsi+8]
+mov       rdx,rax
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,28
+pop       rsi
+pop       rdi
+ret
+
+dotNetTips.Utility.Standard.Tester.RandomData.GenerateByteArray(Double)
+            var size = Convert.ToInt32(sizeInKb * 1024);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            var bytes = new byte[size];
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            _random.NextBytes(bytes);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+            return bytes;
+            ^^^^^^^^^^^^^
+push      rsi
+sub       rsp,20
+vzeroupper
+vmulsd    xmm0,xmm0,qword ptr [7FFF60BDD1A0]
+call      System.Convert.ToInt32(Double)
+movsxd    rdx,eax
+mov       rcx,offset MT_System.Byte[]
+call      CORINFO_HELP_NEWARR_1_VC
+mov       rsi,rax
+mov       rcx,1FCFD6DBA20
+mov       rcx,[rcx]
+mov       rdx,rsi
+call      qword ptr [7FFF60BDD5A0]
+mov       rax,rsi
+add       rsp,20
+pop       rsi
+ret
+
+dotNetTips.Utility.Standard.Extensions.StringBuilderExtensions.AppendBytes(System.Text.StringBuilder, Byte[])
+push      rdi
+push      rsi
+push      rbp
+push      rbx
+sub       rsp,38
+xor       eax,eax
+mov       [rsp+28],rax
+mov       [rsp+30],rax
+mov       rsi,rcx
+mov       rdi,rdx
+            if (sb == null)
+            ^^^^^^^^^^^^^^^
+test      rsi,rsi
+je        near ptr 00007FFF60BD8670
+            if (( bytes == null ) || ( bytes.Length == 0 ))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test      rdi,rdi
+je        near ptr 00007FFF60BD86C3
+mov       ebx,[rdi+8]
+test      ebx,ebx
+je        near ptr 00007FFF60BD86C3
+            sb.Append("'0x");
+            ^^^^^^^^^^^^^^^^^
+mov       rdx,1FD2D6D1818
+mov       rdx,[rdx]
+mov       rcx,rsi
+call      System.Text.StringBuilder.Append(System.String)
+            for (var i = 0; i < bytes.Length; i++)
+                 ^^^^^^^^^
+xor       ebp,ebp
+test      ebx,ebx
+jle       short 00007FFF60BD8659
+                sb.Append(bytes[i].ToString("X2", CultureInfo.InvariantCulture));
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+movsxd    rcx,ebp
+lea       rcx,[rdi+rcx+10]
+mov       rdx,1FCFD6D2448
+mov       r8,[rdx]
+movzx     ecx,byte ptr [rcx]
+mov       rdx,1FD2D6D1820
+mov       rdx,[rdx]
+test      rdx,rdx
+jne       short 00007FFF60BD8623
+xor       eax,eax
+xor       r9d,r9d
+jmp       short 00007FFF60BD8632
+mov       eax,[rdx]
+mov       rax,rdx
+cmp       [rax],eax
+add       rax,0C
+mov       r9d,[rdx+8]
+lea       rdx,[rsp+28]
+mov       [rdx],rax
+mov       [rdx+8],r9d
+lea       rdx,[rsp+28]
+call      System.Number.FormatUInt32(UInt32, System.ReadOnlySpan`1<Char>, System.IFormatProvider)
+mov       rdx,rax
+mov       rcx,rsi
+call      System.Text.StringBuilder.Append(System.String)
+inc       ebp
+cmp       ebx,ebp
+jg        short 00007FFF60BD85F2
+mov       rcx,rsi
+mov       edx,27
+call      System.Text.StringBuilder.Append(Char)
+nop
+add       rsp,38
+pop       rbx
+pop       rbp
+pop       rsi
+pop       rdi
+ret
+                throw new ArgumentNullException(nameof(sb), $"{nameof(sb)} is null.");
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,offset MT_System.ArgumentNullException
+call      CORINFO_HELP_NEWSFAST
+mov       rsi,rax
+mov       ecx,0F4D
+mov       rdx,7FFF60C60240
+call      CORINFO_HELP_STRCNS
+mov       rdi,rax
+mov       ecx,0F53
+mov       rdx,7FFF60C60240
+call      CORINFO_HELP_STRCNS
+mov       r8,rax
+mov       rdx,rdi
+mov       rcx,rsi
+call      System.ArgumentNullException..ctor(System.String, System.String)
+mov       rcx,rsi
+call      CORINFO_HELP_THROW
+                throw new ArgumentException($"{nameof(bytes)} is null or empty.", nameof(bytes));
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mov       rcx,offset MT_System.ArgumentException
+call      CORINFO_HELP_NEWSFAST
+mov       rsi,rax
+mov       ecx,0F6B
+mov       rdx,7FFF60C60240
+call      CORINFO_HELP_STRCNS
+mov       rdi,rax
+mov       ecx,0F9B
+mov       rdx,7FFF60C60240
+call      CORINFO_HELP_STRCNS
+mov       r8,rax
+mov       rdx,rdi
+mov       rcx,rsi
+call      System.ArgumentException..ctor(System.String, System.String)
+mov       rcx,rsi
+call      CORINFO_HELP_THROW
+int       3
+
+System.Text.StringBuilder.ToString()
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,30
+xor       eax,eax
+mov       [rsp+28],rax
+mov       [rsp+20],rax
+mov       rsi,rcx
+mov       ecx,[rsi+1C]
+add       ecx,[rsi+18]
+test      ecx,ecx
+jne       short 00007FFF60BDCEB5
+mov       rax,1FCFD6D3060
+mov       rax,[rax]
+add       rsp,30
+pop       rbx
+pop       rsi
+pop       rdi
+ret
+call      System.String.FastAllocateString(Int32)
+mov       rdi,rax
+test      rdi,rdi
+jne       short 00007FFF60BDCEC6
+xor       ebx,ebx
+jmp       short 00007FFF60BDCED4
+lea       rcx,[rdi+0C]
+mov       [rsp+28],rcx
+mov       rbx,[rsp+28]
+mov       r8d,[rsi+18]
+test      r8d,r8d
+jle       short 00007FFF60BDCF28
+mov       rcx,[rsi+8]
+mov       edx,[rsi+1C]
+lea       eax,[r8+rdx]
+cmp       eax,[rdi+8]
+ja        short 00007FFF60BDCF3C
+mov       eax,[rcx+8]
+cmp       eax,r8d
+jb        short 00007FFF60BDCF3C
+cmp       eax,0
+jbe       near ptr 00007FFF60BDCFCF
+add       rcx,10
+mov       [rsp+20],rcx
+mov       rax,[rsp+20]
+movsxd    rcx,edx
+lea       rcx,[rbx+rcx*2]
+shl       r8d,1
+mov       r8d,r8d
+mov       rdx,rax
+call      System.Buffer.Memmove(Byte*, Byte*, UInt64)
+xor       eax,eax
+mov       [rsp+20],rax
+mov       rsi,[rsi+10]
+test      rsi,rsi
+jne       short 00007FFF60BDCED4
+mov       rax,rdi
+add       rsp,30
+pop       rbx
+pop       rsi
+pop       rdi
+ret
+mov       rcx,offset MT_System.ArgumentOutOfRangeException
+call      CORINFO_HELP_NEWSFAST
+mov       rsi,rax
+mov       ecx,8B30
+mov       rdx,7FFF607E4020
+call      CORINFO_HELP_STRCNS
+mov       rcx,rax
+mov       rdx,1FCFD6D3060
+mov       rdx,[rdx]
+call      System.SR.GetResourceString(System.String, System.String)
+mov       dword ptr [rsi+70],0E0434352
+mov       dword ptr [rsi+74],80131500
+lea       rcx,[rsi+10]
+mov       rdx,rax
+call      CORINFO_HELP_ASSIGN_REF
+mov       dword ptr [rsi+74],80131501
+mov       ecx,13C67
+mov       rdx,7FFF607E4020
+call      CORINFO_HELP_STRCNS
+lea       rcx,[rsi+78]
+mov       rdx,rax
+call      CORINFO_HELP_ASSIGN_REF
+mov       dword ptr [rsi+74],80070057
+mov       dword ptr [rsi+74],80131502
+mov       rcx,rsi
+call      CORINFO_HELP_THROW
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Extensions.StringBuilderExtensionsPerfTestRunner.AppendJoin()
+            var sb = new StringBuilder();
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            sb.AppendJoin<byte>('-', RandomData.GenerateByteArray(1));
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.Consumer.Consume(sb.ToString());
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rdi
+push      rsi
+sub       rsp,28
+vzeroupper
+mov       rsi,rcx
+mov       rcx,offset MT_System.Text.StringBuilder
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       dword ptr [rdi+20],7FFFFFFF
+mov       rcx,offset MT_System.Char[]
+mov       edx,10
+call      CORINFO_HELP_NEWARR_1_VC
+lea       rcx,[rdi+8]
+mov       rdx,rax
+call      CORINFO_HELP_ASSIGN_REF
+mov       dword ptr [rsp+20],2D
+vmovsd    xmm0,qword ptr [7FFF60BED628]
+call      dotNetTips.Utility.Standard.Tester.RandomData.GenerateByteArray(Double)
+mov       r9,rax
+lea       rdx,[rsp+20]
+mov       rcx,rdi
+mov       r8d,1
+call      System.Text.StringBuilder.AppendJoinCore[[System.Byte, System.Private.CoreLib]](Char*, Int32, System.Collections.Generic.IEnumerable`1<Byte>)
+mov       rsi,[rsi+8]
+mov       rcx,rdi
+call      qword ptr [7FFF60BF7010]
+mov       edx,[rsi]
+lea       rcx,[rsi+8]
+mov       rdx,rax
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,28
+pop       rsi
+pop       rdi
+ret
+
+dotNetTips.Utility.Standard.Tester.RandomData.GenerateByteArray(Double)
+            var size = Convert.ToInt32(sizeInKb * 1024);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            var bytes = new byte[size];
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            _random.NextBytes(bytes);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+            return bytes;
+            ^^^^^^^^^^^^^
+push      rsi
+sub       rsp,20
+vzeroupper
+vmulsd    xmm0,xmm0,qword ptr [7FFF60BED6A0]
+call      System.Convert.ToInt32(Double)
+movsxd    rdx,eax
+mov       rcx,offset MT_System.Byte[]
+call      CORINFO_HELP_NEWARR_1_VC
+mov       rsi,rax
+mov       rcx,21D4609BA20
+mov       rcx,[rcx]
+mov       rdx,rsi
+call      qword ptr [7FFF60BFD5A0]
+mov       rax,rsi
+add       rsp,20
+pop       rsi
+ret
+
+System.Text.StringBuilder.AppendJoinCore[[System.Byte, System.Private.CoreLib]](Char*, Int32, System.Collections.Generic.IEnumerable`1<Byte>)
+push      rbp
+push      r14
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,50
+lea       rbp,[rsp+70]
+xor       eax,eax
+mov       [rbp+0FFC0],rax
+mov       [rbp+0FFD0],rax
+mov       [rbp+0FFB0],rsp
+mov       rsi,rcx
+mov       rdi,rdx
+mov       ebx,r8d
+test      r9,r9
+je        near ptr 00007FFF60BE870C
+mov       rcx,r9
+mov       r11,7FFF60800428
+cmp       [rcx],ecx
+call      qword ptr [7FFF60BF0428]
+mov       [rbp+0FFC8],rax
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800430
+cmp       [rcx],ecx
+call      qword ptr [7FFF60BF0430]
+test      eax,eax
+jne       short 00007FFF60BE860B
+mov       [rbp+0FFC0],rsi
+jmp       near ptr 00007FFF60BE86E6
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800438
+cmp       [rcx],ecx
+call      qword ptr [7FFF60BF0438]
+mov       ecx,eax
+xor       edx,edx
+xor       r8d,r8d
+mov       r14,rsi
+lea       rax,[rbp+0FFD0]
+mov       [rax],rdx
+mov       [rax+8],r8d
+lea       rdx,[rbp+0FFD0]
+xor       r8d,r8d
+call      System.Number.FormatUInt32(UInt32, System.ReadOnlySpan`1<Char>, System.IFormatProvider)
+mov       rdx,rax
+mov       rcx,r14
+call      System.Text.StringBuilder.Append(System.String)
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800440
+cmp       [rcx],ecx
+call      qword ptr [7FFF60BF0440]
+test      eax,eax
+je        short 00007FFF60BE86CE
+mov       rcx,rsi
+mov       rdx,rdi
+mov       r8d,ebx
+call      System.Text.StringBuilder.Append(Char*, Int32)
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800448
+cmp       [rcx],ecx
+call      qword ptr [7FFF60BF0448]
+mov       ecx,eax
+xor       edx,edx
+xor       r8d,r8d
+lea       rax,[rbp+0FFD0]
+mov       [rax],rdx
+mov       [rax+8],r8d
+lea       rdx,[rbp+0FFD0]
+xor       r8d,r8d
+call      System.Number.FormatUInt32(UInt32, System.ReadOnlySpan`1<Char>, System.IFormatProvider)
+mov       rdx,rax
+mov       rcx,rsi
+call      System.Text.StringBuilder.Append(System.String)
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800440
+cmp       [rcx],ecx
+call      qword ptr [7FFF60BF0440]
+test      eax,eax
+jne       short 00007FFF60BE8667
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800450
+cmp       [rcx],ecx
+call      qword ptr [7FFF60BF0450]
+jmp       short 00007FFF60BE86FE
+mov       rcx,rsp
+call      00007FFF60BE8717
+nop
+mov       rax,[rbp+0FFC0]
+lea       rsp,[rbp+0FFE0]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       rbp
+ret
+mov       rax,rsi
+lea       rsp,[rbp+0FFE0]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       rbp
+ret
+mov       ecx,6
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+push      rbp
+push      r14
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,30
+mov       rbp,[rcx+20]
+mov       [rsp+20],rbp
+lea       rbp,[rbp+70]
+cmp       qword ptr [rbp+0FFC8],0
+je        short 00007FFF60BE874B
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800450
+cmp       [rcx],ecx
+call      qword ptr [7FFF60BF0450]
+nop
+add       rsp,30
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       rbp
+ret
+
+System.Text.StringBuilder.ToString()
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,30
+xor       eax,eax
+mov       [rsp+28],rax
+mov       [rsp+20],rax
+mov       rsi,rcx
+mov       ecx,[rsi+1C]
+add       ecx,[rsi+18]
+test      ecx,ecx
+jne       short 00007FFF60BECDE5
+mov       rax,21D46093060
+mov       rax,[rax]
+add       rsp,30
+pop       rbx
+pop       rsi
+pop       rdi
+ret
+call      System.String.FastAllocateString(Int32)
+mov       rdi,rax
+test      rdi,rdi
+jne       short 00007FFF60BECDF6
+xor       ebx,ebx
+jmp       short 00007FFF60BECE04
+lea       rcx,[rdi+0C]
+mov       [rsp+28],rcx
+mov       rbx,[rsp+28]
+mov       r8d,[rsi+18]
+test      r8d,r8d
+jle       short 00007FFF60BECE58
+mov       rcx,[rsi+8]
+mov       edx,[rsi+1C]
+lea       eax,[r8+rdx]
+cmp       eax,[rdi+8]
+ja        short 00007FFF60BECE6C
+mov       eax,[rcx+8]
+cmp       eax,r8d
+jb        short 00007FFF60BECE6C
+cmp       eax,0
+jbe       near ptr 00007FFF60BECEFF
+add       rcx,10
+mov       [rsp+20],rcx
+mov       rax,[rsp+20]
+movsxd    rcx,edx
+lea       rcx,[rbx+rcx*2]
+shl       r8d,1
+mov       r8d,r8d
+mov       rdx,rax
+call      System.Buffer.Memmove(Byte*, Byte*, UInt64)
+xor       eax,eax
+mov       [rsp+20],rax
+mov       rsi,[rsi+10]
+test      rsi,rsi
+jne       short 00007FFF60BECE04
+mov       rax,rdi
+add       rsp,30
+pop       rbx
+pop       rsi
+pop       rdi
+ret
+mov       rcx,offset MT_System.ArgumentOutOfRangeException
+call      CORINFO_HELP_NEWSFAST
+mov       rsi,rax
+mov       ecx,8B30
+mov       rdx,7FFF607F4020
+call      CORINFO_HELP_STRCNS
+mov       rcx,rax
+mov       rdx,21D46093060
+mov       rdx,[rdx]
+call      System.SR.GetResourceString(System.String, System.String)
+mov       dword ptr [rsi+70],0E0434352
+mov       dword ptr [rsi+74],80131500
+lea       rcx,[rsi+10]
+mov       rdx,rax
+call      CORINFO_HELP_ASSIGN_REF
+mov       dword ptr [rsi+74],80131501
+mov       ecx,13C67
+mov       rdx,7FFF607F4020
+call      CORINFO_HELP_STRCNS
+lea       rcx,[rsi+78]
+mov       rdx,rax
+call      CORINFO_HELP_ASSIGN_REF
+mov       dword ptr [rsi+74],80070057
+mov       dword ptr [rsi+74],80131502
+mov       rcx,rsi
+call      CORINFO_HELP_THROW
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Extensions.StringBuilderExtensionsPerfTestRunner.AppendJoinParams()
+            var sb = new StringBuilder();
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            sb.AppendJoin('-', RandomData.GenerateByteArray(1));
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            base.Consumer.Consume(sb.ToString());
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+push      rdi
+push      rsi
+sub       rsp,28
+vzeroupper
+mov       rsi,rcx
+mov       rcx,offset MT_System.Text.StringBuilder
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       dword ptr [rdi+20],7FFFFFFF
+mov       rcx,offset MT_System.Char[]
+mov       edx,10
+call      CORINFO_HELP_NEWARR_1_VC
+lea       rcx,[rdi+8]
+mov       rdx,rax
+call      CORINFO_HELP_ASSIGN_REF
+mov       dword ptr [rsp+20],2D
+vmovsd    xmm0,qword ptr [7FFF60BED5D8]
+call      dotNetTips.Utility.Standard.Tester.RandomData.GenerateByteArray(Double)
+mov       r9,rax
+lea       rdx,[rsp+20]
+mov       rcx,rdi
+mov       r8d,1
+call      System.Text.StringBuilder.AppendJoinCore[[System.Byte, System.Private.CoreLib]](Char*, Int32, System.Collections.Generic.IEnumerable`1<Byte>)
+mov       rsi,[rsi+8]
+mov       rcx,rdi
+call      qword ptr [7FFF60BF7010]
+mov       edx,[rsi]
+lea       rcx,[rsi+8]
+mov       rdx,rax
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,28
+pop       rsi
+pop       rdi
+ret
+
+dotNetTips.Utility.Standard.Tester.RandomData.GenerateByteArray(Double)
+            var size = Convert.ToInt32(sizeInKb * 1024);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            var bytes = new byte[size];
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            _random.NextBytes(bytes);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+            return bytes;
+            ^^^^^^^^^^^^^
+push      rsi
+sub       rsp,20
+vzeroupper
+vmulsd    xmm0,xmm0,qword ptr [7FFF60BED6A0]
+call      System.Convert.ToInt32(Double)
+movsxd    rdx,eax
+mov       rcx,offset MT_System.Byte[]
+call      CORINFO_HELP_NEWARR_1_VC
+mov       rsi,rax
+mov       rcx,1F54BE295D0
+mov       rcx,[rcx]
+mov       rdx,rsi
+call      qword ptr [7FFF60BFD5A0]
+mov       rax,rsi
+add       rsp,20
+pop       rsi
+ret
+
+System.Text.StringBuilder.AppendJoinCore[[System.Byte, System.Private.CoreLib]](Char*, Int32, System.Collections.Generic.IEnumerable`1<Byte>)
+push      rbp
+push      r14
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,50
+lea       rbp,[rsp+70]
+xor       eax,eax
+mov       [rbp+0FFC0],rax
+mov       [rbp+0FFD0],rax
+mov       [rbp+0FFB0],rsp
+mov       rsi,rcx
+mov       rdi,rdx
+mov       ebx,r8d
+test      r9,r9
+je        near ptr 00007FFF60BE870C
+mov       rcx,r9
+mov       r11,7FFF60800428
+cmp       [rcx],ecx
+call      qword ptr [7FFF60BF0428]
+mov       [rbp+0FFC8],rax
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800430
+cmp       [rcx],ecx
+call      qword ptr [7FFF60BF0430]
+test      eax,eax
+jne       short 00007FFF60BE860B
+mov       [rbp+0FFC0],rsi
+jmp       near ptr 00007FFF60BE86E6
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800438
+cmp       [rcx],ecx
+call      qword ptr [7FFF60BF0438]
+mov       ecx,eax
+xor       edx,edx
+xor       r8d,r8d
+mov       r14,rsi
+lea       rax,[rbp+0FFD0]
+mov       [rax],rdx
+mov       [rax+8],r8d
+lea       rdx,[rbp+0FFD0]
+xor       r8d,r8d
+call      System.Number.FormatUInt32(UInt32, System.ReadOnlySpan`1<Char>, System.IFormatProvider)
+mov       rdx,rax
+mov       rcx,r14
+call      System.Text.StringBuilder.Append(System.String)
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800440
+cmp       [rcx],ecx
+call      qword ptr [7FFF60BF0440]
+test      eax,eax
+je        short 00007FFF60BE86CE
+mov       rcx,rsi
+mov       rdx,rdi
+mov       r8d,ebx
+call      System.Text.StringBuilder.Append(Char*, Int32)
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800448
+cmp       [rcx],ecx
+call      qword ptr [7FFF60BF0448]
+mov       ecx,eax
+xor       edx,edx
+xor       r8d,r8d
+lea       rax,[rbp+0FFD0]
+mov       [rax],rdx
+mov       [rax+8],r8d
+lea       rdx,[rbp+0FFD0]
+xor       r8d,r8d
+call      System.Number.FormatUInt32(UInt32, System.ReadOnlySpan`1<Char>, System.IFormatProvider)
+mov       rdx,rax
+mov       rcx,rsi
+call      System.Text.StringBuilder.Append(System.String)
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800440
+cmp       [rcx],ecx
+call      qword ptr [7FFF60BF0440]
+test      eax,eax
+jne       short 00007FFF60BE8667
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800450
+cmp       [rcx],ecx
+call      qword ptr [7FFF60BF0450]
+jmp       short 00007FFF60BE86FE
+mov       rcx,rsp
+call      00007FFF60BE8717
+nop
+mov       rax,[rbp+0FFC0]
+lea       rsp,[rbp+0FFE0]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       rbp
+ret
+mov       rax,rsi
+lea       rsp,[rbp+0FFE0]
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       rbp
+ret
+mov       ecx,6
+call      System.ThrowHelper.ThrowArgumentNullException(System.ExceptionArgument)
+int       3
+push      rbp
+push      r14
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,30
+mov       rbp,[rcx+20]
+mov       [rsp+20],rbp
+lea       rbp,[rbp+70]
+cmp       qword ptr [rbp+0FFC8],0
+je        short 00007FFF60BE874B
+mov       rcx,[rbp+0FFC8]
+mov       r11,7FFF60800450
+cmp       [rcx],ecx
+call      qword ptr [7FFF60BF0450]
+nop
+add       rsp,30
+pop       rbx
+pop       rsi
+pop       rdi
+pop       r14
+pop       rbp
+ret
+
+System.Text.StringBuilder.ToString()
+push      rdi
+push      rsi
+push      rbx
+sub       rsp,30
+xor       eax,eax
+mov       [rsp+28],rax
+mov       [rsp+20],rax
+mov       rsi,rcx
+mov       ecx,[rsi+1C]
+add       ecx,[rsi+18]
+test      ecx,ecx
+jne       short 00007FFF60BECDE5
+mov       rax,1F52BE23060
+mov       rax,[rax]
+add       rsp,30
+pop       rbx
+pop       rsi
+pop       rdi
+ret
+call      System.String.FastAllocateString(Int32)
+mov       rdi,rax
+test      rdi,rdi
+jne       short 00007FFF60BECDF6
+xor       ebx,ebx
+jmp       short 00007FFF60BECE04
+lea       rcx,[rdi+0C]
+mov       [rsp+28],rcx
+mov       rbx,[rsp+28]
+mov       r8d,[rsi+18]
+test      r8d,r8d
+jle       short 00007FFF60BECE58
+mov       rcx,[rsi+8]
+mov       edx,[rsi+1C]
+lea       eax,[r8+rdx]
+cmp       eax,[rdi+8]
+ja        short 00007FFF60BECE6C
+mov       eax,[rcx+8]
+cmp       eax,r8d
+jb        short 00007FFF60BECE6C
+cmp       eax,0
+jbe       near ptr 00007FFF60BECEFF
+add       rcx,10
+mov       [rsp+20],rcx
+mov       rax,[rsp+20]
+movsxd    rcx,edx
+lea       rcx,[rbx+rcx*2]
+shl       r8d,1
+mov       r8d,r8d
+mov       rdx,rax
+call      System.Buffer.Memmove(Byte*, Byte*, UInt64)
+xor       eax,eax
+mov       [rsp+20],rax
+mov       rsi,[rsi+10]
+test      rsi,rsi
+jne       short 00007FFF60BECE04
+mov       rax,rdi
+add       rsp,30
+pop       rbx
+pop       rsi
+pop       rdi
+ret
+mov       rcx,offset MT_System.ArgumentOutOfRangeException
+call      CORINFO_HELP_NEWSFAST
+mov       rsi,rax
+mov       ecx,8B30
+mov       rdx,7FFF607F4020
+call      CORINFO_HELP_STRCNS
+mov       rcx,rax
+mov       rdx,1F52BE23060
+mov       rdx,[rdx]
+call      System.SR.GetResourceString(System.String, System.String)
+mov       dword ptr [rsi+70],0E0434352
+mov       dword ptr [rsi+74],80131500
+lea       rcx,[rsi+10]
+mov       rdx,rax
+call      CORINFO_HELP_ASSIGN_REF
+mov       dword ptr [rsi+74],80131501
+mov       ecx,13C67
+mov       rdx,7FFF607F4020
+call      CORINFO_HELP_STRCNS
+lea       rcx,[rsi+78]
+mov       rdx,rax
+call      CORINFO_HELP_ASSIGN_REF
+mov       dword ptr [rsi+74],80070057
+mov       dword ptr [rsi+74],80131502
+mov       rcx,rsi
+call      CORINFO_HELP_THROW
+int       3
+call      CORINFO_HELP_RNGCHKFAIL
+int       3
+
+</code></pre></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

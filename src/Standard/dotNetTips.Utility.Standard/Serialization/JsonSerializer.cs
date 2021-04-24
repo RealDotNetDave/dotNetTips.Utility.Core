@@ -39,9 +39,17 @@ namespace dotNetTips.Utility.Standard.Serialization
         {
             Encapsulation.TryValidateParam(json, nameof(json));
 
-            var obj = JsonSerializer.Deserialize<TResult>(json);
+            var obj = TypeHelper.GetDefault<TResult>();
 
+            using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
+            {
+                var ser = new DataContractJsonSerializer(typeof(TResult));
+                obj = ser.ReadObject(ms) as TResult;
+            }
+
+#pragma warning disable CS8603 // Possible null reference return.
             return obj;
+#pragma warning restore CS8603 // Possible null reference return.
         }
 
         /// <summary>

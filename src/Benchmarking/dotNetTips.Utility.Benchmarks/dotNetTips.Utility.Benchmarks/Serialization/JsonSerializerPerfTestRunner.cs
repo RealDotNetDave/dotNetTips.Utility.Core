@@ -12,9 +12,10 @@
 // <summary></summary>
 // ***********************************************************************
 
+using System.Collections.Generic;
 using BenchmarkDotNet.Attributes;
+using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.Serialization;
-using dotNetTips.Utility.Standard.Tester.Collections;
 using dotNetTips.Utility.Standard.Tester.Models;
 
 namespace dotNetTips.Utility.Benchmarks.Serialization
@@ -25,35 +26,35 @@ namespace dotNetTips.Utility.Benchmarks.Serialization
 
         private string _json;
 
+        [Benchmark(Description = nameof(JsonSerializer.Deserialize))]
+        public void DeserializeTest()
+        {
+            var result = JsonSerializer.Deserialize<List<PersonProper>>(this._json);
+
+            base.Consumer.Consume(result);
+        }
+
+        //[Benchmark(Description = nameof(JsonSerializer.Deserialize))]
+        //public void JsonEqualTest()
+        //{
+        //    var result = JsonSerializer.JsonEqual(this._json, this._json);
+
+        //    base.Consumer.Consume(result);
+        //}
+
+        //[Benchmark(Description = nameof(JsonSerializer.Serialize))]
+        //public void SerializeTest()
+        //{
+        //    var result = JsonSerializer.Serialize(base.personProperCollection);
+
+        //    base.Consumer.Consume(result);
+        //}
+
         public override void Setup()
         {
             base.Setup();
 
-            _json = JsonSerializer.Serialize(base.personProperCollection);
-        }
-
-        [Benchmark(Description = nameof(JsonSerializer.Deserialize))]
-        public void DeserializeTest()
-        {
-            var result = JsonSerializer.Deserialize<PersonCollection<PersonProper>>(_json);
-
-            base.Consumer.Consume(result);
-        }
-
-        [Benchmark(Description = nameof(JsonSerializer.Serialize))]
-        public void SerializeTest()
-        {
-            var result = JsonSerializer.Serialize(base.personProperCollection);
-
-            base.Consumer.Consume(result);
-        }
-
-        [Benchmark(Description = nameof(JsonSerializer.Deserialize))]
-        public void JsonEqualTest()
-        {
-            var result = JsonSerializer.JsonEqual(_json, _json);
-
-            base.Consumer.Consume(result);
+            this._json = JsonSerializer.Serialize(base.personProperCollection.ToList<PersonProper>());
         }
 
     }

@@ -1,0 +1,19 @@
+{noformat}
+
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
+Unknown processor
+.NET Core SDK=5.0.200-preview.21079.7
+  [Host]     : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+  Job-HTSMCU : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+
+EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.1  
+Namespace=dotNetTips.Utility.Benchmarks  Categories=TypeHelper  
+
+{noformat}
+||                     Method ||             Mean ||         Error ||         StdDev ||        StdErr ||              Min ||               Q1 ||           Median ||               Q3 ||              Max ||            Op/s ||CI99.9% Margin ||Iterations ||Kurtosis ||MValue ||Skewness ||Rank ||LogicalGroup ||Baseline ||Code Size || Gen 0 ||Gen 1 ||Gen 2 ||Allocated ||
+|     *DoesObjectEqualInstance* |    *12,419.1366 ns* |     *18.2300 ns* |      *17.0524 ns* |      *4.4029 ns* |    *12,390.9500 ns* |    *12,403.0388 ns* |    *12,423.8678 ns* |    *12,430.8632 ns* |    *12,452.2568 ns* |         *80,520.9* |     *18.2300 ns* |      *15.00* |    *1.869* |  *2.000* |   *0.0752* |    *5* |            *** |       *No* |     *794 B* | *0.5798* |     *-* |     *-* |    *5446 B* |
+|            *FindDerivedTypes* | *3,283,565.6250 ns* | *65,456.8382 ns* | *101,908.4112 ns* | *18,015.0321 ns* | *3,155,200.0000 ns* | *3,213,300.0000 ns* | *3,249,450.0000 ns* | *3,345,875.0000 ns* | *3,607,000.0000 ns* |            *304.5* | *65,456.8382 ns* |      *32.00* |    *4.067* |  *2.000* |   *1.1387* |    *6* |            *** |       *No* |     *303 B* |      *-* |     *-* |     *-* |  *203472 B* |
+|                  *GetDefault* |         *0.0189 ns* |      *0.0021 ns* |       *0.0019 ns* |      *0.0005 ns* |         *0.0163 ns* |         *0.0175 ns* |         *0.0187 ns* |         *0.0195 ns* |         *0.0221 ns* | *52,872,142,652.6* |      *0.0021 ns* |      *14.00* |    *1.856* |  *2.571* |   *0.5118* |    *1* |            *** |       *No* |      *16 B* |      *-* |     *-* |     *-* |         *-* |
+|         *GetInstanceHashCode* |     *2,192.5361 ns* |      *2.6216 ns* |       *2.1892 ns* |      *0.6072 ns* |     *2,188.4504 ns* |     *2,191.2893 ns* |     *2,192.9972 ns* |     *2,193.9844 ns* |     *2,195.3741 ns* |        *456,092.8* |      *2.6216 ns* |      *13.00* |    *1.826* |  *2.000* |  *-0.4054* |    *4* |            *** |       *No* |     *616 B* | *0.0458* |     *-* |     *-* |     *432 B* |
+|     *GetTypeDisplayName:Type* |       *182.4193 ns* |      *1.7048 ns* |       *1.5947 ns* |      *0.4117 ns* |       *180.5434 ns* |       *181.2612 ns* |       *181.6012 ns* |       *184.1596 ns* |       *185.2268 ns* |      *5,481,875.1* |      *1.7048 ns* |      *15.00* |    *1.511* |  *2.000* |   *0.5329* |    *3* |            *** |       *No* |     *339 B* | *0.0420* |     *-* |     *-* |     *392 B* |
+| *GetTypeDisplayName:Variable* |       *142.2150 ns* |      *2.0394 ns* |       *1.9076 ns* |      *0.4925 ns* |       *140.8386 ns* |       *141.1034 ns* |       *141.1757 ns* |       *143.2544 ns* |       *145.8677 ns* |      *7,031,608.6* |      *2.0394 ns* |      *15.00* |    *1.950* |  *2.000* |   *0.9655* |    *2* |            *** |       *No* |     *339 B* | *0.0415* |     *-* |     *-* |     *392 B* |

@@ -14,6 +14,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Loggers;
 using dotNetTips.Utility.Standard.Extensions;
 using dotNetTips.Utility.Standard.Tester;
 using dotNetTips.Utility.Standard.Tester.Collections;
@@ -80,7 +81,8 @@ namespace dotNetTips.Utility.Benchmarks
         /// Gets or sets the collection count.
         /// </summary>
         /// <value>The collection count.</value>
-        [Params(25, 50, 100, 250, 500, 1000)]
+        [Params(10, 25, 50, 100, 250, 500, 1000)]
+        // [Params(10)]
         public int CollectionCount { get; set; }
 
         /// <summary>
@@ -90,7 +92,7 @@ namespace dotNetTips.Utility.Benchmarks
         {
             base.Setup();
 
-            BenchmarkDotNet.Loggers.ConsoleLogger.Default.WriteLine(BenchmarkDotNet.Loggers.LogKind.Info, $"Collection Count={this.CollectionCount}.");
+            ConsoleLogger.Default.WriteLine(LogKind.Info, $"Collection Count={this.CollectionCount}.");
 
             this.personFixedCollection = new PersonCollection<PersonFixed>();
             this.personFixedCollection.AddRange(RandomData.GeneratePersonCollection<PersonFixed>(this.CollectionCount));
@@ -105,11 +107,11 @@ namespace dotNetTips.Utility.Benchmarks
             this.sortablePersonProperCollection = new PersonCollection<PersonProper>(this.personProperCollection);
 
             this.personProperArrayFull = this.personProperCollection.ToArray();
-            this.personProperArrayHalf = this.personProperCollection.Take(this.CollectionCount / 2).ToArray();
+            this.personProperArrayHalf = this.personProperCollection.Take(( this.CollectionCount / 2 ).EnsureMinimumValue(2)).ToArray();
 
-            this.personProperListHalf = this.personProperCollection.Take(this.CollectionCount / 2).ToList();
+            this.personProperListHalf = this.personProperCollection.Take(( this.CollectionCount / 2 ).EnsureMinimumValue(2)).ToList();
 
-            this.byteArray = RandomData.GenerateByteArray(this.CollectionCount / 2);
+            this.byteArray = RandomData.GenerateByteArray(( this.CollectionCount / 2 ).EnsureMinimumValue(2));
 
             this.coordinateArray = RandomData.GenerateCoordinateCollection<CoordinateProper>(this.CollectionCount).ToArray();
 

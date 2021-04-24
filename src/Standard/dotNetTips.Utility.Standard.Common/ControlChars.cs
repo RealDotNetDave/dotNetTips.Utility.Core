@@ -112,7 +112,7 @@ namespace dotNetTips.Utility.Standard.Common
         /// <summary>
         /// New line.
         /// </summary>
-        public const string NewLine = "\r\n";
+        public const char NewLine = '\n';
 
         /// <summary>
         /// Null character.
