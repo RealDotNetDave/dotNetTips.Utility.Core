@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>DisassemblyDiagnoser Output dotNetTips.Utility.Benchmarks.ServicesPerfTestRunner-20210228-133830</title>
+<title>DisassemblyDiagnoser Output dotNetTips.Utility.Benchmarks.ServicesPerfTestRunner-20210503-180055</title>
 
 <style type="text/css">
     table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -14,21 +14,17 @@
 <body>
 <table>
 <thead>
-<tr><th colspan="3">dotNetTips.Utility.Benchmarks.ServicesPerfTestRunner-20210228-133830</th></tr>
+<tr><th colspan="3">dotNetTips.Utility.Benchmarks.ServicesPerfTestRunner-20210503-180055</th></tr>
 <tr>
-<th>AllServices .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>ServiceExists .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>ServiceStatus .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>AllServices .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>ServiceExists .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>ServiceStatus .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.ServicesPerfTestRunner.AllServices()
-            var result = Services.AllServices();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -44,33 +40,27 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Standard.Services.AllServices()
-            return ServiceController.GetServices()
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                        .Select(p => p.ServiceName)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                        .AsEnumerable();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rdi
 push      rsi
 sub       rsp,28
 call      System.ServiceProcess.ServiceController.GetServices()
 mov       rsi,rax
-mov       rcx,2150DE9BB00
+mov       rcx,2E3D14A7698
 mov       r8,[rcx]
 test      r8,r8
-jne       short 00007FFF60C012C0
+jne       short 00007FF88A9B05C0
 mov       rcx,offset MT_System.Func`2[[System.ServiceProcess.ServiceController, System.ServiceProcess.ServiceController],[System.String, System.Private.CoreLib]]
 call      CORINFO_HELP_NEWSFAST
 mov       rdi,rax
-mov       rdx,2150DE9BAF8
+mov       rdx,2E3D14A7690
 mov       rdx,[rdx]
 test      rdx,rdx
-je        short 00007FFF60C012DA
+je        short 00007FF88A9B05DA
 lea       rcx,[rdi+8]
 call      CORINFO_HELP_ASSIGN_REF
 mov       rdx,offset dotNetTips.Utility.Standard.Services+<>c.<AllServices>b__0_0(System.ServiceProcess.ServiceController)
 mov       [rdi+18],rdx
-mov       rcx,2150DE9BB00
+mov       rcx,2E3D14A7698
 mov       rdx,rdi
 call      CORINFO_HELP_CHECKED_ASSIGN_REF
 mov       r8,rdi
@@ -89,19 +79,15 @@ int       3
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.ServicesPerfTestRunner.ServiceExists()
-            var result = Services.ServiceExists(this._service);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
 mov       rcx,[rsi+28]
 call      dotNetTips.Utility.Standard.Services.LoadService(System.String)
 test      rax,rax
-jne       short 00007FFF60C20CDA
+jne       short 00007FF88A9D0F5A
 xor       eax,eax
-jmp       short 00007FFF60C20CDF
+jmp       short 00007FF88A9D0F5F
 mov       eax,1
 mov       rdx,[rsi+8]
 mov       [rdx+44],al
@@ -110,8 +96,6 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Standard.Services.LoadService(System.String)
-            return ServiceController.GetServices().FirstOrDefault(p => p.ServiceName == serviceName);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rdi
 push      rsi
 push      rbx
@@ -150,10 +134,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.ServicesPerfTestRunner.ServiceStatus()
-            var result = Services.ServiceStatus(this._service);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,30
 xor       eax,eax
@@ -172,16 +152,12 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Standard.Services.ServiceStatus(System.String)
-            var service = LoadService(serviceName);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            return service != null ? service.Status : throw new InvalidOperationException(Resources.ServiceNotFound);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 call      dotNetTips.Utility.Standard.Services.LoadService(System.String)
 mov       rsi,rax
 test      rsi,rsi
-je        short 00007FFF60C21CF3
+je        short 00007FF88A9B1B43
 mov       rcx,rsi
 call      System.ServiceProcess.ServiceController.GenerateStatus()
 mov       eax,[rsi+60]

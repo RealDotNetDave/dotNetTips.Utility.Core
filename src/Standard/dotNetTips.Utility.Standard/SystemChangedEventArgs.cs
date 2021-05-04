@@ -17,25 +17,24 @@ using System.Collections.Generic;
 
 namespace dotNetTips.Utility.Standard
 {
-    /// <summary>
-    /// Class SystemChangedEventArgs. This class cannot be inherited.
-    /// Implements the <see cref="System.EventArgs" />.
-    /// </summary>
-    /// <seealso cref="System.EventArgs" />
-    /// <seealso cref="EventArgs" />
-    public sealed class SystemChangedEventArgs : EventArgs
-    {
+	/// <summary>
+	/// Class SystemChangedEventArgs. This class cannot be inherited.
+	/// Implements the <see cref="System.EventArgs" />.
+	/// </summary>
+	/// <seealso cref="System.EventArgs" />
+	/// <seealso cref="EventArgs" />
+	public sealed class SystemChangedEventArgs : EventArgs
+	{
+		/// <summary>
+		/// Gets the event information.
+		/// </summary>
+		/// <value>The event information.</value>
+		public IEnumerable<IEventInformation> EventInformation { get; internal set; }
 
-        /// <summary>
-        /// Gets the event information.
-        /// </summary>
-        /// <value>The event information.</value>
-        public IEnumerable<IEventInformation> EventInformation { get; internal set; }
-
-        /// <summary>
-        /// Gets the type of the system event.
-        /// </summary>
-        /// <value>The type of the system event.</value>
-        public SystemEventType SystemEventType { get; internal set; }
-    }
+		/// <summary>
+		/// Gets the type of the system event.
+		/// </summary>
+		/// <value>The type of the system event.</value>
+		public SystemEventType SystemEventType { get; internal set; }
+	}
 }

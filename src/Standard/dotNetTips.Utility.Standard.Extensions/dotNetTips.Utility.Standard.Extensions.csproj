@@ -1,126 +1,120 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-    <AssemblyName>dotNetTips.Utility.Standard.Extensions</AssemblyName>
-    <AssemblyOriginatorKeyFile>dotNetTips.com.pfx</AssemblyOriginatorKeyFile>
-    <AssemblyVersion>2021.2.24.34850</AssemblyVersion>
-    <Authors>David McCarter</Authors>
-    <Company>David McCarter -  dotNetTips.com</Company>
-    <Configurations>Debug;Release;Full Build</Configurations>
-    <Copyright>McCarter Consulting (David McCarter)</Copyright>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>pdbonly</DebugType>
-    <DelaySign>False</DelaySign>
-    <Description>Common .NET Standard Code Extensions</Description>
-    <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Extensions.xml</DocumentationFile>
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <FileVersion>2021.2.24.34850</FileVersion>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <LangVersion>8.0</LangVersion>
-    <Nullable>enable</Nullable> 
-    <OutputPath>..\..\..\appbin\</OutputPath>
-    <PackageIcon>2020 - dotNetTips - Real World - Earth@0.1x.png</PackageIcon>
-    <PackageProjectUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</PackageProjectUrl>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
-    <RepositoryType>git</RepositoryType>   
-    <RepositoryUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</RepositoryUrl>
-    <RootNamespace>dotNetTips.Utility.Standard.Extensions</RootNamespace>
-    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
-    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
-    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <SignAssembly>false</SignAssembly>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <Version>2021.3.1.1</Version>
-    <PackageReleaseNotes>
-      -- SEP 2019: Added types HttpContextExtensions, HttpContextExtensions and LINQExtensions. Added new methods and code cleanup.
-      -- JUN 2019 (QUARTERLY RELEASE): Code cleanup.
-      -- AUG 2019 (QUARTERLY RELEASE): Code and documentation cleanup. Code fixes. New code in CollectionExtensions.
-      -- DEC 2019 (QUARTERLY RELEASE): Code cleanup.
-      -- FEB 2020: Code cleanup. Added more overloads for TryValidateParam.
-      -- MAR 2020 (QUARTERLY RELEASE): New extension methods. Code cleanup.
-      -- MAY 2020: Added BytesToString. Added StringBuilderExtensions.
-      -- AUG 2020: New helper methods &amp; classes. Code cleanup.
-      -- NOV 2020 (QUARTERLY RELEASE):Added DataContextExtensions, DataReaderExtensions, DataTableExtensions. Added new methods in DateTimeExtensions, DirectoryInfoExtensions, NumberExtensions, StringExtennsions. Code cleanup. Added more unit tests.
-      -- NOV 19, 2020: Minor update.
-      -- FEB 2021 (QUARTERLY RELEASE): 12 new methods. Code cleanup.
-      -- FEB 5, 2021: Minor fixes.
-    </PackageReleaseNotes>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <WarningsAsErrors />
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <PlatformTarget>x64</PlatformTarget>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <WarningsAsErrors />
-    <DebugType>full</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <PlatformTarget>x64</PlatformTarget>
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Remove="DataServiceExtensions.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="linq2db" Version="3.3.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.2">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.2.12-alpha">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
-    <PackageReference Include="System.Diagnostics.Process" Version="4.3.0" />
-    <PackageReference Include="System.Net.Requests" Version="4.3.0" />
-    <PackageReference Include="System.Runtime.Serialization.Json" Version="4.3.0" />
-    <PackageReference Include="System.ServiceProcess.ServiceController" Version="5.0.0" />
-    <PackageReference Include="System.Threading.Tasks.Parallel" Version="4.3.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\dotNetTips.Utility.Standard.Common\dotNetTips.Utility.Standard.Common.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\docs\Graphics\2020 - dotNetTips - Real World - Earth@0.1x.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="if $(ConfigurationName) == Release (dotnet pack &quot;$(ProjectPath)&quot; --include-source --include-symbols --output  &quot;c:\dotNetTips.com\NuGet&quot;)" />
-  </Target>
+	<PropertyGroup>
+		<AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+		<AssemblyName>dotNetTips.Utility.Standard.Extensions</AssemblyName>
+		<AssemblyOriginatorKeyFile>dotNetTips.com.pfx</AssemblyOriginatorKeyFile>
+		<AssemblyVersion>2021.4.27.34862</AssemblyVersion>
+		<Authors>David McCarter</Authors>
+		<Company>David McCarter -  dotNetTips.com</Company>
+		<Configurations>Debug;Release;Full Build</Configurations>
+		<Copyright>McCarter Consulting (David McCarter)</Copyright>
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>pdbonly</DebugType>
+		<DelaySign>False</DelaySign>
+		<Description>Common .NET Standard Code Extensions</Description>
+		<DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Standard.Extensions.xml</DocumentationFile>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+		<FileVersion>2021.4.27.34862</FileVersion>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<LangVersion>8.0</LangVersion>
+		<Nullable>enable</Nullable>
+		<OutputPath>..\..\..\appbin\</OutputPath>
+		<PackageIcon>2020 - dotNetTips - Real World - Earth@0.1x.png</PackageIcon>
+		<PackageProjectUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</PackageProjectUrl>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageTags>David McCarter, dotNetDave, dotNetTips.com</PackageTags>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/RealDotNetDave/dotNetTips.Utility.Core</RepositoryUrl>
+		<RootNamespace>dotNetTips.Utility.Standard.Extensions</RootNamespace>
+		<RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+		<RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+		<RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+		<SignAssembly>false</SignAssembly>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+		<Version>2021.8.1.0</Version>
+		<PackageReleaseNotes>
+			-- SEP 2019: Added types HttpContextExtensions, HttpContextExtensions and LINQExtensions. Added new methods and code cleanup.
+			-- JUN 2019 (QUARTERLY RELEASE): Code cleanup.
+			-- AUG 2019 (QUARTERLY RELEASE): Code and documentation cleanup. Code fixes. New code in CollectionExtensions.
+			-- DEC 2019 (QUARTERLY RELEASE): Code cleanup.
+			-- FEB 2020: Code cleanup. Added more overloads for TryValidateParam.
+			-- MAR 2020 (QUARTERLY RELEASE): New extension methods. Code cleanup.
+			-- MAY 2020: Added BytesToString. Added StringBuilderExtensions.
+			-- AUG 2020: New helper methods &amp; classes. Code cleanup.
+			-- NOV 2020 (QUARTERLY RELEASE):Added DataContextExtensions, DataReaderExtensions, DataTableExtensions. Added new methods in DateTimeExtensions, DirectoryInfoExtensions, NumberExtensions, StringExtensions. Code cleanup. Added more unit tests.
+			-- NOV 19, 2020: Minor update.
+			-- FEB 2021 (QUARTERLY RELEASE): 12 new methods. Code cleanup.
+			-- FEB 5, 2021: Minor fixes.
+			-- MAY 2021 (QUARTERLY RELEASE): Minor fixes. Code cleanup.
+			-- MAY 2021 (QUARTERLY RELEASE): Minor fixes. Code cleanup.
+		</PackageReleaseNotes>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+		<WarningsAsErrors />
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<PlatformTarget>x64</PlatformTarget>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+		<WarningsAsErrors />
+		<DebugType>full</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<PlatformTarget>x64</PlatformTarget>
+	</PropertyGroup>
+	<ItemGroup>
+		<Compile Remove="DataServiceExtensions.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="linq2db" Version="3.3.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+		<PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
+		<PackageReference Include="System.Diagnostics.Process" Version="4.3.0" />
+		<PackageReference Include="System.Net.Requests" Version="4.3.0" />
+		<PackageReference Include="System.Runtime.Serialization.Json" Version="4.3.0" />
+		<PackageReference Include="System.ServiceProcess.ServiceController" Version="5.0.0" />
+		<PackageReference Include="System.Threading.Tasks.Parallel" Version="4.3.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\dotNetTips.Utility.Standard.Common\dotNetTips.Utility.Standard.Common.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Update="Properties\Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="..\..\..\docs\Graphics\2020 - dotNetTips - Real World - Earth@0.1x.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="if $(ConfigurationName) == Release (dotnet pack &quot;$(ProjectPath)&quot; --include-source --include-symbols --output  &quot;c:\dotNetTips.com\NuGet&quot;)" />
+	</Target>
 </Project>

@@ -1,10 +1,6 @@
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.As()
-;             var result = this._person.As<IPerson>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -24,12 +20,6 @@
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Extensions.ObjectExtensions.As[[System.__Canon, System.Private.CoreLib]](System.Object)
-;             if (value == null)
-;             ^^^^^^^^^^^^^^^^^^
-;                 throw new ArgumentNullException(nameof(value));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return (T)value;
-;             ^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,30
        mov       [rsp+28],rcx
@@ -47,7 +37,7 @@ M01_L00:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,0BF
-       mov       rdx,7FFF60BE12D8
+       mov       rdx,7FF88A9712D8
        call      CORINFO_HELP_STRCNS
        mov       rdx,rax
        mov       rcx,rsi
@@ -58,13 +48,9 @@ M01_L00:
 ; Total bytes of code 92
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.Clone()
-;             var result = this._person.Clone<PersonProper>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -84,14 +70,6 @@ M01_L00:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Extensions.ObjectExtensions.Clone[[System.__Canon, System.Private.CoreLib]](System.Object)
-;             if (obj is null)
-;             ^^^^^^^^^^^^^^^^
-;                 throw new ArgumentNullException(nameof(obj));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var json = JsonSerializer.Serialize(obj);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return JsonSerializer.Deserialize<T>(json);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -107,7 +85,7 @@ M01_L00:
        test      rcx,rcx
        jne       short M01_L00
        mov       rcx,rsi
-       mov       rdx,7FFF60D9E468
+       mov       rdx,7FF88AB1E468
        call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
        mov       rcx,rax
 M01_L00:
@@ -122,7 +100,7 @@ M01_L01:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,0B27
-       mov       rdx,7FFF60C012D8
+       mov       rdx,7FF88A9812D8
        call      CORINFO_HELP_STRCNS
        mov       rdx,rax
        mov       rcx,rsi
@@ -133,13 +111,9 @@ M01_L01:
 ; Total bytes of code 144
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.ComputeSha256Hash()
-;             var result = this._person.ComputeSha256Hash();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -170,28 +144,24 @@ M01_L01:
        mov       [rbp+0FFD8],rax
        mov       [rbp+0FFC0],rsp
        mov       rsi,rcx
-;             using (var sha256Hash = SHA256.Create())
-;                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rcx,offset MT_System.Security.Cryptography.SHA256+Implementation
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
        mov       rcx,rdi
        call      System.Security.Cryptography.SHA256+Implementation..ctor()
        mov       [rbp+0FFC8],rdi
-       mov       rcx,283F3D11820
+       mov       rcx,2489C241820
        mov       rdi,[rcx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.Extensions.ObjectExtensions.ToJson(System.Object)
        mov       rdx,rax
        mov       rcx,rdi
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60CB3A68]
+       call      qword ptr [7FF88AA33A68]
        mov       rdx,rax
        mov       rcx,[rbp+0FFC8]
        call      System.Security.Cryptography.HashAlgorithm.ComputeHash(Byte[])
        mov       rsi,rax
-;                 var builder = new StringBuilder();
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rcx,offset MT_System.Text.StringBuilder
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
@@ -202,21 +172,17 @@ M01_L01:
        lea       rcx,[rdi+8]
        mov       rdx,rax
        call      CORINFO_HELP_ASSIGN_REF
-;                 for (var i = 0; i < bytes.Length; i++)
-;                      ^^^^^^^^^
        xor       ebx,ebx
        mov       r14d,[rsi+8]
        test      r14d,r14d
        jle       short M01_L03
-;                     builder.Append(bytes[i].ToString("x2", CultureInfo.InvariantCulture));
-;                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M01_L00:
        movsxd    rcx,ebx
        lea       rcx,[rsi+rcx+10]
-       mov       rdx,283F3D12448
+       mov       rdx,2489C242448
        mov       r8,[rdx]
        movzx     ecx,byte ptr [rcx]
-       mov       rdx,283F3D21A20
+       mov       rdx,248AC241608
        mov       rdx,[rdx]
        test      rdx,rdx
        jne       short M01_L01
@@ -241,16 +207,12 @@ M01_L02:
        inc       ebx
        cmp       r14d,ebx
        jg        short M01_L00
-;                 return builder.ToString();
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 M01_L03:
        mov       rcx,rdi
-       call      qword ptr [7FFF60CB7010]
+       call      qword ptr [7FF88AA37010]
        mov       rsi,rax
        mov       rcx,[rbp+0FFC8]
-       call      qword ptr [7FFF60CAF708]
-;         }
-;         ^
+       call      qword ptr [7FF88AA2F708]
        mov       rax,rsi
        lea       rsp,[rbp+0FFE0]
        pop       rbx
@@ -271,7 +233,7 @@ M01_L03:
        cmp       qword ptr [rbp+0FFC8],0
        je        short M01_L04
        mov       rcx,[rbp+0FFC8]
-       call      qword ptr [7FFF60CAF708]
+       call      qword ptr [7FF88AA2F708]
 M01_L04:
        nop
        add       rsp,30
@@ -284,19 +246,15 @@ M01_L04:
 ; Total bytes of code 370
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.DisposeFields()
-;             DataTable disposableType = new DataTable("TEST");
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             disposableType.DisposeFields();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rcx,offset MT_System.Data.DataTable
        call      CORINFO_HELP_NEWFAST
        mov       rsi,rax
-       mov       rdx,2D10D891608
+       mov       rdx,1A779891608
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      System.Data.DataTable..ctor(System.String)
@@ -321,7 +279,7 @@ M01_L04:
        mov       rdx,rdi
        jmp       short M01_L01
 M01_L00:
-       mov       rdx,2D0FD893060
+       mov       rdx,1A769893060
        mov       rdx,[rdx]
 M01_L01:
        lea       rcx,[rsi+70]
@@ -341,26 +299,24 @@ M01_L01:
        push      rbx
        sub       rsp,28
        mov       rsi,rcx
-;             if (obj == null)
-;             ^^^^^^^^^^^^^^^^
        test      rsi,rsi
        je        near ptr M02_L05
        mov       rcx,rsi
-       call      00007FFFC03F1F60
+       call      00007FF8EA182020
        mov       rcx,rax
        call      System.Reflection.RuntimeReflectionExtensions.GetRuntimeFields(System.Type)
        mov       rdi,rax
-       mov       rcx,7FFF60BD1C68
+       mov       rcx,7FF88A971C68
        mov       edx,4A
        call      CORINFO_HELP_GETSHARED_NONGCSTATIC_BASE
-       mov       rcx,2D0FD89BD58
+       mov       rcx,1A7898978F0
        mov       r8,[rcx]
        test      r8,r8
        jne       short M02_L00
        mov       rcx,offset MT_System.Func`2[[System.Reflection.FieldInfo, System.Private.CoreLib],[System.Boolean, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
-       mov       rdx,2D0FD89BD50
+       mov       rdx,1A7898978E8
        mov       rdx,[rdx]
        test      rdx,rdx
        je        near ptr M02_L06
@@ -368,9 +324,7 @@ M01_L01:
        call      CORINFO_HELP_ASSIGN_REF
        mov       rdx,offset dotNetTips.Utility.Standard.Extensions.ObjectExtensions+<>c.<DisposeFields>b__5_0(System.Reflection.FieldInfo)
        mov       [rbx+18],rdx
-;             for (var fieldCount = 0; fieldCount < list.Count; fieldCount++)
-;                  ^^^^^^^^^^^^^^^^^^
-       mov       rcx,2D0FD89BD58
+       mov       rcx,1A7898978F0
        mov       rdx,rbx
        call      CORINFO_HELP_CHECKED_ASSIGN_REF
        mov       r8,rbx
@@ -385,8 +339,6 @@ M02_L00:
        xor       edi,edi
        cmp       dword ptr [rbx+10],0
        jle       short M02_L04
-;                 var value = list[fieldCount].GetValue(obj);
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M02_L01:
        cmp       edi,[rbx+10]
        jae       near ptr M02_L07
@@ -400,31 +352,21 @@ M02_L01:
        mov       rax,[rax+58]
        call      qword ptr [rax]
        mov       rbp,rax
-;                 if (value != null)
-;                 ^^^^^^^^^^^^^^^^^^
        test      rbp,rbp
        je        short M02_L03
-;                     if (value is IDisposable disposableItem)
-;                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rdx,rbp
        mov       rcx,offset MT_System.IDisposable
        call      CORINFO_HELP_ISINSTANCEOFINTERFACE
-;                         disposableItem.TryDispose();
-;                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        test      rax,rax
        je        short M02_L02
        mov       rcx,rax
        xor       edx,edx
        call      dotNetTips.Utility.Standard.Extensions.ObjectExtensions.TryDispose(System.IDisposable, Boolean)
        jmp       short M02_L03
-;                     else if (value is IEnumerable collection)
-;                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M02_L02:
        mov       rdx,rbp
        mov       rcx,offset MT_System.Collections.IEnumerable
        call      CORINFO_HELP_ISINSTANCEOFINTERFACE
-;                         collection.DisposeCollection();
-;                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        test      rax,rax
        je        short M02_L03
        mov       rcx,rax
@@ -440,25 +382,21 @@ M02_L04:
        pop       rsi
        pop       rdi
        ret
-;                 throw new ArgumentNullException(nameof(obj), $"{nameof(obj)} is null.");
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M02_L05:
        mov       rcx,offset MT_System.ArgumentNullException
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,0B27
-       mov       rdx,7FFF60BD12D8
+       mov       rdx,7FF88A9712D8
        call      CORINFO_HELP_STRCNS
        mov       rdi,rax
        mov       ecx,0B2F
-       mov       rdx,7FFF60BD12D8
+       mov       rdx,7FF88A9712D8
        call      CORINFO_HELP_STRCNS
        mov       r8,rax
        mov       rdx,rdi
        mov       rcx,rsi
        call      System.ArgumentNullException..ctor(System.String, System.String)
-;             var list = obj.GetType().GetRuntimeFields().Where(p => p.IsStatic == false).ToList();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rcx,rsi
        call      CORINFO_HELP_THROW
 M02_L06:
@@ -474,13 +412,9 @@ M02_L08:
 ; Total bytes of code 444
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.FromJson()
-;             var result = this._peopleJson.FromJson<PersonProper>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -500,16 +434,6 @@ M02_L08:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Extensions.JsonSerializer.Deserialize[[System.__Canon, System.Private.CoreLib]](System.String)
-;             var obj = Activator.CreateInstance<T>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
-;                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 var ser = new DataContractJsonSerializer(obj.GetType());
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 obj = ser.ReadObject(ms) as T;
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return obj;
-;             ^^^^^^^^^^^
        push      rbp
        push      r14
        push      rdi
@@ -524,7 +448,7 @@ M02_L08:
        mov       rax,[rdi+8]
        test      rax,rax
        jne       short M01_L00
-       mov       rdx,7FFF60D8E510
+       mov       rdx,7FF88AAFE510
        call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 M01_L00:
        mov       rcx,rax
@@ -533,10 +457,10 @@ M01_L00:
        mov       rcx,offset MT_System.IO.MemoryStream
        call      CORINFO_HELP_NEWSFAST
        mov       r14,rax
-       mov       rcx,28922B71820
+       mov       rcx,2476B561820
        mov       rcx,[rcx]
        mov       rdx,rsi
-       call      qword ptr [7FFF60CC3A68]
+       call      qword ptr [7FF88AA33A68]
        mov       rdx,rax
        mov       rcx,r14
        mov       r8d,1
@@ -546,7 +470,7 @@ M01_L00:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       rcx,rbx
-       call      00007FFFC03F1F60
+       call      00007FF8EA182020
        mov       rbx,rax
        mov       rcx,offset MT_System.Runtime.Serialization.Json.DataContractJsonSerializerImpl
        call      CORINFO_HELP_NEWSFAST
@@ -571,7 +495,7 @@ M01_L00:
        mov       rcx,[rsi+28]
        mov       rdx,[rbp+0FFD0]
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60CCA3C8]
+       call      qword ptr [7FF88AA3A2D0]
        mov       rdx,rax
        mov       rsi,[rdi]
        mov       rcx,rsi
@@ -582,7 +506,7 @@ M01_L00:
        mov       rbx,rax
        mov       rcx,[rbp+0FFD0]
        mov       edx,1
-       call      qword ptr [7FFF60CC6BD8]
+       call      qword ptr [7FF88AA36AE0]
        mov       rcx,[rbp+0FFD0]
        call      System.GC.SuppressFinalize(System.Object)
        mov       rax,rbx
@@ -606,7 +530,7 @@ M01_L00:
        je        short M01_L01
        mov       rcx,[rbp+0FFD0]
        mov       edx,1
-       call      qword ptr [7FFF60CC6BD8]
+       call      qword ptr [7FF88AA36AE0]
        mov       rcx,[rbp+0FFD0]
        call      System.GC.SuppressFinalize(System.Object)
 M01_L01:
@@ -621,18 +545,14 @@ M01_L01:
 ; Total bytes of code 391
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.HasProperty()
-;             var result = this._person.HasProperty("City");
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
        mov       rcx,[rsi+30]
-       mov       rdx,25C22371E40
+       mov       rdx,24779D4FE08
        mov       rdx,[rdx]
        call      dotNetTips.Utility.Standard.Extensions.ObjectExtensions.HasProperty(System.Object, System.String)
        mov       rdx,[rsi+8]
@@ -644,14 +564,6 @@ M01_L01:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Extensions.ObjectExtensions.HasProperty(System.Object, System.String)
-;             if (obj is null)
-;             ^^^^^^^^^^^^^^^^
-;                 throw new ArgumentNullException(nameof(obj));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var propertyInfo = obj.GetType().GetRuntimeProperties().FirstOrDefault(p => p.Name == propertyName);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return propertyInfo != null;
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        push      rbx
@@ -672,7 +584,7 @@ M01_L01:
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
        mov       rcx,rsi
-       call      00007FFFC03F1F60
+       call      00007FF8EA182020
        mov       rcx,rax
        call      System.Reflection.RuntimeReflectionExtensions.GetRuntimeProperties(System.Type)
        mov       rsi,rax
@@ -706,7 +618,7 @@ M01_L02:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,0B27
-       mov       rdx,7FFF60BE12D8
+       mov       rdx,7FF88A9712D8
        call      CORINFO_HELP_STRCNS
        mov       rdx,rax
        mov       rcx,rsi
@@ -717,13 +629,9 @@ M01_L02:
 ; Total bytes of code 232
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.IsNotNull()
-;             var result = this._person.IsNotNull();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rax,[rcx+30]
        test      rax,rax
        setne     al
@@ -734,13 +642,9 @@ M01_L02:
 ; Total bytes of code 21
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.IsNull()
-;             var result = this._person.IsNull();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rax,[rcx+30]
        test      rax,rax
        sete      al
@@ -751,23 +655,19 @@ M01_L02:
 ; Total bytes of code 21
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.StripNull()
-;             var result = this._person.StripNull();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
        mov       rcx,[rsi+30]
        test      rcx,rcx
        je        short M00_L00
-       call      qword ptr [7FFF60CA06B8]
+       call      qword ptr [7FF88AA306B8]
        jmp       short M00_L01
 M00_L00:
-       mov       rax,1F6390F3060
+       mov       rax,1864C103060
        mov       rax,[rax]
 M00_L01:
        mov       rcx,[rsi+8]
@@ -797,13 +697,9 @@ M00_L01:
 ; Total bytes of code 25
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.ToJson()
-;             var result = this._person.ToJson();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -822,18 +718,12 @@ M00_L01:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Extensions.ObjectExtensions.ToJson(System.Object)
-;             if (obj is null)
-;             ^^^^^^^^^^^^^^^^
-;                 ExceptionThrower.ThrowArgumentNullException(nameof(obj));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return JsonSerializer.Serialize(obj);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
        test      rsi,rsi
        jne       short M01_L00
-       mov       rcx,27184EF3A80
+       mov       rcx,1F7BE431630
        mov       rcx,[rcx]
        call      dotNetTips.Utility.Standard.Common.ExceptionThrower.ThrowArgumentNullException(System.String)
 M01_L00:
@@ -845,19 +735,15 @@ M01_L00:
 ; Total bytes of code 52
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.TryDispose()
-;             DataTable disposableType = new DataTable("TEST");
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             disposableType.TryDispose();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rcx,offset MT_System.Data.DataTable
        call      CORINFO_HELP_NEWFAST
        mov       rsi,rax
-       mov       rdx,2162FB63A58
+       mov       rdx,24C0D9A1608
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      System.Data.DataTable..ctor(System.String)
@@ -883,7 +769,7 @@ M01_L00:
        mov       rdx,rdi
        jmp       short M01_L01
 M01_L00:
-       mov       rdx,2162FB63060
+       mov       rdx,24BFD9A3060
        mov       rdx,[rdx]
 M01_L01:
        lea       rcx,[rsi+70]
@@ -897,24 +783,6 @@ M01_L01:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Extensions.ObjectExtensions.TryDispose(System.IDisposable, Boolean)
-;             if (obj.IsNull())
-;             ^^^^^^^^^^^^^^^^^
-;                 throw new ArgumentNullException(nameof(obj));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 if (obj is IAsyncDisposable asyncDisposable)
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                     asyncDisposable.DisposeAsync();
-;                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                     obj.Dispose();
-;                     ^^^^^^^^^^^^^^
-;                 obj = null;
-;                 ^^^^^^^^^^^
-;             catch
-;             ^^^^^
-;                 if (throwException)
-;                 ^^^^^^^^^^^^^^^^^^^
-;                     throw;
-;                     ^^^^^^
        push      rbp
        push      rsi
        sub       rsp,38
@@ -934,15 +802,15 @@ M01_L01:
        je        short M02_L00
        lea       rdx,[rbp+0FFE8]
        mov       rcx,rax
-       mov       r11,7FFF607F0558
+       mov       r11,7FF88A5C0558
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C90558]
+       call      qword ptr [7FF88AA60558]
        jmp       short M02_L01
 M02_L00:
        mov       rcx,rsi
-       mov       r11,7FFF607F0550
+       mov       r11,7FF88A5C0550
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C90550]
+       call      qword ptr [7FF88AA60550]
        nop
 M02_L01:
        lea       rsp,[rbp+0FFF8]
@@ -954,7 +822,7 @@ M02_L02:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,0B27
-       mov       rdx,7FFF60BC12D8
+       mov       rdx,7FF88A9912D8
        call      CORINFO_HELP_STRCNS
        mov       rdx,rax
        mov       rcx,rsi
@@ -972,7 +840,7 @@ M02_L02:
        je        short M02_L03
        call      CORINFO_HELP_RETHROW
 M02_L03:
-       lea       rax,[7FFF60C910BC]
+       lea       rax,[7FF88AA6126C]
        add       rsp,28
        pop       rsi
        pop       rbp

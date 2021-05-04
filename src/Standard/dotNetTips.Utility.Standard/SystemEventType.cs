@@ -14,30 +14,29 @@
 
 namespace dotNetTips.Utility.Standard
 {
-    /// <summary>
-    /// Enum SystemEventType.
-    /// </summary>
-    public enum SystemEventType
-    {
+	/// <summary>
+	/// Enum SystemEventType.
+	/// </summary>
+	public enum SystemEventType
+	{
+		/// <summary>
+		/// System Event not selected.
+		/// </summary>
+		None,
 
-        /// <summary>
-        /// System Event not selected.
-        /// </summary>
-        None,
+		/// <summary>
+		/// The network address changed
+		/// </summary>
+		NetworkAddressChanged,
 
-        /// <summary>
-        /// The network address changed
-        /// </summary>
-        NetworkAddressChanged,
+		/// <summary>
+		/// The network availability changed
+		/// </summary>
+		NetworkAvailabilityChanged,
 
-        /// <summary>
-        /// The network availability changed
-        /// </summary>
-        NetworkAvailabilityChanged,
-
-        /// <summary>
-        /// Unhandled Exception
-        /// </summary>
-        UnhandledException,
-    }
+		/// <summary>
+		/// Unhandled Exception
+		/// </summary>
+		UnhandledException,
+	}
 }

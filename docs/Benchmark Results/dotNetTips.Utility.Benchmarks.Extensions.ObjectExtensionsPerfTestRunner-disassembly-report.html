@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>DisassemblyDiagnoser Output dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-20210228-164351</title>
+<title>DisassemblyDiagnoser Output dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-20210503-210227</title>
 
 <style type="text/css">
     table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -14,29 +14,25 @@
 <body>
 <table>
 <thead>
-<tr><th colspan="11">dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-20210228-164351</th></tr>
+<tr><th colspan="11">dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner-20210503-210227</th></tr>
 <tr>
-<th>As .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>Clone .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>ComputeSha256Hash .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>DisposeFields .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>FromJson .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>HasProperty .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>IsNotNull .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>IsNull .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>StripNull .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>ToJson .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>TryDispose .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>As .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>Clone .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>ComputeSha256Hash .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>DisposeFields .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>FromJson .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>HasProperty .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>IsNotNull .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>IsNull .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>StripNull .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>ToJson .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>TryDispose .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.As()
-            var result = this._person.As<IPerson>();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -54,17 +50,11 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Standard.Extensions.ObjectExtensions.As[[System.__Canon, System.Private.CoreLib]](System.Object)
-            if (value == null)
-            ^^^^^^^^^^^^^^^^^^
-                throw new ArgumentNullException(nameof(value));
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            return (T)value;
-            ^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,30
 mov       [rsp+28],rcx
 test      rdx,rdx
-je        short 00007FFF60C9C652
+je        short 00007FF88AA2C802
 mov       rcx,[rcx+10]
 mov       rcx,[rcx]
 call      CORINFO_HELP_CHKCASTANY
@@ -76,7 +66,7 @@ mov       rcx,offset MT_System.ArgumentNullException
 call      CORINFO_HELP_NEWSFAST
 mov       rsi,rax
 mov       ecx,0BF
-mov       rdx,7FFF60BE12D8
+mov       rdx,7FF88A9712D8
 call      CORINFO_HELP_STRCNS
 mov       rdx,rax
 mov       rcx,rsi
@@ -88,10 +78,6 @@ int       3
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.Clone()
-            var result = this._person.Clone<PersonProper>();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -109,30 +95,22 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Standard.Extensions.ObjectExtensions.Clone[[System.__Canon, System.Private.CoreLib]](System.Object)
-            if (obj is null)
-            ^^^^^^^^^^^^^^^^
-                throw new ArgumentNullException(nameof(obj));
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            var json = JsonSerializer.Serialize(obj);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            return JsonSerializer.Deserialize<T>(json);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rdi
 push      rsi
 sub       rsp,28
 mov       [rsp+20],rcx
 mov       rsi,rcx
 test      rdx,rdx
-je        short 00007FFF60CD6F36
+je        short 00007FF88AA503A6
 mov       rcx,rdx
 call      dotNetTips.Utility.Standard.Extensions.JsonSerializer.Serialize(System.Object)
 mov       rdi,rax
 mov       rcx,[rsi+10]
 mov       rcx,[rcx+8]
 test      rcx,rcx
-jne       short 00007FFF60CD6F20
+jne       short 00007FF88AA50390
 mov       rcx,rsi
-mov       rdx,7FFF60D9E468
+mov       rdx,7FF88AB1E468
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       rcx,rax
 mov       rdx,rdi
@@ -145,7 +123,7 @@ mov       rcx,offset MT_System.ArgumentNullException
 call      CORINFO_HELP_NEWSFAST
 mov       rsi,rax
 mov       ecx,0B27
-mov       rdx,7FFF60C012D8
+mov       rdx,7FF88A9812D8
 call      CORINFO_HELP_STRCNS
 mov       rdx,rax
 mov       rcx,rsi
@@ -157,10 +135,6 @@ int       3
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.ComputeSha256Hash()
-            var result = this._person.ComputeSha256Hash();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -189,28 +163,24 @@ mov       [rbp+0FFD0],rax
 mov       [rbp+0FFD8],rax
 mov       [rbp+0FFC0],rsp
 mov       rsi,rcx
-            using (var sha256Hash = SHA256.Create())
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rcx,offset MT_System.Security.Cryptography.SHA256+Implementation
 call      CORINFO_HELP_NEWSFAST
 mov       rdi,rax
 mov       rcx,rdi
 call      System.Security.Cryptography.SHA256+Implementation..ctor()
 mov       [rbp+0FFC8],rdi
-mov       rcx,283F3D11820
+mov       rcx,2489C241820
 mov       rdi,[rcx]
 mov       rcx,rsi
 call      dotNetTips.Utility.Standard.Extensions.ObjectExtensions.ToJson(System.Object)
 mov       rdx,rax
 mov       rcx,rdi
 cmp       [rcx],ecx
-call      qword ptr [7FFF60CB3A68]
+call      qword ptr [7FF88AA33A68]
 mov       rdx,rax
 mov       rcx,[rbp+0FFC8]
 call      System.Security.Cryptography.HashAlgorithm.ComputeHash(Byte[])
 mov       rsi,rax
-                var builder = new StringBuilder();
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rcx,offset MT_System.Text.StringBuilder
 call      CORINFO_HELP_NEWSFAST
 mov       rdi,rax
@@ -221,26 +191,22 @@ call      CORINFO_HELP_NEWARR_1_VC
 lea       rcx,[rdi+8]
 mov       rdx,rax
 call      CORINFO_HELP_ASSIGN_REF
-                for (var i = 0; i < bytes.Length; i++)
-                     ^^^^^^^^^
 xor       ebx,ebx
 mov       r14d,[rsi+8]
 test      r14d,r14d
-jle       short 00007FFF60CAB17A
-                    builder.Append(bytes[i].ToString("x2", CultureInfo.InvariantCulture));
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jle       short 00007FF88AA2B32A
 movsxd    rcx,ebx
 lea       rcx,[rsi+rcx+10]
-mov       rdx,283F3D12448
+mov       rdx,2489C242448
 mov       r8,[rdx]
 movzx     ecx,byte ptr [rcx]
-mov       rdx,283F3D21A20
+mov       rdx,248AC241608
 mov       rdx,[rdx]
 test      rdx,rdx
-jne       short 00007FFF60CAB145
+jne       short 00007FF88AA2B2F5
 xor       eax,eax
 xor       r9d,r9d
-jmp       short 00007FFF60CAB154
+jmp       short 00007FF88AA2B304
 mov       eax,[rdx]
 mov       rax,rdx
 cmp       [rax],eax
@@ -256,16 +222,12 @@ mov       rcx,rdi
 call      System.Text.StringBuilder.Append(System.String)
 inc       ebx
 cmp       r14d,ebx
-jg        short 00007FFF60CAB114
-                return builder.ToString();
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88AA2B2C4
 mov       rcx,rdi
-call      qword ptr [7FFF60CB7010]
+call      qword ptr [7FF88AA37010]
 mov       rsi,rax
 mov       rcx,[rbp+0FFC8]
-call      qword ptr [7FFF60CAF708]
-        }
-        ^
+call      qword ptr [7FF88AA2F708]
 mov       rax,rsi
 lea       rsp,[rbp+0FFE0]
 pop       rbx
@@ -284,9 +246,9 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+60]
 cmp       qword ptr [rbp+0FFC8],0
-je        short 00007FFF60CAB1C6
+je        short 00007FF88AA2B376
 mov       rcx,[rbp+0FFC8]
-call      qword ptr [7FFF60CAF708]
+call      qword ptr [7FF88AA2F708]
 nop
 add       rsp,30
 pop       rbx
@@ -299,16 +261,12 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.DisposeFields()
-            DataTable disposableType = new DataTable("TEST");
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            disposableType.DisposeFields();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rcx,offset MT_System.Data.DataTable
 call      CORINFO_HELP_NEWFAST
 mov       rsi,rax
-mov       rdx,2D10D891608
+mov       rdx,1A779891608
 mov       rdx,[rdx]
 mov       rcx,rsi
 call      System.Data.DataTable..ctor(System.String)
@@ -327,10 +285,10 @@ mov       rdi,rdx
 mov       rcx,rsi
 call      System.Data.DataTable..ctor()
 test      rdi,rdi
-je        short 00007FFF60C92C6E
+je        short 00007FF88AA34F3E
 mov       rdx,rdi
-jmp       short 00007FFF60C92C7B
-mov       rdx,2D0FD893060
+jmp       short 00007FF88AA34F4B
+mov       rdx,1A769893060
 mov       rdx,[rdx]
 lea       rcx,[rsi+70]
 call      CORINFO_HELP_ASSIGN_REF
@@ -347,36 +305,32 @@ push      rbp
 push      rbx
 sub       rsp,28
 mov       rsi,rcx
-            if (obj == null)
-            ^^^^^^^^^^^^^^^^
 test      rsi,rsi
-je        near ptr 00007FFF60C8E0E4
+je        near ptr 00007FF88AA2E294
 mov       rcx,rsi
-call      00007FFFC03F1F60
+call      00007FF8EA182020
 mov       rcx,rax
 call      System.Reflection.RuntimeReflectionExtensions.GetRuntimeFields(System.Type)
 mov       rdi,rax
-mov       rcx,7FFF60BD1C68
+mov       rcx,7FF88A971C68
 mov       edx,4A
 call      CORINFO_HELP_GETSHARED_NONGCSTATIC_BASE
-mov       rcx,2D0FD89BD58
+mov       rcx,1A7898978F0
 mov       r8,[rcx]
 test      r8,r8
-jne       short 00007FFF60C8E031
+jne       short 00007FF88AA2E1E1
 mov       rcx,offset MT_System.Func`2[[System.Reflection.FieldInfo, System.Private.CoreLib],[System.Boolean, System.Private.CoreLib]]
 call      CORINFO_HELP_NEWSFAST
 mov       rbx,rax
-mov       rdx,2D0FD89BD50
+mov       rdx,1A7898978E8
 mov       rdx,[rdx]
 test      rdx,rdx
-je        near ptr 00007FFF60C8E137
+je        near ptr 00007FF88AA2E2E7
 lea       rcx,[rbx+8]
 call      CORINFO_HELP_ASSIGN_REF
 mov       rdx,offset dotNetTips.Utility.Standard.Extensions.ObjectExtensions+<>c.<DisposeFields>b__5_0(System.Reflection.FieldInfo)
 mov       [rbx+18],rdx
-            for (var fieldCount = 0; fieldCount < list.Count; fieldCount++)
-                 ^^^^^^^^^^^^^^^^^^
-mov       rcx,2D0FD89BD58
+mov       rcx,1A7898978F0
 mov       rdx,rbx
 call      CORINFO_HELP_CHECKED_ASSIGN_REF
 mov       r8,rbx
@@ -389,14 +343,12 @@ call      System.Linq.Enumerable.ToList[[System.__Canon, System.Private.CoreLib]
 mov       rbx,rax
 xor       edi,edi
 cmp       dword ptr [rbx+10],0
-jle       short 00007FFF60C8E0DB
-                var value = list[fieldCount].GetValue(obj);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jle       short 00007FF88AA2E28B
 cmp       edi,[rbx+10]
-jae       near ptr 00007FFF60C8E140
+jae       near ptr 00007FF88AA2E2F0
 mov       rcx,[rbx+8]
 cmp       edi,[rcx+8]
-jae       near ptr 00007FFF60C8E146
+jae       near ptr 00007FF88AA2E2F6
 movsxd    rdx,edi
 mov       rcx,[rcx+rdx*8+10]
 mov       rdx,rsi
@@ -404,61 +356,47 @@ mov       rax,[rcx]
 mov       rax,[rax+58]
 call      qword ptr [rax]
 mov       rbp,rax
-                if (value != null)
-                ^^^^^^^^^^^^^^^^^^
 test      rbp,rbp
-je        short 00007FFF60C8E0D4
-                    if (value is IDisposable disposableItem)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+je        short 00007FF88AA2E284
 mov       rdx,rbp
 mov       rcx,offset MT_System.IDisposable
 call      CORINFO_HELP_ISINSTANCEOFINTERFACE
-                        disposableItem.TryDispose();
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 test      rax,rax
-je        short 00007FFF60C8E0B5
+je        short 00007FF88AA2E265
 mov       rcx,rax
 xor       edx,edx
 call      dotNetTips.Utility.Standard.Extensions.ObjectExtensions.TryDispose(System.IDisposable, Boolean)
-jmp       short 00007FFF60C8E0D4
-                    else if (value is IEnumerable collection)
-                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jmp       short 00007FF88AA2E284
 mov       rdx,rbp
 mov       rcx,offset MT_System.Collections.IEnumerable
 call      CORINFO_HELP_ISINSTANCEOFINTERFACE
-                        collection.DisposeCollection();
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 test      rax,rax
-je        short 00007FFF60C8E0D4
+je        short 00007FF88AA2E284
 mov       rcx,rax
 call      dotNetTips.Utility.Standard.Extensions.CollectionExtensions.ProcessCollectionToDispose(System.Collections.IEnumerable)
 inc       edi
 cmp       edi,[rbx+10]
-jl        short 00007FFF60C8E060
+jl        short 00007FF88AA2E210
 add       rsp,28
 pop       rbx
 pop       rbp
 pop       rsi
 pop       rdi
 ret
-                throw new ArgumentNullException(nameof(obj), $"{nameof(obj)} is null.");
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rcx,offset MT_System.ArgumentNullException
 call      CORINFO_HELP_NEWSFAST
 mov       rsi,rax
 mov       ecx,0B27
-mov       rdx,7FFF60BD12D8
+mov       rdx,7FF88A9712D8
 call      CORINFO_HELP_STRCNS
 mov       rdi,rax
 mov       ecx,0B2F
-mov       rdx,7FFF60BD12D8
+mov       rdx,7FF88A9712D8
 call      CORINFO_HELP_STRCNS
 mov       r8,rax
 mov       rdx,rdi
 mov       rcx,rsi
 call      System.ArgumentNullException..ctor(System.String, System.String)
-            var list = obj.GetType().GetRuntimeFields().Where(p => p.IsStatic == false).ToList();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rcx,rsi
 call      CORINFO_HELP_THROW
 mov       rcx,rbx
@@ -472,10 +410,6 @@ int       3
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.FromJson()
-            var result = this._peopleJson.FromJson<PersonProper>();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -493,16 +427,6 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Standard.Extensions.JsonSerializer.Deserialize[[System.__Canon, System.Private.CoreLib]](System.String)
-            var obj = Activator.CreateInstance<T>();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                var ser = new DataContractJsonSerializer(obj.GetType());
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                obj = ser.ReadObject(ms) as T;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            return obj;
-            ^^^^^^^^^^^
 push      rbp
 push      r14
 push      rdi
@@ -516,8 +440,8 @@ mov       rsi,rdx
 mov       rdi,[rcx+10]
 mov       rax,[rdi+8]
 test      rax,rax
-jne       short 00007FFF60CBB499
-mov       rdx,7FFF60D8E510
+jne       short 00007FF88AA2BA69
+mov       rdx,7FF88AAFE510
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       rcx,rax
 call      System.Activator.CreateInstance[[System.__Canon, System.Private.CoreLib]]()
@@ -525,10 +449,10 @@ mov       rbx,rax
 mov       rcx,offset MT_System.IO.MemoryStream
 call      CORINFO_HELP_NEWSFAST
 mov       r14,rax
-mov       rcx,28922B71820
+mov       rcx,2476B561820
 mov       rcx,[rcx]
 mov       rdx,rsi
-call      qword ptr [7FFF60CC3A68]
+call      qword ptr [7FF88AA33A68]
 mov       rdx,rax
 mov       rcx,r14
 mov       r8d,1
@@ -538,7 +462,7 @@ mov       rcx,offset MT_System.Runtime.Serialization.Json.DataContractJsonSerial
 call      CORINFO_HELP_NEWSFAST
 mov       rsi,rax
 mov       rcx,rbx
-call      00007FFFC03F1F60
+call      00007FF8EA182020
 mov       rbx,rax
 mov       rcx,offset MT_System.Runtime.Serialization.Json.DataContractJsonSerializerImpl
 call      CORINFO_HELP_NEWSFAST
@@ -563,7 +487,7 @@ call      CORINFO_HELP_ASSIGN_REF
 mov       rcx,[rsi+28]
 mov       rdx,[rbp+0FFD0]
 cmp       [rcx],ecx
-call      qword ptr [7FFF60CCA3C8]
+call      qword ptr [7FF88AA3A2D0]
 mov       rdx,rax
 mov       rsi,[rdi]
 mov       rcx,rsi
@@ -574,7 +498,7 @@ call      CORINFO_HELP_CHKCASTANY
 mov       rbx,rax
 mov       rcx,[rbp+0FFD0]
 mov       edx,1
-call      qword ptr [7FFF60CC6BD8]
+call      qword ptr [7FF88AA36AE0]
 mov       rcx,[rbp+0FFD0]
 call      System.GC.SuppressFinalize(System.Object)
 mov       rax,rbx
@@ -595,10 +519,10 @@ mov       rbp,[rcx+50]
 mov       [rsp+50],rbp
 lea       rbp,[rbp+90]
 cmp       qword ptr [rbp+0FFD0],0
-je        short 00007FFF60CBB5DB
+je        short 00007FF88AA2BBAB
 mov       rcx,[rbp+0FFD0]
 mov       edx,1
-call      qword ptr [7FFF60CC6BD8]
+call      qword ptr [7FF88AA36AE0]
 mov       rcx,[rbp+0FFD0]
 call      System.GC.SuppressFinalize(System.Object)
 nop
@@ -613,15 +537,11 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.HasProperty()
-            var result = this._person.HasProperty("City");
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
 mov       rcx,[rsi+30]
-mov       rdx,25C22371E40
+mov       rdx,24779D4FE08
 mov       rdx,[rdx]
 call      dotNetTips.Utility.Standard.Extensions.ObjectExtensions.HasProperty(System.Object, System.String)
 mov       rdx,[rsi+8]
@@ -631,14 +551,6 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Standard.Extensions.ObjectExtensions.HasProperty(System.Object, System.String)
-            if (obj is null)
-            ^^^^^^^^^^^^^^^^
-                throw new ArgumentNullException(nameof(obj));
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            var propertyInfo = obj.GetType().GetRuntimeProperties().FirstOrDefault(p => p.Name == propertyName);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            return propertyInfo != null;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rdi
 push      rsi
 push      rbx
@@ -654,12 +566,12 @@ lea       rcx,[rbx+8]
 mov       rdx,rdi
 call      CORINFO_HELP_ASSIGN_REF
 test      rsi,rsi
-je        short 00007FFF60C9D9CE
+je        short 00007FF88AA2DB7E
 mov       rcx,offset MT_System.Func`2[[System.Reflection.PropertyInfo, System.Private.CoreLib],[System.Boolean, System.Private.CoreLib]]
 call      CORINFO_HELP_NEWSFAST
 mov       rdi,rax
 mov       rcx,rsi
-call      00007FFFC03F1F60
+call      00007FF8EA182020
 mov       rcx,rax
 call      System.Reflection.RuntimeReflectionExtensions.GetRuntimeProperties(System.Type)
 mov       rsi,rax
@@ -674,9 +586,9 @@ mov       r8,rdi
 mov       rcx,offset MD_System.Linq.Enumerable.TryGetFirst(System.Collections.Generic.IEnumerable`1<!!0>, System.Func`2<!!0,Boolean>, Boolean ByRef)
 call      System.Linq.Enumerable.TryGetFirst[[System.__Canon, System.Private.CoreLib]](System.Collections.Generic.IEnumerable`1<System.__Canon>, System.Func`2<System.__Canon,Boolean>, Boolean ByRef)
 test      rax,rax
-je        short 00007FFF60C9D9B9
+je        short 00007FF88AA2DB69
 xor       eax,eax
-jmp       short 00007FFF60C9D9BE
+jmp       short 00007FF88AA2DB6E
 mov       eax,1
 test      eax,eax
 sete      al
@@ -690,7 +602,7 @@ mov       rcx,offset MT_System.ArgumentNullException
 call      CORINFO_HELP_NEWSFAST
 mov       rsi,rax
 mov       ecx,0B27
-mov       rdx,7FFF60BE12D8
+mov       rdx,7FF88A9712D8
 call      CORINFO_HELP_STRCNS
 mov       rdx,rax
 mov       rcx,rsi
@@ -702,10 +614,6 @@ int       3
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.IsNotNull()
-            var result = this._person.IsNotNull();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rax,[rcx+30]
 test      rax,rax
 setne     al
@@ -717,10 +625,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.IsNull()
-            var result = this._person.IsNull();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rax,[rcx+30]
 test      rax,rax
 sete      al
@@ -732,19 +636,15 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.StripNull()
-            var result = this._person.StripNull();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
 mov       rcx,[rsi+30]
 test      rcx,rcx
-je        short 00007FFF60C9C689
-call      qword ptr [7FFF60CA06B8]
-jmp       short 00007FFF60C9C696
-mov       rax,1F6390F3060
+je        short 00007FF88AA2C839
+call      qword ptr [7FF88AA306B8]
+jmp       short 00007FF88AA2C846
+mov       rax,1864C103060
 mov       rax,[rax]
 mov       rcx,[rsi+8]
 mov       edx,[rcx]
@@ -772,10 +672,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.ToJson()
-            var result = this._person.ToJson();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -792,18 +688,12 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Standard.Extensions.ObjectExtensions.ToJson(System.Object)
-            if (obj is null)
-            ^^^^^^^^^^^^^^^^
-                ExceptionThrower.ThrowArgumentNullException(nameof(obj));
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            return JsonSerializer.Serialize(obj);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
 test      rsi,rsi
-jne       short 00007FFF60CB172F
-mov       rcx,27184EF3A80
+jne       short 00007FF88AA428BF
+mov       rcx,1F7BE431630
 mov       rcx,[rcx]
 call      dotNetTips.Utility.Standard.Common.ExceptionThrower.ThrowArgumentNullException(System.String)
 mov       rcx,rsi
@@ -815,16 +705,12 @@ jmp       rax
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Extensions.ObjectExtensionsPerfTestRunner.TryDispose()
-            DataTable disposableType = new DataTable("TEST");
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            disposableType.TryDispose();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rcx,offset MT_System.Data.DataTable
 call      CORINFO_HELP_NEWFAST
 mov       rsi,rax
-mov       rdx,2162FB63A58
+mov       rdx,24C0D9A1608
 mov       rdx,[rdx]
 mov       rcx,rsi
 call      System.Data.DataTable..ctor(System.String)
@@ -844,10 +730,10 @@ mov       rdi,rdx
 mov       rcx,rsi
 call      System.Data.DataTable..ctor()
 test      rdi,rdi
-je        short 00007FFF60C7FBAE
+je        short 00007FF88AA4FD5E
 mov       rdx,rdi
-jmp       short 00007FFF60C7FBBB
-mov       rdx,2162FB63060
+jmp       short 00007FF88AA4FD6B
+mov       rdx,24BFD9A3060
 mov       rdx,[rdx]
 lea       rcx,[rsi+70]
 call      CORINFO_HELP_ASSIGN_REF
@@ -858,24 +744,6 @@ pop       rdi
 ret
 
 dotNetTips.Utility.Standard.Extensions.ObjectExtensions.TryDispose(System.IDisposable, Boolean)
-            if (obj.IsNull())
-            ^^^^^^^^^^^^^^^^^
-                throw new ArgumentNullException(nameof(obj));
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                if (obj is IAsyncDisposable asyncDisposable)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    asyncDisposable.DisposeAsync();
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    obj.Dispose();
-                    ^^^^^^^^^^^^^^
-                obj = null;
-                ^^^^^^^^^^^
-            catch
-            ^^^^^
-                if (throwException)
-                ^^^^^^^^^^^^^^^^^^^
-                    throw;
-                    ^^^^^^
 push      rbp
 push      rsi
 sub       rsp,38
@@ -887,22 +755,22 @@ mov       [rbp+0FFE0],rsp
 mov       [rbp+18],edx
 mov       rsi,rcx
 test      rsi,rsi
-je        short 00007FFF60C810C3
+je        short 00007FF88AA51273
 mov       rdx,rsi
 mov       rcx,offset MT_System.IAsyncDisposable
 call      CORINFO_HELP_ISINSTANCEOFINTERFACE
 test      rax,rax
-je        short 00007FFF60C810A6
+je        short 00007FF88AA51256
 lea       rdx,[rbp+0FFE8]
 mov       rcx,rax
-mov       r11,7FFF607F0558
+mov       r11,7FF88A5C0558
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C90558]
-jmp       short 00007FFF60C810BC
+call      qword ptr [7FF88AA60558]
+jmp       short 00007FF88AA5126C
 mov       rcx,rsi
-mov       r11,7FFF607F0550
+mov       r11,7FF88A5C0550
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C90550]
+call      qword ptr [7FF88AA60550]
 nop
 lea       rsp,[rbp+0FFF8]
 pop       rsi
@@ -912,7 +780,7 @@ mov       rcx,offset MT_System.ArgumentNullException
 call      CORINFO_HELP_NEWSFAST
 mov       rsi,rax
 mov       ecx,0B27
-mov       rdx,7FFF60BC12D8
+mov       rdx,7FF88A9912D8
 call      CORINFO_HELP_STRCNS
 mov       rdx,rax
 mov       rcx,rsi
@@ -927,9 +795,9 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+40]
 cmp       byte ptr [rbp+18],0
-je        short 00007FFF60C8111B
+je        short 00007FF88AA512CB
 call      CORINFO_HELP_RETHROW
-lea       rax,[7FFF60C910BC]
+lea       rax,[7FF88AA6126C]
 add       rsp,28
 pop       rsi
 pop       rbp

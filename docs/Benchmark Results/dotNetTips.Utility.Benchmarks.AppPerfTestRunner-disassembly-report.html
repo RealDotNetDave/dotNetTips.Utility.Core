@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>DisassemblyDiagnoser Output dotNetTips.Utility.Benchmarks.AppPerfTestRunner-20210228-133602</title>
+<title>DisassemblyDiagnoser Output dotNetTips.Utility.Benchmarks.AppPerfTestRunner-20210503-175746</title>
 
 <style type="text/css">
     table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -14,25 +14,21 @@
 <body>
 <table>
 <thead>
-<tr><th colspan="7">dotNetTips.Utility.Benchmarks.AppPerfTestRunner-20210228-133602</th></tr>
+<tr><th colspan="7">dotNetTips.Utility.Benchmarks.AppPerfTestRunner-20210503-175746</th></tr>
 <tr>
-<th>GetEnvironmentVariables .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>IsProcessRunning .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>IsRunning .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>IsRunningFromAspNet .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>ReferencedAssemblies .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>StackTrace .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>WorkingSet .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>GetEnvironmentVariables .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>IsProcessRunning .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>IsRunning .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>IsRunningFromAspNet .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>ReferencedAssemblies .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>StackTrace .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>WorkingSet .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.AppPerfTestRunner.GetEnvironmentVariables()
-            var result = App.GetEnvironmentVariables();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -60,16 +56,12 @@ mov       ecx,0C
 xor       eax,eax
 rep stosd
 mov       [rbp+0FFA0],rsp
-            var variables = Environment.GetEnvironmentVariables();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 call      System.Environment.GetEnvironmentVariables()
 mov       rsi,rax
-            var builder = ImmutableDictionary.CreateBuilder<string, string>();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-mov       rcx,7FFF60C90448
+mov       rcx,7FF88AA00448
 xor       edx,edx
 call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-mov       rcx,1EAE0D33778
+mov       rcx,234E23DBBD8
 mov       rdi,[rcx]
 mov       ecx,[rdi]
 mov       rcx,offset MT_System.Collections.Immutable.ImmutableDictionary`2+Builder[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]]
@@ -78,27 +70,25 @@ mov       rbx,rax
 mov       rcx,rbx
 mov       rdx,rdi
 call      System.Collections.Immutable.ImmutableDictionary`2+Builder[[System.__Canon, System.Private.CoreLib],[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Immutable.ImmutableDictionary`2<System.__Canon,System.__Canon>)
-            foreach (DictionaryEntry variable in variables)
-                                                 ^^^^^^^^^
 mov       rcx,rsi
-mov       r11,7FFF60820428
+mov       r11,7FF88A590428
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C10428]
+call      qword ptr [7FF88A980428]
 mov       [rbp+0FFB0],rax
 mov       rcx,[rbp+0FFB0]
-mov       r11,7FFF60820430
+mov       r11,7FF88A590430
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C10430]
+call      qword ptr [7FF88A980430]
 test      eax,eax
-je        near ptr 00007FFF60C09B36
+je        near ptr 00007FF88A979BE6
 mov       rcx,[rbp+0FFB0]
-mov       r11,7FFF60820438
+mov       r11,7FF88A590438
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C10438]
+call      qword ptr [7FF88A980438]
 mov       rsi,rax
 mov       rdx,offset MT_System.Collections.DictionaryEntry
 cmp       [rsi],rdx
-je        short 00007FFF60C09A8A
+je        short 00007FF88A979B3A
 mov       rdx,rsi
 mov       rcx,offset MT_System.Collections.DictionaryEntry
 call      CORINFO_HELP_UNBOX
@@ -139,24 +129,22 @@ mov       rcx,rbx
 lea       rdx,[rbp+0FFB8]
 call      System.Collections.Immutable.ImmutableDictionary`2+Builder[[System.__Canon, System.Private.CoreLib],[System.__Canon, System.Private.CoreLib]].Apply(MutationResult<System.__Canon,System.__Canon>)
 mov       rcx,[rbp+0FFB0]
-mov       r11,7FFF60820430
+mov       r11,7FF88A590430
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C10430]
+call      qword ptr [7FF88A980430]
 test      eax,eax
-jne       near ptr 00007FFF60C09A50
+jne       near ptr 00007FF88A979B00
 mov       rdx,[rbp+0FFB0]
 mov       rcx,offset MT_System.IDisposable
 call      CORINFO_HELP_ISINSTANCEOFINTERFACE
 test      rax,rax
-je        short 00007FFF60C09B63
+je        short 00007FF88A979C13
 mov       rcx,rax
-mov       r11,7FFF60820440
+mov       r11,7FF88A590440
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C10440]
-            return builder.ToImmutable();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+call      qword ptr [7FF88A980440]
 cmp       qword ptr [rbx+18],0
-jne       short 00007FFF60C09B91
+jne       short 00007FF88A979C41
 mov       r9d,[rbx+28]
 mov       rdx,[rbx+8]
 mov       r8,[rbx+10]
@@ -185,11 +173,11 @@ mov       rdx,[rbp+0FFB0]
 mov       rcx,offset MT_System.IDisposable
 call      CORINFO_HELP_ISINSTANCEOFINTERFACE
 test      rax,rax
-je        short 00007FFF60C09BE6
+je        short 00007FF88A979C96
 mov       rcx,rax
-mov       r11,7FFF60820440
+mov       r11,7FF88A590440
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C10440]
+call      qword ptr [7FF88A980440]
 nop
 add       rsp,38
 pop       rbx
@@ -201,14 +189,10 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.AppPerfTestRunner.IsProcessRunning()
-            var result = App.IsProcessRunning("devenv");
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
-mov       rcx,16D41BC1788
+mov       rcx,288829F1788
 mov       rcx,[rcx]
 call      dotNetTips.Utility.Standard.App.IsProcessRunning(System.String)
 mov       rdx,[rsi+8]
@@ -218,37 +202,33 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Standard.App.IsProcessRunning(System.String)
-            Encapsulation.TryValidateParam<ArgumentNullException>(string.IsNullOrEmpty(processName) == false, "Process name is required.");
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            return Process.GetProcessesByName(processName).HasItems();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
 test      rsi,rsi
-je        short 00007FFF60BF34A7
+je        short 00007FF88A9B2E27
 cmp       dword ptr [rsi+8],0
-jbe       short 00007FFF60BF34A7
+jbe       short 00007FF88A9B2E27
 xor       edx,edx
-jmp       short 00007FFF60BF34AC
+jmp       short 00007FF88A9B2E2C
 mov       edx,1
 test      edx,edx
 sete      dl
 movzx     edx,dl
-mov       r9,16D51BC3060
+mov       r9,288629F3060
 mov       r9,[r9]
-mov       r8,16D41BC1790
+mov       r8,288829F1790
 mov       r8,[r8]
 mov       rcx,offset MD_dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(Boolean, System.String, System.String)
 call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam[[System.__Canon, System.Private.CoreLib]](Boolean, System.String, System.String)
 mov       rcx,rsi
 call      System.Diagnostics.Process.GetProcessesByName(System.String)
 test      rax,rax
-jne       short 00007FFF60BF34EE
+jne       short 00007FF88A9B2E6E
 xor       eax,eax
-jmp       short 00007FFF60BF34FE
+jmp       short 00007FF88A9B2E7E
 mov       rcx,rax
-call      00007FFFC043DA80
+call      00007FF8EA1CDBD0
 test      eax,eax
 setg      al
 movzx     eax,al
@@ -259,10 +239,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.AppPerfTestRunner.IsRunning()
-            var result = App.IsRunning();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -274,8 +250,6 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Standard.App.IsRunning()
-            return Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName).HasItems();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 call      System.Diagnostics.Process.GetCurrentProcess()
@@ -288,11 +262,11 @@ mov       rcx,[rsi+28]
 mov       rcx,[rcx+10]
 call      System.Diagnostics.Process.GetProcessesByName(System.String)
 test      rax,rax
-jne       short 00007FFF60C01CA2
+jne       short 00007FF88A991F72
 xor       eax,eax
-jmp       short 00007FFF60C01CB2
+jmp       short 00007FF88A991F82
 mov       rcx,rax
-call      00007FFFC043DA80
+call      00007FF8EA1CDBD0
 test      eax,eax
 setg      al
 movzx     eax,al
@@ -303,10 +277,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.AppPerfTestRunner.IsRunningFromAspNet()
-            var result = App.IsRunningFromAspNet();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -318,9 +288,7 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Standard.App.IsRunningFromAspNet()
-            return (!string.IsNullOrEmpty(AppDomain.CurrentDomain.DynamicDirectory)) && AppDomain.CurrentDomain.DynamicDirectory.Contains(_tempAspFiles);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-mov       rax,22457ED11F8
+mov       rax,1641E9611F8
 mov       rax,[rax]
 mov       eax,[rax]
 xor       eax,eax
@@ -329,10 +297,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.AppPerfTestRunner.ReferencedAssemblies()
-            var result = App.ReferencedAssemblies();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -352,17 +316,13 @@ push      rdi
 push      rsi
 push      rbx
 sub       rsp,20
-            var referencedAssemblies = new List<string>();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rcx,offset MT_System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]]
 call      CORINFO_HELP_NEWSFAST
 mov       rsi,rax
-mov       rdx,1C99F804870
+mov       rdx,1587F0F4870
 mov       rdx,[rdx]
 lea       rcx,[rsi+8]
 call      CORINFO_HELP_ASSIGN_REF
-            for (var assemblyCount = 0; assemblyCount < Assembly.GetEntryAssembly().GetReferencedAssemblies().Length; assemblyCount++)
-                 ^^^^^^^^^^^^^^^^^^^^^
 xor       edi,edi
 call      System.Reflection.Assembly.GetEntryAssembly()
 mov       rcx,rax
@@ -370,14 +330,14 @@ mov       rax,[rax]
 mov       rax,[rax+68]
 call      qword ptr [rax]
 cmp       dword ptr [rax+8],0
-jle       near ptr 00007FFF60BE9340
+jle       near ptr 00007FF88A9A9340
 call      System.Reflection.Assembly.GetEntryAssembly()
 mov       rcx,rax
 mov       rax,[rax]
 mov       rax,[rax+68]
 call      qword ptr [rax]
 cmp       edi,[rax+8]
-jae       near ptr 00007FFF60BE9377
+jae       near ptr 00007FF88A9A9377
 movsxd    rcx,edi
 mov       rbx,[rax+rcx*8+10]
 mov       ecx,[rbx]
@@ -385,24 +345,24 @@ mov       rcx,rbx
 call      System.Reflection.AssemblyName.get_FullName()
 mov       rdx,rax
 test      rdx,rdx
-jne       short 00007FFF60BE92FA
+jne       short 00007FF88A9A92FA
 mov       rcx,rbx
-call      00007FFFC03F1F60
+call      00007FF8EA182020
 mov       rcx,rax
 mov       edx,1
 call      System.RuntimeType.GetCachedName(System.TypeNameKind)
 mov       r8,rax
-jmp       short 00007FFF60BE92FD
+jmp       short 00007FF88A9A92FD
 mov       r8,rdx
 inc       dword ptr [rsi+14]
 mov       rcx,[rsi+8]
 mov       edx,[rsi+10]
 cmp       [rcx+8],edx
-jbe       short 00007FFF60BE9319
+jbe       short 00007FF88A9A9319
 lea       eax,[rdx+1]
 mov       [rsi+10],eax
 call      CORINFO_HELP_ARRADDR_ST
-jmp       short 00007FFF60BE9324
+jmp       short 00007FF88A9A9324
 mov       rcx,rsi
 mov       rdx,r8
 call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
@@ -413,11 +373,11 @@ mov       rax,[rax]
 mov       rax,[rax+68]
 call      qword ptr [rax]
 cmp       [rax+8],edi
-jg        near ptr 00007FFF60BE92AC
-mov       rcx,7FFF60C70448
+jg        near ptr 00007FF88A9A92AC
+mov       rcx,7FF88AA30448
 xor       edx,edx
 call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-mov       rcx,1C99F8048D8
+mov       rcx,1587F0F48D8
 mov       rcx,[rcx]
 mov       rdx,rsi
 mov       rax,offset System.Collections.Immutable.ImmutableList`1[[System.__Canon, System.Private.CoreLib]].AddRange(System.Collections.Generic.IEnumerable`1<System.__Canon>)
@@ -433,10 +393,6 @@ int       3
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.AppPerfTestRunner.StackTrace()
-            var result = App.StackTrace;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -473,10 +429,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.AppPerfTestRunner.WorkingSet()
-            var result = App.WorkingSet;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -520,16 +472,16 @@ mov       [rax+40],r11
 mov       dword ptr [rbp+0FF80],48
 mov       rax,offset MD_Interop+Kernel32.GetCurrentProcess()
 mov       [rbp+0FF50],rax
-lea       rax,[7FFF60BF8CE1]
+lea       rax,[7FF88A978FC1]
 mov       [rbp+0FF68],rax
 lea       rax,[rbp+0FF40]
 mov       [rsi+10],rax
 mov       byte ptr [rsi+0C],0
-call      qword ptr [7FFF60C02810]
+call      qword ptr [7FF88A982810]
 mov       byte ptr [rsi+0C],1
-cmp       dword ptr [7FFF60C07BD8],0
-je        short 00007FFF60BF8CF4
-call      qword ptr [7FFF60BFB278]
+cmp       dword ptr [7FF88A987BA8],0
+je        short 00007FF88A978FD4
+call      qword ptr [7FF88A97B278]
 mov       rcx,[rbp+0FF48]
 mov       [rsi+10],rcx
 mov       rcx,rax
@@ -537,9 +489,9 @@ lea       rdx,[rbp+0FF80]
 mov       r8d,[rbp+0FF80]
 call      Interop+Kernel32.GetProcessMemoryInfo(IntPtr, PROCESS_MEMORY_COUNTERS ByRef, UInt32)
 test      eax,eax
-jne       short 00007FFF60BF8D17
+jne       short 00007FF88A978FF7
 xor       eax,eax
-jmp       short 00007FFF60BF8D1B
+jmp       short 00007FF88A978FFB
 mov       rax,[rbp+0FF90]
 mov       byte ptr [rsi+0C],1
 lea       rsp,[rbp+0FFC8]

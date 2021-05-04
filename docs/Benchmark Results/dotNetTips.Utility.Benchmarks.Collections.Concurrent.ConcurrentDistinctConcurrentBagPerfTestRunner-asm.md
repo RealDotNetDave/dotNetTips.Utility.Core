@@ -1,10 +1,6 @@
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.Creating01()
-;             var fakePeople = new DistinctConcurrentBag<PersonProper>(this.personProperCollection);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(fakePeople);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -29,24 +25,6 @@
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
-;         private readonly HashSet<int> _hashCodes = new HashSet<int>();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         private readonly object _lock = new object();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         public DistinctConcurrentBag(IEnumerable<T> collection)
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             if (collection != null)
-;             ^^^^^^^^^^^^^^^^^^^^^^^
-;                 collection.ToList().ForEach(item =>
-;                 ^^^
-;                 {
-;                 ^^^
-;                     this.Add(item);
-;                 ^^^
-;                 });
-;                 ^^^
-;         }
-;         ^
        push      rdi
        push      rsi
        push      rbp
@@ -58,7 +36,7 @@
        mov       rcx,offset MT_System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
-       mov       rdx,1FD281468E0
+       mov       rdx,22315058D30
        mov       rdx,[rdx]
        mov       rcx,rbx
        call      System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEqualityComparer`1<Int32>)
@@ -81,7 +59,7 @@
        mov       rax,[rbp+8]
        test      rax,rax
        jne       short M01_L00
-       mov       rdx,7FFF60CA4B90
+       mov       rdx,7FF88AA34B00
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L00:
        mov       rcx,rax
@@ -92,7 +70,7 @@ M01_L00:
        mov       rax,[rbp+10]
        test      rax,rax
        jne       short M01_L01
-       mov       rdx,7FFF60CA4CD0
+       mov       rdx,7FF88AA34C40
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L01:
        mov       rcx,rax
@@ -123,13 +101,9 @@ M01_L02:
 ; Total bytes of code 268
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.Creating01()
-;             var fakePeople = new DistinctConcurrentBag<PersonProper>(this.personProperCollection);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(fakePeople);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -154,24 +128,6 @@ M01_L02:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
-;         private readonly HashSet<int> _hashCodes = new HashSet<int>();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         private readonly object _lock = new object();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         public DistinctConcurrentBag(IEnumerable<T> collection)
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             if (collection != null)
-;             ^^^^^^^^^^^^^^^^^^^^^^^
-;                 collection.ToList().ForEach(item =>
-;                 ^^^
-;                 {
-;                 ^^^
-;                     this.Add(item);
-;                 ^^^
-;                 });
-;                 ^^^
-;         }
-;         ^
        push      rdi
        push      rsi
        push      rbp
@@ -183,7 +139,7 @@ M01_L02:
        mov       rcx,offset MT_System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
-       mov       rdx,225C25048C8
+       mov       rdx,1B5F9DB8D30
        mov       rdx,[rdx]
        mov       rcx,rbx
        call      System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEqualityComparer`1<Int32>)
@@ -206,7 +162,7 @@ M01_L02:
        mov       rax,[rbp+8]
        test      rax,rax
        jne       short M01_L00
-       mov       rdx,7FFF60C94D08
+       mov       rdx,7FF88AA14B78
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L00:
        mov       rcx,rax
@@ -217,7 +173,7 @@ M01_L00:
        mov       rax,[rbp+10]
        test      rax,rax
        jne       short M01_L01
-       mov       rdx,7FFF60C94E48
+       mov       rdx,7FF88AA14CB8
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L01:
        mov       rcx,rax
@@ -248,13 +204,9 @@ M01_L02:
 ; Total bytes of code 268
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.Creating01()
-;             var fakePeople = new DistinctConcurrentBag<PersonProper>(this.personProperCollection);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(fakePeople);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -279,24 +231,6 @@ M01_L02:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
-;         private readonly HashSet<int> _hashCodes = new HashSet<int>();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         private readonly object _lock = new object();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         public DistinctConcurrentBag(IEnumerable<T> collection)
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             if (collection != null)
-;             ^^^^^^^^^^^^^^^^^^^^^^^
-;                 collection.ToList().ForEach(item =>
-;                 ^^^
-;                 {
-;                 ^^^
-;                     this.Add(item);
-;                 ^^^
-;                 });
-;                 ^^^
-;         }
-;         ^
        push      rdi
        push      rsi
        push      rbp
@@ -308,7 +242,7 @@ M01_L02:
        mov       rcx,offset MT_System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
-       mov       rdx,20FC5B248C8
+       mov       rdx,18BDECD8D30
        mov       rdx,[rdx]
        mov       rcx,rbx
        call      System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEqualityComparer`1<Int32>)
@@ -331,7 +265,7 @@ M01_L02:
        mov       rax,[rbp+8]
        test      rax,rax
        jne       short M01_L00
-       mov       rdx,7FFF60C94D08
+       mov       rdx,7FF88AA15400
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L00:
        mov       rcx,rax
@@ -342,7 +276,7 @@ M01_L00:
        mov       rax,[rbp+10]
        test      rax,rax
        jne       short M01_L01
-       mov       rdx,7FFF60C94E48
+       mov       rdx,7FF88AA15540
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L01:
        mov       rcx,rax
@@ -373,13 +307,9 @@ M01_L02:
 ; Total bytes of code 268
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.Creating01()
-;             var fakePeople = new DistinctConcurrentBag<PersonProper>(this.personProperCollection);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(fakePeople);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -404,24 +334,6 @@ M01_L02:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
-;         private readonly HashSet<int> _hashCodes = new HashSet<int>();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         private readonly object _lock = new object();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         public DistinctConcurrentBag(IEnumerable<T> collection)
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             if (collection != null)
-;             ^^^^^^^^^^^^^^^^^^^^^^^
-;                 collection.ToList().ForEach(item =>
-;                 ^^^
-;                 {
-;                 ^^^
-;                     this.Add(item);
-;                 ^^^
-;                 });
-;                 ^^^
-;         }
-;         ^
        push      rdi
        push      rsi
        push      rbp
@@ -433,7 +345,7 @@ M01_L02:
        mov       rcx,offset MT_System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
-       mov       rdx,21DF1E88D30
+       mov       rdx,1E448F348C8
        mov       rdx,[rdx]
        mov       rcx,rbx
        call      System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEqualityComparer`1<Int32>)
@@ -456,7 +368,7 @@ M01_L02:
        mov       rax,[rbp+8]
        test      rax,rax
        jne       short M01_L00
-       mov       rdx,7FFF60C954C0
+       mov       rdx,7FF88AA455F0
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L00:
        mov       rcx,rax
@@ -467,7 +379,7 @@ M01_L00:
        mov       rax,[rbp+10]
        test      rax,rax
        jne       short M01_L01
-       mov       rdx,7FFF60C95600
+       mov       rdx,7FF88AA45730
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L01:
        mov       rcx,rax
@@ -498,13 +410,9 @@ M01_L02:
 ; Total bytes of code 268
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.Creating01()
-;             var fakePeople = new DistinctConcurrentBag<PersonProper>(this.personProperCollection);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(fakePeople);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -529,24 +437,6 @@ M01_L02:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
-;         private readonly HashSet<int> _hashCodes = new HashSet<int>();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         private readonly object _lock = new object();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         public DistinctConcurrentBag(IEnumerable<T> collection)
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             if (collection != null)
-;             ^^^^^^^^^^^^^^^^^^^^^^^
-;                 collection.ToList().ForEach(item =>
-;                 ^^^
-;                 {
-;                 ^^^
-;                     this.Add(item);
-;                 ^^^
-;                 });
-;                 ^^^
-;         }
-;         ^
        push      rdi
        push      rsi
        push      rbp
@@ -558,7 +448,7 @@ M01_L02:
        mov       rcx,offset MT_System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
-       mov       rdx,215B1A98D30
+       mov       rdx,1C0D7418D30
        mov       rdx,[rdx]
        mov       rcx,rbx
        call      System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEqualityComparer`1<Int32>)
@@ -581,7 +471,7 @@ M01_L02:
        mov       rax,[rbp+8]
        test      rax,rax
        jne       short M01_L00
-       mov       rdx,7FFF60CA52D0
+       mov       rdx,7FF88AA254C0
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L00:
        mov       rcx,rax
@@ -592,7 +482,7 @@ M01_L00:
        mov       rax,[rbp+10]
        test      rax,rax
        jne       short M01_L01
-       mov       rdx,7FFF60CA5410
+       mov       rdx,7FF88AA25600
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L01:
        mov       rcx,rax
@@ -623,13 +513,9 @@ M01_L02:
 ; Total bytes of code 268
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.Creating01()
-;             var fakePeople = new DistinctConcurrentBag<PersonProper>(this.personProperCollection);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(fakePeople);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -654,24 +540,6 @@ M01_L02:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
-;         private readonly HashSet<int> _hashCodes = new HashSet<int>();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         private readonly object _lock = new object();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         public DistinctConcurrentBag(IEnumerable<T> collection)
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             if (collection != null)
-;             ^^^^^^^^^^^^^^^^^^^^^^^
-;                 collection.ToList().ForEach(item =>
-;                 ^^^
-;                 {
-;                 ^^^
-;                     this.Add(item);
-;                 ^^^
-;                 });
-;                 ^^^
-;         }
-;         ^
        push      rdi
        push      rsi
        push      rbp
@@ -683,7 +551,7 @@ M01_L02:
        mov       rcx,offset MT_System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
-       mov       rdx,1799F5F8D30
+       mov       rdx,1FA487F8D30
        mov       rdx,[rdx]
        mov       rcx,rbx
        call      System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEqualityComparer`1<Int32>)
@@ -706,7 +574,7 @@ M01_L02:
        mov       rax,[rbp+8]
        test      rax,rax
        jne       short M01_L00
-       mov       rdx,7FFF60CC55F0
+       mov       rdx,7FF88AA252D0
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L00:
        mov       rcx,rax
@@ -717,7 +585,7 @@ M01_L00:
        mov       rax,[rbp+10]
        test      rax,rax
        jne       short M01_L01
-       mov       rdx,7FFF60CC5730
+       mov       rdx,7FF88AA25410
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L01:
        mov       rcx,rax
@@ -748,13 +616,9 @@ M01_L02:
 ; Total bytes of code 268
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.Creating01()
-;             var fakePeople = new DistinctConcurrentBag<PersonProper>(this.personProperCollection);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(fakePeople);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -779,24 +643,6 @@ M01_L02:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEnumerable`1<System.__Canon>)
-;         private readonly HashSet<int> _hashCodes = new HashSet<int>();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         private readonly object _lock = new object();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         public DistinctConcurrentBag(IEnumerable<T> collection)
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             if (collection != null)
-;             ^^^^^^^^^^^^^^^^^^^^^^^
-;                 collection.ToList().ForEach(item =>
-;                 ^^^
-;                 {
-;                 ^^^
-;                     this.Add(item);
-;                 ^^^
-;                 });
-;                 ^^^
-;         }
-;         ^
        push      rdi
        push      rsi
        push      rbp
@@ -808,7 +654,7 @@ M01_L02:
        mov       rcx,offset MT_System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
-       mov       rdx,20EE7998D30
+       mov       rdx,1F951948D30
        mov       rdx,[rdx]
        mov       rcx,rbx
        call      System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEqualityComparer`1<Int32>)
@@ -831,7 +677,7 @@ M01_L02:
        mov       rax,[rbp+8]
        test      rax,rax
        jne       short M01_L00
-       mov       rdx,7FFF60CC52D0
+       mov       rdx,7FF88AA352D0
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L00:
        mov       rcx,rax
@@ -842,7 +688,7 @@ M01_L00:
        mov       rax,[rbp+10]
        test      rax,rax
        jne       short M01_L01
-       mov       rdx,7FFF60CC5410
+       mov       rdx,7FF88AA35410
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L01:
        mov       rcx,rax
@@ -873,15 +719,9 @@ M01_L02:
 ; Total bytes of code 268
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.Creating02()
-;             var fakePeople = new DistinctConcurrentBag<PersonProper>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             this.personProperCollection.ForEach(p => { fakePeople.Add(p); });
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(fakePeople);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        push      rbp
@@ -928,12 +768,6 @@ M01_L02:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]]..ctor()
-;         private readonly HashSet<int> _hashCodes = new HashSet<int>();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         private readonly object _lock = new object();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         public DistinctConcurrentBag()
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -941,7 +775,7 @@ M01_L02:
        mov       rcx,offset MT_System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
-       mov       rdx,19F388A8D30
+       mov       rdx,2258F4F48C8
        mov       rdx,[rdx]
        mov       rcx,rdi
        call      System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEqualityComparer`1<Int32>)
@@ -963,8 +797,6 @@ M01_L02:
 ```
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
-;             this.personProperCollection.ForEach(p => { fakePeople.Add(p); });
-;                                                        ^^^^^^^^^^^^^^^^^^
        mov       rcx,[rcx+8]
        mov       rax,offset dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]].Add(System.__Canon)
        cmp       [rcx],ecx
@@ -1027,15 +859,9 @@ M03_L04:
 ; Total bytes of code 121
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.Creating02()
-;             var fakePeople = new DistinctConcurrentBag<PersonProper>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             this.personProperCollection.ForEach(p => { fakePeople.Add(p); });
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(fakePeople);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        push      rbp
@@ -1082,12 +908,6 @@ M03_L04:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]]..ctor()
-;         private readonly HashSet<int> _hashCodes = new HashSet<int>();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         private readonly object _lock = new object();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         public DistinctConcurrentBag()
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -1095,7 +915,7 @@ M03_L04:
        mov       rcx,offset MT_System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
-       mov       rdx,1E74B9548C8
+       mov       rdx,2121C4A68E0
        mov       rdx,[rdx]
        mov       rcx,rdi
        call      System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEqualityComparer`1<Int32>)
@@ -1117,8 +937,6 @@ M03_L04:
 ```
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
-;             this.personProperCollection.ForEach(p => { fakePeople.Add(p); });
-;                                                        ^^^^^^^^^^^^^^^^^^
        mov       rcx,[rcx+8]
        mov       rax,offset dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]].Add(System.__Canon)
        cmp       [rcx],ecx
@@ -1181,15 +999,9 @@ M03_L04:
 ; Total bytes of code 121
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.Creating02()
-;             var fakePeople = new DistinctConcurrentBag<PersonProper>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             this.personProperCollection.ForEach(p => { fakePeople.Add(p); });
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(fakePeople);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        push      rbp
@@ -1236,12 +1048,6 @@ M03_L04:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]]..ctor()
-;         private readonly HashSet<int> _hashCodes = new HashSet<int>();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         private readonly object _lock = new object();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         public DistinctConcurrentBag()
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -1249,7 +1055,7 @@ M03_L04:
        mov       rcx,offset MT_System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
-       mov       rdx,19185DC48C8
+       mov       rdx,14159E68D30
        mov       rdx,[rdx]
        mov       rcx,rdi
        call      System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEqualityComparer`1<Int32>)
@@ -1271,8 +1077,6 @@ M03_L04:
 ```
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
-;             this.personProperCollection.ForEach(p => { fakePeople.Add(p); });
-;                                                        ^^^^^^^^^^^^^^^^^^
        mov       rcx,[rcx+8]
        mov       rax,offset dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]].Add(System.__Canon)
        cmp       [rcx],ecx
@@ -1335,15 +1139,9 @@ M03_L04:
 ; Total bytes of code 121
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.Creating02()
-;             var fakePeople = new DistinctConcurrentBag<PersonProper>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             this.personProperCollection.ForEach(p => { fakePeople.Add(p); });
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(fakePeople);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        push      rbp
@@ -1390,12 +1188,6 @@ M03_L04:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]]..ctor()
-;         private readonly HashSet<int> _hashCodes = new HashSet<int>();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         private readonly object _lock = new object();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         public DistinctConcurrentBag()
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -1403,7 +1195,7 @@ M03_L04:
        mov       rcx,offset MT_System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
-       mov       rdx,199A5388D30
+       mov       rdx,294B7F18D30
        mov       rdx,[rdx]
        mov       rcx,rdi
        call      System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEqualityComparer`1<Int32>)
@@ -1425,8 +1217,6 @@ M03_L04:
 ```
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
-;             this.personProperCollection.ForEach(p => { fakePeople.Add(p); });
-;                                                        ^^^^^^^^^^^^^^^^^^
        mov       rcx,[rcx+8]
        mov       rax,offset dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]].Add(System.__Canon)
        cmp       [rcx],ecx
@@ -1489,15 +1279,9 @@ M03_L04:
 ; Total bytes of code 121
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.Creating02()
-;             var fakePeople = new DistinctConcurrentBag<PersonProper>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             this.personProperCollection.ForEach(p => { fakePeople.Add(p); });
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(fakePeople);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        push      rbp
@@ -1544,12 +1328,6 @@ M03_L04:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]]..ctor()
-;         private readonly HashSet<int> _hashCodes = new HashSet<int>();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         private readonly object _lock = new object();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         public DistinctConcurrentBag()
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -1557,7 +1335,7 @@ M03_L04:
        mov       rcx,offset MT_System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
-       mov       rdx,235C3918D30
+       mov       rdx,1AC3E148D30
        mov       rdx,[rdx]
        mov       rcx,rdi
        call      System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEqualityComparer`1<Int32>)
@@ -1579,8 +1357,6 @@ M03_L04:
 ```
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
-;             this.personProperCollection.ForEach(p => { fakePeople.Add(p); });
-;                                                        ^^^^^^^^^^^^^^^^^^
        mov       rcx,[rcx+8]
        mov       rax,offset dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]].Add(System.__Canon)
        cmp       [rcx],ecx
@@ -1643,15 +1419,9 @@ M03_L04:
 ; Total bytes of code 121
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.Creating02()
-;             var fakePeople = new DistinctConcurrentBag<PersonProper>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             this.personProperCollection.ForEach(p => { fakePeople.Add(p); });
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(fakePeople);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        push      rbp
@@ -1698,12 +1468,6 @@ M03_L04:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]]..ctor()
-;         private readonly HashSet<int> _hashCodes = new HashSet<int>();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         private readonly object _lock = new object();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         public DistinctConcurrentBag()
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -1711,7 +1475,7 @@ M03_L04:
        mov       rcx,offset MT_System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
-       mov       rdx,20CA0558D30
+       mov       rdx,20CF4968D30
        mov       rdx,[rdx]
        mov       rcx,rdi
        call      System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEqualityComparer`1<Int32>)
@@ -1733,8 +1497,6 @@ M03_L04:
 ```
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
-;             this.personProperCollection.ForEach(p => { fakePeople.Add(p); });
-;                                                        ^^^^^^^^^^^^^^^^^^
        mov       rcx,[rcx+8]
        mov       rax,offset dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]].Add(System.__Canon)
        cmp       [rcx],ecx
@@ -1797,15 +1559,9 @@ M03_L04:
 ; Total bytes of code 121
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.Creating02()
-;             var fakePeople = new DistinctConcurrentBag<PersonProper>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             this.personProperCollection.ForEach(p => { fakePeople.Add(p); });
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(fakePeople);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        push      rbp
@@ -1852,12 +1608,6 @@ M03_L04:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]]..ctor()
-;         private readonly HashSet<int> _hashCodes = new HashSet<int>();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         private readonly object _lock = new object();
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         public DistinctConcurrentBag()
-;         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -1865,7 +1615,7 @@ M03_L04:
        mov       rcx,offset MT_System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
-       mov       rdx,1C19DEB8D30
+       mov       rdx,218DBF58D30
        mov       rdx,[rdx]
        mov       rcx,rdi
        call      System.Collections.Generic.HashSet`1[[System.Int32, System.Private.CoreLib]]..ctor(System.Collections.Generic.IEqualityComparer`1<Int32>)
@@ -1887,8 +1637,6 @@ M03_L04:
 ```
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
-;             this.personProperCollection.ForEach(p => { fakePeople.Add(p); });
-;                                                        ^^^^^^^^^^^^^^^^^^
        mov       rcx,[rcx+8]
        mov       rax,offset dotNetTips.Utility.Standard.Collections.Generic.Concurrent.DistinctConcurrentBag`1[[System.__Canon, System.Private.CoreLib]].Add(System.__Canon)
        cmp       [rcx],ecx
@@ -1951,7 +1699,7 @@ M03_L04:
 ; Total bytes of code 121
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.LoopingForEach01()
        push      rbp
@@ -1962,40 +1710,38 @@ M03_L04:
        lea       rbp,[rsp+50]
        mov       [rbp+0FFD0],rsp
        mov       rsi,rcx
-;             foreach (var person in this._distinctConcurrentBag)
-;                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rdi,[rsi+88]
        mov       ecx,[rdi]
        mov       rcx,offset MT_System.Collections.Concurrent.ConcurrentBag`1+Enumerator[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
        mov       rcx,rdi
-       call      qword ptr [7FFF60C43B20]
+       call      qword ptr [7FF88A9C3A30]
        lea       rcx,[rbx+8]
        mov       rdx,rax
        call      CORINFO_HELP_ASSIGN_REF
        mov       [rbp+0FFE0],rbx
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C42770]
+       call      qword ptr [7FF88A9C1F30]
        test      eax,eax
        je        short M00_L01
 M00_L00:
        mov       rcx,[rbp+0FFE0]
-       mov       r11,7FFF608205B0
+       mov       r11,7FF88A5A05B0
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C405B0]
+       call      qword ptr [7FF88A9C05B0]
        mov       rcx,[rsi+8]
        mov       edx,[rcx]
        add       rcx,10
        mov       rdx,rax
        call      CORINFO_HELP_CHECKED_ASSIGN_REF
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C42770]
+       call      qword ptr [7FF88A9C1F30]
        test      eax,eax
        jne       short M00_L00
 M00_L01:
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C42790]
+       call      qword ptr [7FF88A9C1F50]
        nop
        lea       rsp,[rbp+0FFE8]
        pop       rbx
@@ -2014,7 +1760,7 @@ M00_L01:
        cmp       qword ptr [rbp+0FFE0],0
        je        short M00_L02
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C42790]
+       call      qword ptr [7FF88A9C1F50]
 M00_L02:
        nop
        add       rsp,28
@@ -2062,7 +1808,7 @@ M00_L02:
        mov       rax,[rdx+10]
        test      rax,rax
        jne       short M01_L00
-       mov       rdx,7FFF60CE85C0
+       mov       rdx,7FF88AA68398
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L00:
        movsxd    rdx,esi
@@ -2128,7 +1874,7 @@ M01_L08:
        mov       rax,[rdx+8]
        test      rax,rax
        jne       short M01_L09
-       mov       rdx,7FFF60CE85A0
+       mov       rdx,7FF88AA68378
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L09:
        mov       rcx,rax
@@ -2226,7 +1972,7 @@ M02_L01:
 ; Total bytes of code 1
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.LoopingForEach01()
        push      rbp
@@ -2237,40 +1983,38 @@ M02_L01:
        lea       rbp,[rsp+50]
        mov       [rbp+0FFD0],rsp
        mov       rsi,rcx
-;             foreach (var person in this._distinctConcurrentBag)
-;                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rdi,[rsi+88]
        mov       ecx,[rdi]
        mov       rcx,offset MT_System.Collections.Concurrent.ConcurrentBag`1+Enumerator[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
        mov       rcx,rdi
-       call      qword ptr [7FFF60C43B20]
+       call      qword ptr [7FF88A9D3A30]
        lea       rcx,[rbx+8]
        mov       rdx,rax
        call      CORINFO_HELP_ASSIGN_REF
        mov       [rbp+0FFE0],rbx
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C420E0]
+       call      qword ptr [7FF88A9D2430]
        test      eax,eax
        je        short M00_L01
 M00_L00:
        mov       rcx,[rbp+0FFE0]
-       mov       r11,7FFF608205B0
+       mov       r11,7FF88A5B05B0
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C405B0]
+       call      qword ptr [7FF88A9D05B0]
        mov       rcx,[rsi+8]
        mov       edx,[rcx]
        add       rcx,10
        mov       rdx,rax
        call      CORINFO_HELP_CHECKED_ASSIGN_REF
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C420E0]
+       call      qword ptr [7FF88A9D2430]
        test      eax,eax
        jne       short M00_L00
 M00_L01:
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C42100]
+       call      qword ptr [7FF88A9D2450]
        nop
        lea       rsp,[rbp+0FFE8]
        pop       rbx
@@ -2289,7 +2033,7 @@ M00_L01:
        cmp       qword ptr [rbp+0FFE0],0
        je        short M00_L02
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C42100]
+       call      qword ptr [7FF88A9D2450]
 M00_L02:
        nop
        add       rsp,28
@@ -2337,7 +2081,7 @@ M00_L02:
        mov       rax,[rdx+10]
        test      rax,rax
        jne       short M01_L00
-       mov       rdx,7FFF60CE8438
+       mov       rdx,7FF88AA785C0
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L00:
        movsxd    rdx,esi
@@ -2403,7 +2147,7 @@ M01_L08:
        mov       rax,[rdx+8]
        test      rax,rax
        jne       short M01_L09
-       mov       rdx,7FFF60CE8418
+       mov       rdx,7FF88AA785A0
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L09:
        mov       rcx,rax
@@ -2501,7 +2245,7 @@ M02_L01:
 ; Total bytes of code 1
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.LoopingForEach01()
        push      rbp
@@ -2512,40 +2256,38 @@ M02_L01:
        lea       rbp,[rsp+50]
        mov       [rbp+0FFD0],rsp
        mov       rsi,rcx
-;             foreach (var person in this._distinctConcurrentBag)
-;                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rdi,[rsi+88]
        mov       ecx,[rdi]
        mov       rcx,offset MT_System.Collections.Concurrent.ConcurrentBag`1+Enumerator[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
        mov       rcx,rdi
-       call      qword ptr [7FFF60C53B20]
+       call      qword ptr [7FF88A9C3A30]
        lea       rcx,[rbx+8]
        mov       rdx,rax
        call      CORINFO_HELP_ASSIGN_REF
        mov       [rbp+0FFE0],rbx
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C52900]
+       call      qword ptr [7FF88A9C2770]
        test      eax,eax
        je        short M00_L01
 M00_L00:
        mov       rcx,[rbp+0FFE0]
-       mov       r11,7FFF608305B0
+       mov       r11,7FF88A5A05B0
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C505B0]
+       call      qword ptr [7FF88A9C05B0]
        mov       rcx,[rsi+8]
        mov       edx,[rcx]
        add       rcx,10
        mov       rdx,rax
        call      CORINFO_HELP_CHECKED_ASSIGN_REF
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C52900]
+       call      qword ptr [7FF88A9C2770]
        test      eax,eax
        jne       short M00_L00
 M00_L01:
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C52920]
+       call      qword ptr [7FF88A9C2790]
        nop
        lea       rsp,[rbp+0FFE8]
        pop       rbx
@@ -2564,7 +2306,7 @@ M00_L01:
        cmp       qword ptr [rbp+0FFE0],0
        je        short M00_L02
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C52920]
+       call      qword ptr [7FF88A9C2790]
 M00_L02:
        nop
        add       rsp,28
@@ -2612,7 +2354,7 @@ M00_L02:
        mov       rax,[rdx+10]
        test      rax,rax
        jne       short M01_L00
-       mov       rdx,7FFF60CF8638
+       mov       rdx,7FF88AA68BF8
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L00:
        movsxd    rdx,esi
@@ -2678,7 +2420,7 @@ M01_L08:
        mov       rax,[rdx+8]
        test      rax,rax
        jne       short M01_L09
-       mov       rdx,7FFF60CF8618
+       mov       rdx,7FF88AA68BD8
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L09:
        mov       rcx,rax
@@ -2776,7 +2518,7 @@ M02_L01:
 ; Total bytes of code 1
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.LoopingForEach01()
        push      rbp
@@ -2787,40 +2529,38 @@ M02_L01:
        lea       rbp,[rsp+50]
        mov       [rbp+0FFD0],rsp
        mov       rsi,rcx
-;             foreach (var person in this._distinctConcurrentBag)
-;                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rdi,[rsi+88]
        mov       ecx,[rdi]
        mov       rcx,offset MT_System.Collections.Concurrent.ConcurrentBag`1+Enumerator[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
        mov       rcx,rdi
-       call      qword ptr [7FFF60C43B20]
+       call      qword ptr [7FF88A9C3A30]
        lea       rcx,[rbx+8]
        mov       rdx,rax
        call      CORINFO_HELP_ASSIGN_REF
        mov       [rbp+0FFE0],rbx
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C420E0]
+       call      qword ptr [7FF88A9C1F30]
        test      eax,eax
        je        short M00_L01
 M00_L00:
        mov       rcx,[rbp+0FFE0]
-       mov       r11,7FFF608205B0
+       mov       r11,7FF88A5A05B0
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C405B0]
+       call      qword ptr [7FF88A9C05B0]
        mov       rcx,[rsi+8]
        mov       edx,[rcx]
        add       rcx,10
        mov       rdx,rax
        call      CORINFO_HELP_CHECKED_ASSIGN_REF
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C420E0]
+       call      qword ptr [7FF88A9C1F30]
        test      eax,eax
        jne       short M00_L00
 M00_L01:
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C42100]
+       call      qword ptr [7FF88A9C1F50]
        nop
        lea       rsp,[rbp+0FFE8]
        pop       rbx
@@ -2839,7 +2579,7 @@ M00_L01:
        cmp       qword ptr [rbp+0FFE0],0
        je        short M00_L02
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C42100]
+       call      qword ptr [7FF88A9C1F50]
 M00_L02:
        nop
        add       rsp,28
@@ -2887,7 +2627,7 @@ M00_L02:
        mov       rax,[rdx+10]
        test      rax,rax
        jne       short M01_L00
-       mov       rdx,7FFF60CE83D8
+       mov       rdx,7FF88AA68428
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L00:
        movsxd    rdx,esi
@@ -2953,7 +2693,7 @@ M01_L08:
        mov       rax,[rdx+8]
        test      rax,rax
        jne       short M01_L09
-       mov       rdx,7FFF60CE83B8
+       mov       rdx,7FF88AA68408
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L09:
        mov       rcx,rax
@@ -3051,7 +2791,7 @@ M02_L01:
 ; Total bytes of code 1
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.LoopingForEach01()
        push      rbp
@@ -3062,40 +2802,38 @@ M02_L01:
        lea       rbp,[rsp+50]
        mov       [rbp+0FFD0],rsp
        mov       rsi,rcx
-;             foreach (var person in this._distinctConcurrentBag)
-;                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rdi,[rsi+88]
        mov       ecx,[rdi]
        mov       rcx,offset MT_System.Collections.Concurrent.ConcurrentBag`1+Enumerator[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
        mov       rcx,rdi
-       call      qword ptr [7FFF60C23B20]
+       call      qword ptr [7FF88A9B3A30]
        lea       rcx,[rbx+8]
        mov       rdx,rax
        call      CORINFO_HELP_ASSIGN_REF
        mov       [rbp+0FFE0],rbx
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C22990]
+       call      qword ptr [7FF88A9B2430]
        test      eax,eax
        je        short M00_L01
 M00_L00:
        mov       rcx,[rbp+0FFE0]
-       mov       r11,7FFF608005B0
+       mov       r11,7FF88A5905B0
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C205B0]
+       call      qword ptr [7FF88A9B05B0]
        mov       rcx,[rsi+8]
        mov       edx,[rcx]
        add       rcx,10
        mov       rdx,rax
        call      CORINFO_HELP_CHECKED_ASSIGN_REF
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C22990]
+       call      qword ptr [7FF88A9B2430]
        test      eax,eax
        jne       short M00_L00
 M00_L01:
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C229B0]
+       call      qword ptr [7FF88A9B2450]
        nop
        lea       rsp,[rbp+0FFE8]
        pop       rbx
@@ -3114,7 +2852,7 @@ M00_L01:
        cmp       qword ptr [rbp+0FFE0],0
        je        short M00_L02
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C229B0]
+       call      qword ptr [7FF88A9B2450]
 M00_L02:
        nop
        add       rsp,28
@@ -3162,7 +2900,7 @@ M00_L02:
        mov       rax,[rdx+10]
        test      rax,rax
        jne       short M01_L00
-       mov       rdx,7FFF60CC8C18
+       mov       rdx,7FF88AA58B80
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L00:
        movsxd    rdx,esi
@@ -3228,7 +2966,7 @@ M01_L08:
        mov       rax,[rdx+8]
        test      rax,rax
        jne       short M01_L09
-       mov       rdx,7FFF60CC8BF8
+       mov       rdx,7FF88AA58B60
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L09:
        mov       rcx,rax
@@ -3326,7 +3064,7 @@ M02_L01:
 ; Total bytes of code 1
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.LoopingForEach01()
        push      rbp
@@ -3337,40 +3075,38 @@ M02_L01:
        lea       rbp,[rsp+50]
        mov       [rbp+0FFD0],rsp
        mov       rsi,rcx
-;             foreach (var person in this._distinctConcurrentBag)
-;                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rdi,[rsi+88]
        mov       ecx,[rdi]
        mov       rcx,offset MT_System.Collections.Concurrent.ConcurrentBag`1+Enumerator[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
        mov       rcx,rdi
-       call      qword ptr [7FFF60C23B20]
+       call      qword ptr [7FF88A9B3A30]
        lea       rcx,[rbx+8]
        mov       rdx,rax
        call      CORINFO_HELP_ASSIGN_REF
        mov       [rbp+0FFE0],rbx
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C22900]
+       call      qword ptr [7FF88A9B1F30]
        test      eax,eax
        je        short M00_L01
 M00_L00:
        mov       rcx,[rbp+0FFE0]
-       mov       r11,7FFF608005B0
+       mov       r11,7FF88A5905B0
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C205B0]
+       call      qword ptr [7FF88A9B05B0]
        mov       rcx,[rsi+8]
        mov       edx,[rcx]
        add       rcx,10
        mov       rdx,rax
        call      CORINFO_HELP_CHECKED_ASSIGN_REF
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C22900]
+       call      qword ptr [7FF88A9B1F30]
        test      eax,eax
        jne       short M00_L00
 M00_L01:
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C22920]
+       call      qword ptr [7FF88A9B1F50]
        nop
        lea       rsp,[rbp+0FFE8]
        pop       rbx
@@ -3389,7 +3125,7 @@ M00_L01:
        cmp       qword ptr [rbp+0FFE0],0
        je        short M00_L02
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C22920]
+       call      qword ptr [7FF88A9B1F50]
 M00_L02:
        nop
        add       rsp,28
@@ -3437,7 +3173,7 @@ M00_L02:
        mov       rax,[rdx+10]
        test      rax,rax
        jne       short M01_L00
-       mov       rdx,7FFF60CC8C48
+       mov       rdx,7FF88AA584A0
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L00:
        movsxd    rdx,esi
@@ -3503,7 +3239,7 @@ M01_L08:
        mov       rax,[rdx+8]
        test      rax,rax
        jne       short M01_L09
-       mov       rdx,7FFF60CC8C28
+       mov       rdx,7FF88AA58480
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L09:
        mov       rcx,rax
@@ -3601,7 +3337,7 @@ M02_L01:
 ; Total bytes of code 1
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentDistinctConcurrentBagPerfTestRunner.LoopingForEach01()
        push      rbp
@@ -3612,40 +3348,38 @@ M02_L01:
        lea       rbp,[rsp+50]
        mov       [rbp+0FFD0],rsp
        mov       rsi,rcx
-;             foreach (var person in this._distinctConcurrentBag)
-;                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rdi,[rsi+88]
        mov       ecx,[rdi]
        mov       rcx,offset MT_System.Collections.Concurrent.ConcurrentBag`1+Enumerator[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
        mov       rcx,rdi
-       call      qword ptr [7FFF60C43B20]
+       call      qword ptr [7FF88A9D3A30]
        lea       rcx,[rbx+8]
        mov       rdx,rax
        call      CORINFO_HELP_ASSIGN_REF
        mov       [rbp+0FFE0],rbx
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C42BB0]
+       call      qword ptr [7FF88A9D2430]
        test      eax,eax
        je        short M00_L01
 M00_L00:
        mov       rcx,[rbp+0FFE0]
-       mov       r11,7FFF608205B0
+       mov       r11,7FF88A5B05B0
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C405B0]
+       call      qword ptr [7FF88A9D05B0]
        mov       rcx,[rsi+8]
        mov       edx,[rcx]
        add       rcx,10
        mov       rdx,rax
        call      CORINFO_HELP_CHECKED_ASSIGN_REF
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C42BB0]
+       call      qword ptr [7FF88A9D2430]
        test      eax,eax
        jne       short M00_L00
 M00_L01:
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C42BD0]
+       call      qword ptr [7FF88A9D2450]
        nop
        lea       rsp,[rbp+0FFE8]
        pop       rbx
@@ -3664,7 +3398,7 @@ M00_L01:
        cmp       qword ptr [rbp+0FFE0],0
        je        short M00_L02
        mov       rcx,[rbp+0FFE0]
-       call      qword ptr [7FFF60C42BD0]
+       call      qword ptr [7FF88A9D2450]
 M00_L02:
        nop
        add       rsp,28
@@ -3712,7 +3446,7 @@ M00_L02:
        mov       rax,[rdx+10]
        test      rax,rax
        jne       short M01_L00
-       mov       rdx,7FFF60CE8B18
+       mov       rdx,7FF88AA78688
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L00:
        movsxd    rdx,esi
@@ -3778,7 +3512,7 @@ M01_L08:
        mov       rax,[rdx+8]
        test      rax,rax
        jne       short M01_L09
-       mov       rdx,7FFF60CE8AF8
+       mov       rdx,7FF88AA78668
        call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 M01_L09:
        mov       rcx,rax

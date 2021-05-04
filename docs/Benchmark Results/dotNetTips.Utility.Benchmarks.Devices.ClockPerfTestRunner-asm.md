@@ -1,16 +1,12 @@
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Devices.ClockPerfTestRunner.TestDaysInCurrentMonth()
-;         public int TestDaysInCurrentMonth() => Clock.DaysInCurrentMonth;
-;                                                ^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rax,offset dotNetTips.Utility.Standard.Devices.Clock.get_DaysInCurrentMonth()
        jmp       rax
 ; Total bytes of code 13
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Devices.Clock.get_DaysInCurrentMonth()
-;         public static int DaysInCurrentMonth => DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
-;                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,30
        xor       eax,eax
@@ -36,19 +32,15 @@
 ; Total bytes of code 77
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Devices.ClockPerfTestRunner.TestDaysInCurrentUtcMonth()
-;         public int TestDaysInCurrentUtcMonth() => Clock.DaysInCurrentUtcMonth;
-;                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rax,offset dotNetTips.Utility.Standard.Devices.Clock.get_DaysInCurrentUtcMonth()
        jmp       rax
 ; Total bytes of code 13
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Devices.Clock.get_DaysInCurrentUtcMonth()
-;         public static int DaysInCurrentUtcMonth => DateTime.DaysInMonth(DateTime.UtcNow.Year, DateTime.UtcNow.Month);
-;                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,30
        xor       eax,eax
@@ -74,11 +66,9 @@
 ; Total bytes of code 77
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Devices.ClockPerfTestRunner.TestLocalTime()
-;         public DateTime TestLocalTime() => Clock.LocalTime;
-;                                            ^^^^^^^^^^^^^^^
        sub       rsp,28
        xor       eax,eax
        mov       [rsp+20],rax
@@ -169,7 +159,7 @@ M02_L00:
        mov       [rsp+48],ecx
        mov       [rsp+40],ecx
        mov       rbx,[rsi]
-       mov       rcx,2B115341420
+       mov       rcx,14E3DE61420
        mov       rcx,[rcx]
        mov       rdx,[rcx+8]
        test      rdx,rdx
@@ -237,10 +227,10 @@ M02_L04:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,24C2
-       mov       rdx,7FFF60814020
+       mov       rdx,7FF88A5A4020
        call      CORINFO_HELP_STRCNS
        mov       rcx,rax
-       mov       rdx,2B115343060
+       mov       rdx,14E3DE63060
        mov       rdx,[rdx]
        call      System.SR.GetResourceString(System.String, System.String)
        mov       rdx,rax
@@ -253,10 +243,10 @@ M02_L05:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,24C2
-       mov       rdx,7FFF60814020
+       mov       rdx,7FF88A5A4020
        call      CORINFO_HELP_STRCNS
        mov       rcx,rax
-       mov       rdx,2B115343060
+       mov       rdx,14E3DE63060
        mov       rdx,[rdx]
        call      System.SR.GetResourceString(System.String, System.String)
        mov       rdx,rax
@@ -268,21 +258,17 @@ M02_L05:
 ; Total bytes of code 438
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Devices.ClockPerfTestRunner.TestTickCount()
-;         public int TestTickCount() => Clock.TickCount;
-;                                       ^^^^^^^^^^^^^^^
-       mov       rax,7FFFC04303C0
+       mov       rax,7FF8EA1C04D0
        jmp       rax
 ; Total bytes of code 13
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Devices.ClockPerfTestRunner.TestUtcTime()
-;         public DateTime TestUtcTime() => Clock.UtcTime;
-;                                          ^^^^^^^^^^^^^
        mov       rax,offset System.DateTime.get_UtcNow()
        jmp       rax
 ; Total bytes of code 13
@@ -292,7 +278,7 @@ M02_L05:
        push      rsi
        sub       rsp,40
        lea       rcx,[rsp+28]
-       call      00007FFFC06A10B0
+       call      00007FF8EA431070
        movzx     ecx,word ptr [rsp+28]
        movzx     edx,word ptr [rsp+2A]
        movzx     r8d,word ptr [rsp+2E]

@@ -18,52 +18,51 @@ using dotNetTips.Utility.Standard.OOP;
 
 namespace dotNetTips.Utility.Standard.Net
 {
-    /// <summary>
-    /// Network helper methods.
-    /// </summary>
-    public static class NetworkHelper
-    {
+	/// <summary>
+	/// Network helper methods.
+	/// </summary>
+	public static class NetworkHelper
+	{
+		/// <summary>
+		/// Determines whether [is host available] [the specified host name or address].
+		/// </summary>
+		/// <param name="hostNameOrAddress">The host name or address.</param>
+		/// <returns><c>true</c> if [is host available] [the specified host name or address]; otherwise, <c>false</c>.</returns>
+		/// <remarks>Uses a 300 millisecond timeout.</remarks>
+		[Information(UnitTestCoverage = 100, Status = Status.Available)]
+		public static bool IsHostAvailable(string hostNameOrAddress)
+		{
+			Encapsulation.TryValidateParam(hostNameOrAddress, nameof(hostNameOrAddress));
 
-        /// <summary>
-        /// Determines whether [is host available] [the specified host name or address].
-        /// </summary>
-        /// <param name="hostNameOrAddress">The host name or address.</param>
-        /// <returns><c>true</c> if [is host available] [the specified host name or address]; otherwise, <c>false</c>.</returns>
-        /// <remarks>Uses a 300 millisecond timeout.</remarks>
-        [Information(UnitTestCoverage = 100, Status = Status.Available)]
-        public static bool IsHostAvailable(string hostNameOrAddress)
-        {
-            Encapsulation.TryValidateParam(hostNameOrAddress, nameof(hostNameOrAddress));
+			return IsHostAvailable(hostNameOrAddress, 300);
+		}
 
-            return IsHostAvailable(hostNameOrAddress, 300);
-        }
+		/// <summary>
+		/// Determines whether [is host available] [the specified host name or address].
+		/// </summary>
+		/// <param name="hostNameOrAddress">The host name or address.</param>
+		/// <param name="timeout">The timeout.</param>
+		/// <returns><c>true</c> if [is host available] [the specified host name or address]; otherwise, <c>false</c>.</returns>
+		[Information(UnitTestCoverage = 100, Status = Status.Available)]
+		public static bool IsHostAvailable(string hostNameOrAddress, int timeout)
+		{
+			Encapsulation.TryValidateParam(hostNameOrAddress, nameof(hostNameOrAddress));
+			Encapsulation.TryValidateParam(timeout, minimumValue: 10, maximumValue: int.MaxValue, paramName: nameof(timeout));
 
-        /// <summary>
-        /// Determines whether [is host available] [the specified host name or address].
-        /// </summary>
-        /// <param name="hostNameOrAddress">The host name or address.</param>
-        /// <param name="timeout">The timeout.</param>
-        /// <returns><c>true</c> if [is host available] [the specified host name or address]; otherwise, <c>false</c>.</returns>
-        [Information(UnitTestCoverage = 100, Status = Status.Available)]
-        public static bool IsHostAvailable(string hostNameOrAddress, int timeout)
-        {
-            Encapsulation.TryValidateParam(hostNameOrAddress, nameof(hostNameOrAddress));
-            Encapsulation.TryValidateParam(timeout, minimumValue: 10, maximumValue: int.MaxValue, paramName: nameof(timeout));
+			try
+			{
+				using (var pinger = new Ping())
+				{
+					var result = pinger.Send(hostNameOrAddress, timeout);
 
-            try
-            {
-                using (var pinger = new Ping())
-                {
-                    var result = pinger.Send(hostNameOrAddress, timeout);
-
-                    return result.Status == IPStatus.Success;
-                }
-            }
-            catch (PingException pingEx)
-            {
-                Trace.WriteLine(pingEx.Message);
-                return false;
-            }
-        }
-    }
+					return result.Status == IPStatus.Success;
+				}
+			}
+			catch (PingException pingEx)
+			{
+				Trace.WriteLine(pingEx.Message);
+				return false;
+			}
+		}
+	}
 }

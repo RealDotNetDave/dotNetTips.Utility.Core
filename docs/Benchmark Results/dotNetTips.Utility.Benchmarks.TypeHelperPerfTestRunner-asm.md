@@ -1,14 +1,6 @@
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.TypeHelperPerfTestRunner.DoesObjectEqualInstance()
-;             var person1 = RandomData.GeneratePerson<PersonProper>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var person2 = RandomData.GeneratePerson<PersonProper>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var result = TypeHelper.DoesObjectEqualInstance(person1, person2);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,38
@@ -43,38 +35,38 @@
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Tester.RandomData.GeneratePerson[[System.__Canon, System.Private.CoreLib]](Int32, Int32, Int32, Int32, Int32, Int32)
-;             var person = new T
-;             ^^
-;             {
-;             ^^
-;                 Id = RandomData.GenerateKey(),
-;             ^^
-;                 Address1 = RandomData.GenerateWord(addressLength),
-;             ^^
-;                 Address2 = RandomData.GenerateWord(addressLength),
-;             ^^
-;                 BornOn = DateTimeOffset.Now.Subtract(new TimeSpan(365 * GenerateInteger(1, 75), 0, 0, 0)),
-;             ^^
-;                 CellPhone = GeneratePhoneNumberUSA(),
-;             ^^
-;                 City = RandomData.GenerateWord(cityLength),
-;             ^^
-;                 Country = RandomData.GenerateWord(countryLength),
-;             ^^
-;                 Email = RandomData.GenerateEmailAddress(),
-;             ^^
-;                 FirstName = RandomData.GenerateWord(firstNameLength),
-;             ^^
-;                 HomePhone = GeneratePhoneNumberUSA(),
-;             ^^
-;                 LastName = RandomData.GenerateWord(lastNameLength),
-;             ^^
-;                 PostalCode = RandomData.GenerateNumber(postalCodeLength)
-;             ^^
-;             };
-;             ^^
-;             return person;
-;             ^^^^^^^^^^^^^^
+; 			var person = new T
+; 			^^
+; 			{
+; 			^^
+; 				Id = RandomData.GenerateKey(),
+; 			^^
+; 				Address1 = RandomData.GenerateWord(addressLength),
+; 			^^
+; 				Address2 = RandomData.GenerateWord(addressLength),
+; 			^^
+; 				BornOn = DateTimeOffset.Now.Subtract(new TimeSpan(365 * GenerateInteger(1, 75), 0, 0, 0)),
+; 			^^
+; 				CellPhone = GeneratePhoneNumberUSA(),
+; 			^^
+; 				City = RandomData.GenerateWord(cityLength),
+; 			^^
+; 				Country = RandomData.GenerateWord(countryLength),
+; 			^^
+; 				Email = RandomData.GenerateEmailAddress(),
+; 			^^
+; 				FirstName = RandomData.GenerateWord(firstNameLength),
+; 			^^
+; 				HomePhone = GeneratePhoneNumberUSA(),
+; 			^^
+; 				LastName = RandomData.GenerateWord(lastNameLength),
+; 			^^
+; 				PostalCode = RandomData.GenerateNumber(postalCodeLength)
+; 			^^
+; 			};
+; 			^^
+; 			return person;
+; 			^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        push      rbp
@@ -92,7 +84,7 @@
        mov       rax,[rdx+8]
        test      rax,rax
        jne       short M01_L00
-       mov       rdx,7FFF60BDDD88
+       mov       rdx,7FF88A98DD88
        call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 M01_L00:
        mov       rcx,rax
@@ -106,23 +98,23 @@ M01_L00:
        call      dotNetTips.Utility.Standard.Extensions.GuidExtensions.ToDigits(System.Guid)
        mov       rdx,rax
        mov       rcx,rbp
-       mov       r11,7FFF608104A8
+       mov       r11,7FF88A5C04A8
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C204A8]
+       call      qword ptr [7FF88A9D04A8]
        mov       ecx,esi
        call      dotNetTips.Utility.Standard.Tester.RandomData.GenerateWord(Int32)
        mov       rdx,rax
        mov       rcx,rbp
-       mov       r11,7FFF608104B0
+       mov       r11,7FF88A5C04B0
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C204B0]
+       call      qword ptr [7FF88A9D04B0]
        mov       ecx,esi
        call      dotNetTips.Utility.Standard.Tester.RandomData.GenerateWord(Int32)
        mov       rdx,rax
        mov       rcx,rbp
-       mov       r11,7FFF608104B8
+       mov       r11,7FF88A5C04B8
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C204B8]
+       call      qword ptr [7FF88A9D04B8]
        lea       rax,[rsp+58]
        vxorps    xmm0,xmm0,xmm0
        vmovdqu   xmmword ptr [rax],xmm0
@@ -153,62 +145,62 @@ M01_L00:
        vmovdqu   xmmword ptr [rsp+38],xmm0
        mov       rcx,rbp
        lea       rdx,[rsp+38]
-       mov       r11,7FFF608104C0
+       mov       r11,7FF88A5C04C0
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C204C0]
+       call      qword ptr [7FF88A9D04C0]
        call      dotNetTips.Utility.Standard.Tester.RandomData.GeneratePhoneNumberUSA()
        mov       rdx,rax
        mov       rcx,rbp
-       mov       r11,7FFF608104C8
+       mov       r11,7FF88A5C04C8
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C204C8]
+       call      qword ptr [7FF88A9D04C8]
        mov       ecx,edi
        call      dotNetTips.Utility.Standard.Tester.RandomData.GenerateWord(Int32)
        mov       rdx,rax
        mov       rcx,rbp
-       mov       r11,7FFF608104D0
+       mov       r11,7FF88A5C04D0
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C204D0]
+       call      qword ptr [7FF88A9D04D0]
        mov       ecx,ebx
        call      dotNetTips.Utility.Standard.Tester.RandomData.GenerateWord(Int32)
        mov       rdx,rax
        mov       rcx,rbp
-       mov       r11,7FFF608104D8
+       mov       r11,7FF88A5C04D8
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C204D8]
+       call      qword ptr [7FF88A9D04D8]
        call      dotNetTips.Utility.Standard.Tester.RandomData.GenerateEmailAddress()
        mov       rdx,rax
        mov       rcx,rbp
-       mov       r11,7FFF608104E0
+       mov       r11,7FF88A5C04E0
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C204E0]
+       call      qword ptr [7FF88A9D04E0]
        mov       ecx,[rsp+0F0]
        call      dotNetTips.Utility.Standard.Tester.RandomData.GenerateWord(Int32)
        mov       rdx,rax
        mov       rcx,rbp
-       mov       r11,7FFF608104E8
+       mov       r11,7FF88A5C04E8
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C204E8]
+       call      qword ptr [7FF88A9D04E8]
        call      dotNetTips.Utility.Standard.Tester.RandomData.GeneratePhoneNumberUSA()
        mov       rdx,rax
        mov       rcx,rbp
-       mov       r11,7FFF608104F0
+       mov       r11,7FF88A5C04F0
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C204F0]
+       call      qword ptr [7FF88A9D04F0]
        mov       ecx,[rsp+0F8]
        call      dotNetTips.Utility.Standard.Tester.RandomData.GenerateWord(Int32)
        mov       rdx,rax
        mov       rcx,rbp
-       mov       r11,7FFF608104F8
+       mov       r11,7FF88A5C04F8
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C204F8]
+       call      qword ptr [7FF88A9D04F8]
        mov       ecx,[rsp+100]
        call      dotNetTips.Utility.Standard.Tester.RandomData.GenerateNumber(Int32)
        mov       rdx,rax
        mov       rcx,rbp
-       mov       r11,7FFF60810500
+       mov       r11,7FF88A5C0500
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C20500]
+       call      qword ptr [7FF88A9D0500]
        mov       rax,rbp
        add       rsp,0A8
        pop       rbx
@@ -219,126 +211,57 @@ M01_L00:
 ; Total bytes of code 647
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.TypeHelperPerfTestRunner.FindDerivedTypes()
-       push      rbp
-       sub       rsp,40
-       lea       rbp,[rsp+40]
-       xor       eax,eax
-       mov       [rbp+0FFF8],rax
-       mov       [rbp+0FFF0],rax
-       mov       [rbp+0FFE8],rax
-       mov       [rbp+0FFE0],rax
-       mov       [rbp+10],rcx
-;             var result = TypeHelper.FindDerivedTypes(typeof(PersonProper), true);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       push      rsi
+       sub       rsp,20
+       mov       rsi,rcx
        mov       rcx,offset MT_dotNetTips.Utility.Standard.Tester.Models.PersonProper
        call      CORINFO_HELP_TYPEHANDLE_TO_RUNTIMETYPE
-       mov       [rbp+0FFF0],rax
-       mov       rcx,[rbp+0FFF0]
-       call      System.Type.GetTypeFromHandle(System.RuntimeTypeHandle)
-       mov       [rbp+0FFE8],rax
-       mov       rcx,[rbp+0FFE8]
+       mov       rcx,rax
        mov       edx,1
        call      dotNetTips.Utility.Standard.TypeHelper.FindDerivedTypes(System.Type, Boolean)
-       mov       [rbp+0FFF8],rax
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       mov       rcx,[rbp+10]
-       call      dotNetTips.Utility.Benchmarks.PerfTestRunner.get_Consumer()
-       mov       [rbp+0FFE0],rax
-       mov       rcx,[rbp+0FFE0]
-       mov       r8,[rbp+0FFF8]
-       mov       rdx,offset MD_BenchmarkDotNet.Engines.Consumer.Consume(!!0)
-       cmp       [rcx],ecx
-       call      BenchmarkDotNet.Engines.Consumer.Consume[[System.__Canon, System.Private.CoreLib]](System.__Canon)
+       mov       rcx,[rsi+8]
+       mov       edx,[rcx]
+       add       rcx,10
+       mov       rdx,rax
+       call      CORINFO_HELP_CHECKED_ASSIGN_REF
        nop
-       lea       rsp,[rbp]
-       pop       rbp
+       add       rsp,20
+       pop       rsi
        ret
-; Total bytes of code 127
+; Total bytes of code 61
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.TypeHelper.FindDerivedTypes(System.Type, Boolean)
-       push      rbp
-       sub       rsp,30
-       lea       rbp,[rsp+30]
-       xor       eax,eax
-       mov       [rbp+0FFF8],rax
-       mov       [rbp+0FFF0],rax
-       mov       [rbp+10],rcx
-       mov       [rbp+18],edx
-;             var path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       push      rdi
+       push      rsi
+       sub       rsp,28
+       mov       rsi,rcx
+       mov       edi,edx
        call      System.Reflection.Assembly.GetEntryAssembly()
-       mov       [rbp+0FFF0],rax
-       mov       rcx,[rbp+0FFF0]
-       mov       rax,[rbp+0FFF0]
+       mov       rcx,rax
        mov       rax,[rax]
        mov       rax,[rax+48]
        call      qword ptr [rax+30]
        mov       rcx,rax
        call      System.IO.Path.GetDirectoryName(System.String)
-       mov       [rbp+0FFF8],rax
-;             return FindDerivedTypes(path, SearchOption.TopDirectoryOnly, baseType, classOnly);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       mov       r9d,[rbp+18]
-       movzx     r9d,r9b
-       mov       rcx,[rbp+0FFF8]
-       mov       r8,[rbp+10]
+       mov       rcx,rax
+       movzx     r9d,dil
+       mov       r8,rsi
        xor       edx,edx
-       call      dotNetTips.Utility.Standard.TypeHelper.FindDerivedTypes(System.String, System.IO.SearchOption, System.Type, Boolean)
-       nop
-       lea       rsp,[rbp]
-       pop       rbp
-       ret
-; Total bytes of code 96
+       mov       rax,offset dotNetTips.Utility.Standard.TypeHelper.FindDerivedTypes(System.String, System.IO.SearchOption, System.Type, Boolean)
+       add       rsp,28
+       pop       rsi
+       pop       rdi
+       jmp       rax
+; Total bytes of code 68
 ```
-```assembly
-; dotNetTips.Utility.Benchmarks.PerfTestRunner.get_Consumer()
-       push      rbp
-       mov       rbp,rsp
-       mov       [rbp+10],rcx
-;         protected Consumer Consumer => this._consumer;
-;                                        ^^^^^^^^^^^^^^
-       mov       rax,[rbp+10]
-       mov       rax,[rax+8]
-       pop       rbp
-       ret
-; Total bytes of code 18
-```
-```assembly
-; BenchmarkDotNet.Engines.Consumer.Consume[[System.__Canon, System.Private.CoreLib]](System.__Canon)
-       push      rbp
-       sub       rsp,20
-       lea       rbp,[rsp+20]
-       mov       [rbp+10],rcx
-       mov       [rbp+18],rdx
-       mov       [rbp+20],r8
-       mov       rdx,[rbp+10]
-       cmp       [rdx],edx
-       mov       rdx,[rbp+10]
-       add       rdx,10
-       mov       r8,[rbp+20]
-       mov       rcx,offset MD_System.Threading.Volatile.Write(!!0 ByRef, !!0)
-       call      System.Threading.Volatile.Write[[System.__Canon, System.Private.CoreLib]](System.__Canon ByRef, System.__Canon)
-       nop
-       lea       rsp,[rbp]
-       pop       rbp
-       ret
-; Total bytes of code 62
-```
-**Extern method**
-System.Type.GetTypeFromHandle(System.RuntimeTypeHandle)
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.TypeHelperPerfTestRunner.GetDefault()
-;             var result = TypeHelper.GetDefault<PersonProper>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rax,[rcx+8]
        mov       edx,[rax]
        add       rax,10
@@ -348,13 +271,9 @@ System.Type.GetTypeFromHandle(System.RuntimeTypeHandle)
 ; Total bytes of code 16
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.TypeHelperPerfTestRunner.GetInstanceHashCode()
-;             var result = TypeHelper.GetInstanceHashCode(this._personProper);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -369,14 +288,6 @@ System.Type.GetTypeFromHandle(System.RuntimeTypeHandle)
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.TypeHelper.GetInstanceHashCode(System.Object)
-;             Encapsulation.TryValidateParam<ArgumentNullException>(instance != null, nameof(instance));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var hash = -1;
-;             ^^^^^^^^^^^^^^
-;             hash = instance.GetType().GetRuntimeProperties().Where(p => p != null).Select(prop => prop.GetValue(instance)).Where(value => value != null).Aggregate(-1, (accumulator, value) => accumulator ^ value.GetHashCode());
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return hash;
-;             ^^^^^^^^^^^^
        push      rdi
        push      rsi
        push      rbp
@@ -392,25 +303,25 @@ System.Type.GetTypeFromHandle(System.RuntimeTypeHandle)
        cmp       qword ptr [rdi+8],0
        setne     dl
        movzx     edx,dl
-       mov       r9,221D00C3060
+       mov       r9,285F5373060
        mov       r9,[r9]
-       mov       r8,221D00D1468
+       mov       r8,285E5371050
        mov       r8,[r8]
        mov       rcx,offset MD_dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(Boolean, System.String, System.String)
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam[[System.__Canon, System.Private.CoreLib]](Boolean, System.String, System.String)
        mov       rcx,[rdi+8]
-       call      00007FFFC03F1F60
+       call      00007FF8EA182020
        mov       rcx,rax
        call      System.Reflection.RuntimeReflectionExtensions.GetRuntimeProperties(System.Type)
        mov       rsi,rax
-       mov       rcx,221D00CBB60
+       mov       rcx,285F537BB60
        mov       rbx,[rcx]
        test      rbx,rbx
        jne       short M01_L00
        mov       rcx,offset MT_System.Func`2[[System.Reflection.PropertyInfo, System.Private.CoreLib],[System.Boolean, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
-       mov       rdx,221D00CBB58
+       mov       rdx,285F537BB58
        mov       rdx,[rdx]
        test      rdx,rdx
        je        near ptr M01_L03
@@ -418,7 +329,7 @@ System.Type.GetTypeFromHandle(System.RuntimeTypeHandle)
        call      CORINFO_HELP_ASSIGN_REF
        mov       rdx,offset dotNetTips.Utility.Standard.TypeHelper+<>c.<GetInstanceHashCode>b__11_0(System.Reflection.PropertyInfo)
        mov       [rbx+18],rdx
-       mov       rcx,221D00CBB60
+       mov       rcx,285F537BB60
        mov       rdx,rbx
        call      CORINFO_HELP_CHECKED_ASSIGN_REF
 M01_L00:
@@ -440,14 +351,14 @@ M01_L00:
        mov       rcx,offset MD_System.Linq.Enumerable.Select(System.Collections.Generic.IEnumerable`1<!!0>, System.Func`2<!!0,!!1>)
        call      System.Linq.Enumerable.Select[[System.__Canon, System.Private.CoreLib],[System.__Canon, System.Private.CoreLib]](System.Collections.Generic.IEnumerable`1<System.__Canon>, System.Func`2<System.__Canon,System.__Canon>)
        mov       rsi,rax
-       mov       rcx,221D00CBB68
+       mov       rcx,285F537BB68
        mov       r8,[rcx]
        test      r8,r8
        jne       short M01_L01
        mov       rcx,offset MT_System.Func`2[[System.Object, System.Private.CoreLib],[System.Boolean, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
-       mov       rdx,221D00CBB58
+       mov       rdx,285F537BB58
        mov       rdx,[rdx]
        test      rdx,rdx
        je        near ptr M01_L04
@@ -455,7 +366,7 @@ M01_L00:
        call      CORINFO_HELP_ASSIGN_REF
        mov       rdx,offset dotNetTips.Utility.Standard.TypeHelper+<>c.<GetInstanceHashCode>b__11_2(System.Object)
        mov       [rdi+18],rdx
-       mov       rcx,221D00CBB68
+       mov       rcx,285F537BB68
        mov       rdx,rdi
        call      CORINFO_HELP_CHECKED_ASSIGN_REF
        mov       r8,rdi
@@ -464,14 +375,14 @@ M01_L01:
        mov       rcx,offset MD_System.Linq.Enumerable.Where(System.Collections.Generic.IEnumerable`1<!!0>, System.Func`2<!!0,Boolean>)
        call      System.Linq.Enumerable.Where[[System.__Canon, System.Private.CoreLib]](System.Collections.Generic.IEnumerable`1<System.__Canon>, System.Func`2<System.__Canon,Boolean>)
        mov       rdi,rax
-       mov       rcx,221D00CBB70
+       mov       rcx,285F537BB70
        mov       r9,[rcx]
        test      r9,r9
        jne       short M01_L02
        mov       rcx,offset MT_System.Func`3[[System.Int32, System.Private.CoreLib],[System.Object, System.Private.CoreLib],[System.Int32, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
-       mov       rdx,221D00CBB58
+       mov       rdx,285F537BB58
        mov       rdx,[rdx]
        test      rdx,rdx
        je        short M01_L05
@@ -479,7 +390,7 @@ M01_L01:
        call      CORINFO_HELP_ASSIGN_REF
        mov       rdx,offset dotNetTips.Utility.Standard.TypeHelper+<>c.<GetInstanceHashCode>b__11_3(Int32, System.Object)
        mov       [rsi+18],rdx
-       mov       rcx,221D00CBB70
+       mov       rcx,285F537BB70
        mov       rdx,rsi
        call      CORINFO_HELP_CHECKED_ASSIGN_REF
        mov       r9,rsi
@@ -510,13 +421,9 @@ M01_L05:
 ; Total bytes of code 586
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.TypeHelperPerfTestRunner.GetTypeDisplayNameTypeTest()
-;             var result = TypeHelper.GetTypeDisplayName(typeof(PersonProper), true, true, true, '|');
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,30
        mov       rsi,rcx
@@ -541,16 +448,6 @@ M01_L05:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.TypeHelper.GetTypeDisplayName(System.Type, Boolean, Boolean, Boolean, Char)
-;             if (type == null)
-;             ^^^^^^^^^^^^^^^^^
-;                 throw new ArgumentNullException(nameof(type), $"{nameof(type)} is null.");
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var builder = new StringBuilder();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             ProcessType(builder, type, new DisplayNameOptions(fullName, includeGenericParameterNames, includeGenericParameters, nestedTypeDelimiter));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return builder.ToString();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      r14
        push      rdi
        push      rsi
@@ -590,7 +487,7 @@ M01_L05:
        mov       rdx,rsi
        call      dotNetTips.Utility.Standard.TypeHelper.ProcessType(System.Text.StringBuilder, System.Type, DisplayNameOptions ByRef)
        mov       rcx,r14
-       call      qword ptr [7FFF60C17010]
+       call      qword ptr [7FF88A9A7010]
        nop
        add       rsp,30
        pop       rbx
@@ -604,11 +501,11 @@ M01_L00:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,261
-       mov       rdx,7FFF60BCF288
+       mov       rdx,7FF88A95F288
        call      CORINFO_HELP_STRCNS
        mov       rdi,rax
        mov       ecx,26B
-       mov       rdx,7FFF60BCF288
+       mov       rdx,7FF88A95F288
        call      CORINFO_HELP_STRCNS
        mov       r8,rax
        mov       rdx,rdi
@@ -620,20 +517,16 @@ M01_L00:
 ; Total bytes of code 258
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.TypeHelperPerfTestRunner.GetTypeDisplayNameVariableTest()
-;             var result = TypeHelper.GetTypeDisplayName(this._personProper, true);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,30
        mov       rsi,rcx
        mov       rcx,[rsi+28]
        test      rcx,rcx
        je        short M00_L00
-       call      00007FFFC03F1F60
+       call      00007FF8EA182020
        mov       rcx,rax
        mov       dword ptr [rsp+20],2B
        mov       edx,1
@@ -657,16 +550,6 @@ M00_L01:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.TypeHelper.GetTypeDisplayName(System.Type, Boolean, Boolean, Boolean, Char)
-;             if (type == null)
-;             ^^^^^^^^^^^^^^^^^
-;                 throw new ArgumentNullException(nameof(type), $"{nameof(type)} is null.");
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var builder = new StringBuilder();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             ProcessType(builder, type, new DisplayNameOptions(fullName, includeGenericParameterNames, includeGenericParameters, nestedTypeDelimiter));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return builder.ToString();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      r14
        push      rdi
        push      rsi
@@ -706,7 +589,7 @@ M00_L01:
        mov       rdx,rsi
        call      dotNetTips.Utility.Standard.TypeHelper.ProcessType(System.Text.StringBuilder, System.Type, DisplayNameOptions ByRef)
        mov       rcx,r14
-       call      qword ptr [7FFF60C07010]
+       call      qword ptr [7FF88A997010]
        nop
        add       rsp,30
        pop       rbx
@@ -720,11 +603,11 @@ M01_L00:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,261
-       mov       rdx,7FFF60BBF288
+       mov       rdx,7FF88A94F288
        call      CORINFO_HELP_STRCNS
        mov       rdi,rax
        mov       ecx,26B
-       mov       rdx,7FFF60BBF288
+       mov       rdx,7FF88A94F288
        call      CORINFO_HELP_STRCNS
        mov       r8,rax
        mov       rdx,rdi

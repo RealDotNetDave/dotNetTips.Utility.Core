@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>DisassemblyDiagnoser Output dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner-20210228-134900</title>
+<title>DisassemblyDiagnoser Output dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner-20210503-181218</title>
 
 <style type="text/css">
     table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -16,23 +16,19 @@
 <thead>
 <tr><th colspan="7">ConcurrentHashSetPerfTestRunner.'Create Using Constructor.'</th></tr>
 <tr>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner.Creating01()
-            var result = new ConcurrentHashSet<PersonProper>(base.personProperCollection);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rbp
 push      r15
 push      r14
@@ -61,16 +57,16 @@ mov       [rbp+0FFB8],r14
 xor       r11d,r11d
 mov       rax,offset MD_System.Environment.GetProcessorCount()
 mov       [rbp+0FF88],rax
-lea       rax,[7FFF60C3D0FE]
+lea       rax,[7FF88A98CB9E]
 mov       [rbp+0FFA0],rax
 lea       rax,[rbp+0FF78]
 mov       [rdi+10],rax
 mov       byte ptr [rdi+0C],0
-call      qword ptr [7FFF60C46880]
+call      qword ptr [7FF88A996880]
 mov       byte ptr [rdi+0C],1
-cmp       dword ptr [7FFF60C47BD8],0
-je        short 00007FFF60C3D111
-call      qword ptr [7FFF60C4B278]
+cmp       dword ptr [7FF88A997BA8],0
+je        short 00007FF88A98CBB1
+call      qword ptr [7FF88A99B278]
 mov       rdx,[rbp+0FF80]
 mov       [rdi+10],rdx
 mov       edx,eax
@@ -82,7 +78,7 @@ mov       r9d,1
 call      dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]]..ctor(Int32, Int32, Boolean, System.Collections.Generic.IEqualityComparer`1<System.__Canon>)
 mov       r14,[rbp+0FFB8]
 test      r14,r14
-je        short 00007FFF60C3D14C
+je        short 00007FF88A98CBEC
 mov       rcx,[rbp+0FFC0]
 mov       rdx,r14
 call      dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]].InitializeFromCollection(System.Collections.Generic.IEnumerable`1<System.__Canon>)
@@ -118,41 +114,23 @@ mov       [rsp+30],rcx
 mov       rsi,rcx
 mov       edi,r8d
 mov       ebx,r9d
-            if (concurrencyLevel < 1)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^
 test      edx,edx
-jg        short 00007FFF60C28C97
-                concurrencyLevel = 1;
-                ^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A978C97
 mov       edx,1
-            if (capacity < 0)
-            ^^^^^^^^^^^^^^^^^
 test      edi,edi
-jge       short 00007FFF60C28C9D
-                capacity = 0;
-                ^^^^^^^^^^^^^
+jge       short 00007FF88A978C9D
 xor       edi,edi
-            if (capacity < concurrencyLevel)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 cmp       edi,edx
-jge       short 00007FFF60C28CA3
-                capacity = concurrencyLevel;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       short 00007FF88A978CA3
 mov       edi,edx
-            var locks = new object[concurrencyLevel];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 movsxd    rdx,edx
 mov       rcx,offset MT_System.Object[]
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rbp,rax
-            for (var i = 0; i < locks.Length; i++)
-                 ^^^^^^^^^
 xor       r14d,r14d
 mov       r15d,[rbp+8]
 test      r15d,r15d
-jle       short 00007FFF60C28CE9
-                locks[i] = new object();
-                ^^^^^^^^^^^^^^^^^^^^^^^^
+jle       short 00007FF88A978CE9
 mov       rcx,offset MT_System.Object
 call      CORINFO_HELP_NEWSFAST
 mov       r8,rax
@@ -161,35 +139,29 @@ mov       edx,r14d
 call      CORINFO_HELP_ARRADDR_ST
 inc       r14d
 cmp       r15d,r14d
-jg        short 00007FFF60C28CC4
-            var countPerLock = new int[locks.Length];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A978CC4
 movsxd    rdx,r15d
 mov       rcx,offset MT_System.Int32[]
 call      CORINFO_HELP_NEWARR_1_VC
 mov       r14,rax
-            var buckets = new Node[capacity];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       r12,[rsi]
 mov       rcx,r12
 mov       rdx,[rcx+30]
 mov       r13,[rdx]
 mov       rax,[r13+8]
 test      rax,rax
-jne       short 00007FFF60C28D23
-mov       rdx,7FFF60CD2378
+jne       short 00007FF88A978D23
+mov       rdx,7FF88AA22378
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 movsxd    rdx,edi
 mov       rcx,rax
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rdi,rax
-            this._tables = new Tables(buckets, locks, countPerLock);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rcx,r12
 mov       rax,[r13+10]
 test      rax,rax
-jne       short 00007FFF60C28D4C
-mov       rdx,7FFF60CD2648
+jne       short 00007FF88A978D4C
+mov       rdx,7FF88AA22648
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -205,29 +177,23 @@ mov       rbp,[rsp+28]
 lea       rcx,[rbp+18]
 mov       rdx,r14
 call      CORINFO_HELP_ASSIGN_REF
-            this._growLockArray = growLockArray;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 lea       rcx,[rsi+10]
 mov       rdx,rbp
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rsi+1C],bl
-            this._budget = buckets.Length / locks.Length;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       eax,[rdi+8]
 cdq
 idiv      r15d
 mov       [rsi+18],eax
 mov       rdi,[rsp+0A0]
 mov       rdx,rdi
-            this._comparer = comparer ?? EqualityComparer<T>.Default;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 test      rdx,rdx
-jne       short 00007FFF60C28DD6
+jne       short 00007FF88A978DD6
 mov       rcx,r12
 mov       rax,[r13+18]
 test      rax,rax
-jne       short 00007FFF60C28DCB
-mov       rdx,7FFF60CD27B8
+jne       short 00007FF88A978DCB
+mov       rdx,7FF88AA227B8
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      System.Collections.Generic.EqualityComparer`1[[System.__Canon, System.Private.CoreLib]].get_Default()
@@ -247,18 +213,6 @@ pop       r15
 ret
 
 dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]].InitializeFromCollection(System.Collections.Generic.IEnumerable`1<System.__Canon>)
-            collection.ToList().ForEach(item =>
-            ^^^
-            {
-            ^^^
-                this.AddInternal(item, this._comparer.GetHashCode(item), false);
-            ^^^
-            });
-            ^^^
-            if (this._budget == 0)
-            ^^^^^^^^^^^^^^^^^^^^^^
-                this._budget = this._tables._buckets.Length / this._tables._locks.Length;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rdi
 push      rsi
 push      rbp
@@ -273,8 +227,8 @@ mov       rdx,[rcx+30]
 mov       rbp,[rdx]
 mov       rax,[rbp+20]
 test      rax,rax
-jne       short 00007FFF60C3CA78
-mov       rdx,7FFF60CD29D0
+jne       short 00007FF88A98CED8
+mov       rdx,7FF88AA229D0
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 mov       rdx,rdi
@@ -283,8 +237,8 @@ mov       rdi,rax
 mov       rcx,rbx
 mov       rax,[rbp+28]
 test      rax,rax
-jne       short 00007FFF60C3CAA1
-mov       rdx,7FFF60CD2B10
+jne       short 00007FF88A98CF01
+mov       rdx,7FF88AA22B10
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -299,7 +253,7 @@ mov       rdx,rbx
 cmp       [rcx],ecx
 call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
 cmp       dword ptr [rsi+18],0
-jne       short 00007FFF60C3CAF3
+jne       short 00007FF88A98CF53
 mov       rax,[rsi+10]
 mov       rax,[rax+8]
 mov       eax,[rax+8]
@@ -318,10 +272,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner.Creating01()
-            var result = new ConcurrentHashSet<PersonProper>(base.personProperCollection);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rbp
 push      r15
 push      r14
@@ -350,16 +300,16 @@ mov       [rbp+0FFB8],r14
 xor       r11d,r11d
 mov       rax,offset MD_System.Environment.GetProcessorCount()
 mov       [rbp+0FF88],rax
-lea       rax,[7FFF60C1CFFE]
+lea       rax,[7FF88A9AD36E]
 mov       [rbp+0FFA0],rax
 lea       rax,[rbp+0FF78]
 mov       [rdi+10],rax
 mov       byte ptr [rdi+0C],0
-call      qword ptr [7FFF60C26880]
+call      qword ptr [7FF88A9B6880]
 mov       byte ptr [rdi+0C],1
-cmp       dword ptr [7FFF60C27BD8],0
-je        short 00007FFF60C1D011
-call      qword ptr [7FFF60C2B278]
+cmp       dword ptr [7FF88A9B7BA8],0
+je        short 00007FF88A9AD381
+call      qword ptr [7FF88A9BB278]
 mov       rdx,[rbp+0FF80]
 mov       [rdi+10],rdx
 mov       edx,eax
@@ -371,7 +321,7 @@ mov       r9d,1
 call      dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]]..ctor(Int32, Int32, Boolean, System.Collections.Generic.IEqualityComparer`1<System.__Canon>)
 mov       r14,[rbp+0FFB8]
 test      r14,r14
-je        short 00007FFF60C1D04C
+je        short 00007FF88A9AD3BC
 mov       rcx,[rbp+0FFC0]
 mov       rdx,r14
 call      dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]].InitializeFromCollection(System.Collections.Generic.IEnumerable`1<System.__Canon>)
@@ -407,41 +357,23 @@ mov       [rsp+30],rcx
 mov       rsi,rcx
 mov       edi,r8d
 mov       ebx,r9d
-            if (concurrencyLevel < 1)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^
 test      edx,edx
-jg        short 00007FFF60C092B7
-                concurrencyLevel = 1;
-                ^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A999097
 mov       edx,1
-            if (capacity < 0)
-            ^^^^^^^^^^^^^^^^^
 test      edi,edi
-jge       short 00007FFF60C092BD
-                capacity = 0;
-                ^^^^^^^^^^^^^
+jge       short 00007FF88A99909D
 xor       edi,edi
-            if (capacity < concurrencyLevel)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 cmp       edi,edx
-jge       short 00007FFF60C092C3
-                capacity = concurrencyLevel;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       short 00007FF88A9990A3
 mov       edi,edx
-            var locks = new object[concurrencyLevel];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 movsxd    rdx,edx
 mov       rcx,offset MT_System.Object[]
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rbp,rax
-            for (var i = 0; i < locks.Length; i++)
-                 ^^^^^^^^^
 xor       r14d,r14d
 mov       r15d,[rbp+8]
 test      r15d,r15d
-jle       short 00007FFF60C09309
-                locks[i] = new object();
-                ^^^^^^^^^^^^^^^^^^^^^^^^
+jle       short 00007FF88A9990E9
 mov       rcx,offset MT_System.Object
 call      CORINFO_HELP_NEWSFAST
 mov       r8,rax
@@ -450,35 +382,29 @@ mov       edx,r14d
 call      CORINFO_HELP_ARRADDR_ST
 inc       r14d
 cmp       r15d,r14d
-jg        short 00007FFF60C092E4
-            var countPerLock = new int[locks.Length];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A9990C4
 movsxd    rdx,r15d
 mov       rcx,offset MT_System.Int32[]
 call      CORINFO_HELP_NEWARR_1_VC
 mov       r14,rax
-            var buckets = new Node[capacity];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       r12,[rsi]
 mov       rcx,r12
 mov       rdx,[rcx+30]
 mov       r13,[rdx]
 mov       rax,[r13+8]
 test      rax,rax
-jne       short 00007FFF60C09343
-mov       rdx,7FFF60CB26B0
+jne       short 00007FF88A999123
+mov       rdx,7FF88AA42420
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 movsxd    rdx,edi
 mov       rcx,rax
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rdi,rax
-            this._tables = new Tables(buckets, locks, countPerLock);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rcx,r12
 mov       rax,[r13+10]
 test      rax,rax
-jne       short 00007FFF60C0936C
-mov       rdx,7FFF60CB2980
+jne       short 00007FF88A99914C
+mov       rdx,7FF88AA426F0
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -494,29 +420,23 @@ mov       rbp,[rsp+28]
 lea       rcx,[rbp+18]
 mov       rdx,r14
 call      CORINFO_HELP_ASSIGN_REF
-            this._growLockArray = growLockArray;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 lea       rcx,[rsi+10]
 mov       rdx,rbp
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rsi+1C],bl
-            this._budget = buckets.Length / locks.Length;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       eax,[rdi+8]
 cdq
 idiv      r15d
 mov       [rsi+18],eax
 mov       rdi,[rsp+0A0]
 mov       rdx,rdi
-            this._comparer = comparer ?? EqualityComparer<T>.Default;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 test      rdx,rdx
-jne       short 00007FFF60C093F6
+jne       short 00007FF88A9991D6
 mov       rcx,r12
 mov       rax,[r13+18]
 test      rax,rax
-jne       short 00007FFF60C093EB
-mov       rdx,7FFF60CB2AF0
+jne       short 00007FF88A9991CB
+mov       rdx,7FF88AA42860
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      System.Collections.Generic.EqualityComparer`1[[System.__Canon, System.Private.CoreLib]].get_Default()
@@ -536,18 +456,6 @@ pop       r15
 ret
 
 dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]].InitializeFromCollection(System.Collections.Generic.IEnumerable`1<System.__Canon>)
-            collection.ToList().ForEach(item =>
-            ^^^
-            {
-            ^^^
-                this.AddInternal(item, this._comparer.GetHashCode(item), false);
-            ^^^
-            });
-            ^^^
-            if (this._budget == 0)
-            ^^^^^^^^^^^^^^^^^^^^^^
-                this._budget = this._tables._buckets.Length / this._tables._locks.Length;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rdi
 push      rsi
 push      rbp
@@ -562,8 +470,8 @@ mov       rdx,[rcx+30]
 mov       rbp,[rdx]
 mov       rax,[rbp+20]
 test      rax,rax
-jne       short 00007FFF60C1D338
-mov       rdx,7FFF60CB2D08
+jne       short 00007FF88A9ACCE8
+mov       rdx,7FF88AA42A78
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 mov       rdx,rdi
@@ -572,8 +480,8 @@ mov       rdi,rax
 mov       rcx,rbx
 mov       rax,[rbp+28]
 test      rax,rax
-jne       short 00007FFF60C1D361
-mov       rdx,7FFF60CB2E48
+jne       short 00007FF88A9ACD11
+mov       rdx,7FF88AA42BB8
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -588,7 +496,7 @@ mov       rdx,rbx
 cmp       [rcx],ecx
 call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
 cmp       dword ptr [rsi+18],0
-jne       short 00007FFF60C1D3B3
+jne       short 00007FF88A9ACD63
 mov       rax,[rsi+10]
 mov       rax,[rax+8]
 mov       eax,[rax+8]
@@ -607,10 +515,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner.Creating01()
-            var result = new ConcurrentHashSet<PersonProper>(base.personProperCollection);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rbp
 push      r15
 push      r14
@@ -639,16 +543,16 @@ mov       [rbp+0FFB8],r14
 xor       r11d,r11d
 mov       rax,offset MD_System.Environment.GetProcessorCount()
 mov       [rbp+0FF88],rax
-lea       rax,[7FFF60C3D1CE]
+lea       rax,[7FF88A9ACF6E]
 mov       [rbp+0FFA0],rax
 lea       rax,[rbp+0FF78]
 mov       [rdi+10],rax
 mov       byte ptr [rdi+0C],0
-call      qword ptr [7FFF60C46880]
+call      qword ptr [7FF88A9B6880]
 mov       byte ptr [rdi+0C],1
-cmp       dword ptr [7FFF60C47BD8],0
-je        short 00007FFF60C3D1E1
-call      qword ptr [7FFF60C4B278]
+cmp       dword ptr [7FF88A9B7BA8],0
+je        short 00007FF88A9ACF81
+call      qword ptr [7FF88A9BB278]
 mov       rdx,[rbp+0FF80]
 mov       [rdi+10],rdx
 mov       edx,eax
@@ -660,7 +564,7 @@ mov       r9d,1
 call      dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]]..ctor(Int32, Int32, Boolean, System.Collections.Generic.IEqualityComparer`1<System.__Canon>)
 mov       r14,[rbp+0FFB8]
 test      r14,r14
-je        short 00007FFF60C3D21C
+je        short 00007FF88A9ACFBC
 mov       rcx,[rbp+0FFC0]
 mov       rdx,r14
 call      dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]].InitializeFromCollection(System.Collections.Generic.IEnumerable`1<System.__Canon>)
@@ -696,41 +600,23 @@ mov       [rsp+30],rcx
 mov       rsi,rcx
 mov       edi,r8d
 mov       ebx,r9d
-            if (concurrencyLevel < 1)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^
 test      edx,edx
-jg        short 00007FFF60C28C97
-                concurrencyLevel = 1;
-                ^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A998C97
 mov       edx,1
-            if (capacity < 0)
-            ^^^^^^^^^^^^^^^^^
 test      edi,edi
-jge       short 00007FFF60C28C9D
-                capacity = 0;
-                ^^^^^^^^^^^^^
+jge       short 00007FF88A998C9D
 xor       edi,edi
-            if (capacity < concurrencyLevel)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 cmp       edi,edx
-jge       short 00007FFF60C28CA3
-                capacity = concurrencyLevel;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       short 00007FF88A998CA3
 mov       edi,edx
-            var locks = new object[concurrencyLevel];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 movsxd    rdx,edx
 mov       rcx,offset MT_System.Object[]
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rbp,rax
-            for (var i = 0; i < locks.Length; i++)
-                 ^^^^^^^^^
 xor       r14d,r14d
 mov       r15d,[rbp+8]
 test      r15d,r15d
-jle       short 00007FFF60C28CE9
-                locks[i] = new object();
-                ^^^^^^^^^^^^^^^^^^^^^^^^
+jle       short 00007FF88A998CE9
 mov       rcx,offset MT_System.Object
 call      CORINFO_HELP_NEWSFAST
 mov       r8,rax
@@ -739,35 +625,29 @@ mov       edx,r14d
 call      CORINFO_HELP_ARRADDR_ST
 inc       r14d
 cmp       r15d,r14d
-jg        short 00007FFF60C28CC4
-            var countPerLock = new int[locks.Length];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A998CC4
 movsxd    rdx,r15d
 mov       rcx,offset MT_System.Int32[]
 call      CORINFO_HELP_NEWARR_1_VC
 mov       r14,rax
-            var buckets = new Node[capacity];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       r12,[rsi]
 mov       rcx,r12
 mov       rdx,[rcx+30]
 mov       r13,[rdx]
 mov       rax,[r13+8]
 test      rax,rax
-jne       short 00007FFF60C28D23
-mov       rdx,7FFF60CD2420
+jne       short 00007FF88A998D23
+mov       rdx,7FF88AA42348
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 movsxd    rdx,edi
 mov       rcx,rax
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rdi,rax
-            this._tables = new Tables(buckets, locks, countPerLock);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rcx,r12
 mov       rax,[r13+10]
 test      rax,rax
-jne       short 00007FFF60C28D4C
-mov       rdx,7FFF60CD26F0
+jne       short 00007FF88A998D4C
+mov       rdx,7FF88AA42618
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -783,29 +663,23 @@ mov       rbp,[rsp+28]
 lea       rcx,[rbp+18]
 mov       rdx,r14
 call      CORINFO_HELP_ASSIGN_REF
-            this._growLockArray = growLockArray;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 lea       rcx,[rsi+10]
 mov       rdx,rbp
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rsi+1C],bl
-            this._budget = buckets.Length / locks.Length;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       eax,[rdi+8]
 cdq
 idiv      r15d
 mov       [rsi+18],eax
 mov       rdi,[rsp+0A0]
 mov       rdx,rdi
-            this._comparer = comparer ?? EqualityComparer<T>.Default;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 test      rdx,rdx
-jne       short 00007FFF60C28DD6
+jne       short 00007FF88A998DD6
 mov       rcx,r12
 mov       rax,[r13+18]
 test      rax,rax
-jne       short 00007FFF60C28DCB
-mov       rdx,7FFF60CD2860
+jne       short 00007FF88A998DCB
+mov       rdx,7FF88AA42788
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      System.Collections.Generic.EqualityComparer`1[[System.__Canon, System.Private.CoreLib]].get_Default()
@@ -825,18 +699,6 @@ pop       r15
 ret
 
 dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]].InitializeFromCollection(System.Collections.Generic.IEnumerable`1<System.__Canon>)
-            collection.ToList().ForEach(item =>
-            ^^^
-            {
-            ^^^
-                this.AddInternal(item, this._comparer.GetHashCode(item), false);
-            ^^^
-            });
-            ^^^
-            if (this._budget == 0)
-            ^^^^^^^^^^^^^^^^^^^^^^
-                this._budget = this._tables._buckets.Length / this._tables._locks.Length;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rdi
 push      rsi
 push      rbp
@@ -851,8 +713,8 @@ mov       rdx,[rcx+30]
 mov       rbp,[rdx]
 mov       rax,[rbp+20]
 test      rax,rax
-jne       short 00007FFF60C3D508
-mov       rdx,7FFF60CD2A78
+jne       short 00007FF88A9AD2A8
+mov       rdx,7FF88AA429A0
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 mov       rdx,rdi
@@ -861,8 +723,8 @@ mov       rdi,rax
 mov       rcx,rbx
 mov       rax,[rbp+28]
 test      rax,rax
-jne       short 00007FFF60C3D531
-mov       rdx,7FFF60CD2BB8
+jne       short 00007FF88A9AD2D1
+mov       rdx,7FF88AA42AE0
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -877,7 +739,7 @@ mov       rdx,rbx
 cmp       [rcx],ecx
 call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
 cmp       dword ptr [rsi+18],0
-jne       short 00007FFF60C3D583
+jne       short 00007FF88A9AD323
 mov       rax,[rsi+10]
 mov       rax,[rax+8]
 mov       eax,[rax+8]
@@ -896,10 +758,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner.Creating01()
-            var result = new ConcurrentHashSet<PersonProper>(base.personProperCollection);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rbp
 push      r15
 push      r14
@@ -928,16 +786,16 @@ mov       [rbp+0FFB8],r14
 xor       r11d,r11d
 mov       rax,offset MD_System.Environment.GetProcessorCount()
 mov       [rbp+0FF88],rax
-lea       rax,[7FFF60C2D1CE]
+lea       rax,[7FF88A9ACF9E]
 mov       [rbp+0FFA0],rax
 lea       rax,[rbp+0FF78]
 mov       [rdi+10],rax
 mov       byte ptr [rdi+0C],0
-call      qword ptr [7FFF60C36880]
+call      qword ptr [7FF88A9B6880]
 mov       byte ptr [rdi+0C],1
-cmp       dword ptr [7FFF60C37BD8],0
-je        short 00007FFF60C2D1E1
-call      qword ptr [7FFF60C3B278]
+cmp       dword ptr [7FF88A9B7BA8],0
+je        short 00007FF88A9ACFB1
+call      qword ptr [7FF88A9BB278]
 mov       rdx,[rbp+0FF80]
 mov       [rdi+10],rdx
 mov       edx,eax
@@ -949,7 +807,7 @@ mov       r9d,1
 call      dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]]..ctor(Int32, Int32, Boolean, System.Collections.Generic.IEqualityComparer`1<System.__Canon>)
 mov       r14,[rbp+0FFB8]
 test      r14,r14
-je        short 00007FFF60C2D21C
+je        short 00007FF88A9ACFEC
 mov       rcx,[rbp+0FFC0]
 mov       rdx,r14
 call      dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]].InitializeFromCollection(System.Collections.Generic.IEnumerable`1<System.__Canon>)
@@ -985,41 +843,23 @@ mov       [rsp+30],rcx
 mov       rsi,rcx
 mov       edi,r8d
 mov       ebx,r9d
-            if (concurrencyLevel < 1)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^
 test      edx,edx
-jg        short 00007FFF60C18C97
-                concurrencyLevel = 1;
-                ^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A998D07
 mov       edx,1
-            if (capacity < 0)
-            ^^^^^^^^^^^^^^^^^
 test      edi,edi
-jge       short 00007FFF60C18C9D
-                capacity = 0;
-                ^^^^^^^^^^^^^
+jge       short 00007FF88A998D0D
 xor       edi,edi
-            if (capacity < concurrencyLevel)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 cmp       edi,edx
-jge       short 00007FFF60C18CA3
-                capacity = concurrencyLevel;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       short 00007FF88A998D13
 mov       edi,edx
-            var locks = new object[concurrencyLevel];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 movsxd    rdx,edx
 mov       rcx,offset MT_System.Object[]
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rbp,rax
-            for (var i = 0; i < locks.Length; i++)
-                 ^^^^^^^^^
 xor       r14d,r14d
 mov       r15d,[rbp+8]
 test      r15d,r15d
-jle       short 00007FFF60C18CE9
-                locks[i] = new object();
-                ^^^^^^^^^^^^^^^^^^^^^^^^
+jle       short 00007FF88A998D59
 mov       rcx,offset MT_System.Object
 call      CORINFO_HELP_NEWSFAST
 mov       r8,rax
@@ -1028,35 +868,29 @@ mov       edx,r14d
 call      CORINFO_HELP_ARRADDR_ST
 inc       r14d
 cmp       r15d,r14d
-jg        short 00007FFF60C18CC4
-            var countPerLock = new int[locks.Length];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A998D34
 movsxd    rdx,r15d
 mov       rcx,offset MT_System.Int32[]
 call      CORINFO_HELP_NEWARR_1_VC
 mov       r14,rax
-            var buckets = new Node[capacity];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       r12,[rsi]
 mov       rcx,r12
 mov       rdx,[rcx+30]
 mov       r13,[rdx]
 mov       rax,[r13+8]
 test      rax,rax
-jne       short 00007FFF60C18D23
-mov       rdx,7FFF60CC2420
+jne       short 00007FF88A998D93
+mov       rdx,7FF88AA42560
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 movsxd    rdx,edi
 mov       rcx,rax
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rdi,rax
-            this._tables = new Tables(buckets, locks, countPerLock);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rcx,r12
 mov       rax,[r13+10]
 test      rax,rax
-jne       short 00007FFF60C18D4C
-mov       rdx,7FFF60CC26F0
+jne       short 00007FF88A998DBC
+mov       rdx,7FF88AA42830
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -1072,29 +906,23 @@ mov       rbp,[rsp+28]
 lea       rcx,[rbp+18]
 mov       rdx,r14
 call      CORINFO_HELP_ASSIGN_REF
-            this._growLockArray = growLockArray;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 lea       rcx,[rsi+10]
 mov       rdx,rbp
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rsi+1C],bl
-            this._budget = buckets.Length / locks.Length;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       eax,[rdi+8]
 cdq
 idiv      r15d
 mov       [rsi+18],eax
 mov       rdi,[rsp+0A0]
 mov       rdx,rdi
-            this._comparer = comparer ?? EqualityComparer<T>.Default;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 test      rdx,rdx
-jne       short 00007FFF60C18DD6
+jne       short 00007FF88A998E46
 mov       rcx,r12
 mov       rax,[r13+18]
 test      rax,rax
-jne       short 00007FFF60C18DCB
-mov       rdx,7FFF60CC2860
+jne       short 00007FF88A998E3B
+mov       rdx,7FF88AA429A0
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      System.Collections.Generic.EqualityComparer`1[[System.__Canon, System.Private.CoreLib]].get_Default()
@@ -1114,18 +942,6 @@ pop       r15
 ret
 
 dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]].InitializeFromCollection(System.Collections.Generic.IEnumerable`1<System.__Canon>)
-            collection.ToList().ForEach(item =>
-            ^^^
-            {
-            ^^^
-                this.AddInternal(item, this._comparer.GetHashCode(item), false);
-            ^^^
-            });
-            ^^^
-            if (this._budget == 0)
-            ^^^^^^^^^^^^^^^^^^^^^^
-                this._budget = this._tables._buckets.Length / this._tables._locks.Length;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rdi
 push      rsi
 push      rbp
@@ -1140,8 +956,8 @@ mov       rdx,[rcx+30]
 mov       rbp,[rdx]
 mov       rax,[rbp+20]
 test      rax,rax
-jne       short 00007FFF60C2D508
-mov       rdx,7FFF60CC2A78
+jne       short 00007FF88A9AD398
+mov       rdx,7FF88AA42BB8
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 mov       rdx,rdi
@@ -1150,8 +966,8 @@ mov       rdi,rax
 mov       rcx,rbx
 mov       rax,[rbp+28]
 test      rax,rax
-jne       short 00007FFF60C2D531
-mov       rdx,7FFF60CC2BB8
+jne       short 00007FF88A9AD3C1
+mov       rdx,7FF88AA42CF8
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -1166,7 +982,7 @@ mov       rdx,rbx
 cmp       [rcx],ecx
 call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
 cmp       dword ptr [rsi+18],0
-jne       short 00007FFF60C2D583
+jne       short 00007FF88A9AD413
 mov       rax,[rsi+10]
 mov       rax,[rax+8]
 mov       eax,[rax+8]
@@ -1185,10 +1001,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner.Creating01()
-            var result = new ConcurrentHashSet<PersonProper>(base.personProperCollection);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rbp
 push      r15
 push      r14
@@ -1217,16 +1029,16 @@ mov       [rbp+0FFB8],r14
 xor       r11d,r11d
 mov       rax,offset MD_System.Environment.GetProcessorCount()
 mov       [rbp+0FF88],rax
-lea       rax,[7FFF60C3CF5E]
+lea       rax,[7FF88A9AD05E]
 mov       [rbp+0FFA0],rax
 lea       rax,[rbp+0FF78]
 mov       [rdi+10],rax
 mov       byte ptr [rdi+0C],0
-call      qword ptr [7FFF60C46880]
+call      qword ptr [7FF88A9B6880]
 mov       byte ptr [rdi+0C],1
-cmp       dword ptr [7FFF60C47BD8],0
-je        short 00007FFF60C3CF71
-call      qword ptr [7FFF60C4B278]
+cmp       dword ptr [7FF88A9B7BA8],0
+je        short 00007FF88A9AD071
+call      qword ptr [7FF88A9BB278]
 mov       rdx,[rbp+0FF80]
 mov       [rdi+10],rdx
 mov       edx,eax
@@ -1238,7 +1050,7 @@ mov       r9d,1
 call      dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]]..ctor(Int32, Int32, Boolean, System.Collections.Generic.IEqualityComparer`1<System.__Canon>)
 mov       r14,[rbp+0FFB8]
 test      r14,r14
-je        short 00007FFF60C3CFAC
+je        short 00007FF88A9AD0AC
 mov       rcx,[rbp+0FFC0]
 mov       rdx,r14
 call      dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]].InitializeFromCollection(System.Collections.Generic.IEnumerable`1<System.__Canon>)
@@ -1274,41 +1086,23 @@ mov       [rsp+30],rcx
 mov       rsi,rcx
 mov       edi,r8d
 mov       ebx,r9d
-            if (concurrencyLevel < 1)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^
 test      edx,edx
-jg        short 00007FFF60C29297
-                concurrencyLevel = 1;
-                ^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A999107
 mov       edx,1
-            if (capacity < 0)
-            ^^^^^^^^^^^^^^^^^
 test      edi,edi
-jge       short 00007FFF60C2929D
-                capacity = 0;
-                ^^^^^^^^^^^^^
+jge       short 00007FF88A99910D
 xor       edi,edi
-            if (capacity < concurrencyLevel)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 cmp       edi,edx
-jge       short 00007FFF60C292A3
-                capacity = concurrencyLevel;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       short 00007FF88A999113
 mov       edi,edx
-            var locks = new object[concurrencyLevel];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 movsxd    rdx,edx
 mov       rcx,offset MT_System.Object[]
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rbp,rax
-            for (var i = 0; i < locks.Length; i++)
-                 ^^^^^^^^^
 xor       r14d,r14d
 mov       r15d,[rbp+8]
 test      r15d,r15d
-jle       short 00007FFF60C292E9
-                locks[i] = new object();
-                ^^^^^^^^^^^^^^^^^^^^^^^^
+jle       short 00007FF88A999159
 mov       rcx,offset MT_System.Object
 call      CORINFO_HELP_NEWSFAST
 mov       r8,rax
@@ -1317,35 +1111,29 @@ mov       edx,r14d
 call      CORINFO_HELP_ARRADDR_ST
 inc       r14d
 cmp       r15d,r14d
-jg        short 00007FFF60C292C4
-            var countPerLock = new int[locks.Length];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A999134
 movsxd    rdx,r15d
 mov       rcx,offset MT_System.Int32[]
 call      CORINFO_HELP_NEWARR_1_VC
 mov       r14,rax
-            var buckets = new Node[capacity];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       r12,[rsi]
 mov       rcx,r12
 mov       rdx,[rcx+30]
 mov       r13,[rdx]
 mov       rax,[r13+8]
 test      rax,rax
-jne       short 00007FFF60C29323
-mov       rdx,7FFF60CD2878
+jne       short 00007FF88A999193
+mov       rdx,7FF88AA42560
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 movsxd    rdx,edi
 mov       rcx,rax
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rdi,rax
-            this._tables = new Tables(buckets, locks, countPerLock);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rcx,r12
 mov       rax,[r13+10]
 test      rax,rax
-jne       short 00007FFF60C2934C
-mov       rdx,7FFF60CD2B48
+jne       short 00007FF88A9991BC
+mov       rdx,7FF88AA42830
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -1361,29 +1149,23 @@ mov       rbp,[rsp+28]
 lea       rcx,[rbp+18]
 mov       rdx,r14
 call      CORINFO_HELP_ASSIGN_REF
-            this._growLockArray = growLockArray;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 lea       rcx,[rsi+10]
 mov       rdx,rbp
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rsi+1C],bl
-            this._budget = buckets.Length / locks.Length;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       eax,[rdi+8]
 cdq
 idiv      r15d
 mov       [rsi+18],eax
 mov       rdi,[rsp+0A0]
 mov       rdx,rdi
-            this._comparer = comparer ?? EqualityComparer<T>.Default;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 test      rdx,rdx
-jne       short 00007FFF60C293D6
+jne       short 00007FF88A999246
 mov       rcx,r12
 mov       rax,[r13+18]
 test      rax,rax
-jne       short 00007FFF60C293CB
-mov       rdx,7FFF60CD2CB8
+jne       short 00007FF88A99923B
+mov       rdx,7FF88AA429A0
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      System.Collections.Generic.EqualityComparer`1[[System.__Canon, System.Private.CoreLib]].get_Default()
@@ -1403,18 +1185,6 @@ pop       r15
 ret
 
 dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]].InitializeFromCollection(System.Collections.Generic.IEnumerable`1<System.__Canon>)
-            collection.ToList().ForEach(item =>
-            ^^^
-            {
-            ^^^
-                this.AddInternal(item, this._comparer.GetHashCode(item), false);
-            ^^^
-            });
-            ^^^
-            if (this._budget == 0)
-            ^^^^^^^^^^^^^^^^^^^^^^
-                this._budget = this._tables._buckets.Length / this._tables._locks.Length;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rdi
 push      rsi
 push      rbp
@@ -1429,8 +1199,8 @@ mov       rdx,[rcx+30]
 mov       rbp,[rdx]
 mov       rax,[rbp+20]
 test      rax,rax
-jne       short 00007FFF60C3D358
-mov       rdx,7FFF60CD2ED0
+jne       short 00007FF88A9AD398
+mov       rdx,7FF88AA42BB8
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 mov       rdx,rdi
@@ -1439,8 +1209,8 @@ mov       rdi,rax
 mov       rcx,rbx
 mov       rax,[rbp+28]
 test      rax,rax
-jne       short 00007FFF60C3D381
-mov       rdx,7FFF60CD3010
+jne       short 00007FF88A9AD3C1
+mov       rdx,7FF88AA42CF8
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -1455,7 +1225,7 @@ mov       rdx,rbx
 cmp       [rcx],ecx
 call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
 cmp       dword ptr [rsi+18],0
-jne       short 00007FFF60C3D3D3
+jne       short 00007FF88A9AD413
 mov       rax,[rsi+10]
 mov       rax,[rax+8]
 mov       eax,[rax+8]
@@ -1474,10 +1244,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner.Creating01()
-            var result = new ConcurrentHashSet<PersonProper>(base.personProperCollection);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rbp
 push      r15
 push      r14
@@ -1506,16 +1272,16 @@ mov       [rbp+0FFB8],r14
 xor       r11d,r11d
 mov       rax,offset MD_System.Environment.GetProcessorCount()
 mov       [rbp+0FF88],rax
-lea       rax,[7FFF60C0D9FE]
+lea       rax,[7FF88A9ACF3E]
 mov       [rbp+0FFA0],rax
 lea       rax,[rbp+0FF78]
 mov       [rdi+10],rax
 mov       byte ptr [rdi+0C],0
-call      qword ptr [7FFF60C16880]
+call      qword ptr [7FF88A9B6880]
 mov       byte ptr [rdi+0C],1
-cmp       dword ptr [7FFF60C17BD8],0
-je        short 00007FFF60C0DA11
-call      qword ptr [7FFF60C1B278]
+cmp       dword ptr [7FF88A9B7BA8],0
+je        short 00007FF88A9ACF51
+call      qword ptr [7FF88A9BB278]
 mov       rdx,[rbp+0FF80]
 mov       [rdi+10],rdx
 mov       edx,eax
@@ -1527,7 +1293,7 @@ mov       r9d,1
 call      dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]]..ctor(Int32, Int32, Boolean, System.Collections.Generic.IEqualityComparer`1<System.__Canon>)
 mov       r14,[rbp+0FFB8]
 test      r14,r14
-je        short 00007FFF60C0DA4C
+je        short 00007FF88A9ACF8C
 mov       rcx,[rbp+0FFC0]
 mov       rdx,r14
 call      dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]].InitializeFromCollection(System.Collections.Generic.IEnumerable`1<System.__Canon>)
@@ -1563,41 +1329,23 @@ mov       [rsp+30],rcx
 mov       rsi,rcx
 mov       edi,r8d
 mov       ebx,r9d
-            if (concurrencyLevel < 1)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^
 test      edx,edx
-jg        short 00007FFF60BF8C97
-                concurrencyLevel = 1;
-                ^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A999287
 mov       edx,1
-            if (capacity < 0)
-            ^^^^^^^^^^^^^^^^^
 test      edi,edi
-jge       short 00007FFF60BF8C9D
-                capacity = 0;
-                ^^^^^^^^^^^^^
+jge       short 00007FF88A99928D
 xor       edi,edi
-            if (capacity < concurrencyLevel)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 cmp       edi,edx
-jge       short 00007FFF60BF8CA3
-                capacity = concurrencyLevel;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       short 00007FF88A999293
 mov       edi,edx
-            var locks = new object[concurrencyLevel];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 movsxd    rdx,edx
 mov       rcx,offset MT_System.Object[]
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rbp,rax
-            for (var i = 0; i < locks.Length; i++)
-                 ^^^^^^^^^
 xor       r14d,r14d
 mov       r15d,[rbp+8]
 test      r15d,r15d
-jle       short 00007FFF60BF8CE9
-                locks[i] = new object();
-                ^^^^^^^^^^^^^^^^^^^^^^^^
+jle       short 00007FF88A9992D9
 mov       rcx,offset MT_System.Object
 call      CORINFO_HELP_NEWSFAST
 mov       r8,rax
@@ -1606,35 +1354,29 @@ mov       edx,r14d
 call      CORINFO_HELP_ARRADDR_ST
 inc       r14d
 cmp       r15d,r14d
-jg        short 00007FFF60BF8CC4
-            var countPerLock = new int[locks.Length];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A9992B4
 movsxd    rdx,r15d
 mov       rcx,offset MT_System.Int32[]
 call      CORINFO_HELP_NEWARR_1_VC
 mov       r14,rax
-            var buckets = new Node[capacity];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       r12,[rsi]
 mov       rcx,r12
 mov       rdx,[rcx+30]
 mov       r13,[rdx]
 mov       rax,[r13+8]
 test      rax,rax
-jne       short 00007FFF60BF8D23
-mov       rdx,7FFF60CA2420
+jne       short 00007FF88A999313
+mov       rdx,7FF88AA42878
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 movsxd    rdx,edi
 mov       rcx,rax
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rdi,rax
-            this._tables = new Tables(buckets, locks, countPerLock);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rcx,r12
 mov       rax,[r13+10]
 test      rax,rax
-jne       short 00007FFF60BF8D4C
-mov       rdx,7FFF60CA26F0
+jne       short 00007FF88A99933C
+mov       rdx,7FF88AA42B48
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -1650,29 +1392,23 @@ mov       rbp,[rsp+28]
 lea       rcx,[rbp+18]
 mov       rdx,r14
 call      CORINFO_HELP_ASSIGN_REF
-            this._growLockArray = growLockArray;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 lea       rcx,[rsi+10]
 mov       rdx,rbp
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rsi+1C],bl
-            this._budget = buckets.Length / locks.Length;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       eax,[rdi+8]
 cdq
 idiv      r15d
 mov       [rsi+18],eax
 mov       rdi,[rsp+0A0]
 mov       rdx,rdi
-            this._comparer = comparer ?? EqualityComparer<T>.Default;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 test      rdx,rdx
-jne       short 00007FFF60BF8DD6
+jne       short 00007FF88A9993C6
 mov       rcx,r12
 mov       rax,[r13+18]
 test      rax,rax
-jne       short 00007FFF60BF8DCB
-mov       rdx,7FFF60CA2860
+jne       short 00007FF88A9993BB
+mov       rdx,7FF88AA42CB8
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      System.Collections.Generic.EqualityComparer`1[[System.__Canon, System.Private.CoreLib]].get_Default()
@@ -1692,18 +1428,6 @@ pop       r15
 ret
 
 dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]].InitializeFromCollection(System.Collections.Generic.IEnumerable`1<System.__Canon>)
-            collection.ToList().ForEach(item =>
-            ^^^
-            {
-            ^^^
-                this.AddInternal(item, this._comparer.GetHashCode(item), false);
-            ^^^
-            });
-            ^^^
-            if (this._budget == 0)
-            ^^^^^^^^^^^^^^^^^^^^^^
-                this._budget = this._tables._buckets.Length / this._tables._locks.Length;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rdi
 push      rsi
 push      rbp
@@ -1718,8 +1442,8 @@ mov       rdx,[rcx+30]
 mov       rbp,[rdx]
 mov       rax,[rbp+20]
 test      rax,rax
-jne       short 00007FFF60C0D328
-mov       rdx,7FFF60CA2A78
+jne       short 00007FF88A9AD338
+mov       rdx,7FF88AA42ED0
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 mov       rdx,rdi
@@ -1728,8 +1452,8 @@ mov       rdi,rax
 mov       rcx,rbx
 mov       rax,[rbp+28]
 test      rax,rax
-jne       short 00007FFF60C0D351
-mov       rdx,7FFF60CA2BB8
+jne       short 00007FF88A9AD361
+mov       rdx,7FF88AA43010
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -1744,7 +1468,7 @@ mov       rdx,rbx
 cmp       [rcx],ecx
 call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
 cmp       dword ptr [rsi+18],0
-jne       short 00007FFF60C0D3A3
+jne       short 00007FF88A9AD3B3
 mov       rax,[rsi+10]
 mov       rax,[rax+8]
 mov       eax,[rax+8]
@@ -1763,10 +1487,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner.Creating01()
-            var result = new ConcurrentHashSet<PersonProper>(base.personProperCollection);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rbp
 push      r15
 push      r14
@@ -1795,16 +1515,16 @@ mov       [rbp+0FFB8],r14
 xor       r11d,r11d
 mov       rax,offset MD_System.Environment.GetProcessorCount()
 mov       [rbp+0FF88],rax
-lea       rax,[7FFF60C0D0DE]
+lea       rax,[7FF88A9BD10E]
 mov       [rbp+0FFA0],rax
 lea       rax,[rbp+0FF78]
 mov       [rdi+10],rax
 mov       byte ptr [rdi+0C],0
-call      qword ptr [7FFF60C16880]
+call      qword ptr [7FF88A9C6880]
 mov       byte ptr [rdi+0C],1
-cmp       dword ptr [7FFF60C17BD8],0
-je        short 00007FFF60C0D0F1
-call      qword ptr [7FFF60C1B278]
+cmp       dword ptr [7FF88A9C7BA8],0
+je        short 00007FF88A9BD121
+call      qword ptr [7FF88A9CB278]
 mov       rdx,[rbp+0FF80]
 mov       [rdi+10],rdx
 mov       edx,eax
@@ -1816,7 +1536,7 @@ mov       r9d,1
 call      dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]]..ctor(Int32, Int32, Boolean, System.Collections.Generic.IEqualityComparer`1<System.__Canon>)
 mov       r14,[rbp+0FFB8]
 test      r14,r14
-je        short 00007FFF60C0D12C
+je        short 00007FF88A9BD15C
 mov       rcx,[rbp+0FFC0]
 mov       rdx,r14
 call      dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]].InitializeFromCollection(System.Collections.Generic.IEnumerable`1<System.__Canon>)
@@ -1852,41 +1572,23 @@ mov       [rsp+30],rcx
 mov       rsi,rcx
 mov       edi,r8d
 mov       ebx,r9d
-            if (concurrencyLevel < 1)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^
 test      edx,edx
-jg        short 00007FFF60BF9297
-                concurrencyLevel = 1;
-                ^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A9A8C97
 mov       edx,1
-            if (capacity < 0)
-            ^^^^^^^^^^^^^^^^^
 test      edi,edi
-jge       short 00007FFF60BF929D
-                capacity = 0;
-                ^^^^^^^^^^^^^
+jge       short 00007FF88A9A8C9D
 xor       edi,edi
-            if (capacity < concurrencyLevel)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 cmp       edi,edx
-jge       short 00007FFF60BF92A3
-                capacity = concurrencyLevel;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       short 00007FF88A9A8CA3
 mov       edi,edx
-            var locks = new object[concurrencyLevel];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 movsxd    rdx,edx
 mov       rcx,offset MT_System.Object[]
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rbp,rax
-            for (var i = 0; i < locks.Length; i++)
-                 ^^^^^^^^^
 xor       r14d,r14d
 mov       r15d,[rbp+8]
 test      r15d,r15d
-jle       short 00007FFF60BF92E9
-                locks[i] = new object();
-                ^^^^^^^^^^^^^^^^^^^^^^^^
+jle       short 00007FF88A9A8CE9
 mov       rcx,offset MT_System.Object
 call      CORINFO_HELP_NEWSFAST
 mov       r8,rax
@@ -1895,35 +1597,29 @@ mov       edx,r14d
 call      CORINFO_HELP_ARRADDR_ST
 inc       r14d
 cmp       r15d,r14d
-jg        short 00007FFF60BF92C4
-            var countPerLock = new int[locks.Length];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A9A8CC4
 movsxd    rdx,r15d
 mov       rcx,offset MT_System.Int32[]
 call      CORINFO_HELP_NEWARR_1_VC
 mov       r14,rax
-            var buckets = new Node[capacity];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       r12,[rsi]
 mov       rcx,r12
 mov       rdx,[rcx+30]
 mov       r13,[rdx]
 mov       rax,[r13+8]
 test      rax,rax
-jne       short 00007FFF60BF9323
-mov       rdx,7FFF60CA2878
+jne       short 00007FF88A9A8D23
+mov       rdx,7FF88AA52348
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 movsxd    rdx,edi
 mov       rcx,rax
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rdi,rax
-            this._tables = new Tables(buckets, locks, countPerLock);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rcx,r12
 mov       rax,[r13+10]
 test      rax,rax
-jne       short 00007FFF60BF934C
-mov       rdx,7FFF60CA2B48
+jne       short 00007FF88A9A8D4C
+mov       rdx,7FF88AA52618
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -1939,29 +1635,23 @@ mov       rbp,[rsp+28]
 lea       rcx,[rbp+18]
 mov       rdx,r14
 call      CORINFO_HELP_ASSIGN_REF
-            this._growLockArray = growLockArray;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 lea       rcx,[rsi+10]
 mov       rdx,rbp
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rsi+1C],bl
-            this._budget = buckets.Length / locks.Length;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       eax,[rdi+8]
 cdq
 idiv      r15d
 mov       [rsi+18],eax
 mov       rdi,[rsp+0A0]
 mov       rdx,rdi
-            this._comparer = comparer ?? EqualityComparer<T>.Default;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 test      rdx,rdx
-jne       short 00007FFF60BF93D6
+jne       short 00007FF88A9A8DD6
 mov       rcx,r12
 mov       rax,[r13+18]
 test      rax,rax
-jne       short 00007FFF60BF93CB
-mov       rdx,7FFF60CA2CB8
+jne       short 00007FF88A9A8DCB
+mov       rdx,7FF88AA52788
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      System.Collections.Generic.EqualityComparer`1[[System.__Canon, System.Private.CoreLib]].get_Default()
@@ -1981,18 +1671,6 @@ pop       r15
 ret
 
 dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1[[System.__Canon, System.Private.CoreLib]].InitializeFromCollection(System.Collections.Generic.IEnumerable`1<System.__Canon>)
-            collection.ToList().ForEach(item =>
-            ^^^
-            {
-            ^^^
-                this.AddInternal(item, this._comparer.GetHashCode(item), false);
-            ^^^
-            });
-            ^^^
-            if (this._budget == 0)
-            ^^^^^^^^^^^^^^^^^^^^^^
-                this._budget = this._tables._buckets.Length / this._tables._locks.Length;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rdi
 push      rsi
 push      rbp
@@ -2007,8 +1685,8 @@ mov       rdx,[rcx+30]
 mov       rbp,[rdx]
 mov       rax,[rbp+20]
 test      rax,rax
-jne       short 00007FFF60C0D4D8
-mov       rdx,7FFF60CA2ED0
+jne       short 00007FF88A9BD508
+mov       rdx,7FF88AA529A0
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 mov       rdx,rdi
@@ -2017,8 +1695,8 @@ mov       rdi,rax
 mov       rcx,rbx
 mov       rax,[rbp+28]
 test      rax,rax
-jne       short 00007FFF60C0D501
-mov       rdx,7FFF60CA3010
+jne       short 00007FF88A9BD531
+mov       rdx,7FF88AA52AE0
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -2033,7 +1711,7 @@ mov       rdx,rbx
 cmp       [rcx],ecx
 call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
 cmp       dword ptr [rsi+18],0
-jne       short 00007FFF60C0D553
+jne       short 00007FF88A9BD583
 mov       rax,[rsi+10]
 mov       rax,[rax+8]
 mov       eax,[rax+8]
@@ -2057,25 +1735,19 @@ ret
 <thead>
 <tr><th colspan="7">ConcurrentHashSetPerfTestRunner.'Create Using ForEach().'</th></tr>
 <tr>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner.Creating02()
-            var fakePeople = new ConcurrentHashSet<PersonProper>();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.personProperCollection.ForEach(p => fakePeople.Add(p));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(fakePeople);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rbp
 push      r15
 push      r14
@@ -2105,16 +1777,16 @@ mov       [rbp+0FFB8],rax
 xor       r11d,r11d
 mov       rax,offset MD_System.Environment.GetProcessorCount()
 mov       [rbp+0FF88],rax
-lea       rax,[7FFF60C2CF59]
+lea       rax,[7FF88A9ACDF9]
 mov       [rbp+0FFA0],rax
 lea       rax,[rbp+0FF78]
 mov       [rdi+10],rax
 mov       byte ptr [rdi+0C],0
-call      qword ptr [7FFF60C36880]
+call      qword ptr [7FF88A9B6880]
 mov       byte ptr [rdi+0C],1
-cmp       dword ptr [7FFF60C37BD8],0
-je        short 00007FFF60C2CF6C
-call      qword ptr [7FFF60C3B278]
+cmp       dword ptr [7FF88A9B7BA8],0
+je        short 00007FF88A9ACE0C
+call      qword ptr [7FF88A9BB278]
 mov       rdx,[rbp+0FF80]
 mov       [rdi+10],rdx
 mov       edx,eax
@@ -2173,41 +1845,23 @@ mov       [rsp+30],rcx
 mov       rsi,rcx
 mov       edi,r8d
 mov       ebx,r9d
-            if (concurrencyLevel < 1)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^
 test      edx,edx
-jg        short 00007FFF60C18C97
-                concurrencyLevel = 1;
-                ^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A998C97
 mov       edx,1
-            if (capacity < 0)
-            ^^^^^^^^^^^^^^^^^
 test      edi,edi
-jge       short 00007FFF60C18C9D
-                capacity = 0;
-                ^^^^^^^^^^^^^
+jge       short 00007FF88A998C9D
 xor       edi,edi
-            if (capacity < concurrencyLevel)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 cmp       edi,edx
-jge       short 00007FFF60C18CA3
-                capacity = concurrencyLevel;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       short 00007FF88A998CA3
 mov       edi,edx
-            var locks = new object[concurrencyLevel];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 movsxd    rdx,edx
 mov       rcx,offset MT_System.Object[]
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rbp,rax
-            for (var i = 0; i < locks.Length; i++)
-                 ^^^^^^^^^
 xor       r14d,r14d
 mov       r15d,[rbp+8]
 test      r15d,r15d
-jle       short 00007FFF60C18CE9
-                locks[i] = new object();
-                ^^^^^^^^^^^^^^^^^^^^^^^^
+jle       short 00007FF88A998CE9
 mov       rcx,offset MT_System.Object
 call      CORINFO_HELP_NEWSFAST
 mov       r8,rax
@@ -2216,35 +1870,29 @@ mov       edx,r14d
 call      CORINFO_HELP_ARRADDR_ST
 inc       r14d
 cmp       r15d,r14d
-jg        short 00007FFF60C18CC4
-            var countPerLock = new int[locks.Length];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A998CC4
 movsxd    rdx,r15d
 mov       rcx,offset MT_System.Int32[]
 call      CORINFO_HELP_NEWARR_1_VC
 mov       r14,rax
-            var buckets = new Node[capacity];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       r12,[rsi]
 mov       rcx,r12
 mov       rdx,[rcx+30]
 mov       r13,[rdx]
 mov       rax,[r13+8]
 test      rax,rax
-jne       short 00007FFF60C18D23
-mov       rdx,7FFF60CC2378
+jne       short 00007FF88A998D23
+mov       rdx,7FF88AA42378
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 movsxd    rdx,edi
 mov       rcx,rax
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rdi,rax
-            this._tables = new Tables(buckets, locks, countPerLock);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rcx,r12
 mov       rax,[r13+10]
 test      rax,rax
-jne       short 00007FFF60C18D4C
-mov       rdx,7FFF60CC2648
+jne       short 00007FF88A998D4C
+mov       rdx,7FF88AA42648
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -2260,29 +1908,23 @@ mov       rbp,[rsp+28]
 lea       rcx,[rbp+18]
 mov       rdx,r14
 call      CORINFO_HELP_ASSIGN_REF
-            this._growLockArray = growLockArray;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 lea       rcx,[rsi+10]
 mov       rdx,rbp
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rsi+1C],bl
-            this._budget = buckets.Length / locks.Length;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       eax,[rdi+8]
 cdq
 idiv      r15d
 mov       [rsi+18],eax
 mov       rdi,[rsp+0A0]
 mov       rdx,rdi
-            this._comparer = comparer ?? EqualityComparer<T>.Default;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 test      rdx,rdx
-jne       short 00007FFF60C18DD6
+jne       short 00007FF88A998DD6
 mov       rcx,r12
 mov       rax,[r13+18]
 test      rax,rax
-jne       short 00007FFF60C18DCB
-mov       rdx,7FFF60CC27B8
+jne       short 00007FF88A998DCB
+mov       rdx,7FF88AA427B8
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      System.Collections.Generic.EqualityComparer`1[[System.__Canon, System.Private.CoreLib]].get_Default()
@@ -2302,8 +1944,6 @@ pop       r15
 ret
 
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
-            base.personProperCollection.ForEach(p => fakePeople.Add(p));
-                                                     ^^^^^^^^^^^^^^^^^
 push      rdi
 push      rsi
 sub       rsp,28
@@ -2311,9 +1951,9 @@ mov       rsi,rdx
 mov       rdi,[rcx+8]
 mov       rcx,[rdi+8]
 mov       rdx,rsi
-mov       r11,7FFF60820600
+mov       r11,7FF88A5A0600
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C30600]
+call      qword ptr [7FF88A9B0600]
 mov       r8d,eax
 mov       rdx,rsi
 mov       rcx,rdi
@@ -2334,16 +1974,16 @@ sub       rsp,28
 mov       rsi,rcx
 mov       rdi,rdx
 test      rdi,rdi
-je        short 00007FFF60C2CE28
+je        short 00007FF88A9AD0F8
 mov       ebx,[rsi+14]
 xor       ebp,ebp
 cmp       dword ptr [rsi+10],0
-jle       short 00007FFF60C2CE05
+jle       short 00007FF88A9AD0D5
 cmp       ebx,[rsi+14]
-jne       short 00007FFF60C2CE05
+jne       short 00007FF88A9AD0D5
 mov       rcx,[rsi+8]
 cmp       ebp,[rcx+8]
-jae       short 00007FFF60C2CE33
+jae       short 00007FF88A9AD103
 movsxd    rdx,ebp
 mov       rdx,[rcx+rdx*8+10]
 mov       rax,rdi
@@ -2351,9 +1991,9 @@ mov       rcx,[rax+8]
 call      qword ptr [rax+18]
 inc       ebp
 cmp       ebp,[rsi+10]
-jl        short 00007FFF60C2CDDE
+jl        short 00007FF88A9AD0AE
 cmp       ebx,[rsi+14]
-je        short 00007FFF60C2CE1F
+je        short 00007FF88A9AD0EF
 mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
 add       rsp,28
 pop       rbx
@@ -2376,12 +2016,6 @@ int       3
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner.Creating02()
-            var fakePeople = new ConcurrentHashSet<PersonProper>();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.personProperCollection.ForEach(p => fakePeople.Add(p));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(fakePeople);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rbp
 push      r15
 push      r14
@@ -2411,16 +2045,16 @@ mov       [rbp+0FFB8],rax
 xor       r11d,r11d
 mov       rax,offset MD_System.Environment.GetProcessorCount()
 mov       [rbp+0FF88],rax
-lea       rax,[7FFF60C1D489]
+lea       rax,[7FF88A98D5E9]
 mov       [rbp+0FFA0],rax
 lea       rax,[rbp+0FF78]
 mov       [rdi+10],rax
 mov       byte ptr [rdi+0C],0
-call      qword ptr [7FFF60C26880]
+call      qword ptr [7FF88A996880]
 mov       byte ptr [rdi+0C],1
-cmp       dword ptr [7FFF60C27BD8],0
-je        short 00007FFF60C1D49C
-call      qword ptr [7FFF60C2B278]
+cmp       dword ptr [7FF88A997BA8],0
+je        short 00007FF88A98D5FC
+call      qword ptr [7FF88A99B278]
 mov       rdx,[rbp+0FF80]
 mov       [rdi+10],rdx
 mov       edx,eax
@@ -2479,41 +2113,23 @@ mov       [rsp+30],rcx
 mov       rsi,rcx
 mov       edi,r8d
 mov       ebx,r9d
-            if (concurrencyLevel < 1)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^
 test      edx,edx
-jg        short 00007FFF60C09097
-                concurrencyLevel = 1;
-                ^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A978C97
 mov       edx,1
-            if (capacity < 0)
-            ^^^^^^^^^^^^^^^^^
 test      edi,edi
-jge       short 00007FFF60C0909D
-                capacity = 0;
-                ^^^^^^^^^^^^^
+jge       short 00007FF88A978C9D
 xor       edi,edi
-            if (capacity < concurrencyLevel)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 cmp       edi,edx
-jge       short 00007FFF60C090A3
-                capacity = concurrencyLevel;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       short 00007FF88A978CA3
 mov       edi,edx
-            var locks = new object[concurrencyLevel];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 movsxd    rdx,edx
 mov       rcx,offset MT_System.Object[]
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rbp,rax
-            for (var i = 0; i < locks.Length; i++)
-                 ^^^^^^^^^
 xor       r14d,r14d
 mov       r15d,[rbp+8]
 test      r15d,r15d
-jle       short 00007FFF60C090E9
-                locks[i] = new object();
-                ^^^^^^^^^^^^^^^^^^^^^^^^
+jle       short 00007FF88A978CE9
 mov       rcx,offset MT_System.Object
 call      CORINFO_HELP_NEWSFAST
 mov       r8,rax
@@ -2522,35 +2138,29 @@ mov       edx,r14d
 call      CORINFO_HELP_ARRADDR_ST
 inc       r14d
 cmp       r15d,r14d
-jg        short 00007FFF60C090C4
-            var countPerLock = new int[locks.Length];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A978CC4
 movsxd    rdx,r15d
 mov       rcx,offset MT_System.Int32[]
 call      CORINFO_HELP_NEWARR_1_VC
 mov       r14,rax
-            var buckets = new Node[capacity];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       r12,[rsi]
 mov       rcx,r12
 mov       rdx,[rcx+30]
 mov       r13,[rdx]
 mov       rax,[r13+8]
 test      rax,rax
-jne       short 00007FFF60C09123
-mov       rdx,7FFF60CB2420
+jne       short 00007FF88A978D23
+mov       rdx,7FF88AA22378
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 movsxd    rdx,edi
 mov       rcx,rax
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rdi,rax
-            this._tables = new Tables(buckets, locks, countPerLock);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rcx,r12
 mov       rax,[r13+10]
 test      rax,rax
-jne       short 00007FFF60C0914C
-mov       rdx,7FFF60CB26F0
+jne       short 00007FF88A978D4C
+mov       rdx,7FF88AA22648
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -2566,29 +2176,23 @@ mov       rbp,[rsp+28]
 lea       rcx,[rbp+18]
 mov       rdx,r14
 call      CORINFO_HELP_ASSIGN_REF
-            this._growLockArray = growLockArray;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 lea       rcx,[rsi+10]
 mov       rdx,rbp
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rsi+1C],bl
-            this._budget = buckets.Length / locks.Length;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       eax,[rdi+8]
 cdq
 idiv      r15d
 mov       [rsi+18],eax
 mov       rdi,[rsp+0A0]
 mov       rdx,rdi
-            this._comparer = comparer ?? EqualityComparer<T>.Default;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 test      rdx,rdx
-jne       short 00007FFF60C091D6
+jne       short 00007FF88A978DD6
 mov       rcx,r12
 mov       rax,[r13+18]
 test      rax,rax
-jne       short 00007FFF60C091CB
-mov       rdx,7FFF60CB2860
+jne       short 00007FF88A978DCB
+mov       rdx,7FF88AA227B8
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      System.Collections.Generic.EqualityComparer`1[[System.__Canon, System.Private.CoreLib]].get_Default()
@@ -2608,8 +2212,6 @@ pop       r15
 ret
 
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
-            base.personProperCollection.ForEach(p => fakePeople.Add(p));
-                                                     ^^^^^^^^^^^^^^^^^
 push      rdi
 push      rsi
 sub       rsp,28
@@ -2617,9 +2219,9 @@ mov       rsi,rdx
 mov       rdi,[rcx+8]
 mov       rcx,[rdi+8]
 mov       rdx,rsi
-mov       r11,7FFF60810600
+mov       r11,7FF88A580600
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C20600]
+call      qword ptr [7FF88A990600]
 mov       r8d,eax
 mov       rdx,rsi
 mov       rcx,rdi
@@ -2640,16 +2242,16 @@ sub       rsp,28
 mov       rsi,rcx
 mov       rdi,rdx
 test      rdi,rdi
-je        short 00007FFF60C1D788
+je        short 00007FF88A98D4B8
 mov       ebx,[rsi+14]
 xor       ebp,ebp
 cmp       dword ptr [rsi+10],0
-jle       short 00007FFF60C1D765
+jle       short 00007FF88A98D495
 cmp       ebx,[rsi+14]
-jne       short 00007FFF60C1D765
+jne       short 00007FF88A98D495
 mov       rcx,[rsi+8]
 cmp       ebp,[rcx+8]
-jae       short 00007FFF60C1D793
+jae       short 00007FF88A98D4C3
 movsxd    rdx,ebp
 mov       rdx,[rcx+rdx*8+10]
 mov       rax,rdi
@@ -2657,9 +2259,9 @@ mov       rcx,[rax+8]
 call      qword ptr [rax+18]
 inc       ebp
 cmp       ebp,[rsi+10]
-jl        short 00007FFF60C1D73E
+jl        short 00007FF88A98D46E
 cmp       ebx,[rsi+14]
-je        short 00007FFF60C1D77F
+je        short 00007FF88A98D4AF
 mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
 add       rsp,28
 pop       rbx
@@ -2682,12 +2284,6 @@ int       3
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner.Creating02()
-            var fakePeople = new ConcurrentHashSet<PersonProper>();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.personProperCollection.ForEach(p => fakePeople.Add(p));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(fakePeople);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rbp
 push      r15
 push      r14
@@ -2717,16 +2313,16 @@ mov       [rbp+0FFB8],rax
 xor       r11d,r11d
 mov       rax,offset MD_System.Environment.GetProcessorCount()
 mov       [rbp+0FF88],rax
-lea       rax,[7FFF60C3D309]
+lea       rax,[7FF88A9AD439]
 mov       [rbp+0FFA0],rax
 lea       rax,[rbp+0FF78]
 mov       [rdi+10],rax
 mov       byte ptr [rdi+0C],0
-call      qword ptr [7FFF60C46880]
+call      qword ptr [7FF88A9B6880]
 mov       byte ptr [rdi+0C],1
-cmp       dword ptr [7FFF60C47BD8],0
-je        short 00007FFF60C3D31C
-call      qword ptr [7FFF60C4B278]
+cmp       dword ptr [7FF88A9B7BA8],0
+je        short 00007FF88A9AD44C
+call      qword ptr [7FF88A9BB278]
 mov       rdx,[rbp+0FF80]
 mov       [rdi+10],rdx
 mov       edx,eax
@@ -2785,41 +2381,23 @@ mov       [rsp+30],rcx
 mov       rsi,rcx
 mov       edi,r8d
 mov       ebx,r9d
-            if (concurrencyLevel < 1)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^
 test      edx,edx
-jg        short 00007FFF60C28CF7
-                concurrencyLevel = 1;
-                ^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A998EA7
 mov       edx,1
-            if (capacity < 0)
-            ^^^^^^^^^^^^^^^^^
 test      edi,edi
-jge       short 00007FFF60C28CFD
-                capacity = 0;
-                ^^^^^^^^^^^^^
+jge       short 00007FF88A998EAD
 xor       edi,edi
-            if (capacity < concurrencyLevel)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 cmp       edi,edx
-jge       short 00007FFF60C28D03
-                capacity = concurrencyLevel;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       short 00007FF88A998EB3
 mov       edi,edx
-            var locks = new object[concurrencyLevel];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 movsxd    rdx,edx
 mov       rcx,offset MT_System.Object[]
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rbp,rax
-            for (var i = 0; i < locks.Length; i++)
-                 ^^^^^^^^^
 xor       r14d,r14d
 mov       r15d,[rbp+8]
 test      r15d,r15d
-jle       short 00007FFF60C28D49
-                locks[i] = new object();
-                ^^^^^^^^^^^^^^^^^^^^^^^^
+jle       short 00007FF88A998EF9
 mov       rcx,offset MT_System.Object
 call      CORINFO_HELP_NEWSFAST
 mov       r8,rax
@@ -2828,35 +2406,29 @@ mov       edx,r14d
 call      CORINFO_HELP_ARRADDR_ST
 inc       r14d
 cmp       r15d,r14d
-jg        short 00007FFF60C28D24
-            var countPerLock = new int[locks.Length];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A998ED4
 movsxd    rdx,r15d
 mov       rcx,offset MT_System.Int32[]
 call      CORINFO_HELP_NEWARR_1_VC
 mov       r14,rax
-            var buckets = new Node[capacity];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       r12,[rsi]
 mov       rcx,r12
 mov       rdx,[rcx+30]
 mov       r13,[rdx]
 mov       rax,[r13+8]
 test      rax,rax
-jne       short 00007FFF60C28D83
-mov       rdx,7FFF60CD2560
+jne       short 00007FF88A998F33
+mov       rdx,7FF88AA426B0
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 movsxd    rdx,edi
 mov       rcx,rax
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rdi,rax
-            this._tables = new Tables(buckets, locks, countPerLock);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rcx,r12
 mov       rax,[r13+10]
 test      rax,rax
-jne       short 00007FFF60C28DAC
-mov       rdx,7FFF60CD2830
+jne       short 00007FF88A998F5C
+mov       rdx,7FF88AA42980
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -2872,29 +2444,23 @@ mov       rbp,[rsp+28]
 lea       rcx,[rbp+18]
 mov       rdx,r14
 call      CORINFO_HELP_ASSIGN_REF
-            this._growLockArray = growLockArray;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 lea       rcx,[rsi+10]
 mov       rdx,rbp
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rsi+1C],bl
-            this._budget = buckets.Length / locks.Length;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       eax,[rdi+8]
 cdq
 idiv      r15d
 mov       [rsi+18],eax
 mov       rdi,[rsp+0A0]
 mov       rdx,rdi
-            this._comparer = comparer ?? EqualityComparer<T>.Default;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 test      rdx,rdx
-jne       short 00007FFF60C28E36
+jne       short 00007FF88A998FE6
 mov       rcx,r12
 mov       rax,[r13+18]
 test      rax,rax
-jne       short 00007FFF60C28E2B
-mov       rdx,7FFF60CD29A0
+jne       short 00007FF88A998FDB
+mov       rdx,7FF88AA42AF0
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      System.Collections.Generic.EqualityComparer`1[[System.__Canon, System.Private.CoreLib]].get_Default()
@@ -2914,8 +2480,6 @@ pop       r15
 ret
 
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
-            base.personProperCollection.ForEach(p => fakePeople.Add(p));
-                                                     ^^^^^^^^^^^^^^^^^
 push      rdi
 push      rsi
 sub       rsp,28
@@ -2923,9 +2487,9 @@ mov       rsi,rdx
 mov       rdi,[rcx+8]
 mov       rcx,[rdi+8]
 mov       rdx,rsi
-mov       r11,7FFF60830600
+mov       r11,7FF88A5A0600
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C40600]
+call      qword ptr [7FF88A9B0600]
 mov       r8d,eax
 mov       rdx,rsi
 mov       rcx,rdi
@@ -2946,16 +2510,16 @@ sub       rsp,28
 mov       rsi,rcx
 mov       rdi,rdx
 test      rdi,rdi
-je        short 00007FFF60C3D608
+je        short 00007FF88A9AD738
 mov       ebx,[rsi+14]
 xor       ebp,ebp
 cmp       dword ptr [rsi+10],0
-jle       short 00007FFF60C3D5E5
+jle       short 00007FF88A9AD715
 cmp       ebx,[rsi+14]
-jne       short 00007FFF60C3D5E5
+jne       short 00007FF88A9AD715
 mov       rcx,[rsi+8]
 cmp       ebp,[rcx+8]
-jae       short 00007FFF60C3D613
+jae       short 00007FF88A9AD743
 movsxd    rdx,ebp
 mov       rdx,[rcx+rdx*8+10]
 mov       rax,rdi
@@ -2963,9 +2527,9 @@ mov       rcx,[rax+8]
 call      qword ptr [rax+18]
 inc       ebp
 cmp       ebp,[rsi+10]
-jl        short 00007FFF60C3D5BE
+jl        short 00007FF88A9AD6EE
 cmp       ebx,[rsi+14]
-je        short 00007FFF60C3D5FF
+je        short 00007FF88A9AD72F
 mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
 add       rsp,28
 pop       rbx
@@ -2988,12 +2552,6 @@ int       3
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner.Creating02()
-            var fakePeople = new ConcurrentHashSet<PersonProper>();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.personProperCollection.ForEach(p => fakePeople.Add(p));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(fakePeople);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rbp
 push      r15
 push      r14
@@ -3023,16 +2581,16 @@ mov       [rbp+0FFB8],rax
 xor       r11d,r11d
 mov       rax,offset MD_System.Environment.GetProcessorCount()
 mov       [rbp+0FF88],rax
-lea       rax,[7FFF60BFD1E9]
+lea       rax,[7FF88A9CD659]
 mov       [rbp+0FFA0],rax
 lea       rax,[rbp+0FF78]
 mov       [rdi+10],rax
 mov       byte ptr [rdi+0C],0
-call      qword ptr [7FFF60C06880]
+call      qword ptr [7FF88A9D6880]
 mov       byte ptr [rdi+0C],1
-cmp       dword ptr [7FFF60C07BD8],0
-je        short 00007FFF60BFD1FC
-call      qword ptr [7FFF60C0B278]
+cmp       dword ptr [7FF88A9D7BA8],0
+je        short 00007FF88A9CD66C
+call      qword ptr [7FF88A9DB278]
 mov       rdx,[rbp+0FF80]
 mov       [rdi+10],rdx
 mov       edx,eax
@@ -3091,41 +2649,23 @@ mov       [rsp+30],rcx
 mov       rsi,rcx
 mov       edi,r8d
 mov       ebx,r9d
-            if (concurrencyLevel < 1)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^
 test      edx,edx
-jg        short 00007FFF60BE8EA7
-                concurrencyLevel = 1;
-                ^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A9B9297
 mov       edx,1
-            if (capacity < 0)
-            ^^^^^^^^^^^^^^^^^
 test      edi,edi
-jge       short 00007FFF60BE8EAD
-                capacity = 0;
-                ^^^^^^^^^^^^^
+jge       short 00007FF88A9B929D
 xor       edi,edi
-            if (capacity < concurrencyLevel)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 cmp       edi,edx
-jge       short 00007FFF60BE8EB3
-                capacity = concurrencyLevel;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       short 00007FF88A9B92A3
 mov       edi,edx
-            var locks = new object[concurrencyLevel];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 movsxd    rdx,edx
 mov       rcx,offset MT_System.Object[]
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rbp,rax
-            for (var i = 0; i < locks.Length; i++)
-                 ^^^^^^^^^
 xor       r14d,r14d
 mov       r15d,[rbp+8]
 test      r15d,r15d
-jle       short 00007FFF60BE8EF9
-                locks[i] = new object();
-                ^^^^^^^^^^^^^^^^^^^^^^^^
+jle       short 00007FF88A9B92E9
 mov       rcx,offset MT_System.Object
 call      CORINFO_HELP_NEWSFAST
 mov       r8,rax
@@ -3134,35 +2674,29 @@ mov       edx,r14d
 call      CORINFO_HELP_ARRADDR_ST
 inc       r14d
 cmp       r15d,r14d
-jg        short 00007FFF60BE8ED4
-            var countPerLock = new int[locks.Length];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A9B92C4
 movsxd    rdx,r15d
 mov       rcx,offset MT_System.Int32[]
 call      CORINFO_HELP_NEWARR_1_VC
 mov       r14,rax
-            var buckets = new Node[capacity];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       r12,[rsi]
 mov       rcx,r12
 mov       rdx,[rcx+30]
 mov       r13,[rdx]
 mov       rax,[r13+8]
 test      rax,rax
-jne       short 00007FFF60BE8F33
-mov       rdx,7FFF60C926B0
+jne       short 00007FF88A9B9323
+mov       rdx,7FF88AA62878
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 movsxd    rdx,edi
 mov       rcx,rax
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rdi,rax
-            this._tables = new Tables(buckets, locks, countPerLock);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rcx,r12
 mov       rax,[r13+10]
 test      rax,rax
-jne       short 00007FFF60BE8F5C
-mov       rdx,7FFF60C92980
+jne       short 00007FF88A9B934C
+mov       rdx,7FF88AA62B48
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -3178,29 +2712,23 @@ mov       rbp,[rsp+28]
 lea       rcx,[rbp+18]
 mov       rdx,r14
 call      CORINFO_HELP_ASSIGN_REF
-            this._growLockArray = growLockArray;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 lea       rcx,[rsi+10]
 mov       rdx,rbp
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rsi+1C],bl
-            this._budget = buckets.Length / locks.Length;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       eax,[rdi+8]
 cdq
 idiv      r15d
 mov       [rsi+18],eax
 mov       rdi,[rsp+0A0]
 mov       rdx,rdi
-            this._comparer = comparer ?? EqualityComparer<T>.Default;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 test      rdx,rdx
-jne       short 00007FFF60BE8FE6
+jne       short 00007FF88A9B93D6
 mov       rcx,r12
 mov       rax,[r13+18]
 test      rax,rax
-jne       short 00007FFF60BE8FDB
-mov       rdx,7FFF60C92AF0
+jne       short 00007FF88A9B93CB
+mov       rdx,7FF88AA62CB8
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      System.Collections.Generic.EqualityComparer`1[[System.__Canon, System.Private.CoreLib]].get_Default()
@@ -3220,8 +2748,6 @@ pop       r15
 ret
 
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
-            base.personProperCollection.ForEach(p => fakePeople.Add(p));
-                                                     ^^^^^^^^^^^^^^^^^
 push      rdi
 push      rsi
 sub       rsp,28
@@ -3229,9 +2755,9 @@ mov       rsi,rdx
 mov       rdi,[rcx+8]
 mov       rcx,[rdi+8]
 mov       rdx,rsi
-mov       r11,7FFF607F0600
+mov       r11,7FF88A5C0600
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C00600]
+call      qword ptr [7FF88A9D0600]
 mov       r8d,eax
 mov       rdx,rsi
 mov       rcx,rdi
@@ -3252,16 +2778,16 @@ sub       rsp,28
 mov       rsi,rcx
 mov       rdi,rdx
 test      rdi,rdi
-je        short 00007FFF60BFD5A8
+je        short 00007FF88A9CDA18
 mov       ebx,[rsi+14]
 xor       ebp,ebp
 cmp       dword ptr [rsi+10],0
-jle       short 00007FFF60BFD585
+jle       short 00007FF88A9CD9F5
 cmp       ebx,[rsi+14]
-jne       short 00007FFF60BFD585
+jne       short 00007FF88A9CD9F5
 mov       rcx,[rsi+8]
 cmp       ebp,[rcx+8]
-jae       short 00007FFF60BFD5B3
+jae       short 00007FF88A9CDA23
 movsxd    rdx,ebp
 mov       rdx,[rcx+rdx*8+10]
 mov       rax,rdi
@@ -3269,9 +2795,9 @@ mov       rcx,[rax+8]
 call      qword ptr [rax+18]
 inc       ebp
 cmp       ebp,[rsi+10]
-jl        short 00007FFF60BFD55E
+jl        short 00007FF88A9CD9CE
 cmp       ebx,[rsi+14]
-je        short 00007FFF60BFD59F
+je        short 00007FF88A9CDA0F
 mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
 add       rsp,28
 pop       rbx
@@ -3294,12 +2820,6 @@ int       3
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner.Creating02()
-            var fakePeople = new ConcurrentHashSet<PersonProper>();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.personProperCollection.ForEach(p => fakePeople.Add(p));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(fakePeople);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rbp
 push      r15
 push      r14
@@ -3329,16 +2849,16 @@ mov       [rbp+0FFB8],rax
 xor       r11d,r11d
 mov       rax,offset MD_System.Environment.GetProcessorCount()
 mov       [rbp+0FF88],rax
-lea       rax,[7FFF60C1D719]
+lea       rax,[7FF88A9BD4A9]
 mov       [rbp+0FFA0],rax
 lea       rax,[rbp+0FF78]
 mov       [rdi+10],rax
 mov       byte ptr [rdi+0C],0
-call      qword ptr [7FFF60C26880]
+call      qword ptr [7FF88A9C6880]
 mov       byte ptr [rdi+0C],1
-cmp       dword ptr [7FFF60C27BD8],0
-je        short 00007FFF60C1D72C
-call      qword ptr [7FFF60C2B278]
+cmp       dword ptr [7FF88A9C7BA8],0
+je        short 00007FF88A9BD4BC
+call      qword ptr [7FF88A9CB278]
 mov       rdx,[rbp+0FF80]
 mov       [rdi+10],rdx
 mov       edx,eax
@@ -3397,41 +2917,23 @@ mov       [rsp+30],rcx
 mov       rsi,rcx
 mov       edi,r8d
 mov       ebx,r9d
-            if (concurrencyLevel < 1)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^
 test      edx,edx
-jg        short 00007FFF60C09297
-                concurrencyLevel = 1;
-                ^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A9A9297
 mov       edx,1
-            if (capacity < 0)
-            ^^^^^^^^^^^^^^^^^
 test      edi,edi
-jge       short 00007FFF60C0929D
-                capacity = 0;
-                ^^^^^^^^^^^^^
+jge       short 00007FF88A9A929D
 xor       edi,edi
-            if (capacity < concurrencyLevel)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 cmp       edi,edx
-jge       short 00007FFF60C092A3
-                capacity = concurrencyLevel;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       short 00007FF88A9A92A3
 mov       edi,edx
-            var locks = new object[concurrencyLevel];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 movsxd    rdx,edx
 mov       rcx,offset MT_System.Object[]
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rbp,rax
-            for (var i = 0; i < locks.Length; i++)
-                 ^^^^^^^^^
 xor       r14d,r14d
 mov       r15d,[rbp+8]
 test      r15d,r15d
-jle       short 00007FFF60C092E9
-                locks[i] = new object();
-                ^^^^^^^^^^^^^^^^^^^^^^^^
+jle       short 00007FF88A9A92E9
 mov       rcx,offset MT_System.Object
 call      CORINFO_HELP_NEWSFAST
 mov       r8,rax
@@ -3440,35 +2942,29 @@ mov       edx,r14d
 call      CORINFO_HELP_ARRADDR_ST
 inc       r14d
 cmp       r15d,r14d
-jg        short 00007FFF60C092C4
-            var countPerLock = new int[locks.Length];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A9A92C4
 movsxd    rdx,r15d
 mov       rcx,offset MT_System.Int32[]
 call      CORINFO_HELP_NEWARR_1_VC
 mov       r14,rax
-            var buckets = new Node[capacity];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       r12,[rsi]
 mov       rcx,r12
 mov       rdx,[rcx+30]
 mov       r13,[rdx]
 mov       rax,[r13+8]
 test      rax,rax
-jne       short 00007FFF60C09323
-mov       rdx,7FFF60CB2878
+jne       short 00007FF88A9A9323
+mov       rdx,7FF88AA52878
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 movsxd    rdx,edi
 mov       rcx,rax
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rdi,rax
-            this._tables = new Tables(buckets, locks, countPerLock);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rcx,r12
 mov       rax,[r13+10]
 test      rax,rax
-jne       short 00007FFF60C0934C
-mov       rdx,7FFF60CB2B48
+jne       short 00007FF88A9A934C
+mov       rdx,7FF88AA52B48
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -3484,29 +2980,23 @@ mov       rbp,[rsp+28]
 lea       rcx,[rbp+18]
 mov       rdx,r14
 call      CORINFO_HELP_ASSIGN_REF
-            this._growLockArray = growLockArray;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 lea       rcx,[rsi+10]
 mov       rdx,rbp
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rsi+1C],bl
-            this._budget = buckets.Length / locks.Length;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       eax,[rdi+8]
 cdq
 idiv      r15d
 mov       [rsi+18],eax
 mov       rdi,[rsp+0A0]
 mov       rdx,rdi
-            this._comparer = comparer ?? EqualityComparer<T>.Default;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 test      rdx,rdx
-jne       short 00007FFF60C093D6
+jne       short 00007FF88A9A93D6
 mov       rcx,r12
 mov       rax,[r13+18]
 test      rax,rax
-jne       short 00007FFF60C093CB
-mov       rdx,7FFF60CB2CB8
+jne       short 00007FF88A9A93CB
+mov       rdx,7FF88AA52CB8
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      System.Collections.Generic.EqualityComparer`1[[System.__Canon, System.Private.CoreLib]].get_Default()
@@ -3526,8 +3016,6 @@ pop       r15
 ret
 
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
-            base.personProperCollection.ForEach(p => fakePeople.Add(p));
-                                                     ^^^^^^^^^^^^^^^^^
 push      rdi
 push      rsi
 sub       rsp,28
@@ -3535,9 +3023,9 @@ mov       rsi,rdx
 mov       rdi,[rcx+8]
 mov       rcx,[rdi+8]
 mov       rdx,rsi
-mov       r11,7FFF60810600
+mov       r11,7FF88A5B0600
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C20600]
+call      qword ptr [7FF88A9C0600]
 mov       r8d,eax
 mov       rdx,rsi
 mov       rcx,rdi
@@ -3558,16 +3046,16 @@ sub       rsp,28
 mov       rsi,rcx
 mov       rdi,rdx
 test      rdi,rdi
-je        short 00007FFF60C1DA18
+je        short 00007FF88A9BD7A8
 mov       ebx,[rsi+14]
 xor       ebp,ebp
 cmp       dword ptr [rsi+10],0
-jle       short 00007FFF60C1D9F5
+jle       short 00007FF88A9BD785
 cmp       ebx,[rsi+14]
-jne       short 00007FFF60C1D9F5
+jne       short 00007FF88A9BD785
 mov       rcx,[rsi+8]
 cmp       ebp,[rcx+8]
-jae       short 00007FFF60C1DA23
+jae       short 00007FF88A9BD7B3
 movsxd    rdx,ebp
 mov       rdx,[rcx+rdx*8+10]
 mov       rax,rdi
@@ -3575,9 +3063,9 @@ mov       rcx,[rax+8]
 call      qword ptr [rax+18]
 inc       ebp
 cmp       ebp,[rsi+10]
-jl        short 00007FFF60C1D9CE
+jl        short 00007FF88A9BD75E
 cmp       ebx,[rsi+14]
-je        short 00007FFF60C1DA0F
+je        short 00007FF88A9BD79F
 mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
 add       rsp,28
 pop       rbx
@@ -3600,12 +3088,6 @@ int       3
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner.Creating02()
-            var fakePeople = new ConcurrentHashSet<PersonProper>();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.personProperCollection.ForEach(p => fakePeople.Add(p));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(fakePeople);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rbp
 push      r15
 push      r14
@@ -3635,16 +3117,16 @@ mov       [rbp+0FFB8],rax
 xor       r11d,r11d
 mov       rax,offset MD_System.Environment.GetProcessorCount()
 mov       [rbp+0FF88],rax
-lea       rax,[7FFF60C3D369]
+lea       rax,[7FF88A9CD4A9]
 mov       [rbp+0FFA0],rax
 lea       rax,[rbp+0FF78]
 mov       [rdi+10],rax
 mov       byte ptr [rdi+0C],0
-call      qword ptr [7FFF60C46880]
+call      qword ptr [7FF88A9D6880]
 mov       byte ptr [rdi+0C],1
-cmp       dword ptr [7FFF60C47BD8],0
-je        short 00007FFF60C3D37C
-call      qword ptr [7FFF60C4B278]
+cmp       dword ptr [7FF88A9D7BA8],0
+je        short 00007FF88A9CD4BC
+call      qword ptr [7FF88A9DB278]
 mov       rdx,[rbp+0FF80]
 mov       [rdi+10],rdx
 mov       edx,eax
@@ -3703,41 +3185,23 @@ mov       [rsp+30],rcx
 mov       rsi,rcx
 mov       edi,r8d
 mov       ebx,r9d
-            if (concurrencyLevel < 1)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^
 test      edx,edx
-jg        short 00007FFF60C28C97
-                concurrencyLevel = 1;
-                ^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A9B9297
 mov       edx,1
-            if (capacity < 0)
-            ^^^^^^^^^^^^^^^^^
 test      edi,edi
-jge       short 00007FFF60C28C9D
-                capacity = 0;
-                ^^^^^^^^^^^^^
+jge       short 00007FF88A9B929D
 xor       edi,edi
-            if (capacity < concurrencyLevel)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 cmp       edi,edx
-jge       short 00007FFF60C28CA3
-                capacity = concurrencyLevel;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       short 00007FF88A9B92A3
 mov       edi,edx
-            var locks = new object[concurrencyLevel];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 movsxd    rdx,edx
 mov       rcx,offset MT_System.Object[]
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rbp,rax
-            for (var i = 0; i < locks.Length; i++)
-                 ^^^^^^^^^
 xor       r14d,r14d
 mov       r15d,[rbp+8]
 test      r15d,r15d
-jle       short 00007FFF60C28CE9
-                locks[i] = new object();
-                ^^^^^^^^^^^^^^^^^^^^^^^^
+jle       short 00007FF88A9B92E9
 mov       rcx,offset MT_System.Object
 call      CORINFO_HELP_NEWSFAST
 mov       r8,rax
@@ -3746,35 +3210,29 @@ mov       edx,r14d
 call      CORINFO_HELP_ARRADDR_ST
 inc       r14d
 cmp       r15d,r14d
-jg        short 00007FFF60C28CC4
-            var countPerLock = new int[locks.Length];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A9B92C4
 movsxd    rdx,r15d
 mov       rcx,offset MT_System.Int32[]
 call      CORINFO_HELP_NEWARR_1_VC
 mov       r14,rax
-            var buckets = new Node[capacity];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       r12,[rsi]
 mov       rcx,r12
 mov       rdx,[rcx+30]
 mov       r13,[rdx]
 mov       rax,[r13+8]
 test      rax,rax
-jne       short 00007FFF60C28D23
-mov       rdx,7FFF60CD2348
+jne       short 00007FF88A9B9323
+mov       rdx,7FF88AA62878
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 movsxd    rdx,edi
 mov       rcx,rax
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rdi,rax
-            this._tables = new Tables(buckets, locks, countPerLock);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rcx,r12
 mov       rax,[r13+10]
 test      rax,rax
-jne       short 00007FFF60C28D4C
-mov       rdx,7FFF60CD2618
+jne       short 00007FF88A9B934C
+mov       rdx,7FF88AA62B48
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -3790,29 +3248,23 @@ mov       rbp,[rsp+28]
 lea       rcx,[rbp+18]
 mov       rdx,r14
 call      CORINFO_HELP_ASSIGN_REF
-            this._growLockArray = growLockArray;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 lea       rcx,[rsi+10]
 mov       rdx,rbp
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rsi+1C],bl
-            this._budget = buckets.Length / locks.Length;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       eax,[rdi+8]
 cdq
 idiv      r15d
 mov       [rsi+18],eax
 mov       rdi,[rsp+0A0]
 mov       rdx,rdi
-            this._comparer = comparer ?? EqualityComparer<T>.Default;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 test      rdx,rdx
-jne       short 00007FFF60C28DD6
+jne       short 00007FF88A9B93D6
 mov       rcx,r12
 mov       rax,[r13+18]
 test      rax,rax
-jne       short 00007FFF60C28DCB
-mov       rdx,7FFF60CD2788
+jne       short 00007FF88A9B93CB
+mov       rdx,7FF88AA62CB8
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      System.Collections.Generic.EqualityComparer`1[[System.__Canon, System.Private.CoreLib]].get_Default()
@@ -3832,8 +3284,6 @@ pop       r15
 ret
 
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
-            base.personProperCollection.ForEach(p => fakePeople.Add(p));
-                                                     ^^^^^^^^^^^^^^^^^
 push      rdi
 push      rsi
 sub       rsp,28
@@ -3841,9 +3291,9 @@ mov       rsi,rdx
 mov       rdi,[rcx+8]
 mov       rcx,[rdi+8]
 mov       rdx,rsi
-mov       r11,7FFF60830600
+mov       r11,7FF88A5C0600
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C40600]
+call      qword ptr [7FF88A9D0600]
 mov       r8d,eax
 mov       rdx,rsi
 mov       rcx,rdi
@@ -3864,16 +3314,16 @@ sub       rsp,28
 mov       rsi,rcx
 mov       rdi,rdx
 test      rdi,rdi
-je        short 00007FFF60C3D798
+je        short 00007FF88A9CD7A8
 mov       ebx,[rsi+14]
 xor       ebp,ebp
 cmp       dword ptr [rsi+10],0
-jle       short 00007FFF60C3D775
+jle       short 00007FF88A9CD785
 cmp       ebx,[rsi+14]
-jne       short 00007FFF60C3D775
+jne       short 00007FF88A9CD785
 mov       rcx,[rsi+8]
 cmp       ebp,[rcx+8]
-jae       short 00007FFF60C3D7A3
+jae       short 00007FF88A9CD7B3
 movsxd    rdx,ebp
 mov       rdx,[rcx+rdx*8+10]
 mov       rax,rdi
@@ -3881,9 +3331,9 @@ mov       rcx,[rax+8]
 call      qword ptr [rax+18]
 inc       ebp
 cmp       ebp,[rsi+10]
-jl        short 00007FFF60C3D74E
+jl        short 00007FF88A9CD75E
 cmp       ebx,[rsi+14]
-je        short 00007FFF60C3D78F
+je        short 00007FF88A9CD79F
 mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
 add       rsp,28
 pop       rbx
@@ -3906,12 +3356,6 @@ int       3
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner.Creating02()
-            var fakePeople = new ConcurrentHashSet<PersonProper>();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.personProperCollection.ForEach(p => fakePeople.Add(p));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(fakePeople);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rbp
 push      r15
 push      r14
@@ -3941,16 +3385,16 @@ mov       [rbp+0FFB8],rax
 xor       r11d,r11d
 mov       rax,offset MD_System.Environment.GetProcessorCount()
 mov       [rbp+0FF88],rax
-lea       rax,[7FFF60C2D659]
+lea       rax,[7FF88A99D379]
 mov       [rbp+0FFA0],rax
 lea       rax,[rbp+0FF78]
 mov       [rdi+10],rax
 mov       byte ptr [rdi+0C],0
-call      qword ptr [7FFF60C36880]
+call      qword ptr [7FF88A9A6880]
 mov       byte ptr [rdi+0C],1
-cmp       dword ptr [7FFF60C37BD8],0
-je        short 00007FFF60C2D66C
-call      qword ptr [7FFF60C3B278]
+cmp       dword ptr [7FF88A9A7BA8],0
+je        short 00007FF88A99D38C
+call      qword ptr [7FF88A9AB278]
 mov       rdx,[rbp+0FF80]
 mov       [rdi+10],rdx
 mov       edx,eax
@@ -4009,41 +3453,23 @@ mov       [rsp+30],rcx
 mov       rsi,rcx
 mov       edi,r8d
 mov       ebx,r9d
-            if (concurrencyLevel < 1)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^
 test      edx,edx
-jg        short 00007FFF60C19297
-                concurrencyLevel = 1;
-                ^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A989297
 mov       edx,1
-            if (capacity < 0)
-            ^^^^^^^^^^^^^^^^^
 test      edi,edi
-jge       short 00007FFF60C1929D
-                capacity = 0;
-                ^^^^^^^^^^^^^
+jge       short 00007FF88A98929D
 xor       edi,edi
-            if (capacity < concurrencyLevel)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 cmp       edi,edx
-jge       short 00007FFF60C192A3
-                capacity = concurrencyLevel;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       short 00007FF88A9892A3
 mov       edi,edx
-            var locks = new object[concurrencyLevel];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 movsxd    rdx,edx
 mov       rcx,offset MT_System.Object[]
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rbp,rax
-            for (var i = 0; i < locks.Length; i++)
-                 ^^^^^^^^^
 xor       r14d,r14d
 mov       r15d,[rbp+8]
 test      r15d,r15d
-jle       short 00007FFF60C192E9
-                locks[i] = new object();
-                ^^^^^^^^^^^^^^^^^^^^^^^^
+jle       short 00007FF88A9892E9
 mov       rcx,offset MT_System.Object
 call      CORINFO_HELP_NEWSFAST
 mov       r8,rax
@@ -4052,35 +3478,29 @@ mov       edx,r14d
 call      CORINFO_HELP_ARRADDR_ST
 inc       r14d
 cmp       r15d,r14d
-jg        short 00007FFF60C192C4
-            var countPerLock = new int[locks.Length];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jg        short 00007FF88A9892C4
 movsxd    rdx,r15d
 mov       rcx,offset MT_System.Int32[]
 call      CORINFO_HELP_NEWARR_1_VC
 mov       r14,rax
-            var buckets = new Node[capacity];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       r12,[rsi]
 mov       rcx,r12
 mov       rdx,[rcx+30]
 mov       r13,[rdx]
 mov       rax,[r13+8]
 test      rax,rax
-jne       short 00007FFF60C19323
-mov       rdx,7FFF60CC2878
+jne       short 00007FF88A989323
+mov       rdx,7FF88AA32878
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 movsxd    rdx,edi
 mov       rcx,rax
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rdi,rax
-            this._tables = new Tables(buckets, locks, countPerLock);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rcx,r12
 mov       rax,[r13+10]
 test      rax,rax
-jne       short 00007FFF60C1934C
-mov       rdx,7FFF60CC2B48
+jne       short 00007FF88A98934C
+mov       rdx,7FF88AA32B48
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
@@ -4096,29 +3516,23 @@ mov       rbp,[rsp+28]
 lea       rcx,[rbp+18]
 mov       rdx,r14
 call      CORINFO_HELP_ASSIGN_REF
-            this._growLockArray = growLockArray;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 lea       rcx,[rsi+10]
 mov       rdx,rbp
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rsi+1C],bl
-            this._budget = buckets.Length / locks.Length;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       eax,[rdi+8]
 cdq
 idiv      r15d
 mov       [rsi+18],eax
 mov       rdi,[rsp+0A0]
 mov       rdx,rdi
-            this._comparer = comparer ?? EqualityComparer<T>.Default;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 test      rdx,rdx
-jne       short 00007FFF60C193D6
+jne       short 00007FF88A9893D6
 mov       rcx,r12
 mov       rax,[r13+18]
 test      rax,rax
-jne       short 00007FFF60C193CB
-mov       rdx,7FFF60CC2CB8
+jne       short 00007FF88A9893CB
+mov       rdx,7FF88AA32CB8
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       rcx,rax
 call      System.Collections.Generic.EqualityComparer`1[[System.__Canon, System.Private.CoreLib]].get_Default()
@@ -4138,8 +3552,6 @@ pop       r15
 ret
 
 dotNetTips.Utility.Benchmarks.Collections.Concurrent.ConcurrentHashSetPerfTestRunner+<>c__DisplayClass3_0.<Creating02>b__0(dotNetTips.Utility.Standard.Tester.Models.PersonProper)
-            base.personProperCollection.ForEach(p => fakePeople.Add(p));
-                                                     ^^^^^^^^^^^^^^^^^
 push      rdi
 push      rsi
 sub       rsp,28
@@ -4147,9 +3559,9 @@ mov       rsi,rdx
 mov       rdi,[rcx+8]
 mov       rcx,[rdi+8]
 mov       rdx,rsi
-mov       r11,7FFF60820600
+mov       r11,7FF88A590600
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C30600]
+call      qword ptr [7FF88A9A0600]
 mov       r8d,eax
 mov       rdx,rsi
 mov       rcx,rdi
@@ -4170,16 +3582,16 @@ sub       rsp,28
 mov       rsi,rcx
 mov       rdi,rdx
 test      rdi,rdi
-je        short 00007FFF60C2DA18
+je        short 00007FF88A99D7A8
 mov       ebx,[rsi+14]
 xor       ebp,ebp
 cmp       dword ptr [rsi+10],0
-jle       short 00007FFF60C2D9F5
+jle       short 00007FF88A99D785
 cmp       ebx,[rsi+14]
-jne       short 00007FFF60C2D9F5
+jne       short 00007FF88A99D785
 mov       rcx,[rsi+8]
 cmp       ebp,[rcx+8]
-jae       short 00007FFF60C2DA23
+jae       short 00007FF88A99D7B3
 movsxd    rdx,ebp
 mov       rdx,[rcx+rdx*8+10]
 mov       rax,rdi
@@ -4187,9 +3599,9 @@ mov       rcx,[rax+8]
 call      qword ptr [rax+18]
 inc       ebp
 cmp       ebp,[rsi+10]
-jl        short 00007FFF60C2D9CE
+jl        short 00007FF88A99D75E
 cmp       ebx,[rsi+14]
-je        short 00007FFF60C2DA0F
+je        short 00007FF88A99D79F
 mov       rax,offset System.ThrowHelper.ThrowInvalidOperationException_InvalidOperation_EnumFailedVersion()
 add       rsp,28
 pop       rbx
@@ -4217,13 +3629,13 @@ int       3
 <thead>
 <tr><th colspan="7">ConcurrentHashSetPerfTestRunner.'Looping with foreach().'</th></tr>
 <tr>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
 </tr>
 </thead>
 <tbody>
@@ -4238,8 +3650,6 @@ sub       rsp,38
 lea       rbp,[rsp+50]
 mov       [rbp+0FFD0],rsp
 mov       rsi,rcx
-            foreach (var person in this._peopleConcurrentHashSet)
-                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rdi,[rsi+88]
 mov       ecx,[rdi]
 mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1+<GetEnumerator>d__29[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
@@ -4252,24 +3662,24 @@ mov       rdx,rdi
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rbp+0FFE0],rbx
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60BFEA38]
+call      qword ptr [7FF88A9AE210]
 test      eax,eax
-je        short 00007FFF60BF7579
+je        short 00007FF88A9A7489
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF607F05A0
+mov       r11,7FF88A5A05A0
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C005A0]
+call      qword ptr [7FF88A9B05A0]
 mov       rcx,[rsi+8]
 mov       rdx,[rax+38]
 mov       eax,[rcx]
 add       rcx,8
 call      CORINFO_HELP_CHECKED_ASSIGN_REF
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60BFEA38]
+call      qword ptr [7FF88A9AE210]
 test      eax,eax
-jne       short 00007FFF60BF7542
+jne       short 00007FF88A9A7452
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60BFEA30]
+call      qword ptr [7FF88A9AE208]
 nop
 lea       rsp,[rbp+0FFE8]
 pop       rbx
@@ -4286,9 +3696,9 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60BF75B3
+je        short 00007FF88A9A74C3
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60BFEA30]
+call      qword ptr [7FF88A9AE208]
 nop
 add       rsp,28
 pop       rbx
@@ -4307,11 +3717,9 @@ mov       rsi,rcx
 mov       eax,[rsi+28]
 mov       rdx,[rsi+10]
 test      eax,eax
-je        short 00007FFF60BF7A2D
-            var buckets = this._tables._buckets;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+je        short 00007FF88A9A752D
 cmp       eax,1
-je        near ptr 00007FFF60BF7AC8
+je        near ptr 00007FF88A9A75C8
 xor       eax,eax
 add       rsp,30
 pop       rbx
@@ -4323,16 +3731,12 @@ mov       rdx,[rdx+10]
 mov       rdx,[rdx+8]
 lea       rcx,[rsi+18]
 call      CORINFO_HELP_ASSIGN_REF
-            for (var i = 0; i < buckets.Length; i++)
-                 ^^^^^^^^^
 xor       ecx,ecx
 mov       [rsi+2C],ecx
 mov       ecx,[rsi+2C]
 mov       rdx,[rsi+18]
 cmp       ecx,[rdx+8]
-jge       near ptr 00007FFF60BF7B05
-                var current = Volatile.Read(ref buckets[i]);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       near ptr 00007FF88A9A7605
 mov       rdi,[rsi+18]
 mov       ebx,[rsi+2C]
 mov       rcx,[rsi]
@@ -4340,8 +3744,8 @@ mov       rdx,[rcx+30]
 mov       rdx,[rdx]
 mov       r8,[rdx+8]
 test      r8,r8
-jne       short 00007FFF60BF7A86
-mov       rdx,7FFF60CB3B78
+jne       short 00007FF88A9A7586
+mov       rdx,7FF88AA638F0
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       r8,rax
 mov       rcx,rdi
@@ -4350,12 +3754,8 @@ call      CORINFO_HELP_LDELEMA_REF
 mov       rdx,[rax]
 lea       rcx,[rsi+20]
 call      CORINFO_HELP_ASSIGN_REF
-                while (current != null)
-                ^^^^^^^^^^^^^^^^^^^^^^^
 cmp       qword ptr [rsi+20],0
-je        short 00007FFF60BF7AE7
-                    yield return current._item;
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+je        short 00007FF88A9A75E7
 mov       rdx,[rsi+20]
 mov       rdx,[rdx+8]
 lea       rcx,[rsi+8]
@@ -4368,16 +3768,12 @@ pop       rsi
 pop       rdi
 ret
 mov       dword ptr [rsi+28],0FFFFFFFF
-                    current = current._next;
-                    ^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rdx,[rsi+20]
 mov       rdx,[rdx+10]
 lea       rcx,[rsi+20]
 call      CORINFO_HELP_ASSIGN_REF
 cmp       qword ptr [rsi+20],0
-jne       short 00007FFF60BF7AA3
-            }
-            ^
+jne       short 00007FF88A9A75A3
 xor       eax,eax
 mov       [rsi+20],rax
 mov       eax,[rsi+2C]
@@ -4386,9 +3782,7 @@ mov       [rsi+2C],eax
 mov       eax,[rsi+2C]
 mov       rdx,[rsi+18]
 cmp       eax,[rdx+8]
-jl        near ptr 00007FFF60BF7A5A
-        }
-        ^
+jl        near ptr 00007FF88A9A755A
 xor       eax,eax
 add       rsp,30
 pop       rbx
@@ -4410,8 +3804,6 @@ sub       rsp,38
 lea       rbp,[rsp+50]
 mov       [rbp+0FFD0],rsp
 mov       rsi,rcx
-            foreach (var person in this._peopleConcurrentHashSet)
-                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rdi,[rsi+88]
 mov       ecx,[rdi]
 mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1+<GetEnumerator>d__29[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
@@ -4424,24 +3816,24 @@ mov       rdx,rdi
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rbp+0FFE0],rbx
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60C0EA38]
+call      qword ptr [7FF88A9AE210]
 test      eax,eax
-je        short 00007FFF60C07AD9
+je        short 00007FF88A9A79E9
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF608005A0
+mov       r11,7FF88A5A05A0
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C105A0]
+call      qword ptr [7FF88A9B05A0]
 mov       rcx,[rsi+8]
 mov       rdx,[rax+38]
 mov       eax,[rcx]
 add       rcx,8
 call      CORINFO_HELP_CHECKED_ASSIGN_REF
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60C0EA38]
+call      qword ptr [7FF88A9AE210]
 test      eax,eax
-jne       short 00007FFF60C07AA2
+jne       short 00007FF88A9A79B2
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60C0EA30]
+call      qword ptr [7FF88A9AE208]
 nop
 lea       rsp,[rbp+0FFE8]
 pop       rbx
@@ -4458,9 +3850,9 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C07B13
+je        short 00007FF88A9A7A23
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60C0EA30]
+call      qword ptr [7FF88A9AE208]
 nop
 add       rsp,28
 pop       rbx
@@ -4479,11 +3871,9 @@ mov       rsi,rcx
 mov       eax,[rsi+28]
 mov       rdx,[rsi+10]
 test      eax,eax
-je        short 00007FFF60C0808D
-            var buckets = this._tables._buckets;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+je        short 00007FF88A9A7E9D
 cmp       eax,1
-je        near ptr 00007FFF60C08128
+je        near ptr 00007FF88A9A7F38
 xor       eax,eax
 add       rsp,30
 pop       rbx
@@ -4495,16 +3885,12 @@ mov       rdx,[rdx+10]
 mov       rdx,[rdx+8]
 lea       rcx,[rsi+18]
 call      CORINFO_HELP_ASSIGN_REF
-            for (var i = 0; i < buckets.Length; i++)
-                 ^^^^^^^^^
 xor       ecx,ecx
 mov       [rsi+2C],ecx
 mov       ecx,[rsi+2C]
 mov       rdx,[rsi+18]
 cmp       ecx,[rdx+8]
-jge       near ptr 00007FFF60C08165
-                var current = Volatile.Read(ref buckets[i]);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       near ptr 00007FF88A9A7F75
 mov       rdi,[rsi+18]
 mov       ebx,[rsi+2C]
 mov       rcx,[rsi]
@@ -4512,8 +3898,8 @@ mov       rdx,[rcx+30]
 mov       rdx,[rdx]
 mov       r8,[rdx+8]
 test      r8,r8
-jne       short 00007FFF60C080E6
-mov       rdx,7FFF60CC3E98
+jne       short 00007FF88A9A7EF6
+mov       rdx,7FF88AA63D98
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       r8,rax
 mov       rcx,rdi
@@ -4522,12 +3908,8 @@ call      CORINFO_HELP_LDELEMA_REF
 mov       rdx,[rax]
 lea       rcx,[rsi+20]
 call      CORINFO_HELP_ASSIGN_REF
-                while (current != null)
-                ^^^^^^^^^^^^^^^^^^^^^^^
 cmp       qword ptr [rsi+20],0
-je        short 00007FFF60C08147
-                    yield return current._item;
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+je        short 00007FF88A9A7F57
 mov       rdx,[rsi+20]
 mov       rdx,[rdx+8]
 lea       rcx,[rsi+8]
@@ -4540,16 +3922,12 @@ pop       rsi
 pop       rdi
 ret
 mov       dword ptr [rsi+28],0FFFFFFFF
-                    current = current._next;
-                    ^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rdx,[rsi+20]
 mov       rdx,[rdx+10]
 lea       rcx,[rsi+20]
 call      CORINFO_HELP_ASSIGN_REF
 cmp       qword ptr [rsi+20],0
-jne       short 00007FFF60C08103
-            }
-            ^
+jne       short 00007FF88A9A7F13
 xor       eax,eax
 mov       [rsi+20],rax
 mov       eax,[rsi+2C]
@@ -4558,9 +3936,7 @@ mov       [rsi+2C],eax
 mov       eax,[rsi+2C]
 mov       rdx,[rsi+18]
 cmp       eax,[rdx+8]
-jl        near ptr 00007FFF60C080BA
-        }
-        ^
+jl        near ptr 00007FF88A9A7ECA
 xor       eax,eax
 add       rsp,30
 pop       rbx
@@ -4582,8 +3958,6 @@ sub       rsp,38
 lea       rbp,[rsp+50]
 mov       [rbp+0FFD0],rsp
 mov       rsi,rcx
-            foreach (var person in this._peopleConcurrentHashSet)
-                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rdi,[rsi+88]
 mov       ecx,[rdi]
 mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1+<GetEnumerator>d__29[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
@@ -4596,24 +3970,24 @@ mov       rdx,rdi
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rbp+0FFE0],rbx
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60C3E210]
+call      qword ptr [7FF88A9BEA38]
 test      eax,eax
-je        short 00007FFF60C37B29
+je        short 00007FF88A9B7AE9
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF608305A0
+mov       r11,7FF88A5B05A0
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C405A0]
+call      qword ptr [7FF88A9C05A0]
 mov       rcx,[rsi+8]
 mov       rdx,[rax+38]
 mov       eax,[rcx]
 add       rcx,8
 call      CORINFO_HELP_CHECKED_ASSIGN_REF
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60C3E210]
+call      qword ptr [7FF88A9BEA38]
 test      eax,eax
-jne       short 00007FFF60C37AF2
+jne       short 00007FF88A9B7AB2
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60C3E208]
+call      qword ptr [7FF88A9BEA30]
 nop
 lea       rsp,[rbp+0FFE8]
 pop       rbx
@@ -4630,9 +4004,9 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C37B63
+je        short 00007FF88A9B7B23
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60C3E208]
+call      qword ptr [7FF88A9BEA30]
 nop
 add       rsp,28
 pop       rbx
@@ -4651,11 +4025,9 @@ mov       rsi,rcx
 mov       eax,[rsi+28]
 mov       rdx,[rsi+10]
 test      eax,eax
-je        short 00007FFF60C37BCD
-            var buckets = this._tables._buckets;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+je        short 00007FF88A9B809D
 cmp       eax,1
-je        near ptr 00007FFF60C37C68
+je        near ptr 00007FF88A9B8138
 xor       eax,eax
 add       rsp,30
 pop       rbx
@@ -4667,16 +4039,12 @@ mov       rdx,[rdx+10]
 mov       rdx,[rdx+8]
 lea       rcx,[rsi+18]
 call      CORINFO_HELP_ASSIGN_REF
-            for (var i = 0; i < buckets.Length; i++)
-                 ^^^^^^^^^
 xor       ecx,ecx
 mov       [rsi+2C],ecx
 mov       ecx,[rsi+2C]
 mov       rdx,[rsi+18]
 cmp       ecx,[rdx+8]
-jge       near ptr 00007FFF60C37CA5
-                var current = Volatile.Read(ref buckets[i]);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       near ptr 00007FF88A9B8175
 mov       rdi,[rsi+18]
 mov       ebx,[rsi+2C]
 mov       rcx,[rsi]
@@ -4684,8 +4052,8 @@ mov       rdx,[rcx+30]
 mov       rdx,[rdx]
 mov       r8,[rdx+8]
 test      r8,r8
-jne       short 00007FFF60C37C26
-mov       rdx,7FFF60CF3C80
+jne       short 00007FF88A9B80F6
+mov       rdx,7FF88AA73E98
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       r8,rax
 mov       rcx,rdi
@@ -4694,12 +4062,8 @@ call      CORINFO_HELP_LDELEMA_REF
 mov       rdx,[rax]
 lea       rcx,[rsi+20]
 call      CORINFO_HELP_ASSIGN_REF
-                while (current != null)
-                ^^^^^^^^^^^^^^^^^^^^^^^
 cmp       qword ptr [rsi+20],0
-je        short 00007FFF60C37C87
-                    yield return current._item;
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+je        short 00007FF88A9B8157
 mov       rdx,[rsi+20]
 mov       rdx,[rdx+8]
 lea       rcx,[rsi+8]
@@ -4712,16 +4076,12 @@ pop       rsi
 pop       rdi
 ret
 mov       dword ptr [rsi+28],0FFFFFFFF
-                    current = current._next;
-                    ^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rdx,[rsi+20]
 mov       rdx,[rdx+10]
 lea       rcx,[rsi+20]
 call      CORINFO_HELP_ASSIGN_REF
 cmp       qword ptr [rsi+20],0
-jne       short 00007FFF60C37C43
-            }
-            ^
+jne       short 00007FF88A9B8113
 xor       eax,eax
 mov       [rsi+20],rax
 mov       eax,[rsi+2C]
@@ -4730,9 +4090,7 @@ mov       [rsi+2C],eax
 mov       eax,[rsi+2C]
 mov       rdx,[rsi+18]
 cmp       eax,[rdx+8]
-jl        near ptr 00007FFF60C37BFA
-        }
-        ^
+jl        near ptr 00007FF88A9B80CA
 xor       eax,eax
 add       rsp,30
 pop       rbx
@@ -4754,8 +4112,6 @@ sub       rsp,38
 lea       rbp,[rsp+50]
 mov       [rbp+0FFD0],rsp
 mov       rsi,rcx
-            foreach (var person in this._peopleConcurrentHashSet)
-                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rdi,[rsi+88]
 mov       ecx,[rdi]
 mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1+<GetEnumerator>d__29[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
@@ -4768,24 +4124,24 @@ mov       rdx,rdi
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rbp+0FFE0],rbx
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60C2EA38]
+call      qword ptr [7FF88A9AEA38]
 test      eax,eax
-je        short 00007FFF60C27D39
+je        short 00007FF88A9A7C19
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF608205A0
+mov       r11,7FF88A5A05A0
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C305A0]
+call      qword ptr [7FF88A9B05A0]
 mov       rcx,[rsi+8]
 mov       rdx,[rax+38]
 mov       eax,[rcx]
 add       rcx,8
 call      CORINFO_HELP_CHECKED_ASSIGN_REF
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60C2EA38]
+call      qword ptr [7FF88A9AEA38]
 test      eax,eax
-jne       short 00007FFF60C27D02
+jne       short 00007FF88A9A7BE2
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60C2EA30]
+call      qword ptr [7FF88A9AEA30]
 nop
 lea       rsp,[rbp+0FFE8]
 pop       rbx
@@ -4802,9 +4158,9 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C27D73
+je        short 00007FF88A9A7C53
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60C2EA30]
+call      qword ptr [7FF88A9AEA30]
 nop
 add       rsp,28
 pop       rbx
@@ -4823,11 +4179,9 @@ mov       rsi,rcx
 mov       eax,[rsi+28]
 mov       rdx,[rsi+10]
 test      eax,eax
-je        short 00007FFF60C27DDD
-            var buckets = this._tables._buckets;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+je        short 00007FF88A9A80CD
 cmp       eax,1
-je        near ptr 00007FFF60C27E78
+je        near ptr 00007FF88A9A8168
 xor       eax,eax
 add       rsp,30
 pop       rbx
@@ -4839,16 +4193,12 @@ mov       rdx,[rdx+10]
 mov       rdx,[rdx+8]
 lea       rcx,[rsi+18]
 call      CORINFO_HELP_ASSIGN_REF
-            for (var i = 0; i < buckets.Length; i++)
-                 ^^^^^^^^^
 xor       ecx,ecx
 mov       [rsi+2C],ecx
 mov       ecx,[rsi+2C]
 mov       rdx,[rsi+18]
 cmp       ecx,[rdx+8]
-jge       near ptr 00007FFF60C27EB5
-                var current = Volatile.Read(ref buckets[i]);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       near ptr 00007FF88A9A81A5
 mov       rdi,[rsi+18]
 mov       ebx,[rsi+2C]
 mov       rcx,[rsi]
@@ -4856,8 +4206,8 @@ mov       rdx,[rcx+30]
 mov       rdx,[rdx]
 mov       r8,[rdx+8]
 test      r8,r8
-jne       short 00007FFF60C27E36
-mov       rdx,7FFF60CE3FF0
+jne       short 00007FF88A9A8126
+mov       rdx,7FF88AA63FF0
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       r8,rax
 mov       rcx,rdi
@@ -4866,12 +4216,8 @@ call      CORINFO_HELP_LDELEMA_REF
 mov       rdx,[rax]
 lea       rcx,[rsi+20]
 call      CORINFO_HELP_ASSIGN_REF
-                while (current != null)
-                ^^^^^^^^^^^^^^^^^^^^^^^
 cmp       qword ptr [rsi+20],0
-je        short 00007FFF60C27E97
-                    yield return current._item;
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+je        short 00007FF88A9A8187
 mov       rdx,[rsi+20]
 mov       rdx,[rdx+8]
 lea       rcx,[rsi+8]
@@ -4884,16 +4230,12 @@ pop       rsi
 pop       rdi
 ret
 mov       dword ptr [rsi+28],0FFFFFFFF
-                    current = current._next;
-                    ^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rdx,[rsi+20]
 mov       rdx,[rdx+10]
 lea       rcx,[rsi+20]
 call      CORINFO_HELP_ASSIGN_REF
 cmp       qword ptr [rsi+20],0
-jne       short 00007FFF60C27E53
-            }
-            ^
+jne       short 00007FF88A9A8143
 xor       eax,eax
 mov       [rsi+20],rax
 mov       eax,[rsi+2C]
@@ -4902,9 +4244,7 @@ mov       [rsi+2C],eax
 mov       eax,[rsi+2C]
 mov       rdx,[rsi+18]
 cmp       eax,[rdx+8]
-jl        near ptr 00007FFF60C27E0A
-        }
-        ^
+jl        near ptr 00007FF88A9A80FA
 xor       eax,eax
 add       rsp,30
 pop       rbx
@@ -4926,8 +4266,6 @@ sub       rsp,38
 lea       rbp,[rsp+50]
 mov       [rbp+0FFD0],rsp
 mov       rsi,rcx
-            foreach (var person in this._peopleConcurrentHashSet)
-                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rdi,[rsi+88]
 mov       ecx,[rdi]
 mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1+<GetEnumerator>d__29[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
@@ -4940,24 +4278,24 @@ mov       rdx,rdi
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rbp+0FFE0],rbx
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60BFEA38]
+call      qword ptr [7FF88A9CEE48]
 test      eax,eax
-je        short 00007FFF60BF7D39
+je        short 00007FF88A9C7C79
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF607F05A0
+mov       r11,7FF88A5C05A0
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C005A0]
+call      qword ptr [7FF88A9D05A0]
 mov       rcx,[rsi+8]
 mov       rdx,[rax+38]
 mov       eax,[rcx]
 add       rcx,8
 call      CORINFO_HELP_CHECKED_ASSIGN_REF
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60BFEA38]
+call      qword ptr [7FF88A9CEE48]
 test      eax,eax
-jne       short 00007FFF60BF7D02
+jne       short 00007FF88A9C7C42
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60BFEA30]
+call      qword ptr [7FF88A9CEE40]
 nop
 lea       rsp,[rbp+0FFE8]
 pop       rbx
@@ -4974,9 +4312,9 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60BF7D73
+je        short 00007FF88A9C7CB3
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60BFEA30]
+call      qword ptr [7FF88A9CEE40]
 nop
 add       rsp,28
 pop       rbx
@@ -4995,11 +4333,9 @@ mov       rsi,rcx
 mov       eax,[rsi+28]
 mov       rdx,[rsi+10]
 test      eax,eax
-je        short 00007FFF60BF7DDD
-            var buckets = this._tables._buckets;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+je        short 00007FF88A9C812D
 cmp       eax,1
-je        near ptr 00007FFF60BF7E78
+je        near ptr 00007FF88A9C81C8
 xor       eax,eax
 add       rsp,30
 pop       rbx
@@ -5011,16 +4347,12 @@ mov       rdx,[rdx+10]
 mov       rdx,[rdx+8]
 lea       rcx,[rsi+18]
 call      CORINFO_HELP_ASSIGN_REF
-            for (var i = 0; i < buckets.Length; i++)
-                 ^^^^^^^^^
 xor       ecx,ecx
 mov       [rsi+2C],ecx
 mov       ecx,[rsi+2C]
 mov       rdx,[rsi+18]
 cmp       ecx,[rdx+8]
-jge       near ptr 00007FFF60BF7EB5
-                var current = Volatile.Read(ref buckets[i]);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       near ptr 00007FF88A9C8205
 mov       rdi,[rsi+18]
 mov       ebx,[rsi+2C]
 mov       rcx,[rsi]
@@ -5028,8 +4360,8 @@ mov       rdx,[rcx+30]
 mov       rdx,[rdx]
 mov       r8,[rdx+8]
 test      r8,r8
-jne       short 00007FFF60BF7E36
-mov       rdx,7FFF60CB3FF0
+jne       short 00007FF88A9C8186
+mov       rdx,7FF88AA84208
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       r8,rax
 mov       rcx,rdi
@@ -5038,12 +4370,8 @@ call      CORINFO_HELP_LDELEMA_REF
 mov       rdx,[rax]
 lea       rcx,[rsi+20]
 call      CORINFO_HELP_ASSIGN_REF
-                while (current != null)
-                ^^^^^^^^^^^^^^^^^^^^^^^
 cmp       qword ptr [rsi+20],0
-je        short 00007FFF60BF7E97
-                    yield return current._item;
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+je        short 00007FF88A9C81E7
 mov       rdx,[rsi+20]
 mov       rdx,[rdx+8]
 lea       rcx,[rsi+8]
@@ -5056,16 +4384,12 @@ pop       rsi
 pop       rdi
 ret
 mov       dword ptr [rsi+28],0FFFFFFFF
-                    current = current._next;
-                    ^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rdx,[rsi+20]
 mov       rdx,[rdx+10]
 lea       rcx,[rsi+20]
 call      CORINFO_HELP_ASSIGN_REF
 cmp       qword ptr [rsi+20],0
-jne       short 00007FFF60BF7E53
-            }
-            ^
+jne       short 00007FF88A9C81A3
 xor       eax,eax
 mov       [rsi+20],rax
 mov       eax,[rsi+2C]
@@ -5074,9 +4398,7 @@ mov       [rsi+2C],eax
 mov       eax,[rsi+2C]
 mov       rdx,[rsi+18]
 cmp       eax,[rdx+8]
-jl        near ptr 00007FFF60BF7E0A
-        }
-        ^
+jl        near ptr 00007FF88A9C815A
 xor       eax,eax
 add       rsp,30
 pop       rbx
@@ -5098,8 +4420,6 @@ sub       rsp,38
 lea       rbp,[rsp+50]
 mov       [rbp+0FFD0],rsp
 mov       rsi,rcx
-            foreach (var person in this._peopleConcurrentHashSet)
-                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rdi,[rsi+88]
 mov       ecx,[rdi]
 mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1+<GetEnumerator>d__29[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
@@ -5112,24 +4432,24 @@ mov       rdx,rdi
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rbp+0FFE0],rbx
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60C1EE48]
+call      qword ptr [7FF88A99EA38]
 test      eax,eax
-je        short 00007FFF60C17DB9
+je        short 00007FF88A997AE9
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF608105A0
+mov       r11,7FF88A5905A0
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C205A0]
+call      qword ptr [7FF88A9A05A0]
 mov       rcx,[rsi+8]
 mov       rdx,[rax+38]
 mov       eax,[rcx]
 add       rcx,8
 call      CORINFO_HELP_CHECKED_ASSIGN_REF
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60C1EE48]
+call      qword ptr [7FF88A99EA38]
 test      eax,eax
-jne       short 00007FFF60C17D82
+jne       short 00007FF88A997AB2
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60C1EE40]
+call      qword ptr [7FF88A99EA30]
 nop
 lea       rsp,[rbp+0FFE8]
 pop       rbx
@@ -5146,9 +4466,9 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C17DF3
+je        short 00007FF88A997B23
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60C1EE40]
+call      qword ptr [7FF88A99EA30]
 nop
 add       rsp,28
 pop       rbx
@@ -5167,11 +4487,9 @@ mov       rsi,rcx
 mov       eax,[rsi+28]
 mov       rdx,[rsi+10]
 test      eax,eax
-je        short 00007FFF60C17E5D
-            var buckets = this._tables._buckets;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+je        short 00007FF88A99809D
 cmp       eax,1
-je        near ptr 00007FFF60C17EF8
+je        near ptr 00007FF88A998138
 xor       eax,eax
 add       rsp,30
 pop       rbx
@@ -5183,16 +4501,12 @@ mov       rdx,[rdx+10]
 mov       rdx,[rdx+8]
 lea       rcx,[rsi+18]
 call      CORINFO_HELP_ASSIGN_REF
-            for (var i = 0; i < buckets.Length; i++)
-                 ^^^^^^^^^
 xor       ecx,ecx
 mov       [rsi+2C],ecx
 mov       ecx,[rsi+2C]
 mov       rdx,[rsi+18]
 cmp       ecx,[rdx+8]
-jge       near ptr 00007FFF60C17F35
-                var current = Volatile.Read(ref buckets[i]);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       near ptr 00007FF88A998175
 mov       rdi,[rsi+18]
 mov       ebx,[rsi+2C]
 mov       rcx,[rsi]
@@ -5200,8 +4514,8 @@ mov       rdx,[rcx+30]
 mov       rdx,[rdx]
 mov       r8,[rdx+8]
 test      r8,r8
-jne       short 00007FFF60C17EB6
-mov       rdx,7FFF60CD4208
+jne       short 00007FF88A9980F6
+mov       rdx,7FF88AA53E98
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       r8,rax
 mov       rcx,rdi
@@ -5210,12 +4524,8 @@ call      CORINFO_HELP_LDELEMA_REF
 mov       rdx,[rax]
 lea       rcx,[rsi+20]
 call      CORINFO_HELP_ASSIGN_REF
-                while (current != null)
-                ^^^^^^^^^^^^^^^^^^^^^^^
 cmp       qword ptr [rsi+20],0
-je        short 00007FFF60C17F17
-                    yield return current._item;
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+je        short 00007FF88A998157
 mov       rdx,[rsi+20]
 mov       rdx,[rdx+8]
 lea       rcx,[rsi+8]
@@ -5228,16 +4538,12 @@ pop       rsi
 pop       rdi
 ret
 mov       dword ptr [rsi+28],0FFFFFFFF
-                    current = current._next;
-                    ^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rdx,[rsi+20]
 mov       rdx,[rdx+10]
 lea       rcx,[rsi+20]
 call      CORINFO_HELP_ASSIGN_REF
 cmp       qword ptr [rsi+20],0
-jne       short 00007FFF60C17ED3
-            }
-            ^
+jne       short 00007FF88A998113
 xor       eax,eax
 mov       [rsi+20],rax
 mov       eax,[rsi+2C]
@@ -5246,9 +4552,7 @@ mov       [rsi+2C],eax
 mov       eax,[rsi+2C]
 mov       rdx,[rsi+18]
 cmp       eax,[rdx+8]
-jl        near ptr 00007FFF60C17E8A
-        }
-        ^
+jl        near ptr 00007FF88A9980CA
 xor       eax,eax
 add       rsp,30
 pop       rbx
@@ -5270,8 +4574,6 @@ sub       rsp,38
 lea       rbp,[rsp+50]
 mov       [rbp+0FFD0],rsp
 mov       rsi,rcx
-            foreach (var person in this._peopleConcurrentHashSet)
-                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rdi,[rsi+88]
 mov       ecx,[rdi]
 mov       rcx,offset MT_dotNetTips.Utility.Standard.Collections.Generic.Concurrent.ConcurrentHashSet`1+<GetEnumerator>d__29[[dotNetTips.Utility.Standard.Tester.Models.PersonProper, dotNetTips.Utility.Standard.Tester]]
@@ -5284,24 +4586,24 @@ mov       rdx,rdi
 call      CORINFO_HELP_ASSIGN_REF
 mov       [rbp+0FFE0],rbx
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60C0EA38]
+call      qword ptr [7FF88A9BEA38]
 test      eax,eax
-je        short 00007FFF60C07AE9
+je        short 00007FF88A9B7C19
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF608005A0
+mov       r11,7FF88A5B05A0
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C105A0]
+call      qword ptr [7FF88A9C05A0]
 mov       rcx,[rsi+8]
 mov       rdx,[rax+38]
 mov       eax,[rcx]
 add       rcx,8
 call      CORINFO_HELP_CHECKED_ASSIGN_REF
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60C0EA38]
+call      qword ptr [7FF88A9BEA38]
 test      eax,eax
-jne       short 00007FFF60C07AB2
+jne       short 00007FF88A9B7BE2
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60C0EA30]
+call      qword ptr [7FF88A9BEA30]
 nop
 lea       rsp,[rbp+0FFE8]
 pop       rbx
@@ -5318,9 +4620,9 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C07B23
+je        short 00007FF88A9B7C53
 mov       rcx,[rbp+0FFE0]
-call      qword ptr [7FFF60C0EA30]
+call      qword ptr [7FF88A9BEA30]
 nop
 add       rsp,28
 pop       rbx
@@ -5339,11 +4641,9 @@ mov       rsi,rcx
 mov       eax,[rsi+28]
 mov       rdx,[rsi+10]
 test      eax,eax
-je        short 00007FFF60C07F9D
-            var buckets = this._tables._buckets;
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+je        short 00007FF88A9B80CD
 cmp       eax,1
-je        near ptr 00007FFF60C08038
+je        near ptr 00007FF88A9B8168
 xor       eax,eax
 add       rsp,30
 pop       rbx
@@ -5355,16 +4655,12 @@ mov       rdx,[rdx+10]
 mov       rdx,[rdx+8]
 lea       rcx,[rsi+18]
 call      CORINFO_HELP_ASSIGN_REF
-            for (var i = 0; i < buckets.Length; i++)
-                 ^^^^^^^^^
 xor       ecx,ecx
 mov       [rsi+2C],ecx
 mov       ecx,[rsi+2C]
 mov       rdx,[rsi+18]
 cmp       ecx,[rdx+8]
-jge       near ptr 00007FFF60C08075
-                var current = Volatile.Read(ref buckets[i]);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jge       near ptr 00007FF88A9B81A5
 mov       rdi,[rsi+18]
 mov       ebx,[rsi+2C]
 mov       rcx,[rsi]
@@ -5372,8 +4668,8 @@ mov       rdx,[rcx+30]
 mov       rdx,[rdx]
 mov       r8,[rdx+8]
 test      r8,r8
-jne       short 00007FFF60C07FF6
-mov       rdx,7FFF60CC3E98
+jne       short 00007FF88A9B8126
+mov       rdx,7FF88AA73FF0
 call      CORINFO_HELP_RUNTIMEHANDLE_CLASS
 mov       r8,rax
 mov       rcx,rdi
@@ -5382,12 +4678,8 @@ call      CORINFO_HELP_LDELEMA_REF
 mov       rdx,[rax]
 lea       rcx,[rsi+20]
 call      CORINFO_HELP_ASSIGN_REF
-                while (current != null)
-                ^^^^^^^^^^^^^^^^^^^^^^^
 cmp       qword ptr [rsi+20],0
-je        short 00007FFF60C08057
-                    yield return current._item;
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+je        short 00007FF88A9B8187
 mov       rdx,[rsi+20]
 mov       rdx,[rdx+8]
 lea       rcx,[rsi+8]
@@ -5400,16 +4692,12 @@ pop       rsi
 pop       rdi
 ret
 mov       dword ptr [rsi+28],0FFFFFFFF
-                    current = current._next;
-                    ^^^^^^^^^^^^^^^^^^^^^^^^
 mov       rdx,[rsi+20]
 mov       rdx,[rdx+10]
 lea       rcx,[rsi+20]
 call      CORINFO_HELP_ASSIGN_REF
 cmp       qword ptr [rsi+20],0
-jne       short 00007FFF60C08013
-            }
-            ^
+jne       short 00007FF88A9B8143
 xor       eax,eax
 mov       [rsi+20],rax
 mov       eax,[rsi+2C]
@@ -5418,9 +4706,7 @@ mov       [rsi+2C],eax
 mov       eax,[rsi+2C]
 mov       rdx,[rsi+18]
 cmp       eax,[rdx+8]
-jl        near ptr 00007FFF60C07FCA
-        }
-        ^
+jl        near ptr 00007FF88A9B80FA
 xor       eax,eax
 add       rsp,30
 pop       rbx

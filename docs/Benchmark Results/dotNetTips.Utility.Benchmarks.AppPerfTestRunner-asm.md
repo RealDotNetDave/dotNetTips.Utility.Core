@@ -1,10 +1,6 @@
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.AppPerfTestRunner.GetEnvironmentVariables()
-;             var result = App.GetEnvironmentVariables();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -34,16 +30,12 @@
        xor       eax,eax
        rep stosd
        mov       [rbp+0FFA0],rsp
-;             var variables = Environment.GetEnvironmentVariables();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        call      System.Environment.GetEnvironmentVariables()
        mov       rsi,rax
-;             var builder = ImmutableDictionary.CreateBuilder<string, string>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       mov       rcx,7FFF60C90448
+       mov       rcx,7FF88AA00448
        xor       edx,edx
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rcx,1EAE0D33778
+       mov       rcx,234E23DBBD8
        mov       rdi,[rcx]
        mov       ecx,[rdi]
        mov       rcx,offset MT_System.Collections.Immutable.ImmutableDictionary`2+Builder[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]]
@@ -52,24 +44,22 @@
        mov       rcx,rbx
        mov       rdx,rdi
        call      System.Collections.Immutable.ImmutableDictionary`2+Builder[[System.__Canon, System.Private.CoreLib],[System.__Canon, System.Private.CoreLib]]..ctor(System.Collections.Immutable.ImmutableDictionary`2<System.__Canon,System.__Canon>)
-;             foreach (DictionaryEntry variable in variables)
-;                                                  ^^^^^^^^^
        mov       rcx,rsi
-       mov       r11,7FFF60820428
+       mov       r11,7FF88A590428
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C10428]
+       call      qword ptr [7FF88A980428]
        mov       [rbp+0FFB0],rax
        mov       rcx,[rbp+0FFB0]
-       mov       r11,7FFF60820430
+       mov       r11,7FF88A590430
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C10430]
+       call      qword ptr [7FF88A980430]
        test      eax,eax
        je        near ptr M01_L02
 M01_L00:
        mov       rcx,[rbp+0FFB0]
-       mov       r11,7FFF60820438
+       mov       r11,7FF88A590438
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C10438]
+       call      qword ptr [7FF88A980438]
        mov       rsi,rax
        mov       rdx,offset MT_System.Collections.DictionaryEntry
        cmp       [rsi],rdx
@@ -115,9 +105,9 @@ M01_L01:
        lea       rdx,[rbp+0FFB8]
        call      System.Collections.Immutable.ImmutableDictionary`2+Builder[[System.__Canon, System.Private.CoreLib],[System.__Canon, System.Private.CoreLib]].Apply(MutationResult<System.__Canon,System.__Canon>)
        mov       rcx,[rbp+0FFB0]
-       mov       r11,7FFF60820430
+       mov       r11,7FF88A590430
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C10430]
+       call      qword ptr [7FF88A980430]
        test      eax,eax
        jne       near ptr M01_L00
 M01_L02:
@@ -127,11 +117,9 @@ M01_L02:
        test      rax,rax
        je        short M01_L03
        mov       rcx,rax
-       mov       r11,7FFF60820440
+       mov       r11,7FF88A590440
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C10440]
-;             return builder.ToImmutable();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       call      qword ptr [7FF88A980440]
 M01_L03:
        cmp       qword ptr [rbx+18],0
        jne       short M01_L04
@@ -166,9 +154,9 @@ M01_L04:
        test      rax,rax
        je        short M01_L05
        mov       rcx,rax
-       mov       r11,7FFF60820440
+       mov       r11,7FF88A590440
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C10440]
+       call      qword ptr [7FF88A980440]
 M01_L05:
        nop
        add       rsp,38
@@ -180,17 +168,13 @@ M01_L05:
 ; Total bytes of code 576
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.AppPerfTestRunner.IsProcessRunning()
-;             var result = App.IsProcessRunning("devenv");
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
-       mov       rcx,16D41BC1788
+       mov       rcx,288829F1788
        mov       rcx,[rcx]
        call      dotNetTips.Utility.Standard.App.IsProcessRunning(System.String)
        mov       rdx,[rsi+8]
@@ -202,10 +186,6 @@ M01_L05:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.App.IsProcessRunning(System.String)
-;             Encapsulation.TryValidateParam<ArgumentNullException>(string.IsNullOrEmpty(processName) == false, "Process name is required.");
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return Process.GetProcessesByName(processName).HasItems();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -221,9 +201,9 @@ M01_L01:
        test      edx,edx
        sete      dl
        movzx     edx,dl
-       mov       r9,16D51BC3060
+       mov       r9,288629F3060
        mov       r9,[r9]
-       mov       r8,16D41BC1790
+       mov       r8,288829F1790
        mov       r8,[r8]
        mov       rcx,offset MD_dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(Boolean, System.String, System.String)
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam[[System.__Canon, System.Private.CoreLib]](Boolean, System.String, System.String)
@@ -235,7 +215,7 @@ M01_L01:
        jmp       short M01_L03
 M01_L02:
        mov       rcx,rax
-       call      00007FFFC043DA80
+       call      00007FF8EA1CDBD0
        test      eax,eax
        setg      al
        movzx     eax,al
@@ -246,13 +226,9 @@ M01_L03:
 ; Total bytes of code 116
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.AppPerfTestRunner.IsRunning()
-;             var result = App.IsRunning();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -266,8 +242,6 @@ M01_L03:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.App.IsRunning()
-;             return Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName).HasItems();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        call      System.Diagnostics.Process.GetCurrentProcess()
@@ -285,7 +259,7 @@ M01_L03:
        jmp       short M01_L01
 M01_L00:
        mov       rcx,rax
-       call      00007FFFC043DA80
+       call      00007FF8EA1CDBD0
        test      eax,eax
        setg      al
        movzx     eax,al
@@ -296,13 +270,9 @@ M01_L01:
 ; Total bytes of code 72
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.AppPerfTestRunner.IsRunningFromAspNet()
-;             var result = App.IsRunningFromAspNet();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -316,9 +286,7 @@ M01_L01:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.App.IsRunningFromAspNet()
-;             return (!string.IsNullOrEmpty(AppDomain.CurrentDomain.DynamicDirectory)) && AppDomain.CurrentDomain.DynamicDirectory.Contains(_tempAspFiles);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       mov       rax,22457ED11F8
+       mov       rax,1641E9611F8
        mov       rax,[rax]
        mov       eax,[rax]
        xor       eax,eax
@@ -326,13 +294,9 @@ M01_L01:
 ; Total bytes of code 18
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.AppPerfTestRunner.ReferencedAssemblies()
-;             var result = App.ReferencedAssemblies();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -354,17 +318,13 @@ M01_L01:
        push      rsi
        push      rbx
        sub       rsp,20
-;             var referencedAssemblies = new List<string>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rcx,offset MT_System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
-       mov       rdx,1C99F804870
+       mov       rdx,1587F0F4870
        mov       rdx,[rdx]
        lea       rcx,[rsi+8]
        call      CORINFO_HELP_ASSIGN_REF
-;             for (var assemblyCount = 0; assemblyCount < Assembly.GetEntryAssembly().GetReferencedAssemblies().Length; assemblyCount++)
-;                  ^^^^^^^^^^^^^^^^^^^^^
        xor       edi,edi
        call      System.Reflection.Assembly.GetEntryAssembly()
        mov       rcx,rax
@@ -390,7 +350,7 @@ M01_L00:
        test      rdx,rdx
        jne       short M01_L01
        mov       rcx,rbx
-       call      00007FFFC03F1F60
+       call      00007FF8EA182020
        mov       rcx,rax
        mov       edx,1
        call      System.RuntimeType.GetCachedName(System.TypeNameKind)
@@ -422,10 +382,10 @@ M01_L04:
        cmp       [rax+8],edi
        jg        near ptr M01_L00
 M01_L05:
-       mov       rcx,7FFF60C70448
+       mov       rcx,7FF88AA30448
        xor       edx,edx
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rcx,1C99F8048D8
+       mov       rcx,1587F0F48D8
        mov       rcx,[rcx]
        mov       rdx,rsi
        mov       rax,offset System.Collections.Immutable.ImmutableList`1[[System.__Canon, System.Private.CoreLib]].AddRange(System.Collections.Generic.IEnumerable`1<System.__Canon>)
@@ -441,13 +401,9 @@ M01_L06:
 ; Total bytes of code 285
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.AppPerfTestRunner.StackTrace()
-;             var result = App.StackTrace;
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -485,13 +441,9 @@ M01_L06:
 ; Total bytes of code 59
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.AppPerfTestRunner.WorkingSet()
-;             var result = App.WorkingSet;
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -542,12 +494,12 @@ M01_L06:
        lea       rax,[rbp+0FF40]
        mov       [rsi+10],rax
        mov       byte ptr [rsi+0C],0
-       call      qword ptr [7FFF60C02810]
+       call      qword ptr [7FF88A982810]
 M01_L00:
        mov       byte ptr [rsi+0C],1
-       cmp       dword ptr [7FFF60C07BD8],0
+       cmp       dword ptr [7FF88A987BA8],0
        je        short M01_L01
-       call      qword ptr [7FFF60BFB278]
+       call      qword ptr [7FF88A97B278]
 M01_L01:
        mov       rcx,[rbp+0FF48]
        mov       [rsi+10],rcx

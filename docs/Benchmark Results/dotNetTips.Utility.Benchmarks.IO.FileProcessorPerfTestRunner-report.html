@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.IO.FileProcessorPerfTestRunner-20210228-170250</title>
+<title>dotNetTips.Utility.Benchmarks.IO.FileProcessorPerfTestRunner-20210503-212100</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -15,9 +15,9 @@
 <pre><code>
 BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
 Unknown processor
-.NET Core SDK=5.0.200-preview.21079.7
-  [Host]     : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
-  Job-HTSMCU : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+.NET Core SDK=5.0.300-preview.21180.15
+  [Host]     : .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
+  Job-SOGKAI : .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 </code></pre>
 <pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.1  
 Namespace=dotNetTips.Utility.Benchmarks.IO  Categories=FileProcessor  
@@ -26,9 +26,9 @@ Namespace=dotNetTips.Utility.Benchmarks.IO  Categories=FileProcessor
 <table>
 <thead><tr><th> Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>StdErr</th><th>Median</th><th>Min</th><th>Q1</th><th>Q3</th><th>Max</th><th>Op/s</th><th>CI99.9% Margin</th><th>Iterations</th><th>Kurtosis</th><th>MValue</th><th>Skewness</th><th>Rank</th><th>LogicalGroup</th><th>Baseline</th><th>Code Size</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>CopyFiles</td><td>64.12 ms</td><td>1.264 ms</td><td>2.436 ms</td><td>0.359 ms</td><td>63.86 ms</td><td>59.49 ms</td><td>62.32 ms</td><td>65.32 ms</td><td>69.70 ms</td><td>15.60</td><td>1.2644 ms</td><td>46.00</td><td>2.716</td><td>3.222</td><td>0.6326</td><td>2</td><td>*</td><td>No</td><td>2.5 KB</td><td>-</td><td>-</td><td>-</td><td>141.98 KB</td>
-</tr><tr><td>DeleteFiles</td><td>45.71 ms</td><td>1.545 ms</td><td>4.555 ms</td><td>0.456 ms</td><td>43.44 ms</td><td>40.98 ms</td><td>42.21 ms</td><td>49.81 ms</td><td>56.56 ms</td><td>21.88</td><td>1.5449 ms</td><td>100.00</td><td>2.276</td><td>2.627</td><td>0.8980</td><td>1</td><td>*</td><td>No</td><td>1.64 KB</td><td>76.9231</td><td>-</td><td>-</td><td>1025.44 KB</td>
-</tr><tr><td>DeleteFolders</td><td>43.07 ms</td><td>0.560 ms</td><td>0.550 ms</td><td>0.138 ms</td><td>42.86 ms</td><td>42.43 ms</td><td>42.73 ms</td><td>43.34 ms</td><td>44.38 ms</td><td>23.22</td><td>0.5604 ms</td><td>16.00</td><td>2.726</td><td>2.000</td><td>0.8503</td><td>1</td><td>*</td><td>No</td><td>2.27 KB</td><td>-</td><td>-</td><td>-</td><td>111.31 KB</td>
+</thead><tbody><tr><td>CopyFiles</td><td>65.76 ms</td><td>1.300 ms</td><td>2.243 ms</td><td>0.364 ms</td><td>65.78 ms</td><td>60.65 ms</td><td>64.34 ms</td><td>67.13 ms</td><td>71.72 ms</td><td>15.21</td><td>1.3003 ms</td><td>38.00</td><td>3.131</td><td>2.000</td><td>0.0481</td><td>3</td><td>*</td><td>No</td><td>2.5 KB</td><td>-</td><td>-</td><td>-</td><td>141.98 KB</td>
+</tr><tr><td>DeleteFiles</td><td>38.17 ms</td><td>0.742 ms</td><td>1.500 ms</td><td>0.212 ms</td><td>37.89 ms</td><td>36.30 ms</td><td>37.08 ms</td><td>38.71 ms</td><td>41.91 ms</td><td>26.20</td><td>0.7425 ms</td><td>50.00</td><td>3.285</td><td>2.316</td><td>1.0783</td><td>1</td><td>*</td><td>No</td><td>1.64 KB</td><td>76.9231</td><td>-</td><td>-</td><td>1025.44 KB</td>
+</tr><tr><td>DeleteFolders</td><td>44.61 ms</td><td>0.888 ms</td><td>2.293 ms</td><td>0.260 ms</td><td>43.54 ms</td><td>41.78 ms</td><td>42.76 ms</td><td>46.72 ms</td><td>50.07 ms</td><td>22.42</td><td>0.8884 ms</td><td>78.00</td><td>1.989</td><td>2.880</td><td>0.6663</td><td>2</td><td>*</td><td>No</td><td>2.27 KB</td><td>-</td><td>-</td><td>-</td><td>111.31 KB</td>
 </tr></tbody></table>
 </body>
 </html>

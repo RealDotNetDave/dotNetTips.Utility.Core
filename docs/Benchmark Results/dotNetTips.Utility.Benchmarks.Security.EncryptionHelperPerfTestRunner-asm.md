@@ -1,14 +1,6 @@
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Security.EncryptionHelperPerfTestRunner.AesEncrypt()
-;             using var keys = new AesManaged();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var encryptResult = EncryptionHelper.AesEncrypt(RandomData.LongTestString, keys.Key, keys.IV);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var decryptResult = EncryptionHelper.AesDecrypt(encryptResult, keys.Key, keys.IV);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(decryptResult);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rbp
        push      rdi
        push      rsi
@@ -73,10 +65,10 @@
        mov       rcx,[rbp+0FFE0]
        mov       rcx,[rcx+40]
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C31628]
+       call      qword ptr [7FF88A991628]
        mov       rcx,[rbp+0FFE0]
        mov       edx,1
-       call      qword ptr [7FFF60C31630]
+       call      qword ptr [7FF88A991630]
        mov       rcx,[rbp+0FFE0]
        call      System.GC.SuppressFinalize(System.Object)
        nop
@@ -99,10 +91,10 @@
        mov       rcx,[rbp+0FFE0]
        mov       rcx,[rcx+40]
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C31628]
+       call      qword ptr [7FF88A991628]
        mov       rcx,[rbp+0FFE0]
        mov       edx,1
-       call      qword ptr [7FFF60C31630]
+       call      qword ptr [7FF88A991630]
        mov       rcx,[rbp+0FFE0]
        call      System.GC.SuppressFinalize(System.Object)
 M00_L00:
@@ -122,22 +114,22 @@ M00_L00:
        mov       rsi,rcx
        mov       dword ptr [rsi+28],1
        mov       dword ptr [rsi+2C],2
-       mov       rcx,1BC3C3B9A40
+       mov       rcx,2025D1F75F0
        mov       rcx,[rcx]
        mov       eax,[rcx]
-       call      00007FFFC039E0D0
+       call      00007FF8EA12E0A0
        mov       rdx,rax
-       mov       rcx,7FFF60CBBCE2
+       mov       rcx,7FF88AA1BCE2
        call      CORINFO_HELP_CHKCASTARRAY
        lea       rcx,[rsi+18]
        mov       rdx,rax
        call      CORINFO_HELP_ASSIGN_REF
-       mov       rcx,1BC3C3B9A48
+       mov       rcx,2025D1F75F8
        mov       rcx,[rcx]
        mov       eax,[rcx]
-       call      00007FFFC039E0D0
+       call      00007FF8EA12E0A0
        mov       rdx,rax
-       mov       rcx,7FFF60CBBCE2
+       mov       rcx,7FF88AA1BCE2
        call      CORINFO_HELP_CHKCASTARRAY
        lea       rcx,[rsi+20]
        mov       rdx,rax
@@ -158,9 +150,9 @@ M00_L00:
        sub       rsp,28
        call      dotNetTips.Utility.Standard.Tester.Properties.Resources.get_ResourceManager()
        mov       rcx,rax
-       mov       rdx,1BC3C3BFB88
+       mov       rdx,2025D1FD738
        mov       rdx,[rdx]
-       mov       r8,1BC3C3B9CD0
+       mov       r8,2025D1F7880
        mov       r8,[r8]
        mov       rax,[rax]
        mov       rax,[rax+48]
@@ -171,28 +163,6 @@ M00_L00:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Security.EncryptionHelper.AesEncrypt(System.String, Byte[], Byte[])
-;             Encapsulation.TryValidateParam(plainText, nameof(plainText));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             Encapsulation.TryValidateParam(key, nameof(key));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             Encapsulation.TryValidateParam(key, nameof(iv));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             using (var aes = new AesManaged())
-;                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 using (var encryptor = aes.CreateEncryptor(key, iv))
-;                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                     using (var ms = new MemoryStream())
-;                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                         using (var cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
-;                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                             using (var sw = new StreamWriter(cs))
-;                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                                 sw.Write(plainText);
-;                                 ^^^^^^^^^^^^^^^^^^^^
-;                             encrypted = ms.ToArray();
-;                             ^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return encrypted;
-;             ^^^^^^^^^^^^^^^^^
        push      rbp
        push      r15
        push      r14
@@ -210,21 +180,21 @@ M00_L00:
        mov       rdi,rcx
        mov       rsi,rdx
        mov       rbx,r8
-       mov       r8,1BC3C3B3060
+       mov       r8,2023D1F3060
        mov       r8,[r8]
-       mov       rdx,1BC3C3BFBD8
+       mov       rdx,2025D1FD788
        mov       rdx,[rdx]
        mov       rcx,rdi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
-       mov       r8,1BC3C3B3060
+       mov       r8,2023D1F3060
        mov       r8,[r8]
-       mov       rdx,1BC3C3BFBE0
+       mov       rdx,2025D1FD790
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.Collections.IEnumerable, System.String, System.String)
-       mov       r8,1BC3C3B3060
+       mov       r8,2023D1F3060
        mov       r8,[r8]
-       mov       rdx,1BC3C3B3158
+       mov       rdx,2023D1F3158
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.Collections.IEnumerable, System.String, System.String)
@@ -273,7 +243,7 @@ M00_L00:
        mov       rsi,rax
        xor       r8d,r8d
        mov       [rsp+20],r8d
-       mov       r8,1BC3C3B22A0
+       mov       r8,2023D1F22A0
        mov       r8,[r8]
        mov       rcx,rsi
        mov       rdx,[rbp+0FFB8]
@@ -282,43 +252,43 @@ M00_L00:
        mov       [rbp+0FFB0],rsi
        mov       rcx,[rbp+0FFB0]
        mov       rdx,rdi
-       call      qword ptr [7FFF60C3ACA8]
+       call      qword ptr [7FF88A99ACA8]
        nop
        mov       rcx,[rbp+0FFB0]
        mov       edx,1
-       call      qword ptr [7FFF60C3AC10]
+       call      qword ptr [7FF88A99AC10]
        mov       rcx,[rbp+0FFB0]
        call      System.GC.SuppressFinalize(System.Object)
        mov       rcx,[rbp+0FFC0]
-       call      qword ptr [7FFF60C39478]
+       call      qword ptr [7FF88A999478]
        mov       rsi,rax
        mov       rcx,[rbp+0FFB8]
        mov       edx,1
-       call      qword ptr [7FFF60C3BB80]
+       call      qword ptr [7FF88A99BB80]
        mov       rcx,[rbp+0FFB8]
        call      System.GC.SuppressFinalize(System.Object)
        nop
        mov       rcx,[rbp+0FFC0]
        mov       edx,1
-       call      qword ptr [7FFF60C393A8]
+       call      qword ptr [7FF88A9993A8]
        mov       rcx,[rbp+0FFC0]
        call      System.GC.SuppressFinalize(System.Object)
        nop
        cmp       qword ptr [rbp+0FFC8],0
        je        short M03_L00
        mov       rcx,[rbp+0FFC8]
-       mov       r11,7FFF608305D8
+       mov       r11,7FF88A5905D8
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C305D8]
+       call      qword ptr [7FF88A9905D8]
        nop
 M03_L00:
        mov       rcx,[rbp+0FFD0]
        mov       rcx,[rcx+40]
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C31628]
+       call      qword ptr [7FF88A991628]
        mov       rcx,[rbp+0FFD0]
        mov       edx,1
-       call      qword ptr [7FFF60C31630]
+       call      qword ptr [7FF88A991630]
        mov       rcx,[rbp+0FFD0]
        call      System.GC.SuppressFinalize(System.Object)
        mov       rax,rsi
@@ -344,7 +314,7 @@ M03_L00:
        je        short M03_L01
        mov       rcx,[rbp+0FFB0]
        mov       edx,1
-       call      qword ptr [7FFF60C3AC10]
+       call      qword ptr [7FF88A99AC10]
        mov       rcx,[rbp+0FFB0]
        call      System.GC.SuppressFinalize(System.Object)
 M03_L01:
@@ -371,7 +341,7 @@ M03_L01:
        je        short M03_L02
        mov       rcx,[rbp+0FFB8]
        mov       edx,1
-       call      qword ptr [7FFF60C3BB80]
+       call      qword ptr [7FF88A99BB80]
        mov       rcx,[rbp+0FFB8]
        call      System.GC.SuppressFinalize(System.Object)
 M03_L02:
@@ -398,7 +368,7 @@ M03_L02:
        je        short M03_L03
        mov       rcx,[rbp+0FFC0]
        mov       edx,1
-       call      qword ptr [7FFF60C393A8]
+       call      qword ptr [7FF88A9993A8]
        mov       rcx,[rbp+0FFC0]
        call      System.GC.SuppressFinalize(System.Object)
 M03_L03:
@@ -424,9 +394,9 @@ M03_L03:
        cmp       qword ptr [rbp+0FFC8],0
        je        short M03_L04
        mov       rcx,[rbp+0FFC8]
-       mov       r11,7FFF608305D8
+       mov       r11,7FF88A5905D8
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C305D8]
+       call      qword ptr [7FF88A9905D8]
 M03_L04:
        nop
        add       rsp,38
@@ -452,10 +422,10 @@ M03_L04:
        mov       rcx,[rbp+0FFD0]
        mov       rcx,[rcx+40]
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C31628]
+       call      qword ptr [7FF88A991628]
        mov       rcx,[rbp+0FFD0]
        mov       edx,1
-       call      qword ptr [7FFF60C31630]
+       call      qword ptr [7FF88A991630]
        mov       rcx,[rbp+0FFD0]
        call      System.GC.SuppressFinalize(System.Object)
 M03_L05:
@@ -472,28 +442,6 @@ M03_L05:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Security.EncryptionHelper.AesDecrypt(Byte[], Byte[], Byte[])
-;             Encapsulation.TryValidateParam(cipherText, nameof(cipherText));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             Encapsulation.TryValidateParam(key, nameof(key));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             Encapsulation.TryValidateParam(key, nameof(iv));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             string text = null;
-;             ^^^^^^^^^^^^^^^^^^^
-;             using (var aes = new AesManaged())
-;                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 using (var decryptor = aes.CreateDecryptor(key, iv))
-;                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                     using (var ms = new MemoryStream(cipherText))
-;                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                         using (var cs = new CryptoStream(ms, decryptor, CryptoStreamMode.Read))
-;                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                             using (var reader = new StreamReader(cs))
-;                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                                 text = reader.ReadToEnd();
-;                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return text;
-;             ^^^^^^^^^^^^
        push      rbp
        push      r15
        push      r14
@@ -511,21 +459,21 @@ M03_L05:
        mov       rdi,rcx
        mov       rsi,rdx
        mov       rbx,r8
-       mov       r8,1BC3C3B3060
+       mov       r8,2023D1F3060
        mov       r8,[r8]
-       mov       rdx,1BC3C3BFC28
+       mov       rdx,2025D1FD7D8
        mov       rdx,[rdx]
        mov       rcx,rdi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.Collections.IEnumerable, System.String, System.String)
-       mov       r8,1BC3C3B3060
+       mov       r8,2023D1F3060
        mov       r8,[r8]
-       mov       rdx,1BC3C3BFBE0
+       mov       rdx,2025D1FD790
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.Collections.IEnumerable, System.String, System.String)
-       mov       r8,1BC3C3B3060
+       mov       r8,2023D1F3060
        mov       r8,[r8]
-       mov       rdx,1BC3C3B3158
+       mov       rdx,2023D1F3158
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.Collections.IEnumerable, System.String, System.String)
@@ -576,7 +524,7 @@ M03_L05:
        mov       dword ptr [rsp+20],400
        xor       r8d,r8d
        mov       [rsp+28],r8d
-       mov       r8,1BC3C3B1820
+       mov       r8,2023D1F1820
        mov       r8,[r8]
        mov       rcx,rsi
        mov       rdx,[rbp+0FFB8]
@@ -584,41 +532,41 @@ M03_L05:
        call      System.IO.StreamReader..ctor(System.IO.Stream, System.Text.Encoding, Boolean, Int32, Boolean)
        mov       [rbp+0FFB0],rsi
        mov       rcx,[rbp+0FFB0]
-       call      qword ptr [7FFF60C36CE0]
+       call      qword ptr [7FF88A996CE0]
        mov       rsi,rax
        mov       rcx,[rbp+0FFB0]
        mov       edx,1
-       call      qword ptr [7FFF60C36CB8]
+       call      qword ptr [7FF88A996CB8]
        mov       rcx,[rbp+0FFB0]
        call      System.GC.SuppressFinalize(System.Object)
        nop
        mov       rcx,[rbp+0FFB8]
        mov       edx,1
-       call      qword ptr [7FFF60C3BB80]
+       call      qword ptr [7FF88A99BB80]
        mov       rcx,[rbp+0FFB8]
        call      System.GC.SuppressFinalize(System.Object)
        nop
        mov       rcx,[rbp+0FFC0]
        mov       edx,1
-       call      qword ptr [7FFF60C393A8]
+       call      qword ptr [7FF88A9993A8]
        mov       rcx,[rbp+0FFC0]
        call      System.GC.SuppressFinalize(System.Object)
        nop
        cmp       qword ptr [rbp+0FFC8],0
        je        short M04_L00
        mov       rcx,[rbp+0FFC8]
-       mov       r11,7FFF60830668
+       mov       r11,7FF88A590668
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C40668]
+       call      qword ptr [7FF88A990668]
        nop
 M04_L00:
        mov       rcx,[rbp+0FFD0]
        mov       rcx,[rcx+40]
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C41628]
+       call      qword ptr [7FF88A991628]
        mov       rcx,[rbp+0FFD0]
        mov       edx,1
-       call      qword ptr [7FFF60C41630]
+       call      qword ptr [7FF88A991630]
        mov       rcx,[rbp+0FFD0]
        call      System.GC.SuppressFinalize(System.Object)
        mov       rax,rsi
@@ -644,7 +592,7 @@ M04_L00:
        je        short M04_L01
        mov       rcx,[rbp+0FFB0]
        mov       edx,1
-       call      qword ptr [7FFF60C36CB8]
+       call      qword ptr [7FF88A996CB8]
        mov       rcx,[rbp+0FFB0]
        call      System.GC.SuppressFinalize(System.Object)
 M04_L01:
@@ -671,7 +619,7 @@ M04_L01:
        je        short M04_L02
        mov       rcx,[rbp+0FFB8]
        mov       edx,1
-       call      qword ptr [7FFF60C3BB80]
+       call      qword ptr [7FF88A99BB80]
        mov       rcx,[rbp+0FFB8]
        call      System.GC.SuppressFinalize(System.Object)
 M04_L02:
@@ -698,7 +646,7 @@ M04_L02:
        je        short M04_L03
        mov       rcx,[rbp+0FFC0]
        mov       edx,1
-       call      qword ptr [7FFF60C393A8]
+       call      qword ptr [7FF88A9993A8]
        mov       rcx,[rbp+0FFC0]
        call      System.GC.SuppressFinalize(System.Object)
 M04_L03:
@@ -724,9 +672,9 @@ M04_L03:
        cmp       qword ptr [rbp+0FFC8],0
        je        short M04_L04
        mov       rcx,[rbp+0FFC8]
-       mov       r11,7FFF60830668
+       mov       r11,7FF88A590668
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C40668]
+       call      qword ptr [7FF88A990668]
 M04_L04:
        nop
        add       rsp,38
@@ -752,10 +700,10 @@ M04_L04:
        mov       rcx,[rbp+0FFD0]
        mov       rcx,[rcx+40]
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C41628]
+       call      qword ptr [7FF88A991628]
        mov       rcx,[rbp+0FFD0]
        mov       edx,1
-       call      qword ptr [7FFF60C41630]
+       call      qword ptr [7FF88A991630]
        mov       rcx,[rbp+0FFD0]
        call      System.GC.SuppressFinalize(System.Object)
 M04_L05:
@@ -823,7 +771,7 @@ M06_L01:
        sub       rsp,20
        test      rcx,rcx
        je        short M07_L00
-       mov       rax,7FFFC041ABD0
+       mov       rax,7FF8EA1AAC90
        add       rsp,20
        pop       rsi
        jmp       rax
@@ -832,7 +780,7 @@ M07_L00:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,150A
-       mov       rdx,7FFF60824020
+       mov       rdx,7FF88A584020
        call      CORINFO_HELP_STRCNS
        mov       rdx,rax
        mov       rcx,rsi

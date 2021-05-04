@@ -60,7 +60,7 @@ namespace dotNetTips.Tips.Utility.Standard.Tests.Collections
         [TestMethod]
         public void NullCollectionTest()
         {
-            List<PersonProper> collection = new List<PersonProper>();
+			var collection = new List<PersonProper>();
             var collectionRandomizer = new CollectionRandomizer<PersonProper>(collection);
 
             Assert.ThrowsException<NullReferenceException>(collectionRandomizer.GetNext);

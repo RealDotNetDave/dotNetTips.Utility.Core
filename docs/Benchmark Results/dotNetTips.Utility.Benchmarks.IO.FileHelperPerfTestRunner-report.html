@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner-20210228-170020</title>
+<title>dotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner-20210503-211907</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -15,22 +15,22 @@
 <pre><code>
 BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
 Unknown processor
-.NET Core SDK=5.0.200-preview.21079.7
-  [Host]     : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
-  Job-HTSMCU : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+.NET Core SDK=5.0.300-preview.21180.15
+  [Host]     : .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
+  Job-SOGKAI : .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 </code></pre>
 <pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.1  
 Namespace=dotNetTips.Utility.Benchmarks.IO  Categories=FileHelper  
 </code></pre>
 
 <table>
-<thead><tr><th>       Method</th><th>     Mean</th><th>  Error</th><th>   StdDev</th><th> StdErr</th><th>   Median</th><th>      Min</th><th>       Q1</th><th>       Q3</th><th>      Max</th><th>  Op/s</th><th>CI99.9% Margin</th><th>Iterations</th><th>Kurtosis</th><th>MValue</th><th>Skewness</th><th>Rank</th><th>LogicalGroup</th><th>Baseline</th><th>Code Size</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+<thead><tr><th>       Method</th><th>     Mean</th><th>  Error</th><th>   StdDev</th><th> StdErr</th><th>      Min</th><th>       Q1</th><th>   Median</th><th>       Q3</th><th>      Max</th><th>  Op/s</th><th>CI99.9% Margin</th><th>Iterations</th><th>Kurtosis</th><th>MValue</th><th>Skewness</th><th>Rank</th><th>LogicalGroup</th><th>Baseline</th><th>Code Size</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>CopyFile</td><td>766,743.5 ns</td><td>14,396.60 ns</td><td>15,404.20 ns</td><td>3,630.81 ns</td><td>764,354.6 ns</td><td>741,894.6 ns</td><td>757,951.2 ns</td><td>776,973.5 ns</td><td>798,191.8 ns</td><td>1,304.22</td><td>14,396.60 ns</td><td>18.00</td><td>2.230</td><td>2.000</td><td>0.3728</td><td>2</td><td>*</td><td>No</td><td>652 B</td><td>-</td><td>-</td><td>-</td><td>9051 B</td>
-</tr><tr><td>CopyFileAsync</td><td>827,235.6 ns</td><td>16,290.08 ns</td><td>18,106.39 ns</td><td>4,153.89 ns</td><td>830,282.1 ns</td><td>788,969.4 ns</td><td>818,458.6 ns</td><td>839,043.0 ns</td><td>858,635.9 ns</td><td>1,208.85</td><td>16,290.08 ns</td><td>19.00</td><td>2.397</td><td>2.000</td><td>-0.3324</td><td>3</td><td>*</td><td>No</td><td>421 B</td><td>0.9766</td><td>-</td><td>-</td><td>10328 B</td>
-</tr><tr><td>DeleteFiles</td><td>38,120,643.1 ns</td><td>762,180.97 ns</td><td>1,140,796.58 ns</td><td>208,280.01 ns</td><td>37,870,500.0 ns</td><td>36,719,364.3 ns</td><td>37,176,091.1 ns</td><td>38,700,641.1 ns</td><td>40,981,557.1 ns</td><td>26.23</td><td>762,180.97 ns</td><td>30.00</td><td>2.739</td><td>2.000</td><td>0.8067</td><td>5</td><td>*</td><td>No</td><td>661 B</td><td>71.4286</td><td>-</td><td>-</td><td>1009562 B</td>
-</tr><tr><td>FileHasInvalidChars</td><td>676.6 ns</td><td>13.54 ns</td><td>17.60 ns</td><td>3.59 ns</td><td>682.8 ns</td><td>646.8 ns</td><td>669.8 ns</td><td>684.7 ns</td><td>701.6 ns</td><td>1,478,051.47</td><td>13.54 ns</td><td>24.00</td><td>2.078</td><td>2.667</td><td>-0.6000</td><td>1</td><td>*</td><td>No</td><td>655 B</td><td>0.0277</td><td>-</td><td>-</td><td>264 B</td>
-</tr><tr><td>MoveFile</td><td>1,002,724.7 ns</td><td>19,880.97 ns</td><td>31,533.33 ns</td><td>5,489.25 ns</td><td>986,759.0 ns</td><td>965,356.8 ns</td><td>978,951.3 ns</td><td>1,025,570.5 ns</td><td>1,088,019.7 ns</td><td>997.28</td><td>19,880.97 ns</td><td>33.00</td><td>2.935</td><td>2.316</td><td>0.9718</td><td>4</td><td>*</td><td>No</td><td>1194 B</td><td>0.9766</td><td>-</td><td>-</td><td>14504 B</td>
+</thead><tbody><tr><td>CopyFile</td><td>798,275.2 ns</td><td>15,518.36 ns</td><td>20,178.25 ns</td><td>4,118.87 ns</td><td>769,456.4 ns</td><td>781,537.4 ns</td><td>796,285.0 ns</td><td>815,763.3 ns</td><td>842,221.0 ns</td><td>1,252.70</td><td>15,518.356 ns</td><td>24.00</td><td>1.858</td><td>2.000</td><td>0.2431</td><td>2</td><td>*</td><td>No</td><td>652 B</td><td>-</td><td>-</td><td>-</td><td>9040 B</td>
+</tr><tr><td>CopyFileAsync</td><td>873,163.6 ns</td><td>12,851.25 ns</td><td>11,392.30 ns</td><td>3,044.72 ns</td><td>854,714.4 ns</td><td>866,788.2 ns</td><td>872,372.8 ns</td><td>874,944.0 ns</td><td>892,518.4 ns</td><td>1,145.26</td><td>12,851.254 ns</td><td>14.00</td><td>2.102</td><td>2.000</td><td>0.3075</td><td>3</td><td>*</td><td>No</td><td>421 B</td><td>0.9766</td><td>-</td><td>-</td><td>10328 B</td>
+</tr><tr><td>DeleteFiles</td><td>39,325,070.3 ns</td><td>761,141.57 ns</td><td>1,091,606.50 ns</td><td>206,294.24 ns</td><td>37,634,246.2 ns</td><td>38,390,509.6 ns</td><td>39,264,776.9 ns</td><td>40,052,792.3 ns</td><td>41,887,530.8 ns</td><td>25.43</td><td>761,141.574 ns</td><td>28.00</td><td>2.192</td><td>2.000</td><td>0.3432</td><td>5</td><td>*</td><td>No</td><td>661 B</td><td>76.9231</td><td>-</td><td>-</td><td>1008839 B</td>
+</tr><tr><td>FileHasInvalidChars</td><td>670.8 ns</td><td>6.61 ns</td><td>6.18 ns</td><td>1.60 ns</td><td>658.6 ns</td><td>667.4 ns</td><td>671.0 ns</td><td>676.3 ns</td><td>678.7 ns</td><td>1,490,692.96</td><td>6.612 ns</td><td>15.00</td><td>1.996</td><td>2.000</td><td>-0.4210</td><td>1</td><td>*</td><td>No</td><td>655 B</td><td>0.0277</td><td>-</td><td>-</td><td>264 B</td>
+</tr><tr><td>MoveFile</td><td>911,397.1 ns</td><td>16,219.30 ns</td><td>13,543.85 ns</td><td>3,756.39 ns</td><td>893,607.8 ns</td><td>901,903.3 ns</td><td>906,843.9 ns</td><td>918,927.7 ns</td><td>944,920.3 ns</td><td>1,097.22</td><td>16,219.295 ns</td><td>13.00</td><td>3.286</td><td>2.000</td><td>0.9290</td><td>4</td><td>*</td><td>No</td><td>1194 B</td><td>-</td><td>-</td><td>-</td><td>14506 B</td>
 </tr></tbody></table>
 </body>
 </html>

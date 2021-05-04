@@ -1,23 +1,15 @@
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Security.SecurityHelperPerfTestRunner.CompareSecureStrings()
-;             var secureString1 = SecurityHelper.LoadSecureString(TestEmailMixedCase);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var secureString2 = SecurityHelper.LoadSecureString(TestEmailMixedCase);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var result = SecurityHelper.CompareSecureStrings(secureString1, secureString2);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
        mov       rsi,rcx
-       mov       rcx,231B87CD738
+       mov       rcx,14E0A111788
        mov       rcx,[rcx]
        call      dotNetTips.Utility.Standard.Security.SecurityHelper.LoadSecureString(System.String)
        mov       rdi,rax
-       mov       rcx,231B87CD738
+       mov       rcx,14E0A111788
        mov       rcx,[rcx]
        call      dotNetTips.Utility.Standard.Security.SecurityHelper.LoadSecureString(System.String)
        mov       rdx,rax
@@ -33,16 +25,12 @@
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Security.SecurityHelper.LoadSecureString(System.String)
-;             Encapsulation.TryValidateParam(input, nameof(input));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return LoadSecureString(input, false);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
-       mov       r8,231A87C3060
+       mov       r8,14DFA113060
        mov       r8,[r8]
-       mov       rdx,231B87CD120
+       mov       rdx,14E0A111170
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -56,30 +44,6 @@
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Security.SecurityHelper.CompareSecureStrings(System.Security.SecureString, System.Security.SecureString)
-;             Encapsulation.TryValidateParam(value1, nameof(value1));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             Encapsulation.TryValidateParam(value2, nameof(value2));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var valid = false;
-;             ^^^^^^^^^^^^^^^^^^
-;             var inputIntPtr = new IntPtr();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var compareIntPtr = new IntPtr();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 inputIntPtr = Marshal.SecureStringToBSTR(value1);
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 compareIntPtr = Marshal.SecureStringToBSTR(value2);
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 valid = ( Marshal.PtrToStringUni(inputIntPtr) == Marshal.PtrToStringUni(compareIntPtr) );
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return valid;
-;             ^^^^^^^^^^^^^
-;                 Marshal.ZeroFreeBSTR(inputIntPtr);
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 Marshal.ZeroFreeBSTR(compareIntPtr);
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             }
-;             ^
        push      rbp
        push      rdi
        push      rsi
@@ -88,15 +52,15 @@
        mov       [rbp+0FFD0],rsp
        mov       rsi,rcx
        mov       rdi,rdx
-       mov       r8,231A87C3060
+       mov       r8,14DFA113060
        mov       r8,[r8]
-       mov       rdx,231B87CD740
+       mov       rdx,14E0A111790
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.Security.SecureString, System.String, System.String)
-       mov       r8,231A87C3060
+       mov       r8,14DFA113060
        mov       r8,[r8]
-       mov       rdx,231B87CD748
+       mov       rdx,14E0A111798
        mov       rdx,[rdx]
        mov       rcx,rdi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.Security.SecureString, System.String, System.String)
@@ -148,17 +112,13 @@
 ; Total bytes of code 233
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Security.SecurityHelperPerfTestRunner.LoadSecureString()
-;             var result = SecurityHelper.LoadSecureString(TestEmailMixedCase);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
-       mov       rcx,1481A74D738
+       mov       rcx,14CA9651788
        mov       rcx,[rcx]
        call      dotNetTips.Utility.Standard.Security.SecurityHelper.LoadSecureString(System.String)
        mov       rcx,[rsi+8]
@@ -174,16 +134,12 @@
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Security.SecurityHelper.LoadSecureString(System.String)
-;             Encapsulation.TryValidateParam(input, nameof(input));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return LoadSecureString(input, false);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
-       mov       r8,147FA743060
+       mov       r8,14CC9653060
        mov       r8,[r8]
-       mov       rdx,1481A74D120
+       mov       rdx,14CA9651170
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -196,7 +152,7 @@
 ; Total bytes of code 65
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Security.SecurityHelperPerfTestRunner.ReadStringCharacters()
        push      r15
@@ -207,25 +163,19 @@
        push      rbx
        sub       rsp,28
        mov       rsi,rcx
-;             var result = string.Empty;
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^
-       mov       rcx,1D36A1F3060
+       mov       rcx,26D61283060
        mov       rdi,[rcx]
-       mov       rcx,1D36A1FFB88
+       mov       rcx,26D61291BA0
        mov       rcx,[rcx]
        call      System.String.ToCharArray()
        mov       rbx,rax
        xor       ebp,ebp
-;             foreach (var character in TestEmailMixedCase.ToCharArray())
-;                                    ^^
        mov       r14d,[rbx+8]
        test      r14d,r14d
        jle       short M00_L01
 M00_L00:
        movsxd    rcx,ebp
        movzx     r15d,word ptr [rbx+rcx*2+10]
-;                 result += character;
-;                 ^^^^^^^^^^^^^^^^^^^^
        mov       ecx,1
        call      System.String.FastAllocateString(Int32)
        mov       rdx,rax
@@ -266,7 +216,7 @@ M00_L01:
        mov       edi,[rsi+8]
        test      edi,edi
        jne       short M01_L00
-       mov       rax,1D36A1F6CB8
+       mov       rax,26D61288CD0
        mov       rax,[rax]
        add       rsp,30
        pop       rbx
@@ -322,7 +272,7 @@ M02_L00:
        cmp       dword ptr [rsi+8],0
        ja        short M02_L02
 M02_L01:
-       mov       rax,1D36A1F3060
+       mov       rax,26D61283060
        mov       rax,[rax]
        add       rsp,28
        pop       rbx
@@ -377,19 +327,13 @@ M02_L05:
 **Extern method**
 System.String.FastAllocateString(Int32)
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Security.SecurityHelperPerfTestRunner.ReadSecureString()
-;             var secureString = SecurityHelper.LoadSecureString(TestEmailMixedCase);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var result = SecurityHelper.ReadSecureString(secureString);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
-       mov       rcx,204143E1BA0
+       mov       rcx,29EE3EA1BA0
        mov       rcx,[rcx]
        call      dotNetTips.Utility.Standard.Security.SecurityHelper.LoadSecureString(System.String)
        mov       rcx,rax
@@ -407,16 +351,12 @@ System.String.FastAllocateString(Int32)
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Security.SecurityHelper.LoadSecureString(System.String)
-;             Encapsulation.TryValidateParam(input, nameof(input));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return LoadSecureString(input, false);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
-       mov       r8,204143D3060
+       mov       r8,29EE3E93060
        mov       r8,[r8]
-       mov       rdx,204143E1588
+       mov       rdx,29EE3EA1588
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -430,31 +370,15 @@ System.String.FastAllocateString(Int32)
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Security.SecurityHelper.ReadSecureString(System.Security.SecureString)
-;             Encapsulation.TryValidateParam(input, nameof(input));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var result = string.Empty;
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var inputIntPtr = new IntPtr();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 inputIntPtr = Marshal.SecureStringToBSTR(input);
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 result = Marshal.PtrToStringUni(inputIntPtr);
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return result;
-;             ^^^^^^^^^^^^^^
-;                 Marshal.ZeroFreeBSTR(inputIntPtr);
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             }
-;             ^
        push      rbp
        push      rsi
        sub       rsp,38
        lea       rbp,[rsp+40]
        mov       [rbp+0FFE0],rsp
        mov       rsi,rcx
-       mov       r8,204143D3060
+       mov       r8,29EE3E93060
        mov       r8,[r8]
-       mov       rdx,204143E1588
+       mov       rdx,29EE3EA1588
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.Security.SecureString, System.String, System.String)

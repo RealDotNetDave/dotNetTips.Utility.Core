@@ -1,12 +1,6 @@
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.EnumExtensionsPerfTestRunner.GetDescription()
-;             var testEnum = StringComparison.OrdinalIgnoreCase;
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var result = testEnum.GetDescription();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -28,16 +22,6 @@
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Extensions.EnumExtensions.GetDescription(System.Enum)
-;             if (val == null)
-;             ^^^^^^^^^^^^^^^^
-;                 throw new ArgumentNullException(nameof(val), $"{nameof(val)} is null.");
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var field = val.GetType().GetField(val.ToString());
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var attributes = (DescriptionAttribute[])field.GetCustomAttributes(typeof(DescriptionAttribute), false);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return attributes.Length > 0 ? attributes[0].Description : val.ToString();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -45,7 +29,7 @@
        test      rsi,rsi
        je        near ptr M01_L01
        mov       rcx,rsi
-       call      00007FFFC03F1F60
+       call      00007FF8EA182020
        mov       rdi,rax
        mov       rcx,rsi
        mov       rax,[rsi]
@@ -55,7 +39,7 @@
        mov       rcx,rdi
        mov       r8d,1C
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C147E0]
+       call      qword ptr [7FF88A9A47E0]
        mov       rdi,rax
        mov       rcx,offset MT_System.ComponentModel.DescriptionAttribute
        call      CORINFO_HELP_TYPEHANDLE_TO_RUNTIMETYPE
@@ -66,7 +50,7 @@
        mov       rax,[rax+48]
        call      qword ptr [rax+28]
        mov       rdx,rax
-       mov       rcx,7FFF60C8C342
+       mov       rcx,7FF88AA1C34A
        call      CORINFO_HELP_CHKCASTARRAY
        cmp       dword ptr [rax+8],0
        jne       short M01_L00
@@ -94,11 +78,11 @@ M01_L01:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,55D
-       mov       rdx,7FFF60BFF440
+       mov       rdx,7FF88A98F440
        call      CORINFO_HELP_STRCNS
        mov       rdi,rax
        mov       ecx,565
-       mov       rdx,7FFF60BFF440
+       mov       rdx,7FF88A98F440
        call      CORINFO_HELP_STRCNS
        mov       r8,rax
        mov       rdx,rdi
@@ -113,15 +97,9 @@ M01_L02:
 ; Total bytes of code 266
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.EnumExtensionsPerfTestRunner.GetItems()
-;             var testEnum = StringComparison.OrdinalIgnoreCase;
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var result = testEnum.GetItems<StringComparison>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -150,48 +128,36 @@ M01_L02:
        sub       rsp,38
        xor       eax,eax
        mov       [rsp+30],rax
-;             if (enumeration == null)
-;             ^^^^^^^^^^^^^^^^^^^^^^^^
        test      rcx,rcx
        je        near ptr M01_L04
-;             var enumType = enumeration.GetType();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       call      00007FFFC03F1F60
+       call      00007FF8EA182020
        mov       rsi,rax
        mov       rcx,rsi
        call      System.Enum.GetValues(System.Type)
        mov       rdi,rax
-;             var items = new List<EnumItem<T>>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rcx,offset MT_System.Collections.Generic.List`1[[dotNetTips.Utility.Standard.Extensions.EnumItem`1[[System.StringComparison, System.Private.CoreLib]], dotNetTips.Utility.Standard.Extensions]]
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
-       mov       rcx,7FFF60910020
+       mov       rcx,7FF88A6A0020
        mov       edx,25
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rdx,1A471908D40
+       mov       rdx,2601C2548D8
        mov       rdx,[rdx]
        lea       rcx,[rbx+8]
        call      CORINFO_HELP_ASSIGN_REF
-;             for (var itemCount = 0; itemCount < list.Count; itemCount++)
-;                  ^^^^^^^^^^^^^^^^^
        xor       ebp,ebp
        mov       rcx,rdi
-       mov       r11,7FFF60820428
+       mov       r11,7FF88A5B0428
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C10428]
+       call      qword ptr [7FF88A9A0428]
        test      eax,eax
        jle       near ptr M01_L03
-;                 var v = list[itemCount];
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^
 M01_L00:
        mov       rcx,rdi
        mov       edx,ebp
-       mov       r11,7FFF60820430
+       mov       r11,7FF88A5B0430
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C10430]
-;                 var enumValue = Enum.Parse(enumType, v.ToString());
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       call      qword ptr [7FF88A9A0430]
        mov       rcx,rax
        mov       rax,[rax]
        mov       rax,[rax+40]
@@ -206,8 +172,6 @@ M01_L00:
        mov       rcx,[rsp+30]
        xor       eax,eax
        mov       [rsp+30],rax
-;                 items.Add(GetDescriptionInternal<T>(enumValue));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        call      dotNetTips.Utility.Standard.Extensions.EnumExtensions.GetDescriptionInternal[[System.StringComparison, System.Private.CoreLib]](System.Object)
        mov       r8,rax
        inc       dword ptr [rbx+14]
@@ -226,13 +190,11 @@ M01_L01:
 M01_L02:
        inc       ebp
        mov       rcx,rdi
-       mov       r11,7FFF60820428
+       mov       r11,7FF88A5B0428
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C10428]
+       call      qword ptr [7FF88A9A0428]
        cmp       eax,ebp
        jg        near ptr M01_L00
-;             return items;
-;             ^^^^^^^^^^^^^
 M01_L03:
        mov       rax,rbx
        add       rsp,38
@@ -241,18 +203,16 @@ M01_L03:
        pop       rsi
        pop       rdi
        ret
-;                 throw new ArgumentNullException(nameof(enumeration), $"{nameof(enumeration)} is null.");
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M01_L04:
        mov       rcx,offset MT_System.ArgumentNullException
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,57F
-       mov       rdx,7FFF60BFF440
+       mov       rdx,7FF88A98F440
        call      CORINFO_HELP_STRCNS
        mov       rdi,rax
        mov       ecx,597
-       mov       rdx,7FFF60BFF440
+       mov       rdx,7FF88A98F440
        call      CORINFO_HELP_STRCNS
        mov       r8,rax
        mov       rdx,rdi

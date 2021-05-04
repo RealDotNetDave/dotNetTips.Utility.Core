@@ -1,14 +1,6 @@
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner.CopyFileTest()
-;             DirectoryInfo destPath = this._tempFolder;
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             FileInfo tempFile = this._tempFiles.PickRandom();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var result = FileHelper.CopyFile(tempFile, destPath);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -32,10 +24,6 @@
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Extensions.CollectionExtensions.PickRandom[[System.__Canon, System.Private.CoreLib]](System.Collections.Generic.IEnumerable`1<System.__Canon>)
-;             var index = new Random().Next(0, list.Count() - 1);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return list.ElementAt(index);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        push      rbx
@@ -55,14 +43,14 @@
        lea       r8d,[rax+0FFFF]
        mov       rcx,rbx
        xor       edx,edx
-       call      qword ptr [7FFF60C3E0B8]
+       call      qword ptr [7FF88A9BE0B8]
        mov       ebx,eax
        mov       rcx,[rsi+10]
        mov       rcx,[rcx+8]
        test      rcx,rcx
        jne       short M01_L00
        mov       rcx,rsi
-       mov       rdx,7FFF60CADB60
+       mov       rdx,7FF88AA2DBD8
        call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
        mov       rcx,rax
 M01_L00:
@@ -78,26 +66,6 @@ M01_L00:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.IO.FileHelper.CopyFile(System.IO.FileInfo, System.IO.DirectoryInfo)
-;             Encapsulation.TryValidateParam(file, nameof(file));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             Encapsulation.TryValidateParam(destinationFolder, nameof(destinationFolder));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var newFileName = Path.Combine(destinationFolder.FullName, file.Name);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             using (var sourceStream = File.Open(file.FullName, FileMode.Open))
-;                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 if (File.Exists(newFileName))
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                     File.Delete(newFileName);
-;                     ^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 using (var destinationStream = File.Create(newFileName))
-;                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                     sourceStream.CopyTo(destinationStream);
-;                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                     destinationStream.Flush();
-;                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return file.Length;
-;             ^^^^^^^^^^^^^^^^^^^
        push      rbp
        push      r14
        push      rdi
@@ -110,15 +78,15 @@ M01_L00:
        mov       [rbp+0FFC8],rsp
        mov       rsi,rcx
        mov       rdi,rdx
-       mov       r8,1B02D063060
+       mov       r8,1FA50AC3060
        mov       r8,[r8]
-       mov       rdx,1B00D0618A0
+       mov       rdx,1FA50AD1CB8
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.IO.FileInfo, System.String, System.String)
-       mov       r8,1B02D063060
+       mov       r8,1FA50AC3060
        mov       r8,[r8]
-       mov       rdx,1B00D0618A8
+       mov       rdx,1FA50AD1CC0
        mov       rdx,[rdx]
        mov       rcx,rdi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.IO.DirectoryInfo, System.String, System.String)
@@ -165,15 +133,15 @@ M02_L00:
        mov       r8d,eax
        mov       rcx,[rbp+0FFD8]
        mov       rdx,[rbp+0FFD0]
-       call      qword ptr [7FFF60C46628]
+       call      qword ptr [7FF88A9C6628]
        mov       rcx,[rbp+0FFD0]
-       call      qword ptr [7FFF60C469E0]
+       call      qword ptr [7FF88A9C69E0]
        nop
        mov       rcx,[rbp+0FFD0]
-       call      qword ptr [7FFF60C46638]
+       call      qword ptr [7FF88A9C6638]
        nop
        mov       rcx,[rbp+0FFD8]
-       call      qword ptr [7FFF60C46638]
+       call      qword ptr [7FF88A9C6638]
        mov       rcx,rsi
        mov       rax,offset System.IO.FileInfo.get_Length()
        lea       rsp,[rbp+0FFE0]
@@ -195,7 +163,7 @@ M02_L00:
        cmp       qword ptr [rbp+0FFD0],0
        je        short M02_L01
        mov       rcx,[rbp+0FFD0]
-       call      qword ptr [7FFF60C46638]
+       call      qword ptr [7FF88A9C6638]
 M02_L01:
        nop
        add       rsp,40
@@ -217,7 +185,7 @@ M02_L01:
        cmp       qword ptr [rbp+0FFD8],0
        je        short M02_L02
        mov       rcx,[rbp+0FFD8]
-       call      qword ptr [7FFF60C46638]
+       call      qword ptr [7FF88A9C6638]
 M02_L02:
        nop
        add       rsp,40
@@ -230,7 +198,7 @@ M02_L02:
 ; Total bytes of code 453
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner.CopyFileAsyncTest()
        push      rdi
@@ -289,7 +257,7 @@ M02_L00:
        mov       [rbp+0FFD0],rsp
        mov       rsi,rcx
        movsx     rcx,byte ptr [rsi]
-       mov       rcx,7FFF60910020
+       mov       rcx,7FF88A6B0020
        mov       edx,1E2
        call      CORINFO_HELP_GETSHARED_GCTHREADSTATIC_BASE
        mov       rax,[rax+8]
@@ -386,15 +354,9 @@ M04_L01:
 **Method was not JITted yet.**
 System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1[[System.Threading.Tasks.VoidTaskResult, System.Private.CoreLib]].InitializeTaskAsPromise()
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner.DeleteFilesTest()
-;             (string Path, IEnumerable<string> Files) files = RandomData.GenerateFiles(100, 10);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             IEnumerable<(string FileName, string ErrorMessage)> errors = FileHelper.DeleteFiles(files.Files);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(errors);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,30
        xor       eax,eax
@@ -429,9 +391,9 @@ System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1[[System.Threading.Tasks
        mov       rbx,rcx
        mov       esi,edx
        mov       edi,r8d
-;             Encapsulation.TryValidateParam(count, 1, int.MaxValue, nameof(count));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       mov       rcx,1F1C0003060
+; 			Encapsulation.TryValidateParam(count, 1, int.MaxValue, nameof(count));
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       mov       rcx,1B1EA963060
        mov       rbp,[rcx]
        mov       r14,rbp
        test      esi,esi
@@ -441,8 +403,8 @@ System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1[[System.Threading.Tasks
        movzx     ecx,cl
        test      ecx,ecx
        je        near ptr M01_L04
-;             Encapsulation.TryValidateParam(fileLength, 1, int.MaxValue, nameof(fileLength));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			Encapsulation.TryValidateParam(fileLength, 1, int.MaxValue, nameof(fileLength));
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        test      edi,edi
        jle       near ptr M01_L06
        cmp       edi,7FFFFFFF
@@ -450,16 +412,16 @@ System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1[[System.Threading.Tasks
        movzx     ecx,cl
        test      ecx,ecx
        je        near ptr M01_L06
-;             var files = new List<string>(count);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			var files = new List<string>(count);
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rcx,offset MT_System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       r14,rax
        mov       rcx,r14
        mov       edx,esi
        call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]]..ctor(Int32)
-;             for (var fileCount = 0; fileCount < count; fileCount++)
-;                  ^^^^^^^^^^^^^^^^^
+; 			for (var fileCount = 0; fileCount < count; fileCount++)
+; 			     ^^^^^^^^^^^^^^^^^
        xor       ebp,ebp
        test      esi,esi
        jle       short M01_L02
@@ -482,8 +444,8 @@ M01_L01:
 M01_L02:
        call      System.IO.Path.GetTempPath()
        mov       rdx,rax
-;             return (Path.GetTempPath(), files.AsEnumerable());
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			return (Path.GetTempPath(), files.AsEnumerable());
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rcx,rbx
        call      CORINFO_HELP_CHECKED_ASSIGN_REF
        lea       rcx,[rbx+8]
@@ -512,7 +474,7 @@ M01_L05:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,1
-       mov       rdx,7FFF60BE26A8
+       mov       rdx,7FF88A9926A8
        call      CORINFO_HELP_STRCNS
        mov       r8,rax
        mov       rdx,r14
@@ -530,7 +492,7 @@ M01_L07:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,2F
-       mov       rdx,7FFF60BE26A8
+       mov       rdx,7FF88A9926A8
        call      CORINFO_HELP_STRCNS
        mov       r8,rax
        mov       rdx,rbp
@@ -543,48 +505,6 @@ M01_L07:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.IO.FileHelper.DeleteFiles(System.Collections.Generic.IEnumerable`1<System.String>)
-;             if (files.HasItems() == false)
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 return null;
-;                 ^^^^^^^^^^^^
-;             var errors = new List<(string FileName, string ErrorMessage)>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var result = Parallel.ForEach(source: files, body: (fileName) =>
-;             ^^^
-;             {
-;             ^^^
-;                 try
-;             ^^^
-;                 {
-;             ^^^
-;                     File.Delete(fileName);
-;             ^^^
-;                 }
-;             ^^^
-;                 catch (Exception ex) when (ex is ArgumentException ||
-;             ^^^
-;                   ex is ArgumentNullException ||
-;             ^^^
-;                   ex is System.IO.DirectoryNotFoundException ||
-;             ^^^
-;                   ex is IOException ||
-;             ^^^
-;                   ex is NotSupportedException ||
-;             ^^^
-;                   ex is PathTooLongException ||
-;             ^^^
-;                   ex is UnauthorizedAccessException)
-;             ^^^
-;                 {
-;             ^^^
-;                     errors.Add((FileName: fileName, ErrorMessage: ex.GetAllMessages()));
-;             ^^^
-;                 }
-;             ^^^
-;             });
-;             ^^^
-;             return errors.AsEnumerable();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        push      rbx
@@ -617,7 +537,7 @@ M02_L01:
        mov       rcx,offset MT_System.Collections.Generic.List`1[[System.ValueTuple`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
-       mov       rdx,1F1C0008D40
+       mov       rdx,1B1FA9668F0
        mov       rdx,[rdx]
        lea       rcx,[rbx+8]
        call      CORINFO_HELP_ASSIGN_REF
@@ -646,13 +566,9 @@ M02_L01:
 ; Total bytes of code 214
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner.FileHasInvalidCharsTest()
-;             var destFile = RandomData.GenerateRandomFileName();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(FileHelper.FileHasInvalidChars(destFile));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -685,7 +601,7 @@ M02_L01:
        xor       eax,eax
        mov       [rbp+10],rax
        mov       [rbp+20],rax
-       mov       rax,0CFEEDC581910
+       mov       rax,63440C97341
        mov       [rbp+8],rax
        add       rsp,20
        test      esp,[rsp]
@@ -711,18 +627,18 @@ M02_L01:
        vmovdqu   xmmword ptr [rcx+10],xmm0
        test      rdi,rdi
        je        short M01_L00
-       mov       rcx,7FFF60920020
+       mov       rcx,7FF88A6A0020
        mov       edx,27
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rcx,1DF622B8D40
+       mov       rcx,11BE7D748D8
        mov       rcx,[rcx]
        mov       rdx,rdi
        xor       r8d,r8d
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C401F8]
+       call      qword ptr [7FF88A9B0198]
 M01_L00:
        mov       rax,rsi
-       mov       rcx,0CFEEDC581910
+       mov       rcx,63440C97341
        cmp       [rbp+8],rcx
        je        short M01_L01
        call      CORINFO_HELP_FAIL_FAST
@@ -740,20 +656,20 @@ M01_L01:
        push      rdi
        push      rsi
        sub       rsp,38
-       mov       rax,0CFEEDC581910
+       mov       rax,63440C97341
        mov       [rsp+30],rax
        lea       rsi,[rsp+28]
        mov       rcx,rsi
        mov       edx,8
        call      Interop.GetRandomBytes(Byte*, Int32)
-       mov       rcx,1DF622B22F0
+       mov       rcx,11BF7D722F0
        mov       r8,[rcx]
        test      r8,r8
        jne       short M02_L00
        mov       rcx,offset MT_System.Buffers.SpanAction`2[[System.Char, System.Private.CoreLib],[System.IntPtr, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
-       mov       rdx,1DF622B22E8
+       mov       rdx,11BF7D722E8
        mov       rdx,[rdx]
        test      rdx,rdx
        je        short M02_L02
@@ -761,7 +677,7 @@ M01_L01:
        call      CORINFO_HELP_ASSIGN_REF
        mov       rdx,offset System.IO.Path+<>c.<GetRandomFileName>b__16_0(System.Span`1<Char>, IntPtr)
        mov       [rdi+18],rdx
-       mov       rcx,1DF622B22F0
+       mov       rcx,11BF7D722F0
        mov       rdx,rdi
        call      CORINFO_HELP_CHECKED_ASSIGN_REF
        mov       r8,rdi
@@ -769,7 +685,7 @@ M02_L00:
        mov       ecx,0C
        mov       rdx,rsi
        call      System.String.Create[[System.IntPtr, System.Private.CoreLib]](Int32, IntPtr, System.Buffers.SpanAction`2<Char,IntPtr>)
-       mov       rcx,0CFEEDC581910
+       mov       rcx,63440C97341
        cmp       [rsp+30],rcx
        je        short M02_L01
        call      CORINFO_HELP_FAIL_FAST
@@ -802,11 +718,11 @@ M02_L02:
 M03_L00:
        test      rcx,rcx
        je        short M03_L01
-       mov       rcx,1DF422B1070
+       mov       rcx,11BE7D7D020
        mov       rsi,[rcx]
        jmp       short M03_L02
 M03_L01:
-       mov       rcx,1DF422B1078
+       mov       rcx,11BE7D7D028
        mov       rsi,[rcx]
 M03_L02:
        mov       rcx,offset MT_System.ArgumentNullException
@@ -822,20 +738,16 @@ M03_L02:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.IO.FileHelper.FileHasInvalidChars(System.String)
-;             Encapsulation.TryValidateParam(fileName, nameof(fileName));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return fileName.IndexOfAny(_invalidFileNameChars) != -1;
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
-       mov       r8,1DF622B3060
+       mov       r8,11BF7D73060
        mov       r8,[r8]
-       mov       rdx,1DF622C1480
+       mov       rdx,11BF7D734B8
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
-       mov       r9,1DF622BBAF0
+       mov       r9,11BE7D77688
        mov       rdx,[r9]
        mov       r9d,[rsi]
        mov       r9d,[rsi+8]
@@ -851,15 +763,9 @@ M03_L02:
 ; Total bytes of code 88
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.IO.FileHelperPerfTestRunner.MoveFileTest()
-;             var destFile = RandomData.GenerateRandomFileName();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var tempFile = RandomData.GenerateTempFile(this._fileLength);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             FileHelper.MoveFile(tempFile, destFile);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -893,7 +799,7 @@ M03_L02:
        xor       eax,eax
        mov       [rbp+10],rax
        mov       [rbp+20],rax
-       mov       rax,0B60B0374F1F2
+       mov       rax,0C2E188407955
        mov       [rbp+8],rax
        add       rsp,20
        test      esp,[rsp]
@@ -919,18 +825,18 @@ M03_L02:
        vmovdqu   xmmword ptr [rcx+10],xmm0
        test      rdi,rdi
        je        short M01_L00
-       mov       rcx,7FFF60910020
+       mov       rcx,7FF88A6B0020
        mov       edx,26
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rcx,1E5A3708D40
+       mov       rcx,27D9ABD48D8
        mov       rcx,[rcx]
        mov       rdx,rdi
        xor       r8d,r8d
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C2AB40]
+       call      qword ptr [7FF88A9CAA40]
 M01_L00:
        mov       rax,rsi
-       mov       rcx,0B60B0374F1F2
+       mov       rcx,0C2E188407955
        cmp       [rbp+8],rcx
        je        short M01_L01
        call      CORINFO_HELP_FAIL_FAST
@@ -948,20 +854,20 @@ M01_L01:
        push      rdi
        push      rsi
        sub       rsp,38
-       mov       rax,0B60B0374F1F2
+       mov       rax,0C2E188407955
        mov       [rsp+30],rax
        lea       rsi,[rsp+28]
        mov       rcx,rsi
        mov       edx,8
        call      Interop.GetRandomBytes(Byte*, Int32)
-       mov       rcx,1E5A37022F0
+       mov       rcx,27D8ABD22F0
        mov       r8,[rcx]
        test      r8,r8
        jne       short M02_L00
        mov       rcx,offset MT_System.Buffers.SpanAction`2[[System.Char, System.Private.CoreLib],[System.IntPtr, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
-       mov       rdx,1E5A37022E8
+       mov       rdx,27D8ABD22E8
        mov       rdx,[rdx]
        test      rdx,rdx
        je        short M02_L02
@@ -969,7 +875,7 @@ M01_L01:
        call      CORINFO_HELP_ASSIGN_REF
        mov       rdx,offset System.IO.Path+<>c.<GetRandomFileName>b__16_0(System.Span`1<Char>, IntPtr)
        mov       [rdi+18],rdx
-       mov       rcx,1E5A37022F0
+       mov       rcx,27D8ABD22F0
        mov       rdx,rdi
        call      CORINFO_HELP_CHECKED_ASSIGN_REF
        mov       r8,rdi
@@ -977,7 +883,7 @@ M02_L00:
        mov       ecx,0C
        mov       rdx,rsi
        call      System.String.Create[[System.IntPtr, System.Private.CoreLib]](Int32, IntPtr, System.Buffers.SpanAction`2<Char,IntPtr>)
-       mov       rcx,0B60B0374F1F2
+       mov       rcx,0C2E188407955
        cmp       [rsp+30],rcx
        je        short M02_L01
        call      CORINFO_HELP_FAIL_FAST
@@ -1010,11 +916,11 @@ M02_L02:
 M03_L00:
        test      rcx,rcx
        je        short M03_L01
-       mov       rcx,1E5D3701070
+       mov       rcx,27D7ABD1070
        mov       rsi,[rcx]
        jmp       short M03_L02
 M03_L01:
-       mov       rcx,1E5D3701078
+       mov       rcx,27D7ABD1078
        mov       rsi,[rcx]
 M03_L02:
        mov       rcx,offset MT_System.ArgumentNullException
@@ -1030,21 +936,21 @@ M03_L02:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Tester.RandomData.GenerateTempFile(Int32)
-;             Encapsulation.TryValidateParam(fileLength, 1, int.MaxValue, nameof(fileLength));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var fileName = GenerateRandomFileName();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var fakeText = GenerateWord(fileLength);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             File.WriteAllText(fileName, fakeText);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return fileName;
-;             ^^^^^^^^^^^^^^^^
+; 			Encapsulation.TryValidateParam(fileLength, 1, int.MaxValue, nameof(fileLength));
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			var fileName = GenerateRandomFileName();
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			var fakeText = GenerateWord(fileLength);
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			File.WriteAllText(fileName, fakeText);
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			return fileName;
+; 			^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
        mov       esi,ecx
-       mov       rax,1E5A3703060
+       mov       rax,27D8ABD3060
        mov       rdi,[rax]
        test      esi,esi
        jle       short M04_L00
@@ -1080,7 +986,7 @@ M04_L01:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,2F
-       mov       rdx,7FFF60BF26A8
+       mov       rdx,7FF88A9926A8
        call      CORINFO_HELP_STRCNS
        mov       r8,rax
        mov       rdx,rdi
@@ -1101,32 +1007,26 @@ M04_L01:
        mov       [rbp+0FFE0],rsp
        mov       [rbp+10],rcx
        mov       [rbp+18],rdx
-;             Encapsulation.TryValidateParam(sourceFileName, nameof(sourceFileName));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       mov       r8,1E5A3703060
+       mov       r8,27D8ABD3060
        mov       r8,[r8]
-       mov       rdx,1E5C3701068
+       mov       rdx,27D6ABD1068
        mov       rdx,[rdx]
        mov       rcx,[rbp+10]
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
-;             Encapsulation.TryValidateParam(destinationFileName, nameof(destinationFileName));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       mov       r8,1E5A3703060
+       mov       r8,27D8ABD3060
        mov       r8,[r8]
-       mov       rdx,1E5C3701070
+       mov       rdx,27D6ABD1070
        mov       rdx,[rdx]
        mov       rcx,[rbp+18]
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
-;             Encapsulation.TryValidateParam<ArgumentInvalidException>(File.Exists(sourceFileName), nameof(sourceFileName), $"File {sourceFileName} does not exist.");
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rcx,[rbp+10]
        call      System.IO.File.Exists(System.String)
        mov       esi,eax
-       mov       rcx,1E5C3701068
+       mov       rcx,27D6ABD1068
        mov       rdi,[rcx]
-       mov       rcx,1E5C3701078
+       mov       rcx,27D6ABD1078
        mov       rcx,[rcx]
-       mov       r8,1E5C3701080
+       mov       r8,27D6ABD1080
        mov       r8,[r8]
        mov       rdx,[rbp+10]
        call      System.String.Concat(System.String, System.String, System.String)
@@ -1135,20 +1035,14 @@ M04_L01:
        mov       edx,esi
        mov       rcx,offset MD_dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(Boolean, System.String, System.String)
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam[[System.__Canon, System.Private.CoreLib]](Boolean, System.String, System.String)
-;             for (var retryCount = 0; retryCount < Retries; retryCount++)
-;                  ^^^^^^^^^^^^^^^^^^
        xor       ecx,ecx
        mov       [rbp+0FFEC],ecx
-;                     File.Move(sourceFileName, destinationFileName);
-;                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M05_L00:
        mov       rcx,[rbp+10]
        mov       rdx,[rbp+18]
        xor       r8d,r8d
        call      System.IO.File.Move(System.String, System.String, Boolean)
        jmp       short M05_L01
-;                 Thread.Sleep(( retryCount + 1 ) * 10);
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       ecx,[rbp+0FFEC]
        inc       ecx
        lea       ecx,[rcx+rcx*4]
@@ -1176,8 +1070,6 @@ M05_L01:
        call      CORINFO_HELP_ISINSTANCEOFCLASS
        test      rax,rax
        jne       short M05_L02
-;                 catch (IOException) when (retryCount < Retries - 1)
-;                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        xor       eax,eax
        jmp       short M05_L03
 M05_L02:
@@ -1200,7 +1092,7 @@ M05_L03:
        mov       rbp,[rcx+20]
        mov       [rsp+20],rbp
        lea       rbp,[rbp+40]
-       lea       rax,[7FFF60C2BB97]
+       lea       rax,[7FF88A9CBB97]
        add       rsp,30
        pop       rsi
        pop       rdi
@@ -1217,8 +1109,6 @@ M05_L03:
        call      CORINFO_HELP_ISINSTANCEOFCLASS
        test      rax,rax
        jne       short M05_L04
-;                 catch (UnauthorizedAccessException) when (retryCount < Retries - 1)
-;                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        xor       eax,eax
        jmp       short M05_L05
 M05_L04:
@@ -1241,7 +1131,7 @@ M05_L05:
        mov       rbp,[rcx+20]
        mov       [rsp+20],rbp
        lea       rbp,[rbp+40]
-       lea       rax,[7FFF60C2BB97]
+       lea       rax,[7FF88A9CBB97]
        add       rsp,30
        pop       rsi
        pop       rdi

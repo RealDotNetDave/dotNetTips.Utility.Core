@@ -1,10 +1,6 @@
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.ServicesPerfTestRunner.AllServices()
-;             var result = Services.AllServices();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -22,25 +18,19 @@
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Services.AllServices()
-;             return ServiceController.GetServices()
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                         .Select(p => p.ServiceName)
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                         .AsEnumerable();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
        call      System.ServiceProcess.ServiceController.GetServices()
        mov       rsi,rax
-       mov       rcx,2150DE9BB00
+       mov       rcx,2E3D14A7698
        mov       r8,[rcx]
        test      r8,r8
        jne       short M01_L00
        mov       rcx,offset MT_System.Func`2[[System.ServiceProcess.ServiceController, System.ServiceProcess.ServiceController],[System.String, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
-       mov       rdx,2150DE9BAF8
+       mov       rdx,2E3D14A7690
        mov       rdx,[rdx]
        test      rdx,rdx
        je        short M01_L01
@@ -48,7 +38,7 @@
        call      CORINFO_HELP_ASSIGN_REF
        mov       rdx,offset dotNetTips.Utility.Standard.Services+<>c.<AllServices>b__0_0(System.ServiceProcess.ServiceController)
        mov       [rdi+18],rdx
-       mov       rcx,2150DE9BB00
+       mov       rcx,2E3D14A7698
        mov       rdx,rdi
        call      CORINFO_HELP_CHECKED_ASSIGN_REF
        mov       r8,rdi
@@ -68,13 +58,9 @@ M01_L01:
 ; Total bytes of code 147
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.ServicesPerfTestRunner.ServiceExists()
-;             var result = Services.ServiceExists(this._service);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -96,8 +82,6 @@ M00_L01:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Services.LoadService(System.String)
-;             return ServiceController.GetServices().FirstOrDefault(p => p.ServiceName == serviceName);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        push      rbx
@@ -135,13 +119,9 @@ M00_L01:
 ; Total bytes of code 134
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.ServicesPerfTestRunner.ServiceStatus()
-;             var result = Services.ServiceStatus(this._service);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,30
        xor       eax,eax
@@ -162,10 +142,6 @@ M00_L01:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Services.ServiceStatus(System.String)
-;             var service = LoadService(serviceName);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return service != null ? service.Status : throw new InvalidOperationException(Resources.ServiceNotFound);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        call      dotNetTips.Utility.Standard.Services.LoadService(System.String)

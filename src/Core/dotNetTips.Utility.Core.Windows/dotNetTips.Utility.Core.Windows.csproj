@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-    <AssemblyVersion>2021.2.24.34817</AssemblyVersion>
+    <AssemblyVersion>2021.4.27.34829</AssemblyVersion>
     <Authors>David McCarter</Authors>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Company>David McCarter - dotNetTips.com</Company>
@@ -13,7 +13,7 @@
     <DocumentationFile>..\..\..\appbin\dotNetTips.Utility.Core.Windows.xml</DocumentationFile>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <FileVersion>2021.2.24.34817</FileVersion>
+    <FileVersion>2021.4.27.34829</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
@@ -29,18 +29,19 @@
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <Version>2021.2.5.0</Version>
+    <Version>2021.5.1.1</Version>
     <PackageReleaseNotes>
-      -- OCT 2019: Initial Release
-      -- DEC 2019 (QUARTERLY RELEASE): Code cleanup.
-      -- FEB 2020: Code cleanup.
-      -- MAR 2020 (QUARTERLY RELEASE): Code cleanup.
-      -- AUG 2020: Code cleanup.
-      -- NOV 2020 (QUARTERLY RELEASE): Added TempFileManager.
-      -- NOV 19, 2020: Minor update.
-      -- FEB 2021 (QUARTERLY RELEASE): Code Cleanup.
-      -- FEB 5, 2021: Minor fixes.
-    </PackageReleaseNotes>
+		-- OCT 2019: Initial Release
+		-- DEC 2019 (QUARTERLY RELEASE): Code cleanup.
+		-- FEB 2020: Code cleanup.
+		-- MAR 2020 (QUARTERLY RELEASE): Code cleanup.
+		-- AUG 2020: Code cleanup.
+		-- NOV 2020 (QUARTERLY RELEASE): Added TempFileManager.
+		-- NOV 19, 2020: Minor update.
+		-- FEB 2021 (QUARTERLY RELEASE): Code Cleanup.
+		-- FEB 5, 2021: Minor fixes.
+		-- MAY 2021 (QUARTERLY RELEASE): Minor fixes. Code cleanup.
+	</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -63,10 +64,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.2">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>

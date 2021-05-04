@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.Serialization.JsonSerializerPerfTestRunner-20210228-170837</title>
+<title>dotNetTips.Utility.Benchmarks.Serialization.JsonSerializerPerfTestRunner-20210503-212631</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -15,9 +15,9 @@
 <pre><code>
 BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
 Unknown processor
-.NET Core SDK=5.0.200-preview.21079.7
-  [Host]     : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
-  Job-HTSMCU : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+.NET Core SDK=5.0.300-preview.21180.15
+  [Host]     : .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
+  Job-SOGKAI : .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 </code></pre>
 <pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.1  
 Namespace=dotNetTips.Utility.Benchmarks.Serialization  Categories=JsonSerializer  
@@ -26,13 +26,13 @@ Namespace=dotNetTips.Utility.Benchmarks.Serialization  Categories=JsonSerializer
 <table>
 <thead><tr><th>Method</th><th>CollectionCount</th><th> Mean</th><th>Error</th><th>StdDev</th><th>StdErr</th><th>  Min</th><th>   Q1</th><th>Median</th><th>   Q3</th><th>  Max</th><th>Op/s</th><th>CI99.9% Margin</th><th>Iterations</th><th>Kurtosis</th><th>MValue</th><th>Skewness</th><th>Rank</th><th>LogicalGroup</th><th>Baseline</th><th>Code Size</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>Deserialize</td><td>10</td><td>111.1 &mu;s</td><td>0.16 &mu;s</td><td>0.15 &mu;s</td><td>0.04 &mu;s</td><td>110.9 &mu;s</td><td>111.0 &mu;s</td><td>111.1 &mu;s</td><td>111.2 &mu;s</td><td>111.4 &mu;s</td><td>8,997.98</td><td>0.1639 &mu;s</td><td>15.00</td><td>1.958</td><td>2.000</td><td>0.2094</td><td>1</td><td>*</td><td>No</td><td>0.44 KB</td><td>3.7842</td><td>0.1221</td><td>-</td><td>35.33 KB</td>
-</tr><tr><td>Deserialize</td><td>25</td><td>273.6 &mu;s</td><td>1.81 &mu;s</td><td>1.51 &mu;s</td><td>0.42 &mu;s</td><td>270.0 &mu;s</td><td>273.5 &mu;s</td><td>274.0 &mu;s</td><td>274.4 &mu;s</td><td>275.8 &mu;s</td><td>3,654.48</td><td>1.8125 &mu;s</td><td>13.00</td><td>3.316</td><td>2.000</td><td>-1.0369</td><td>2</td><td>*</td><td>No</td><td>0.44 KB</td><td>7.3242</td><td>-</td><td>-</td><td>68.09 KB</td>
-</tr><tr><td>Deserialize</td><td>50</td><td>584.3 &mu;s</td><td>0.79 &mu;s</td><td>0.70 &mu;s</td><td>0.19 &mu;s</td><td>582.9 &mu;s</td><td>584.0 &mu;s</td><td>584.3 &mu;s</td><td>584.7 &mu;s</td><td>585.8 &mu;s</td><td>1,711.36</td><td>0.7945 &mu;s</td><td>14.00</td><td>2.931</td><td>2.000</td><td>0.0209</td><td>3</td><td>*</td><td>No</td><td>0.44 KB</td><td>12.6953</td><td>0.9766</td><td>-</td><td>125.95 KB</td>
-</tr><tr><td>Deserialize</td><td>100</td><td>1,134.0 &mu;s</td><td>2.01 &mu;s</td><td>1.78 &mu;s</td><td>0.48 &mu;s</td><td>1,132.2 &mu;s</td><td>1,132.6 &mu;s</td><td>1,133.5 &mu;s</td><td>1,135.0 &mu;s</td><td>1,137.6 &mu;s</td><td>881.81</td><td>2.0098 &mu;s</td><td>14.00</td><td>1.968</td><td>2.000</td><td>0.6425</td><td>4</td><td>*</td><td>No</td><td>0.44 KB</td><td>25.3906</td><td>1.9531</td><td>-</td><td>241.72 KB</td>
-</tr><tr><td>Deserialize</td><td>250</td><td>2,879.0 &mu;s</td><td>37.61 &mu;s</td><td>35.18 &mu;s</td><td>9.08 &mu;s</td><td>2,814.8 &mu;s</td><td>2,857.7 &mu;s</td><td>2,894.6 &mu;s</td><td>2,903.9 &mu;s</td><td>2,915.8 &mu;s</td><td>347.34</td><td>37.6085 &mu;s</td><td>15.00</td><td>1.910</td><td>2.000</td><td>-0.7629</td><td>5</td><td>*</td><td>No</td><td>0.44 KB</td><td>58.5938</td><td>27.3438</td><td>7.8125</td><td>588.37 KB</td>
-</tr><tr><td>Deserialize</td><td>500</td><td>5,814.9 &mu;s</td><td>36.90 &mu;s</td><td>30.81 &mu;s</td><td>8.55 &mu;s</td><td>5,787.9 &mu;s</td><td>5,793.7 &mu;s</td><td>5,803.0 &mu;s</td><td>5,820.1 &mu;s</td><td>5,885.2 &mu;s</td><td>171.97</td><td>36.9017 &mu;s</td><td>13.00</td><td>3.068</td><td>2.000</td><td>1.2199</td><td>6</td><td>*</td><td>No</td><td>0.44 KB</td><td>46.8750</td><td>23.4375</td><td>15.6250</td><td>1134.04 KB</td>
-</tr><tr><td>Deserialize</td><td>1000</td><td>11,488.6 &mu;s</td><td>26.15 &mu;s</td><td>23.18 &mu;s</td><td>6.19 &mu;s</td><td>11,461.9 &mu;s</td><td>11,470.6 &mu;s</td><td>11,484.9 &mu;s</td><td>11,500.1 &mu;s</td><td>11,533.8 &mu;s</td><td>87.04</td><td>26.1479 &mu;s</td><td>14.00</td><td>1.809</td><td>2.000</td><td>0.5079</td><td>7</td><td>*</td><td>No</td><td>0.44 KB</td><td>78.1250</td><td>62.5000</td><td>31.2500</td><td>2266.88 KB</td>
+</thead><tbody><tr><td>Deserialize</td><td>10</td><td>116.3 &mu;s</td><td>0.69 &mu;s</td><td>0.64 &mu;s</td><td>0.17 &mu;s</td><td>115.0 &mu;s</td><td>115.9 &mu;s</td><td>116.5 &mu;s</td><td>116.6 &mu;s</td><td>117.1 &mu;s</td><td>8,599.53</td><td>0.6861 &mu;s</td><td>15.00</td><td>2.015</td><td>2.000</td><td>-0.5077</td><td>1</td><td>*</td><td>No</td><td>0.44 KB</td><td>3.7842</td><td>-</td><td>-</td><td>34.72 KB</td>
+</tr><tr><td>Deserialize</td><td>25</td><td>284.5 &mu;s</td><td>0.84 &mu;s</td><td>0.70 &mu;s</td><td>0.19 &mu;s</td><td>283.0 &mu;s</td><td>284.2 &mu;s</td><td>284.3 &mu;s</td><td>284.9 &mu;s</td><td>285.6 &mu;s</td><td>3,515.52</td><td>0.8370 &mu;s</td><td>13.00</td><td>2.521</td><td>2.000</td><td>-0.1214</td><td>2</td><td>*</td><td>No</td><td>0.44 KB</td><td>6.8359</td><td>-</td><td>-</td><td>68.09 KB</td>
+</tr><tr><td>Deserialize</td><td>50</td><td>558.7 &mu;s</td><td>4.25 &mu;s</td><td>3.55 &mu;s</td><td>0.98 &mu;s</td><td>552.0 &mu;s</td><td>557.4 &mu;s</td><td>558.6 &mu;s</td><td>561.3 &mu;s</td><td>566.4 &mu;s</td><td>1,789.95</td><td>4.2528 &mu;s</td><td>13.00</td><td>2.902</td><td>2.000</td><td>0.2611</td><td>3</td><td>*</td><td>No</td><td>0.44 KB</td><td>13.6719</td><td>0.9766</td><td>-</td><td>128.58 KB</td>
+</tr><tr><td>Deserialize</td><td>100</td><td>1,106.5 &mu;s</td><td>4.78 &mu;s</td><td>3.73 &mu;s</td><td>1.08 &mu;s</td><td>1,096.3 &mu;s</td><td>1,105.8 &mu;s</td><td>1,106.9 &mu;s</td><td>1,108.1 &mu;s</td><td>1,112.0 &mu;s</td><td>903.78</td><td>4.7775 &mu;s</td><td>12.00</td><td>4.957</td><td>2.000</td><td>-1.3535</td><td>4</td><td>*</td><td>No</td><td>0.44 KB</td><td>25.3906</td><td>-</td><td>-</td><td>239.19 KB</td>
+</tr><tr><td>Deserialize</td><td>250</td><td>2,831.6 &mu;s</td><td>19.01 &mu;s</td><td>17.78 &mu;s</td><td>4.59 &mu;s</td><td>2,800.5 &mu;s</td><td>2,820.7 &mu;s</td><td>2,833.4 &mu;s</td><td>2,848.1 &mu;s</td><td>2,857.3 &mu;s</td><td>353.16</td><td>19.0114 &mu;s</td><td>15.00</td><td>1.758</td><td>2.000</td><td>-0.1727</td><td>5</td><td>*</td><td>No</td><td>0.44 KB</td><td>58.5938</td><td>27.3438</td><td>7.8125</td><td>585.5 KB</td>
+</tr><tr><td>Deserialize</td><td>500</td><td>5,699.3 &mu;s</td><td>27.45 &mu;s</td><td>25.68 &mu;s</td><td>6.63 &mu;s</td><td>5,649.5 &mu;s</td><td>5,685.2 &mu;s</td><td>5,704.9 &mu;s</td><td>5,715.8 &mu;s</td><td>5,744.2 &mu;s</td><td>175.46</td><td>27.4525 &mu;s</td><td>15.00</td><td>2.214</td><td>2.000</td><td>-0.4281</td><td>6</td><td>*</td><td>No</td><td>0.44 KB</td><td>54.6875</td><td>23.4375</td><td>15.6250</td><td>1140.66 KB</td>
+</tr><tr><td>Deserialize</td><td>1000</td><td>11,315.6 &mu;s</td><td>112.63 &mu;s</td><td>105.35 &mu;s</td><td>27.20 &mu;s</td><td>11,124.6 &mu;s</td><td>11,275.1 &mu;s</td><td>11,301.1 &mu;s</td><td>11,388.5 &mu;s</td><td>11,510.8 &mu;s</td><td>88.37</td><td>112.6290 &mu;s</td><td>15.00</td><td>2.184</td><td>2.000</td><td>0.0277</td><td>7</td><td>*</td><td>No</td><td>0.44 KB</td><td>78.1250</td><td>62.5000</td><td>31.2500</td><td>2244.54 KB</td>
 </tr></tbody></table>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner-20210228-165847</title>
+<title>dotNetTips.Utility.Benchmarks.IO.DirectoryHelperPerfTestRunner-20210503-211749</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -15,9 +15,9 @@
 <pre><code>
 BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
 Unknown processor
-.NET Core SDK=5.0.200-preview.21079.7
-  [Host]     : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
-  Job-HTSMCU : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+.NET Core SDK=5.0.300-preview.21180.15
+  [Host]     : .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
+  Job-SOGKAI : .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 </code></pre>
 <pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.1  
 Namespace=dotNetTips.Utility.Benchmarks.IO  Categories=DirectoryHelper  
@@ -26,10 +26,10 @@ Namespace=dotNetTips.Utility.Benchmarks.IO  Categories=DirectoryHelper
 <table>
 <thead><tr><th>       Method</th><th>  Mean</th><th>Error</th><th>StdDev</th><th>StdErr</th><th>   Min</th><th>    Q1</th><th>Median</th><th>    Q3</th><th>   Max</th><th>Op/s</th><th>CI99.9% Margin</th><th>Iterations</th><th>Kurtosis</th><th>MValue</th><th>Skewness</th><th>Rank</th><th>LogicalGroup</th><th>Baseline</th><th>Code Size</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>LoadFiles</td><td>284,609.6 &mu;s</td><td>5,629.50 &mu;s</td><td>7,515.22 &mu;s</td><td>1,503.04 &mu;s</td><td>272,805.4 &mu;s</td><td>277,798.1 &mu;s</td><td>287,452.3 &mu;s</td><td>290,263.7 &mu;s</td><td>294,725.1 &mu;s</td><td>3.514</td><td>5,629.497 &mu;s</td><td>25.00</td><td>1.571</td><td>2.429</td><td>-0.3925</td><td>4</td><td>*</td><td>No</td><td>2586 B</td><td>-</td><td>-</td><td>-</td><td>5051568 B</td>
-</tr><tr><td>LoadFilesAsync</td><td>117,382.8 &mu;s</td><td>897.91 &mu;s</td><td>839.91 &mu;s</td><td>216.86 &mu;s</td><td>116,007.8 &mu;s</td><td>116,858.8 &mu;s</td><td>117,159.1 &mu;s</td><td>118,171.9 &mu;s</td><td>118,721.1 &mu;s</td><td>8.519</td><td>897.914 &mu;s</td><td>15.00</td><td>1.604</td><td>2.000</td><td>0.0705</td><td>3</td><td>*</td><td>No</td><td>429 B</td><td>400.0000</td><td>-</td><td>-</td><td>3648656 B</td>
-</tr><tr><td>SafeDirectorySearch</td><td>577.6 &mu;s</td><td>9.31 &mu;s</td><td>8.71 &mu;s</td><td>2.25 &mu;s</td><td>552.3 &mu;s</td><td>572.7 &mu;s</td><td>580.4 &mu;s</td><td>582.3 &mu;s</td><td>587.7 &mu;s</td><td>1,731.371</td><td>9.313 &mu;s</td><td>15.00</td><td>4.996</td><td>2.000</td><td>-1.4675</td><td>1</td><td>*</td><td>No</td><td>1796 B</td><td>-</td><td>-</td><td>-</td><td>762 B</td>
-</tr><tr><td>SafeFileSearch</td><td>37,425.0 &mu;s</td><td>488.82 &mu;s</td><td>457.25 &mu;s</td><td>118.06 &mu;s</td><td>36,488.6 &mu;s</td><td>37,285.8 &mu;s</td><td>37,444.6 &mu;s</td><td>37,740.9 &mu;s</td><td>38,127.5 &mu;s</td><td>26.720</td><td>488.824 &mu;s</td><td>15.00</td><td>2.602</td><td>2.000</td><td>-0.5923</td><td>2</td><td>*</td><td>No</td><td>1058 B</td><td>71.4286</td><td>-</td><td>-</td><td>1112833 B</td>
+</thead><tbody><tr><td>LoadFiles</td><td>294,124.8 &mu;s</td><td>2,671.17 &mu;s</td><td>2,367.92 &mu;s</td><td>632.85 &mu;s</td><td>291,586.1 &mu;s</td><td>292,214.5 &mu;s</td><td>293,442.8 &mu;s</td><td>295,863.3 &mu;s</td><td>299,075.5 &mu;s</td><td>3.400</td><td>2,671.166 &mu;s</td><td>14.00</td><td>2.063</td><td>2.000</td><td>0.6615</td><td>3</td><td>*</td><td>No</td><td>2887 B</td><td>-</td><td>-</td><td>-</td><td>5040016 B</td>
+</tr><tr><td>LoadFilesAsync</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>*</td><td>No</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>SafeDirectorySearch</td><td>888.6 &mu;s</td><td>4.15 &mu;s</td><td>3.68 &mu;s</td><td>0.98 &mu;s</td><td>880.7 &mu;s</td><td>887.0 &mu;s</td><td>888.8 &mu;s</td><td>890.0 &mu;s</td><td>896.6 &mu;s</td><td>1,125.339</td><td>4.148 &mu;s</td><td>14.00</td><td>3.339</td><td>2.000</td><td>0.0339</td><td>1</td><td>*</td><td>No</td><td>1796 B</td><td>-</td><td>-</td><td>-</td><td>761 B</td>
+</tr><tr><td>SafeFileSearch</td><td>90,541.5 &mu;s</td><td>529.31 &mu;s</td><td>469.22 &mu;s</td><td>125.40 &mu;s</td><td>89,171.3 &mu;s</td><td>90,412.7 &mu;s</td><td>90,609.4 &mu;s</td><td>90,781.2 &mu;s</td><td>91,166.9 &mu;s</td><td>11.045</td><td>529.306 &mu;s</td><td>14.00</td><td>5.506</td><td>2.000</td><td>-1.5408</td><td>2</td><td>*</td><td>No</td><td>1058 B</td><td>166.6667</td><td>-</td><td>-</td><td>2092315 B</td>
 </tr></tbody></table>
 </body>
 </html>

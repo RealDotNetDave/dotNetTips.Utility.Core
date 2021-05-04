@@ -20,49 +20,51 @@ using dotNetTips.Utility.Standard.OOP;
 
 namespace dotNetTips.Utility.Standard
 {
-    /// <summary>
-    /// Helper class for executing methods.
-    /// </summary>
-    public static class ExecutionHelper
-    {
-        /// <summary>
-        /// Progressive retry for a function call.
-        /// </summary>
-        /// <param name="operation">The operation to perform.</param>
-        /// <param name="retryCount">The retry count (default 3).</param>
-        /// <param name="retryWaitMilliseconds">The retry wait milliseconds (default 100).</param>
-        /// <returns>System.Int32.</returns>
-        public static int ProgressiveRetry(Action operation, byte retryCount = 3, int retryWaitMilliseconds = 100)
-        {
-            Encapsulation.TryValidateParam<ArgumentNullException>(operation != null);
-            Encapsulation.TryValidateParam<ArgumentOutOfRangeException>(retryCount > 0);
-            Encapsulation.TryValidateParam<ArgumentOutOfRangeException>(retryWaitMilliseconds > 0);
+	/// <summary>
+	/// Helper class for executing methods.
+	/// </summary>
+	public static class ExecutionHelper
+	{
+		/// <summary>
+		/// Progressive retry for a function call.
+		/// </summary>
+		/// <param name="operation">The operation to perform.</param>
+		/// <param name="retryCount">The retry count (default 3).</param>
+		/// <param name="retryWaitMilliseconds">The retry wait milliseconds (default 100).</param>
+		/// <returns>System.Int32.</returns>
+		public static int ProgressiveRetry(Action operation, byte retryCount = 3, int retryWaitMilliseconds = 100)
+		{
+			Encapsulation.TryValidateParam<ArgumentNullException>(operation != null);
+			Encapsulation.TryValidateParam<ArgumentOutOfRangeException>(retryCount > 0);
+			Encapsulation.TryValidateParam<ArgumentOutOfRangeException>(retryWaitMilliseconds > 0);
 
-            var attempts = 0;
+			var attempts = 0;
 
-            do
-            {
-                try
-                {
-                    attempts++;
+			do
+			{
+				try
+				{
+					attempts++;
 
-                    operation();
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+					operation();
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
-                    return attempts;
-                }
-                catch (Exception ex)
-                {
-                    // Using Exception since the actual exception is unknown beforehand.
-                    if (attempts == retryCount)
-                    {
-                        throw;
-                    }
+					return attempts;
+				}
+				catch (Exception ex)
+				{
+					// Using Exception since the actual exception is unknown beforehand.
+					if (attempts == retryCount)
+					{
+						throw;
+					}
 
-                    Debug.WriteLine(ex.GetAllMessages());
+					Debug.WriteLine(ex.GetAllMessages());
 
-                    Task.Delay(retryWaitMilliseconds * attempts).Wait();
-                }
-            } while (true);
-        }
-    }
+					Task.Delay(retryWaitMilliseconds * attempts).Wait();
+				}
+			} while (true);
+		}
+	}
 }

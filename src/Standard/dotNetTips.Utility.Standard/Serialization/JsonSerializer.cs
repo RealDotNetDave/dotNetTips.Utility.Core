@@ -22,142 +22,141 @@ using dotNetTips.Utility.Standard.OOP;
 
 namespace dotNetTips.Utility.Standard.Serialization
 {
-    /// <summary>
-    /// Class JsonSerializer.
-    /// </summary>
-    public static class JsonSerializer
-    {
+	/// <summary>
+	/// Class JsonSerializer.
+	/// </summary>
+	public static class JsonSerializer
+	{
+		/// <summary>
+		/// Deserializes the specified Json.
+		/// </summary>
+		/// <typeparam name="TResult">The type of the t result.</typeparam>
+		/// <param name="json">The json.</param>
+		/// <returns>T.</returns>
+		public static TResult Deserialize<TResult>(string json)
+			where TResult : class
+		{
+			Encapsulation.TryValidateParam(json, nameof(json));
 
-        /// <summary>
-        /// Deserializes the specified Json.
-        /// </summary>
-        /// <typeparam name="TResult">The type of the t result.</typeparam>
-        /// <param name="json">The json.</param>
-        /// <returns>T.</returns>
-        public static TResult Deserialize<TResult>(string json)
-            where TResult : class
-        {
-            Encapsulation.TryValidateParam(json, nameof(json));
+			var obj = TypeHelper.GetDefault<TResult>();
 
-            var obj = TypeHelper.GetDefault<TResult>();
-
-            using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
-            {
-                var ser = new DataContractJsonSerializer(typeof(TResult));
-                obj = ser.ReadObject(ms) as TResult;
-            }
+			using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
+			{
+				var ser = new DataContractJsonSerializer(typeof(TResult));
+				obj = ser.ReadObject(ms) as TResult;
+			}
 
 #pragma warning disable CS8603 // Possible null reference return.
-            return obj;
+			return obj;
 #pragma warning restore CS8603 // Possible null reference return.
-        }
+		}
 
-        /// <summary>
-        /// Jsons the equal.
-        /// </summary>
-        /// <param name="actual">The actual.</param>
-        /// <param name="expected">The expected.</param>
-        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        [Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
-        public static bool JsonEqual(string actual, string expected)
-        {
-            using (var expectedDom = JsonDocument.Parse(expected))
-            {
-                using (var actualDom = JsonDocument.Parse(actual))
-                {
-                    return JsonEqual(expectedDom.RootElement, actualDom.RootElement);
-                }
-            }
-        }
+		/// <summary>
+		/// Jsons the equal.
+		/// </summary>
+		/// <param name="actual">The actual.</param>
+		/// <param name="expected">The expected.</param>
+		/// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+		[Information("From .NET Core source.", author: "David McCarter", createdOn: "7/15/2020", modifiedOn: "7/29/2020", UnitTestCoverage = 100, BenchMarkStatus = BenchMarkStatus.Completed, Status = Status.Available)]
+		public static bool JsonEqual(string actual, string expected)
+		{
+			using (var expectedDom = JsonDocument.Parse(expected))
+			{
+				using (var actualDom = JsonDocument.Parse(actual))
+				{
+					return JsonEqual(expectedDom.RootElement, actualDom.RootElement);
+				}
+			}
+		}
 
-        /// <summary>
-        /// Serializes the specified object.
-        /// </summary>
-        /// <param name="obj">The object.</param>
-        /// <returns>System.String.</returns>
-        public static string Serialize(object obj)
-        {
-            Encapsulation.TryValidateParam<ArgumentNullException>(obj != null, nameof(obj));
+		/// <summary>
+		/// Serializes the specified object.
+		/// </summary>
+		/// <param name="obj">The object.</param>
+		/// <returns>System.String.</returns>
+		public static string Serialize(object obj)
+		{
+			Encapsulation.TryValidateParam<ArgumentNullException>(obj != null, nameof(obj));
 
-            var json = string.Empty;
+			var json = string.Empty;
 
-            using (var ms = new MemoryStream())
-            {
-                var ser = new DataContractJsonSerializer(type: obj.GetType());
+			using (var ms = new MemoryStream())
+			{
+				var ser = new DataContractJsonSerializer(type: obj.GetType());
 
-                ser.WriteObject(ms, obj);
-                ms.Flush();
-                json = Encoding.UTF8.GetString(ms.ToArray(), index: 0, count: ms.ToArray().Length);
-            }
+				ser.WriteObject(ms, obj);
+				ms.Flush();
+				json = Encoding.UTF8.GetString(ms.ToArray(), index: 0, count: ms.ToArray().Length);
+			}
 
-            return json;
-        }
+			return json;
+		}
 
-        private static bool JsonEqual(JsonElement expected, JsonElement actual)
-        {
-            var valueKind = expected.ValueKind;
+		private static bool JsonEqual(JsonElement expected, JsonElement actual)
+		{
+			var valueKind = expected.ValueKind;
 
-            if (valueKind != actual.ValueKind)
-            {
-                return false;
-            }
+			if (valueKind != actual.ValueKind)
+			{
+				return false;
+			}
 
-            switch (valueKind)
-            {
-                case JsonValueKind.Object:
-                    var propertyNames = new HashSet<string>();
+			switch (valueKind)
+			{
+				case JsonValueKind.Object:
+					var propertyNames = new HashSet<string>();
 
-                    foreach (var property in expected.EnumerateObject())
-                    {
-                        propertyNames.Add(property.Name);
-                    }
+					foreach (var property in expected.EnumerateObject())
+					{
+						propertyNames.Add(property.Name);
+					}
 
-                    foreach (var property in actual.EnumerateObject())
-                    {
-                        propertyNames.Add(property.Name);
-                    }
+					foreach (var property in actual.EnumerateObject())
+					{
+						propertyNames.Add(property.Name);
+					}
 
-                    foreach (var name in propertyNames)
-                    {
-                        if (!JsonEqual(expected.GetProperty(name), actual.GetProperty(name)))
-                        {
-                            return false;
-                        }
-                    }
+					foreach (var name in propertyNames)
+					{
+						if (!JsonEqual(expected.GetProperty(name), actual.GetProperty(name)))
+						{
+							return false;
+						}
+					}
 
-                    return true;
-                case JsonValueKind.Array:
-                    using (var expectedEnumerator = actual.EnumerateArray())
-                    {
-                        using (var actualEnumerator = expected.EnumerateArray())
-                        {
-                            while (expectedEnumerator.MoveNext())
-                            {
-                                if (!actualEnumerator.MoveNext())
-                                {
-                                    return false;
-                                }
+					return true;
+				case JsonValueKind.Array:
+					using (var expectedEnumerator = actual.EnumerateArray())
+					{
+						using (var actualEnumerator = expected.EnumerateArray())
+						{
+							while (expectedEnumerator.MoveNext())
+							{
+								if (!actualEnumerator.MoveNext())
+								{
+									return false;
+								}
 
-                                if (!JsonEqual(expectedEnumerator.Current, actualEnumerator.Current))
-                                {
-                                    return false;
-                                }
-                            }
+								if (!JsonEqual(expectedEnumerator.Current, actualEnumerator.Current))
+								{
+									return false;
+								}
+							}
 
-                            return !actualEnumerator.MoveNext();
-                        }
-                    }
+							return !actualEnumerator.MoveNext();
+						}
+					}
 
-                case JsonValueKind.String:
-                    return expected.GetString() == actual.GetString();
-                case JsonValueKind.Number:
-                case JsonValueKind.True:
-                case JsonValueKind.False:
-                case JsonValueKind.Null:
-                    return expected.GetRawText() == actual.GetRawText();
-                default:
-                    throw new NotSupportedException($"Unexpected JsonValueKind: JsonValueKind.{valueKind}.");
-            }
-        }
-    }
+				case JsonValueKind.String:
+					return expected.GetString() == actual.GetString();
+				case JsonValueKind.Number:
+				case JsonValueKind.True:
+				case JsonValueKind.False:
+				case JsonValueKind.Null:
+					return expected.GetRawText() == actual.GetRawText();
+				default:
+					throw new NotSupportedException($"Unexpected JsonValueKind: JsonValueKind.{valueKind}.");
+			}
+		}
+	}
 }

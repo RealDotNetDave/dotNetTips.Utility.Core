@@ -8,8 +8,8 @@
     <Configurations>Release</Configurations>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <AssemblyVersion>2021.2.26.40313</AssemblyVersion>
-    <FileVersion>2021.2.26.40313</FileVersion>
+    <AssemblyVersion>2021.5.2.40314</AssemblyVersion>
+    <FileVersion>2021.5.2.40314</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -18,10 +18,10 @@
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.12.1" />
     <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.12.1" />
-    <PackageReference Include="dotNetTips.Utility.Core.Windows" Version="2021.2.5" />
-    <PackageReference Include="dotNetTips.Utility.Standard" Version="2021.3.1.1" />
-    <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2021.3.1.1" />
-    <PackageReference Include="dotNetTips.Utility.Standard.Tester" Version="2021.2.5" />
+    <PackageReference Include="dotNetTips.Utility.Core.Windows" Version="2021.5.1.1" />
+    <PackageReference Include="dotNetTips.Utility.Standard" Version="2021.5.1" />
+    <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2021.5.1" />
+    <PackageReference Include="dotNetTips.Utility.Standard.Tester" Version="2021.5.1" />
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="5.0.0" />
     <PackageReference Include="Microsoft.Data.Services.Client" Version="5.8.4" />
   </ItemGroup>

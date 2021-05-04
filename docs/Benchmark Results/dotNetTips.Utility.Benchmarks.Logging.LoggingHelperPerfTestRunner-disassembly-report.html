@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>DisassemblyDiagnoser Output dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-20210228-170631</title>
+<title>DisassemblyDiagnoser Output dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-20210503-212429</title>
 
 <style type="text/css">
     table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -14,10 +14,10 @@
 <body>
 <table>
 <thead>
-<tr><th colspan="2">dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-20210228-170631</th></tr>
+<tr><th colspan="2">dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner-20210503-212429</th></tr>
 <tr>
-<th>RetrieveAllExceptionMessages .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>RetrieveAllExceptions .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>RetrieveAllExceptionMessages .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>RetrieveAllExceptions .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
 </tr>
 </thead>
 <tbody>
@@ -36,14 +36,10 @@ mov       rdx,rax
 mov       rcx,offset MD_System.Linq.Enumerable.ToArray(System.Collections.Generic.IEnumerable`1<!!0>)
 call      System.Linq.Enumerable.ToArray[[System.__Canon, System.Private.CoreLib]](System.Collections.Generic.IEnumerable`1<System.__Canon>)
 mov       rdi,rax
-            for (var exceptionCount = 0; exceptionCount < exceptions.Length; exceptionCount++)
-                 ^^^^^^^^^^^^^^^^^^^^^^
 xor       ebx,ebx
 mov       ebp,[rdi+8]
 test      ebp,ebp
-jle       short 00007FFF60BED6AF
-                var message = exceptions[exceptionCount];
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jle       short 00007FF88A9AD6AF
 movsxd    rdx,ebx
 mov       rdx,[rdi+rdx*8+10]
 mov       rcx,[rsi+8]
@@ -52,7 +48,7 @@ add       rcx,8
 call      CORINFO_HELP_CHECKED_ASSIGN_REF
 inc       ebx
 cmp       ebp,ebx
-jg        short 00007FFF60BED692
+jg        short 00007FF88A9AD692
 add       rsp,28
 pop       rbx
 pop       rbp
@@ -67,32 +63,24 @@ push      rbp
 push      rbx
 sub       rsp,28
 mov       rsi,rcx
-            if (ex == null)
-            ^^^^^^^^^^^^^^^
 test      rsi,rsi
-jne       short 00007FFF60BEDB0A
+jne       short 00007FF88A9ADB0A
 call      dotNetTips.Utility.Standard.Common.Resources.get_ExMessageNullException()
 mov       rcx,rax
-mov       rdx,1D2EE565C58
+mov       rdx,1FB1DBF1C08
 mov       rdx,[rdx]
 call      dotNetTips.Utility.Standard.Common.ExceptionThrower.ThrowArgumentNullException(System.String, System.String)
 mov       rcx,rsi
 call      dotNetTips.Utility.Standard.Common.Logging.LoggingHelper.RetrieveAllExceptions(System.Exception)
 mov       rsi,rax
-            var messages = new string[exceptions.Length];
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mov       edi,[rsi+8]
 movsxd    rdx,edi
 mov       rcx,offset MT_System.String[]
 call      CORINFO_HELP_NEWARR_1_OBJ
 mov       rbx,rax
-            for (var i = 0; i < exceptions.Length; i++)
-                 ^^^^^^^^^
 xor       ebp,ebp
 test      edi,edi
-jle       short 00007FFF60BEDB58
-                messages[i] = exceptions[i].Message;
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jle       short 00007FF88A9ADB58
 movsxd    rcx,ebp
 mov       rcx,[rsi+rcx*8+10]
 mov       rax,[rcx]
@@ -104,9 +92,7 @@ mov       rcx,rbx
 call      CORINFO_HELP_ARRADDR_ST
 inc       ebp
 cmp       edi,ebp
-jg        short 00007FFF60BEDB33
-            return messages;
-            ^^^^^^^^^^^^^^^^
+jg        short 00007FF88A9ADB33
 mov       rax,rbx
 add       rsp,28
 pop       rbx
@@ -125,25 +111,25 @@ mov       [rsp+20],rcx
 mov       rsi,rcx
 mov       rdi,rdx
 test      rdi,rdi
-je        near ptr 00007FFF60BF1505
+je        near ptr 00007FF88A9B1505
 mov       rbx,[rsi+10]
 mov       rcx,[rbx+8]
 test      rcx,rcx
-jne       short 00007FFF60BF148E
+jne       short 00007FF88A9B148E
 mov       rcx,rsi
-mov       rdx,7FFF60C7B820
+mov       rdx,7FF88AA3B820
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       rcx,rax
 mov       rdx,rdi
 call      CORINFO_HELP_ISINSTANCEOFINTERFACE
 mov       rbp,rax
 test      rbp,rbp
-jne       short 00007FFF60BF14D4
+jne       short 00007FF88A9B14D4
 mov       rcx,[rbx+18]
 test      rcx,rcx
-jne       short 00007FFF60BF14BC
+jne       short 00007FF88A9B14BC
 mov       rcx,rsi
-mov       rdx,7FFF60C7B860
+mov       rdx,7FF88AA3B860
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       rcx,rax
 mov       rdx,rdi
@@ -156,9 +142,9 @@ pop       rdi
 jmp       rax
 mov       r11,[rbx+10]
 test      r11,r11
-jne       short 00007FFF60BF14F2
+jne       short 00007FF88A9B14F2
 mov       rcx,rsi
-mov       rdx,7FFF60C7B830
+mov       rdx,7FF88AA3B830
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       r11,rax
 mov       rcx,rbp
@@ -177,10 +163,6 @@ int       3
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner.RetrieveAllExceptions()
-            var result = LoggingHelper.RetrieveAllExceptions(this._testException).Select(ex => ex).Count();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rdi
 push      rsi
 push      rbx
@@ -189,22 +171,22 @@ mov       rsi,rcx
 mov       rcx,[rsi+28]
 call      dotNetTips.Utility.Standard.Common.Logging.LoggingHelper.RetrieveAllExceptions(System.Exception)
 mov       rdi,rax
-mov       rcx,26ED01E6F48
+mov       rcx,29EC209B3B0
 mov       r8,[rcx]
 test      r8,r8
-jne       short 00007FFF60C011B8
+jne       short 00007FF88A990ED8
 mov       rcx,offset MT_System.Func`2[[System.Exception, System.Private.CoreLib],[System.Exception, System.Private.CoreLib]]
 call      CORINFO_HELP_NEWSFAST
 mov       rbx,rax
-mov       rdx,26ED01E6F40
+mov       rdx,29EC209B3A8
 mov       rdx,[rdx]
 test      rdx,rdx
-je        short 00007FFF60C011EB
+je        short 00007FF88A990F0B
 lea       rcx,[rbx+8]
 call      CORINFO_HELP_ASSIGN_REF
 mov       rdx,offset dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner+<>c.<RetrieveAllExceptions>b__3_0(System.Exception)
 mov       [rbx+18],rdx
-mov       rcx,26ED01E6F48
+mov       rcx,29EC209B3B0
 mov       rdx,rbx
 call      CORINFO_HELP_CHECKED_ASSIGN_REF
 mov       r8,rbx
@@ -226,46 +208,30 @@ call      System.MulticastDelegate.ThrowNullThisInDelegateToInstance()
 int       3
 
 dotNetTips.Utility.Standard.Common.Logging.LoggingHelper.RetrieveAllExceptions(System.Exception)
-            if (ex == null)
-            ^^^^^^^^^^^^^^^
-                ExceptionThrower.ThrowArgumentNullException(Resources.ExMessageNullException, nameof(ex));
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            var collection = new List<Exception>();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            if (ex != null)
-            ^^^^^^^^^^^^^^^
-                collection = new List<Exception> { ex };
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                if (ex.InnerException is null == false)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    collection.AddRange(RetrieveAllExceptions(ex.InnerException));
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            return collection.ToArray();
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rdi
 push      rsi
 sub       rsp,28
 mov       rsi,rcx
 test      rsi,rsi
-jne       short 00007FFF60BFF9D8
+jne       short 00007FF88A98F9B8
 call      dotNetTips.Utility.Standard.Common.Resources.get_ExMessageNullException()
 mov       rcx,rax
-mov       rdx,26EC01E17F0
+mov       rdx,29EA20917F0
 mov       rdx,[rdx]
 call      dotNetTips.Utility.Standard.Common.ExceptionThrower.ThrowArgumentNullException(System.String, System.String)
 mov       rcx,offset MT_System.Collections.Generic.List`1[[System.Exception, System.Private.CoreLib]]
 call      CORINFO_HELP_NEWSFAST
 mov       rdi,rax
-mov       rdx,26ED01E48D8
+mov       rdx,29EC2098D40
 mov       rdx,[rdx]
 lea       rcx,[rdi+8]
 call      CORINFO_HELP_ASSIGN_REF
 test      rsi,rsi
-je        short 00007FFF60BFFA75
+je        short 00007FF88A98FA55
 mov       rcx,offset MT_System.Collections.Generic.List`1[[System.Exception, System.Private.CoreLib]]
 call      CORINFO_HELP_NEWSFAST
 mov       rdi,rax
-mov       rdx,26ED01E48D8
+mov       rdx,29EC2098D40
 mov       rdx,[rdx]
 lea       rcx,[rdi+8]
 call      CORINFO_HELP_ASSIGN_REF
@@ -273,18 +239,18 @@ inc       dword ptr [rdi+14]
 mov       rcx,[rdi+8]
 mov       edx,[rdi+10]
 cmp       [rcx+8],edx
-jbe       short 00007FFF60BFFA4E
+jbe       short 00007FF88A98FA2E
 lea       r8d,[rdx+1]
 mov       [rdi+10],r8d
 mov       r8,rsi
 call      CORINFO_HELP_ARRADDR_ST
-jmp       short 00007FFF60BFFA59
+jmp       short 00007FF88A98FA39
 mov       rcx,rdi
 mov       rdx,rsi
 call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].AddWithResize(System.__Canon)
 mov       rcx,[rsi+20]
 test      rcx,rcx
-je        short 00007FFF60BFFA75
+je        short 00007FF88A98FA55
 call      dotNetTips.Utility.Standard.Common.Logging.LoggingHelper.RetrieveAllExceptions(System.Exception)
 mov       r8,rax
 mov       edx,[rdi+10]
@@ -299,8 +265,6 @@ pop       rdi
 jmp       rax
 
 dotNetTips.Utility.Benchmarks.Logging.LoggingHelperPerfTestRunner+<>c.<RetrieveAllExceptions>b__3_0(System.Exception)
-            var result = LoggingHelper.RetrieveAllExceptions(this._testException).Select(ex => ex).Count();
-                                                                                               ^^
 mov       rax,rdx
 ret
 
@@ -319,31 +283,31 @@ mov       rsi,rcx
 mov       rdi,rdx
 mov       rbx,r8
 test      rdi,rdi
-je        near ptr 00007FFF60C00E1E
+je        near ptr 00007FF88A990E1E
 test      rbx,rbx
-je        near ptr 00007FFF60C00E29
+je        near ptr 00007FF88A990E29
 mov       rbp,[rsi+10]
 mov       r14,[rbp+10]
 mov       rcx,r14
 test      rcx,rcx
-jne       short 00007FFF60C00AF8
+jne       short 00007FF88A990AF8
 mov       rcx,rsi
-mov       rdx,7FFF60C8AFB8
+mov       rdx,7FF88AA1AFB8
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       rcx,rax
 mov       rdx,rdi
 call      CORINFO_HELP_ISINSTANCEOFCLASS
 mov       r15,rax
 test      r15,r15
-je        short 00007FFF60C00B4F
+je        short 00007FF88A990B4F
 test      r14,r14
-jne       short 00007FFF60C00B22
+jne       short 00007FF88A990B22
 mov       rcx,rsi
-mov       rdx,7FFF60C8AFB8
+mov       rdx,7FF88AA1AFB8
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       r14,rax
 mov       rcx,rsi
-mov       rdx,7FFF60C8D168
+mov       rdx,7FF88AA1D168
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       r8,rax
 mov       rdx,r14
@@ -352,46 +316,46 @@ call      CORINFO_HELP_VIRTUAL_FUNC_PTR
 mov       rcx,r15
 mov       rdx,rbx
 call      rax
-jmp       near ptr 00007FFF60C00E11
+jmp       near ptr 00007FF88A990E11
 mov       rcx,[rbp+18]
 test      rcx,rcx
-jne       short 00007FFF60C00B6D
+jne       short 00007FF88A990B6D
 mov       rcx,rsi
-mov       rdx,7FFF60C8B1F8
+mov       rdx,7FF88AA1B1F8
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       rcx,rax
 mov       rdx,rdi
 call      CORINFO_HELP_ISINSTANCEOFINTERFACE
 mov       r14,rax
 test      r14,r14
-je        near ptr 00007FFF60C00D38
+je        near ptr 00007FF88A990D38
 mov       rcx,rsi
-mov       rdx,7FFF60C8BE08
+mov       rdx,7FF88AA1BE08
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       rcx,rax
 mov       rdx,rdi
 call      CORINFO_HELP_ISINSTANCEOFARRAY
 mov       rbp,rax
 test      rbp,rbp
-je        near ptr 00007FFF60C00C3B
+je        near ptr 00007FF88A990C3B
 cmp       dword ptr [rbp+8],0
-je        short 00007FFF60C00C1C
+je        short 00007FF88A990C1C
 mov       rcx,rsi
-mov       rdx,7FFF60C8D120
+mov       rdx,7FF88AA1D120
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
 mov       rsi,rax
-mov       rcx,7FFF60900020
+mov       rcx,7FF88A690020
 mov       edx,1E2
 call      CORINFO_HELP_GETSHARED_GCTHREADSTATIC_BASE
 mov       rcx,[rax+8]
 test      rcx,rcx
-jne       short 00007FFF60C00BF2
+jne       short 00007FF88A990BF2
 call      System.Threading.Thread.InitializeCurrentThread()
 mov       rcx,rax
 cmp       [rcx],ecx
-call      00007FFFC0423560
+call      00007FF8EA1B3670
 mov       [rsi+10],eax
 lea       rcx,[rsi+18]
 mov       rdx,rbp
@@ -400,38 +364,38 @@ lea       rcx,[rsi+20]
 mov       rdx,rbx
 call      CORINFO_HELP_ASSIGN_REF
 mov       rax,rsi
-jmp       near ptr 00007FFF60C00E11
+jmp       near ptr 00007FF88A990E11
 mov       rcx,rsi
-mov       rdx,7FFF60C8D050
+mov       rdx,7FF88AA1D050
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       rcx,rax
 call      System.Linq.Enumerable.Empty[[System.__Canon, System.Private.CoreLib]]()
-jmp       near ptr 00007FFF60C00E11
+jmp       near ptr 00007FF88A990E11
 mov       rcx,rsi
-mov       rdx,7FFF60C8BE58
+mov       rdx,7FF88AA1BE58
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       rcx,rax
 mov       rdx,rdi
 call      CORINFO_HELP_ISINSTANCEOFCLASS
 mov       rdi,rax
 test      rdi,rdi
-je        short 00007FFF60C00CCC
+je        short 00007FF88A990CCC
 mov       rcx,rsi
-mov       rdx,7FFF60C8C9E0
+mov       rdx,7FF88AA1C9E0
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
 mov       rsi,rax
-mov       rcx,7FFF60900020
+mov       rcx,7FF88A690020
 mov       edx,1E2
 call      CORINFO_HELP_GETSHARED_GCTHREADSTATIC_BASE
 mov       rcx,[rax+8]
 test      rcx,rcx
-jne       short 00007FFF60C00CA2
+jne       short 00007FF88A990CA2
 call      System.Threading.Thread.InitializeCurrentThread()
 mov       rcx,rax
 cmp       [rcx],ecx
-call      00007FFFC0423560
+call      00007FF8EA1B3670
 mov       [rsi+10],eax
 lea       rcx,[rsi+18]
 mov       rdx,rdi
@@ -440,23 +404,23 @@ lea       rcx,[rsi+20]
 mov       rdx,rbx
 call      CORINFO_HELP_ASSIGN_REF
 mov       rax,rsi
-jmp       near ptr 00007FFF60C00E11
+jmp       near ptr 00007FF88A990E11
 mov       rcx,rsi
-mov       rdx,7FFF60C8C828
+mov       rdx,7FF88AA1C828
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
 mov       rsi,rax
-mov       rcx,7FFF60900020
+mov       rcx,7FF88A690020
 mov       edx,1E2
 call      CORINFO_HELP_GETSHARED_GCTHREADSTATIC_BASE
 mov       rcx,[rax+8]
 test      rcx,rcx
-jne       short 00007FFF60C00D0E
+jne       short 00007FF88A990D0E
 call      System.Threading.Thread.InitializeCurrentThread()
 mov       rcx,rax
 cmp       [rcx],ecx
-call      00007FFFC0423560
+call      00007FF8EA1B3670
 mov       [rsi+10],eax
 lea       rcx,[rsi+18]
 mov       rdx,r14
@@ -465,23 +429,23 @@ lea       rcx,[rsi+20]
 mov       rdx,rbx
 call      CORINFO_HELP_ASSIGN_REF
 mov       rax,rsi
-jmp       near ptr 00007FFF60C00E11
+jmp       near ptr 00007FF88A990E11
 mov       rcx,[rbp+20]
 test      rcx,rcx
-jne       short 00007FFF60C00D56
+jne       short 00007FF88A990D56
 mov       rcx,rsi
-mov       rdx,7FFF60C8B358
+mov       rdx,7FF88AA1B358
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       rcx,rax
 mov       rdx,rdi
 call      CORINFO_HELP_ISINSTANCEOFINTERFACE
 mov       r14,rax
 test      r14,r14
-je        short 00007FFF60C00DA1
+je        short 00007FF88A990DA1
 xor       ecx,ecx
 mov       [rsp+28],rcx
 mov       rcx,rsi
-mov       rdx,7FFF60C8BDE8
+mov       rdx,7FF88AA1BDE8
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       rcx,rax
 lea       r9,[rsp+28]
@@ -489,28 +453,28 @@ mov       rdx,rbx
 mov       r8,r14
 call      System.Linq.Enumerable.CreateSelectIPartitionIterator[[System.__Canon, System.Private.CoreLib],[System.__Canon, System.Private.CoreLib]](System.Func`2<System.__Canon,System.__Canon>, System.Linq.IPartition`1<System.__Canon>, System.Collections.Generic.IEnumerable`1<System.__Canon> ByRef)
 cmp       qword ptr [rsp+28],0
-je        short 00007FFF60C00DA1
+je        short 00007FF88A990DA1
 mov       rax,[rsp+28]
-jmp       short 00007FFF60C00E11
+jmp       short 00007FF88A990E11
 mov       rcx,[rbp+28]
 test      rcx,rcx
-jne       short 00007FFF60C00DBF
+jne       short 00007FF88A990DBF
 mov       rcx,rsi
-mov       rdx,7FFF60C8BD50
+mov       rdx,7FF88AA1BD50
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       rcx,rax
 call      CORINFO_HELP_NEWSFAST
 mov       rsi,rax
-mov       rcx,7FFF60900020
+mov       rcx,7FF88A690020
 mov       edx,1E2
 call      CORINFO_HELP_GETSHARED_GCTHREADSTATIC_BASE
 mov       rcx,[rax+8]
 test      rcx,rcx
-jne       short 00007FFF60C00DEC
+jne       short 00007FF88A990DEC
 call      System.Threading.Thread.InitializeCurrentThread()
 mov       rcx,rax
 cmp       [rcx],ecx
-call      00007FFFC0423560
+call      00007FF8EA1B3670
 mov       [rsi+10],eax
 lea       rcx,[rsi+18]
 mov       rdx,rdi
@@ -547,22 +511,22 @@ mov       [rbp+0FFD8],rcx
 mov       rsi,rcx
 mov       rdi,rdx
 test      rdi,rdi
-je        near ptr 00007FFF60C01012
+je        near ptr 00007FF88A9910E2
 mov       rbx,[rsi+10]
 mov       rcx,[rbx+8]
 test      rcx,rcx
-jne       short 00007FFF60C00EA8
+jne       short 00007FF88A990F78
 mov       rcx,rsi
-mov       rdx,7FFF60C8D678
+mov       rdx,7FF88AA1D6D0
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       rcx,rax
 mov       rdx,rdi
 call      CORINFO_HELP_ISINSTANCEOFINTERFACE
 mov       r14,rax
 test      r14,r14
-je        short 00007FFF60C00EE2
+je        short 00007FF88A990FB2
 mov       rcx,rsi
-mov       rdx,7FFF60C8D910
+mov       rdx,7FF88AA1D968
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       rcx,r14
 mov       r11,rax
@@ -577,21 +541,21 @@ pop       rbp
 jmp       rax
 mov       rcx,[rbx+10]
 test      rcx,rcx
-jne       short 00007FFF60C00F00
+jne       short 00007FF88A990FD0
 mov       rcx,rsi
-mov       rdx,7FFF60C8D7D8
+mov       rdx,7FF88AA1D830
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       rcx,rax
 mov       rdx,rdi
 call      CORINFO_HELP_ISINSTANCEOFINTERFACE
 mov       r14,rax
 test      r14,r14
-je        short 00007FFF60C00F45
+je        short 00007FF88A991015
 mov       r11,[rbx+20]
 test      r11,r11
-jne       short 00007FFF60C00F2E
+jne       short 00007FF88A990FFE
 mov       rcx,rsi
-mov       rdx,7FFF60C8D8A8
+mov       rdx,7FF88AA1D900
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       r11,rax
 mov       rcx,r14
@@ -609,10 +573,10 @@ mov       rdx,rdi
 mov       rcx,offset MT_System.Collections.ICollection
 call      CORINFO_HELP_ISINSTANCEOFINTERFACE
 test      rax,rax
-je        short 00007FFF60C00F7F
+je        short 00007FF88A99104F
 mov       rcx,rax
-mov       r11,7FFF608104A8
-mov       rax,[7FFF60C104A8]
+mov       r11,7FF88A5A04A8
+mov       rax,[7FF88A9A04A8]
 cmp       [rcx],ecx
 lea       rsp,[rbp+0FFE0]
 pop       rbx
@@ -624,9 +588,9 @@ jmp       rax
 xor       r14d,r14d
 mov       r11,[rbx+18]
 test      r11,r11
-jne       short 00007FFF60C00FA0
+jne       short 00007FF88A991070
 mov       rcx,rsi
-mov       rdx,7FFF60C8D878
+mov       rdx,7FF88AA1D8D0
 call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
 mov       r11,rax
 mov       rcx,rdi
@@ -634,26 +598,26 @@ cmp       [rcx],ecx
 call      qword ptr [r11]
 mov       [rbp+0FFD0],rax
 mov       rcx,[rbp+0FFD0]
-mov       r11,7FFF60810498
+mov       r11,7FF88A5A0498
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C10498]
+call      qword ptr [7FF88A9A0498]
 test      eax,eax
-je        short 00007FFF60C00FEE
+je        short 00007FF88A9910BE
 add       r14d,1
-jo        short 00007FFF60C00FE8
+jo        short 00007FF88A9910B8
 mov       rcx,[rbp+0FFD0]
-mov       r11,7FFF60810498
+mov       r11,7FF88A5A0498
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C10498]
+call      qword ptr [7FF88A9A0498]
 test      eax,eax
-jne       short 00007FFF60C00FC6
-jmp       short 00007FFF60C00FEE
+jne       short 00007FF88A991096
+jmp       short 00007FF88A9910BE
 call      CORINFO_HELP_OVERFLOW
 int       3
 mov       rcx,[rbp+0FFD0]
-mov       r11,7FFF608104A0
+mov       r11,7FF88A5A04A0
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C104A0]
+call      qword ptr [7FF88A9A04A0]
 mov       eax,r14d
 lea       rsp,[rbp+0FFE0]
 pop       rbx
@@ -675,11 +639,11 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+60]
 cmp       qword ptr [rbp+0FFD0],0
-je        short 00007FFF60C01051
+je        short 00007FF88A991121
 mov       rcx,[rbp+0FFD0]
-mov       r11,7FFF608104A0
+mov       r11,7FF88A5A04A0
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C104A0]
+call      qword ptr [7FF88A9A04A0]
 nop
 add       rsp,30
 pop       rbx

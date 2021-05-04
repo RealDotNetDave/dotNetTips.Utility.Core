@@ -1,14 +1,10 @@
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.ComputeMD5Hash()
-;             var result = LongTestString.ComputeSha256Hash();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
-       mov       rcx,220644A1930
+       mov       rcx,14ED96110F8
        mov       rcx,[rcx]
        call      dotNetTips.Utility.Standard.Extensions.ObjectExtensions.ComputeSha256Hash(System.Object)
        mov       rcx,[rsi+8]
@@ -36,28 +32,24 @@
        mov       [rbp+0FFD8],rax
        mov       [rbp+0FFC0],rsp
        mov       rsi,rcx
-;             using (var sha256Hash = SHA256.Create())
-;                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rcx,offset MT_System.Security.Cryptography.SHA256+Implementation
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
        mov       rcx,rdi
        call      System.Security.Cryptography.SHA256+Implementation..ctor()
        mov       [rbp+0FFC8],rdi
-       mov       rcx,220744A1820
+       mov       rcx,14EC9611820
        mov       rdi,[rcx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.Extensions.ObjectExtensions.ToJson(System.Object)
        mov       rdx,rax
        mov       rcx,rdi
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C53A68]
+       call      qword ptr [7FF88A9F3A68]
        mov       rdx,rax
        mov       rcx,[rbp+0FFC8]
        call      System.Security.Cryptography.HashAlgorithm.ComputeHash(Byte[])
        mov       rsi,rax
-;                 var builder = new StringBuilder();
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rcx,offset MT_System.Text.StringBuilder
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
@@ -68,21 +60,17 @@
        lea       rcx,[rdi+8]
        mov       rdx,rax
        call      CORINFO_HELP_ASSIGN_REF
-;                 for (var i = 0; i < bytes.Length; i++)
-;                      ^^^^^^^^^
        xor       ebx,ebx
        mov       r14d,[rsi+8]
        test      r14d,r14d
        jle       short M01_L03
-;                     builder.Append(bytes[i].ToString("x2", CultureInfo.InvariantCulture));
-;                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M01_L00:
        movsxd    rcx,ebx
        lea       rcx,[rsi+rcx+10]
-       mov       rdx,220744A2448
+       mov       rdx,14EC9612448
        mov       r8,[rdx]
        movzx     ecx,byte ptr [rcx]
-       mov       rdx,220644A1938
+       mov       rdx,14ED9611100
        mov       rdx,[rdx]
        test      rdx,rdx
        jne       short M01_L01
@@ -107,16 +95,12 @@ M01_L02:
        inc       ebx
        cmp       r14d,ebx
        jg        short M01_L00
-;                 return builder.ToString();
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 M01_L03:
        mov       rcx,rdi
-       call      qword ptr [7FFF60C47010]
+       call      qword ptr [7FF88A9E7010]
        mov       rsi,rax
        mov       rcx,[rbp+0FFC8]
-       call      qword ptr [7FFF60C45EC8]
-;         }
-;         ^
+       call      qword ptr [7FF88A9E5EC8]
        mov       rax,rsi
        lea       rsp,[rbp+0FFE0]
        pop       rbx
@@ -137,7 +121,7 @@ M01_L03:
        cmp       qword ptr [rbp+0FFC8],0
        je        short M01_L04
        mov       rcx,[rbp+0FFC8]
-       call      qword ptr [7FFF60C45EC8]
+       call      qword ptr [7FF88A9E5EC8]
 M01_L04:
        nop
        add       rsp,30
@@ -150,13 +134,9 @@ M01_L04:
 ; Total bytes of code 370
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.Concat()
-;             var result = LongTestString.Concat(",", true, "TEST1", "TEST2");
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -165,19 +145,19 @@ M01_L04:
        mov       edx,2
        call      CORINFO_HELP_NEWARR_1_OBJ
        mov       rdi,rax
-       mov       r8,24481C410F8
+       mov       r8,20E0B6E10F8
        mov       r8,[r8]
        mov       rcx,rdi
        xor       edx,edx
        call      CORINFO_HELP_ARRADDR_ST
-       mov       r8,24481C41100
+       mov       r8,20E0B6E1100
        mov       r8,[r8]
        mov       rcx,rdi
        mov       edx,1
        call      CORINFO_HELP_ARRADDR_ST
-       mov       rcx,24481C41108
+       mov       rcx,20E0B6E1108
        mov       rcx,[rcx]
-       mov       rdx,24471C43100
+       mov       rdx,20DFB6E3100
        mov       rdx,[rdx]
        mov       r9,rdi
        mov       r8d,1
@@ -207,32 +187,22 @@ M01_L04:
        mov       rdi,rdx
        mov       ebp,r8d
        mov       rsi,r9
-;             if (input.IsNullOrEmpty())
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^
        test      rbx,rbx
        je        short M01_L00
        cmp       dword ptr [rbx+8],0
        ja        short M01_L01
-;                 ExceptionThrower.ThrowArgumentNullException(nameof(input));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M01_L00:
-       mov       rcx,24491C4D120
+       mov       rcx,20DFB6E35C0
        mov       rcx,[rcx]
        call      dotNetTips.Utility.Standard.Common.ExceptionThrower.ThrowArgumentNullException(System.String)
-;             if (delimiter.IsNullOrEmpty())
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M01_L01:
        test      rdi,rdi
        je        short M01_L02
        cmp       dword ptr [rdi+8],0
        ja        short M01_L03
-;                 delimiter = string.Empty;
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^
 M01_L02:
-       mov       rcx,24471C43060
+       mov       rcx,20DFB6E3060
        mov       rdi,[rcx]
-;             var sb = new StringBuilder(input);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M01_L03:
        mov       rcx,offset MT_System.Text.StringBuilder
        call      CORINFO_HELP_NEWSFAST
@@ -250,35 +220,25 @@ M01_L05:
        mov       rcx,r14
        xor       r8d,r8d
        call      System.Text.StringBuilder..ctor(System.String, Int32, Int32, Int32)
-;             if (args.HasItems())
-;             ^^^^^^^^^^^^^^^^^^^^
        test      rsi,rsi
        je        short M01_L09
        mov       rcx,rsi
-       call      00007FFFC043DA80
+       call      00007FF8EA1CDBD0
        test      eax,eax
        setg      cl
        movzx     ecx,cl
        test      ecx,ecx
        je        short M01_L09
-;                 for (var argCount = 0; argCount < args.Length; argCount++)
-;                      ^^^^^^^^^^^^^^^^
        xor       ebx,ebx
        mov       r15d,[rsi+8]
        test      r15d,r15d
        jle       short M01_L09
        movzx     ebp,bpl
-;                     var value = args[argCount];
-;                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M01_L06:
        movsxd    rcx,ebx
        mov       rdx,[rsi+rcx*8+10]
-;                     if (addLineFeed)
-;                     ^^^^^^^^^^^^^^^^
        test      ebp,ebp
        je        short M01_L07
-;                         sb.AppendLine(value);
-;                         ^^^^^^^^^^^^^^^^^^^^^
        mov       rcx,r14
        call      System.Text.StringBuilder.Append(System.String)
        call      System.Environment.get_NewLine()
@@ -297,11 +257,9 @@ M01_L08:
        inc       ebx
        cmp       r15d,ebx
        jg        short M01_L06
-;             return sb.ToString();
-;             ^^^^^^^^^^^^^^^^^^^^^
 M01_L09:
        mov       rcx,r14
-       mov       rax,[7FFF60C57010]
+       mov       rax,[7FF88A9E7010]
        add       rsp,28
        pop       rbx
        pop       rbp
@@ -313,13 +271,9 @@ M01_L09:
 ; Total bytes of code 266
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.ContainsAny()
-;             var result = LongTestString.ContainsAny("A", "Z");
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -328,17 +282,17 @@ M01_L09:
        mov       edx,2
        call      CORINFO_HELP_NEWARR_1_OBJ
        mov       rdi,rax
-       mov       r8,124A34A1930
+       mov       r8,1D0B13810F8
        mov       r8,[r8]
        mov       rcx,rdi
        xor       edx,edx
        call      CORINFO_HELP_ARRADDR_ST
-       mov       r8,124A34A1938
+       mov       r8,1D0B1381100
        mov       r8,[r8]
        mov       rcx,rdi
        mov       edx,1
        call      CORINFO_HELP_ARRADDR_ST
-       mov       rcx,124A34A1940
+       mov       rcx,1D0B1381108
        mov       rcx,[rcx]
        mov       rdx,rdi
        call      dotNetTips.Utility.Standard.Extensions.StringExtensions.ContainsAny(System.String, System.String[])
@@ -352,18 +306,6 @@ M01_L09:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Extensions.StringExtensions.ContainsAny(System.String, System.String[])
-;             if (input.IsNullOrEmpty())
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 ExceptionThrower.ThrowArgumentNullException(nameof(input));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return characters.FastAny(character =>
-;             ^^^
-;             {
-;             ^^^
-;                 return input.Contains(character);
-;             ^^^
-;             });
-;             ^^^
        push      rdi
        push      rsi
        push      rbx
@@ -382,7 +324,7 @@ M01_L09:
        cmp       dword ptr [rcx+8],0
        ja        short M01_L01
 M01_L00:
-       mov       rcx,124A34A1170
+       mov       rcx,1D0A1391588
        mov       rcx,[rcx]
        call      dotNetTips.Utility.Standard.Common.ExceptionThrower.ThrowArgumentNullException(System.String)
 M01_L01:
@@ -406,18 +348,14 @@ M01_L01:
 ; Total bytes of code 156
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.DefaultIfNull()
-;             var result = LongTestString.DefaultIfNull();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       mov       rdx,207570C3110
+       mov       rdx,156D02A1510
        mov       rdx,[rdx]
        test      rdx,rdx
        jne       short M00_L00
-       mov       rdx,207270C3060
+       mov       rdx,156D0293060
        mov       rdx,[rdx]
 M00_L00:
        mov       rcx,[rcx+8]
@@ -429,14 +367,10 @@ M00_L00:
 ; Total bytes of code 48
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.DefaultIfNullOrEmpty()
-;             var result = LongTestString.DefaultIfNullOrEmpty("David");
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       mov       rdx,1DA7E963D80
+       mov       rdx,1C64C7410F8
        mov       rdx,[rdx]
        test      rdx,rdx
        je        short M00_L00
@@ -444,7 +378,7 @@ M00_L00:
        je        short M00_L00
        jmp       short M00_L01
 M00_L00:
-       mov       rdx,1DA7E963D88
+       mov       rdx,1C64C741100
        mov       rdx,[rdx]
 M00_L01:
        mov       rcx,[rcx+8]
@@ -456,13 +390,9 @@ M00_L01:
 ; Total bytes of code 56
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.DelimitedStringToArray()
-;             var result = this._commaDelimitedString.DelimitedStringToArray();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -482,16 +412,6 @@ M00_L01:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Extensions.StringExtensions.DelimitedStringToArray(System.String, Char)
-;             if (input.IsNullOrEmpty())
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 ExceptionThrower.ThrowArgumentNullException(nameof(input));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             if (delimiter.IsNull())
-;             ^^^^^^^^^^^^^^^^^^^^^^^
-;                 delimiter = ControlChars.Comma;
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return input.Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -502,7 +422,7 @@ M00_L01:
        cmp       dword ptr [rsi+8],0
        ja        short M01_L01
 M01_L00:
-       mov       rcx,2D0E30F1588
+       mov       rcx,25DC73AD120
        mov       rcx,[rcx]
        call      dotNetTips.Utility.Standard.Common.ExceptionThrower.ThrowArgumentNullException(System.String)
 M01_L01:
@@ -517,13 +437,9 @@ M01_L01:
 ; Total bytes of code 71
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.EqualsIgnoreCase()
-;             var result = RandomData.GenerateWord(10).EqualsIgnoreCase(RandomData.GenerateWord(5));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -547,16 +463,16 @@ M01_L01:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Tester.RandomData.GenerateWord(Int32)
-;             Encapsulation.TryValidateParam(length, minimumValue: 1, paramName: nameof(length));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var returnValue = GenerateWord(length, DefaultMinCharacter, DefaultMaxCharacter);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return returnValue;
-;             ^^^^^^^^^^^^^^^^^^^
+; 			Encapsulation.TryValidateParam(length, minimumValue: 1, paramName: nameof(length));
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			var returnValue = GenerateWord(length, DefaultMinCharacter, DefaultMaxCharacter);
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			return returnValue;
+; 			^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
-       mov       rdx,281BA8B3060
+       mov       rdx,2590C783060
        mov       rsi,[rdx]
        test      ecx,ecx
        jle       short M01_L00
@@ -583,7 +499,7 @@ M01_L01:
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
        mov       ecx,6B
-       mov       rdx,7FFF60BCEFB0
+       mov       rdx,7FF88A97EFB0
        call      CORINFO_HELP_STRCNS
        mov       r8,rax
        mov       rdx,rsi
@@ -635,9 +551,9 @@ M02_L03:
        cmp       ebx,5
        ja        near ptr M02_L07
        mov       eax,ebx
-       lea       rdx,[7FFF60C388C0]
+       lea       rdx,[7FF88A9E8810]
        mov       edx,[rdx+rax*4]
-       lea       rcx,[7FFF60C486F1]
+       lea       rcx,[7FF88A9F8641]
        add       rdx,rcx
        jmp       rdx
        call      System.Globalization.CultureInfo.get_CurrentCulture()
@@ -657,10 +573,10 @@ M02_L03:
        sete      bpl
        movzx     ebp,bpl
        jmp       near ptr M02_L04
-       mov       rcx,7FFF60900020
+       mov       rcx,7FF88A6B0020
        mov       edx,65C
        call      CORINFO_HELP_GETSHARED_NONGCSTATIC_BASE
-       mov       r9,281BA8B24A8
+       mov       r9,2590C7824A8
        mov       rcx,[r9]
        mov       r9d,ebx
        and       r9d,1
@@ -723,15 +639,15 @@ M02_L07:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,0E2A8
-       mov       rdx,7FFF60804020
+       mov       rdx,7FF88A5B4020
        call      CORINFO_HELP_STRCNS
        mov       rcx,rax
-       mov       rdx,281BA8B3060
+       mov       rdx,2590C783060
        mov       rdx,[rdx]
        call      System.SR.GetResourceString(System.String, System.String)
        mov       rdi,rax
        mov       ecx,1B8B
-       mov       rdx,7FFF60804020
+       mov       rdx,7FF88A5B4020
        call      CORINFO_HELP_STRCNS
        mov       r8,rax
        mov       rdx,rdi
@@ -743,13 +659,9 @@ M02_L07:
 ; Total bytes of code 477
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.EqualsOrBothNullOrEmpty()
-;             var result = RandomData.GenerateWord(10).EqualsOrBothNullOrEmpty(RandomData.GenerateWord(5));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -772,16 +684,16 @@ M02_L07:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Tester.RandomData.GenerateWord(Int32)
-;             Encapsulation.TryValidateParam(length, minimumValue: 1, paramName: nameof(length));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var returnValue = GenerateWord(length, DefaultMinCharacter, DefaultMaxCharacter);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return returnValue;
-;             ^^^^^^^^^^^^^^^^^^^
+; 			Encapsulation.TryValidateParam(length, minimumValue: 1, paramName: nameof(length));
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			var returnValue = GenerateWord(length, DefaultMinCharacter, DefaultMaxCharacter);
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			return returnValue;
+; 			^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
-       mov       rdx,2B67A313060
+       mov       rdx,1B7D12B3060
        mov       rsi,[rdx]
        test      ecx,ecx
        jle       short M01_L00
@@ -808,7 +720,7 @@ M01_L01:
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
        mov       ecx,6B
-       mov       rdx,7FFF60BCEFB0
+       mov       rdx,7FF88A96EFB0
        call      CORINFO_HELP_STRCNS
        mov       r8,rax
        mov       rdx,rsi
@@ -821,16 +733,14 @@ M01_L01:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Extensions.StringExtensions.EqualsOrBothNullOrEmpty(System.String, System.String)
-;             return string.Equals(input ?? string.Empty, valueToCompare ?? string.Empty, StringComparison.Ordinal);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        test      rcx,rcx
        jne       short M02_L00
-       mov       rcx,2B67A313060
+       mov       rcx,1B7D12B3060
        mov       rcx,[rcx]
 M02_L00:
        test      rdx,rdx
        jne       short M02_L01
-       mov       rdx,2B67A313060
+       mov       rdx,1B7D12B3060
        mov       rdx,[rdx]
 M02_L01:
        mov       r8d,4
@@ -839,15 +749,9 @@ M02_L01:
 ; Total bytes of code 55
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.FromBase64()
-;             var base64 = RandomData.GenerateWord(100).ToBase64();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var result = base64.FromBase64();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -870,16 +774,16 @@ M02_L01:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Tester.RandomData.GenerateWord(Int32)
-;             Encapsulation.TryValidateParam(length, minimumValue: 1, paramName: nameof(length));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var returnValue = GenerateWord(length, DefaultMinCharacter, DefaultMaxCharacter);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return returnValue;
-;             ^^^^^^^^^^^^^^^^^^^
+; 			Encapsulation.TryValidateParam(length, minimumValue: 1, paramName: nameof(length));
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			var returnValue = GenerateWord(length, DefaultMinCharacter, DefaultMaxCharacter);
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			return returnValue;
+; 			^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
-       mov       rdx,20D252D3060
+       mov       rdx,1C54A3B3060
        mov       rsi,[rdx]
        test      ecx,ecx
        jle       short M01_L00
@@ -906,7 +810,7 @@ M01_L01:
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
        mov       ecx,6B
-       mov       rdx,7FFF60BDEFB0
+       mov       rdx,7FF88A96EFB0
        call      CORINFO_HELP_STRCNS
        mov       r8,rax
        mov       rdx,rsi
@@ -919,14 +823,6 @@ M01_L01:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Extensions.StringExtensions.ToBase64(System.String)
-;             if (value.IsNullOrEmpty())
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 return value;
-;                 ^^^^^^^^^^^^^
-;                 var encoding = new ASCIIEncoding();
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 return Convert.ToBase64String(encoding.GetBytes(value));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -957,7 +853,7 @@ M02_L01:
        call      CORINFO_HELP_ASSIGN_REF
        mov       rcx,rdi
        mov       rdx,rsi
-       call      qword ptr [7FFF60C53A68]
+       call      qword ptr [7FF88A9E3A68]
        mov       rcx,rax
        mov       rax,offset System.Convert.ToBase64String(Byte[])
        add       rsp,28
@@ -968,14 +864,6 @@ M02_L01:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Extensions.StringExtensions.FromBase64(System.String)
-;             if (input.IsNullOrEmpty())
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 return input;
-;                 ^^^^^^^^^^^^^
-;                 var encoding = new ASCIIEncoding();
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 return encoding.GetString(Convert.FromBase64String(input));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -1008,7 +896,7 @@ M03_L01:
        call      System.Convert.FromBase64String(System.String)
        mov       rdx,rax
        mov       rcx,rdi
-       mov       rax,[7FFF60C53B00]
+       mov       rax,[7FF88A9E3B00]
        add       rsp,28
        pop       rsi
        pop       rdi
@@ -1016,17 +904,13 @@ M03_L01:
 ; Total bytes of code 123
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.HasValue()
-;             var result = LongTestString.HasValue();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
-       mov       rcx,183E42810F8
+       mov       rcx,14A133F3D80
        mov       rcx,[rcx]
        test      rcx,rcx
        je        short M00_L00
@@ -1160,17 +1044,13 @@ M01_L12:
 ; Total bytes of code 276
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.Indent()
-;             var result = LongTestString.Indent(10, '>');
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
-       mov       rcx,28B1C3110F8
+       mov       rcx,284F0AC10F8
        mov       rcx,[rcx]
        mov       edx,0A
        mov       r8d,3E
@@ -1197,30 +1077,20 @@ M01_L12:
        mov       rdi,rcx
        mov       esi,edx
        mov       ebx,r8d
-;             if (input.IsNullOrEmpty())
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^
        test      rdi,rdi
        je        short M01_L00
        cmp       dword ptr [rdi+8],0
        ja        short M01_L01
-;                 ExceptionThrower.ThrowArgumentNullException(nameof(input));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M01_L00:
-       mov       rcx,28B2C321588
+       mov       rcx,284C0AC1170
        mov       rcx,[rcx]
        call      dotNetTips.Utility.Standard.Common.ExceptionThrower.ThrowArgumentNullException(System.String)
-;             if (length == 0)
-;             ^^^^^^^^^^^^^^^^
 M01_L01:
        test      esi,esi
        jne       short M01_L02
-;                 ExceptionThrower.ThrowArgumentOutOfRangeException(nameof(length));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       mov       rcx,28B2C3219B8
+       mov       rcx,284C0AC15A0
        mov       rcx,[rcx]
        call      dotNetTips.Utility.Standard.Common.ExceptionThrower.ThrowArgumentOutOfRangeException(System.String)
-;             var sb = new StringBuilder();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M01_L02:
        mov       rcx,offset MT_System.Text.StringBuilder
        call      CORINFO_HELP_NEWSFAST
@@ -1232,17 +1102,11 @@ M01_L02:
        lea       rcx,[rbp+8]
        mov       rdx,rax
        call      CORINFO_HELP_ASSIGN_REF
-;             if (length < 0)
-;             ^^^^^^^^^^^^^^^
        test      esi,esi
        jge       short M01_L03
-;                 sb.Append(input);
-;                 ^^^^^^^^^^^^^^^^^
        mov       rcx,rbp
        mov       rdx,rdi
        call      System.Text.StringBuilder.Append(System.String)
-;             for (var charCount = 1; charCount <= Math.Abs(length); charCount++)
-;                  ^^^^^^^^^^^^^^^^^
 M01_L03:
        mov       r14d,1
        jmp       short M01_L05
@@ -1262,20 +1126,14 @@ M01_L05:
 M01_L06:
        cmp       r14d,edx
        jle       short M01_L04
-;             if (length > 0)
-;             ^^^^^^^^^^^^^^^
        test      esi,esi
        jle       short M01_L07
-;                 sb.Append(input);
-;                 ^^^^^^^^^^^^^^^^^
        mov       rcx,rbp
        mov       rdx,rdi
        call      System.Text.StringBuilder.Append(System.String)
-;             return sb.ToString();
-;             ^^^^^^^^^^^^^^^^^^^^^
 M01_L07:
        mov       rcx,rbp
-       mov       rax,[7FFF60C27010]
+       mov       rax,[7FF88A9A7010]
        add       rsp,20
        pop       rbx
        pop       rbp
@@ -1289,13 +1147,9 @@ M01_L08:
 ; Total bytes of code 226
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.IsAsciiLetter()
-;             var result = RandomData.GenerateCharacter().IsAsciiLetter();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -1317,12 +1171,12 @@ M01_L08:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Tester.RandomData.GenerateInteger(Int32, Int32)
-;             lock (_lock)
-;             ^^^^^^^^^^^^
-;                 return _random.Next(min, max);
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         }
-;         ^
+; 			lock (_lock)
+; 			^^^^^^^^^^^^
+; 				return _random.Next(min, max);
+; 				^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 		}
+; 		^
        push      rbp
        push      rdi
        push      rsi
@@ -1333,7 +1187,7 @@ M01_L08:
        mov       [rbp+0FFD0],rsp
        mov       esi,ecx
        mov       edi,edx
-       mov       rdx,2863FCE75B0
+       mov       rdx,1DF5AE6BA18
        mov       rdx,[rdx]
        mov       [rbp+0FFE0],rdx
        xor       edx,edx
@@ -1342,22 +1196,22 @@ M01_L08:
        jne       short M01_L00
        lea       rdx,[rbp+0FFE8]
        mov       rcx,[rbp+0FFE0]
-       call      00007FFFC03B88D0
+       call      00007FF8EA148980
        jmp       short M01_L01
 M01_L00:
        call      System.Threading.Monitor.ThrowLockTakenException()
        int       3
 M01_L01:
-       mov       rcx,2863FCE75B8
+       mov       rcx,1DF5AE6BA20
        mov       rcx,[rcx]
        mov       edx,esi
        mov       r8d,edi
-       call      qword ptr [7FFF60C2DAD0]
+       call      qword ptr [7FF88A9BDAD0]
        mov       esi,eax
        cmp       byte ptr [rbp+0FFE8],0
        je        short M01_L02
        mov       rcx,[rbp+0FFE0]
-       call      00007FFFC03B8610
+       call      00007FF8EA1486B0
 M01_L02:
        mov       eax,esi
        lea       rsp,[rbp+0FFF0]
@@ -1375,7 +1229,7 @@ M01_L02:
        cmp       byte ptr [rbp+0FFE8],0
        je        short M01_L03
        mov       rcx,[rbp+0FFE0]
-       call      00007FFFC03B8610
+       call      00007FF8EA1486B0
 M01_L03:
        nop
        add       rsp,30
@@ -1386,13 +1240,9 @@ M01_L03:
 ; Total bytes of code 170
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.IsAsciiLetterOrDigit()
-;             var result = RandomData.GenerateCharacter().IsAsciiLetterOrDigit();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -1410,12 +1260,12 @@ M01_L03:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Tester.RandomData.GenerateInteger(Int32, Int32)
-;             lock (_lock)
-;             ^^^^^^^^^^^^
-;                 return _random.Next(min, max);
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         }
-;         ^
+; 			lock (_lock)
+; 			^^^^^^^^^^^^
+; 				return _random.Next(min, max);
+; 				^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 		}
+; 		^
        push      rbp
        push      rdi
        push      rsi
@@ -1426,7 +1276,7 @@ M01_L03:
        mov       [rbp+0FFD0],rsp
        mov       esi,ecx
        mov       edi,edx
-       mov       rdx,28E369355D0
+       mov       rdx,15B9FA495C8
        mov       rdx,[rdx]
        mov       [rbp+0FFE0],rdx
        xor       edx,edx
@@ -1435,22 +1285,22 @@ M01_L03:
        jne       short M01_L00
        lea       rdx,[rbp+0FFE8]
        mov       rcx,[rbp+0FFE0]
-       call      00007FFFC03B88D0
+       call      00007FF8EA148980
        jmp       short M01_L01
 M01_L00:
        call      System.Threading.Monitor.ThrowLockTakenException()
        int       3
 M01_L01:
-       mov       rcx,28E369355D8
+       mov       rcx,15B9FA495D0
        mov       rcx,[rcx]
        mov       edx,esi
        mov       r8d,edi
-       call      qword ptr [7FFF60C3DAD0]
+       call      qword ptr [7FF88A9EDAD0]
        mov       esi,eax
        cmp       byte ptr [rbp+0FFE8],0
        je        short M01_L02
        mov       rcx,[rbp+0FFE0]
-       call      00007FFFC03B8610
+       call      00007FF8EA1486B0
 M01_L02:
        mov       eax,esi
        lea       rsp,[rbp+0FFF0]
@@ -1468,7 +1318,7 @@ M01_L02:
        cmp       byte ptr [rbp+0FFE8],0
        je        short M01_L03
        mov       rcx,[rbp+0FFE0]
-       call      00007FFFC03B8610
+       call      00007FF8EA1486B0
 M01_L03:
        nop
        add       rsp,30
@@ -1480,8 +1330,6 @@ M01_L03:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Extensions.StringExtensions.IsAsciiLetterOrDigit(Char)
-;         { return ( ( ( ( (uint)character ) - 'A' ) & ( ~0x20 ) ) < 26 ) || ( ( (uint)character ) - '0' < 10 ); }
-;           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        movzx     eax,cx
        lea       edx,[rax+0FFBF]
        and       rdx,0FFFFFFFFFFFFFFDF
@@ -1498,13 +1346,9 @@ M02_L00:
 ; Total bytes of code 35
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.IsWhitespaceChar()
-;             var result = RandomData.GenerateCharacter().IsWhitespace();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -1522,12 +1366,12 @@ M02_L00:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Tester.RandomData.GenerateInteger(Int32, Int32)
-;             lock (_lock)
-;             ^^^^^^^^^^^^
-;                 return _random.Next(min, max);
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;         }
-;         ^
+; 			lock (_lock)
+; 			^^^^^^^^^^^^
+; 				return _random.Next(min, max);
+; 				^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 		}
+; 		^
        push      rbp
        push      rdi
        push      rsi
@@ -1538,7 +1382,7 @@ M02_L00:
        mov       [rbp+0FFD0],rsp
        mov       esi,ecx
        mov       edi,edx
-       mov       rdx,1C308D4BA18
+       mov       rdx,1A8C14B75B0
        mov       rdx,[rdx]
        mov       [rbp+0FFE0],rdx
        xor       edx,edx
@@ -1547,22 +1391,22 @@ M02_L00:
        jne       short M01_L00
        lea       rdx,[rbp+0FFE8]
        mov       rcx,[rbp+0FFE0]
-       call      00007FFFC03B88D0
+       call      00007FF8EA148980
        jmp       short M01_L01
 M01_L00:
        call      System.Threading.Monitor.ThrowLockTakenException()
        int       3
 M01_L01:
-       mov       rcx,1C308D4BA20
+       mov       rcx,1A8C14B75B8
        mov       rcx,[rcx]
        mov       edx,esi
        mov       r8d,edi
-       call      qword ptr [7FFF60C5DAD0]
+       call      qword ptr [7FF88A9CDAD0]
        mov       esi,eax
        cmp       byte ptr [rbp+0FFE8],0
        je        short M01_L02
        mov       rcx,[rbp+0FFE0]
-       call      00007FFFC03B8610
+       call      00007FF8EA1486B0
 M01_L02:
        mov       eax,esi
        lea       rsp,[rbp+0FFF0]
@@ -1580,7 +1424,7 @@ M01_L02:
        cmp       byte ptr [rbp+0FFE8],0
        je        short M01_L03
        mov       rcx,[rbp+0FFE0]
-       call      00007FFFC03B8610
+       call      00007FF8EA1486B0
 M01_L03:
        nop
        add       rsp,30
@@ -1592,8 +1436,6 @@ M01_L03:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Extensions.StringExtensions.IsWhitespace(Char)
-;             return ( character <= ' ' ) && ( ( character == ' ' ) || ( character == '\t' ) || ( character == '\r' ) || ( character == '\n' ) );
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        movzx     eax,cx
        cmp       eax,20
        jg        short M02_L01
@@ -1616,13 +1458,9 @@ M02_L01:
 ; Total bytes of code 42
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.IsWhitespaceString()
-;             var result = this._stringToTrim.IsWhitespace();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -1642,15 +1480,11 @@ M02_L01:
        push      rbx
        sub       rsp,20
        mov       rsi,rcx
-;             if (input.IsNullOrEmpty())
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^
        test      rsi,rsi
        je        short M01_L00
        mov       edi,[rsi+8]
        test      edi,edi
        jne       short M01_L01
-;                 return false;
-;                 ^^^^^^^^^^^^^
 M01_L00:
        xor       eax,eax
        add       rsp,20
@@ -1658,8 +1492,6 @@ M01_L00:
        pop       rsi
        pop       rdi
        ret
-;             for (var i = 0; i < input.Length; i++)
-;                  ^^^^^^^^^
 M01_L01:
        xor       ebx,ebx
        mov       edi,[rsi+8]
@@ -1674,8 +1506,6 @@ M01_L02:
        inc       ebx
        cmp       edi,ebx
        jg        short M01_L02
-;             return true;
-;             ^^^^^^^^^^^^
 M01_L03:
        mov       eax,1
        add       rsp,20
@@ -1683,8 +1513,6 @@ M01_L03:
        pop       rsi
        pop       rdi
        ret
-;                     return false;
-;                     ^^^^^^^^^^^^^
 M01_L04:
        xor       eax,eax
        add       rsp,20
@@ -1695,13 +1523,9 @@ M01_L04:
 ; Total bytes of code 87
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.SplitCharSeparator()
-;             var result = this._commaDelimitedString.Split(ControlChars.Comma, StringSplitOptions.None);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,40
        xor       eax,eax
@@ -1747,7 +1571,7 @@ M01_L04:
        xor       eax,eax
        rep stosd
        mov       rcx,rsi
-       mov       rax,1CCC7BCEEA51
+       mov       rax,0A51FF8C5B3CD
        mov       [rbp],rax
        mov       rsi,rcx
        mov       edi,r8d
@@ -1768,12 +1592,12 @@ M01_L04:
        cmp       dword ptr [rsi+8],0
        jne       short M01_L02
 M01_L00:
-       mov       rcx,7FFF60910020
+       mov       rcx,7FF88A680020
        mov       edx,25
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rax,1BBE46C8D60
+       mov       rax,20631E28D60
        mov       rax,[rax]
-       mov       rcx,1CCC7BCEEA51
+       mov       rcx,0A51FF8C5B3CD
        cmp       [rbp],rcx
        je        short M01_L01
        call      CORINFO_HELP_FAIL_FAST
@@ -1799,7 +1623,7 @@ M01_L02:
        xor       edx,edx
        call      CORINFO_HELP_ARRADDR_ST
        mov       rax,rbx
-       mov       rcx,1CCC7BCEEA51
+       mov       rcx,0A51FF8C5B3CD
        cmp       [rbp],rcx
        je        short M01_L03
        call      CORINFO_HELP_FAIL_FAST
@@ -1846,7 +1670,7 @@ M01_L04:
        xor       edx,edx
        call      CORINFO_HELP_ARRADDR_ST
        mov       rax,rbx
-       mov       rcx,1CCC7BCEEA51
+       mov       rcx,0A51FF8C5B3CD
        cmp       [rbp],rcx
        je        short M01_L05
        call      CORINFO_HELP_FAIL_FAST
@@ -1898,20 +1722,20 @@ M01_L07:
 M01_L08:
        cmp       qword ptr [rbp+28],0
        je        short M01_L09
-       mov       rcx,7FFF60910020
+       mov       rcx,7FF88A680020
        mov       edx,26
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rcx,1BBE46C8D68
+       mov       rcx,20631E28D68
        mov       rcx,[rcx]
        mov       rdx,[rbp+28]
        xor       r8d,r8d
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C4D558]
+       call      qword ptr [7FF88A9BD558]
        xor       eax,eax
        mov       [rbp+28],rax
 M01_L09:
        mov       rax,r15
-       mov       rcx,1CCC7BCEEA51
+       mov       rcx,0A51FF8C5B3CD
        cmp       [rbp],rcx
        je        short M01_L10
        call      CORINFO_HELP_FAIL_FAST
@@ -1930,14 +1754,14 @@ M01_L11:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,1B1F
-       mov       rdx,7FFF60814020
+       mov       rdx,7FF88A584020
        call      CORINFO_HELP_STRCNS
        mov       rdi,rax
        mov       ecx,91DA
-       mov       rdx,7FFF60814020
+       mov       rdx,7FF88A584020
        call      CORINFO_HELP_STRCNS
        mov       rcx,rax
-       mov       rdx,1BBE46C3060
+       mov       rdx,20631E23060
        mov       rdx,[rdx]
        call      System.SR.GetResourceString(System.String, System.String)
        mov       r8,rax
@@ -1951,10 +1775,10 @@ M01_L12:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,2C54
-       mov       rdx,7FFF60814020
+       mov       rdx,7FF88A584020
        call      CORINFO_HELP_STRCNS
        mov       rcx,rax
-       mov       rdx,1BBE46C3060
+       mov       rdx,20631E23060
        mov       rdx,[rdx]
        call      System.SR.GetResourceString(System.String, System.String)
        mov       rdi,rax
@@ -1976,13 +1800,9 @@ M01_L13:
 ; Total bytes of code 854
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.SplitCharSeparatorCount()
-;             var result = this._commaDelimitedString.Split(ControlChars.Comma, 2, StringSplitOptions.None);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,40
        xor       eax,eax
@@ -2028,7 +1848,7 @@ M01_L13:
        xor       eax,eax
        rep stosd
        mov       rcx,rsi
-       mov       rax,14ABE8FA551E
+       mov       rax,26D35E1F5FE2
        mov       [rbp],rax
        mov       rsi,rcx
        mov       edi,r8d
@@ -2049,12 +1869,12 @@ M01_L13:
        cmp       dword ptr [rsi+8],0
        jne       short M01_L02
 M01_L00:
-       mov       rcx,7FFF60900020
+       mov       rcx,7FF88A670020
        mov       edx,25
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rax,19770B248F8
+       mov       rax,20A2A5E8D60
        mov       rax,[rax]
-       mov       rcx,14ABE8FA551E
+       mov       rcx,26D35E1F5FE2
        cmp       [rbp],rcx
        je        short M01_L01
        call      CORINFO_HELP_FAIL_FAST
@@ -2080,7 +1900,7 @@ M01_L02:
        xor       edx,edx
        call      CORINFO_HELP_ARRADDR_ST
        mov       rax,rbx
-       mov       rcx,14ABE8FA551E
+       mov       rcx,26D35E1F5FE2
        cmp       [rbp],rcx
        je        short M01_L03
        call      CORINFO_HELP_FAIL_FAST
@@ -2127,7 +1947,7 @@ M01_L04:
        xor       edx,edx
        call      CORINFO_HELP_ARRADDR_ST
        mov       rax,rbx
-       mov       rcx,14ABE8FA551E
+       mov       rcx,26D35E1F5FE2
        cmp       [rbp],rcx
        je        short M01_L05
        call      CORINFO_HELP_FAIL_FAST
@@ -2179,20 +1999,20 @@ M01_L07:
 M01_L08:
        cmp       qword ptr [rbp+28],0
        je        short M01_L09
-       mov       rcx,7FFF60900020
+       mov       rcx,7FF88A670020
        mov       edx,26
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rcx,19770B24900
+       mov       rcx,20A2A5E8D68
        mov       rcx,[rcx]
        mov       rdx,[rbp+28]
        xor       r8d,r8d
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C3D558]
+       call      qword ptr [7FF88A9AD558]
        xor       eax,eax
        mov       [rbp+28],rax
 M01_L09:
        mov       rax,r15
-       mov       rcx,14ABE8FA551E
+       mov       rcx,26D35E1F5FE2
        cmp       [rbp],rcx
        je        short M01_L10
        call      CORINFO_HELP_FAIL_FAST
@@ -2211,14 +2031,14 @@ M01_L11:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,1B1F
-       mov       rdx,7FFF60804020
+       mov       rdx,7FF88A574020
        call      CORINFO_HELP_STRCNS
        mov       rdi,rax
        mov       ecx,91DA
-       mov       rdx,7FFF60804020
+       mov       rdx,7FF88A574020
        call      CORINFO_HELP_STRCNS
        mov       rcx,rax
-       mov       rdx,19750B23060
+       mov       rdx,20A2A5E3060
        mov       rdx,[rdx]
        call      System.SR.GetResourceString(System.String, System.String)
        mov       r8,rax
@@ -2232,10 +2052,10 @@ M01_L12:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,2C54
-       mov       rdx,7FFF60804020
+       mov       rdx,7FF88A574020
        call      CORINFO_HELP_STRCNS
        mov       rcx,rax
-       mov       rdx,19750B23060
+       mov       rdx,20A2A5E3060
        mov       rdx,[rdx]
        call      System.SR.GetResourceString(System.String, System.String)
        mov       rdi,rax
@@ -2257,13 +2077,9 @@ M01_L13:
 ; Total bytes of code 854
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.SplitCharSeparatorRemoveEmptyEntriesCount()
-;             var result = this._commaDelimitedString.Split(ControlChars.Comma, 2, StringSplitOptions.RemoveEmptyEntries);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,40
        xor       eax,eax
@@ -2309,7 +2125,7 @@ M01_L13:
        xor       eax,eax
        rep stosd
        mov       rcx,rsi
-       mov       rax,4D2E08354091
+       mov       rax,817EFC2F2A0F
        mov       [rbp],rax
        mov       rsi,rcx
        mov       edi,r8d
@@ -2330,12 +2146,12 @@ M01_L13:
        cmp       dword ptr [rsi+8],0
        jne       short M01_L02
 M01_L00:
-       mov       rcx,7FFF608F0020
+       mov       rcx,7FF88A690020
        mov       edx,25
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rax,1A6857E48F8
+       mov       rax,268A7338D60
        mov       rax,[rax]
-       mov       rcx,4D2E08354091
+       mov       rcx,817EFC2F2A0F
        cmp       [rbp],rcx
        je        short M01_L01
        call      CORINFO_HELP_FAIL_FAST
@@ -2361,7 +2177,7 @@ M01_L02:
        xor       edx,edx
        call      CORINFO_HELP_ARRADDR_ST
        mov       rax,rbx
-       mov       rcx,4D2E08354091
+       mov       rcx,817EFC2F2A0F
        cmp       [rbp],rcx
        je        short M01_L03
        call      CORINFO_HELP_FAIL_FAST
@@ -2408,7 +2224,7 @@ M01_L04:
        xor       edx,edx
        call      CORINFO_HELP_ARRADDR_ST
        mov       rax,rbx
-       mov       rcx,4D2E08354091
+       mov       rcx,817EFC2F2A0F
        cmp       [rbp],rcx
        je        short M01_L05
        call      CORINFO_HELP_FAIL_FAST
@@ -2460,20 +2276,20 @@ M01_L07:
 M01_L08:
        cmp       qword ptr [rbp+28],0
        je        short M01_L09
-       mov       rcx,7FFF608F0020
+       mov       rcx,7FF88A690020
        mov       edx,26
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rcx,1A6857E4900
+       mov       rcx,268A7338D68
        mov       rcx,[rcx]
        mov       rdx,[rbp+28]
        xor       r8d,r8d
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C2D558]
+       call      qword ptr [7FF88A9CD558]
        xor       eax,eax
        mov       [rbp+28],rax
 M01_L09:
        mov       rax,r15
-       mov       rcx,4D2E08354091
+       mov       rcx,817EFC2F2A0F
        cmp       [rbp],rcx
        je        short M01_L10
        call      CORINFO_HELP_FAIL_FAST
@@ -2492,14 +2308,14 @@ M01_L11:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,1B1F
-       mov       rdx,7FFF607F4020
+       mov       rdx,7FF88A594020
        call      CORINFO_HELP_STRCNS
        mov       rdi,rax
        mov       ecx,91DA
-       mov       rdx,7FFF607F4020
+       mov       rdx,7FF88A594020
        call      CORINFO_HELP_STRCNS
        mov       rcx,rax
-       mov       rdx,1A6757E3060
+       mov       rdx,268A7333060
        mov       rdx,[rdx]
        call      System.SR.GetResourceString(System.String, System.String)
        mov       r8,rax
@@ -2513,10 +2329,10 @@ M01_L12:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,2C54
-       mov       rdx,7FFF607F4020
+       mov       rdx,7FF88A594020
        call      CORINFO_HELP_STRCNS
        mov       rcx,rax
-       mov       rdx,1A6757E3060
+       mov       rdx,268A7333060
        mov       rdx,[rdx]
        call      System.SR.GetResourceString(System.String, System.String)
        mov       rdi,rax
@@ -2538,13 +2354,9 @@ M01_L13:
 ; Total bytes of code 854
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.SplitCharSeparatorRemoveEmptyEntries()
-;             var result = this._commaDelimitedString.Split(ControlChars.Comma, StringSplitOptions.RemoveEmptyEntries);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,40
        xor       eax,eax
@@ -2590,7 +2402,7 @@ M01_L13:
        xor       eax,eax
        rep stosd
        mov       rcx,rsi
-       mov       rax,9C2663A5B8E3
+       mov       rax,7DCAF804A7DD
        mov       [rbp],rax
        mov       rsi,rcx
        mov       edi,r8d
@@ -2611,12 +2423,12 @@ M01_L13:
        cmp       dword ptr [rsi+8],0
        jne       short M01_L02
 M01_L00:
-       mov       rcx,7FFF60920020
+       mov       rcx,7FF88A6B0020
        mov       edx,25
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rax,1ADB9036910
+       mov       rax,192956E48F8
        mov       rax,[rax]
-       mov       rcx,9C2663A5B8E3
+       mov       rcx,7DCAF804A7DD
        cmp       [rbp],rcx
        je        short M01_L01
        call      CORINFO_HELP_FAIL_FAST
@@ -2642,7 +2454,7 @@ M01_L02:
        xor       edx,edx
        call      CORINFO_HELP_ARRADDR_ST
        mov       rax,rbx
-       mov       rcx,9C2663A5B8E3
+       mov       rcx,7DCAF804A7DD
        cmp       [rbp],rcx
        je        short M01_L03
        call      CORINFO_HELP_FAIL_FAST
@@ -2689,7 +2501,7 @@ M01_L04:
        xor       edx,edx
        call      CORINFO_HELP_ARRADDR_ST
        mov       rax,rbx
-       mov       rcx,9C2663A5B8E3
+       mov       rcx,7DCAF804A7DD
        cmp       [rbp],rcx
        je        short M01_L05
        call      CORINFO_HELP_FAIL_FAST
@@ -2741,20 +2553,20 @@ M01_L07:
 M01_L08:
        cmp       qword ptr [rbp+28],0
        je        short M01_L09
-       mov       rcx,7FFF60920020
+       mov       rcx,7FF88A6B0020
        mov       edx,26
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rcx,1ADB9036918
+       mov       rcx,192956E4900
        mov       rcx,[rcx]
        mov       rdx,[rbp+28]
        xor       r8d,r8d
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C5D558]
+       call      qword ptr [7FF88A9ED558]
        xor       eax,eax
        mov       [rbp+28],rax
 M01_L09:
        mov       rax,r15
-       mov       rcx,9C2663A5B8E3
+       mov       rcx,7DCAF804A7DD
        cmp       [rbp],rcx
        je        short M01_L10
        call      CORINFO_HELP_FAIL_FAST
@@ -2773,14 +2585,14 @@ M01_L11:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,1B1F
-       mov       rdx,7FFF60824020
+       mov       rdx,7FF88A5B4020
        call      CORINFO_HELP_STRCNS
        mov       rdi,rax
        mov       ecx,91DA
-       mov       rdx,7FFF60824020
+       mov       rdx,7FF88A5B4020
        call      CORINFO_HELP_STRCNS
        mov       rcx,rax
-       mov       rdx,1ADC9033060
+       mov       rdx,192756E3060
        mov       rdx,[rdx]
        call      System.SR.GetResourceString(System.String, System.String)
        mov       r8,rax
@@ -2794,10 +2606,10 @@ M01_L12:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,2C54
-       mov       rdx,7FFF60824020
+       mov       rdx,7FF88A5B4020
        call      CORINFO_HELP_STRCNS
        mov       rcx,rax
-       mov       rdx,1ADC9033060
+       mov       rdx,192756E3060
        mov       rdx,[rdx]
        call      System.SR.GetResourceString(System.String, System.String)
        mov       rdi,rax
@@ -2819,23 +2631,19 @@ M01_L13:
 ; Total bytes of code 854
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.SplitStringSeparator()
-;             var result = this._commaDelimitedString.Split(",", StringSplitOptions.None);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,30
        mov       rsi,rcx
        mov       rcx,[rsi+28]
        mov       edx,[rcx]
-       mov       rdx,16A8B7C3100
+       mov       rdx,1DC9F6D3100
        mov       rdx,[rdx]
        test      rdx,rdx
        jne       short M00_L00
-       mov       rdx,16A8B7C3060
+       mov       rdx,1DC9F6D3060
        mov       rdx,[rdx]
 M00_L00:
        xor       r8d,r8d
@@ -2870,7 +2678,7 @@ M00_L00:
        xor       eax,eax
        rep stosd
        mov       rcx,rsi
-       mov       rax,0C3FBBF4A8379
+       mov       rax,7A2065EDAED3
        mov       [rbp],rax
        mov       rsi,rcx
        mov       edi,r9d
@@ -2915,10 +2723,10 @@ M01_L01:
        cmp       dword ptr [rsi+8],0
        jne       short M01_L03
 M01_L02:
-       mov       rcx,7FFF608E0020
+       mov       rcx,7FF88A680020
        mov       edx,25
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rcx,16A8B7C8D60
+       mov       rcx,1DCBF6D48F8
        mov       rax,[rcx]
        jmp       near ptr M01_L12
 M01_L03:
@@ -3036,35 +2844,35 @@ M01_L08:
 M01_L09:
        cmp       qword ptr [rbp+58],0
        je        short M01_L10
-       mov       rcx,7FFF608E0020
+       mov       rcx,7FF88A680020
        mov       edx,26
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rcx,16A8B7C8D68
+       mov       rcx,1DCBF6D4900
        mov       rcx,[rcx]
        mov       rdx,[rbp+58]
        xor       r8d,r8d
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C1D558]
+       call      qword ptr [7FF88A9BD558]
        xor       ecx,ecx
        mov       [rbp+58],rcx
 M01_L10:
        cmp       qword ptr [rbp+38],0
        je        short M01_L11
-       mov       rcx,7FFF608E0020
+       mov       rcx,7FF88A680020
        mov       edx,26
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rcx,16A8B7C8D68
+       mov       rcx,1DCBF6D4900
        mov       rcx,[rcx]
        mov       rdx,[rbp+38]
        xor       r8d,r8d
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C1D558]
+       call      qword ptr [7FF88A9BD558]
        xor       eax,eax
        mov       [rbp+38],rax
 M01_L11:
        mov       rax,rbx
 M01_L12:
-       mov       rcx,0C3FBBF4A8379
+       mov       rcx,7A2065EDAED3
        cmp       [rbp],rcx
        je        short M01_L13
        call      CORINFO_HELP_FAIL_FAST
@@ -3083,14 +2891,14 @@ M01_L14:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,1B1F
-       mov       rdx,7FFF607E4020
+       mov       rdx,7FF88A584020
        call      CORINFO_HELP_STRCNS
        mov       rdi,rax
        mov       ecx,91DA
-       mov       rdx,7FFF607E4020
+       mov       rdx,7FF88A584020
        call      CORINFO_HELP_STRCNS
        mov       rcx,rax
-       mov       rdx,16A8B7C3060
+       mov       rdx,1DC9F6D3060
        mov       rdx,[rdx]
        call      System.SR.GetResourceString(System.String, System.String)
        mov       r8,rax
@@ -3104,10 +2912,10 @@ M01_L15:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,2C54
-       mov       rdx,7FFF607E4020
+       mov       rdx,7FF88A584020
        call      CORINFO_HELP_STRCNS
        mov       rcx,rax
-       mov       rdx,16A8B7C3060
+       mov       rdx,1DC9F6D3060
        mov       rdx,[rdx]
        call      System.SR.GetResourceString(System.String, System.String)
        mov       rdi,rax
@@ -3132,23 +2940,19 @@ M01_L17:
 ; Total bytes of code 1032
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.SplitStringSeparatorCount()
-;             var result = this._commaDelimitedString.Split(",", 2, StringSplitOptions.None);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,30
        mov       rsi,rcx
        mov       rcx,[rsi+28]
        mov       edx,[rcx]
-       mov       rdx,1E7D87A3100
+       mov       rdx,214F8B23100
        mov       rdx,[rdx]
        test      rdx,rdx
        jne       short M00_L00
-       mov       rdx,1E7D87A3060
+       mov       rdx,214F8B23060
        mov       rdx,[rdx]
 M00_L00:
        xor       r8d,r8d
@@ -3183,7 +2987,7 @@ M00_L00:
        xor       eax,eax
        rep stosd
        mov       rcx,rsi
-       mov       rax,5BD008FB4E7C
+       mov       rax,0FC8C443D36C7
        mov       [rbp],rax
        mov       rsi,rcx
        mov       edi,r9d
@@ -3228,10 +3032,10 @@ M01_L01:
        cmp       dword ptr [rsi+8],0
        jne       short M01_L03
 M01_L02:
-       mov       rcx,7FFF60910020
+       mov       rcx,7FF88A680020
        mov       edx,25
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rcx,1E7C87A48F8
+       mov       rcx,214F8B28D60
        mov       rax,[rcx]
        jmp       near ptr M01_L12
 M01_L03:
@@ -3349,35 +3153,35 @@ M01_L08:
 M01_L09:
        cmp       qword ptr [rbp+58],0
        je        short M01_L10
-       mov       rcx,7FFF60910020
+       mov       rcx,7FF88A680020
        mov       edx,26
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rcx,1E7C87A4900
+       mov       rcx,214F8B28D68
        mov       rcx,[rcx]
        mov       rdx,[rbp+58]
        xor       r8d,r8d
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C4D558]
+       call      qword ptr [7FF88A9BD558]
        xor       ecx,ecx
        mov       [rbp+58],rcx
 M01_L10:
        cmp       qword ptr [rbp+38],0
        je        short M01_L11
-       mov       rcx,7FFF60910020
+       mov       rcx,7FF88A680020
        mov       edx,26
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rcx,1E7C87A4900
+       mov       rcx,214F8B28D68
        mov       rcx,[rcx]
        mov       rdx,[rbp+38]
        xor       r8d,r8d
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C4D558]
+       call      qword ptr [7FF88A9BD558]
        xor       eax,eax
        mov       [rbp+38],rax
 M01_L11:
        mov       rax,rbx
 M01_L12:
-       mov       rcx,5BD008FB4E7C
+       mov       rcx,0FC8C443D36C7
        cmp       [rbp],rcx
        je        short M01_L13
        call      CORINFO_HELP_FAIL_FAST
@@ -3396,14 +3200,14 @@ M01_L14:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,1B1F
-       mov       rdx,7FFF60814020
+       mov       rdx,7FF88A584020
        call      CORINFO_HELP_STRCNS
        mov       rdi,rax
        mov       ecx,91DA
-       mov       rdx,7FFF60814020
+       mov       rdx,7FF88A584020
        call      CORINFO_HELP_STRCNS
        mov       rcx,rax
-       mov       rdx,1E7D87A3060
+       mov       rdx,214F8B23060
        mov       rdx,[rdx]
        call      System.SR.GetResourceString(System.String, System.String)
        mov       r8,rax
@@ -3417,10 +3221,10 @@ M01_L15:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,2C54
-       mov       rdx,7FFF60814020
+       mov       rdx,7FF88A584020
        call      CORINFO_HELP_STRCNS
        mov       rcx,rax
-       mov       rdx,1E7D87A3060
+       mov       rdx,214F8B23060
        mov       rdx,[rdx]
        call      System.SR.GetResourceString(System.String, System.String)
        mov       rdi,rax
@@ -3445,23 +3249,19 @@ M01_L17:
 ; Total bytes of code 1032
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.SplitStringSeparatorRemoveEmptyEntriesCount()
-;             var result = this._commaDelimitedString.Split(",", 2, StringSplitOptions.RemoveEmptyEntries);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,30
        mov       rsi,rcx
        mov       rcx,[rsi+28]
        mov       edx,[rcx]
-       mov       rdx,1DBFE333100
+       mov       rdx,1E34ED03100
        mov       rdx,[rdx]
        test      rdx,rdx
        jne       short M00_L00
-       mov       rdx,1DBFE333060
+       mov       rdx,1E34ED03060
        mov       rdx,[rdx]
 M00_L00:
        mov       dword ptr [rsp+20],1
@@ -3495,7 +3295,7 @@ M00_L00:
        xor       eax,eax
        rep stosd
        mov       rcx,rsi
-       mov       rax,0AFB02AF71BF7
+       mov       rax,5073E79DD09
        mov       [rbp],rax
        mov       rsi,rcx
        mov       edi,r9d
@@ -3540,10 +3340,10 @@ M01_L01:
        cmp       dword ptr [rsi+8],0
        jne       short M01_L03
 M01_L02:
-       mov       rcx,7FFF60900020
+       mov       rcx,7FF88A690020
        mov       edx,25
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rcx,1DBFE338D60
+       mov       rcx,1E34ED08D60
        mov       rax,[rcx]
        jmp       near ptr M01_L12
 M01_L03:
@@ -3661,35 +3461,35 @@ M01_L08:
 M01_L09:
        cmp       qword ptr [rbp+58],0
        je        short M01_L10
-       mov       rcx,7FFF60900020
+       mov       rcx,7FF88A690020
        mov       edx,26
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rcx,1DBFE338D68
+       mov       rcx,1E34ED08D68
        mov       rcx,[rcx]
        mov       rdx,[rbp+58]
        xor       r8d,r8d
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C3D558]
+       call      qword ptr [7FF88A9CD558]
        xor       ecx,ecx
        mov       [rbp+58],rcx
 M01_L10:
        cmp       qword ptr [rbp+38],0
        je        short M01_L11
-       mov       rcx,7FFF60900020
+       mov       rcx,7FF88A690020
        mov       edx,26
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rcx,1DBFE338D68
+       mov       rcx,1E34ED08D68
        mov       rcx,[rcx]
        mov       rdx,[rbp+38]
        xor       r8d,r8d
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C3D558]
+       call      qword ptr [7FF88A9CD558]
        xor       eax,eax
        mov       [rbp+38],rax
 M01_L11:
        mov       rax,rbx
 M01_L12:
-       mov       rcx,0AFB02AF71BF7
+       mov       rcx,5073E79DD09
        cmp       [rbp],rcx
        je        short M01_L13
        call      CORINFO_HELP_FAIL_FAST
@@ -3708,14 +3508,14 @@ M01_L14:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,1B1F
-       mov       rdx,7FFF60804020
+       mov       rdx,7FF88A594020
        call      CORINFO_HELP_STRCNS
        mov       rdi,rax
        mov       ecx,91DA
-       mov       rdx,7FFF60804020
+       mov       rdx,7FF88A594020
        call      CORINFO_HELP_STRCNS
        mov       rcx,rax
-       mov       rdx,1DBFE333060
+       mov       rdx,1E34ED03060
        mov       rdx,[rdx]
        call      System.SR.GetResourceString(System.String, System.String)
        mov       r8,rax
@@ -3729,10 +3529,10 @@ M01_L15:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,2C54
-       mov       rdx,7FFF60804020
+       mov       rdx,7FF88A594020
        call      CORINFO_HELP_STRCNS
        mov       rcx,rax
-       mov       rdx,1DBFE333060
+       mov       rdx,1E34ED03060
        mov       rdx,[rdx]
        call      System.SR.GetResourceString(System.String, System.String)
        mov       rdi,rax
@@ -3757,23 +3557,19 @@ M01_L17:
 ; Total bytes of code 1032
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.SplitStringSeparatorRemoveEmptyEntries()
-;             var result = this._commaDelimitedString.Split(",", StringSplitOptions.RemoveEmptyEntries);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,30
        mov       rsi,rcx
        mov       rcx,[rsi+28]
        mov       edx,[rcx]
-       mov       rdx,15F8AF03100
+       mov       rdx,16B17243100
        mov       rdx,[rdx]
        test      rdx,rdx
        jne       short M00_L00
-       mov       rdx,15F8AF03060
+       mov       rdx,16B17243060
        mov       rdx,[rdx]
 M00_L00:
        mov       dword ptr [rsp+20],1
@@ -3807,7 +3603,7 @@ M00_L00:
        xor       eax,eax
        rep stosd
        mov       rcx,rsi
-       mov       rax,7A41FA1527E0
+       mov       rax,0C9D09A61F810
        mov       [rbp],rax
        mov       rsi,rcx
        mov       edi,r9d
@@ -3852,10 +3648,10 @@ M01_L01:
        cmp       dword ptr [rsi+8],0
        jne       short M01_L03
 M01_L02:
-       mov       rcx,7FFF60910020
+       mov       rcx,7FF88A680020
        mov       edx,25
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rcx,15F8AF08D60
+       mov       rcx,16B17248D60
        mov       rax,[rcx]
        jmp       near ptr M01_L12
 M01_L03:
@@ -3973,35 +3769,35 @@ M01_L08:
 M01_L09:
        cmp       qword ptr [rbp+58],0
        je        short M01_L10
-       mov       rcx,7FFF60910020
+       mov       rcx,7FF88A680020
        mov       edx,26
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rcx,15F8AF08D68
+       mov       rcx,16B17248D68
        mov       rcx,[rcx]
        mov       rdx,[rbp+58]
        xor       r8d,r8d
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C4D558]
+       call      qword ptr [7FF88A9BD558]
        xor       ecx,ecx
        mov       [rbp+58],rcx
 M01_L10:
        cmp       qword ptr [rbp+38],0
        je        short M01_L11
-       mov       rcx,7FFF60910020
+       mov       rcx,7FF88A680020
        mov       edx,26
        call      CORINFO_HELP_CLASSINIT_SHARED_DYNAMICCLASS
-       mov       rcx,15F8AF08D68
+       mov       rcx,16B17248D68
        mov       rcx,[rcx]
        mov       rdx,[rbp+38]
        xor       r8d,r8d
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C4D558]
+       call      qword ptr [7FF88A9BD558]
        xor       eax,eax
        mov       [rbp+38],rax
 M01_L11:
        mov       rax,rbx
 M01_L12:
-       mov       rcx,7A41FA1527E0
+       mov       rcx,0C9D09A61F810
        cmp       [rbp],rcx
        je        short M01_L13
        call      CORINFO_HELP_FAIL_FAST
@@ -4020,14 +3816,14 @@ M01_L14:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,1B1F
-       mov       rdx,7FFF60814020
+       mov       rdx,7FF88A584020
        call      CORINFO_HELP_STRCNS
        mov       rdi,rax
        mov       ecx,91DA
-       mov       rdx,7FFF60814020
+       mov       rdx,7FF88A584020
        call      CORINFO_HELP_STRCNS
        mov       rcx,rax
-       mov       rdx,15F8AF03060
+       mov       rdx,16B17243060
        mov       rdx,[rdx]
        call      System.SR.GetResourceString(System.String, System.String)
        mov       r8,rax
@@ -4041,10 +3837,10 @@ M01_L15:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,2C54
-       mov       rdx,7FFF60814020
+       mov       rdx,7FF88A584020
        call      CORINFO_HELP_STRCNS
        mov       rcx,rax
-       mov       rdx,15F8AF03060
+       mov       rdx,16B17243060
        mov       rdx,[rdx]
        call      System.SR.GetResourceString(System.String, System.String)
        mov       rdi,rax
@@ -4069,13 +3865,9 @@ M01_L17:
 ; Total bytes of code 1032
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.StartsWithOrdinal()
-;             var result = RandomData.GenerateWord(10).StartsWithOrdinal(RandomData.GenerateWord(5));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -4098,16 +3890,16 @@ M01_L17:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Tester.RandomData.GenerateWord(Int32)
-;             Encapsulation.TryValidateParam(length, minimumValue: 1, paramName: nameof(length));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var returnValue = GenerateWord(length, DefaultMinCharacter, DefaultMaxCharacter);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return returnValue;
-;             ^^^^^^^^^^^^^^^^^^^
+; 			Encapsulation.TryValidateParam(length, minimumValue: 1, paramName: nameof(length));
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			var returnValue = GenerateWord(length, DefaultMinCharacter, DefaultMaxCharacter);
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			return returnValue;
+; 			^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
-       mov       rdx,1F57A9A3060
+       mov       rdx,29AE2C03060
        mov       rsi,[rdx]
        test      ecx,ecx
        jle       short M01_L00
@@ -4134,7 +3926,7 @@ M01_L01:
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
        mov       ecx,6B
-       mov       rdx,7FFF60BEEFB0
+       mov       rdx,7FF88A95EFB0
        call      CORINFO_HELP_STRCNS
        mov       r8,rax
        mov       rdx,rsi
@@ -4147,12 +3939,6 @@ M01_L01:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Extensions.StringExtensions.StartsWithOrdinal(System.String, System.String)
-;             if (input.IsNullOrEmpty() || valueToCompare.IsNullOrEmpty())
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 return false;
-;                 ^^^^^^^^^^^^^
-;             return 0 == string.Compare(input, 0, valueToCompare, 0, valueToCompare.Length, StringComparison.Ordinal);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        sub       rsp,38
        test      rcx,rcx
        je        short M02_L00
@@ -4182,13 +3968,9 @@ M02_L01:
 ; Total bytes of code 76
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.StartsWithOrdinalIgnoreCase()
-;             var result = RandomData.GenerateWord(10).StartsWithOrdinalIgnoreCase(RandomData.GenerateWord(5));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
@@ -4211,16 +3993,16 @@ M02_L01:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Tester.RandomData.GenerateWord(Int32)
-;             Encapsulation.TryValidateParam(length, minimumValue: 1, paramName: nameof(length));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var returnValue = GenerateWord(length, DefaultMinCharacter, DefaultMaxCharacter);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return returnValue;
-;             ^^^^^^^^^^^^^^^^^^^
+; 			Encapsulation.TryValidateParam(length, minimumValue: 1, paramName: nameof(length));
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			var returnValue = GenerateWord(length, DefaultMinCharacter, DefaultMaxCharacter);
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			return returnValue;
+; 			^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
-       mov       rdx,258644B3060
+       mov       rdx,22E2EFD3060
        mov       rsi,[rdx]
        test      ecx,ecx
        jle       short M01_L00
@@ -4247,7 +4029,7 @@ M01_L01:
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
        mov       ecx,6B
-       mov       rdx,7FFF60BDEFB0
+       mov       rdx,7FF88A96EFB0
        call      CORINFO_HELP_STRCNS
        mov       r8,rax
        mov       rdx,rsi
@@ -4260,14 +4042,6 @@ M01_L01:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Extensions.StringExtensions.StartsWithOrdinalIgnoreCase(System.String, System.String)
-;             if (input.IsNullOrEmpty() || valueToCompare.IsNullOrEmpty())
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 return false;
-;                 ^^^^^^^^^^^^^
-;             return 0 ==
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 string.Compare(input, 0, valueToCompare, 0, valueToCompare.Length, StringComparison.OrdinalIgnoreCase);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        sub       rsp,38
        test      rcx,rcx
        je        short M02_L00
@@ -4297,13 +4071,9 @@ M02_L01:
 ; Total bytes of code 76
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.SubstringTrim()
-;             var result = RandomData.GenerateWord(100).SubstringTrim(25, 25);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -4326,16 +4096,16 @@ M02_L01:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Tester.RandomData.GenerateWord(Int32)
-;             Encapsulation.TryValidateParam(length, minimumValue: 1, paramName: nameof(length));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var returnValue = GenerateWord(length, DefaultMinCharacter, DefaultMaxCharacter);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return returnValue;
-;             ^^^^^^^^^^^^^^^^^^^
+; 			Encapsulation.TryValidateParam(length, minimumValue: 1, paramName: nameof(length));
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			var returnValue = GenerateWord(length, DefaultMinCharacter, DefaultMaxCharacter);
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			return returnValue;
+; 			^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
-       mov       rdx,23514663060
+       mov       rdx,21283BD3060
        mov       rsi,[rdx]
        test      ecx,ecx
        jle       short M01_L00
@@ -4362,7 +4132,7 @@ M01_L01:
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
        mov       ecx,6B
-       mov       rdx,7FFF60BDEFB0
+       mov       rdx,7FF88A94EFB0
        call      CORINFO_HELP_STRCNS
        mov       r8,rax
        mov       rdx,rsi
@@ -4383,17 +4153,13 @@ M01_L01:
        mov       rdi,rcx
        mov       esi,edx
        mov       ebx,r8d
-;             if (input.IsNullOrEmpty())
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^
        test      rdi,rdi
        je        short M02_L00
        mov       ebp,[rdi+8]
        test      ebp,ebp
        jne       short M02_L01
-;                 ExceptionThrower.ThrowArgumentNullException(nameof(input));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M02_L00:
-       mov       rcx,23544661170
+       mov       rcx,21283BD35C0
        mov       rcx,[rcx]
        call      dotNetTips.Utility.Standard.Common.ExceptionThrower.ThrowArgumentNullException(System.String)
 M02_L01:
@@ -4405,9 +4171,7 @@ M02_L01:
        or        ecx,eax
        cmp       ecx,0FFFFFFFF
        jne       short M02_L02
-;                 ExceptionThrower.ThrowArgumentOutOfRangeException(nameof(startIndex));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       mov       rcx,235446616C0
+       mov       rcx,21283BD3B10
        mov       rcx,[rcx]
        call      dotNetTips.Utility.Standard.Common.ExceptionThrower.ThrowArgumentOutOfRangeException(System.String)
 M02_L02:
@@ -4419,26 +4183,18 @@ M02_L02:
        or        ecx,eax
        cmp       ecx,0FFFFFFFF
        jne       short M02_L03
-;                 ExceptionThrower.ThrowArgumentOutOfRangeException(nameof(length));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       mov       rcx,235446615A0
+       mov       rcx,21283BD39F0
        mov       rcx,[rcx]
        call      dotNetTips.Utility.Standard.Common.ExceptionThrower.ThrowArgumentOutOfRangeException(System.String)
-;             if (startIndex >= input.Length - length)
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M02_L03:
        mov       ebp,[rdi+8]
        mov       eax,ebp
        sub       eax,ebx
        cmp       eax,esi
        jle       near ptr M02_L20
-;             if (length == 0)
-;             ^^^^^^^^^^^^^^^^
        test      ebx,ebx
        jne       short M02_L04
-;                 return string.Empty;
-;                 ^^^^^^^^^^^^^^^^^^^^
-       mov       rax,23514663060
+       mov       rax,21283BD3060
        mov       rax,[rax]
        add       rsp,28
        pop       rbx
@@ -4446,17 +4202,11 @@ M02_L03:
        pop       rsi
        pop       rdi
        ret
-;             var endIndex = startIndex + length - 1;
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M02_L04:
        lea       ebx,[rsi+rbx+0FFFF]
        jmp       short M02_L06
-;                 startIndex++;
-;                 ^^^^^^^^^^^^^
 M02_L05:
        inc       esi
-;             while (( startIndex <= endIndex ) && char.IsWhiteSpace(input[startIndex]))
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M02_L06:
        cmp       esi,ebx
        jg        short M02_L12
@@ -4492,12 +4242,8 @@ M02_L10:
        test      eax,eax
        jne       short M02_L05
        jmp       short M02_L12
-;                 endIndex--;
-;                 ^^^^^^^^^^^
 M02_L11:
        dec       ebx
-;             while (( endIndex >= startIndex ) && char.IsWhiteSpace(input[endIndex]))
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M02_L12:
        cmp       ebx,esi
        jl        short M02_L17
@@ -4532,19 +4278,13 @@ M02_L15:
 M02_L16:
        test      eax,eax
        jne       short M02_L11
-;             var newLength = endIndex - startIndex + 1;
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M02_L17:
        mov       r8d,ebx
        sub       r8d,esi
        inc       r8d
-;             if (newLength == 0)
-;             ^^^^^^^^^^^^^^^^^^^
        test      r8d,r8d
        jne       short M02_L18
-;                 return string.Empty;
-;                 ^^^^^^^^^^^^^^^^^^^^
-       mov       rax,23514663060
+       mov       rax,21283BD3060
        mov       rax,[rax]
        add       rsp,28
        pop       rbx
@@ -4552,8 +4292,6 @@ M02_L17:
        pop       rsi
        pop       rdi
        ret
-;                 return ( newLength == input.Length ) ? input : input.Substring(startIndex, newLength);
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M02_L18:
        cmp       ebp,r8d
        je        short M02_L19
@@ -4574,18 +4312,16 @@ M02_L19:
        pop       rsi
        pop       rdi
        ret
-;                 throw new ArgumentOutOfRangeException(nameof(startIndex), "startIndex + length must be <= value.Length");
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 M02_L20:
        mov       rcx,offset MT_System.ArgumentOutOfRangeException
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,11E3
-       mov       rdx,7FFF60BF6290
+       mov       rdx,7FF88A966290
        call      CORINFO_HELP_STRCNS
        mov       rdi,rax
        mov       ecx,11F9
-       mov       rdx,7FFF60BF6290
+       mov       rdx,7FF88A966290
        call      CORINFO_HELP_STRCNS
        mov       r8,rax
        mov       rdx,rdi
@@ -4600,15 +4336,9 @@ M02_L21:
 ; Total bytes of code 528
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.ToTitleCase()
-;             var words = RandomData.GenerateWords(10, 10, 10)
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 .ToDelimitedString(ControlChars.Space);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(words.ToTitleCase());
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -4644,9 +4374,9 @@ M02_L21:
        mov       esi,ecx
        mov       edi,edx
        mov       ebx,r8d
-;             Encapsulation.TryValidateParam(count, minimumValue: 1, paramName: nameof(count));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       mov       rcx,20B93743060
+; 			Encapsulation.TryValidateParam(count, minimumValue: 1, paramName: nameof(count));
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       mov       rcx,2B044913060
        mov       rbp,[rcx]
        test      esi,esi
        jle       near ptr M01_L04
@@ -4655,17 +4385,17 @@ M02_L21:
        movzx     ecx,cl
        test      ecx,ecx
        je        near ptr M01_L04
-;             var strings = new List<string>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			var strings = new List<string>();
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        mov       rcx,offset MT_System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]]
        call      CORINFO_HELP_NEWSFAST
        mov       rbp,rax
-       mov       rdx,20B93748CD8
+       mov       rdx,2B064914870
        mov       rdx,[rdx]
        lea       rcx,[rbp+8]
        call      CORINFO_HELP_ASSIGN_REF
-;             for (var wordCount = 0; wordCount < count; wordCount++)
-;                  ^^^^^^^^^^^^^^^^^
+; 			for (var wordCount = 0; wordCount < count; wordCount++)
+; 			     ^^^^^^^^^^^^^^^^^
        xor       r14d,r14d
        test      esi,esi
        jle       short M01_L02
@@ -4712,7 +4442,7 @@ M01_L05:
        call      CORINFO_HELP_NEWSFAST
        mov       rsi,rax
        mov       ecx,1
-       mov       rdx,7FFF60BCEFB0
+       mov       rdx,7FF88A95EFB0
        call      CORINFO_HELP_STRCNS
        mov       r8,rax
        mov       rdx,rbp
@@ -4725,34 +4455,6 @@ M01_L05:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Extensions.CollectionExtensions.ToDelimitedString[[System.__Canon, System.Private.CoreLib]](System.Collections.Generic.IEnumerable`1<System.__Canon>, Char)
-;             if (list.HasItems() == false)
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 return string.Empty;
-;                 ^^^^^^^^^^^^^^^^^^^^
-;             var sb = new StringBuilder();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             list.ToList()
-;             ^^^^^^^
-;                 .ForEach(item =>
-;             ^^^^^^^
-;                 {
-;             ^^^^^^^
-;                     if (sb.Length > 0)
-;             ^^^^^^^
-;                     {
-;             ^^^^^^^
-;                         sb.Append(delimiter.ToString(CultureInfo.CurrentCulture));
-;             ^^^^^^^
-;                     }
-;             ^^^^^^^
-; 
-;             ^^^^^^^
-;                     sb.Append(item.ToString());
-;             ^^^^^^^
-;                 });
-;             ^^^^^^^
-;             return sb.ToString();
-;             ^^^^^^^^^^^^^^^^^^^^^
        push      r14
        push      rdi
        push      rsi
@@ -4768,7 +4470,7 @@ M01_L05:
        test      rcx,rcx
        jne       short M02_L00
        mov       rcx,rsi
-       mov       rdx,7FFF60CA0CD0
+       mov       rdx,7FF88AA30CD0
        call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
        mov       rcx,rax
 M02_L00:
@@ -4785,7 +4487,7 @@ M02_L00:
        test      eax,eax
        jne       short M02_L02
 M02_L01:
-       mov       rax,20B93743060
+       mov       rax,2B044913060
        mov       rax,[rax]
        add       rsp,30
        pop       rbx
@@ -4812,7 +4514,7 @@ M02_L02:
        test      rcx,rcx
        jne       short M02_L03
        mov       rcx,rsi
-       mov       rdx,7FFF60CA0D90
+       mov       rdx,7FF88AA30D90
        call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
        mov       rcx,rax
 M02_L03:
@@ -4823,7 +4525,7 @@ M02_L03:
        test      rcx,rcx
        jne       short M02_L04
        mov       rcx,rsi
-       mov       rdx,7FFF60CA0ED0
+       mov       rdx,7FF88AA30ED0
        call      CORINFO_HELP_RUNTIMEHANDLE_METHOD
        mov       rcx,rax
 M02_L04:
@@ -4832,14 +4534,14 @@ M02_L04:
        lea       rcx,[rsi+8]
        mov       rdx,r14
        call      CORINFO_HELP_ASSIGN_REF
-       mov       rcx,offset dotNetTips.Utility.Standard.Extensions.CollectionExtensions+<>c__DisplayClass61_0`1[[System.__Canon, System.Private.CoreLib]].<ToDelimitedString>b__0(System.__Canon)
+       mov       rcx,offset dotNetTips.Utility.Standard.Extensions.CollectionExtensions+<>c__DisplayClass62_0`1[[System.__Canon, System.Private.CoreLib]].<ToDelimitedString>b__0(System.__Canon)
        mov       [rsi+18],rcx
        mov       rcx,rdi
        mov       rdx,rsi
        cmp       [rcx],ecx
        call      System.Collections.Generic.List`1[[System.__Canon, System.Private.CoreLib]].ForEach(System.Action`1<System.__Canon>)
        mov       rcx,[r14+8]
-       mov       rax,[7FFF60C47010]
+       mov       rax,[7FF88A9D7010]
        cmp       [rcx],ecx
        add       rsp,30
        pop       rbx
@@ -4852,12 +4554,6 @@ M02_L04:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Extensions.StringExtensions.ToTitleCase(System.String)
-;             if (input.IsNullOrEmpty())
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 ExceptionThrower.ThrowArgumentNullException(nameof(input));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(input);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -4866,7 +4562,7 @@ M02_L04:
        cmp       dword ptr [rsi+8],0
        ja        short M03_L01
 M03_L00:
-       mov       rcx,20BB3741170
+       mov       rcx,2B0449155D8
        mov       rcx,[rcx]
        call      dotNetTips.Utility.Standard.Common.ExceptionThrower.ThrowArgumentNullException(System.String)
 M03_L01:
@@ -4885,13 +4581,9 @@ M03_L01:
 ; Total bytes of code 81
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Extensions.StringExtensionsPerfTestRunner.ToTrimmedString()
-;             var result = this._stringToTrim.ToTrimmed();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -4910,12 +4602,6 @@ M03_L01:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Extensions.StringExtensions.ToTrimmed(System.String)
-;             if (input.IsNullOrEmpty())
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 ExceptionThrower.ThrowArgumentNullException(nameof(input));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return input.TrimEnd().TrimStart();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -4924,17 +4610,17 @@ M03_L01:
        cmp       dword ptr [rsi+8],0
        ja        short M01_L01
 M01_L00:
-       mov       rcx,198B7A5D120
+       mov       rcx,2962EAAD120
        mov       rcx,[rcx]
        call      dotNetTips.Utility.Standard.Common.ExceptionThrower.ThrowArgumentNullException(System.String)
 M01_L01:
-       mov       rdx,198B7A54868
+       mov       rdx,2962EAA4868
        mov       rdx,[rdx]
        mov       rcx,rsi
        cmp       [rcx],ecx
        call      System.String.TrimEnd(Char[])
        mov       rcx,rax
-       mov       rdx,198B7A54868
+       mov       rdx,2962EAA4868
        mov       rdx,[rdx]
        mov       rax,offset System.String.TrimStart(Char[])
        cmp       [rcx],ecx

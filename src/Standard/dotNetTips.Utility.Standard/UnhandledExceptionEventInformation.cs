@@ -16,24 +16,23 @@ using dotNetTips.Utility.Standard.Common;
 
 namespace dotNetTips.Utility.Standard
 {
+	/// <summary>
+	/// Class UnhandledExceptionEventInformation.
+	/// </summary>
+	/// <seealso cref="dotNetTips.Utility.Standard.IEventInformation" />
+	public sealed class UnhandledExceptionEventInformation : IEventInformation
+	{
 
-    /// <summary>
-    /// Class UnhandledExceptionEventInformation.
-    /// </summary>
-    /// <seealso cref="dotNetTips.Utility.Standard.IEventInformation" />
-    public sealed class UnhandledExceptionEventInformation : IEventInformation
-    {
-        /// <summary>
-        /// Gets a value indicating whether [network available].
-        /// </summary>
-        /// <value><c>true</c> if [network available]; otherwise, <c>false</c>.</value>
-        public bool IsTerminating { get; internal set; }
-
-        /// <summary>
-        /// Gets the exception.
-        /// </summary>
-        /// <value>The exception.</value>
-        public LoggableException Exception { get; internal set; }
-    }
+		/// <summary>
+		/// Gets the exception.
+		/// </summary>
+		/// <value>The exception.</value>
+		public LoggableException Exception { get; internal set; }
+		/// <summary>
+		/// Gets a value indicating whether [network available].
+		/// </summary>
+		/// <value><c>true</c> if [network available]; otherwise, <c>false</c>.</value>
+		public bool IsTerminating { get; internal set; }
+	}
 
 }

@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>dotNetTips.Utility.Benchmarks.Extensions.StringBuilderExtensionsPerfTestRunner-20210228-164747</title>
+<title>dotNetTips.Utility.Benchmarks.Extensions.StringBuilderExtensionsPerfTestRunner-20210503-210640</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -15,20 +15,20 @@
 <pre><code>
 BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
 Unknown processor
-.NET Core SDK=5.0.200-preview.21079.7
-  [Host]     : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
-  Job-HTSMCU : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+.NET Core SDK=5.0.300-preview.21180.15
+  [Host]     : .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
+  Job-SOGKAI : .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 </code></pre>
 <pre><code>EvaluateOverhead=True  Server=True  Toolchain=.NET Core 3.1  
 Namespace=dotNetTips.Utility.Benchmarks.Extensions  Categories=StringBuilderExtensions  
 </code></pre>
 
 <table>
-<thead><tr><th>     Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>StdErr</th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th><th>Op/s</th><th>CI99.9% Margin</th><th>Iterations</th><th>Kurtosis</th><th>MValue</th><th>Skewness</th><th>Rank</th><th>LogicalGroup</th><th>Baseline</th><th>Code Size</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+<thead><tr><th>     Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>StdErr</th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th><th>Op/s</th><th>CI99.9% Margin</th><th>Iterations</th><th>Kurtosis</th><th>MValue</th><th>Skewness</th><th>Rank</th><th>LogicalGroup</th><th>Baseline</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th><th>Code Size</th>
 </tr>
-</thead><tbody><tr><td>AppendBytes</td><td>46.72 &mu;s</td><td>0.288 &mu;s</td><td>0.270 &mu;s</td><td>0.070 &mu;s</td><td>46.05 &mu;s</td><td>46.69 &mu;s</td><td>46.72 &mu;s</td><td>46.87 &mu;s</td><td>47.10 &mu;s</td><td>21,404.6</td><td>0.2884 &mu;s</td><td>15.00</td><td>3.705</td><td>2.000</td><td>-1.1558</td><td>1</td><td>*</td><td>No</td><td>0.9 KB</td><td>4.9438</td><td>0.0610</td><td>-</td><td>45.69 KB</td>
-</tr><tr><td>AppendJoin</td><td>54.66 &mu;s</td><td>0.383 &mu;s</td><td>0.358 &mu;s</td><td>0.092 &mu;s</td><td>54.17 &mu;s</td><td>54.34 &mu;s</td><td>54.64 &mu;s</td><td>54.98 &mu;s</td><td>55.24 &mu;s</td><td>18,293.7</td><td>0.3828 &mu;s</td><td>15.00</td><td>1.316</td><td>2.000</td><td>0.1306</td><td>3</td><td>*</td><td>No</td><td>0.98 KB</td><td>5.1270</td><td>0.0610</td><td>-</td><td>47.6 KB</td>
-</tr><tr><td>AppendJoin:Params</td><td>53.33 &mu;s</td><td>0.384 &mu;s</td><td>0.360 &mu;s</td><td>0.093 &mu;s</td><td>52.66 &mu;s</td><td>53.18 &mu;s</td><td>53.34 &mu;s</td><td>53.58 &mu;s</td><td>53.76 &mu;s</td><td>18,752.7</td><td>0.3844 &mu;s</td><td>15.00</td><td>2.065</td><td>2.000</td><td>-0.5871</td><td>2</td><td>*</td><td>No</td><td>0.98 KB</td><td>5.1880</td><td>0.0610</td><td>-</td><td>47.6 KB</td>
+</thead><tbody><tr><td>AppendBytes</td><td>48.76 &mu;s</td><td>0.510 &mu;s</td><td>0.477 &mu;s</td><td>0.123 &mu;s</td><td>48.14 &mu;s</td><td>48.37 &mu;s</td><td>48.52 &mu;s</td><td>49.12 &mu;s</td><td>49.64 &mu;s</td><td>20,509.9</td><td>0.5103 &mu;s</td><td>15.00</td><td>1.604</td><td>2.000</td><td>0.4276</td><td>1</td><td>*</td><td>No</td><td>4.9438</td><td>0.0610</td><td>-</td><td>45.69 KB</td><td>0.9 KB</td>
+</tr><tr><td>AppendJoin</td><td>51.13 &mu;s</td><td>0.226 &mu;s</td><td>0.200 &mu;s</td><td>0.053 &mu;s</td><td>50.58 &mu;s</td><td>51.10 &mu;s</td><td>51.20 &mu;s</td><td>51.27 &mu;s</td><td>51.30 &mu;s</td><td>19,556.7</td><td>0.2258 &mu;s</td><td>14.00</td><td>4.639</td><td>2.000</td><td>-1.5554</td><td>2</td><td>*</td><td>No</td><td>5.1880</td><td>0.1221</td><td>-</td><td>47.6 KB</td><td>0.98 KB</td>
+</tr><tr><td>AppendJoin:Params</td><td>51.94 &mu;s</td><td>0.178 &mu;s</td><td>0.166 &mu;s</td><td>0.043 &mu;s</td><td>51.57 &mu;s</td><td>51.82 &mu;s</td><td>51.96 &mu;s</td><td>52.04 &mu;s</td><td>52.23 &mu;s</td><td>19,253.1</td><td>0.1777 &mu;s</td><td>15.00</td><td>2.685</td><td>2.000</td><td>-0.4909</td><td>3</td><td>*</td><td>No</td><td>5.1880</td><td>0.0610</td><td>-</td><td>47.6 KB</td><td>0.98 KB</td>
 </tr></tbody></table>
 </body>
 </html>

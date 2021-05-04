@@ -1,10 +1,6 @@
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.IO.PathHelperPerfTestRunner.EnsureTrailingSlashTest()
-;             var result = PathHelper.EnsureTrailingSlash(Environment.CurrentDirectory);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -31,7 +27,7 @@
        xor       eax,eax
        mov       [rbp+8],rax
        mov       [rbp+18],rax
-       mov       rax,8D068969647C
+       mov       rax,92EBA18DA487
        mov       [rbp],rax
        add       rsp,20
        test      esp,[rsp]
@@ -78,7 +74,7 @@ M01_L01:
        jne       short M01_L03
        lea       rcx,[rbp+8]
        call      System.Text.ValueStringBuilder.ToString()
-       mov       rcx,8D068969647C
+       mov       rcx,92EBA18DA487
        cmp       [rbp],rcx
        je        short M01_L02
        call      CORINFO_HELP_FAIL_FAST
@@ -92,7 +88,7 @@ M01_L03:
        lea       rcx,[rbp+8]
        xor       edx,edx
        call      System.IO.PathHelper.TryExpandShortFileName(System.Text.ValueStringBuilder ByRef, System.String)
-       mov       rcx,8D068969647C
+       mov       rcx,92EBA18DA487
        cmp       [rbp],rcx
        je        short M01_L04
        call      CORINFO_HELP_FAIL_FAST
@@ -103,10 +99,10 @@ M01_L04:
        pop       rbp
        ret
 M01_L05:
-       call      00007FFFC042D830
+       call      00007FF8EA1BD940
        mov       esi,eax
        mov       ecx,2EB
-       mov       rdx,7FFF607F4020
+       mov       rdx,7FF88A5B4020
        call      CORINFO_HELP_STRCNS
        mov       rdx,rax
        mov       ecx,esi
@@ -120,16 +116,12 @@ M01_L06:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.IO.PathHelper.EnsureTrailingSlash(System.String)
-;             Encapsulation.TryValidateParam(path, nameof(path));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return path[path.Length - 1] != Path.DirectorySeparatorChar ? path + Path.DirectorySeparatorChar : path;
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
-       mov       r8,2EE5D0F3060
+       mov       r8,201C83B3060
        mov       r8,[r8]
-       mov       rdx,2EE5D0F3BD8
+       mov       rdx,201E83BD738
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -161,13 +153,9 @@ M02_L01:
 ; Total bytes of code 112
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.IO.PathHelperPerfTestRunner.HasInvalidFilterChars()
-;             var result = PathHelper.HasInvalidFilterChars(RandomData.GenerateWord(15));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -184,16 +172,16 @@ M02_L01:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Tester.RandomData.GenerateWord(Int32)
-;             Encapsulation.TryValidateParam(length, minimumValue: 1, paramName: nameof(length));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var returnValue = GenerateWord(length, DefaultMinCharacter, DefaultMaxCharacter);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return returnValue;
-;             ^^^^^^^^^^^^^^^^^^^
+; 			Encapsulation.TryValidateParam(length, minimumValue: 1, paramName: nameof(length));
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			var returnValue = GenerateWord(length, DefaultMinCharacter, DefaultMaxCharacter);
+; 			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 			return returnValue;
+; 			^^^^^^^^^^^^^^^^^^^
        push      rdi
        push      rsi
        sub       rsp,28
-       mov       rdx,1950E473060
+       mov       rdx,18CB62E3060
        mov       rsi,[rdx]
        test      ecx,ecx
        jle       short M01_L00
@@ -220,7 +208,7 @@ M01_L01:
        call      CORINFO_HELP_NEWSFAST
        mov       rdi,rax
        mov       ecx,6B
-       mov       rdx,7FFF60BDF440
+       mov       rdx,7FF88A98F440
        call      CORINFO_HELP_STRCNS
        mov       r8,rax
        mov       rdx,rsi
@@ -233,16 +221,12 @@ M01_L01:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.IO.PathHelper.HasInvalidFilterChars(System.String)
-;             Encapsulation.TryValidateParam(filter, nameof(filter));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return filter.IndexOfAny(InvalidFilterChars) != -1;
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
-       mov       r8,1950E473060
+       mov       r8,18CB62E3060
        mov       r8,[r8]
-       mov       rdx,1951E47F7E8
+       mov       rdx,18CB62F1C38
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -262,13 +246,9 @@ M01_L01:
 ; Total bytes of code 83
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.IO.PathHelperPerfTestRunner.PathContainsWildcardTest()
-;             var result = PathHelper.PathContainsWildcard(Environment.CurrentDirectory);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -291,7 +271,7 @@ M01_L01:
        xor       eax,eax
        mov       [rbp+8],rax
        mov       [rbp+18],rax
-       mov       rax,0D9E59C79C0C6
+       mov       rax,0DE35DAF70DEC
        mov       [rbp],rax
        add       rsp,20
        test      esp,[rsp]
@@ -338,7 +318,7 @@ M01_L01:
        jne       short M01_L03
        lea       rcx,[rbp+8]
        call      System.Text.ValueStringBuilder.ToString()
-       mov       rcx,0D9E59C79C0C6
+       mov       rcx,0DE35DAF70DEC
        cmp       [rbp],rcx
        je        short M01_L02
        call      CORINFO_HELP_FAIL_FAST
@@ -352,7 +332,7 @@ M01_L03:
        lea       rcx,[rbp+8]
        xor       edx,edx
        call      System.IO.PathHelper.TryExpandShortFileName(System.Text.ValueStringBuilder ByRef, System.String)
-       mov       rcx,0D9E59C79C0C6
+       mov       rcx,0DE35DAF70DEC
        cmp       [rbp],rcx
        je        short M01_L04
        call      CORINFO_HELP_FAIL_FAST
@@ -363,10 +343,10 @@ M01_L04:
        pop       rbp
        ret
 M01_L05:
-       call      00007FFFC042D830
+       call      00007FF8EA1BD940
        mov       esi,eax
        mov       ecx,2EB
-       mov       rdx,7FFF607F4020
+       mov       rdx,7FF88A594020
        call      CORINFO_HELP_STRCNS
        mov       rdx,rax
        mov       ecx,esi
@@ -380,16 +360,12 @@ M01_L06:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.IO.PathHelper.PathContainsWildcard(System.String)
-;             Encapsulation.TryValidateParam(path, nameof(path));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return ( path?.IndexOf('*') != -1 ) || ( path?.IndexOf('?') != -1 );
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
-       mov       r8,1F85B4F3060
+       mov       r8,16B72623060
        mov       r8,[r8]
-       mov       rdx,1F86B4FD738
+       mov       rdx,16B9262D738
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -422,13 +398,9 @@ M02_L00:
 ; Total bytes of code 122
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.IO.PathHelperPerfTestRunner.PathHasInvalidCharsTest()
-;             var result = PathHelper.PathHasInvalidChars(Environment.CurrentDirectory);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -451,7 +423,7 @@ M02_L00:
        xor       eax,eax
        mov       [rbp+8],rax
        mov       [rbp+18],rax
-       mov       rax,0BB7976CD2DB4
+       mov       rax,82E00DBD7EF4
        mov       [rbp],rax
        add       rsp,20
        test      esp,[rsp]
@@ -498,7 +470,7 @@ M01_L01:
        jne       short M01_L03
        lea       rcx,[rbp+8]
        call      System.Text.ValueStringBuilder.ToString()
-       mov       rcx,0BB7976CD2DB4
+       mov       rcx,82E00DBD7EF4
        cmp       [rbp],rcx
        je        short M01_L02
        call      CORINFO_HELP_FAIL_FAST
@@ -512,7 +484,7 @@ M01_L03:
        lea       rcx,[rbp+8]
        xor       edx,edx
        call      System.IO.PathHelper.TryExpandShortFileName(System.Text.ValueStringBuilder ByRef, System.String)
-       mov       rcx,0BB7976CD2DB4
+       mov       rcx,82E00DBD7EF4
        cmp       [rbp],rcx
        je        short M01_L04
        call      CORINFO_HELP_FAIL_FAST
@@ -523,10 +495,10 @@ M01_L04:
        pop       rbp
        ret
 M01_L05:
-       call      00007FFFC042D830
+       call      00007FF8EA1BD940
        mov       esi,eax
        mov       ecx,2EB
-       mov       rdx,7FFF607F4020
+       mov       rdx,7FF88A594020
        call      CORINFO_HELP_STRCNS
        mov       rdx,rax
        mov       ecx,esi
@@ -540,16 +512,12 @@ M01_L06:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.IO.PathHelper.PathHasInvalidChars(System.String)
-;             Encapsulation.TryValidateParam(path, nameof(path));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return path.IndexOfAny(InvalidPathNameChars) != -1;
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
-       mov       r8,1C19F8D3060
+       mov       r8,2607B833060
        mov       r8,[r8]
-       mov       rdx,1C19F8D3BD8
+       mov       rdx,2607B833BD8
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)

@@ -14,41 +14,40 @@
 
 namespace dotNetTips.Utility.Standard.Extensions
 {
-    /// <summary>
-    /// Enum for HashType.
-    /// </summary>
-    public enum HashType
-    {
+	/// <summary>
+	/// Enum for HashType.
+	/// </summary>
+	public enum HashType
+	{
+		/// <summary>
+		/// SHA hash
+		/// </summary>
+		SHA,
 
-        /// <summary>
-        /// SHA hash
-        /// </summary>
-        SHA,
+		/// <summary>
+		/// SHA1 hash
+		/// </summary>
+		SHA1,
 
-        /// <summary>
-        /// SHA1 hash
-        /// </summary>
-        SHA1,
+		/// <summary>
+		/// MD5 hash
+		/// </summary>
+		MD5,
 
-        /// <summary>
-        /// MD5 hash
-        /// </summary>
-        MD5,
+		/// <summary>
+		/// SHA256 hash
+		/// </summary>
+		SHA256,
 
-        /// <summary>
-        /// SHA256 hash
-        /// </summary>
-        SHA256,
+		/// <summary>
+		/// SHA384 hash
+		/// </summary>
+		SHA384,
 
-        /// <summary>
-        /// SHA384 hash
-        /// </summary>
-        SHA384,
+		/// <summary>
+		/// SHA512 hash
+		/// </summary>
+		SHA512
 
-        /// <summary>
-        /// SHA512 hash
-        /// </summary>
-        SHA512
-
-    }
+	}
 }

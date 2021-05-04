@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>DisassemblyDiagnoser Output dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner-20210228-171052</title>
+<title>DisassemblyDiagnoser Output dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner-20210503-212846</title>
 
 <style type="text/css">
     table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -16,23 +16,19 @@
 <thead>
 <tr><th colspan="7">XmlHelperPerfTestRunner.Deserialize</th></tr>
 <tr>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.Deserialize()
-            var result = XmlHelper.Deserialize<PersonCollection<PersonProper>>(this._xml);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -50,16 +46,6 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Standard.Xml.XmlHelper.Deserialize[[System.__Canon, System.Private.CoreLib]](System.String)
-            Encapsulation.TryValidateParam(xml, nameof(xml));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var sr = new StringReader(xml))
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                var xs = new XmlSerializer(typeof(TResult));
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                return (TResult)xs.Deserialize(sr);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
 push      rbp
 push      rdi
 push      rsi
@@ -70,9 +56,9 @@ mov       [rbp+0FFD0],rsp
 mov       [rbp+0FFE0],rcx
 mov       rdi,rcx
 mov       rsi,rdx
-mov       r8,1C712013060
+mov       r8,1A846D83060
 mov       r8,[r8]
-mov       rdx,1C702011720
+mov       rdx,1A856D8D6D0
 mov       rdx,[rdx]
 mov       rcx,rsi
 call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -126,7 +112,7 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFD8],0
-je        short 00007FFF60C78B32
+je        short 00007FF88A9EC312
 mov       rcx,[rbp+0FFD8]
 xor       eax,eax
 mov       [rcx+8],rax
@@ -148,10 +134,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.Deserialize()
-            var result = XmlHelper.Deserialize<PersonCollection<PersonProper>>(this._xml);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -169,16 +151,6 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Standard.Xml.XmlHelper.Deserialize[[System.__Canon, System.Private.CoreLib]](System.String)
-            Encapsulation.TryValidateParam(xml, nameof(xml));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var sr = new StringReader(xml))
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                var xs = new XmlSerializer(typeof(TResult));
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                return (TResult)xs.Deserialize(sr);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
 push      rbp
 push      rdi
 push      rsi
@@ -189,9 +161,9 @@ mov       [rbp+0FFD0],rsp
 mov       [rbp+0FFE0],rcx
 mov       rdi,rcx
 mov       rsi,rdx
-mov       r8,143D1013060
+mov       r8,21B2E4D3060
 mov       r8,[r8]
-mov       rdx,143E1011720
+mov       rdx,21B2E4E1B38
 mov       rdx,[rdx]
 mov       rcx,rsi
 call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -245,7 +217,7 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFD8],0
-je        short 00007FFF60C58D92
+je        short 00007FF88A9D6312
 mov       rcx,[rbp+0FFD8]
 xor       eax,eax
 mov       [rcx+8],rax
@@ -267,10 +239,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.Deserialize()
-            var result = XmlHelper.Deserialize<PersonCollection<PersonProper>>(this._xml);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -288,16 +256,6 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Standard.Xml.XmlHelper.Deserialize[[System.__Canon, System.Private.CoreLib]](System.String)
-            Encapsulation.TryValidateParam(xml, nameof(xml));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var sr = new StringReader(xml))
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                var xs = new XmlSerializer(typeof(TResult));
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                return (TResult)xs.Deserialize(sr);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
 push      rbp
 push      rdi
 push      rsi
@@ -308,9 +266,9 @@ mov       [rbp+0FFD0],rsp
 mov       [rbp+0FFE0],rcx
 mov       rdi,rcx
 mov       rsi,rdx
-mov       r8,2977D6B3060
+mov       r8,261C8523060
 mov       r8,[r8]
-mov       rdx,2979D6B1720
+mov       rdx,261A8521720
 mov       rdx,[rdx]
 mov       rcx,rsi
 call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -364,7 +322,7 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFD8],0
-je        short 00007FFF60C592A2
+je        short 00007FF88A9D9022
 mov       rcx,[rbp+0FFD8]
 xor       eax,eax
 mov       [rcx+8],rax
@@ -386,10 +344,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.Deserialize()
-            var result = XmlHelper.Deserialize<PersonCollection<PersonProper>>(this._xml);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -407,16 +361,6 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Standard.Xml.XmlHelper.Deserialize[[System.__Canon, System.Private.CoreLib]](System.String)
-            Encapsulation.TryValidateParam(xml, nameof(xml));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var sr = new StringReader(xml))
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                var xs = new XmlSerializer(typeof(TResult));
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                return (TResult)xs.Deserialize(sr);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
 push      rbp
 push      rdi
 push      rsi
@@ -427,9 +371,9 @@ mov       [rbp+0FFD0],rsp
 mov       [rbp+0FFE0],rcx
 mov       rdi,rcx
 mov       rsi,rdx
-mov       r8,1DFA8B53060
+mov       r8,20858D93060
 mov       r8,[r8]
-mov       rdx,1DFC8B51720
+mov       rdx,20868D91720
 mov       rdx,[rdx]
 mov       rcx,rsi
 call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -483,7 +427,7 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFD8],0
-je        short 00007FFF60C4BB62
+je        short 00007FF88A9F8EC2
 mov       rcx,[rbp+0FFD8]
 xor       eax,eax
 mov       [rcx+8],rax
@@ -505,10 +449,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.Deserialize()
-            var result = XmlHelper.Deserialize<PersonCollection<PersonProper>>(this._xml);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -526,16 +466,6 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Standard.Xml.XmlHelper.Deserialize[[System.__Canon, System.Private.CoreLib]](System.String)
-            Encapsulation.TryValidateParam(xml, nameof(xml));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var sr = new StringReader(xml))
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                var xs = new XmlSerializer(typeof(TResult));
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                return (TResult)xs.Deserialize(sr);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
 push      rbp
 push      rdi
 push      rsi
@@ -546,9 +476,9 @@ mov       [rbp+0FFD0],rsp
 mov       [rbp+0FFE0],rcx
 mov       rdi,rcx
 mov       rsi,rdx
-mov       r8,232C7363060
+mov       r8,20CC5623060
 mov       r8,[r8]
-mov       rdx,232B7361720
+mov       rdx,20CE562F6E8
 mov       rdx,[rdx]
 mov       rcx,rsi
 call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -602,7 +532,7 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFD8],0
-je        short 00007FFF60C58682
+je        short 00007FF88A9ECBA2
 mov       rcx,[rbp+0FFD8]
 xor       eax,eax
 mov       [rcx+8],rax
@@ -624,10 +554,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.Deserialize()
-            var result = XmlHelper.Deserialize<PersonCollection<PersonProper>>(this._xml);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -645,16 +571,6 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Standard.Xml.XmlHelper.Deserialize[[System.__Canon, System.Private.CoreLib]](System.String)
-            Encapsulation.TryValidateParam(xml, nameof(xml));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var sr = new StringReader(xml))
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                var xs = new XmlSerializer(typeof(TResult));
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                return (TResult)xs.Deserialize(sr);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
 push      rbp
 push      rdi
 push      rsi
@@ -665,9 +581,9 @@ mov       [rbp+0FFD0],rsp
 mov       [rbp+0FFE0],rcx
 mov       rdi,rcx
 mov       rsi,rdx
-mov       r8,1E7FFD93060
+mov       r8,1B174453060
 mov       r8,[r8]
-mov       rdx,1E82FD91720
+mov       rdx,1B174461B38
 mov       rdx,[rdx]
 mov       rcx,rsi
 call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -721,7 +637,7 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFD8],0
-je        short 00007FFF60C4BC62
+je        short 00007FF88ABD6992
 mov       rcx,[rbp+0FFD8]
 xor       eax,eax
 mov       [rcx+8],rax
@@ -743,10 +659,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.Deserialize()
-            var result = XmlHelper.Deserialize<PersonCollection<PersonProper>>(this._xml);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -764,16 +676,6 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Standard.Xml.XmlHelper.Deserialize[[System.__Canon, System.Private.CoreLib]](System.String)
-            Encapsulation.TryValidateParam(xml, nameof(xml));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var sr = new StringReader(xml))
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                var xs = new XmlSerializer(typeof(TResult));
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                return (TResult)xs.Deserialize(sr);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
 push      rbp
 push      rdi
 push      rsi
@@ -784,9 +686,9 @@ mov       [rbp+0FFD0],rsp
 mov       [rbp+0FFE0],rcx
 mov       rdi,rcx
 mov       rsi,rdx
-mov       r8,21E9B203060
+mov       r8,2CBF2A23060
 mov       r8,[r8]
-mov       rdx,21E9B211B38
+mov       rdx,2CBF2A31B38
 mov       rdx,[rdx]
 mov       rcx,rsi
 call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -840,7 +742,7 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFD8],0
-je        short 00007FFF60C586E2
+je        short 00007FF88A9F9292
 mov       rcx,[rbp+0FFD8]
 xor       eax,eax
 mov       [rcx+8],rax
@@ -867,23 +769,19 @@ ret
 <thead>
 <tr><th colspan="7">XmlHelperPerfTestRunner.Serialize</th></tr>
 <tr>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.Serialize()
-            var result = XmlHelper.Serialize(base.personProperCollection);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -900,20 +798,6 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
-            Encapsulation.TryValidateParam<ArgumentNullException>(obj != null, nameof(obj));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var writer = new StringWriter())
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                using (var xmlWriter = XmlWriter.Create(writer))
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    var serializer = new XmlSerializer(obj.GetType());
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    serializer.Serialize(xmlWriter, obj);
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    return writer.ToString();
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
 push      rbp
 push      rdi
 push      rsi
@@ -926,9 +810,9 @@ mov       rsi,rcx
 test      rsi,rsi
 setne     dl
 movzx     edx,dl
-mov       r9,2226DB73060
+mov       r9,1B358FC3060
 mov       r9,[r9]
-mov       r8,2224DB71688
+mov       r8,1B338FCD638
 mov       r8,[r8]
 mov       rcx,offset MD_dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(Boolean, System.String, System.String)
 call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam[[System.__Canon, System.Private.CoreLib]](Boolean, System.String, System.String)
@@ -952,7 +836,7 @@ mov       rcx,offset MT_System.Xml.Serialization.XmlSerializer
 call      CORINFO_HELP_NEWSFAST
 mov       rdi,rax
 mov       rcx,rsi
-call      00007FFFC03F1F60
+call      00007FF8EA182020
 mov       rdx,rax
 mov       rcx,rdi
 xor       r8d,r8d
@@ -968,14 +852,14 @@ call      System.Xml.Serialization.XmlSerializer.Serialize(System.Xml.XmlWriter,
 mov       rcx,[rbp+0FFE8]
 mov       rcx,[rcx+20]
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C47010]
+call      qword ptr [7FF88A9D7010]
 mov       rsi,rax
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C432BC
+je        short 00007FF88A9D5BBC
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60800760
+mov       r11,7FF88A590790
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C50760]
+call      qword ptr [7FF88A9E0790]
 nop
 mov       rcx,[rbp+0FFE8]
 mov       byte ptr [rcx+28],0
@@ -995,11 +879,11 @@ mov       rbp,[rcx+30]
 mov       [rsp+30],rbp
 lea       rbp,[rbp+60]
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C43309
+je        short 00007FF88A9D5C09
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60800760
+mov       r11,7FF88A590790
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C50760]
+call      qword ptr [7FF88A9E0790]
 nop
 add       rsp,40
 pop       rsi
@@ -1014,752 +898,7 @@ mov       rbp,[rcx+30]
 mov       [rsp+30],rbp
 lea       rbp,[rbp+60]
 cmp       qword ptr [rbp+0FFE8],0
-je        short 00007FFF60C4333E
-mov       rcx,[rbp+0FFE8]
-mov       byte ptr [rcx+28],0
-mov       rcx,[rbp+0FFE8]
-call      System.GC.SuppressFinalize(System.Object)
-nop
-add       rsp,40
-pop       rsi
-pop       rdi
-pop       rbp
-ret
-
-</code></pre></td>
-<td style="vertical-align:top;"><pre><code>
-dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.Serialize()
-            var result = XmlHelper.Serialize(base.personProperCollection);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-push      rsi
-sub       rsp,20
-mov       rsi,rcx
-mov       rcx,[rsi+58]
-call      dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
-mov       rcx,[rsi+8]
-mov       edx,[rcx]
-add       rcx,8
-mov       rdx,rax
-call      CORINFO_HELP_CHECKED_ASSIGN_REF
-nop
-add       rsp,20
-pop       rsi
-ret
-
-dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
-            Encapsulation.TryValidateParam<ArgumentNullException>(obj != null, nameof(obj));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var writer = new StringWriter())
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                using (var xmlWriter = XmlWriter.Create(writer))
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    var serializer = new XmlSerializer(obj.GetType());
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    serializer.Serialize(xmlWriter, obj);
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    return writer.ToString();
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
-push      rbp
-push      rdi
-push      rsi
-sub       rsp,50
-lea       rbp,[rsp+60]
-xor       eax,eax
-mov       [rbp+0FFE8],rax
-mov       [rbp+0FFD0],rsp
-mov       rsi,rcx
-test      rsi,rsi
-setne     dl
-movzx     edx,dl
-mov       r9,19A098E3060
-mov       r9,[r9]
-mov       r8,19A098F1AA0
-mov       r8,[r8]
-mov       rcx,offset MD_dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(Boolean, System.String, System.String)
-call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam[[System.__Canon, System.Private.CoreLib]](Boolean, System.String, System.String)
-mov       rcx,offset MT_System.IO.StringWriter
-call      CORINFO_HELP_NEWSFAST
-mov       rdi,rax
-mov       rcx,rdi
-call      System.IO.StringWriter..ctor()
-mov       [rbp+0FFE8],rdi
-mov       rcx,offset MT_System.Xml.XmlWriterSettings
-call      CORINFO_HELP_NEWSFAST
-mov       rdi,rax
-mov       rcx,rdi
-call      System.Xml.XmlWriterSettings..ctor()
-mov       rcx,rdi
-mov       rdx,[rbp+0FFE8]
-cmp       [rcx],ecx
-call      System.Xml.XmlWriterSettings.CreateWriter(System.IO.TextWriter)
-mov       [rbp+0FFE0],rax
-mov       rcx,offset MT_System.Xml.Serialization.XmlSerializer
-call      CORINFO_HELP_NEWSFAST
-mov       rdi,rax
-mov       rcx,rsi
-call      00007FFFC03F1F60
-mov       rdx,rax
-mov       rcx,rdi
-xor       r8d,r8d
-call      System.Xml.Serialization.XmlSerializer..ctor(System.Type, System.String)
-xor       ecx,ecx
-mov       [rsp+20],rcx
-mov       [rsp+28],rcx
-mov       rcx,rdi
-mov       rdx,[rbp+0FFE0]
-mov       r8,rsi
-xor       r9d,r9d
-call      System.Xml.Serialization.XmlSerializer.Serialize(System.Xml.XmlWriter, System.Object, System.Xml.Serialization.XmlSerializerNamespaces, System.String, System.String)
-mov       rcx,[rbp+0FFE8]
-mov       rcx,[rcx+20]
-cmp       [rcx],ecx
-call      qword ptr [7FFF60C57010]
-mov       rsi,rax
-cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C53D4C
-mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60810760
-cmp       [rcx],ecx
-call      qword ptr [7FFF60C60760]
-nop
-mov       rcx,[rbp+0FFE8]
-mov       byte ptr [rcx+28],0
-mov       rcx,[rbp+0FFE8]
-call      System.GC.SuppressFinalize(System.Object)
-mov       rax,rsi
-lea       rsp,[rbp+0FFF0]
-pop       rsi
-pop       rdi
-pop       rbp
-ret
-push      rbp
-push      rdi
-push      rsi
-sub       rsp,40
-mov       rbp,[rcx+30]
-mov       [rsp+30],rbp
-lea       rbp,[rbp+60]
-cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C53D99
-mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60810760
-cmp       [rcx],ecx
-call      qword ptr [7FFF60C60760]
-nop
-add       rsp,40
-pop       rsi
-pop       rdi
-pop       rbp
-ret
-push      rbp
-push      rdi
-push      rsi
-sub       rsp,40
-mov       rbp,[rcx+30]
-mov       [rsp+30],rbp
-lea       rbp,[rbp+60]
-cmp       qword ptr [rbp+0FFE8],0
-je        short 00007FFF60C53DCE
-mov       rcx,[rbp+0FFE8]
-mov       byte ptr [rcx+28],0
-mov       rcx,[rbp+0FFE8]
-call      System.GC.SuppressFinalize(System.Object)
-nop
-add       rsp,40
-pop       rsi
-pop       rdi
-pop       rbp
-ret
-
-</code></pre></td>
-<td style="vertical-align:top;"><pre><code>
-dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.Serialize()
-            var result = XmlHelper.Serialize(base.personProperCollection);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-push      rsi
-sub       rsp,20
-mov       rsi,rcx
-mov       rcx,[rsi+58]
-call      dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
-mov       rcx,[rsi+8]
-mov       edx,[rcx]
-add       rcx,8
-mov       rdx,rax
-call      CORINFO_HELP_CHECKED_ASSIGN_REF
-nop
-add       rsp,20
-pop       rsi
-ret
-
-dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
-            Encapsulation.TryValidateParam<ArgumentNullException>(obj != null, nameof(obj));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var writer = new StringWriter())
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                using (var xmlWriter = XmlWriter.Create(writer))
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    var serializer = new XmlSerializer(obj.GetType());
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    serializer.Serialize(xmlWriter, obj);
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    return writer.ToString();
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
-push      rbp
-push      rdi
-push      rsi
-sub       rsp,50
-lea       rbp,[rsp+60]
-xor       eax,eax
-mov       [rbp+0FFE8],rax
-mov       [rbp+0FFD0],rsp
-mov       rsi,rcx
-test      rsi,rsi
-setne     dl
-movzx     edx,dl
-mov       r9,1CC4AFB3060
-mov       r9,[r9]
-mov       r8,1CC7AFB36A0
-mov       r8,[r8]
-mov       rcx,offset MD_dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(Boolean, System.String, System.String)
-call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam[[System.__Canon, System.Private.CoreLib]](Boolean, System.String, System.String)
-mov       rcx,offset MT_System.IO.StringWriter
-call      CORINFO_HELP_NEWSFAST
-mov       rdi,rax
-mov       rcx,rdi
-call      System.IO.StringWriter..ctor()
-mov       [rbp+0FFE8],rdi
-mov       rcx,offset MT_System.Xml.XmlWriterSettings
-call      CORINFO_HELP_NEWSFAST
-mov       rdi,rax
-mov       rcx,rdi
-call      System.Xml.XmlWriterSettings..ctor()
-mov       rcx,rdi
-mov       rdx,[rbp+0FFE8]
-cmp       [rcx],ecx
-call      System.Xml.XmlWriterSettings.CreateWriter(System.IO.TextWriter)
-mov       [rbp+0FFE0],rax
-mov       rcx,offset MT_System.Xml.Serialization.XmlSerializer
-call      CORINFO_HELP_NEWSFAST
-mov       rdi,rax
-mov       rcx,rsi
-call      00007FFFC03F1F60
-mov       rdx,rax
-mov       rcx,rdi
-xor       r8d,r8d
-call      System.Xml.Serialization.XmlSerializer..ctor(System.Type, System.String)
-xor       ecx,ecx
-mov       [rsp+20],rcx
-mov       [rsp+28],rcx
-mov       rcx,rdi
-mov       rdx,[rbp+0FFE0]
-mov       r8,rsi
-xor       r9d,r9d
-call      System.Xml.Serialization.XmlSerializer.Serialize(System.Xml.XmlWriter, System.Object, System.Xml.Serialization.XmlSerializerNamespaces, System.String, System.String)
-mov       rcx,[rbp+0FFE8]
-mov       rcx,[rcx+20]
-cmp       [rcx],ecx
-call      qword ptr [7FFF60C47010]
-mov       rsi,rax
-cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C45F6C
-mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60800768
-cmp       [rcx],ecx
-call      qword ptr [7FFF60C50768]
-nop
-mov       rcx,[rbp+0FFE8]
-mov       byte ptr [rcx+28],0
-mov       rcx,[rbp+0FFE8]
-call      System.GC.SuppressFinalize(System.Object)
-mov       rax,rsi
-lea       rsp,[rbp+0FFF0]
-pop       rsi
-pop       rdi
-pop       rbp
-ret
-push      rbp
-push      rdi
-push      rsi
-sub       rsp,40
-mov       rbp,[rcx+30]
-mov       [rsp+30],rbp
-lea       rbp,[rbp+60]
-cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C45FB9
-mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60800768
-cmp       [rcx],ecx
-call      qword ptr [7FFF60C50768]
-nop
-add       rsp,40
-pop       rsi
-pop       rdi
-pop       rbp
-ret
-push      rbp
-push      rdi
-push      rsi
-sub       rsp,40
-mov       rbp,[rcx+30]
-mov       [rsp+30],rbp
-lea       rbp,[rbp+60]
-cmp       qword ptr [rbp+0FFE8],0
-je        short 00007FFF60C45FEE
-mov       rcx,[rbp+0FFE8]
-mov       byte ptr [rcx+28],0
-mov       rcx,[rbp+0FFE8]
-call      System.GC.SuppressFinalize(System.Object)
-nop
-add       rsp,40
-pop       rsi
-pop       rdi
-pop       rbp
-ret
-
-</code></pre></td>
-<td style="vertical-align:top;"><pre><code>
-dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.Serialize()
-            var result = XmlHelper.Serialize(base.personProperCollection);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-push      rsi
-sub       rsp,20
-mov       rsi,rcx
-mov       rcx,[rsi+58]
-call      dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
-mov       rcx,[rsi+8]
-mov       edx,[rcx]
-add       rcx,8
-mov       rdx,rax
-call      CORINFO_HELP_CHECKED_ASSIGN_REF
-nop
-add       rsp,20
-pop       rsi
-ret
-
-dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
-            Encapsulation.TryValidateParam<ArgumentNullException>(obj != null, nameof(obj));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var writer = new StringWriter())
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                using (var xmlWriter = XmlWriter.Create(writer))
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    var serializer = new XmlSerializer(obj.GetType());
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    serializer.Serialize(xmlWriter, obj);
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    return writer.ToString();
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
-push      rbp
-push      rdi
-push      rsi
-sub       rsp,50
-lea       rbp,[rsp+60]
-xor       eax,eax
-mov       [rbp+0FFE8],rax
-mov       [rbp+0FFD0],rsp
-mov       rsi,rcx
-test      rsi,rsi
-setne     dl
-movzx     edx,dl
-mov       r9,1B330983060
-mov       r9,[r9]
-mov       r8,1B330991AA0
-mov       r8,[r8]
-mov       rcx,offset MD_dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(Boolean, System.String, System.String)
-call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam[[System.__Canon, System.Private.CoreLib]](Boolean, System.String, System.String)
-mov       rcx,offset MT_System.IO.StringWriter
-call      CORINFO_HELP_NEWSFAST
-mov       rdi,rax
-mov       rcx,rdi
-call      System.IO.StringWriter..ctor()
-mov       [rbp+0FFE8],rdi
-mov       rcx,offset MT_System.Xml.XmlWriterSettings
-call      CORINFO_HELP_NEWSFAST
-mov       rdi,rax
-mov       rcx,rdi
-call      System.Xml.XmlWriterSettings..ctor()
-mov       rcx,rdi
-mov       rdx,[rbp+0FFE8]
-cmp       [rcx],ecx
-call      System.Xml.XmlWriterSettings.CreateWriter(System.IO.TextWriter)
-mov       [rbp+0FFE0],rax
-mov       rcx,offset MT_System.Xml.Serialization.XmlSerializer
-call      CORINFO_HELP_NEWSFAST
-mov       rdi,rax
-mov       rcx,rsi
-call      00007FFFC03F1F60
-mov       rdx,rax
-mov       rcx,rdi
-xor       r8d,r8d
-call      System.Xml.Serialization.XmlSerializer..ctor(System.Type, System.String)
-xor       ecx,ecx
-mov       [rsp+20],rcx
-mov       [rsp+28],rcx
-mov       rcx,rdi
-mov       rdx,[rbp+0FFE0]
-mov       r8,rsi
-xor       r9d,r9d
-call      System.Xml.Serialization.XmlSerializer.Serialize(System.Xml.XmlWriter, System.Object, System.Xml.Serialization.XmlSerializerNamespaces, System.String, System.String)
-mov       rcx,[rbp+0FFE8]
-mov       rcx,[rcx+20]
-cmp       [rcx],ecx
-call      qword ptr [7FFF60E17010]
-mov       rsi,rax
-cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60E13BAC
-mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60800848
-cmp       [rcx],ecx
-call      qword ptr [7FFF60E20848]
-nop
-mov       rcx,[rbp+0FFE8]
-mov       byte ptr [rcx+28],0
-mov       rcx,[rbp+0FFE8]
-call      System.GC.SuppressFinalize(System.Object)
-mov       rax,rsi
-lea       rsp,[rbp+0FFF0]
-pop       rsi
-pop       rdi
-pop       rbp
-ret
-push      rbp
-push      rdi
-push      rsi
-sub       rsp,40
-mov       rbp,[rcx+30]
-mov       [rsp+30],rbp
-lea       rbp,[rbp+60]
-cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60E13BF9
-mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60800848
-cmp       [rcx],ecx
-call      qword ptr [7FFF60E20848]
-nop
-add       rsp,40
-pop       rsi
-pop       rdi
-pop       rbp
-ret
-push      rbp
-push      rdi
-push      rsi
-sub       rsp,40
-mov       rbp,[rcx+30]
-mov       [rsp+30],rbp
-lea       rbp,[rbp+60]
-cmp       qword ptr [rbp+0FFE8],0
-je        short 00007FFF60E13C2E
-mov       rcx,[rbp+0FFE8]
-mov       byte ptr [rcx+28],0
-mov       rcx,[rbp+0FFE8]
-call      System.GC.SuppressFinalize(System.Object)
-nop
-add       rsp,40
-pop       rsi
-pop       rdi
-pop       rbp
-ret
-
-</code></pre></td>
-<td style="vertical-align:top;"><pre><code>
-dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.Serialize()
-            var result = XmlHelper.Serialize(base.personProperCollection);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-push      rsi
-sub       rsp,20
-mov       rsi,rcx
-mov       rcx,[rsi+58]
-call      dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
-mov       rcx,[rsi+8]
-mov       edx,[rcx]
-add       rcx,8
-mov       rdx,rax
-call      CORINFO_HELP_CHECKED_ASSIGN_REF
-nop
-add       rsp,20
-pop       rsi
-ret
-
-dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
-            Encapsulation.TryValidateParam<ArgumentNullException>(obj != null, nameof(obj));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var writer = new StringWriter())
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                using (var xmlWriter = XmlWriter.Create(writer))
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    var serializer = new XmlSerializer(obj.GetType());
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    serializer.Serialize(xmlWriter, obj);
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    return writer.ToString();
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
-push      rbp
-push      rdi
-push      rsi
-sub       rsp,50
-lea       rbp,[rsp+60]
-xor       eax,eax
-mov       [rbp+0FFE8],rax
-mov       [rbp+0FFD0],rsp
-mov       rsi,rcx
-test      rsi,rsi
-setne     dl
-movzx     edx,dl
-mov       r9,23D32C13060
-mov       r9,[r9]
-mov       r8,23D22C1D638
-mov       r8,[r8]
-mov       rcx,offset MD_dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(Boolean, System.String, System.String)
-call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam[[System.__Canon, System.Private.CoreLib]](Boolean, System.String, System.String)
-mov       rcx,offset MT_System.IO.StringWriter
-call      CORINFO_HELP_NEWSFAST
-mov       rdi,rax
-mov       rcx,rdi
-call      System.IO.StringWriter..ctor()
-mov       [rbp+0FFE8],rdi
-mov       rcx,offset MT_System.Xml.XmlWriterSettings
-call      CORINFO_HELP_NEWSFAST
-mov       rdi,rax
-mov       rcx,rdi
-call      System.Xml.XmlWriterSettings..ctor()
-mov       rcx,rdi
-mov       rdx,[rbp+0FFE8]
-cmp       [rcx],ecx
-call      System.Xml.XmlWriterSettings.CreateWriter(System.IO.TextWriter)
-mov       [rbp+0FFE0],rax
-mov       rcx,offset MT_System.Xml.Serialization.XmlSerializer
-call      CORINFO_HELP_NEWSFAST
-mov       rdi,rax
-mov       rcx,rsi
-call      00007FFFC03F1F60
-mov       rdx,rax
-mov       rcx,rdi
-xor       r8d,r8d
-call      System.Xml.Serialization.XmlSerializer..ctor(System.Type, System.String)
-xor       ecx,ecx
-mov       [rsp+20],rcx
-mov       [rsp+28],rcx
-mov       rcx,rdi
-mov       rdx,[rbp+0FFE0]
-mov       r8,rsi
-xor       r9d,r9d
-call      System.Xml.Serialization.XmlSerializer.Serialize(System.Xml.XmlWriter, System.Object, System.Xml.Serialization.XmlSerializerNamespaces, System.String, System.String)
-mov       rcx,[rbp+0FFE8]
-mov       rcx,[rcx+20]
-cmp       [rcx],ecx
-call      qword ptr [7FFF60C47010]
-mov       rsi,rax
-cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C4457C
-mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60800760
-cmp       [rcx],ecx
-call      qword ptr [7FFF60C50760]
-nop
-mov       rcx,[rbp+0FFE8]
-mov       byte ptr [rcx+28],0
-mov       rcx,[rbp+0FFE8]
-call      System.GC.SuppressFinalize(System.Object)
-mov       rax,rsi
-lea       rsp,[rbp+0FFF0]
-pop       rsi
-pop       rdi
-pop       rbp
-ret
-push      rbp
-push      rdi
-push      rsi
-sub       rsp,40
-mov       rbp,[rcx+30]
-mov       [rsp+30],rbp
-lea       rbp,[rbp+60]
-cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C445C9
-mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60800760
-cmp       [rcx],ecx
-call      qword ptr [7FFF60C50760]
-nop
-add       rsp,40
-pop       rsi
-pop       rdi
-pop       rbp
-ret
-push      rbp
-push      rdi
-push      rsi
-sub       rsp,40
-mov       rbp,[rcx+30]
-mov       [rsp+30],rbp
-lea       rbp,[rbp+60]
-cmp       qword ptr [rbp+0FFE8],0
-je        short 00007FFF60C445FE
-mov       rcx,[rbp+0FFE8]
-mov       byte ptr [rcx+28],0
-mov       rcx,[rbp+0FFE8]
-call      System.GC.SuppressFinalize(System.Object)
-nop
-add       rsp,40
-pop       rsi
-pop       rdi
-pop       rbp
-ret
-
-</code></pre></td>
-<td style="vertical-align:top;"><pre><code>
-dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.Serialize()
-            var result = XmlHelper.Serialize(base.personProperCollection);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-push      rsi
-sub       rsp,20
-mov       rsi,rcx
-mov       rcx,[rsi+58]
-call      dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
-mov       rcx,[rsi+8]
-mov       edx,[rcx]
-add       rcx,8
-mov       rdx,rax
-call      CORINFO_HELP_CHECKED_ASSIGN_REF
-nop
-add       rsp,20
-pop       rsi
-ret
-
-dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
-            Encapsulation.TryValidateParam<ArgumentNullException>(obj != null, nameof(obj));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var writer = new StringWriter())
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                using (var xmlWriter = XmlWriter.Create(writer))
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    var serializer = new XmlSerializer(obj.GetType());
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    serializer.Serialize(xmlWriter, obj);
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    return writer.ToString();
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
-push      rbp
-push      rdi
-push      rsi
-sub       rsp,50
-lea       rbp,[rsp+60]
-xor       eax,eax
-mov       [rbp+0FFE8],rax
-mov       [rbp+0FFD0],rsp
-mov       rsi,rcx
-test      rsi,rsi
-setne     dl
-movzx     edx,dl
-mov       r9,133F8053060
-mov       r9,[r9]
-mov       r8,133F8053AD8
-mov       r8,[r8]
-mov       rcx,offset MD_dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(Boolean, System.String, System.String)
-call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam[[System.__Canon, System.Private.CoreLib]](Boolean, System.String, System.String)
-mov       rcx,offset MT_System.IO.StringWriter
-call      CORINFO_HELP_NEWSFAST
-mov       rdi,rax
-mov       rcx,rdi
-call      System.IO.StringWriter..ctor()
-mov       [rbp+0FFE8],rdi
-mov       rcx,offset MT_System.Xml.XmlWriterSettings
-call      CORINFO_HELP_NEWSFAST
-mov       rdi,rax
-mov       rcx,rdi
-call      System.Xml.XmlWriterSettings..ctor()
-mov       rcx,rdi
-mov       rdx,[rbp+0FFE8]
-cmp       [rcx],ecx
-call      System.Xml.XmlWriterSettings.CreateWriter(System.IO.TextWriter)
-mov       [rbp+0FFE0],rax
-mov       rcx,offset MT_System.Xml.Serialization.XmlSerializer
-call      CORINFO_HELP_NEWSFAST
-mov       rdi,rax
-mov       rcx,rsi
-call      00007FFFC03F1F60
-mov       rdx,rax
-mov       rcx,rdi
-xor       r8d,r8d
-call      System.Xml.Serialization.XmlSerializer..ctor(System.Type, System.String)
-xor       ecx,ecx
-mov       [rsp+20],rcx
-mov       [rsp+28],rcx
-mov       rcx,rdi
-mov       rdx,[rbp+0FFE0]
-mov       r8,rsi
-xor       r9d,r9d
-call      System.Xml.Serialization.XmlSerializer.Serialize(System.Xml.XmlWriter, System.Object, System.Xml.Serialization.XmlSerializerNamespaces, System.String, System.String)
-mov       rcx,[rbp+0FFE8]
-mov       rcx,[rcx+20]
-cmp       [rcx],ecx
-call      qword ptr [7FFF60C87010]
-mov       rsi,rax
-cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C7AB6C
-mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60830810
-cmp       [rcx],ecx
-call      qword ptr [7FFF60C80810]
-nop
-mov       rcx,[rbp+0FFE8]
-mov       byte ptr [rcx+28],0
-mov       rcx,[rbp+0FFE8]
-call      System.GC.SuppressFinalize(System.Object)
-mov       rax,rsi
-lea       rsp,[rbp+0FFF0]
-pop       rsi
-pop       rdi
-pop       rbp
-ret
-push      rbp
-push      rdi
-push      rsi
-sub       rsp,40
-mov       rbp,[rcx+30]
-mov       [rsp+30],rbp
-lea       rbp,[rbp+60]
-cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C7ABB9
-mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60830810
-cmp       [rcx],ecx
-call      qword ptr [7FFF60C80810]
-nop
-add       rsp,40
-pop       rsi
-pop       rdi
-pop       rbp
-ret
-push      rbp
-push      rdi
-push      rsi
-sub       rsp,40
-mov       rbp,[rcx+30]
-mov       [rsp+30],rbp
-lea       rbp,[rbp+60]
-cmp       qword ptr [rbp+0FFE8],0
-je        short 00007FFF60C7ABEE
+je        short 00007FF88A9D5C3E
 mov       rcx,[rbp+0FFE8]
 mov       byte ptr [rcx+28],0
 mov       rcx,[rbp+0FFE8]
@@ -1788,26 +927,8 @@ nop
 add       rsp,20
 pop       rsi
 ret
-            var result = XmlHelper.Serialize(base.personProperCollection);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
-            Encapsulation.TryValidateParam<ArgumentNullException>(obj != null, nameof(obj));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var writer = new StringWriter())
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                using (var xmlWriter = XmlWriter.Create(writer))
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    var serializer = new XmlSerializer(obj.GetType());
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    serializer.Serialize(xmlWriter, obj);
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                    return writer.ToString();
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
 push      rbp
 push      rdi
 push      rsi
@@ -1820,9 +941,9 @@ mov       rsi,rcx
 test      rsi,rsi
 setne     dl
 movzx     edx,dl
-mov       r9,2D87AF83060
+mov       r9,1F837563060
 mov       r9,[r9]
-mov       r8,2D87AF91AA0
+mov       r8,1F837563AD8
 mov       r8,[r8]
 mov       rcx,offset MD_dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(Boolean, System.String, System.String)
 call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam[[System.__Canon, System.Private.CoreLib]](Boolean, System.String, System.String)
@@ -1846,7 +967,7 @@ mov       rcx,offset MT_System.Xml.Serialization.XmlSerializer
 call      CORINFO_HELP_NEWSFAST
 mov       rdi,rax
 mov       rcx,rsi
-call      00007FFFC03F1F60
+call      00007FF8EA182020
 mov       rdx,rax
 mov       rcx,rdi
 xor       r8d,r8d
@@ -1862,14 +983,14 @@ call      System.Xml.Serialization.XmlSerializer.Serialize(System.Xml.XmlWriter,
 mov       rcx,[rbp+0FFE8]
 mov       rcx,[rcx+20]
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C47010]
+call      qword ptr [7FF88A9E7010]
 mov       rsi,rax
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C3B0DC
+je        short 00007FF88A9E1F0C
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF607F0810
+mov       r11,7FF88A5A0758
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C40810]
+call      qword ptr [7FF88A9F0758]
 nop
 mov       rcx,[rbp+0FFE8]
 mov       byte ptr [rcx+28],0
@@ -1889,11 +1010,11 @@ mov       rbp,[rcx+30]
 mov       [rsp+30],rbp
 lea       rbp,[rbp+60]
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C3B129
+je        short 00007FF88A9E1F59
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF607F0810
+mov       r11,7FF88A5A0758
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C40810]
+call      qword ptr [7FF88A9F0758]
 nop
 add       rsp,40
 pop       rsi
@@ -1908,7 +1029,662 @@ mov       rbp,[rcx+30]
 mov       [rsp+30],rbp
 lea       rbp,[rbp+60]
 cmp       qword ptr [rbp+0FFE8],0
-je        short 00007FFF60C3B15E
+je        short 00007FF88A9E1F8E
+mov       rcx,[rbp+0FFE8]
+mov       byte ptr [rcx+28],0
+mov       rcx,[rbp+0FFE8]
+call      System.GC.SuppressFinalize(System.Object)
+nop
+add       rsp,40
+pop       rsi
+pop       rdi
+pop       rbp
+ret
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.Serialize()
+push      rsi
+sub       rsp,20
+mov       rsi,rcx
+mov       rcx,[rsi+58]
+call      dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
+mov       rcx,[rsi+8]
+mov       edx,[rcx]
+add       rcx,8
+mov       rdx,rax
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,20
+pop       rsi
+ret
+
+dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
+push      rbp
+push      rdi
+push      rsi
+sub       rsp,50
+lea       rbp,[rsp+60]
+xor       eax,eax
+mov       [rbp+0FFE8],rax
+mov       [rbp+0FFD0],rsp
+mov       rsi,rcx
+test      rsi,rsi
+setne     dl
+movzx     edx,dl
+mov       r9,1E8126F3060
+mov       r9,[r9]
+mov       r8,1E8326F1688
+mov       r8,[r8]
+mov       rcx,offset MD_dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(Boolean, System.String, System.String)
+call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam[[System.__Canon, System.Private.CoreLib]](Boolean, System.String, System.String)
+mov       rcx,offset MT_System.IO.StringWriter
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,rdi
+call      System.IO.StringWriter..ctor()
+mov       [rbp+0FFE8],rdi
+mov       rcx,offset MT_System.Xml.XmlWriterSettings
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,rdi
+call      System.Xml.XmlWriterSettings..ctor()
+mov       rcx,rdi
+mov       rdx,[rbp+0FFE8]
+cmp       [rcx],ecx
+call      System.Xml.XmlWriterSettings.CreateWriter(System.IO.TextWriter)
+mov       [rbp+0FFE0],rax
+mov       rcx,offset MT_System.Xml.Serialization.XmlSerializer
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,rsi
+call      00007FF8EA182020
+mov       rdx,rax
+mov       rcx,rdi
+xor       r8d,r8d
+call      System.Xml.Serialization.XmlSerializer..ctor(System.Type, System.String)
+xor       ecx,ecx
+mov       [rsp+20],rcx
+mov       [rsp+28],rcx
+mov       rcx,rdi
+mov       rdx,[rbp+0FFE0]
+mov       r8,rsi
+xor       r9d,r9d
+call      System.Xml.Serialization.XmlSerializer.Serialize(System.Xml.XmlWriter, System.Object, System.Xml.Serialization.XmlSerializerNamespaces, System.String, System.String)
+mov       rcx,[rbp+0FFE8]
+mov       rcx,[rcx+20]
+cmp       [rcx],ecx
+call      qword ptr [7FF88A9F7010]
+mov       rsi,rax
+cmp       qword ptr [rbp+0FFE0],0
+je        short 00007FF88A9F0DEC
+mov       rcx,[rbp+0FFE0]
+mov       r11,7FF88A5B0758
+cmp       [rcx],ecx
+call      qword ptr [7FF88AA00758]
+nop
+mov       rcx,[rbp+0FFE8]
+mov       byte ptr [rcx+28],0
+mov       rcx,[rbp+0FFE8]
+call      System.GC.SuppressFinalize(System.Object)
+mov       rax,rsi
+lea       rsp,[rbp+0FFF0]
+pop       rsi
+pop       rdi
+pop       rbp
+ret
+push      rbp
+push      rdi
+push      rsi
+sub       rsp,40
+mov       rbp,[rcx+30]
+mov       [rsp+30],rbp
+lea       rbp,[rbp+60]
+cmp       qword ptr [rbp+0FFE0],0
+je        short 00007FF88A9F0E39
+mov       rcx,[rbp+0FFE0]
+mov       r11,7FF88A5B0758
+cmp       [rcx],ecx
+call      qword ptr [7FF88AA00758]
+nop
+add       rsp,40
+pop       rsi
+pop       rdi
+pop       rbp
+ret
+push      rbp
+push      rdi
+push      rsi
+sub       rsp,40
+mov       rbp,[rcx+30]
+mov       [rsp+30],rbp
+lea       rbp,[rbp+60]
+cmp       qword ptr [rbp+0FFE8],0
+je        short 00007FF88A9F0E6E
+mov       rcx,[rbp+0FFE8]
+mov       byte ptr [rcx+28],0
+mov       rcx,[rbp+0FFE8]
+call      System.GC.SuppressFinalize(System.Object)
+nop
+add       rsp,40
+pop       rsi
+pop       rdi
+pop       rbp
+ret
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.Serialize()
+push      rsi
+sub       rsp,20
+mov       rsi,rcx
+mov       rcx,[rsi+58]
+call      dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
+mov       rcx,[rsi+8]
+mov       edx,[rcx]
+add       rcx,8
+mov       rdx,rax
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,20
+pop       rsi
+ret
+
+dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
+push      rbp
+push      rdi
+push      rsi
+sub       rsp,50
+lea       rbp,[rsp+60]
+xor       eax,eax
+mov       [rbp+0FFE8],rax
+mov       [rbp+0FFD0],rsp
+mov       rsi,rcx
+test      rsi,rsi
+setne     dl
+movzx     edx,dl
+mov       r9,1A6B99B3060
+mov       r9,[r9]
+mov       r8,1A6A99B1688
+mov       r8,[r8]
+mov       rcx,offset MD_dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(Boolean, System.String, System.String)
+call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam[[System.__Canon, System.Private.CoreLib]](Boolean, System.String, System.String)
+mov       rcx,offset MT_System.IO.StringWriter
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,rdi
+call      System.IO.StringWriter..ctor()
+mov       [rbp+0FFE8],rdi
+mov       rcx,offset MT_System.Xml.XmlWriterSettings
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,rdi
+call      System.Xml.XmlWriterSettings..ctor()
+mov       rcx,rdi
+mov       rdx,[rbp+0FFE8]
+cmp       [rcx],ecx
+call      System.Xml.XmlWriterSettings.CreateWriter(System.IO.TextWriter)
+mov       [rbp+0FFE0],rax
+mov       rcx,offset MT_System.Xml.Serialization.XmlSerializer
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,rsi
+call      00007FF8EA182020
+mov       rdx,rax
+mov       rcx,rdi
+xor       r8d,r8d
+call      System.Xml.Serialization.XmlSerializer..ctor(System.Type, System.String)
+xor       ecx,ecx
+mov       [rsp+20],rcx
+mov       [rsp+28],rcx
+mov       rcx,rdi
+mov       rdx,[rbp+0FFE0]
+mov       r8,rsi
+xor       r9d,r9d
+call      System.Xml.Serialization.XmlSerializer.Serialize(System.Xml.XmlWriter, System.Object, System.Xml.Serialization.XmlSerializerNamespaces, System.String, System.String)
+mov       rcx,[rbp+0FFE8]
+mov       rcx,[rcx+20]
+cmp       [rcx],ecx
+call      qword ptr [7FF88AA17010]
+mov       rsi,rax
+cmp       qword ptr [rbp+0FFE0],0
+je        short 00007FF88AA0C3AC
+mov       rcx,[rbp+0FFE0]
+mov       r11,7FF88A5C0810
+cmp       [rcx],ecx
+call      qword ptr [7FF88AA10810]
+nop
+mov       rcx,[rbp+0FFE8]
+mov       byte ptr [rcx+28],0
+mov       rcx,[rbp+0FFE8]
+call      System.GC.SuppressFinalize(System.Object)
+mov       rax,rsi
+lea       rsp,[rbp+0FFF0]
+pop       rsi
+pop       rdi
+pop       rbp
+ret
+push      rbp
+push      rdi
+push      rsi
+sub       rsp,40
+mov       rbp,[rcx+30]
+mov       [rsp+30],rbp
+lea       rbp,[rbp+60]
+cmp       qword ptr [rbp+0FFE0],0
+je        short 00007FF88AA0C3F9
+mov       rcx,[rbp+0FFE0]
+mov       r11,7FF88A5C0810
+cmp       [rcx],ecx
+call      qword ptr [7FF88AA10810]
+nop
+add       rsp,40
+pop       rsi
+pop       rdi
+pop       rbp
+ret
+push      rbp
+push      rdi
+push      rsi
+sub       rsp,40
+mov       rbp,[rcx+30]
+mov       [rsp+30],rbp
+lea       rbp,[rbp+60]
+cmp       qword ptr [rbp+0FFE8],0
+je        short 00007FF88AA0C42E
+mov       rcx,[rbp+0FFE8]
+mov       byte ptr [rcx+28],0
+mov       rcx,[rbp+0FFE8]
+call      System.GC.SuppressFinalize(System.Object)
+nop
+add       rsp,40
+pop       rsi
+pop       rdi
+pop       rbp
+ret
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.Serialize()
+push      rsi
+sub       rsp,20
+mov       rsi,rcx
+mov       rcx,[rsi+58]
+call      dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
+mov       rcx,[rsi+8]
+mov       edx,[rcx]
+add       rcx,8
+mov       rdx,rax
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,20
+pop       rsi
+ret
+
+dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
+push      rbp
+push      rdi
+push      rsi
+sub       rsp,50
+lea       rbp,[rsp+60]
+xor       eax,eax
+mov       [rbp+0FFE8],rax
+mov       [rbp+0FFD0],rsp
+mov       rsi,rcx
+test      rsi,rsi
+setne     dl
+movzx     edx,dl
+mov       r9,28564B03060
+mov       r9,[r9]
+mov       r8,28564B03AD8
+mov       r8,[r8]
+mov       rcx,offset MD_dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(Boolean, System.String, System.String)
+call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam[[System.__Canon, System.Private.CoreLib]](Boolean, System.String, System.String)
+mov       rcx,offset MT_System.IO.StringWriter
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,rdi
+call      System.IO.StringWriter..ctor()
+mov       [rbp+0FFE8],rdi
+mov       rcx,offset MT_System.Xml.XmlWriterSettings
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,rdi
+call      System.Xml.XmlWriterSettings..ctor()
+mov       rcx,rdi
+mov       rdx,[rbp+0FFE8]
+cmp       [rcx],ecx
+call      System.Xml.XmlWriterSettings.CreateWriter(System.IO.TextWriter)
+mov       [rbp+0FFE0],rax
+mov       rcx,offset MT_System.Xml.Serialization.XmlSerializer
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,rsi
+call      00007FF8EA182020
+mov       rdx,rax
+mov       rcx,rdi
+xor       r8d,r8d
+call      System.Xml.Serialization.XmlSerializer..ctor(System.Type, System.String)
+xor       ecx,ecx
+mov       [rsp+20],rcx
+mov       [rsp+28],rcx
+mov       rcx,rdi
+mov       rdx,[rbp+0FFE0]
+mov       r8,rsi
+xor       r9d,r9d
+call      System.Xml.Serialization.XmlSerializer.Serialize(System.Xml.XmlWriter, System.Object, System.Xml.Serialization.XmlSerializerNamespaces, System.String, System.String)
+mov       rcx,[rbp+0FFE8]
+mov       rcx,[rcx+20]
+cmp       [rcx],ecx
+call      qword ptr [7FF88AA07010]
+mov       rsi,rax
+cmp       qword ptr [rbp+0FFE0],0
+je        short 00007FF88AA00BBC
+mov       rcx,[rbp+0FFE0]
+mov       r11,7FF88A5C0758
+cmp       [rcx],ecx
+call      qword ptr [7FF88AA10758]
+nop
+mov       rcx,[rbp+0FFE8]
+mov       byte ptr [rcx+28],0
+mov       rcx,[rbp+0FFE8]
+call      System.GC.SuppressFinalize(System.Object)
+mov       rax,rsi
+lea       rsp,[rbp+0FFF0]
+pop       rsi
+pop       rdi
+pop       rbp
+ret
+push      rbp
+push      rdi
+push      rsi
+sub       rsp,40
+mov       rbp,[rcx+30]
+mov       [rsp+30],rbp
+lea       rbp,[rbp+60]
+cmp       qword ptr [rbp+0FFE0],0
+je        short 00007FF88AA00C09
+mov       rcx,[rbp+0FFE0]
+mov       r11,7FF88A5C0758
+cmp       [rcx],ecx
+call      qword ptr [7FF88AA10758]
+nop
+add       rsp,40
+pop       rsi
+pop       rdi
+pop       rbp
+ret
+push      rbp
+push      rdi
+push      rsi
+sub       rsp,40
+mov       rbp,[rcx+30]
+mov       [rsp+30],rbp
+lea       rbp,[rbp+60]
+cmp       qword ptr [rbp+0FFE8],0
+je        short 00007FF88AA00C3E
+mov       rcx,[rbp+0FFE8]
+mov       byte ptr [rcx+28],0
+mov       rcx,[rbp+0FFE8]
+call      System.GC.SuppressFinalize(System.Object)
+nop
+add       rsp,40
+pop       rsi
+pop       rdi
+pop       rbp
+ret
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.Serialize()
+push      rsi
+sub       rsp,20
+mov       rsi,rcx
+mov       rcx,[rsi+58]
+call      dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
+mov       rcx,[rsi+8]
+mov       edx,[rcx]
+add       rcx,8
+mov       rdx,rax
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,20
+pop       rsi
+ret
+
+dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
+push      rbp
+push      rdi
+push      rsi
+sub       rsp,50
+lea       rbp,[rsp+60]
+xor       eax,eax
+mov       [rbp+0FFE8],rax
+mov       [rbp+0FFD0],rsp
+mov       rsi,rcx
+test      rsi,rsi
+setne     dl
+movzx     edx,dl
+mov       r9,1DED13A3060
+mov       r9,[r9]
+mov       r8,1DEF13AD638
+mov       r8,[r8]
+mov       rcx,offset MD_dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(Boolean, System.String, System.String)
+call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam[[System.__Canon, System.Private.CoreLib]](Boolean, System.String, System.String)
+mov       rcx,offset MT_System.IO.StringWriter
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,rdi
+call      System.IO.StringWriter..ctor()
+mov       [rbp+0FFE8],rdi
+mov       rcx,offset MT_System.Xml.XmlWriterSettings
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,rdi
+call      System.Xml.XmlWriterSettings..ctor()
+mov       rcx,rdi
+mov       rdx,[rbp+0FFE8]
+cmp       [rcx],ecx
+call      System.Xml.XmlWriterSettings.CreateWriter(System.IO.TextWriter)
+mov       [rbp+0FFE0],rax
+mov       rcx,offset MT_System.Xml.Serialization.XmlSerializer
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,rsi
+call      00007FF8EA182020
+mov       rdx,rax
+mov       rcx,rdi
+xor       r8d,r8d
+call      System.Xml.Serialization.XmlSerializer..ctor(System.Type, System.String)
+xor       ecx,ecx
+mov       [rsp+20],rcx
+mov       [rsp+28],rcx
+mov       rcx,rdi
+mov       rdx,[rbp+0FFE0]
+mov       r8,rsi
+xor       r9d,r9d
+call      System.Xml.Serialization.XmlSerializer.Serialize(System.Xml.XmlWriter, System.Object, System.Xml.Serialization.XmlSerializerNamespaces, System.String, System.String)
+mov       rcx,[rbp+0FFE8]
+mov       rcx,[rcx+20]
+cmp       [rcx],ecx
+call      qword ptr [7FF88AA07010]
+mov       rsi,rax
+cmp       qword ptr [rbp+0FFE0],0
+je        short 00007FF88A9FA07C
+mov       rcx,[rbp+0FFE0]
+mov       r11,7FF88A5B07F8
+cmp       [rcx],ecx
+call      qword ptr [7FF88AA007F8]
+nop
+mov       rcx,[rbp+0FFE8]
+mov       byte ptr [rcx+28],0
+mov       rcx,[rbp+0FFE8]
+call      System.GC.SuppressFinalize(System.Object)
+mov       rax,rsi
+lea       rsp,[rbp+0FFF0]
+pop       rsi
+pop       rdi
+pop       rbp
+ret
+push      rbp
+push      rdi
+push      rsi
+sub       rsp,40
+mov       rbp,[rcx+30]
+mov       [rsp+30],rbp
+lea       rbp,[rbp+60]
+cmp       qword ptr [rbp+0FFE0],0
+je        short 00007FF88A9FA0C9
+mov       rcx,[rbp+0FFE0]
+mov       r11,7FF88A5B07F8
+cmp       [rcx],ecx
+call      qword ptr [7FF88AA007F8]
+nop
+add       rsp,40
+pop       rsi
+pop       rdi
+pop       rbp
+ret
+push      rbp
+push      rdi
+push      rsi
+sub       rsp,40
+mov       rbp,[rcx+30]
+mov       [rsp+30],rbp
+lea       rbp,[rbp+60]
+cmp       qword ptr [rbp+0FFE8],0
+je        short 00007FF88A9FA0FE
+mov       rcx,[rbp+0FFE8]
+mov       byte ptr [rcx+28],0
+mov       rcx,[rbp+0FFE8]
+call      System.GC.SuppressFinalize(System.Object)
+nop
+add       rsp,40
+pop       rsi
+pop       rdi
+pop       rbp
+ret
+
+</code></pre></td>
+<td style="vertical-align:top;"><pre><code>
+dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.Serialize()
+push      rsi
+sub       rsp,20
+mov       rsi,rcx
+mov       rcx,[rsi+58]
+call      dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
+mov       rcx,[rsi+8]
+mov       edx,[rcx]
+add       rcx,8
+mov       rdx,rax
+call      CORINFO_HELP_CHECKED_ASSIGN_REF
+nop
+add       rsp,20
+pop       rsi
+ret
+
+dotNetTips.Utility.Standard.Xml.XmlHelper.Serialize(System.Object)
+push      rbp
+push      rdi
+push      rsi
+sub       rsp,50
+lea       rbp,[rsp+60]
+xor       eax,eax
+mov       [rbp+0FFE8],rax
+mov       [rbp+0FFD0],rsp
+mov       rsi,rcx
+test      rsi,rsi
+setne     dl
+movzx     edx,dl
+mov       r9,12FA8771048
+mov       r9,[r9]
+mov       r8,12FB877F650
+mov       r8,[r8]
+mov       rcx,offset MD_dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(Boolean, System.String, System.String)
+call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam[[System.__Canon, System.Private.CoreLib]](Boolean, System.String, System.String)
+mov       rcx,offset MT_System.IO.StringWriter
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,rdi
+call      System.IO.StringWriter..ctor()
+mov       [rbp+0FFE8],rdi
+mov       rcx,offset MT_System.Xml.XmlWriterSettings
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,rdi
+call      System.Xml.XmlWriterSettings..ctor()
+mov       rcx,rdi
+mov       rdx,[rbp+0FFE8]
+cmp       [rcx],ecx
+call      System.Xml.XmlWriterSettings.CreateWriter(System.IO.TextWriter)
+mov       [rbp+0FFE0],rax
+mov       rcx,offset MT_System.Xml.Serialization.XmlSerializer
+call      CORINFO_HELP_NEWSFAST
+mov       rdi,rax
+mov       rcx,rsi
+call      00007FF8EA182020
+mov       rdx,rax
+mov       rcx,rdi
+xor       r8d,r8d
+call      System.Xml.Serialization.XmlSerializer..ctor(System.Type, System.String)
+xor       ecx,ecx
+mov       [rsp+20],rcx
+mov       [rsp+28],rcx
+mov       rcx,rdi
+mov       rdx,[rbp+0FFE0]
+mov       r8,rsi
+xor       r9d,r9d
+call      System.Xml.Serialization.XmlSerializer.Serialize(System.Xml.XmlWriter, System.Object, System.Xml.Serialization.XmlSerializerNamespaces, System.String, System.String)
+mov       rcx,[rbp+0FFE8]
+mov       rcx,[rcx+20]
+cmp       [rcx],ecx
+call      qword ptr [7FF88AA17010]
+mov       rsi,rax
+cmp       qword ptr [rbp+0FFE0],0
+je        short 00007FF88AA0761C
+mov       rcx,[rbp+0FFE0]
+mov       r11,7FF88A5C0788
+cmp       [rcx],ecx
+call      qword ptr [7FF88AA10788]
+nop
+mov       rcx,[rbp+0FFE8]
+mov       byte ptr [rcx+28],0
+mov       rcx,[rbp+0FFE8]
+call      System.GC.SuppressFinalize(System.Object)
+mov       rax,rsi
+lea       rsp,[rbp+0FFF0]
+pop       rsi
+pop       rdi
+pop       rbp
+ret
+push      rbp
+push      rdi
+push      rsi
+sub       rsp,40
+mov       rbp,[rcx+30]
+mov       [rsp+30],rbp
+lea       rbp,[rbp+60]
+cmp       qword ptr [rbp+0FFE0],0
+je        short 00007FF88AA07669
+mov       rcx,[rbp+0FFE0]
+mov       r11,7FF88A5C0788
+cmp       [rcx],ecx
+call      qword ptr [7FF88AA10788]
+nop
+add       rsp,40
+pop       rsi
+pop       rdi
+pop       rbp
+ret
+push      rbp
+push      rdi
+push      rsi
+sub       rsp,40
+mov       rbp,[rcx+30]
+mov       [rsp+30],rbp
+lea       rbp,[rbp+60]
+cmp       qword ptr [rbp+0FFE8],0
+je        short 00007FF88AA0769E
 mov       rcx,[rbp+0FFE8]
 mov       byte ptr [rcx+28],0
 mov       rcx,[rbp+0FFE8]
@@ -1928,23 +1704,19 @@ ret
 <thead>
 <tr><th colspan="7">XmlHelperPerfTestRunner.StringToXDocument</th></tr>
 <tr>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
-<th>.NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
+<th>.NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.StringToXDocument()
-            var result = XmlHelper.StringToXDocument(Resources.XmlPersonTestData);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -1963,14 +1735,12 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Benchmarks.Properties.Resources.get_XmlPersonTestData()
-                return ResourceManager.GetString("XmlPersonTestData", resourceCulture);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 sub       rsp,28
 call      dotNetTips.Utility.Benchmarks.Properties.Resources.get_ResourceManager()
 mov       rcx,rax
-mov       rdx,2A297543650
+mov       rdx,2AFB5E03E18
 mov       rdx,[rdx]
-mov       r8,2A29753B390
+mov       r8,2AFD5E08F40
 mov       r8,[r8]
 mov       rax,[rax]
 mov       rax,[rax+48]
@@ -1979,16 +1749,6 @@ add       rsp,28
 jmp       rax
 
 dotNetTips.Utility.Standard.Xml.XmlHelper.StringToXDocument(System.String, System.Xml.XmlResolver)
-            Encapsulation.TryValidateParam(input, nameof(input));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            var options = new XmlReaderSettings { DtdProcessing = DtdProcessing.Prohibit, XmlResolver = resolver };
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var reader = XmlReader.Create(new StringReader(input), options))
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                return XDocument.Load(reader);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
 push      rbp
 push      rdi
 push      rsi
@@ -1998,9 +1758,9 @@ lea       rbp,[rsp+50]
 mov       [rbp+0FFD0],rsp
 mov       rsi,rcx
 mov       rdi,rdx
-mov       r8,2A297533060
+mov       r8,2AFB5E03060
 mov       r8,[r8]
-mov       rdx,2A297541588
+mov       rdx,2AFD5E0F138
 mov       rdx,[rdx]
 mov       rcx,rsi
 call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -2023,7 +1783,7 @@ mov       rcx,rdi
 mov       rdx,rsi
 call      System.IO.StringReader..ctor(System.String)
 mov       rcx,rbx
-mov       rdx,2A297533060
+mov       rdx,2AFB5E03060
 mov       r8,[rdx]
 mov       rdx,rdi
 xor       r9d,r9d
@@ -2035,11 +1795,11 @@ xor       edx,edx
 call      System.Xml.Linq.XDocument.Load(System.Xml.XmlReader, System.Xml.Linq.LoadOptions)
 mov       rsi,rax
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C4F013
+je        short 00007FF88A9CF473
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60810740
+mov       r11,7FF88A590740
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C50740]
+call      qword ptr [7FF88A9D0740]
 mov       rax,rsi
 lea       rsp,[rbp+0FFE8]
 pop       rbx
@@ -2056,11 +1816,11 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C4F051
+je        short 00007FF88A9CF4B1
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60810740
+mov       r11,7FF88A590740
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C50740]
+call      qword ptr [7FF88A9D0740]
 nop
 add       rsp,28
 pop       rbx
@@ -2072,10 +1832,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.StringToXDocument()
-            var result = XmlHelper.StringToXDocument(Resources.XmlPersonTestData);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -2094,14 +1850,12 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Benchmarks.Properties.Resources.get_XmlPersonTestData()
-                return ResourceManager.GetString("XmlPersonTestData", resourceCulture);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 sub       rsp,28
 call      dotNetTips.Utility.Benchmarks.Properties.Resources.get_ResourceManager()
 mov       rcx,rax
-mov       rdx,1A83D152A00
+mov       rdx,1DD72C23650
 mov       rdx,[rdx]
-mov       r8,1A85D15B390
+mov       r8,1DD72C1B390
 mov       r8,[r8]
 mov       rax,[rax]
 mov       rax,[rax+48]
@@ -2110,16 +1864,6 @@ add       rsp,28
 jmp       rax
 
 dotNetTips.Utility.Standard.Xml.XmlHelper.StringToXDocument(System.String, System.Xml.XmlResolver)
-            Encapsulation.TryValidateParam(input, nameof(input));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            var options = new XmlReaderSettings { DtdProcessing = DtdProcessing.Prohibit, XmlResolver = resolver };
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var reader = XmlReader.Create(new StringReader(input), options))
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                return XDocument.Load(reader);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
 push      rbp
 push      rdi
 push      rsi
@@ -2129,9 +1873,9 @@ lea       rbp,[rsp+50]
 mov       [rbp+0FFD0],rsp
 mov       rsi,rcx
 mov       rdi,rdx
-mov       r8,1A85D153060
+mov       r8,1DD72C13060
 mov       r8,[r8]
-mov       rdx,1A84D151170
+mov       rdx,1DD72C21588
 mov       rdx,[rdx]
 mov       rcx,rsi
 call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -2154,7 +1898,7 @@ mov       rcx,rdi
 mov       rdx,rsi
 call      System.IO.StringReader..ctor(System.String)
 mov       rcx,rbx
-mov       rdx,1A85D153060
+mov       rdx,1DD72C13060
 mov       r8,[rdx]
 mov       rdx,rdi
 xor       r9d,r9d
@@ -2166,11 +1910,11 @@ xor       edx,edx
 call      System.Xml.Linq.XDocument.Load(System.Xml.XmlReader, System.Xml.Linq.LoadOptions)
 mov       rsi,rax
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C5FAF3
+je        short 00007FF88A9F0693
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60820740
+mov       r11,7FF88A5B0758
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C60740]
+call      qword ptr [7FF88A9F0758]
 mov       rax,rsi
 lea       rsp,[rbp+0FFE8]
 pop       rbx
@@ -2187,11 +1931,11 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C5FB31
+je        short 00007FF88A9F06D1
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60820740
+mov       r11,7FF88A5B0758
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C60740]
+call      qword ptr [7FF88A9F0758]
 nop
 add       rsp,28
 pop       rbx
@@ -2203,10 +1947,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.StringToXDocument()
-            var result = XmlHelper.StringToXDocument(Resources.XmlPersonTestData);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -2225,14 +1965,12 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Benchmarks.Properties.Resources.get_XmlPersonTestData()
-                return ResourceManager.GetString("XmlPersonTestData", resourceCulture);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 sub       rsp,28
 call      dotNetTips.Utility.Benchmarks.Properties.Resources.get_ResourceManager()
 mov       rcx,rax
-mov       rdx,28FF8C7D978
+mov       rdx,1E554622A00
 mov       rdx,[rdx]
-mov       r8,28FF8C76F28
+mov       r8,1E57462B390
 mov       r8,[r8]
 mov       rax,[rax]
 mov       rax,[rax+48]
@@ -2241,16 +1979,6 @@ add       rsp,28
 jmp       rax
 
 dotNetTips.Utility.Standard.Xml.XmlHelper.StringToXDocument(System.String, System.Xml.XmlResolver)
-            Encapsulation.TryValidateParam(input, nameof(input));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            var options = new XmlReaderSettings { DtdProcessing = DtdProcessing.Prohibit, XmlResolver = resolver };
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var reader = XmlReader.Create(new StringReader(input), options))
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                return XDocument.Load(reader);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
 push      rbp
 push      rdi
 push      rsi
@@ -2260,9 +1988,9 @@ lea       rbp,[rsp+50]
 mov       [rbp+0FFD0],rsp
 mov       rsi,rcx
 mov       rdi,rdx
-mov       r8,28FE8C73060
+mov       r8,1E574623060
 mov       r8,[r8]
-mov       rdx,28FD8C73188
+mov       rdx,1E574631588
 mov       rdx,[rdx]
 mov       rcx,rsi
 call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -2285,7 +2013,7 @@ mov       rcx,rdi
 mov       rdx,rsi
 call      System.IO.StringReader..ctor(System.String)
 mov       rcx,rbx
-mov       rdx,28FE8C73060
+mov       rdx,1E574623060
 mov       r8,[rdx]
 mov       rdx,rdi
 xor       r9d,r9d
@@ -2297,11 +2025,11 @@ xor       edx,edx
 call      System.Xml.Linq.XDocument.Load(System.Xml.XmlReader, System.Xml.Linq.LoadOptions)
 mov       rsi,rax
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C50873
+je        short 00007FF88A9CF053
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60810758
+mov       r11,7FF88A590740
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C60758]
+call      qword ptr [7FF88A9D0740]
 mov       rax,rsi
 lea       rsp,[rbp+0FFE8]
 pop       rbx
@@ -2318,11 +2046,11 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C508B1
+je        short 00007FF88A9CF091
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60810758
+mov       r11,7FF88A590740
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C60758]
+call      qword ptr [7FF88A9D0740]
 nop
 add       rsp,28
 pop       rbx
@@ -2334,10 +2062,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.StringToXDocument()
-            var result = XmlHelper.StringToXDocument(Resources.XmlPersonTestData);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -2356,14 +2080,12 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Benchmarks.Properties.Resources.get_XmlPersonTestData()
-                return ResourceManager.GetString("XmlPersonTestData", resourceCulture);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 sub       rsp,28
 call      dotNetTips.Utility.Benchmarks.Properties.Resources.get_ResourceManager()
 mov       rcx,rax
-mov       rdx,17C1F6C4E50
+mov       rdx,222580819C8
 mov       rdx,[rdx]
-mov       r8,17C3F6C6F28
+mov       r8,22268086F28
 mov       r8,[r8]
 mov       rax,[rax]
 mov       rax,[rax+48]
@@ -2372,16 +2094,6 @@ add       rsp,28
 jmp       rax
 
 dotNetTips.Utility.Standard.Xml.XmlHelper.StringToXDocument(System.String, System.Xml.XmlResolver)
-            Encapsulation.TryValidateParam(input, nameof(input));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            var options = new XmlReaderSettings { DtdProcessing = DtdProcessing.Prohibit, XmlResolver = resolver };
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var reader = XmlReader.Create(new StringReader(input), options))
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                return XDocument.Load(reader);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
 push      rbp
 push      rdi
 push      rsi
@@ -2391,9 +2103,9 @@ lea       rbp,[rsp+50]
 mov       [rbp+0FFD0],rsp
 mov       rsi,rcx
 mov       rdi,rdx
-mov       r8,17C1F6C3060
+mov       r8,22248083060
 mov       r8,[r8]
-mov       rdx,17C3F6CD120
+mov       rdx,2226808D120
 mov       rdx,[rdx]
 mov       rcx,rsi
 call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -2416,7 +2128,7 @@ mov       rcx,rdi
 mov       rdx,rsi
 call      System.IO.StringReader..ctor(System.String)
 mov       rcx,rbx
-mov       rdx,17C1F6C3060
+mov       rdx,22248083060
 mov       r8,[rdx]
 mov       rdx,rdi
 xor       r9d,r9d
@@ -2428,11 +2140,11 @@ xor       edx,edx
 call      System.Xml.Linq.XDocument.Load(System.Xml.XmlReader, System.Xml.Linq.LoadOptions)
 mov       rsi,rax
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C3F203
+je        short 00007FF88A9DFB93
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60800740
+mov       r11,7FF88A5A0740
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C40740]
+call      qword ptr [7FF88A9E0740]
 mov       rax,rsi
 lea       rsp,[rbp+0FFE8]
 pop       rbx
@@ -2449,11 +2161,11 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C3F241
+je        short 00007FF88A9DFBD1
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60800740
+mov       r11,7FF88A5A0740
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C40740]
+call      qword ptr [7FF88A9E0740]
 nop
 add       rsp,28
 pop       rbx
@@ -2465,10 +2177,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.StringToXDocument()
-            var result = XmlHelper.StringToXDocument(Resources.XmlPersonTestData);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -2487,14 +2195,12 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Benchmarks.Properties.Resources.get_XmlPersonTestData()
-                return ResourceManager.GetString("XmlPersonTestData", resourceCulture);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 sub       rsp,28
 call      dotNetTips.Utility.Benchmarks.Properties.Resources.get_ResourceManager()
 mov       rcx,rax
-mov       rdx,1ED88573650
+mov       rdx,21A1B21E1B0
 mov       rdx,[rdx]
-mov       r8,1ED8856B390
+mov       r8,21A1B216F28
 mov       r8,[r8]
 mov       rax,[rax]
 mov       rax,[rax+48]
@@ -2503,16 +2209,6 @@ add       rsp,28
 jmp       rax
 
 dotNetTips.Utility.Standard.Xml.XmlHelper.StringToXDocument(System.String, System.Xml.XmlResolver)
-            Encapsulation.TryValidateParam(input, nameof(input));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            var options = new XmlReaderSettings { DtdProcessing = DtdProcessing.Prohibit, XmlResolver = resolver };
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var reader = XmlReader.Create(new StringReader(input), options))
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                return XDocument.Load(reader);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
 push      rbp
 push      rdi
 push      rsi
@@ -2522,9 +2218,9 @@ lea       rbp,[rsp+50]
 mov       [rbp+0FFD0],rsp
 mov       rsi,rcx
 mov       rdi,rdx
-mov       r8,1ED88563060
+mov       r8,21A3B213060
 mov       r8,[r8]
-mov       rdx,1ED88571588
+mov       rdx,21A1B21D120
 mov       rdx,[rdx]
 mov       rcx,rsi
 call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -2547,7 +2243,7 @@ mov       rcx,rdi
 mov       rdx,rsi
 call      System.IO.StringReader..ctor(System.String)
 mov       rcx,rbx
-mov       rdx,1ED88563060
+mov       rdx,21A3B213060
 mov       r8,[rdx]
 mov       rdx,rdi
 xor       r9d,r9d
@@ -2559,11 +2255,11 @@ xor       edx,edx
 call      System.Xml.Linq.XDocument.Load(System.Xml.XmlReader, System.Xml.Linq.LoadOptions)
 mov       rsi,rax
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C5F163
+je        short 00007FF88A9D1D53
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60820740
+mov       r11,7FF88A590758
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C60740]
+call      qword ptr [7FF88A9E0758]
 mov       rax,rsi
 lea       rsp,[rbp+0FFE8]
 pop       rbx
@@ -2580,11 +2276,11 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C5F1A1
+je        short 00007FF88A9D1D91
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60820740
+mov       r11,7FF88A590758
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C60740]
+call      qword ptr [7FF88A9E0758]
 nop
 add       rsp,28
 pop       rbx
@@ -2596,10 +2292,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.StringToXDocument()
-            var result = XmlHelper.StringToXDocument(Resources.XmlPersonTestData);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -2618,14 +2310,12 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Benchmarks.Properties.Resources.get_XmlPersonTestData()
-                return ResourceManager.GetString("XmlPersonTestData", resourceCulture);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 sub       rsp,28
 call      dotNetTips.Utility.Benchmarks.Properties.Resources.get_ResourceManager()
 mov       rcx,rax
-mov       rdx,2DB736876A0
+mov       rdx,140B37B2A00
 mov       rdx,[rdx]
-mov       r8,2DB93686F28
+mov       r8,140C37B6F28
 mov       r8,[r8]
 mov       rax,[rax]
 mov       rax,[rax+48]
@@ -2634,16 +2324,6 @@ add       rsp,28
 jmp       rax
 
 dotNetTips.Utility.Standard.Xml.XmlHelper.StringToXDocument(System.String, System.Xml.XmlResolver)
-            Encapsulation.TryValidateParam(input, nameof(input));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            var options = new XmlReaderSettings { DtdProcessing = DtdProcessing.Prohibit, XmlResolver = resolver };
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var reader = XmlReader.Create(new StringReader(input), options))
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                return XDocument.Load(reader);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
 push      rbp
 push      rdi
 push      rsi
@@ -2653,9 +2333,9 @@ lea       rbp,[rsp+50]
 mov       [rbp+0FFD0],rsp
 mov       rsi,rcx
 mov       rdi,rdx
-mov       r8,2DB73683060
+mov       r8,140A37B3060
 mov       r8,[r8]
-mov       rdx,2DB736855D8
+mov       rdx,140C37BD120
 mov       rdx,[rdx]
 mov       rcx,rsi
 call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -2678,7 +2358,7 @@ mov       rcx,rdi
 mov       rdx,rsi
 call      System.IO.StringReader..ctor(System.String)
 mov       rcx,rbx
-mov       rdx,2DB73683060
+mov       rdx,140A37B3060
 mov       r8,[rdx]
 mov       rdx,rdi
 xor       r9d,r9d
@@ -2690,11 +2370,11 @@ xor       edx,edx
 call      System.Xml.Linq.XDocument.Load(System.Xml.XmlReader, System.Xml.Linq.LoadOptions)
 mov       rsi,rax
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C4F8D3
+je        short 00007FF88A9FF6D3
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60810740
+mov       r11,7FF88A5C0740
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C50740]
+call      qword ptr [7FF88AA00740]
 mov       rax,rsi
 lea       rsp,[rbp+0FFE8]
 pop       rbx
@@ -2711,11 +2391,11 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C4F911
+je        short 00007FF88A9FF711
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60810740
+mov       r11,7FF88A5C0740
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C50740]
+call      qword ptr [7FF88AA00740]
 nop
 add       rsp,28
 pop       rbx
@@ -2727,10 +2407,6 @@ ret
 </code></pre></td>
 <td style="vertical-align:top;"><pre><code>
 dotNetTips.Utility.Benchmarks.Xml.XmlHelperPerfTestRunner.StringToXDocument()
-            var result = XmlHelper.StringToXDocument(Resources.XmlPersonTestData);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            base.Consumer.Consume(result);
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 push      rsi
 sub       rsp,20
 mov       rsi,rcx
@@ -2749,14 +2425,12 @@ pop       rsi
 ret
 
 dotNetTips.Utility.Benchmarks.Properties.Resources.get_XmlPersonTestData()
-                return ResourceManager.GetString("XmlPersonTestData", resourceCulture);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 sub       rsp,28
 call      dotNetTips.Utility.Benchmarks.Properties.Resources.get_ResourceManager()
 mov       rcx,rax
-mov       rdx,2807A450270
+mov       rdx,21A6E59FA38
 mov       rdx,[rdx]
-mov       r8,2808A3DB390
+mov       r8,21A5E52B390
 mov       r8,[r8]
 mov       rax,[rax]
 mov       rax,[rax+48]
@@ -2765,16 +2439,6 @@ add       rsp,28
 jmp       rax
 
 dotNetTips.Utility.Standard.Xml.XmlHelper.StringToXDocument(System.String, System.Xml.XmlResolver)
-            Encapsulation.TryValidateParam(input, nameof(input));
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            var options = new XmlReaderSettings { DtdProcessing = DtdProcessing.Prohibit, XmlResolver = resolver };
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            using (var reader = XmlReader.Create(new StringReader(input), options))
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                return XDocument.Load(reader);
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        }
-        ^
 push      rbp
 push      rdi
 push      rsi
@@ -2784,9 +2448,9 @@ lea       rbp,[rsp+50]
 mov       [rbp+0FFD0],rsp
 mov       rsi,rcx
 mov       rdi,rdx
-mov       r8,2808A3D3060
+mov       r8,21A5E523060
 mov       r8,[r8]
-mov       rdx,2807A3D1170
+mov       rdx,21A5E531588
 mov       rdx,[rdx]
 mov       rcx,rsi
 call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -2809,7 +2473,7 @@ mov       rcx,rdi
 mov       rdx,rsi
 call      System.IO.StringReader..ctor(System.String)
 mov       rcx,rbx
-mov       rdx,2808A3D3060
+mov       rdx,21A5E523060
 mov       r8,[rdx]
 mov       rdx,rdi
 xor       r9d,r9d
@@ -2821,11 +2485,11 @@ xor       edx,edx
 call      System.Xml.Linq.XDocument.Load(System.Xml.XmlReader, System.Xml.Linq.LoadOptions)
 mov       rsi,rax
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C50833
+je        short 00007FF88A9EF543
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60810748
+mov       r11,7FF88A5B0740
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C60748]
+call      qword ptr [7FF88A9F0740]
 mov       rax,rsi
 lea       rsp,[rbp+0FFE8]
 pop       rbx
@@ -2842,11 +2506,11 @@ mov       rbp,[rcx+20]
 mov       [rsp+20],rbp
 lea       rbp,[rbp+50]
 cmp       qword ptr [rbp+0FFE0],0
-je        short 00007FFF60C50871
+je        short 00007FF88A9EF581
 mov       rcx,[rbp+0FFE0]
-mov       r11,7FFF60810748
+mov       r11,7FF88A5B0740
 cmp       [rcx],ecx
-call      qword ptr [7FFF60C60748]
+call      qword ptr [7FF88A9F0740]
 nop
 add       rsp,28
 pop       rbx

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Version>2021.2.5.0</Version>
+    <Version>2021.8.1.0</Version>
     <Authors>David McCarter</Authors>
     <Company>David McCarter - dotNetTips.com</Company>
     <Product>dotNetTips.Utility.Standard</Product>
@@ -24,16 +24,19 @@
       -- NOV 2020 (Quarterly Release): Code cleanup. Fixed bugs.
       -- NOV 19 2020: Minor update.
       -- FEB 2021 (QUARTERLY RELEASE): Code Cleanup.
-      - FEB 5, 2021: Minor fixes.-
+      -- FEB 5, 2021: Minor fixes.
+	  -- MAY 2021 (QUARTERLY RELEASE): Minor fixes. Code cleanup.
     </PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>2021.2.5.37381</AssemblyVersion>
-    <FileVersion>2021.2.5.37381</FileVersion>
+    <AssemblyVersion>2021.4.27.37385</AssemblyVersion>
+    <FileVersion>2021.4.27.37385</FileVersion>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageIcon>2020 - dotNetTips - Real World - Earth@0.1x.png</PackageIcon>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -59,13 +62,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="dotNetTips.Utility.Standard" Version="2021.2.5" />
-    <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2021.2.5" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.2">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.NETCore.Platforms" Version="5.0.0" />
+    <PackageReference Include="dotNetTips.Utility.Standard" Version="2021.5.1" />
+    <PackageReference Include="dotNetTips.Utility.Standard.Extensions" Version="2021.5.1" />
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="5.0.2" />
   </ItemGroup>
 
   <ItemGroup>

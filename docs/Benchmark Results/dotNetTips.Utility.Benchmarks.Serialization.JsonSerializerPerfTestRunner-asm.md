@@ -1,10 +1,6 @@
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Serialization.JsonSerializerPerfTestRunner.DeserializeTest()
-;             var result = JsonSerializer.Deserialize<List<PersonProper>>(this._json);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -24,18 +20,6 @@
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Serialization.JsonSerializer.Deserialize[[System.__Canon, System.Private.CoreLib]](System.String)
-;             Encapsulation.TryValidateParam(json, nameof(json));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var obj = TypeHelper.GetDefault<TResult>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
-;                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 var ser = new DataContractJsonSerializer(typeof(TResult));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 obj = ser.ReadObject(ms) as TResult;
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return obj;
-;             ^^^^^^^^^^^
        push      rbp
        push      r14
        push      rdi
@@ -47,9 +31,9 @@
        mov       [rbp+0FFD8],rcx
        mov       rdi,rcx
        mov       rsi,rdx
-       mov       r8,22780D03060
+       mov       r8,1C594873060
        mov       r8,[r8]
-       mov       rdx,22770D0DEC8
+       mov       rdx,1C594881AF8
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -57,10 +41,10 @@
        mov       rcx,offset MT_System.IO.MemoryStream
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
-       mov       rcx,22780D01820
+       mov       rcx,1C594871820
        mov       rcx,[rcx]
        mov       rdx,rsi
-       call      qword ptr [7FFF60C33A68]
+       call      qword ptr [7FF88A9E3A68]
        mov       rdx,rax
        mov       rcx,rbx
        mov       r8d,1
@@ -95,7 +79,7 @@
        mov       rcx,[rsi+28]
        mov       rdx,[rbp+0FFD0]
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C32E28]
+       call      qword ptr [7FF88A9E23D0]
        mov       rdx,rax
        mov       rsi,[rdi]
        mov       rcx,rsi
@@ -106,7 +90,7 @@
        mov       rsi,rax
        mov       rcx,[rbp+0FFD0]
        mov       edx,1
-       call      qword ptr [7FFF60C28508]
+       call      qword ptr [7FF88A9D7CF0]
        mov       rcx,[rbp+0FFD0]
        call      System.GC.SuppressFinalize(System.Object)
        mov       rax,rsi
@@ -130,7 +114,7 @@
        je        short M01_L00
        mov       rcx,[rbp+0FFD0]
        mov       edx,1
-       call      qword ptr [7FFF60C28508]
+       call      qword ptr [7FF88A9D7CF0]
        mov       rcx,[rbp+0FFD0]
        call      System.GC.SuppressFinalize(System.Object)
 M01_L00:
@@ -145,13 +129,9 @@ M01_L00:
 ; Total bytes of code 393
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Serialization.JsonSerializerPerfTestRunner.DeserializeTest()
-;             var result = JsonSerializer.Deserialize<List<PersonProper>>(this._json);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -171,18 +151,6 @@ M01_L00:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Serialization.JsonSerializer.Deserialize[[System.__Canon, System.Private.CoreLib]](System.String)
-;             Encapsulation.TryValidateParam(json, nameof(json));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var obj = TypeHelper.GetDefault<TResult>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
-;                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 var ser = new DataContractJsonSerializer(typeof(TResult));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 obj = ser.ReadObject(ms) as TResult;
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return obj;
-;             ^^^^^^^^^^^
        push      rbp
        push      r14
        push      rdi
@@ -194,9 +162,9 @@ M01_L00:
        mov       [rbp+0FFD8],rcx
        mov       rdi,rcx
        mov       rsi,rdx
-       mov       r8,2D6B9B33060
+       mov       r8,1E241FA3060
        mov       r8,[r8]
-       mov       rdx,2D699B316E0
+       mov       rdx,1E231FA16E0
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -204,10 +172,10 @@ M01_L00:
        mov       rcx,offset MT_System.IO.MemoryStream
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
-       mov       rcx,2D6B9B31820
+       mov       rcx,1E241FA1820
        mov       rcx,[rcx]
        mov       rdx,rsi
-       call      qword ptr [7FFF60C73A68]
+       call      qword ptr [7FF88AA03A68]
        mov       rdx,rax
        mov       rcx,rbx
        mov       r8d,1
@@ -242,7 +210,7 @@ M01_L00:
        mov       rcx,[rsi+28]
        mov       rdx,[rbp+0FFD0]
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C723D0]
+       call      qword ptr [7FF88AA023D0]
        mov       rdx,rax
        mov       rsi,[rdi]
        mov       rcx,rsi
@@ -253,7 +221,7 @@ M01_L00:
        mov       rsi,rax
        mov       rcx,[rbp+0FFD0]
        mov       edx,1
-       call      qword ptr [7FFF60C67CF0]
+       call      qword ptr [7FF88A9F7CF0]
        mov       rcx,[rbp+0FFD0]
        call      System.GC.SuppressFinalize(System.Object)
        mov       rax,rsi
@@ -277,7 +245,7 @@ M01_L00:
        je        short M01_L00
        mov       rcx,[rbp+0FFD0]
        mov       edx,1
-       call      qword ptr [7FFF60C67CF0]
+       call      qword ptr [7FF88A9F7CF0]
        mov       rcx,[rbp+0FFD0]
        call      System.GC.SuppressFinalize(System.Object)
 M01_L00:
@@ -292,13 +260,9 @@ M01_L00:
 ; Total bytes of code 393
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Serialization.JsonSerializerPerfTestRunner.DeserializeTest()
-;             var result = JsonSerializer.Deserialize<List<PersonProper>>(this._json);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -318,18 +282,6 @@ M01_L00:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Serialization.JsonSerializer.Deserialize[[System.__Canon, System.Private.CoreLib]](System.String)
-;             Encapsulation.TryValidateParam(json, nameof(json));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var obj = TypeHelper.GetDefault<TResult>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
-;                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 var ser = new DataContractJsonSerializer(typeof(TResult));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 obj = ser.ReadObject(ms) as TResult;
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return obj;
-;             ^^^^^^^^^^^
        push      rbp
        push      r14
        push      rdi
@@ -341,9 +293,9 @@ M01_L00:
        mov       [rbp+0FFD8],rcx
        mov       rdi,rcx
        mov       rsi,rdx
-       mov       r8,2D6CC103060
+       mov       r8,21279873060
        mov       r8,[r8]
-       mov       rdx,2D6CC112330
+       mov       rdx,21279881AF8
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -351,10 +303,10 @@ M01_L00:
        mov       rcx,offset MT_System.IO.MemoryStream
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
-       mov       rcx,2D6CC101820
+       mov       rcx,21279871820
        mov       rcx,[rcx]
        mov       rdx,rsi
-       call      qword ptr [7FFF60C63A68]
+       call      qword ptr [7FF88A9D3A68]
        mov       rdx,rax
        mov       rcx,rbx
        mov       r8d,1
@@ -389,7 +341,7 @@ M01_L00:
        mov       rcx,[rsi+28]
        mov       rdx,[rbp+0FFD0]
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C623D0]
+       call      qword ptr [7FF88A9D23D0]
        mov       rdx,rax
        mov       rsi,[rdi]
        mov       rcx,rsi
@@ -400,7 +352,7 @@ M01_L00:
        mov       rsi,rax
        mov       rcx,[rbp+0FFD0]
        mov       edx,1
-       call      qword ptr [7FFF60C57CF0]
+       call      qword ptr [7FF88A9C7CF0]
        mov       rcx,[rbp+0FFD0]
        call      System.GC.SuppressFinalize(System.Object)
        mov       rax,rsi
@@ -424,7 +376,7 @@ M01_L00:
        je        short M01_L00
        mov       rcx,[rbp+0FFD0]
        mov       edx,1
-       call      qword ptr [7FFF60C57CF0]
+       call      qword ptr [7FF88A9C7CF0]
        mov       rcx,[rbp+0FFD0]
        call      System.GC.SuppressFinalize(System.Object)
 M01_L00:
@@ -439,13 +391,9 @@ M01_L00:
 ; Total bytes of code 393
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Serialization.JsonSerializerPerfTestRunner.DeserializeTest()
-;             var result = JsonSerializer.Deserialize<List<PersonProper>>(this._json);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -465,18 +413,6 @@ M01_L00:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Serialization.JsonSerializer.Deserialize[[System.__Canon, System.Private.CoreLib]](System.String)
-;             Encapsulation.TryValidateParam(json, nameof(json));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var obj = TypeHelper.GetDefault<TResult>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
-;                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 var ser = new DataContractJsonSerializer(typeof(TResult));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 obj = ser.ReadObject(ms) as TResult;
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return obj;
-;             ^^^^^^^^^^^
        push      rbp
        push      r14
        push      rdi
@@ -488,9 +424,9 @@ M01_L00:
        mov       [rbp+0FFD8],rcx
        mov       rdi,rcx
        mov       rsi,rdx
-       mov       r8,181135A3060
+       mov       r8,1DF31D43060
        mov       r8,[r8]
-       mov       rdx,181335A16E0
+       mov       rdx,1DF21D4D690
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -498,10 +434,10 @@ M01_L00:
        mov       rcx,offset MT_System.IO.MemoryStream
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
-       mov       rcx,181135A1820
+       mov       rcx,1DF31D41820
        mov       rcx,[rcx]
        mov       rdx,rsi
-       call      qword ptr [7FFF60C43A68]
+       call      qword ptr [7FF88A9C3A68]
        mov       rdx,rax
        mov       rcx,rbx
        mov       r8d,1
@@ -536,7 +472,7 @@ M01_L00:
        mov       rcx,[rsi+28]
        mov       rdx,[rbp+0FFD0]
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C42E28]
+       call      qword ptr [7FF88A9C2E28]
        mov       rdx,rax
        mov       rsi,[rdi]
        mov       rcx,rsi
@@ -547,7 +483,7 @@ M01_L00:
        mov       rsi,rax
        mov       rcx,[rbp+0FFD0]
        mov       edx,1
-       call      qword ptr [7FFF60C38508]
+       call      qword ptr [7FF88A9B8508]
        mov       rcx,[rbp+0FFD0]
        call      System.GC.SuppressFinalize(System.Object)
        mov       rax,rsi
@@ -571,7 +507,7 @@ M01_L00:
        je        short M01_L00
        mov       rcx,[rbp+0FFD0]
        mov       edx,1
-       call      qword ptr [7FFF60C38508]
+       call      qword ptr [7FF88A9B8508]
        mov       rcx,[rbp+0FFD0]
        call      System.GC.SuppressFinalize(System.Object)
 M01_L00:
@@ -586,13 +522,9 @@ M01_L00:
 ; Total bytes of code 393
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Serialization.JsonSerializerPerfTestRunner.DeserializeTest()
-;             var result = JsonSerializer.Deserialize<List<PersonProper>>(this._json);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -612,18 +544,6 @@ M01_L00:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Serialization.JsonSerializer.Deserialize[[System.__Canon, System.Private.CoreLib]](System.String)
-;             Encapsulation.TryValidateParam(json, nameof(json));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var obj = TypeHelper.GetDefault<TResult>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
-;                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 var ser = new DataContractJsonSerializer(typeof(TResult));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 obj = ser.ReadObject(ms) as TResult;
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return obj;
-;             ^^^^^^^^^^^
        push      rbp
        push      r14
        push      rdi
@@ -635,9 +555,9 @@ M01_L00:
        mov       [rbp+0FFD8],rcx
        mov       rdi,rcx
        mov       rsi,rdx
-       mov       r8,2A7B9D03060
+       mov       r8,1BFE0533060
        mov       r8,[r8]
-       mov       rdx,2A7B9D05B48
+       mov       rdx,1BFF05316E0
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -645,10 +565,10 @@ M01_L00:
        mov       rcx,offset MT_System.IO.MemoryStream
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
-       mov       rcx,2A7B9D01820
+       mov       rcx,1BFE0531820
        mov       rcx,[rcx]
        mov       rdx,rsi
-       call      qword ptr [7FFF60C43A68]
+       call      qword ptr [7FF88AA03A68]
        mov       rdx,rax
        mov       rcx,rbx
        mov       r8d,1
@@ -683,7 +603,7 @@ M01_L00:
        mov       rcx,[rsi+28]
        mov       rdx,[rbp+0FFD0]
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C423D0]
+       call      qword ptr [7FF88AA02E28]
        mov       rdx,rax
        mov       rsi,[rdi]
        mov       rcx,rsi
@@ -694,7 +614,7 @@ M01_L00:
        mov       rsi,rax
        mov       rcx,[rbp+0FFD0]
        mov       edx,1
-       call      qword ptr [7FFF60C37CF0]
+       call      qword ptr [7FF88A9F8508]
        mov       rcx,[rbp+0FFD0]
        call      System.GC.SuppressFinalize(System.Object)
        mov       rax,rsi
@@ -718,7 +638,7 @@ M01_L00:
        je        short M01_L00
        mov       rcx,[rbp+0FFD0]
        mov       edx,1
-       call      qword ptr [7FFF60C37CF0]
+       call      qword ptr [7FF88A9F8508]
        mov       rcx,[rbp+0FFD0]
        call      System.GC.SuppressFinalize(System.Object)
 M01_L00:
@@ -733,13 +653,9 @@ M01_L00:
 ; Total bytes of code 393
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Serialization.JsonSerializerPerfTestRunner.DeserializeTest()
-;             var result = JsonSerializer.Deserialize<List<PersonProper>>(this._json);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -759,18 +675,6 @@ M01_L00:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Serialization.JsonSerializer.Deserialize[[System.__Canon, System.Private.CoreLib]](System.String)
-;             Encapsulation.TryValidateParam(json, nameof(json));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var obj = TypeHelper.GetDefault<TResult>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
-;                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 var ser = new DataContractJsonSerializer(typeof(TResult));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 obj = ser.ReadObject(ms) as TResult;
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return obj;
-;             ^^^^^^^^^^^
        push      rbp
        push      r14
        push      rdi
@@ -782,9 +686,9 @@ M01_L00:
        mov       [rbp+0FFD8],rcx
        mov       rdi,rcx
        mov       rsi,rdx
-       mov       r8,2AECDCB3060
+       mov       r8,1E12E7B3060
        mov       r8,[r8]
-       mov       rdx,2AEFDCB36F8
+       mov       rdx,1E12E7C2330
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -792,10 +696,10 @@ M01_L00:
        mov       rcx,offset MT_System.IO.MemoryStream
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
-       mov       rcx,2AECDCB1820
+       mov       rcx,1E12E7B1820
        mov       rcx,[rcx]
        mov       rdx,rsi
-       call      qword ptr [7FFF60C43A68]
+       call      qword ptr [7FF88A9E3A68]
        mov       rdx,rax
        mov       rcx,rbx
        mov       r8d,1
@@ -830,7 +734,7 @@ M01_L00:
        mov       rcx,[rsi+28]
        mov       rdx,[rbp+0FFD0]
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C42E28]
+       call      qword ptr [7FF88A9E2E28]
        mov       rdx,rax
        mov       rsi,[rdi]
        mov       rcx,rsi
@@ -841,7 +745,7 @@ M01_L00:
        mov       rsi,rax
        mov       rcx,[rbp+0FFD0]
        mov       edx,1
-       call      qword ptr [7FFF60C38508]
+       call      qword ptr [7FF88A9D8508]
        mov       rcx,[rbp+0FFD0]
        call      System.GC.SuppressFinalize(System.Object)
        mov       rax,rsi
@@ -865,7 +769,7 @@ M01_L00:
        je        short M01_L00
        mov       rcx,[rbp+0FFD0]
        mov       edx,1
-       call      qword ptr [7FFF60C38508]
+       call      qword ptr [7FF88A9D8508]
        mov       rcx,[rbp+0FFD0]
        call      System.GC.SuppressFinalize(System.Object)
 M01_L00:
@@ -880,13 +784,9 @@ M01_L00:
 ; Total bytes of code 393
 ```
 
-## .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+## .NET Core 3.1.14 (CoreCLR 4.700.21.16201, CoreFX 4.700.21.16208), X64 RyuJIT
 ```assembly
 ; dotNetTips.Utility.Benchmarks.Serialization.JsonSerializerPerfTestRunner.DeserializeTest()
-;             var result = JsonSerializer.Deserialize<List<PersonProper>>(this._json);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             base.Consumer.Consume(result);
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        push      rsi
        sub       rsp,20
        mov       rsi,rcx
@@ -906,18 +806,6 @@ M01_L00:
 ```
 ```assembly
 ; dotNetTips.Utility.Standard.Serialization.JsonSerializer.Deserialize[[System.__Canon, System.Private.CoreLib]](System.String)
-;             Encapsulation.TryValidateParam(json, nameof(json));
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             var obj = TypeHelper.GetDefault<TResult>();
-;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
-;                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 var ser = new DataContractJsonSerializer(typeof(TResult));
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;                 obj = ser.ReadObject(ms) as TResult;
-;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-;             return obj;
-;             ^^^^^^^^^^^
        push      rbp
        push      r14
        push      rdi
@@ -929,9 +817,9 @@ M01_L00:
        mov       [rbp+0FFD8],rcx
        mov       rdi,rcx
        mov       rsi,rdx
-       mov       r8,23ADD7C3060
+       mov       r8,1DE9C073060
        mov       r8,[r8]
-       mov       rdx,23ABD83E718
+       mov       rdx,1DEBC0FA6C8
        mov       rdx,[rdx]
        mov       rcx,rsi
        call      dotNetTips.Utility.Standard.OOP.Encapsulation.TryValidateParam(System.String, System.String, System.String)
@@ -939,10 +827,10 @@ M01_L00:
        mov       rcx,offset MT_System.IO.MemoryStream
        call      CORINFO_HELP_NEWSFAST
        mov       rbx,rax
-       mov       rcx,23ADD7C1820
+       mov       rcx,1DE9C071820
        mov       rcx,[rcx]
        mov       rdx,rsi
-       call      qword ptr [7FFF60C43A68]
+       call      qword ptr [7FF88A9F3A68]
        mov       rdx,rax
        mov       rcx,rbx
        mov       r8d,1
@@ -977,7 +865,7 @@ M01_L00:
        mov       rcx,[rsi+28]
        mov       rdx,[rbp+0FFD0]
        cmp       [rcx],ecx
-       call      qword ptr [7FFF60C42E28]
+       call      qword ptr [7FF88A9F2E28]
        mov       rdx,rax
        mov       rsi,[rdi]
        mov       rcx,rsi
@@ -988,7 +876,7 @@ M01_L00:
        mov       rsi,rax
        mov       rcx,[rbp+0FFD0]
        mov       edx,1
-       call      qword ptr [7FFF60C48508]
+       call      qword ptr [7FF88A9E8508]
        mov       rcx,[rbp+0FFD0]
        call      System.GC.SuppressFinalize(System.Object)
        mov       rax,rsi
@@ -1012,7 +900,7 @@ M01_L00:
        je        short M01_L00
        mov       rcx,[rbp+0FFD0]
        mov       edx,1
-       call      qword ptr [7FFF60C48508]
+       call      qword ptr [7FF88A9E8508]
        mov       rcx,[rbp+0FFD0]
        call      System.GC.SuppressFinalize(System.Object)
 M01_L00:

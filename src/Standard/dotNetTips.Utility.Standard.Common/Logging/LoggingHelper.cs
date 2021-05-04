@@ -17,62 +17,62 @@ using System.Collections.Generic;
 
 namespace dotNetTips.Utility.Standard.Common.Logging
 {
-    /// <summary>
-    /// Logging Helper.
-    /// </summary>
-    public static class LoggingHelper
-    {
+	/// <summary>
+	/// Logging Helper.
+	/// </summary>
+	public static class LoggingHelper
+	{
+		/// <summary>
+		/// Retrieves all exception messages.
+		/// </summary>
+		/// <param name="ex">The ex.</param>
+		/// <returns>IEnumerable&lt;System.String&gt;.</returns>
+		public static string[] RetrieveAllExceptionMessages(Exception ex)
+		{
+			if (ex == null)
+			{
+				ExceptionThrower.ThrowArgumentNullException(Resources.ExMessageNullException, nameof(ex));
+			}
 
-        /// <summary>
-        /// Retrieves all exception messages.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        /// <returns>IEnumerable&lt;System.String&gt;.</returns>
-        public static string[] RetrieveAllExceptionMessages(Exception ex)
-        {
-            if (ex == null)
-            {
-                ExceptionThrower.ThrowArgumentNullException(Resources.ExMessageNullException, nameof(ex));
-            }
+#pragma warning disable CS8604 // Possible null reference argument.
+			var exceptions = RetrieveAllExceptions(ex);
+#pragma warning restore CS8604 // Possible null reference argument.
 
-            var exceptions = RetrieveAllExceptions(ex);
+			var messages = new string[exceptions.Length];
 
-            var messages = new string[exceptions.Length];
+			for (var i = 0; i < exceptions.Length; i++)
+			{
+				messages[i] = exceptions[i].Message;
+			}
 
-            for (var i = 0; i < exceptions.Length; i++)
-            {
-                messages[i] = exceptions[i].Message;
-            }
+			return messages;
+		}
 
+		/// <summary>
+		/// Retrieves all exceptions (including inner exceptions).
+		/// </summary>
+		/// <param name="ex">The ex.</param>
+		/// <returns>IEnumerable&lt;Exception&gt;.</returns>
+		public static Exception[] RetrieveAllExceptions(Exception ex)
+		{
+			if (ex == null)
+			{
+				ExceptionThrower.ThrowArgumentNullException(Resources.ExMessageNullException, nameof(ex));
+			}
 
-            return messages;
-        }
+			var collection = new List<Exception>();
 
-        /// <summary>
-        /// Retrieves all exceptions (including inner exceptions).
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        /// <returns>IEnumerable&lt;Exception&gt;.</returns>
-        public static Exception[] RetrieveAllExceptions(Exception ex)
-        {
-            if (ex == null)
-            {
-                ExceptionThrower.ThrowArgumentNullException(Resources.ExMessageNullException, nameof(ex));
-            }
+			if (ex != null)
+			{
+				collection = new List<Exception> { ex };
 
-            var collection = new List<Exception>();
+				if (ex.InnerException is null == false)
+				{
+					collection.AddRange(RetrieveAllExceptions(ex.InnerException));
+				}
+			}
 
-            if (ex != null)
-            {
-                collection = new List<Exception> { ex };
-
-                if (ex.InnerException is null == false)
-                {
-                    collection.AddRange(RetrieveAllExceptions(ex.InnerException));
-                }
-            }
-
-            return collection.ToArray();
-        }
-    }
+			return collection.ToArray();
+		}
+	}
 }
